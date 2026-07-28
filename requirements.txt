@@ -1,0 +1,37 @@
+pytest
+flake8
+black
+bandit
+requests
+# JG Mart Hermes — Python Dependencies
+#
+# All automation scripts (src/scripts/automation/) use only Python standard library.
+# This file is for development tooling and future backend dependencies.
+#
+# To install:  pip install -r requirements.txt
+# To freeze:   pip freeze > requirements.txt
+
+# ─── Dev & Linting ──────────────────────────────────────────
+black>=24.0.0              # Code formatter
+ruff>=0.5.0                # Fast linter (replaces flake8 + isort)
+mypy>=1.10.0               # Type checking (requires type hints)
+
+# ─── Testing ────────────────────────────────────────────────
+pytest>=8.0.0              # Test framework
+pytest-cov>=5.0.0          # Coverage reporting
+
+# ─── Security Scanning ──────────────────────────────────────
+bandit>=1.7.0              # Security linter for Python
+
+# ─── Future / Optional (not yet used) ───────────────────────
+# Uncomment these when the backend server is built:
+
+# FastAPI — Web API framework
+# uvicorn[standard] — ASGI server
+# httpx — HTTP client (for WhatsApp API calls)
+# supabase — Supabase Python client
+# python-dotenv — Environment variable loading
+# google-auth — Google Drive API auth (for drive_sync.py)
+# google-api-python-client — Google Drive / Sheets integration
+# Pillow — Image processing (for cache_images.py)
+# python-telegram-bot — Telegram bot integration (future)
