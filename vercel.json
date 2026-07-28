@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "jgmart",
+  "builds": [
+    { "src": "src/web/catalog/*.html", "use": "@vercel/static" },
+    { "src": "src/web/catalog/*.svg", "use": "@vercel/static" },
+    { "src": "src/web/catalog/images/*", "use": "@vercel/static" },
+    { "src": "src/web/catalog/*.json", "use": "@vercel/static" },
+    { "src": "src/web/catalog/*.txt", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/src/web/catalog/index.html" },
+    { "src": "/catalog", "dest": "/src/web/catalog/index.html" },
+    { "src": "/shop", "dest": "/src/web/catalog/index.html" },
+    { "src": "/about", "dest": "/src/web/catalog/landing.html" },
+    { "src": "/menu", "dest": "/src/web/catalog/menu.html" },
+    { "src": "/track", "dest": "/src/web/catalog/track.html" },
+    { "src": "/zone", "dest": "/src/web/catalog/zone.html" },
+    { "src": "/admin", "dest": "/src/web/catalog/admin.html" },
+    { "src": "/manifest", "dest": "/src/web/catalog/manifest.html" },
+    { "src": "/myorders", "dest": "/src/web/catalog/myorders.html" },
+    { "src": "/healthcheck", "dest": "/src/web/catalog/healthcheck.html" },
+    { "src": "/(.*)", "dest": "/src/web/catalog/404.html" }
+  ]
+}
