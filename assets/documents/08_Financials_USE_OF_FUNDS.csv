@@ -1,0 +1,25 @@
+USE OF FUNDS — BDT 250,000 Seed Investment
+
+CATEGORY BREAKDOWN
+Category,Amount (BDT),Percentage
+Rider Salary (6 months),72000,28.8%
+Manager / Ops Support (6 months),72000,28.8%
+Marketing & Referrals,50000,20.0%
+Working Capital (float, buffer),50000,20.0%
+Tools, Bags, Equipment,6000,2.4%
+TOTAL,250000,100.0%
+
+MONTHLY DRAWDOWN SCHEDULE
+Month,Beginning Balance,Monthly Fixed Costs,Monthly Variable Costs,Revenue,Net Cash Flow,Ending Balance
+Month 1,250000,43400,20100,41400,-22100,228300
+Month 2,228300,71200,60300,124200,-7300,221000
+Month 3,221000,102200,110550,227700,14950,236350
+Month 4,236350,130000,201000,414000,83000,319350
+Month 5,319350,160000,335000,690000,195000,514350
+Month 6,514350,190000,536000,1104000,378000,892350
+
+SCENARIO ANALYSIS
+Scenario,Monthly Burn,Runway (Months),Notes
+Lean (minimal marketing),45000,5.6,Reduce marketing to min, no backup rider
+Base Case (as planned),72000,3.5,Standard ops with 1 rider + 1 manager
+Scaling (2 riders + full marketing),102000,2.5,Expanding team and marketing spend

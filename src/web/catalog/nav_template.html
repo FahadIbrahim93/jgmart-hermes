@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Site Navigation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:960px;margin:0 auto;padding:16px}
+h1{font-size:1.2rem;color:#00442D;margin-bottom:12px}
+h1 span{color:#c9a227}
+.card{background:#fff;border-radius:10px;padding:14px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #eee}
+.card h2{font-size:.9rem;color:#00442D;margin-bottom:6px}
+.card p{font-size:.78rem;color:#5c5c5c;line-height:1.4}
+code{background:#f0f2f0;padding:2px 6px;border-radius:4px;font-size:.72rem;color:#c0392b}
+.nav-preview{background:#00442D;color:#fff;padding:10px 14px;border-radius:8px;margin-bottom:16px}
+.nav-preview .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.nav-preview a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.75rem;padding:3px 8px;border-radius:4px}
+.nav-preview a:hover{background:rgba(255,255,255,.1);color:#fff}
+</style>
+</head>
+<body>
+<h1>JG <span>Mart</span> · Navigation Template</h1>
+<p style="font-size:.78rem;color:#5c5c5c;margin-bottom:14px">Copy this nav bar HTML into every page to create a unified site navigation.</p>
+
+<div class="nav-preview">
+<strong style="font-size:.82rem">Preview of the nav bar:</strong>
+<div class="row">
+<a href="landing.html">🏠 About</a>
+<a href="index.html">📦 Catalog</a>
+<a href="menu.html">📋 Menu</a>
+<a href="zone.html">📍 Zone</a>
+<a href="track.html">📮 Track</a>
+<a href="admin.html" style="opacity:.5">⚙️</a>
+</div>
+</div>
+
+<div class="card">
+<h2>📋 Nav Bar Code (copy this into every page's topbar)</h2>
+<p>Replace the existing topbar in each page with this unified version.</p>
+<br>
+<code style="display:block;white-space:pre-wrap;font-size:.68rem;padding:10px;background:#1a1a1a;color:#e0e8e3;border-radius:6px">&lt;div class="topbar" style="background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;gap:4px"&gt;
+  &lt;div style="display:flex;align-items:center;gap:6px"&gt;
+    &lt;a href="landing.html" style="color:#fff;text-decoration:none;font-weight:800;font-size:.9rem"&gt;JG &lt;span style="color:#c9a227"&gt;Mart&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div style="display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none"&gt;
+    &lt;a href="index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap"&gt;📦 Shop&lt;/a&gt;
+    &lt;a href="menu.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap"&gt;📋 Menu&lt;/a&gt;
+    &lt;a href="zone.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap"&gt;📍 Zone&lt;/a&gt;
+    &lt;a href="track.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap"&gt;📮 Track&lt;/a&gt;
+    &lt;a href="https://wa.me/8801870489448" style="background:#25D366;color:#fff;padding:4px 10px;border-radius:999px;font-size:.62rem;font-weight:600;text-decoration:none;white-space:nowrap"&gt;💬 WA&lt;/a&gt;
+    &lt;a href="admin.html" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.55rem"&gt;⚙️&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+
+<h2 style="font-size:1rem;color:#00442D;margin:12px 0 8px">Pages to Update</h2>
+<div class="card"><h2>✅ landing.html</h2><p>Replace its topbar with the unified nav above.</p></div>
+<div class="card"><h2>✅ index.html</h2><p>Replace its topbar with the unified nav above. Keep the lang toggle and admin gear.</p></div>
+<div class="card"><h2>✅ menu.html</h2><p>Replace its header with the unified nav above. Keep the print/download buttons.</p></div>
+<div class="card"><h2>✅ zone.html</h2><p>Use the unified nav as its topbar.</p></div>
+<div class="card"><h2>✅ track.html</h2><p>Use the unified nav as its topbar.</p></div>
+
+<p style="text-align:center;font-size:.72rem;color:#5c5c5c;margin-top:16px">This template file is a reference. Delete it after use.</p>
+</body>
+</html>

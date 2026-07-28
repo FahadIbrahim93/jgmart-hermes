@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#00442D">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JG Mart - KPI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        jg: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+                            800: '#166534', 900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .sidebar-transition { transition: transform 0.3s ease-in-out; }
+        @media (max-width: 1023px) {
+            .sidebar-open { transform: translateX(0); }
+            .sidebar-closed { transform: translateX(-100%); }
+        }
+        .chart-container { position: relative; height: 280px; }
+        @media (min-width: 1024px) { .chart-container { height: 320px; } }
+        .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+        .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+        .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .dark .scrollbar-thin::-webkit-scrollbar-thumb { background: #475569; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center justify-between px-4 lg:px-8">
+        <div class="flex items-center gap-4">
+            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-jg-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">JG</div>
+                <div>
+                    <h1 class="text-lg font-bold text-jg-700 dark:text-jg-400 leading-tight">JG Mart</h1>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 hidden sm:block">Japan Garden City, Dhaka</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="currentDate" class="text-sm text-gray-600 dark:text-gray-300 hidden md:block"></span>
+            <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title="Toggle theme">
+                <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-40 sidebar-transition lg:transform-none sidebar-closed lg:sidebar-open pt-16 lg:pt-0">
+            <div class="p-4">
+                <nav class="space-y-1">
+                    <button onclick="showSection('dashboard')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-jg-700 dark:text-jg-400 bg-jg-50 dark:bg-jg-900/20" data-section="dashboard">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                        Dashboard
+                    </button>
+                    <button onclick="showSection('orders')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" data-section="orders">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        Orders
+                    </button>
+                    <button onclick="showSection('customers')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" data-section="customers">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        Customers
+                    </button>
+                    <button onclick="showSection('partners')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" data-section="partners">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        Partners
+                    </button>
+                    <button onclick="showSection('inventory')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" data-section="inventory">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        Inventory
+                    </button>
+                    <button onclick="showSection('settings')" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" data-section="settings">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Settings
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 lg:p-8 overflow-x-hidden">
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section fade-in">
+                <!-- Summary Cards -->
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Orders Today</p>
+                        <p id="kpiOrdersToday" class="text-2xl font-bold text-gray-900 dark:text-white mt-1">0</p>
+                        <p class="text-xs text-jg-600 dark:text-jg-400 mt-1 font-medium">+12% vs yesterday</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Revenue Today</p>
+                        <p id="kpiRevenueToday" class="text-2xl font-bold text-gray-900 dark:text-white mt-1">BDT 0</p>
+                        <p class="text-xs text-jg-600 dark:text-jg-400 mt-1 font-medium">+8% vs yesterday</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Active Customers</p>
+                        <p id="kpiActiveCustomers" class="text-2xl font-bold text-gray-900 dark:text-white mt-1">0</p>
+                        <p class="text-xs text-jg-600 dark:text-jg-400 mt-1 font-medium">+5 this week</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">On-Time Delivery</p>
+                        <p id="kpiOnTime" class="text-2xl font-bold text-gray-900 dark:text-white mt-1">0%</p>
+                        <p class="text-xs text-jg-600 dark:text-jg-400 mt-1 font-medium">Above target</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Net Profit Month</p>
+                        <p id="kpiNetProfit" class="text-2xl font-bold text-gray-900 dark:text-white mt-1">BDT 0</p>
+                        <p id="kpiNetProfitChange" class="text-xs text-red-600 dark:text-red-400 mt-1 font-medium">-8K Month 1</p>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4">Orders Trend (Last 30 Days)</h3>
+                        <div class="chart-container"><canvas id="ordersTrendChart"></canvas></div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4">Revenue vs Costs (Monthly)</h3>
+                        <div class="chart-container"><canvas id="revenueCostsChart"></canvas></div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4">Customer Acquisition (Weekly)</h3>
+                        <div class="chart-container"><canvas id="customerChart"></canvas></div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4">Delivery Performance</h3>
+                        <div class="chart-container"><canvas id="deliveryChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Tables -->
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                    <div class="xl:col-span-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                            <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Recent Orders</h3>
+                            <button onclick="showSection('orders')" class="text-xs text-jg-600 dark:text-jg-400 font-medium hover:underline">View All</button>
+                        </div>
+                        <div class="overflow-x-auto scrollbar-thin">
+                            <table class="w-full text-sm">
+                                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                    <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Order#</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Customer</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Building</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Items</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Total</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Status</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Rider</th></tr>
+                                </thead>
+                                <tbody id="recentOrdersTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div class="p-6 border-b border-gray-100 dark:border-gray-700">
+                            <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Inventory Alerts</h3>
+                        </div>
+                        <div class="overflow-x-auto scrollbar-thin">
+                            <table class="w-full text-sm">
+                                <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                    <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">SKU</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Name</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Status</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Daily Sales</th></tr>
+                                </thead>
+                                <tbody id="inventoryAlertsTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="section hidden fade-in">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Orders Management</h2>
+                        <button onclick="openOrderModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            New Order
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto scrollbar-thin">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Order#</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Customer</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Building</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Items</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Total</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Status</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Rider</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Actions</th></tr>
+                            </thead>
+                            <tbody id="ordersTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customers Section -->
+            <section id="customers" class="section hidden fade-in">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Customers</h2>
+                        <button onclick="openCustomerModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Add Customer
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto scrollbar-thin">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Name</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Phone</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Building</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Total Orders</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Total Spend</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Joined</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Actions</th></tr>
+                            </thead>
+                            <tbody id="customersTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partners Section -->
+            <section id="partners" class="section hidden fade-in">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Partner Performance</h2>
+                        <button onclick="openPartnerModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Add Partner
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto scrollbar-thin">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Partner</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Category</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Orders Today</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">On-Time %</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Score</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Actions</th></tr>
+                            </thead>
+                            <tbody id="partnersTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inventory Section -->
+            <section id="inventory" class="section hidden fade-in">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Inventory Management</h2>
+                        <button onclick="openInventoryModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Add SKU
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto scrollbar-thin">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 dark:bg-gray-700/50">
+                                <tr><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">SKU</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Name</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Category</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Stock</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Reorder Point</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Daily Sales</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Status</th><th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Actions</th></tr>
+                            </thead>
+                            <tbody id="inventoryTable" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="section hidden fade-in">
+                <div class="max-w-2xl">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-6">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Business Settings</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Business Name</label>
+                                <input type="text" id="settingBusinessName" value="JG Mart" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-jg-500 focus:border-jg-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Location</label>
+                                <input type="text" id="settingLocation" value="Japan Garden City, Mohammadpur, Dhaka" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-jg-500 focus:border-jg-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Average Order Value (BDT)</label>
+                                <input type="number" id="settingAOV" value="800" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-jg-500 focus:border-jg-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Commission Rate (%)</label>
+                                <input type="number" id="settingCommission" value="11" step="0.1" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-jg-500 focus:border-jg-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Delivery Fee (BDT)</label>
+                                <input type="number" id="settingDeliveryFee" value="30" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-jg-500 focus:border-jg-500">
+                            </div>
+                            <button onclick="saveSettings()" class="px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">Save Settings</button>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-6">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Data Management</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="exportData()" class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Export Data
+                            </button>
+                            <label class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                Import Data
+                                <input type="file" id="importFile" accept=".json" class="hidden" onchange="importData(event)">
+                            </label>
+                            <button onclick="loadSampleData()" class="inline-flex items-center gap-2 px-4 py-2 border border-jg-300 dark:border-jg-700 text-jg-700 dark:text-jg-400 rounded-lg text-sm font-medium hover:bg-jg-50 dark:hover:bg-jg-900/20 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                Load Sample Data
+                            </button>
+                            <button onclick="clearAllData()" class="inline-flex items-center gap-2 px-4 py-2 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-400 rounded-lg text-sm font-medium hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                Clear All Data
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">About</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">JG Mart KPI Dashboard v1.0</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Founder: Fahad Ibrahim</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Built for hyperlocal grocery delivery in Japan Garden City, Dhaka.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                <h3 id="orderModalTitle" class="text-lg font-bold text-gray-900 dark:text-white">New Order</h3>
+                <button onclick="closeOrderModal()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <form id="orderForm" onsubmit="saveOrder(event)" class="p-6 space-y-4">
+                <input type="hidden" id="orderId">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Customer Name</label>
+                    <input type="text" id="orderCustomer" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Building / Cluster</label>
+                    <select id="orderBuilding" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                        <option value="">Select building</option>
+                        <option value="Bldg 1">Bldg 1 (Cluster 1)</option><option value="Bldg 2">Bldg 2 (Cluster 1)</option><option value="Bldg 3">Bldg 3 (Cluster 1)</option><option value="Bldg 4">Bldg 4 (Cluster 1)</option><option value="Bldg 5">Bldg 5 (Cluster 1)</option><option value="Bldg 6">Bldg 6 (Cluster 1)</option>
+                        <option value="Bldg 7">Bldg 7 (Cluster 2)</option><option value="Bldg 8">Bldg 8 (Cluster 2)</option><option value="Bldg 9">Bldg 9 (Cluster 2)</option><option value="Bldg 10">Bldg 10 (Cluster 2)</option><option value="Bldg 11">Bldg 11 (Cluster 2)</option><option value="Bldg 12">Bldg 12 (Cluster 2)</option><option value="Bldg 13">Bldg 13 (Cluster 2)</option>
+                        <option value="Bldg 14">Bldg 14 (Cluster 3)</option><option value="Bldg 15">Bldg 15 (Cluster 3)</option><option value="Bldg 16">Bldg 16 (Cluster 3)</option><option value="Bldg 17">Bldg 17 (Cluster 3)</option><option value="Bldg 18">Bldg 18 (Cluster 3)</option><option value="Bldg 19">Bldg 19 (Cluster 3)</option><option value="Bldg 20">Bldg 20 (Cluster 3)</option>
+                        <option value="Bldg 21">Bldg 21 (Cluster 4)</option><option value="Bldg 22">Bldg 22 (Cluster 4)</option><option value="Bldg 23">Bldg 23 (Cluster 4)</option><option value="Bldg 24">Bldg 24 (Cluster 4)</option><option value="Bldg 25">Bldg 25 (Cluster 4)</option><option value="Bldg 26">Bldg 26 (Cluster 4)</option><option value="Bldg 27">Bldg 27 (Cluster 4)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Items Count</label>
+                        <input type="number" id="orderItems" required min="1" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Total (BDT)</label>
+                        <input type="number" id="orderTotal" required min="0" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
+                    <select id="orderStatus" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                        <option value="Pending">Pending</option><option value="Processing">Processing</option><option value="Out for Delivery">Out for Delivery</option><option value="Delivered">Delivered</option><option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Rider</label>
+                    <input type="text" id="orderRider" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <button type="submit" class="w-full px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">Save Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Customer Modal -->
+    <div id="customerModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                <h3 id="customerModalTitle" class="text-lg font-bold text-gray-900 dark:text-white">Add Customer</h3>
+                <button onclick="closeCustomerModal()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <form id="customerForm" onsubmit="saveCustomer(event)" class="p-6 space-y-4">
+                <input type="hidden" id="customerId">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                    <input type="text" id="customerName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
+                    <input type="text" id="customerPhone" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Building</label>
+                    <select id="customerBuilding" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                        <option value="">Select building</option>
+                        <option value="Bldg 1">Bldg 1 (Cluster 1)</option><option value="Bldg 2">Bldg 2 (Cluster 1)</option><option value="Bldg 3">Bldg 3 (Cluster 1)</option><option value="Bldg 4">Bldg 4 (Cluster 1)</option><option value="Bldg 5">Bldg 5 (Cluster 1)</option><option value="Bldg 6">Bldg 6 (Cluster 1)</option>
+                        <option value="Bldg 7">Bldg 7 (Cluster 2)</option><option value="Bldg 8">Bldg 8 (Cluster 2)</option><option value="Bldg 9">Bldg 9 (Cluster 2)</option><option value="Bldg 10">Bldg 10 (Cluster 2)</option><option value="Bldg 11">Bldg 11 (Cluster 2)</option><option value="Bldg 12">Bldg 12 (Cluster 2)</option><option value="Bldg 13">Bldg 13 (Cluster 2)</option>
+                        <option value="Bldg 14">Bldg 14 (Cluster 3)</option><option value="Bldg 15">Bldg 15 (Cluster 3)</option><option value="Bldg 16">Bldg 16 (Cluster 3)</option><option value="Bldg 17">Bldg 17 (Cluster 3)</option><option value="Bldg 18">Bldg 18 (Cluster 3)</option><option value="Bldg 19">Bldg 19 (Cluster 3)</option><option value="Bldg 20">Bldg 20 (Cluster 3)</option>
+                        <option value="Bldg 21">Bldg 21 (Cluster 4)</option><option value="Bldg 22">Bldg 22 (Cluster 4)</option><option value="Bldg 23">Bldg 23 (Cluster 4)</option><option value="Bldg 24">Bldg 24 (Cluster 4)</option><option value="Bldg 25">Bldg 25 (Cluster 4)</option><option value="Bldg 26">Bldg 26 (Cluster 4)</option><option value="Bldg 27">Bldg 27 (Cluster 4)</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">Save Customer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Partner Modal -->
+    <div id="partnerModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                <h3 id="partnerModalTitle" class="text-lg font-bold text-gray-900 dark:text-white">Add Partner</h3>
+                <button onclick="closePartnerModal()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <form id="partnerForm" onsubmit="savePartner(event)" class="p-6 space-y-4">
+                <input type="hidden" id="partnerId">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Partner Name</label>
+                    <input type="text" id="partnerName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
+                    <select id="partnerCategory" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                        <option value="Rider">Rider</option><option value="Supplier">Supplier</option><option value="Warehouse">Warehouse</option><option value="Delivery">Delivery</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Orders Today</label>
+                        <input type="number" id="partnerOrdersToday" value="0" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">On-Time %</label>
+                        <input type="number" id="partnerOnTime" value="95" min="0" max="100" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                </div>
+                <button type="submit" class="w-full px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">Save Partner</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Inventory Modal -->
+    <div id="inventoryModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                <h3 id="inventoryModalTitle" class="text-lg font-bold text-gray-900 dark:text-white">Add SKU</h3>
+                <button onclick="closeInventoryModal()" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <form id="inventoryForm" onsubmit="saveInventory(event)" class="p-6 space-y-4">
+                <input type="hidden" id="inventoryId">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">SKU</label>
+                    <input type="text" id="inventorySku" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                    <input type="text" id="inventoryName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
+                    <input type="text" id="inventoryCategory" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Stock</label>
+                        <input type="number" id="inventoryStock" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Reorder Point</label>
+                        <input type="number" id="inventoryReorder" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Daily Sales</label>
+                    <input type="number" id="inventoryDailySales" value="0" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                </div>
+                <button type="submit" class="w-full px-4 py-2 bg-jg-600 text-white rounded-lg text-sm font-medium hover:bg-jg-700 transition-colors">Save SKU</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-3 rounded-lg shadow-lg text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300 z-50"></div>
+
+    <script>
+        // ========== STATE ==========
+        let data = { orders: [], customers: [], partners: [], inventory: [], settings: { aov: 800, commission: 11, deliveryFee: 30, businessName: "JG Mart", location: "Japan Garden City, Mohammadpur, Dhaka" } };
+        let charts = {};
+        let currentSection = 'dashboard';
+
+        // ========== INIT ==========
+        function init() {
+            const saved = localStorage.getItem('jgmart_data');
+            if (saved) {
+                try { data = JSON.parse(saved); } catch(e) { console.error('Failed to parse saved data'); }
+            } else {
+                generateSampleData();
+                saveToStorage();
+            }
+            updateDate();
+            renderAll();
+            initCharts();
+            setupEventListeners();
+            applyTheme();
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('jgmart_data', JSON.stringify(data));
+        }
+
+        function generateSampleData() {
+            const names = ['A Rahman','S Ahmed','N Islam','K Hossain','R Begum','M Khan','T Akter','J Uddin','F Ahmed','P Parvin','M Ali','S Begum','R Hossain','A Karim','D Islam','N Ahmed','T Islam','K Ahmed','S Rahman','J Begum'];
+            const buildings = ['Bldg 1','Bldg 3','Bldg 5','Bldg 7','Bldg 9','Bldg 11','Bldg 14','Bldg 16','Bldg 18','Bldg 21','Bldg 23','Bldg 25','Bldg 27'];
+            const statuses = ['Delivered','Delivered','Delivered','Processing','Out for Delivery','Pending','Delivered','Cancelled'];
+            const riders = ['Rider A','Rider B','Rider C','Rider D','Rider E'];
+            const partnerNames = ['Rider A','Rider B','Rider C','Rider D','Rider E','Supplier X','Warehouse Y','Delivery Z'];
+
+            data.customers = names.map((name, i) => ({
+                id: 'cust_' + i, name, phone: '017' + String(10000000 + Math.floor(Math.random()*90000000)),
+                building: buildings[Math.floor(Math.random()*buildings.length)],
+                totalOrders: Math.floor(Math.random()*20)+1,
+                totalSpend: Math.floor(Math.random()*50000)+5000,
+                joined: randomDate(new Date(2024,0,1), new Date(2024,6,1)).toISOString()
+            }));
+
+            data.orders = [];
+            for (let i = 0; i < 50; i++) {
+                const cust = data.customers[Math.floor(Math.random()*data.customers.length)];
+                const date = randomDate(new Date(2024,5,1), new Date());
+                const total = Math.floor(Math.random()*3000)+500;
+                data.orders.push({
+                    id: 'ORD-' + String(10000+i), customerId: cust.id, customerName: cust.name,
+                    building: cust.building, items: Math.floor(Math.random()*10)+1, total,
+                    status: statuses[Math.floor(Math.random()*statuses.length)],
+                    rider: riders[Math.floor(Math.random()*riders.length)],
+                    date: date.toISOString()
+                });
+            }
+            data.orders.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+            data.partners = partnerNames.map((name, i) => ({
+                id: 'part_' + i, name, category: i < 5 ? 'Rider' : (i < 7 ? 'Supplier' : (i === 7 ? 'Warehouse' : 'Delivery')),
+                ordersToday: Math.floor(Math.random()*25), onTime: Math.floor(Math.random()*20)+80, score: Math.floor(Math.random()*30)+70
+            }));
+
+            data.inventory = [
+                { id: 'inv_0', sku: 'SKU-001', name: 'Rice (5kg)', category: 'Grains', stock: 120, reorderPoint: 30, dailySales: 8 },
+                { id: 'inv_1', sku: 'SKU-002', name: 'Rice (10kg)', category: 'Grains', stock: 45, reorderPoint: 20, dailySales: 4 },
+                { id: 'inv_2', sku: 'SKU-003', name: 'Onion (1kg)', category: 'Vegetables', stock: 8, reorderPoint: 15, dailySales: 12 },
+                { id: 'inv_3', sku: 'SKU-004', name: 'Potato (1kg)', category: 'Vegetables', stock: 150, reorderPoint: 25, dailySales: 6 },
+                { id: 'inv_4', sku: 'SKU-005', name: 'Eggs (12 pcs)', category: 'Dairy', stock: 3, reorderPoint: 10, dailySales: 15 },
+                { id: 'inv_5', sku: 'SKU-006', name: 'Milk (1L)', category: 'Dairy', stock: 40, reorderPoint: 15, dailySales: 10 },
+                { id: 'inv_6', sku: 'SKU-007', name: 'Bread', category: 'Bakery', stock: 25, reorderPoint: 10, dailySales: 5 },
+                { id: 'inv_7', sku: 'SKU-008', name: 'Chicken (1kg)', category: 'Meat', stock: 5, reorderPoint: 8, dailySales: 7 },
+                { id: 'inv_8', sku: 'SKU-009', name: 'Tomato (1kg)', category: 'Vegetables', stock: 60, reorderPoint: 20, dailySales: 9 },
+                { id: 'inv_9', sku: 'SKU-010', name: 'Oil (1L)', category: 'Groceries', stock: 35, reorderPoint: 10, dailySales: 3 },
+                { id: 'inv_10', sku: 'SKU-011', name: 'Salt', category: 'Groceries', stock: 80, reorderPoint: 15, dailySales: 2 }
+            ];
+        }
+
+        function randomDate(start, end) {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        }
+
+        function updateDate() {
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // ========== NAVIGATION ==========
+        function showSection(section) {
+            currentSection = section;
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(section).classList.remove('hidden');
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.remove('text-jg-700','dark:text-jg-400','bg-jg-50','dark:bg-jg-900/20');
+                btn.classList.add('text-gray-600','dark:text-gray-300','hover:bg-gray-50','dark:hover:bg-gray-700');
+                if (btn.dataset.section === section) {
+                    btn.classList.remove('text-gray-600','dark:text-gray-300','hover:bg-gray-50','dark:hover:bg-gray-700');
+                    btn.classList.add('text-jg-700','dark:text-jg-400','bg-jg-50','dark:bg-jg-900/20');
+                }
+            });
+            document.getElementById('sidebar').classList.add('sidebar-closed');
+            renderAll();
+        }
+
+        // ========== THEME ==========
+        function applyTheme() {
+            const theme = localStorage.getItem('jgmart_theme') || 'light';
+            document.documentElement.classList.remove('light','dark');
+            document.documentElement.classList.add(theme);
+            document.getElementById('sunIcon').classList.toggle('hidden', theme !== 'dark');
+            document.getElementById('moonIcon').classList.toggle('hidden', theme === 'dark');
+            updateChartsTheme();
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('jgmart_theme', next);
+            applyTheme();
+        }
+
+        // ========== CHARTS ==========
+        function getChartColors() {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                grid: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
+                text: isDark ? '#9ca3af' : '#6b7280',
+                green: '#22c55e',
+                red: '#ef4444',
+                blue: '#3b82f6',
+                purple: '#8b5cf6'
+            };
+        }
+
+        function initCharts() {
+            const c = getChartColors();
+            const commonOptions = { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: c.text, font: { family: 'Inter', size: 11 } } } }, scales: { x: { grid: { color: c.grid }, ticks: { color: c.text } }, y: { grid: { color: c.grid }, ticks: { color: c.text } } } };
+
+            // Orders Trend
+            const ordersCtx = document.getElementById('ordersTrendChart').getContext('2d');
+            charts.orders = new Chart(ordersCtx, {
+                type: 'line',
+                data: { labels: Array.from({length:30}, (_,i) => { const d = new Date(); d.setDate(d.getDate() - (29-i)); return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}); }),
+                    datasets: [{ label: 'Orders', data: Array.from({length:30}, () => Math.floor(Math.random()*15)+5), borderColor: c.green, backgroundColor: 'rgba(34,197,94,0.1)', fill: true, tension: 0.4, pointRadius: 2 }] },
+                options: commonOptions
+            });
+
+            // Revenue vs Costs
+            const revCtx = document.getElementById('revenueCostsChart').getContext('2d');
+            charts.revenue = new Chart(revCtx, {
+                type: 'bar',
+                data: { labels: ['Month 1','Month 2','Month 3'], datasets: [
+                    { label: 'Revenue', data: [240000,720000,1320000], backgroundColor: c.green, borderRadius: 6 },
+                    { label: 'Costs', data: [248000,698000,1267000], backgroundColor: c.red, borderRadius: 6 }
+                ] },
+                options: { ...commonOptions, plugins: { ...commonOptions.plugins, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': BDT ' + ctx.parsed.y.toLocaleString() } } } }
+            });
+
+            // Customer Acquisition
+            const custCtx = document.getElementById('customerChart').getContext('2d');
+            charts.customer = new Chart(custCtx, {
+                type: 'bar',
+                data: { labels: ['Week 1','Week 2','Week 3','Week 4'], datasets: [
+                    { label: 'New Customers', data: [25,35,40,30], backgroundColor: c.blue, borderRadius: 6 },
+                    { label: 'Active Customers', data: [100,120,140,150], backgroundColor: c.purple, borderRadius: 6 }
+                ] },
+                options: commonOptions
+            });
+
+            // Delivery Performance
+            const delCtx = document.getElementById('deliveryChart').getContext('2d');
+            charts.delivery = new Chart(delCtx, {
+                type: 'line',
+                data: { labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], datasets: [
+                    { label: 'On-Time %', data: [92,94,91,95,93,96,94], borderColor: c.green, backgroundColor: 'rgba(34,197,94,0.1)', fill: true, tension: 0.4, pointRadius: 3 }
+                ] },
+                options: { ...commonOptions, scales: { ...commonOptions.scales, y: { ...commonOptions.scales.y, min: 80, max: 100 } } }
+            });
+        }
+
+        function updateChartsTheme() {
+            const c = getChartColors();
+            Object.values(charts).forEach(chart => {
+                if (chart.options.scales?.x) { chart.options.scales.x.grid.color = c.grid; chart.options.scales.x.ticks.color = c.text; }
+                if (chart.options.scales?.y) { chart.options.scales.y.grid.color = c.grid; chart.options.scales.y.ticks.color = c.text; }
+                if (chart.options.plugins?.legend) { chart.options.plugins.legend.labels.color = c.text; }
+                chart.update('none');
+            });
+        }
+
+        // ========== RENDER ==========
+        function renderAll() {
+            renderKPIs();
+            renderRecentOrders();
+            renderOrdersTable();
+            renderCustomersTable();
+            renderPartnersTable();
+            renderInventoryTable();
+            renderInventoryAlerts();
+        }
+
+        function renderKPIs() {
+            const today = new Date().toDateString();
+            const todayOrders = data.orders.filter(o => new Date(o.date).toDateString() === today);
+            const todayRevenue = todayOrders.reduce((sum, o) => sum + o.total, 0);
+            document.getElementById('kpiOrdersToday').textContent = todayOrders.length;
+            document.getElementById('kpiRevenueToday').textContent = 'BDT ' + todayRevenue.toLocaleString();
+            document.getElementById('kpiActiveCustomers').textContent = data.customers.length;
+
+            const delivered = data.orders.filter(o => o.status === 'Delivered').length;
+            const total = data.orders.length || 1;
+            document.getElementById('kpiOnTime').textContent = Math.round((delivered/total)*100) + '%';
+
+            const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            const currentMonth = monthNames[new Date().getMonth()];
+            document.getElementById('kpiNetProfit').textContent = 'BDT -8K';
+        }
+
+        function renderRecentOrders() {
+            const tbody = document.getElementById('recentOrdersTable');
+            tbody.innerHTML = '';
+            data.orders.slice(0, 10).forEach(order => {
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-mono text-xs">' + order.id + '</td><td class="px-4 py-3">' + order.customerName + '</td><td class="px-4 py-3">' + order.building + '</td><td class="px-4 py-3 text-center">' + order.items + '</td><td class="px-4 py-3 font-medium">BDT ' + order.total.toLocaleString() + '</td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ' + getStatusClass(order.status) + '">' + order.status + '</span></td><td class="px-4 py-3">' + (order.rider || '-') + '</td></tr>';
+            });
+        }
+
+        function renderOrdersTable() {
+            const tbody = document.getElementById('ordersTable');
+            tbody.innerHTML = '';
+            data.orders.forEach(order => {
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-mono text-xs">' + order.id + '</td><td class="px-4 py-3">' + order.customerName + '</td><td class="px-4 py-3">' + order.building + '</td><td class="px-4 py-3 text-center">' + order.items + '</td><td class="px-4 py-3 font-medium">BDT ' + order.total.toLocaleString() + '</td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ' + getStatusClass(order.status) + '">' + order.status + '</span></td><td class="px-4 py-3">' + (order.rider || '-') + '</td><td class="px-4 py-3"><button onclick="editOrder(\'' + order.id + '\')" class="text-jg-600 dark:text-jg-400 hover:underline mr-2">Edit</button><button onclick="deleteOrder(\'' + order.id + '\')" class="text-red-600 hover:underline">Delete</button></td></tr>';
+            });
+        }
+
+        function renderCustomersTable() {
+            const tbody = document.getElementById('customersTable');
+            tbody.innerHTML = '';
+            data.customers.forEach(c => {
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-medium">' + c.name + '</td><td class="px-4 py-3">' + c.phone + '</td><td class="px-4 py-3">' + c.building + '</td><td class="px-4 py-3 text-center">' + c.totalOrders + '</td><td class="px-4 py-3">BDT ' + c.totalSpend.toLocaleString() + '</td><td class="px-4 py-3">' + new Date(c.joined).toLocaleDateString() + '</td><td class="px-4 py-3"><button onclick="editCustomer(\'' + c.id + '\')" class="text-jg-600 dark:text-jg-400 hover:underline mr-2">Edit</button><button onclick="deleteCustomer(\'' + c.id + '\')" class="text-red-600 hover:underline">Delete</button></td></tr>';
+            });
+        }
+
+        function renderPartnersTable() {
+            const tbody = document.getElementById('partnersTable');
+            tbody.innerHTML = '';
+            data.partners.forEach(p => {
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-medium">' + p.name + '</td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">' + p.category + '</span></td><td class="px-4 py-3 text-center">' + p.ordersToday + '</td><td class="px-4 py-3"><div class="flex items-center gap-2"><div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-jg-500 h-2 rounded-full" style="width:' + p.onTime + '%"></div></div><span class="text-xs text-gray-600 dark:text-gray-400">' + p.onTime + '%</span></div></td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ' + getScoreClass(p.score) + '">' + p.score + '</span></td><td class="px-4 py-3"><button onclick="editPartner(\'' + p.id + '\')" class="text-jg-600 dark:text-jg-400 hover:underline mr-2">Edit</button><button onclick="deletePartner(\'' + p.id + '\')" class="text-red-600 hover:underline">Delete</button></td></tr>';
+            });
+        }
+
+        function renderInventoryTable() {
+            const tbody = document.getElementById('inventoryTable');
+            tbody.innerHTML = '';
+            data.inventory.forEach(item => {
+                const daysLeft = Math.floor(item.stock / (item.dailySales || 1));
+                const status = item.stock <= item.reorderPoint ? (daysLeft < 3 ? 'Critical' : 'Low') : 'Good';
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-mono text-xs">' + item.sku + '</td><td class="px-4 py-3 font-medium">' + item.name + '</td><td class="px-4 py-3">' + item.category + '</td><td class="px-4 py-3 text-center">' + item.stock + '</td><td class="px-4 py-3 text-center">' + item.reorderPoint + '</td><td class="px-4 py-3 text-center">' + item.dailySales + '</td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ' + getInventoryStatusClass(status) + '">' + status + '</span></td><td class="px-4 py-3"><button onclick="editInventory(\'' + item.id + '\')" class="text-jg-600 dark:text-jg-400 hover:underline mr-2">Edit</button><button onclick="deleteInventory(\'' + item.id + '\')" class="text-red-600 hover:underline">Delete</button></td></tr>';
+            });
+        }
+
+        function renderInventoryAlerts() {
+            const tbody = document.getElementById('inventoryAlertsTable');
+            tbody.innerHTML = '';
+            const alerts = data.inventory.filter(item => item.stock <= item.reorderPoint).slice(0, 8);
+            if (alerts.length === 0) { tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-6 text-center text-gray-500 dark:text-gray-400 text-sm">No inventory alerts</td></tr>'; }
+            alerts.forEach(item => {
+                tbody.innerHTML += '<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50"><td class="px-4 py-3 font-mono text-xs">' + item.sku + '</td><td class="px-4 py-3 font-medium">' + item.name + '</td><td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ' + (item.stock <= item.reorderPoint ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' : 'bg-jg-100 dark:bg-jg-900/30 text-jg-700 dark:text-jg-400') + '">' + (item.stock <= item.reorderPoint ? 'Low Stock' : 'Good') + '</span></td><td class="px-4 py-3 text-center">' + item.dailySales + '</td></tr>';
+            });
+        }
+
+        function getStatusClass(status) {
+            const map = { 'Delivered': 'bg-jg-100 dark:bg-jg-900/30 text-jg-700 dark:text-jg-400', 'Processing': 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400', 'Out for Delivery': 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400', 'Pending': 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300', 'Cancelled': 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' };
+            return map[status] || 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
+        }
+
+        function getScoreClass(score) {
+            if (score >= 90) return 'bg-jg-100 dark:bg-jg-900/30 text-jg-700 dark:text-jg-400';
+            if (score >= 75) return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400';
+            return 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+        }
+
+        function getInventoryStatusClass(status) {
+            const map = { 'Good': 'bg-jg-100 dark:bg-jg-900/30 text-jg-700 dark:text-jg-400', 'Low': 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400', 'Critical': 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' };
+            return map[status] || 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
+        }
+
+        // ========== ORDER CRUD ==========
+        function openOrderModal() { document.getElementById('orderForm').reset(); document.getElementById('orderId').value = ''; document.getElementById('orderModalTitle').textContent = 'New Order'; document.getElementById('orderModal').classList.remove('hidden'); document.getElementById('orderModal').classList.add('flex'); }
+        function closeOrderModal() { document.getElementById('orderModal').classList.add('hidden'); document.getElementById('orderModal').classList.remove('flex'); }
+        function saveOrder(e) {
+            e.preventDefault();
+            const id = document.getElementById('orderId').value;
+            const orderData = { customerName: document.getElementById('orderCustomer').value, building: document.getElementById('orderBuilding').value, items: parseInt(document.getElementById('orderItems').value), total: parseFloat(document.getElementById('orderTotal').value), status: document.getElementById('orderStatus').value, rider: document.getElementById('orderRider').value, date: new Date().toISOString() };
+            if (id) { const idx = data.orders.findIndex(o => o.id === id); if (idx >= 0) { orderData.id = id; orderData.customerId = data.orders[idx].customerId; orderData.date = data.orders[idx].date; data.orders[idx] = orderData; } }
+            else { orderData.id = 'ORD-' + String(10000 + data.orders.length); orderData.customerId = 'cust_' + Math.floor(Math.random()*data.customers.length); data.orders.unshift(orderData); }
+            saveToStorage(); closeOrderModal(); renderAll(); showToast(id ? 'Order updated' : 'Order created');
+        }
+        function editOrder(id) { const o = data.orders.find(x => x.id === id); if (!o) return; document.getElementById('orderId').value = o.id; document.getElementById('orderCustomer').value = o.customerName; document.getElementById('orderBuilding').value = o.building; document.getElementById('orderItems').value = o.items; document.getElementById('orderTotal').value = o.total; document.getElementById('orderStatus').value = o.status; document.getElementById('orderRider').value = o.rider || ''; document.getElementById('orderModalTitle').textContent = 'Edit Order'; document.getElementById('orderModal').classList.remove('hidden'); document.getElementById('orderModal').classList.add('flex'); }
+        function deleteOrder(id) { if (!confirm('Delete this order?')) return; data.orders = data.orders.filter(o => o.id !== id); saveToStorage(); renderAll(); showToast('Order deleted'); }
+
+        // ========== CUSTOMER CRUD ==========
+        function openCustomerModal() { document.getElementById('customerForm').reset(); document.getElementById('customerId').value = ''; document.getElementById('customerModalTitle').textContent = 'Add Customer'; document.getElementById('customerModal').classList.remove('hidden'); document.getElementById('customerModal').classList.add('flex'); }
+        function closeCustomerModal() { document.getElementById('customerModal').classList.add('hidden'); document.getElementById('customerModal').classList.remove('flex'); }
+        function saveCustomer(e) {
+            e.preventDefault();
+            const id = document.getElementById('customerId').value;
+            const custData = { name: document.getElementById('customerName').value, phone: document.getElementById('customerPhone').value, building: document.getElementById('customerBuilding').value, totalOrders: 0, totalSpend: 0, joined: new Date().toISOString() };
+            if (id) { const idx = data.customers.findIndex(c => c.id === id); if (idx >= 0) { custData.id = id; custData.totalOrders = data.customers[idx].totalOrders; custData.totalSpend = data.customers[idx].totalSpend; custData.joined = data.customers[idx].joined; data.customers[idx] = custData; } }
+            else { custData.id = 'cust_' + Date.now(); data.customers.push(custData); }
+            saveToStorage(); closeCustomerModal(); renderAll(); showToast(id ? 'Customer updated' : 'Customer added');
+        }
+        function editCustomer(id) { const c = data.customers.find(x => x.id === id); if (!c) return; document.getElementById('customerId').value = c.id; document.getElementById('customerName').value = c.name; document.getElementById('customerPhone').value = c.phone; document.getElementById('customerBuilding').value = c.building; document.getElementById('customerModalTitle').textContent = 'Edit Customer'; document.getElementById('customerModal').classList.remove('hidden'); document.getElementById('customerModal').classList.add('flex'); }
+        function deleteCustomer(id) { if (!confirm('Delete this customer?')) return; data.customers = data.customers.filter(c => c.id !== id); saveToStorage(); renderAll(); showToast('Customer deleted'); }
+
+        // ========== PARTNER CRUD ==========
+        function openPartnerModal() { document.getElementById('partnerForm').reset(); document.getElementById('partnerId').value = ''; document.getElementById('partnerModalTitle').textContent = 'Add Partner'; document.getElementById('partnerModal').classList.remove('hidden'); document.getElementById('partnerModal').classList.add('flex'); }
+        function closePartnerModal() { document.getElementById('partnerModal').classList.add('hidden'); document.getElementById('partnerModal').classList.remove('flex'); }
+        function savePartner(e) {
+            e.preventDefault();
+            const id = document.getElementById('partnerId').value;
+            const partnerData = { name: document.getElementById('partnerName').value, category: document.getElementById('partnerCategory').value, ordersToday: parseInt(document.getElementById('partnerOrdersToday').value) || 0, onTime: parseInt(document.getElementById('partnerOnTime').value) || 95, score: Math.floor(Math.random()*30)+70 };
+            if (id) { const idx = data.partners.findIndex(p => p.id === id); if (idx >= 0) { partnerData.id = id; data.partners[idx] = partnerData; } }
+            else { partnerData.id = 'part_' + Date.now(); data.partners.push(partnerData); }
+            saveToStorage(); closePartnerModal(); renderAll(); showToast(id ? 'Partner updated' : 'Partner added');
+        }
+        function editPartner(id) { const p = data.partners.find(x => x.id === id); if (!p) return; document.getElementById('partnerId').value = p.id; document.getElementById('partnerName').value = p.name; document.getElementById('partnerCategory').value = p.category; document.getElementById('partnerOrdersToday').value = p.ordersToday; document.getElementById('partnerOnTime').value = p.onTime; document.getElementById('partnerModalTitle').textContent = 'Edit Partner'; document.getElementById('partnerModal').classList.remove('hidden'); document.getElementById('partnerModal').classList.add('flex'); }
+        function deletePartner(id) { if (!confirm('Delete this partner?')) return; data.partners = data.partners.filter(p => p.id !== id); saveToStorage(); renderAll(); showToast('Partner deleted'); }
+
+        // ========== INVENTORY CRUD ==========
+        function openInventoryModal() { document.getElementById('inventoryForm').reset(); document.getElementById('inventoryId').value = ''; document.getElementById('inventoryModalTitle').textContent = 'Add SKU'; document.getElementById('inventoryModal').classList.remove('hidden'); document.getElementById('inventoryModal').classList.add('flex'); }
+        function closeInventoryModal() { document.getElementById('inventoryModal').classList.add('hidden'); document.getElementById('inventoryModal').classList.remove('flex'); }
+        function saveInventory(e) {
+            e.preventDefault();
+            const id = document.getElementById('inventoryId').value;
+            const invData = { sku: document.getElementById('inventorySku').value, name: document.getElementById('inventoryName').value, category: document.getElementById('inventoryCategory').value, stock: parseInt(document.getElementById('inventoryStock').value), reorderPoint: parseInt(document.getElementById('inventoryReorder').value), dailySales: parseInt(document.getElementById('inventoryDailySales').value) || 0 };
+            if (id) { const idx = data.inventory.findIndex(item => item.id === id); if (idx >= 0) { invData.id = id; data.inventory[idx] = invData; } }
+            else { invData.id = 'inv_' + Date.now(); data.inventory.push(invData); }
+            saveToStorage(); closeInventoryModal(); renderAll(); showToast(id ? 'SKU updated' : 'SKU added');
+        }
+        function editInventory(id) { const item = data.inventory.find(x => x.id === id); if (!item) return; document.getElementById('inventoryId').value = item.id; document.getElementById('inventorySku').value = item.sku; document.getElementById('inventoryName').value = item.name; document.getElementById('inventoryCategory').value = item.category; document.getElementById('inventoryStock').value = item.stock; document.getElementById('inventoryReorder').value = item.reorderPoint; document.getElementById('inventoryDailySales').value = item.dailySales; document.getElementById('inventoryModalTitle').textContent = 'Edit SKU'; document.getElementById('inventoryModal').classList.remove('hidden'); document.getElementById('inventoryModal').classList.add('flex'); }
+        function deleteInventory(id) { if (!confirm('Delete this SKU?')) return; data.inventory = data.inventory.filter(item => item.id !== id); saveToStorage(); renderAll(); showToast('SKU deleted'); }
+
+        // ========== SETTINGS ==========
+        function saveSettings() {
+            data.settings = { aov: parseFloat(document.getElementById('settingAOV').value), commission: parseFloat(document.getElementById('settingCommission').value), deliveryFee: parseFloat(document.getElementById('settingDeliveryFee').value), businessName: document.getElementById('settingBusinessName').value, location: document.getElementById('settingLocation').value };
+            saveToStorage(); showToast('Settings saved');
+        }
+
+        // ========== EXPORT / IMPORT ==========
+        function exportData() {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'jgmart_backup_' + new Date().toISOString().slice(0,10) + '.json'; a.click(); URL.revokeObjectURL(url);
+            showToast('Data exported');
+        }
+        function importData(event) {
+            const file = event.target.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try { const imported = JSON.parse(e.target.result); data = imported; saveToStorage(); renderAll(); initCharts(); showToast('Data imported successfully'); }
+                catch(err) { showToast('Invalid JSON file'); }
+            };
+            reader.readAsText(file);
+        }
+        function loadSampleData() {
+            if (!confirm('This will overwrite all current data with sample data. Continue?')) return;
+            generateSampleData(); saveToStorage(); renderAll(); initCharts(); showToast('Sample data loaded');
+        }
+        function clearAllData() {
+            if (!confirm('Delete ALL data? This cannot be undone.')) return;
+            data = { orders: [], customers: [], partners: [], inventory: [], settings: data.settings }; saveToStorage(); renderAll(); initCharts(); showToast('All data cleared');
+        }
+
+        // ========== UTILS ==========
+        function showToast(msg) {
+            const toast = document.getElementById('toast'); toast.textContent = msg; toast.classList.remove('translate-y-20','opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20','opacity-0'), 3000);
+        }
+
+        function setupEventListeners() {
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('sidebar-closed');
+            });
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth < 1024 && !e.target.closest('#sidebar') && !e.target.closest('#mobileMenuBtn')) {
+                    document.getElementById('sidebar').classList.add('sidebar-closed');
+                }
+            });
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+================================================================================
+                    JG MART - FOOD SAFETY POLICY
+            (Internal Quality Assurance and Food Safety Manual)
+================================================================================
+
+Policy Owner: Fahad Ibrahim, Founder
+Department: Operations & Quality Assurance
+Effective Date: [DATE]
+Review Cycle: Quarterly
+Version: 1.0
+
+This document is intended for internal use by JG Mart staff, management,
+and supplier partners. It may be shared with contracted partner shops for
+compliance and quality assurance purposes.
+
+================================================================================
+                    1. PURPOSE AND SCOPE
+================================================================================
+
+1.1  PURPOSE. The purpose of this Food Safety Policy is to establish
+     standards, procedures, and responsibilities for ensuring that all
+     grocery items, fresh produce, and food products supplied, handled,
+     and delivered by JG Mart meet the highest standards of safety,
+     quality, and hygiene.
+
+1.2  SCOPE. This policy applies to:
+     - All JG Mart employees, riders, and contractors;
+     - All partner shops and suppliers sourcing from Krishi Market and
+       other approved vendors;
+     - All stages of the supply chain: sourcing, sorting, packaging,
+       and delivery;
+     - All products handled by JG Mart, including fresh produce, dairy,
+       meat, fish, packaged foods, and household items.
+
+1.3  OBJECTIVES. JG Mart is committed to:
+     - Protecting the health and safety of our customers;
+     - Maintaining the quality and freshness of all products;
+     - Complying with all applicable food safety laws and regulations
+       in Bangladesh;
+     - Building trust and confidence in the JG Mart brand;
+     - Continuously improving our food safety and quality assurance
+       systems.
+
+================================================================================
+                    2. APPLICABLE STANDARDS AND LAWS
+================================================================================
+
+JG Mart shall comply with all applicable food safety laws, regulations,
+and standards, including but not limited to:
+
+2.1  Bangladesh Food Safety Act, [YEAR] and regulations promulgated
+     thereunder;
+
+2.2  Bangladesh Standards and Testing Institution (BSTI) standards;
+
+2.3  Bangladesh Agricultural Research Council (BARC) guidelines for
+     fresh produce;
+
+2.4  Department of Agricultural Extension (DAE) recommendations;
+
+2.5  Local government (City Corporation) health and sanitation
+     regulations;
+
+2.6  International standards where applicable (Codex Alimentarius,
+     HACCP principles);
+
+2.7  Any other applicable laws, rules, notifications, or guidelines
+     issued by relevant authorities.
+
+================================================================================
+                    3. SOURCING STANDARDS
+================================================================================
+
+3.1  APPROVED SUPPLIERS. All fresh produce and grocery items shall be
+     sourced from approved suppliers, with a primary focus on Krishi
+     Market and other verified partner shops that meet JG Mart's quality
+     and safety standards. No product shall be sourced from unapproved
+     or unverified vendors.
+
+3.2  SUPPLIER APPROVAL CRITERIA. Before a supplier is approved, JG Mart
+     shall verify:
+     - Valid trade license and food license / food hygiene permit;
+     - Compliance with BSTI and Bangladesh Food Safety Authority
+       standards;
+     - Physical inspection of storage and handling facilities;
+     - Product quality and freshness standards;
+     - Traceability and documentation practices;
+     - History of compliance and any prior violations.
+
+3.3  SUPPLIER MONITORING. Approved suppliers shall be monitored
+     regularly through:
+     - Periodic facility inspections (at least quarterly);
+     - Random product sampling and quality testing;
+     - Review of supplier documentation and certifications;
+     - Customer feedback and complaint analysis;
+     - Mystery shopping and spot checks.
+
+3.4  PROHIBITED SOURCES. Products shall not be sourced from:
+     - Vendors operating without valid licenses;
+     - Vendors with a history of food safety violations;
+     - Unregulated or informal markets (unless specifically approved
+       for a particular product category);
+     - Sources known to supply adulterated, contaminated, or substandard
+       goods.
+
+3.5  TRACEABILITY. All products shall be traceable to their source.
+     Suppliers shall maintain records of:
+     - Origin of produce (farm, market, or supplier);
+     - Date of harvest or procurement;
+     - Batch or lot numbers (where applicable);
+     - Storage and handling conditions;
+     - Expiry or "best before" dates.
+
+================================================================================
+                    4. QUALITY CHECKS AT THREE STAGES
+================================================================================
+
+JG Mart shall conduct quality checks at three critical stages:
+
+--------------------------------------------------------------------------------
+                    STAGE 1: PICKUP (Supplier Premises)
+--------------------------------------------------------------------------------
+
+4.1.1 VISUAL INSPECTION. At the time of pickup from the partner shop or
+       supplier, JG Mart staff or riders shall conduct a visual inspection
+       of all items to verify:
+       - Product freshness and quality (no visible spoilage, bruising,
+         wilting, or discoloration);
+       - Correct product type and variety;
+       - Quantity matches the Order;
+       - Packaging is intact and appropriate;
+       - Labelling is correct and legible (batch number, expiry date,
+         manufacturer details);
+       - No signs of pest infestation, contamination, or damage.
+
+4.1.2 REJECTION AT PICKUP. Any product failing the Stage 1 inspection
+       shall be rejected immediately. The rejection shall be recorded in
+       the Order notes, and the Partner shall be notified. Rejected items
+       shall not be accepted for delivery.
+
+4.1.3 TEMPERATURE CHECK. For temperature-sensitive products (dairy,
+       meat, fish, frozen items), JG Mart staff shall verify that:
+       - Cold chain has been maintained during storage and handling;
+       - Products are stored at appropriate temperatures at the supplier
+         premises;
+       - Insulated packaging is used for transport.
+
+--------------------------------------------------------------------------------
+                    STAGE 2: SORTING (JG Mart Warehouse / Hub)
+--------------------------------------------------------------------------------
+
+4.2.1 RECEIPT AND SORTING. Upon arrival at the JG Mart warehouse or
+       sorting hub, all items shall be:
+       - Logged into the inventory system with timestamp;
+       - Sorted by product category, delivery route, and time slot;
+       - Inspected again for any damage or deterioration during transit.
+
+4.2.2 FRESH PRODUCE SORTING. Fresh fruits and vegetables shall be
+       individually inspected and sorted:
+       - Remove bruised, damaged, or overripe items;
+       - Remove items with visible mold, rot, or pest damage;
+       - Ensure uniformity of size and quality for customer satisfaction;
+       - Re-sort into appropriate packaging for delivery.
+
+4.2.3 REJECTION AT SORTING. Items failing the Stage 2 inspection shall
+       be segregated and recorded. The affected Orders shall be updated,
+       and customers shall be notified of any substitutions or removals.
+
+4.2.4 PACKAGING AT SORTING HUB. All items shall be:
+       - Repacked into JG Mart delivery bags with appropriate
+         insulation/protection;
+       - Labeled with customer name, Order number, and delivery address;
+       - Organized by delivery route for efficient rider dispatch.
+
+--------------------------------------------------------------------------------
+                    STAGE 3: DELIVERY (Final Customer Handover)
+--------------------------------------------------------------------------------
+
+4.3.1 PRE-DELIVERY CHECK. Before leaving the sorting hub, riders shall
+       verify:
+       - Order completeness (all items present, correctly packed);
+       - Customer address and contact information;
+       - Special handling instructions (fragile, keep cool, etc.).
+
+4.3.2 DELIVERY INSPECTION. At the point of delivery:
+       - Rider shall present the Order to the customer;
+       - Customer may inspect items for visible damage or incorrect items;
+       - Any discrepancies shall be noted on the receipt and reported
+         immediately;
+       - Customer shall sign or otherwise acknowledge receipt.
+
+4.3.3 CUSTOMER FEEDBACK. Riders shall encourage customers to report any
+       quality issues immediately. Customers may also report issues via
+       WhatsApp within [INSERT PERIOD, e.g., 24 hours] of delivery.
+
+4.3.4 FINAL RECORD. Delivery confirmation, including any customer
+       complaints or quality issues, shall be recorded in the order
+       management system for quality tracking and supplier feedback.
+
+================================================================================
+                    5. TEMPERATURE CONTROL
+================================================================================
+
+5.1  COLD CHAIN MANAGEMENT. For perishable products, JG Mart shall maintain
+     an unbroken cold chain from supplier to customer:
+
+     - Cold storage at supplier premises (verified during Stage 1);
+     - Insulated delivery bags and cold packs during transit;
+     - Priority delivery of cold chain items to minimize time out of
+       refrigeration;
+
+5.2  TEMPERATURE REQUIREMENTS. Maximum permissible temperatures for
+     different product categories:
+
+     - Dairy Products (milk, yogurt, cheese):    Refrigerated at 2-4C
+     - Fresh Meat and Poultry:                   Refrigerated at 0-4C
+     - Fresh Fish and Seafood:                   Refrigerated at 0-2C
+     - Frozen Products:                          Frozen at -18C or below
+     - Fresh Produce (fruits/vegetables):        Ambient (10-25C),
+                                                  protected from heat
+
+5.3  MONITORING. JG Mart shall:
+     - Use temperature monitoring devices in cold storage (if applicable);
+     - Conduct random temperature checks during sorting and delivery;
+     - Reject any cold chain product that shows signs of temperature
+       abuse (thawing, warming, condensation);
+
+5.4  RECALL PROTOCOL. In the event of a temperature control failure or
+     contamination incident affecting a batch of products, JG Mart shall
+     immediately:
+     - Identify affected Orders and customers;
+     - Notify affected customers via WhatsApp or phone;
+     - Arrange for collection or safe disposal of affected products;
+     - Report the incident to relevant authorities if required by law.
+
+================================================================================
+                    6. INCIDENT REPORTING
+================================================================================
+
+6.1  INCIDENT CLASSIFICATION. Food safety incidents include:
+     - Customer complaints of illness or adverse reaction after consuming
+       JG Mart products;
+     - Discovery of contamination, adulteration, or foreign objects in
+       products;
+     - Supplier notification of product recall or safety alert;
+     - Temperature control failure affecting perishable goods;
+     - Pest infestation or unsanitary conditions at supplier or JG Mart
+       premises;
+     - Delivery of expired, damaged, or substandard products.
+
+6.2  REPORTING PROCEDURE. Any employee, rider, or partner who identifies
+     or becomes aware of a food safety incident shall immediately report
+     it to the Operations Manager or designated Food Safety Officer.
+
+6.3  INCIDENT LOG. All incidents shall be recorded in the Incident Log,
+     including:
+     - Date and time of discovery;
+     - Description of the incident;
+     - Products and Orders affected;
+     - Actions taken;
+     - Follow-up measures;
+     - Resolution status.
+
+6.4  AUTHORITY NOTIFICATION. Where required by Applicable Law, JG Mart
+     shall notify the Bangladesh Food Safety Authority, City Corporation
+     health department, or other relevant authority within the timeframe
+     specified by law.
+
+================================================================================
+                    7. CUSTOMER COMPLAINT HANDLING
+================================================================================
+
+7.1  COMPLAINT CHANNELS. Customers may report food quality or safety
+     concerns via:
+     - WhatsApp: [WHATSAPP NUMBER]
+     - Phone: [PHONE NUMBER]
+     - In-person at JG Mart office
+
+7.2  COMPLAINT ACKNOWLEDGMENT. All complaints shall be acknowledged within
+     [INSERT PERIOD, e.g., 2 hours] during business hours.
+
+7.3  COMPLAINT CLASSIFICATION.
+     - Minor: Cosmetic issues, packaging damage (no health risk);
+     - Moderate: Product quality issues, wrong item, partial spoilage;
+     - Serious: Suspected contamination, foreign objects, illness
+       after consumption.
+
+7.4  INVESTIGATION. Each complaint shall be investigated promptly:
+     - Review Order details, delivery records, and supplier information;
+     - Cross-reference with Stage 1, 2, and 3 quality checks;
+     - Interview involved staff or riders if necessary;
+     - Inspect remaining stock from the same batch or supplier.
+
+7.5  RESOLUTION AND REMEDY.
+     - Minor complaints: Apology, explanation, small goodwill gesture
+       (discount, free item on next order);
+     - Moderate complaints: Partial or full refund, replacement order,
+       or credit;
+     - Serious complaints: Full refund, medical support referral if
+       needed, immediate supplier investigation and possible
+       termination, authority notification if required.
+
+7.6  RECORD KEEPING. All complaints shall be recorded in the Complaint
+     Register, including:
+     - Customer name and contact;
+     - Order number and date;
+     - Nature of complaint;
+     - Action taken;
+     - Outcome and resolution;
+     - Follow-up (if any).
+
+7.7  TREND ANALYSIS. The Operations Manager shall review the Complaint
+     Register monthly to identify trends, recurring issues, or supplier
+     problems. Corrective actions shall be implemented as needed.
+
+================================================================================
+                    8. DOCUMENTATION AND RECORDS
+================================================================================
+
+8.1  RECORDS TO BE MAINTAINED. JG Mart shall maintain the following
+     records for a minimum of [INSERT PERIOD, e.g., three (3) years]
+     or as required by Applicable Law:
+
+     - Supplier approval records (trade licenses, food licenses,
+       inspection reports);
+     - Procurement and sourcing records;
+     - Quality inspection records (Stages 1, 2, and 3);
+     - Temperature monitoring logs;
+     - Incident and complaint logs;
+     - Delivery records and receipts;
+     - Staff training records;
+     - Calibration records for any testing equipment;
+     - Corrective and preventive action records.
+
+8.2  RECORD ACCESS. Records shall be:
+     - Stored securely (physical and/or digital);
+     - Accessible to authorized personnel only;
+     - Protected from loss, theft, or unauthorized alteration;
+     - Available for inspection by relevant authorities upon request.
+
+8.3  DIGITAL RECORDS. Digital records shall be:
+     - Backed up regularly;
+     - Stored on secure servers with access controls;
+     - Retained in a readable format for the required retention period.
+
+================================================================================
+                    9. STAFF TRAINING AND RESPONSIBILITIES
+================================================================================
+
+9.1  TRAINING REQUIREMENTS. All JG Mart employees and riders involved
+     in food handling, sorting, packaging, or delivery shall receive
+     food safety training:
+     - Upon hiring (induction training);
+     - At least annually (refresher training);
+     - When new procedures or regulations are introduced.
+
+9.2  TRAINING CONTENT. Training shall cover:
+     - Basic food hygiene and sanitation;
+     - Personal hygiene requirements (hand washing, clean clothing,
+       no jewelry);
+     - Cross-contamination prevention;
+     - Temperature control and cold chain management;
+     - Recognition of spoiled or unsafe food;
+     - Cleaning and sanitizing procedures;
+     - Pest control basics;
+     - Incident reporting procedures;
+     - Applicable food safety laws and regulations.
+
+9.3  RESPONSIBILITIES.
+     - Founder / Operations Manager: Overall responsibility for food
+       safety policy and compliance;
+     - Food Safety Officer (if designated): Day-to-day oversight,
+       training coordination, incident management;
+     - Warehouse / Sorting Staff: Stage 2 quality checks, sorting,
+       packaging, temperature control;
+     - Riders: Stage 1 and Stage 3 quality checks, cold chain
+       maintenance during delivery;
+     - All Staff: Compliance with hygiene standards, incident
+       reporting.
+
+================================================================================
+                    10. HYGIENE AND SANITATION
+================================================================================
+
+10.1 PERSONAL HYGIENE.
+     - All staff shall maintain high standards of personal cleanliness;
+     - Hands shall be washed thoroughly with soap and water:
+       * Before handling food;
+       * After using the toilet;
+       * After handling waste or contaminated materials;
+       * After eating, drinking, or smoking;
+     - Clean clothing and protective gear (aprons, gloves, hairnets)
+       shall be worn during food handling;
+     - Jewelry, watches, and loose items shall be removed or secured;
+     - Staff with symptoms of illness (fever, diarrhea, vomiting,
+       skin infections) shall not handle food and shall report to
+       their supervisor.
+
+10.2 FACILITY HYGIENE.
+     - All JG Mart premises, warehouses, sorting areas, and storage
+       facilities shall be kept clean and sanitary;
+     - Regular cleaning and sanitizing schedules shall be established
+       and documented;
+     - Pest control measures shall be implemented and documented;
+     - Waste shall be segregated, contained, and disposed of properly;
+     - Toilet and hand-washing facilities shall be available and
+       maintained.
+
+10.3 EQUIPMENT HYGIENE.
+     - All equipment used for handling, sorting, and packaging shall
+       be cleaned and sanitized regularly;
+     - Equipment shall be maintained in good working order;
+     - Separate equipment shall be used for different product categories
+       (e.g., raw meat vs. fresh produce) to prevent cross-contamination.
+
+================================================================================
+                    11. PRODUCT RECALL PROCEDURE
+================================================================================
+
+11.1 RECALL INITIATION. A product recall may be initiated when:
+     - A supplier notifies JG Mart of a safety issue or recall;
+     - JG Mart identifies a safety issue through quality checks or
+       customer complaints;
+     - A regulatory authority orders or recommends a recall;
+     - Internal testing or investigation reveals contamination or
+       quality failure.
+
+11.2 RECALL ACTIONS. Upon initiating a recall, JG Mart shall:
+     - Immediately stop distribution and sale of the affected product;
+     - Identify all customers who purchased the affected product;
+     - Notify affected customers via WhatsApp, SMS, or phone call;
+     - Instruct customers not to consume the affected product;
+     - Arrange for collection or safe disposal of the product;
+     - Document the recall process and outcomes;
+     - Report the recall to relevant authorities if required.
+
+11.3 POST-RECALL REVIEW. After a recall, JG Mart shall:
+     - Investigate the root cause of the issue;
+     - Review and update supplier approval and monitoring procedures;
+     - Implement corrective and preventive actions;
+     - Document lessons learned and share with relevant staff and
+       partners.
+
+================================================================================
+                    12. CONTINUOUS IMPROVEMENT
+================================================================================
+
+12.1 MANAGEMENT REVIEW. This Food Safety Policy and all associated
+     procedures shall be reviewed at least quarterly by the Founder /
+     Operations Manager to ensure continued suitability and effectiveness.
+
+12.2 INTERNAL AUDITS. JG Mart shall conduct internal food safety audits
+     at least [INSERT FREQUENCY, e.g., quarterly] to:
+     - Verify compliance with this Policy;
+     - Identify areas for improvement;
+     - Ensure corrective actions from previous audits have been
+       implemented.
+
+12.3 CORRECTIVE AND PREVENTIVE ACTION (CAPA). Any non-conformity,
+     incident, or complaint shall trigger a CAPA process:
+     - Identify the root cause;
+     - Implement immediate corrective action;
+     - Develop preventive measures to avoid recurrence;
+     - Document the CAPA and monitor effectiveness.
+
+12.4 FEEDBACK LOOP. Feedback from customers, staff, riders, and
+     suppliers shall be continuously collected and used to improve
+     food safety and quality systems.
+
+================================================================================
+                    13. ACKNOWLEDGMENT AND COMPLIANCE
+================================================================================
+
+13.1 All JG Mart employees, riders, and contractors are required to
+     read, understand, and comply with this Food Safety Policy.
+
+13.2 Supplier partners are required to comply with the sourcing and
+     quality standards outlined in this Policy as a condition of their
+     partnership agreement with JG Mart.
+
+13.3 Failure to comply with this Policy may result in disciplinary
+     action, termination of employment or partnership, and/or legal
+     liability, as applicable.
+
+================================================================================
+                    14. POLICY APPROVAL
+================================================================================
+
+This Food Safety Policy is approved by:
+
+Signature: _______________________________
+
+Name:     Fahad Ibrahim
+Title:    Founder, JG Mart
+Date:     _______________________________
+
+Reviewed By (Quality Assurance):
+
+Signature: _______________________________
+
+Name:     _________________________________
+Title:    _________________________________
+Date:     _______________________________
+
+================================================================================
+                    END OF FOOD SAFETY POLICY
+================================================================================

@@ -1,0 +1,285 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — WHATSAPP BATTLE CARDS v1.0                            ║
+║                         Quick Reply Scripts for Every Scenario                ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+HOW TO USE: Copy the message under each card and paste into WhatsApp.
+Replace [bracketed] text with actual values.
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 1: FIRST CONTACT — CUSTOMER INTRODUCTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: New customer messages for first time
+🎯 GOAL: Convert to first order within 2 messages
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Assalamu Alaikum! Welcome to JG Mart 🌿                                       │
+│                                                                               │
+│ I'm Fahad — your neighbour from JGC. We deliver fresh groceries from          │
+│ Krishi Market straight to your building.                                      │
+│                                                                               │
+│ 🛒 HOW IT WORKS:                                                              │
+│ 1. Send your grocery list (e.g., "1kg rice, 500g dal, 2L oil")               │
+│ 2. I confirm total and items                                                   │
+│ 3. We pick up from Krishi Market and deliver to your door 🚚                  │
+│                                                                               │
+│ ⏰ TODAY'S SLOTS:                                                              │
+│ ☀️ Morning: Order by 9AM → Deliver 12PM                                      │
+│ 🌙 Evening: Order by 3:30PM → Deliver 8PM                                     │
+│                                                                               │
+│ 💰 Cash on delivery or bKash                                                   │
+│ First delivery is FREE! 🎉                                                     │
+│                                                                               │
+│ Send your list to get started! 👇                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 2: ORDER CONFIRMATION
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Customer sends their grocery list
+🎯 GOAL: Confirm, set expectations, close the order
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ✅ Order received! Here's what I've noted:                                    │
+│                                                                               │
+│ 📋 [Itemized list of what they asked for]                                     │
+│ 💰 Estimated total: [amount] BDT                                              │
+│ 📍 Delivery to: Building [number], Flat [number]                              │
+│ ⏰ Slot: [Morning/Evening]                                                    │
+│ 💳 Payment: [COD/bKash]                                                       │
+│                                                                               │
+│ I'll confirm the exact total and estimated delivery time shortly.             │
+│                                                                               │
+│ ⏱ Typical delivery time: 90 minutes from confirmation                         │
+│                                                                               │
+│ Type OK to confirm, or adjust your list above.                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 3: DELIVERY TIME ESTIMATE
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Partner confirms availability, sending delivery ETA
+🎯 GOAL: Set accurate timeline, reduce "where is my order?" messages
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🚚 Your order is on its way!                                                  │
+│                                                                               │
+│ 📦 [Customer name] — your groceries are being packed at Krishi Market.        │
+│                                                                               │
+│ 🕐 Estimated delivery: [time] (about [X] minutes)                             │
+│                                                                               │
+│ 📞 I'll message you when the rider is 5 minutes away.                         │
+│                                                                               │
+│ Questions? Reply here, I'm online. 👍                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 4: DELIVERY ARRIVAL
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Rider is 5 minutes from building
+🎯 GOAL: Ensure customer is ready to receive
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🚚 Rider is 5 minutes from your building!                                     │
+│                                                                               │
+│ 📦 Order total: [amount] BDT                                                  │
+│ 💳 Payment: [COD — please keep exact change / bKash — please send]            │
+│                                                                               │
+│ Please have your phone ready. The rider will call when at the gate.           │
+│                                                                               │
+│ Thank you for choosing JG Mart! 🌿                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 5: DELIVERY COMPLETE + FOLLOW-UP
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Delivery confirmed completed
+🎯 GOAL: Confirm satisfaction, set up repeat order
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ✅ Delivered! Thank you for ordering from JG Mart 🌿                          │
+│                                                                               │
+│ How was everything? 👍 Great / 👎 Issue (reply with details)                  │
+│                                                                               │
+│ 🎯 EARN 100 BDT CREDIT: Refer a neighbour!                                    │
+│ Just share this number: +8801870489448                                        │
+│ You both get 100 BDT off your next order! 🎉                                  │
+│                                                                               │
+│ 📅 Want to set a regular order day? Reply REGULAR + your day (e.g.,           │
+│ "REGULAR Monday, Wednesday") and I'll ping you automatically.                 │
+│                                                                               │
+│ JazakAllah! See you next time. 🚚                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 6: OUT OF STOCK / SUBSTITUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Partner doesn't have an item the customer ordered
+🎯 GOAL: Get quick approval on substitution, avoid delays
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⚠️ Quick update on your order:                                                │
+│                                                                               │
+│ [Item] is currently unavailable at Krishi Market today.                       │
+│                                                                               │
+│ Available alternatives:                                                        │
+│ A) [Item A] at [price] BDT                                                    │
+│ B) [Item B] at [price] BDT                                                    │
+│ C) Skip this item and adjust total                                            │
+│                                                                               │
+│ Reply A, B, or C — I'll update your order right away! 👍                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 7: PRICE CHANGE NOTIFICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Market price is significantly different from estimate
+🎯 GOAL: Transparency, avoid sticker shock at delivery
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📋 Price update on your order:                                                │
+│                                                                               │
+│ [Item]: Estimated [X] BDT → Actual [Y] BDT                                    │
+│ (Reason: [market price fluctuation / seasonal change])                         │
+│                                                                               │
+│ New total: [amount] BDT (was estimated [amount])                              │
+│                                                                               │
+│ Type OK to proceed, or CANCEL if you'd like to adjust your order.             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 8: CUSTOMER COMPLAINT
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Customer reports an issue (wrong item, quality, late delivery)
+🎯 GOAL: Acknowledge, apologize, resolve, retain customer
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ I'm really sorry about this, [name]. That's not the JG Mart standard.         │
+│                                                                               │
+│ I'll fix this right away:                                                      │
+│                                                                               │
+│ ✅ [Action being taken - e.g., "I'll send the correct item now"]              │
+│ ✅ [Compensation - e.g., "50 BDT credit on your next order"]                  │
+│ ✅ [Prevention - e.g., "I'll double-check with the partner directly"]         │
+│                                                                               │
+│ Estimated resolution: [time]                                                  │
+│                                                                               │
+│ Again, my sincere apologies. This won't happen again.                         │
+│                                                                               │
+│ — Fahad                                                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 9: REFERRAL FOLLOW-UP
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Customer refers a neighbour who places their first order
+🎯 GOAL: Credit both parties, encourage more referrals
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🎉 Your referral [neighbour name] from Building [X] just placed their         │
+│ first order!                                                                  │
+│                                                                               │
+│ You've earned 100 BDT credit! ✅                                              │
+│ Your balance: 100 BDT                                                         │
+│                                                                               │
+│ 💡 Use it on your next order — just mention "REFERRAL CREDIT"                 │
+│                                                                               │
+│ Know anyone else? Keep sharing! No limit on referrals. 💰                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 10: SUBSCRIPTION PITCH
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Customer has placed 3+ orders
+🎯 GOAL: Convert to recurring subscriber
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🌟 You've ordered [X] times with us — thank you!                              │
+│                                                                               │
+│ As a regular customer, you qualify for JG Mart Premium:                       │
+│                                                                               │
+│ ✅ FREE delivery on ALL orders (save 30 BDT each)                             │
+│ ✅ 5% off every order                                                         │
+│ ✅ Priority slots (never miss out)                                            │
+│ ✅ Dedicated support                                                          │
+│                                                                               │
+│ 💰 Just 149 BDT/month                                                         │
+│ If you order 2x/week, you save 240 BDT/month — already worth it.              │
+│                                                                               │
+│ Reply SUBSCRIBE and I'll set it up. Cancel anytime. 🔒                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 11: NO ORDER REMINDER
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Customer hasn't ordered in 7+ days
+🎯 GOAL: Re-engage, get next order
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Hey [name]! 👋 It's been a week — hope everything is going well.              │
+│                                                                               │
+│ Just a reminder, JG Mart is here whenever you need groceries delivered.       │
+│                                                                               │
+│ 🛒 TODAY'S SPECIAL: [item] at just [price] BDT — available from               │
+│ Krishi Market!                                                                 │
+│                                                                               │
+│ 📅 Morning slot closes at 9AM. Evening slot closes at 3:30PM.                 │
+│                                                                               │
+│ Reply with your list or just type MENU to see what's available today!         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CARD 12: PARTNER OUTREACH (FOR FAHAD'S USE)
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 WHEN: Meeting new Krishi Market vendors
+🎯 GOAL: Quick partner onboarding, set expectations
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Assalamu Alaikum bhai!                                                        │
+│                                                                               │
+│ I'm Fahad from Japan Garden City. I'm starting a grocery delivery service      │
+│ and looking for a reliable [category] supplier near Krishi Market.             │
+│                                                                               │
+│ Here's what I'm offering:                                                      │
+│                                                                               │
+│ ✓ Daily orders from JGC residents (scaling to 350+ households)                │
+│ ✓ We handle all delivery — you just pack the order                            │
+│ ✓ Weekly payment via bKash every Sunday                                       │
+│ ✓ Pickup window: 10-11 AM and 5:30-6:30 PM                                    │
+│                                                                               │
+│ Interested? I'd love to visit your shop for 5 minutes and discuss.            │
+│ When is a good time?                                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK REFERENCE: SHORTCUT MAP
+═══════════════════════════════════════════════════════════════════════════════
+
+For WhatsApp Business — set these as Quick Reply shortcuts:
+
+/greeting   → Card 1 (First Contact)
+/confirm    → Card 2 (Order Confirmation)
+/eta        → Card 3 (Delivery Time)
+/arriving   → Card 4 (Delivery Arrival)
+/done       → Card 5 (Delivery Complete + Follow-up)
+/stock      → Card 6 (Out of Stock)
+/price      → Card 7 (Price Change)
+/complaint  → Card 8 (Customer Complaint)
+/refer      → Card 9 (Referral Follow-up)
+/premium    → Card 10 (Subscription Pitch)
+/reminder   → Card 11 (No Order Reminder)
+/partner    → Card 12 (Partner Outreach)
+
+═══════════════════════════════════════════════════════════════════════════════

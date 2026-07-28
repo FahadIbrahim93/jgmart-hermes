@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "generated": "2026-07-28 09:28:07",
+    "source": "sync_bridge.py",
+    "app": "finance.html",
+    "localStorageKey": "jgmart_finance"
+  },
+  "_instructions": "        // ────────────────────────────────────────────────────────\n        //  TARGET APP : finance.html\n        //  LOCALSTORAGE: jgmart_finance\n        //  IMPORT      : // Paste this in the browser DevTools console:\nlocalStorage.setItem('jgmart_finance', JSON.stringify({PASTE_CONTENT_HERE}));\nlocation.reload();\n        // ────────────────────────────────────────────────────────",
+  "summary": {
+    "totalOrders": 0.0,
+    "revenue": 0.0,
+    "transactionCount": 0
+  },
+  "transactions": [],
+  "entries": []
+}

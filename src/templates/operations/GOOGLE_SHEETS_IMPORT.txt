@@ -1,0 +1,55 @@
+━━━ JG MART — GOOGLE SHEETS IMPORT TEMPLATES ━━━
+
+Copy these CSV blocks, paste into Google Sheets.
+Each block is a separate tab/sheet.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SHEET 1: DAILY_ORDERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Date,Order#,Customer,Building,Flat,Items,Total,Payment,Slot,Status,Rider,Notes
+2026-08-01,JG-20260801-001,Sara Ahmed,B1,3A,"Rice 1kg, Dal 500g, Oil 1L, Eggs 12",975,COD,Morning,Delivered,Fahad,
+2026-08-01,JG-20260801-002,Ahmad Khan,B2,5C,"Chicken 1kg, Potato 2kg, Onion 1kg",530,bKash,Morning,Delivered,Fahad,
+2026-08-01,JG-20260801-003,Rahim Uddin,B3,2B,"Fish 1kg, Veg 500g",410,COD,Evening,Confirmed,Fahad,
+2026-08-01,JG-20260801-004,Nasreen Akter,B1,7D,"Rice 5kg, Oil 2L, Dal 1kg",830,bKash,Evening,Received,,
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SHEET 2: PARTNERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ID,Name,Category,Phone,Location,Commission%,Join Date,Status,Rating,Notes
+P001,Shahjalal Rice Agency,Rice & Dal,01712-111111,Krishi Market,8%,2026-08-01,Active,4.5,"Premium Chinigura, Miniket"
+P002,Kawran Bazar Veg House,Vegetables,01712-222222,Krishi Market,12%,2026-08-01,Active,4.0,"Daily fresh produce"
+P003,Mollah Chicken & Meat,Meat,01712-333333,Krishi Market,8%,2026-08-01,Active,4.5,"Halal certified"
+P004,Dhaka Fish Emporium,Fish,01712-444444,Krishi Market,8%,2026-08-01,Active,4.0,"Fresh ruhi, tilapia, katla"
+P005,Shomoy Oil & Dal,Oil & Spices,01712-555555,Krishi Market,7%,2026-08-01,Active,3.5,"Soybean, mustard, sunflower"
+P006,Bangla Spice Traders,Spices,01712-666666,Krishi Market,9%,2026-08-01,Active,4.0,"Turmeric, chili, cumin"
+P007,Fresh Dairy & Egg Supply,Dairy & Eggs,01712-777777,Krishi Market,9%,2026-08-01,Active,3.5,"Milk, eggs, paneer"
+P008,Rahimullah Fruit Agency,Fruits,01712-888888,Krishi Market,12%,2026-08-01,Active,4.0,"Seasonal fruits"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SHEET 3: CUSTOMERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ID,Name,Building,Flat,Phone,Join Date,Total Orders,Total Spend,Last Order,Referral Code,Referrer,Notes
+C001,Sara Ahmed,B1,3A,01712-111001,2026-08-01,0,0,,SA001,,
+C002,Ahmad Khan,B2,5C,01712-111002,2026-08-01,0,0,,AK002,,
+C003,Rahim Uddin,B3,2B,01712-111003,2026-08-01,0,0,,RU003,,
+C004,Nasreen Akter,B1,7D,01712-111004,2026-08-01,0,0,,NA004,,
+C005,Kamal Hossain,B3,4A,01712-111005,2026-08-01,0,0,,KH005,,
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SHEET 4: FINANCIALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Date,Orders,Revenue,Commission,Delivery,Costs,Rider,Manager,Marketing,Packaging,Profit,Cumulative
+Week 1,0,0,0,0,0,0,0,0,0,0,0
+Week 2,0,0,0,0,0,0,0,0,0,0,0
+
+HOW TO USE:
+1. Open Google Sheets → Create new spreadsheet
+2. Name it "JG Mart — Operations"
+3. Create 4 tabs: Daily Orders, Partners, Customers, Financials
+4. Copy each block above into its respective tab (first row = header)
+5. Start filling in data
+6. Share with your brother (View only) so you both see the same numbers

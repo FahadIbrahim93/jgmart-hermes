@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Fresh Groceries in Japan Garden City</title>
+<meta name="description" content="Fresh groceries delivered to your flat in Japan Garden City. Order via WhatsApp from Krishi Market. Morning & evening slots. Cash or bKash.">
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.welcome{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px;text-align:center;background:linear-gradient(160deg,#f7fbf8 0%,#e8f5ef 40%,#d4ede0 100%);position:relative;overflow:hidden}
+.welcome::before{content:'';position:absolute;top:-50%;right:-30%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,68,45,.06) 0%,transparent 70%);pointer-events:none}
+.welcome::after{content:'';position:absolute;bottom:-30%;left:-20%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.08) 0%,transparent 70%);pointer-events:none}
+.badge{display:inline-flex;background:rgba(0,68,45,.1);color:#00442D;font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:24px;letter-spacing:.02em}
+.logo-text{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:800;color:#00442D;letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+.logo-text span{color:#c9a227}.tagline{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:300;color:#5c5c5c;margin-bottom:30px;max-width:480px;line-height:1.4}
+.location{display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.04);padding:8px 16px;border-radius:999px;font-size:.85rem;color:#5c5c5c;margin-bottom:30px;font-weight:500}
+.cta-group{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:24px}
+.btn-primary{background:#00442D;color:#fff;padding:16px 32px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,68,45,.25);transition:transform .15s,box-shadow .15s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,68,45,.3)}
+.btn-primary:active{transform:translateY(0)}
+.btn-secondary{background:#fff;color:#00442D;padding:16px 28px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(0,68,45,.15);transition:transform .15s}
+.btn-secondary:hover{transform:translateY(-2px);border-color:#00442D}
+.trust-bar{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;font-size:.85rem;color:#5c5c5c;font-weight:500}
+.trust-bar span{display:flex;align-items:center;gap:6px}
+.dots{display:flex;gap:8px;margin-top:48px}
+.dots span{width:8px;height:8px;border-radius:50%;background:rgba(0,68,45,.15);animation:pulse 2s infinite}
+.dots span:nth-child(2){animation-delay:.3s}.dots span:nth-child(3){animation-delay:.6s}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* Second section */
+.section{padding:60px 24px;max-width:900px;margin:0 auto}
+.section-title{font-size:1.6rem;font-weight:800;color:#00442D;margin-bottom:8px;text-align:center}
+.section-sub{text-align:center;color:#5c5c5c;font-size:.95rem;margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}
+@media(max-width:700px){.how-grid{grid-template-columns:1fr 1fr}}@media(max-width:380px){.how-grid{grid-template-columns:1fr}}
+.how-card{background:#f7fbf8;border-radius:16px;padding:24px 16px;text-align:center;position:relative}
+.how-card::before{counter-increment:step;content:counter(step);position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:#00442D;color:#fff;border-radius:50%;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.how-card .icon{font-size:2rem;margin:8px 0 10px}.how-card h3{font-size:.95rem;color:#00442D;margin-bottom:4px}.how-card p{font-size:.78rem;color:#5c5c5c;line-height:1.4}
+.price-table{background:#fff;border:1px solid #e8ece8;border-radius:16px;overflow:hidden;margin-bottom:16px}
+.price-row{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #f0f2f0;font-size:.88rem}
+.price-row:last-child{border-bottom:none}
+.price-row .item{font-weight:500;color:#1a1a1a}.price-row .price{font-weight:700;color:#00442D}
+.price-row .tag{font-size:.65rem;padding:2px 8px;border-radius:999px;font-weight:600}
+.tag-new{background:#e8f5ef;color:#0a6b47}.tag-popular{background:#fff8e1;color:#c9a227}
+.zone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:600px){.zone-grid{grid-template-columns:1fr 1fr}}
+.zone-card{background:#f7fbf8;border-radius:12px;padding:14px;text-align:center}
+.zone-card h4{font-size:.82rem;color:#00442D;margin-bottom:2px}
+.zone-card .bldgs{font-size:.7rem;color:#5c5c5c;margin-bottom:4px}
+.zone-card .fee{font-weight:700;color:#c9a227;font-size:.85rem}
+.footer{text-align:center;padding:40px 24px;background:#0a1f16;color:rgba(255,255,255,.7);font-size:.82rem}
+.footer a{color:#7dcea0;text-decoration:none}
+.footer .brand{font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:6px}
+.footer .brand span{color:#c9a227}
+</style>
+</head>
+<body>
+
+<section class="welcome">
+<div class="badge">📍 Japan Garden City, Mohammadpur</div>
+<div class="logo-text">JG <span>Mart</span></div>
+<p class="tagline">Fresh groceries from Krishi Market,<br>delivered to your flat in 90 minutes.</p>
+<div class="location">📍 800m from Krishi Market · Serving all 27 buildings</div>
+<div class="cta-group">
+<a class="btn-primary" href="https://wa.me/8801870489448?text=Assalamu%20Alaikum%2C%20ami%20order%20dite%20chai" target="_blank">📱 Order on WhatsApp</a>
+<a class="btn-secondary" href="#how">How it works ↓</a>
+</div>
+<div class="trust-bar">
+<span>✅ Morning & evening slots</span>
+<span>💵 Cash or bKash</span>
+<span>🌿 Fresh from market daily</span>
+</div>
+<div class="dots"><span></span><span></span><span></span></div>
+</section>
+
+<section class="section" id="how">
+<h2 class="section-title">How it works</h2>
+<p class="section-sub">No app to download. No complicated checkout. Just send a WhatsApp message.</p>
+<div class="how-grid">
+<div class="how-card"><div class="icon">💬</div><h3>Send your list</h3><p>Message us on WhatsApp with what you need — "1kg rice, 500g dal, 1L oil"</p></div>
+<div class="how-card"><div class="icon">✅</div><h3>We confirm</h3><p>Exact total + delivery time. We handle any substitutions with your approval.</p></div>
+<div class="how-card"><div class="icon">🛍️</div><h3>We source & pack</h3><p>Fresh from Krishi Market partners. Picked, packed, sorted by building.</p></div>
+<div class="how-card"><div class="icon">🚚</div><h3>Delivered</h3><p>Cash or bKash on arrival. 90 min from confirmation. Morning & evening slots.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Popular prices today</h2>
+<p class="section-sub">Daily Krishi Market rates. We update every morning.</p>
+<div class="price-table">
+<div class="price-row"><span class="item">🍚 Chinigura Rice (1kg)</span><span class="price">৳95-110</span><span class="tag tag-popular">Most ordered</span></div>
+<div class="price-row"><span class="item">🥚 Farm Eggs (dozen)</span><span class="price">৳150-170</span><span class="tag tag-popular">Most ordered</span></div>
+<div class="price-row"><span class="item">🥔 Potato (1kg)</span><span class="price">৳35</span><span class="tag tag-new">Market price</span></div>
+<div class="price-row"><span class="item">🧅 Red Onion (1kg)</span><span class="price">৳60</span><span class="tag tag-new">Market price</span></div>
+<div class="price-row"><span class="item">🌻 Soybean Oil (1L)</span><span class="price">৳145-160</span></div>
+<div class="price-row"><span class="item">🍗 Broiler Chicken (1kg)</span><span class="price">৳220</span></div>
+<div class="price-row"><span class="item">🐟 Ruhi Fish (1kg)</span><span class="price">৳280</span></div>
+<div class="price-row"><span class="item">🍚 Moshur Dal (500g)</span><span class="price">৳65-75</span></div>
+</div>
+<p style="text-align:center;font-size:.82rem;color:#5c5c5c">Prices fluctuate daily with Krishi Market. <a href="https://wa.me/8801870489448" style="color:#00442D;font-weight:600;">Ask on WhatsApp for today's rates →</a></p>
+</section>
+
+<section class="section">
+<h2 class="section-title">Delivery zones</h2>
+<p class="section-sub">We deliver to all buildings in Japan Garden City.</p>
+<div class="zone-grid">
+<div class="zone-card"><h4>Cluster 1</h4><div class="bldgs">Bldg 1-6</div><div class="fee">🚚 Free delivery</div></div>
+<div class="zone-card"><h4>Cluster 2</h4><div class="bldgs">Bldg 7-13</div><div class="fee">🚚 Free delivery</div></div>
+<div class="zone-card"><h4>Cluster 3</h4><div class="bldgs">Bldg 14-20</div><div class="fee">৳20 delivery</div></div>
+<div class="zone-card"><h4>Cluster 4</h4><div class="bldgs">Bldg 21-27</div><div class="fee">৳30 delivery</div></div>
+</div>
+</section>
+
+<section class="section" style="text-align:center;padding-bottom:60px">
+<h2 class="section-title">Ready for your first order?</h2>
+<p class="section-sub">First delivery is free. Just send your list on WhatsApp.</p>
+<a class="btn-primary" href="https://wa.me/8801870489448?text=Assalamu%20Alaikum%2C%20ami%20order%20dite%20chai" target="_blank" style="margin-top:8px">📱 WhatsApp +880 1870-489448</a>
+<p style="margin-top:12px;font-size:.82rem;color:#5c5c5c">Available 6AM-10PM · 7 days a week</p>
+</section>
+
+<footer class="footer">
+<div class="brand">JG <span>Mart</span></div>
+<p>Japan Garden City · Mohammadpur · Dhaka</p>
+<p style="margin:8px 0">Fahad Ibrahim — <a href="https://wa.me/8801870489448">+880 1870-489448</a></p>
+<p style="font-size:.72rem;opacity:.6">© 2026 JG Mart · Hyperlocal grocery delivery</p>
+</footer>
+</body>
+</html>

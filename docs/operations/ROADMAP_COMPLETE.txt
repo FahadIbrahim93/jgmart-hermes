@@ -1,0 +1,106 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║  JG MART — FINAL SYSTEM REFERENCE (ROADMAP COMPLETE)                        ║
+║  Everything Built. Everything Ready. Now Go Execute.                        ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+═══ WHAT EXISTS (Complete Inventory) ═══
+
+Total: ~90 files · ~1.5 MB · 10 Web Apps · 12 Categories
+
+═══ YOUR 10 WEB APPS (Open ops.html → see all) ═══
+
+┌─────┬──────────────────────────┬──────────────────────────────────────┐
+│  #  │ App                      │ Purpose                              │
+├─────┼──────────────────────────┼──────────────────────────────────────┤
+│  1  │ ops.html                 │ Operations Dashboard (daily HQ)      │
+│  2  │ index.html               │ Command Center (hub for everything)  │
+│  3  │ 05/orders.html           │ Order Tracker (lifecycle workflow)   │
+│  4  │ 05/finance.html          │ Financial Dashboard (P&L + data)     │
+│  5  │ 05/dailypnl.html         │ Daily Auto-P&L Calculator           │
+│  6  │ 05/analytics.html        │ Weekly Analytics (growth trends)    │
+│  7  │ 05/index.html            │ KPI Dashboard (charts + CRUD)       │
+│  8  │ 05/commlog.html          │ Customer Comms Log                  │
+│  9  │ 06/index.html            │ Customer Catalog (47 products)       │
+│ 10  │ 06/order_intake.html     │ Order Intake Form (63 items)        │
+└─────┴──────────────────────────┴──────────────────────────────────────┘
+
+═══ YOUR 3 PYTHON SCRIPTS ═══
+
+│ Script                          │ What It Does                        │
+│ 09/auto_deploy.py               │ Deploy apps to Vercel/Netlify       │
+│ 09/drive_sync.py                │ Sync to Google Drive via rclone     │
+│ 09/launch_automation.py         │ Generate checklists & templates     │
+
+═══ YOUR 12 CATEGORIES ═══
+
+│ 01_Investor_Deck      (7)  │ Pitch, 1-pager, FAQ, coaching           │
+│ 02_Brand_Assets       (3)  │ Brand guide, logo (SVG)                │
+│ 03_Legal_Templates    (5)  │ Agreements, terms, privacy, safety     │
+│ 04_Operations         (7)  │ SOP, playbook, monsoon, safety net      │
+│ 05_Tech_Dashboard     (9)  │ 6 web apps + data files                │
+│ 06_Web_Catalog        (6)  │ 3 web apps + catalog data              │
+│ 07_Marketing          (6)  │ Battle cards, copy, calendar, landing  │
+│ 08_Financials         (8)  │ P&L, projections, break-even, Excel    │
+│ 09_Data_Export        (11) │ Scripts, automation, sync              │
+│ 10_Launch_Readiness   (7)  │ Checklists, playbooks, competitor intel│
+│ 11_Day1_Launch_Kit    (2)  │ Launch script, emergency kit           │
+│ 12_Templates          (10) │ CSVs, scorecards, logs                │
+
+═══ YOUR DAILY ROUTINE (10 minutes total) ═══
+
+Morning (6:00-6:10 AM):
+  [ ] Open ops.html → check today's KPIs, status, breakeven
+  [ ] Open 04/MORNING_ROUTINE_CHECKLIST.txt → follow the steps
+
+Throughout the day:
+  [ ] Use WA BATTLE CARDS (07/) for every customer message
+  [ ] Log orders in orders.html as they come in
+  [ ] Log customer interactions in commlog.html
+
+Evening (8:00-8:10 PM):
+  [ ] Enter today's numbers in dailypnl.html → auto-calculates P&L
+  [ ] Check finance.html → update cash position
+  [ ] Export data from each app (Export buttons)
+
+═══ YOUR INVESTOR PITCH (practice daily) ═══
+
+  [ ] Read 01/PITCH_COACHING_GUIDE.txt
+  [ ] Memorise the 20 key numbers (section 4)
+  [ ] Practice 10 objections (section 2)
+  [ ] Know the 5 trap questions (section 3)
+
+═══ YOUR LAUNCH CHECKLIST ═══
+
+Critical (do before first order):
+  [ ] Set up bKash merchant account (3-5 days!)
+  [ ] Create WhatsApp Business profile with logo
+  [ ] Sign 3 Krishi Market partners
+  [ ] Print DAY1_EMERGENCY_KIT.txt + fill contacts
+
+Important (do within first week):
+  [ ] Deploy catalog to Vercel (drag 06/ folder to vercel.com)
+  [ ] Deploy dashboard to Vercel (drag 05/ folder to vercel.com)
+  [ ] Share landing page (07/landing.html) in building groups
+  [ ] Set up Google Drive sync (09/drive_sync.py --setup)
+
+Nice to have:
+  [ ] Custom domain: jgmart.bd
+  [ ] WhatsApp Business API (see 04/WHATSAPP_API_MIGRATION_PLAN.txt)
+  [ ] Print business cards + flyers
+
+═══ YOUR 90-DAY TARGETS ═══
+
+Month 1: 100 customers · 300 orders · 41K revenue · Prove demand
+Month 2: 200 customers · 900 orders · 124K revenue · Near breakeven
+Month 3: 350 customers · 1,650 orders · 228K revenue · First profit
+
+═══ FINAL WORDS ═══
+
+"You now have everything you need to start, run, and grow JG Mart.
+The files are complete. The math is correct. The plans are ready.
+
+The only thing left is execution.
+
+Go launch. 🚀"
+
+— Hermes Agent · July 2026

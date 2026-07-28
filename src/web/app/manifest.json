@@ -1,0 +1,27 @@
+{
+  "name": "JG Mart",
+  "short_name": "JG Mart",
+  "description": "Hyperlocal grocery delivery in Japan Garden City, Mohammadpur, Dhaka.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#00442D",
+  "theme_color": "#00442D",
+  "orientation": "portrait-primary",
+  "categories": ["grocery", "food", "shopping", "lifestyle"],
+  "lang": "en-BD",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "02_Brand_Assets/logo_icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

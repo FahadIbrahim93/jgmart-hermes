@@ -1,0 +1,189 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — WHATSAPP BUSINESS QUICK REPLY CONFIG                     ║
+║                         Copy into WhatsApp Business → Quick Replies             ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Setup Instructions:
+1. Open WhatsApp Business → Settings → Business Tools → Quick Replies
+2. Tap "New Quick Reply"
+3. Copy the Shortcut and Message below
+4. Save
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SHORTCUT: /greeting
+MESSAGE:
+Assalamu Alaikum! Welcome to JG Mart 🌿
+
+Japan Garden City's freshest grocery delivery.
+
+🛒 HOW TO ORDER:
+Simply send your list like this:
+"1kg Chinigura rice, 500g dal, 2L oil, 1kg potato"
+
+⏰ DELIVERY SLOTS:
+• Morning: Order by 9AM → Deliver 12PM
+• Evening: Order by 3:30PM → Deliver 8PM
+
+💰 PAYMENT: Cash on delivery or bKash
+🚚 DELIVERY FEE: 30 BDT (FREE for first order!)
+📍 We deliver to all buildings in Japan Garden City
+
+Reply with your list to place your first order!
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /order
+MESSAGE:
+HOW TO ORDER IN 3 STEPS:
+
+1️⃣ Send your list on WhatsApp
+   Example: "1kg rice, 500g dal, 2L oil, 1kg potato"
+
+2️⃣ We confirm your total
+   Estimated: 450-520 BDT
+   Exact total confirmed by 9:15AM / 3:45PM
+
+3️⃣ We deliver
+   12PM or 8PM slot
+   Cash on delivery or bKash
+
+That's it! No app needed. 🚚
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /slots
+MESSAGE:
+DELIVERY SLOTS:
+
+☀️ MORNING SLOT
+   Order by: 9:00 AM
+   Deliver by: 12:00 PM
+
+🌙 EVENING SLOT
+   Order by: 3:30 PM
+   Deliver by: 8:00 PM
+
+💡 TIP: Order the night before for morning slot!
+
+Delivery fees:
+• Cluster 1-2 (Bldg 1-13): FREE
+• Cluster 3 (Bldg 14-20): 20 BDT
+• Cluster 4 (Bldg 21-27): 30 BDT
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /payment
+MESSAGE:
+PAYMENT OPTIONS:
+
+💵 Cash on Delivery (COD)
+   Pay when you receive your order
+
+📱 bKash
+   Send to: {CONFIG['whatsapp_number']}
+   Type: Send Money / Payment
+
+After bKash payment, reply PAID and we'll confirm.
+
+🔒 All payments are secure.
+📞 Questions? Call/WhatsApp: {CONFIG['whatsapp_number']}
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /subscribe
+MESSAGE:
+🌟 JG MART PREMIUM
+
+Just 149 BDT/month for:
+
+✅ FREE delivery on ALL orders (save 30 BDT each!)
+✅ Priority delivery slots
+✅ 5% discount on every order
+✅ Exclusive deals & early access
+✅ Dedicated support
+
+💡 If you order 2+ times per week, this pays for itself!
+
+To subscribe: Send 'SUBSCRIBE' and pay 149 BDT via bKash.
+Cancel anytime. No questions asked.
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /refer
+MESSAGE:
+🎉 REFER & EARN!
+
+Your referral code: JG[CUSTOMERCODE]
+
+Share this with neighbours:
+"Hey! I use JG Mart for grocery delivery from Krishi Market.
+Use my code JG[CODE] and we BOTH get 100 BDT credit!
+WhatsApp: {CONFIG['whatsapp_number']}"
+
+✅ You get: 100 BDT credit
+✅ They get: 100 BDT credit
+
+No limit! Refer 10 friends = 1,000 BDT 💰
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /track
+MESSAGE:
+📦 ORDER STATUS CHECK
+
+Please share your order number (e.g., JG00123) and I'll check the status for you.
+
+Or if you haven't ordered yet, send your list and we'll get started! 🛒
+
+─────────────────────────────────────────────────────────────────────────────
+
+SHORTCUT: /catalog
+MESSAGE:
+🛒 TODAY'S CATALOG
+
+Available now from Krishi Market:
+
+🍚 Rice & Dal — Premium Chinigura, Moshur Dal
+🫒 Oil & Spices — Soybean, Mustard, Sunflower
+🥬 Vegetables — Fresh potato, tomato, onion, seasonal
+🐟 Fish — Hilsha, Rui, Katla (morning catch)
+🍗 Meat — Halal chicken, beef
+🥚 Dairy — Fresh milk, eggs
+🧼 FMCG — Soap, detergent, essentials
+
+Send your list and we'll confirm prices! 📱
+
+─────────────────────────────────────────────────────────────────────────────
+
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                           AUTO-REPLY SETTINGS                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+AWAY MESSAGE (Set when closed - after 8PM):
+"Thanks for messaging JG Mart! 🌿
+
+We're currently closed. Our next delivery slot opens tomorrow morning.
+
+Order by 9AM for 12PM delivery, or by 3:30PM for 8PM delivery.
+
+WhatsApp: +8801870489448"
+
+GREETING MESSAGE (Set for new customers):
+"Assalamu Alaikum! Welcome to JG Mart 🌿
+
+Japan Garden City's freshest grocery delivery from Krishi Market.
+
+Send your list to get started!"
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                           AWAY HOURS SETUP                                      ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Business Hours: 6:00 AM - 10:00 PM (every day)
+Away hours: 10:00 PM - 6:00 AM
+
+Cut-off times:
+• Morning slot orders: 9:00 AM
+• Evening slot orders: 3:30 PM

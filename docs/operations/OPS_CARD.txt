@@ -1,0 +1,61 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                       JG MART — OPS CARD v1.0                           ║
+║               Print, cut out, keep in wallet. 2.5\" × 3.5\"               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                              ┌──────────────┐                            │
+│                              │  JG MART     │                            │
+│                              │  OPS CARD    │                            │
+│                              └──────────────┘                            │
+│                                                                          │
+│  📱 FAHAD'S NUMBERS                                                      │
+│  WhatsApp:  +8801870489448                                               │
+│  bKash:     [__________]                                                 │
+│  Backup #:  [__________]                                                 │
+│                                                                          │
+│  💰 UNIT ECONOMICS (per order)                                           │
+│  Revenue:  ৳138  |  Cost:  ৳67  |  Profit:  ৳71  |  Margin: 51%        │
+│                                                                          │
+│  🎯 TODAY'S TARGETS                                                      │
+│  Orders:  ___ / 10  |  Revenue:  ___ / ৳1,380  |  New:  ___             │
+│                                                                          │
+│  ⏰ TODAY'S SLOTS                                                         │
+│  ☀️ Morning: Order by 9AM → Deliver 12PM                                 │
+│  🌙 Evening: Order by 3:30PM → Deliver 8PM                               │
+│                                                                          │
+│  🚚 DELIVERY CLUSTERS                                                     │
+│  C1 (B1-6): Free  |  C2 (B7-13): Free                                   │
+│  C3 (B14-20): ৳20  |  C4 (B21-27): ৳30                                 │
+│                                                                          │
+│  🔗 KEY APPS                                                             │
+│  os.html          → Daily operations (orders, P&L, route)                │
+│  data.html        → Customers, partners, export                          │
+│  field_ops.html   → Phone: Krishi Market walk                            │
+│  backup.html      → Master backup of ALL data                            │
+│                                                                          │
+│  🆘 EMERGENCIES                                                          │
+│  Backup Rider:  [__________]  —  [__________]                            │
+│  Backup Partner:[__________]  —  [__________]                            │
+│  bKash Helpline: 16247  |  Police: 999                                   │
+│                                                                          │
+│  💡 DAILY ROUTINE                                                         │
+│  Morning:  open field_ops → confirm partners → post in groups            │
+│  Day:      open os.html → add orders as they come in                     │
+│  Evening:  os.html → Day End tab → Export & Backup                       │
+│                                                                          │
+│  "One order at a time. One customer at a time."                          │
+│  — JG Mart OS v1.0 · 139 files · 20 apps                                │
+└──────────────────────────────────────────────────────────────────────────┘
+
+━━━ PRINTING INSTRUCTIONS ━━━
+1. Copy this whole page into a text editor
+2. Set font to 8pt Consolas/Courier New
+3. Set page margins to 0.5\" all sides
+4. Print on A4 or letter paper
+5. Cut along the outer border
+6. Fold in half → fits in wallet
+
+━━━ QR CODE TEXT (for generating a QR code that links to os.html) ━━━
+When deployed: https://jgmart.vercel.app/os.html
+When local: file:///G:/JGC%20Mart/JGC%20Mart%20-%20Hermes/os.html

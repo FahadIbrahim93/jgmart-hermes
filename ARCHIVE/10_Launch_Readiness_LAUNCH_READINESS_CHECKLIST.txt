@@ -1,0 +1,387 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                   JG MART — LAUNCH READINESS CHECKLIST                     ║
+║               Hyperlocal Grocery Delivery | Japan Garden City               ║
+║                      Founder: Fahad Ibrahim | July 2026                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Legend: ☐ = Not Started  ☰ = In Progress  ☑ = Complete
+Priority: P0 = Critical (must before Day 1)  P1 = Important (within 7 days)
+          P2 = Nice to have (within 14 days)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1 — LEGAL & COMPLIANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  Business Registration — Trade license from Dhaka City Corp
+      Owner: Fahad | Notes: Renew annually. Budget ~15-25K BDT initial
+
+☐ P0  Day -30  TIN Certificate — Tax Identification Number from NBR
+      Owner: Fahad | Notes: Required for bank account and invoicing
+
+☐ P0  Day -30  Bank Account — Current account in JG Mart name
+      Owner: Fahad | Notes: Bring trade license + TIN + NID. Digital account
+              options like bKash/Bank Asia for faster setup
+
+☐ P0  Day -20  Partner Agreements — Signed MOU with each Krishi Market shop
+      Owner: Fahad | Notes: Should cover commission %, payment cycle, product
+              quality standards, return policy, termination clause
+
+☐ P0  Day -20  Rider Contracts — Employment/service agreements for riders
+      Owner: Fahad | Notes: Define delivery zones, pay structure, liability
+
+☐ P1  Day -15  Food Safety — Basic hygiene standards documented for partners
+      Owner: Fahad | Notes: Not legally mandated yet but builds trust. Create
+              1-page checklist for each shop
+
+☐ P1  Day -15  Privacy Policy — Customer data handling (WhatsApp numbers, addresses)
+      Owner: Fahad | Notes: Required for any digital presence. Simple document
+              stating you don't share/sell data
+
+☐ P1  Day -10  Terms of Service — WhatsApp ordering T&C
+      Owner: Fahad | Notes: Delivery windows, refund policy, damage policy
+
+☐ P2  Day -5   Brand Registration — Trademark for "JG Mart" logo/name
+      Owner: Fahad | Notes: Long-term asset. Can do post-launch
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2 — PARTNERS (KRISHI MARKET)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  Partner Identification — Map 8-12 target shops in Krishi Market
+      Owner: Fahad | Notes: Priority: vegetable vendors, butchers, fish mongers,
+              rice/grain wholesalers, dairy, spices, bakery
+
+☐ P0  Day -25  Initial Outreach — Visit top 8 shops with pitch deck
+      Owner: Fahad | Notes: See PARTNER_OUTREACH_PLAYBOOK.txt
+
+☐ P0  Day -20  Negotiation Complete — Finalize commission rates with 5+ shops
+      Owner: Fahad | Notes: Target 8-15% commission. See playbook for scripts
+
+☐ P0  Day -20  Signed Agreements — MOUs executed with minimum 5 partners
+      Owner: Fahad | Notes: Need this to show customers variety on Day 1
+
+☐ P0  Day -15  Price List Collection — Get printed/WhatsApp price lists from all partners
+      Owner: Brother | Notes: Update weekly. Critical for quoting customers
+
+☐ P0  Day -10  Product Catalog — Create JG Mart unified catalog
+      Owner: Brother | Notes: 30-50 SKUs minimum for launch. Categorize.
+
+☐ P1  Day -15  Partner Onboarding — Training on JG Mart ordering process
+      Owner: Fahad | Notes: How to receive orders, packing standards, handoff
+
+☐ P1  Day -10  Backup Partners — Identify 2-3 additional shops as reserve
+      Owner: Fahad | Notes: In case primary partners run out of stock
+
+☐ P2  Day -5   Product Photography — Photos of top 20 items for WhatsApp catalog
+      Owner: Brother | Notes: Use phone, natural light at Krishi Market
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3 — TECHNOLOGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  WhatsApp Business Number — Dedicated number for JG Mart
+      Owner: Fahad | Notes: Don't use personal number. Get new SIM or landline
+
+☐ P0  Day -30  WhatsApp Business API — Register for API access
+      Owner: Fahad | Notes: Use Twilio, 360dialog, or Gupshup. Or start
+              with WhatsApp Business App and upgrade later
+
+☐ P0  Day -20  Order Management System — Simple spreadsheet or basic tool
+      Owner: Brother | Notes: Google Sheets with order log, customer DB tabs.
+              Can upgrade to app later.
+
+☐ P0  Day -20  Customer Database — Sheet to track: name, phone, address, building,
+                 flat, order history, notes
+      Owner: Brother | Notes: This is your most valuable asset. Protect it.
+
+☐ P0  Day -15  Payment Setup — bKash/Nagad merchant number
+      Owner: Fahad | Notes: Get QR code printed for riders/partners. Test
+              transactions before launch.
+
+☐ P0  Day -15  WhatsApp Catalog — Set up product catalog in WhatsApp Business
+      Owner: Brother | Notes: Upload products with photos, prices, categories
+
+☐ P1  Day -10  Auto-Reply Setup — Welcome message + business hours
+      Owner: Brother | Notes: Set away message for off-hours
+
+☐ P1  Day -10  Label System — Customer labels in WhatsApp (new, repeat, VIP)
+      Owner: Brother | Notes: Helps with targeted follow-ups
+
+☐ P1  Day -5   Backup Communication — Telegram/IMO backup channel
+      Owner: Fahad | Notes: In case WhatsApp has issues
+
+☐ P2  Day -5   Simple Website/Landing Page — One page with menu + order button
+      Owner: Fahad | Notes: Can use Carrd, Notion, or simple HTML. Link on
+              social media.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4 — OPERATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -25  Rider Recruitment — Hire 3-4 riders minimum
+      Owner: Fahad | Notes: Need backup for sick days/high volume
+
+☐ P0  Day -25  Rider Training — Delivery process, app usage, JGC map, customer
+                 handling, cold chain basics
+      Owner: Fahad | Notes: 2-day training minimum. See JGC_COMMUNITY_REFERENCE.txt
+
+☐ P0  Day -20  Delivery Zone Definition — Map exact coverage area
+      Owner: Fahad | Notes: Which clusters? Where is the boundary? What about
+              adjacent areas (Mohammadpur, Dhanmondi)?
+
+☐ P0  Day -20  Delivery Fee Structure — Finalize zones and pricing
+      Owner: Fahad | Notes: Flat rate vs zone-based vs order-value based
+
+☐ P0  Day -15  Packaging Supplies — Order: bags, insulated bags (cold items),
+                 twist ties, stickers, tape
+      Owner: Brother | Notes: Source from Nilkhet or online. Buy 500+ units
+
+☐ P0  Day -15  Minimum Order Value — Set threshold for delivery
+      Owner: Fahad | Notes: Covers delivery cost. Start ~300-500 BDT
+
+☐ P0  Day -10  Delivery Hours — Define slots (morning/afternoon/evening)
+      Owner: Fahad | Notes: 3-4 slots max initially. 60-min or 90-min windows.
+
+☐ P0  Day -10  Hub/Meeting Point — Designate where riders collect orders from
+                 Krishi Market partners
+      Owner: Fahad | Notes: Pick a landmark each shop recognizes. Or have
+              partner deliver to central point.
+
+☐ P1  Day -10  Return/Damage Policy — Written process for wrong/missing items
+      Owner: Fahad | Notes: Refund or replacement? Time window to report?
+
+☐ P1  Day -5   Quality Check Process — How to inspect before delivery
+      Owner: Fahad | Notes: Especially for produce (vegetables, fruits)
+
+☐ P1  Day -5   Peak Day Plan — Friday/Saturday staffing and inventory strategy
+      Owner: Fahad | Notes: Krishi Market may have different hours. Plan ahead.
+
+☐ P2  Day -3   Operating Procedures Document — Written SOPs for every process
+      Owner: Fahad | Notes: Onboarding, ordering, packing, delivery, returns
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5 — MARKETING & SALES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  Brand Identity — Logo, color scheme, fonts finalized
+      Owner: Fahad | Notes: Simple, local, trustworthy look
+
+☐ P0  Day -25  WhatsApp Number Published — Number visible everywhere
+      Owner: Fahad | Notes: Save contact as "JG Mart" with logo
+
+☐ P0  Day -20  Community Groups — Join all JGC resident WhatsApp/FB groups
+      Owner: Brother | Notes: Identify active members, group admins. DON'T spam.
+              Introduce yourself and the service.
+
+☐ P0  Day -15  Launch Announcement — Draft soft launch message
+      Owner: Fahad | Notes: See CUSTOMER_ONBOARDING_FLOW.txt for templates
+
+☐ P0  Day -10  Flyers/Posters — Print 200-300 for notice boards, gates, shops
+      Owner: Brother | Notes: Include QR code to WhatsApp. JGC gates, shops,
+              club area, mosque notice board.
+
+☐ P0  Day -10  Gate Announcements — Coordinate with gate security/committee
+      Owner: Fahad | Notes: Get permission. Ask if you can post flyers.
+
+☐ P0  Day -5   Referral Program Design — "Refer 3 friends, get 1 free delivery"
+      Owner: Fahad | Notes: Simple, viral. See onboarding flow.
+
+☐ P1  Day -10  Social Media — Instagram page for JG Mart
+      Owner: Brother | Notes: Post daily: product photos, delivery updates,
+              customer reviews. Use hashtags: #JGCMart #JapanGardenCity #Dhaka
+
+☐ P1  Day -10  Influencer/Community Leaders — Identify 3-5 key JGC residents
+      Owner: Fahad | Notes: Give them free delivery credit to spread word
+
+☐ P1  Day -5   Launch Event — Soft launch day: free delivery for first 20 orders
+      Owner: Fahad | Notes: Create urgency and buzz
+
+☐ P2  Day -5   Google Business Profile — Claim JG Mart on Google Maps
+      Owner: Brother | Notes: Helps with discovery
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6 — FINANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  Startup Budget — Finalize total capital needed
+      Owner: Fahad | Notes: Estimate: registration 20K + bikes 150-200K +
+              phones 40K + packaging 10K + marketing 15K + working capital
+              50K+ = ~285-335K BDT minimum
+
+☐ P0  Day -25  Funding Secured — Capital available in bank account
+      Owner: Fahad | Notes: Don't launch without 2+ months runway
+
+☐ P0  Day -20  Pricing Model — Finalized: markup %, delivery fee, minimum order
+      Owner: Fahad | Notes: Ensure margin covers: commission to partners,
+              delivery cost, rider salary, packaging, marketing, overhead
+
+☐ P0  Day -15  Partner Payment Terms — Agree with partners: daily? weekly?
+      Owner: Fahad | Notes: Daily settlements build trust but are operationally
+              heavy. Weekly is more common.
+
+☐ P0  Day -15  Rider Compensation — Finalized pay structure
+      Owner: Fahad | Notes: Per-delivery (80-150 BDT) or daily (600-800 BDT)?
+              Per-delivery better for cash flow initially.
+
+☐ P0  Day -10  Pricing Sheet — Complete list of all products with JG Mart price
+      Owner: Fahad | Notes: Add 10-20% markup over partner price. Be competitive
+              with local bazaars.
+
+☐ P1  Day -10  Cash Flow Tracker — Daily: money in, money out, balance
+      Owner: Brother | Notes: Critical for survival. Update every evening.
+
+☐ P1  Day -10  Break-even Analysis — Orders per day needed to cover costs
+      Owner: Fahad | Notes: Calculate: (partner commission + rider cost +
+              packaging) × orders = daily burn. Target: break even by month 3.
+
+☐ P2  Day -5   Accounting Setup — Bookkeeping system (app or spreadsheet)
+      Owner: Fahad | Notes: Track every transaction. Use BD tax-compliant method.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7 — TEAM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -30  Founder Role Defined — What does Fahad do day-to-day?
+      Owner: Fahad | Notes: Partnerships, strategy, finance, escalation
+
+☐ P0  Day -30  Co-founder Role Defined — What does brother do day-to-day?
+      Owner: Brother | Notes: Operations, orders, customer service, catalog
+
+☐ P0  Day -25  Rider Team — 3-4 riders hired and briefed
+      Owner: Fahad | Notes: Day 1: start with 2 riders, add more as volume grows
+
+☐ P1  Day -20  Support Coverage — Who handles orders during Fahad/brother's
+                 absence? (Illness, emergency, etc.)
+      Owner: Fahad | Notes: Designate a backup. Train on basics.
+
+☐ P1  Day -15  Escalation Protocol — Who handles angry customers? Complaints?
+                 Refunds?
+      Owner: Fahad | Notes: Fahad should personally handle major issues initially.
+
+☐ P2  Day -10  Performance Reviews — Weekly check-ins planned for team
+      Owner: Fahad | Notes: Keep morale high. Address issues early.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8 — EQUIPMENT & INFRASTRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -25  Delivery Bikes — 2-3 bikes (with or without riders providing own)
+      Owner: Fahad | Notes: If riders use own bikes, offer fuel/maintenance allowance.
+              Otherwise buy/rent 2 bikes (~50-80K each).
+
+☐ P0  Day -25  Rider Helmets — 3-4 quality helmets (mandatory)
+      Owner: Fahad | Notes: Safety first. Buy certified ones.
+
+☐ P0  Day -20  Mobile Phones — 2 phones minimum (for riders + office)
+      Owner: Fahad | Notes: Budget ~15-25K each. Android preferred.
+
+☐ P0  Day -20  Sim Cards — JG Mart sim for WhatsApp, rider sims
+      Owner: Fahad | Notes: GP/Robi/Airtel. Ensure good JGC coverage.
+
+☐ P0  Day -15  Packaging Materials — Stock for first 2 weeks
+      Owner: Brother | Notes: Plastic bags (500), insulated bags (10), twist
+              ties/staples, stickers with JG Mart logo, tape
+
+☐ P0  Day -15  Insulated Bags — For cold items (meat, fish, dairy, ice cream)
+      Owner: Brother | Notes: Source from Nilkhet or online. 10-15 units.
+
+☐ P1  Day -10  Scale/Weighing Machine — For accurate weight-based pricing
+      Owner: Fahad | Notes: Partner shops should have, but verify. Bring backup
+              pocket scale for delivery if needed.
+
+☐ P1  Day -10  Office Space — Designated spot for order processing
+      Owner: Fahad | Notes: Can start from home. Need table, chair, phone.
+
+☐ P1  Day -5   First Aid Kit — For riders
+      Owner: Fahad | Notes: Basic kit + basic bike repair tools
+
+☐ P2  Day -5   Bicycle Locks/Security — For parked bikes at Krishi Market
+      Owner: Fahad | Notes: Prevent theft
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9 — DAY 1 PREPARATION (FINAL 48 HOURS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Day -2   Dry Run — Simulate end-to-end: order → partner → pack → deliver
+      Owner: Fahad + Brother | Notes: Find gaps. Time each step.
+
+☐ P0  Day -2   All Partners Confirmed — Call/visit every partner, confirm ready
+      Owner: Fahad | Notes: "We launch tomorrow. You're ready for orders?"
+
+☐ P0  Day -2   Riders Briefed — Final meeting with riders, route walkthrough
+      Owner: Fahad | Notes: Walk through JGC. Point out tricky flats/buildings.
+
+☐ P0  Day -1   WhatsApp Active — Post status, catalog live, auto-reply working
+      Owner: Brother | Notes: Test sending/receiving with a friend.
+
+☐ P0  Day -1   Packaging Ready — All materials stocked and organized
+      Owner: Brother | Notes: Pre-pack 50 bags for Day 1 rush.
+
+☐ P0  Day -1   Payment Working — bKash/Nagad tested, QR visible
+      Owner: Fahad | Notes: Do a test transaction. Confirm both directions.
+
+☐ P1  Day -1   Team Briefing — All hands meeting: roles, expectations, escalation
+      Owner: Fahad | Notes: Energize the team. Remind them this is Day 1.
+
+☐ P1  Day -1   Customer Message Ready — First announcement drafted and approved
+      Owner: Fahad | Notes: Post to all JGC groups the night before/morning of.
+
+☐ P1  Day -1   Contingency Plan — What if partner runs out? Rider sick?
+                 System down?
+      Owner: Fahad | Notes: Write down backup options for top 5 scenarios.
+
+☐ P2  Day -1   Press Kit Ready — If any media/social coverage planned
+      Owner: Fahad | Notes: Photos, logo, founder bio, elevator pitch.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LAUNCH DAY — DAY 0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Morning:
+  ☐ Team huddle by 7:00 AM — Roles, goals, pep talk
+  ☐ Riders deployed to Krishi Market by 7:30 AM
+  ☐ WhatsApp announcement posted by 8:00 AM
+  ☐ First order response within 5 minutes of any message
+  ☐ Photo documentation of Day 1 (orders, deliveries, team)
+
+Evening:
+  ☐ Team debrief — What worked? What broke? What's tomorrow's fix?
+  ☐ Numbers review: orders taken, delivered, revenue, issues
+  ☐ Update checklist — Mark Day 0 items complete or deferred
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POST-LAUNCH TRACKING (First 30 Days)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ P0  Daily   Daily Huddle — See DAILY_HUDDLE_TEMPLATE.txt
+☐ P0  Daily   Order log updated
+☐ P0  Daily   Cash flow updated
+☐ P0  Weekly  Partner review meeting — Feedback, issues, adjustments
+☐ P1  Weekly  Customer feedback review — WhatsApp complaints/suggestions
+☐ P1  Weekly  Financial review — Revenue, costs, margin
+☐ P1  Weekly  Team check-in — Morale, workload, pay
+☐ P2  Weekly  Competitive scan — What are others doing? Any new players?
+☐ P2  Biweekly Marketing review — What content worked? Adjust strategy.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EMERGENCY CONTACTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Founder:        Fahad Ibrahim    [PHONE]
+Co-founder:     [Brother Name]   [PHONE]
+Lead Rider:     [Name]           [PHONE]
+Lead Partner:   [Shop Name]      [PHONE]
+Bank:           [Bank Name]      [PHONE]
+bKash Support:  16247
+Nagad Support:  16116
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHECKLIST PROGRESS TRACKER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Items: [___]   Complete: [___]   In Progress: [___]   Not Started: [___]
+P0 Complete: [___] / [___]   P1 Complete: [___] / [___]   P2 Complete: [___] / [___]
+
+Progress: [______]% | Target: 100% by Day 0
+
+Last Updated: _______________  Reviewed By: _______________

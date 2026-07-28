@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Operations Dashboard</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f0f2f0;color:#1a1a1a;max-width:1100px;margin:0 auto;padding:16px}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.header h1{font-size:1.2rem;font-weight:800;color:#00442D}.header h1 span{color:#c9a227}
+.header .date{font-size:.82rem;color:#5c5c5c;font-weight:500}
+.top-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:700px){.top-row{grid-template-columns:1fr}}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:400px){.kpi-grid{grid-template-columns:1fr 1fr}}
+.kpi{background:#fff;border-radius:10px;padding:12px;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+.kpi .icon{font-size:1.1rem;margin-bottom:2px}
+.kpi .label{font-size:.65rem;color:#5c5c5c;text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.kpi .value{font-size:1.3rem;font-weight:800;color:#00442D;margin-top:2px}
+.kpi .value.gold{color:#c9a227}.kpi .value.green{color:#0a6b47}.kpi .value.red{color:#c0392b}
+.kpi .sub{font-size:.68rem;color:#999;margin-top:2px}
+.status-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+.status-card h3{font-size:.78rem;color:#00442D;margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.status-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.8rem;border-bottom:1px solid #f0f0f0}
+.status-item:last-child{border-bottom:none}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+.dot-green{background:#0a6b47}.dot-gold{background:#c9a227}.dot-red{background:#c0392b}.dot-gray{background:#bdc3c7}
+.mid-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:600px){.mid-row{grid-template-columns:1fr}}
+.section-card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+.section-card h3{font-size:.78rem;color:#00442D;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.quick-link{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:.8rem;border-bottom:1px solid #f5f5f5;cursor:pointer;transition:background .1s}
+.quick-link:hover{background:#f9faf9;margin:0 -4px;padding:7px 4px;border-radius:6px}
+.quick-link:last-child{border-bottom:none}
+.quick-link .name{font-weight:500}.quick-link .arrow{color:#c9a227;font-weight:700}
+.breakeven-bar{height:8px;background:#e8ece8;border-radius:999px;margin:8px 0;overflow:hidden;position:relative}
+.breakeven-fill{height:100%;border-radius:999px;transition:width .5s;background:linear-gradient(90deg,#c0392b,#c9a227,#0a6b47)}
+.breakeven-label{display:flex;justify-content:space-between;font-size:.7rem;color:#5c5c5c}
+.tip-box{background:#fff8e1;border-radius:10px;padding:12px;margin-bottom:12px;font-size:.78rem;color:#7a6b1a;line-height:1.4}
+.tip-box strong{color:#00442D}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.footer-links a{display:inline-flex;align-items:center;gap:4px;background:#fff;padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:500;color:#00442D;text-decoration:none;border:1px solid rgba(0,68,45,.1)}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div><h1>JG <span>Mart</span> · Operations</h1></div>
+<div class="date" id="currentDate"></div>
+</div>
+
+<!-- TODAY'S PRIORITY TIP -->
+<div class="tip-box" id="dailyTip">
+<strong>💡 Today's Priority:</strong> <span id="tipText">Walk Krishi Market and confirm partner availability for today's slots.</span>
+</div>
+
+<!-- TOP ROW: KPIs + STATUS -->
+<div class="top-row">
+<div class="kpi-grid" id="kpiGrid">
+<div class="kpi"><div class="icon">📦</div><div class="label">Today's Orders</div><div class="value" id="kpiOrders">0</div><div class="sub">Target: 10/day</div></div>
+<div class="kpi"><div class="icon">💰</div><div class="label">Month Revenue</div><div class="value gold" id="kpiRevenue">৳0</div><div class="sub">Target: 41,400</div></div>
+<div class="kpi"><div class="icon">👥</div><div class="label">Active Customers</div><div class="value" id="kpiCustomers">0</div><div class="sub">Month target: 100</div></div>
+<div class="kpi"><div class="icon">💵</div><div class="label">Cash Position</div><div class="value green" id="kpiCash">৳250,000</div><div class="sub">Seed: 250,000</div></div>
+<div class="kpi"><div class="icon">🚚</div><div class="label">On-Time Rate</div><div class="value" id="kpiOnTime">—</div><div class="sub">Target: 90%+</div></div>
+<div class="kpi"><div class="icon">⭐</div><div class="label">Avg Rating</div><div class="value gold" id="kpiRating">—</div><div class="sub">Target: 4.5★</div></div>
+</div>
+
+<!-- STATUS PANEL -->
+<div class="status-card">
+<h3>⚡ Today's Status</h3>
+<div id="statusList">
+<div class="status-item"><span><span class="status-dot dot-green"></span>Morning slot open — order by 9AM</span><span style="font-size:.7rem;color:#999">Active</span></div>
+<div class="status-item"><span><span class="status-dot dot-gold"></span>Evening slot — order by 3:30PM</span><span style="font-size:.7rem;color:#999">Open</span></div>
+<div class="status-item"><span><span class="status-dot dot-gray"></span>Partners confirmed: 0/5</span><span style="font-size:.7rem;color:#999">Pending</span></div>
+<div class="status-item"><span><span class="status-dot dot-green"></span>Dashboard online ✓</span><span style="font-size:.7rem;color:#999">OK</span></div>
+<div class="status-item"><span><span class="status-dot dot-green"></span>Catalog deployed ✓</span><span style="font-size:.7rem;color:#999">OK</span></div>
+</div>
+</div>
+</div>
+
+<!-- MID ROW: BREAKEVEN + DAYS -->
+<div class="mid-row">
+<div class="section-card">
+<h3>📊 Break-Even Tracker</h3>
+<div class="breakeven-bar"><div class="breakeven-fill" style="width:0%" id="beFill"></div></div>
+<div class="breakeven-label"><span id="beCurrent">0 orders this month</span><span id="beTarget">Target: 1,000</span></div>
+<p style="font-size:.7rem;color:#999;margin-top:6px;">You need 1,000 orders/month at ৳71 contribution to break even.</p>
+</div>
+<div class="section-card">
+<h3>📅 Running Days</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;text-align:center">
+<div style="background:#f7f9f7;border-radius:8px;padding:10px"><div style="font-size:1.5rem;font-weight:800;color:#00442D" id="daysSinceLaunch">0</div><div style="font-size:.68rem;color:#5c5c5c">Days since launch</div></div>
+<div style="background:#f7f9f7;border-radius:8px;padding:10px"><div style="font-size:1.5rem;font-weight:800;color:#c9a227" id="daysTillTarget">90</div><div style="font-size:.68rem;color:#5c5c5c">Days till target (350 customers)</div></div>
+</div>
+</div>
+</div>
+
+<!-- QUICK ACCESS TO ALL APPS -->
+<div class="section-card">
+<h3>🚀 Quick Access <span style="font-size:.65rem;font-weight:400;color:#999">9 apps · 87 files</span></h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px">
+<a class="quick-link" href="05_Tech_Dashboard/index.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">📊</span><span class="name">KPI Dashboard</span></a>
+<a class="quick-link" href="05_Tech_Dashboard/analytics.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">📈</span><span class="name">Analytics</span></a>
+<a class="quick-link" href="05_Tech_Dashboard/orders.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">📋</span><span class="name">Orders</span></a>
+<a class="quick-link" href="05_Tech_Dashboard/finance.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">💰</span><span class="name">Finance</span></a>
+<a class="quick-link" href="05_Tech_Dashboard/dailypnl.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">📉</span><span class="name">Daily P&L</span></a>
+<a class="quick-link" href="05_Tech_Dashboard/commlog.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">💬</span><span class="name">Comm Log</span></a>
+<a class="quick-link" href="06_Web_Catalog/index.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">🛒</span><span class="name">Catalog</span></a>
+<a class="quick-link" href="06_Web_Catalog/order_intake.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">📝</span><span class="name">Order Intake</span></a>
+<a class="quick-link" href="07_Marketing/landing.html" target="_blank" style="border:1px solid #e8ece8;border-radius:8px;padding:10px;flex-direction:column;text-align:center;gap:2px"><span style="font-size:1.2rem">🏠</span><span class="name">Landing</span></a>
+</div>
+</div>
+
+<script>
+document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-BD', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+
+// Dynamic tips based on day of week
+const tips = [
+"Walk Krishi Market and confirm partner availability for today's slots.",
+"Follow up on yesterday's deliveries — ask 3 customers for feedback.",
+"Post morning catalog in building WhatsApp groups before 7AM.",
+"Check bKash settlement and update cash position in Finance Dashboard.",
+"Review partner performance — any quality issues this week?",
+"Send weekend promotion message to all building groups.",
+"End-of-week wrap-up: calculate weekly totals, plan next week."
+];
+document.getElementById('tipText').textContent = tips[new Date().getDay()] || tips[0];
+
+// Days since launch counter (launch date = Aug 1, 2026)
+const launchDate = new Date('2026-08-01');
+const today = new Date();
+const daysSince = Math.floor((today - launchDate) / (1000*60*60*24));
+document.getElementById('daysSinceLaunch').textContent = daysSince >= 0 ? daysSince : 0;
+document.getElementById('daysTillTarget').textContent = Math.max(0, 90 - (daysSince >= 0 ? daysSince : 0));
+
+// Check for data in other localStorage apps
+try {
+const financeData = JSON.parse(localStorage.getItem('jgmart_finance') || '{}');
+if(financeData.entries && financeData.entries.length > 0){
+const thisMonth = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+const monthEntries = financeData.entries.filter(e => e.date.startsWith(thisMonth));
+const monthRev = monthEntries.reduce((s,e) => s+(e.revenue||0), 0);
+const monthOrders = monthEntries.reduce((s,e) => s+(e.orders||0), 0);
+document.getElementById('kpiOrders').textContent = monthOrders;
+document.getElementById('kpiRevenue').textContent = `৳${monthRev.toLocaleString()}`;
+
+// Cash position
+const cashIn = financeData.entries.reduce((s,e) => s+(e.cashAdd||0), 0);
+const cashOut = financeData.entries.reduce((s,e) => s+(e.cashOut||0), 0);
+const cash = 250000 + cashIn - cashOut;
+document.getElementById('kpiCash').textContent = `৳${cash.toLocaleString()}`;
+
+// Break-even fill
+const targetOrders = 1000;
+const pct = Math.min(100, (monthOrders / targetOrders) * 100);
+document.getElementById('beFill').style.width = pct + '%';
+document.getElementById('beCurrent').textContent = `${monthOrders} orders this month`;
+}
+} catch(e){}
+
+// Total files count
+document.querySelector('.section-card h3 span').textContent = '9 apps · 87 files';
+</script>
+</body>
+</html>

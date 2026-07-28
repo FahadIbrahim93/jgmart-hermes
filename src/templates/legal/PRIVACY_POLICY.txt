@@ -1,0 +1,349 @@
+================================================================================
+                    JG MART - PRIVACY POLICY
+                (Data Protection and Privacy Notice)
+================================================================================
+
+Last Updated: [DATE]
+Effective Date: [DATE]
+
+This Privacy Policy ("Policy") describes how JG Mart ("we", "us", "our", or
+"JG Mart") collects, uses, stores, protects, and discloses your personal
+information when you use our hyperlocal grocery delivery service ("Service").
+This Policy applies to all customers, website visitors, WhatsApp users, and
+any other individuals who interact with our Service.
+
+Please read this Policy carefully. By using our Service, you consent to the
+data practices described in this Policy. If you do not agree with this Policy,
+please do not use our Service.
+
+================================================================================
+                    1. WHO WE ARE
+================================================================================
+
+JG Mart is a hyperlocal grocery delivery business operating in Japan Garden
+City, Mohammadpur, Dhaka, Bangladesh.
+
+Our contact details:
+- WhatsApp: [WHATSAPP NUMBER]
+- Phone:     [PHONE NUMBER]
+- Email:     [EMAIL ADDRESS]
+- Address:   [FULL BUSINESS ADDRESS], Dhaka, Bangladesh
+
+For privacy-related inquiries, please contact our Privacy Officer:
+Attn: [PRIVACY OFFICER / FAHAD IBRAHIM]
+WhatsApp: [WHATSAPP NUMBER]
+Email: [EMAIL ADDRESS]
+
+================================================================================
+                    2. INFORMATION WE COLLECT
+================================================================================
+
+We collect the following categories of personal information when you use
+our Service:
+
+2.1  IDENTITY AND CONTACT INFORMATION
+     - Full name
+     - Phone number (primary contact via WhatsApp / mobile)
+     - Email address (if provided)
+     - Delivery address (full address, floor, apartment number, landmark)
+
+2.2  ORDER AND TRANSACTION INFORMATION
+     - Order history (items purchased, quantities, prices)
+     - Payment method (COD, bKash, Nagad, etc.)
+     - Payment transaction references and status
+     - Delivery preferences and time slots
+     - Cancellation and refund history
+
+2.3  COMMUNICATION DATA
+     - WhatsApp messages and call logs related to orders and customer
+       service inquiries
+     - Customer feedback, complaints, and reviews
+     - Support ticket history
+
+2.4  TECHNICAL AND DEVICE INFORMATION
+     - Device type (mobile phone model)
+     - Operating system
+     - IP address (if accessing via mobile data or Wi-Fi)
+     - App or service usage patterns (if applicable)
+
+2.5  PHOTOGRAPHIC EVIDENCE (if applicable)
+     - Delivery confirmation photos
+     - Product condition photos for quality assurance
+     - Customer identification photos (if required for COD verification)
+
+================================================================================
+                    3. HOW WE USE YOUR INFORMATION
+================================================================================
+
+We use your personal information for the following purposes:
+
+3.1  SERVICE PROVISION
+     - To process and fulfill your grocery orders
+     - To arrange delivery to your specified address
+     - To send order confirmations, delivery updates, and status notifications
+     - To manage payment collection and processing
+     - To handle customer service inquiries and support requests
+
+3.2  COMMUNICATION
+     - To communicate with you about your orders via WhatsApp, SMS, or
+       phone calls
+     - To send promotional offers, discounts, and new product announcements
+       (you may opt out at any time)
+     - To request feedback and conduct satisfaction surveys
+     - To notify you of changes to our Service, Terms, or this Policy
+
+3.3  BUSINESS OPERATIONS
+     - To maintain and improve our Service quality and efficiency
+     - To analyze ordering patterns and optimize product availability
+     - To train our staff and riders
+     - To prevent fraud, abuse, and unauthorized transactions
+     - To comply with legal and regulatory obligations
+
+3.4  LEGAL COMPLIANCE
+     - To comply with applicable laws, regulations, and legal processes
+     - To cooperate with law enforcement and government authorities when
+       required
+     - To protect our rights, property, and safety, as well as the rights,
+       property, and safety of our customers and third parties
+
+================================================================================
+                    4. LEGAL BASIS FOR PROCESSING
+================================================================================
+
+Under applicable Bangladeshi law, we process your personal information
+based on the following legal grounds:
+
+4.1  CONTRACTUAL NECESSITY: Processing is necessary to fulfill our contract
+     with you (order fulfillment, delivery, payment).
+
+4.2  LEGITIMATE INTERESTS: Processing is necessary for our legitimate
+     business interests, such as improving our Service, preventing fraud,
+     and ensuring security, provided these interests are not overridden by
+     your rights and freedoms.
+
+4.3  LEGAL OBLIGATION: Processing is necessary to comply with applicable
+     laws and regulations.
+
+4.4  CONSENT: Where required, we will obtain your explicit consent before
+     processing your personal information for specific purposes (e.g.,
+     marketing communications). You may withdraw consent at any time.
+
+================================================================================
+                    5. DATA SHARING AND DISCLOSURE
+================================================================================
+
+5.1  DELIVERY PARTNERS. We share your name, phone number, and delivery
+     address with our delivery riders and logistics partners solely for
+     the purpose of fulfilling your order. These partners are required to
+     maintain the confidentiality of your information and may only use it
+     for order delivery.
+
+5.2  PAYMENT PROCESSORS. We share your payment information (transaction
+     references, amount) with our payment partners (bKash, banks, etc.)
+     solely for processing payments. We do not store full payment card
+     or account details on our servers.
+
+5.3  SUPPLIERS AND VENDORS. We may share anonymized order data with our
+     supplier partners (e.g., Krishi Market vendors) for inventory
+     planning and fulfillment purposes. No personal identifiers are shared
+     with suppliers.
+
+5.4  SERVICE PROVIDERS. We may engage third-party service providers to
+     assist with our operations (e.g., cloud storage, messaging platforms,
+     analytics). These providers are bound by confidentiality agreements
+     and may only process your data as instructed by us.
+
+5.5  LEGAL AND REGULATORY AUTHORITIES. We may disclose your personal
+     information if required to do so by Applicable Law, regulation, or
+     legal process, or if we believe in good faith that such disclosure is
+     necessary to protect our rights, property, or safety, or that of our
+     customers or third parties.
+
+5.6  BUSINESS TRANSFER. In the event of a merger, acquisition, sale of
+     assets, or other business transfer, your personal information may be
+     transferred as part of the transaction. We will notify you of any
+     such transfer via WhatsApp or email.
+
+5.7  NO SALE OF PERSONAL DATA. We do not sell, rent, or trade your personal
+     information to third parties for marketing or any other purposes.
+
+================================================================================
+                    6. DATA SECURITY
+================================================================================
+
+6.1  We implement reasonable technical, administrative, and physical
+     security measures to protect your personal information from unauthorized
+     access, disclosure, alteration, or destruction.
+
+6.2  Security measures include, but are not limited to:
+     - Encryption of data in transit and at rest
+     - Access controls and authentication mechanisms
+     - Regular security audits and vulnerability assessments
+     - Staff training on data protection and privacy best practices
+     - Secure messaging and communication protocols
+
+6.3  While we strive to protect your personal information, no method of
+     transmission over the Internet or electronic storage is 100% secure.
+     We cannot guarantee absolute security of your data.
+
+================================================================================
+                    7. DATA RETENTION
+================================================================================
+
+7.1  We retain your personal information for as long as necessary to
+     provide our Service and fulfill the purposes outlined in this Policy.
+
+7.2  ORDER DATA. We retain order and transaction records for a minimum of
+     [INSERT PERIOD, e.g., three (3) years] to comply with legal and
+     tax obligations, or longer if required by Applicable Law.
+
+7.3  CUSTOMER ACCOUNT DATA. If you have an account with us, we retain your
+     account information until you request deletion or until the account
+     has been inactive for [INSERT PERIOD, e.g., two (2) years].
+
+7.4  MARKETING DATA. We retain your contact information for marketing
+     purposes until you opt out, at which point we will remove you from
+     our marketing lists within a reasonable timeframe.
+
+7.5  DATA DELETION. Upon your request or when retention is no longer
+     necessary, we will securely delete or anonymize your personal
+     information, except where retention is required by Applicable Law.
+
+================================================================================
+                    8. YOUR RIGHTS
+================================================================================
+
+You have the following rights regarding your personal information:
+
+8.1  RIGHT TO ACCESS. You may request access to the personal information
+     we hold about you by contacting us via WhatsApp or email. We will
+     provide you with a copy of your data within a reasonable timeframe,
+     subject to verification of your identity.
+
+8.2  RIGHT TO CORRECTION. You may request that we correct any inaccurate
+     or incomplete personal information we hold about you.
+
+8.3  RIGHT TO DELETION (RIGHT TO BE FORGOTTEN). You may request that we
+     delete your personal information, subject to legal retention
+     requirements and legitimate business interests. We will comply with
+     valid deletion requests within a reasonable timeframe.
+
+8.4  RIGHT TO OPT OUT. You may opt out of receiving marketing communications
+     at any time by:
+     - Replying "STOP" to any WhatsApp message from JG Mart;
+     - Contacting us via WhatsApp or email and requesting removal from
+       marketing lists;
+     - Using any unsubscribe mechanism provided in our communications.
+
+8.5  RIGHT TO DATA PORTABILITY. You may request that we provide your
+     personal information in a structured, commonly used, and machine-
+     readable format, or transmit it to another service provider, where
+     technically feasible.
+
+8.6  RIGHT TO LODGE A COMPLAINT. If you believe that our processing of
+     your personal information violates applicable law or this Policy,
+     you have the right to lodge a complaint with the relevant data
+     protection or regulatory authority in Bangladesh.
+
+8.7  HOW TO EXERCISE YOUR RIGHTS. To exercise any of the rights described
+     above, please contact us at:
+     - WhatsApp: [WHATSAPP NUMBER]
+     - Email:    [EMAIL ADDRESS]
+     We may request verification of your identity before processing your
+     request. We will respond to your request within [INSERT PERIOD,
+     e.g., thirty (30) days].
+
+================================================================================
+                    9. COOKIES AND TRACKING
+================================================================================
+
+9.1  If we operate a website or mobile application, we may use cookies and
+     similar tracking technologies to enhance your experience, analyze
+     usage patterns, and personalize content.
+
+9.2  You may disable cookies through your browser settings. However,
+     disabling cookies may affect the functionality of our Service.
+
+================================================================================
+                    10. CHILDREN'S PRIVACY
+================================================================================
+
+10.1 Our Service is not intended for children under the age of eighteen (18).
+     We do not knowingly collect personal information from children under
+     eighteen (18). If we become aware that we have collected personal
+     information from a child under eighteen (18), we will take steps to
+     delete such information promptly.
+
+================================================================================
+                    11. THIRD-PARTY LINKS AND SERVICES
+================================================================================
+
+11.1 Our Service may contain links to third-party websites, applications,
+     or services (including payment gateways, delivery platforms, and
+     supplier websites). This Policy does not apply to third-party
+     services. We encourage you to review the privacy policies of any
+     third-party services you access.
+
+================================================================================
+                    12. INTERNATIONAL DATA TRANSFERS
+================================================================================
+
+12.1 Your personal information is collected, processed, and stored in
+     Bangladesh. We do not transfer your personal information outside
+     Bangladesh unless required for the purpose of providing our Service
+     (e.g., international payment processing) or as required by Applicable
+     Law. Any international transfers shall be subject to appropriate
+     safeguards.
+
+================================================================================
+                    13. CHANGES TO THIS POLICY
+================================================================================
+
+13.1 We may update this Privacy Policy from time to time to reflect changes
+     in our practices, technology, legal requirements, or other factors.
+
+13.2 We will notify you of any material changes to this Policy via
+     WhatsApp or email, or by posting the updated Policy on our website
+     or WhatsApp channel.
+
+13.3 Your continued use of our Service after any changes constitutes
+     acceptance of the revised Policy. We encourage you to review this
+     Policy periodically.
+
+================================================================================
+                    14. DISPUTE RESOLUTION
+================================================================================
+
+14.1 Any dispute relating to this Privacy Policy or our data processing
+     practices shall be resolved in accordance with the dispute resolution
+     provisions in our Terms of Service.
+
+14.2 This Policy is governed by the laws of the People's Republic of
+     Bangladesh.
+
+================================================================================
+                    15. CONTACT US
+================================================================================
+
+If you have any questions, concerns, or requests regarding this Privacy
+Policy or our data practices, please contact us:
+
+JG Mart
+Attn: Fahad Ibrahim, Founder (Privacy Officer)
+Address: [FULL BUSINESS ADDRESS], Japan Garden City, Mohammadpur, Dhaka,
+         Bangladesh
+WhatsApp: [WHATSAPP NUMBER]
+Phone:     [PHONE NUMBER]
+Email:     [EMAIL ADDRESS]
+Business Hours: 8:00 AM - 10:00 PM, seven days a week
+
+================================================================================
+                    ACKNOWLEDGMENT
+================================================================================
+
+BY USING THE JG MART SERVICE, YOU ACKNOWLEDGE THAT YOU HAVE READ,
+UNDERSTOOD, AND AGREE TO THIS PRIVACY POLICY.
+
+================================================================================
+                    END OF PRIVACY POLICY
+================================================================================

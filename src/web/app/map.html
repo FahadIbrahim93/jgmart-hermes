@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — System Map</title>
+<meta name="theme-color" content="#00442D">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f0f2f0;color:#1a1a1a;min-height:100vh}
+.topbar{background:#00442D;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar h1{font-size:1.2rem;font-weight:800}.topbar h1 span{color:#c9a227}
+.topbar .stats{font-size:.75rem;opacity:.8}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.map-header{margin-bottom:20px}
+.map-header h2{font-size:1rem;color:#00442D;font-weight:700;margin-bottom:4px}
+.map-header p{font-size:.82rem;color:#5c5c5c}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;font-size:.75rem}
+.legend span{display:flex;align-items:center;gap:4px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot-green{background:#0a6b47}.dot-gold{background:#c9a227}.dot-blue{background:#1565c0}.dot-gray{background:#95a5a6}
+.folder{background:#fff;border-radius:12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);overflow:hidden}
+.folder-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;transition:background .1s;user-select:none}
+.folder-header:hover{background:#f7fbf8}
+.folder-header .name{font-weight:700;font-size:.88rem;color:#00442D;display:flex;align-items:center;gap:6px}
+.folder-header .count{font-size:.7rem;color:#5c5c5c;font-weight:500;background:#f0f2f0;padding:2px 8px;border-radius:999px}
+.folder-header .arrow{color:#c9a227;font-size:.75rem;transition:transform .2s}
+.folder-header .arrow.open{transform:rotate(90deg)}
+.folder-body{display:none;padding:0 16px 14px;border-top:1px solid #f0f0f0}
+.folder-body.open{display:block}
+.file-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px;padding-top:10px}
+.file-card{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;transition:background .1s;cursor:pointer}
+.file-card:hover{background:#f7fbf8}
+.file-card .icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.file-card .info{flex:1;min-width:0}
+.file-card .info .name{font-size:.78rem;font-weight:600;color:#00442D;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-card .info .desc{font-size:.68rem;color:#5c5c5c;line-height:1.3}
+.file-card .status{flex-shrink:0}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.search-bar{width:100%;padding:10px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:.85rem;margin-bottom:16px;font-family:inherit}
+.search-bar:focus{border-color:#00442D;outline:none;box-shadow:0 0 0 3px rgba(0,68,45,.08)}
+.count-bar{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.count-card{background:#fff;border-radius:8px;padding:8px 14px;font-size:.75rem;box-shadow:0 1px 4px rgba(0,0,0,.03);display:flex;align-items:center;gap:6px}
+.count-card .num{font-weight:700;color:#00442D}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<div><h1>JG <span>Mart</span> System Map</h1></div>
+<div class="stats" id="stats">Loading...</div>
+</div>
+
+<div class="container">
+<input class="search-bar" id="searchInput" placeholder="🔍 Search files, folders, or descriptions..." oninput="filterMap()">
+
+<div class="count-bar" id="countBar"></div>
+
+<div class="legend">
+<span><span class="dot dot-green"></span> Core app</span>
+<span><span class="dot dot-gold"></span> Document</span>
+<span><span class="dot dot-blue"></span> Script</span>
+<span><span class="dot dot-gray"></span> Template</span>
+<span>⬇️ Click folders to expand</span>
+</div>
+
+<div id="mapContainer"></div>
+</div>
+
+<script>
+const SYSTEM = {
+"01_Investor_Deck": {icon:"💰", files:[
+{name:"INVESTOR_1PAGER.txt",desc:"Seed ask 250K, unit economics, growth plan",type:"doc"},
+{name:"EXECUTIVE_SUMMARY.txt",desc:"Full narrative: problem, solution, model, team",type:"doc"},
+{name:"PITCH_DECK_OUTLINE.txt",desc:"12-slide deck structure with speaker notes",type:"doc"},
+{name:"PITCH_SCRIPT_3MIN.txt",desc:"Verbatim 3-minute pitch with timing cues",type:"doc"},
+{name:"INVESTOR_FAQ.txt",desc:"20+ Q&A across 6 sections",type:"doc"},
+{name:"PITCH_COACHING_GUIDE.txt",desc:"Objections, trap questions, body language",type:"doc"},
+{name:"PRD_EXTRACTED.txt",desc:"Product requirements document",type:"doc"}
+]},
+"02_Brand_Assets": {icon:"🎨", files:[
+{name:"BRAND_GUIDELINES.txt",desc:"Colors, fonts, voice, logo usage",type:"doc"},
+{name:"LOGO_VARIATIONS_GUIDE.txt",desc:"Logo on different backgrounds",type:"doc"},
+{name:"logo.svg",desc:"Full brand lockup (400x200)",type:"doc"},
+{name:"logo_icon.svg",desc:"Standalone icon for WhatsApp/app (100x100)",type:"doc"}
+]},
+"03_Legal_Templates": {icon:"⚖️", files:[
+{name:"PARTNER_AGREEMENT.txt",desc:"15-article partnership agreement",type:"doc"},
+{name:"CUSTOMER_TERMS_OF_SERVICE.txt",desc:"WhatsApp ordering terms & conditions",type:"doc"},
+{name:"RECEIPT_TEMPLATE.txt",desc:"Professional delivery receipt format",type:"doc"},
+{name:"PRIVACY_POLICY.txt",desc:"Data collection, retention, customer rights",type:"doc"},
+{name:"FOOD_SAFETY_POLICY.txt",desc:"3-stage QC, temperature, recall protocol",type:"doc"}
+]},
+"04_Operations": {icon:"⚙️", files:[
+{name:"ENHANCED_SOP_MANUAL.txt",desc:"Complete standard operating procedures",type:"doc"},
+{name:"OPERATIONS_PLAYBOOK.txt",desc:"Daily ops playbook",type:"doc"},
+{name:"RIDER_TRAINING_GUIDE.txt",desc:"Rider onboarding and training",type:"doc"},
+{name:"MONSOON_PLAYBOOK.txt",desc:"Rain season operations",type:"doc"},
+{name:"MORNING_ROUTINE_CHECKLIST.txt",desc:"6AM-8PM daily checklist",type:"doc"},
+{name:"SAFETY_NET_CONTINGENCY.txt",desc:"10 crisis scenarios with actions",type:"doc"},
+{name:"WHATSAPP_API_MIGRATION_PLAN.txt",desc:"App → API migration in 3-4 weeks",type:"doc"}
+]},
+"05_Tech_Dashboard": {icon:"📊", files:[
+{name:"index.html",desc:"KPI Dashboard — charts, CRUD, data viz",type:"app"},
+{name:"analytics.html",desc:"Weekly Analytics — growth trends",type:"app"},
+{name:"orders.html",desc:"Order Tracker — status workflow",type:"app"},
+{name:"finance.html",desc:"Finance Dashboard — P&L, cash, data entry",type:"app"},
+{name:"dailypnl.html",desc:"Daily P&L — auto-calculated profit",type:"app"},
+{name:"commlog.html",desc:"Communications Log — customer interactions",type:"app"},
+{name:"backup.html",desc:"Master Backup — all localStorage keys",type:"app"},
+{name:"feedback.html",desc:"Customer Feedback — star ratings, reviews",type:"app"}
+]},
+"06_Web_Catalog": {icon:"🛒", files:[
+{name:"index.html",desc:"Customer Catalog — 47 products, Bengali, cart",type:"app"},
+{name:"order_intake.html",desc:"Order Intake — 63 items → WhatsApp",type:"app"},
+{name:"catalog_data.json",desc:"Product database with prices & Bengali names",type:"doc"},
+{name:"manifest.json",desc:"PWA manifest for installable app",type:"doc"},
+{name:"favicon.svg",desc:"Browser tab icon",type:"doc"}
+]},
+"07_Marketing": {icon:"📢", files:[
+{name:"WHATSAPP_BATTLE_CARDS.txt",desc:"12 scenarios — greeting to complaint handling",type:"doc"},
+{name:"LAUNCH_ANNOUNCEMENT_COPY.txt",desc:"8 ready-to-post messages for groups",type:"doc"},
+{name:"WHATSAPP_BROADCAST_TEMPLATES.txt",desc:"Bulk message templates",type:"doc"},
+{name:"SOCIAL_MEDIA_CALENDAR.txt",desc:"90-day content calendar",type:"doc"},
+{name:"FLYER_DESIGN_SPEC.txt",desc:"A5 flyer specifications",type:"doc"},
+{name:"REFERRAL_PROGRAM_GUIDE.txt",desc:"100 BDT/referral, rules, FAQ",type:"doc"},
+{name:"landing.html",desc:"Customer-facing welcome page",type:"app"}
+]},
+"08_Financials": {icon:"💰", files:[
+{name:"PROFIT_LOSS_STATEMENT.csv",desc:"Month 1-3 P&L with formulas",type:"doc"},
+{name:"PROJECTION_6MONTH.csv",desc:"6-month revenue, costs, profit",type:"doc"},
+{name:"BREAK_EVEN_ANALYSIS.csv",desc:"3 scenarios — base, conservative, aggressive",type:"doc"},
+{name:"USE_OF_FUNDS.csv",desc:"250K seed breakdown + drawdown",type:"doc"},
+{name:"RUNWAY_CALCULATOR.csv",desc:"Cash runway at 45K/72K/102K burn",type:"doc"},
+{name:"UNIT_ECONOMICS_CALCULATOR.csv",desc:"Per-order economics calculator",type:"doc"},
+{name:"ENHANCED_FINANCIAL_TRACKER.csv",desc:"Daily financial tracking template",type:"doc"},
+{name:"INVESTOR_FINANCIALS_SUMMARY.txt",desc:"Complete investor financial overview",type:"doc"},
+{name:"financial_model.xlsx",desc:"Excel workbook with formulas (3 sheets)",type:"doc"}
+]},
+"09_Data_Export": {icon:"🔧", files:[
+{name:"launch_automation.py",desc:"Generate checklists & templates",type:"script"},
+{name:"auto_deploy.py",desc:"Deploy apps to Vercel/Netlify",type:"script"},
+{name:"drive_sync.py",desc:"Sync to Google Drive via rclone",type:"script"},
+{name:"daily_summary.py",desc:"Generate daily summary reports",type:"script"},
+{name:"sync_bridge.py",desc:"Sync data across all apps",type:"script"},
+{name:"validate_toolkit.py",desc:"Full toolkit validation",type:"script"}
+]},
+"10_Launch_Readiness": {icon:"✅", files:[
+{name:"LAUNCH_READINESS_CHECKLIST.txt",desc:"100+ item checklist across 8 categories",type:"doc"},
+{name:"PARTNER_OUTREACH_PLAYBOOK.txt",desc:"Krishi Market recruitment guide",type:"doc"},
+{name:"DAILY_HUDDLE_TEMPLATE.txt",desc:"5-minute standup template",type:"doc"},
+{name:"CUSTOMER_ONBOARDING_FLOW.txt",desc:"7-stage customer journey",type:"doc"},
+{name:"COMPETITOR_INTELLIGENCE.txt",desc:"Chaldal, Foodpanda, Pathao SWOT",type:"doc"},
+{name:"JGC_COMMUNITY_REFERENCE.txt",desc:"27 buildings, 4 clusters reference",type:"doc"},
+{name:"WEEK1_REPORT_TEMPLATE.txt",desc:"Post-launch weekly report",type:"doc"}
+]},
+"11_Day1_Launch_Kit": {icon:"🚀", files:[
+{name:"DAY1_LAUNCH_KIT.txt",desc:"Full day 1 script and materials",type:"doc"},
+{name:"DAY1_EMERGENCY_KIT.txt",desc:"Offline forms, crisis response, backup numbers",type:"doc"}
+]},
+"12_Templates": {icon:"📋", files:[
+{name:"CUSTOMER_DATABASE.csv",desc:"Customer tracking with 25 samples",type:"doc"},
+{name:"RIDER_DAILY_LOG.txt",desc:"Daily rider delivery log",type:"doc"},
+{name:"PRODUCT_PRICING.csv",desc:"82 products with Krishi Market prices",type:"doc"},
+{name:"SUPPLIER_DATABASE.csv",desc:"10 suppliers with ratings",type:"doc"},
+{name:"DAILY_PRICE_CHECKLIST.txt",desc:"Morning price check template",type:"doc"},
+{name:"SUPPLIER_AGREEMENT_QUICK.txt",desc:"One-page supplier agreement",type:"doc"},
+{name:"PARTNER_CARD_AND_ORDER_LOG.txt",desc:"Business card + delivery log",type:"doc"},
+{name:"REFERRAL_TRACKER.csv",desc:"Referral lifecycle tracking",type:"doc"},
+{name:"GOOGLE_SHEETS_IMPORT.txt",desc:"Pre-formatted CSV for Sheets import",type:"doc"},
+{name:"supplier_scorecard.html",desc:"Supplier performance ratings (4 dims)",type:"app"}
+]},
+"ROOT (top-level)": {icon:"🏠", files:[
+{name:"os.html",desc:"★ JG Mart OS — unified daily app (7 screens)",type:"app"},
+{name:"index.html",desc:"Command Center — hub for everything",type:"app"},
+{name:"ops.html",desc:"Operations Dashboard — single-pane KPIs",type:"app"},
+{name:"data.html",desc:"Central Data Manager — customers, partners, settings",type:"app"},
+{name:"field_ops.html",desc:"Mobile Field Ops — phone-first Krishi Market view",type:"app"},
+{name:"health.html",desc:"Toolkit Health Dashboard — verify all apps",type:"app"},
+{name:"start.html",desc:"Startup Wizard — 5-minute guided setup",type:"app"},
+{name:"demo.html",desc:"Investor Demo — guided 6-screen tour",type:"app"},
+{name:"email_backup.html",desc:"Email backup — prepare data for emailing",type:"app"},
+{name:"theme.css",desc:"Unified Design System — CSS variables & utilities",type:"doc"},
+{name:"LAUNCH_CENTER.bat",desc:"Windows menu launcher",type:"script"},
+{name:"RUN_ALL.bat",desc:"Open all essential apps at once",type:"script"},
+{name:"DAILY_START.bat",desc:"Morning routine automation",type:"script"},
+{name:"DAILY_END.bat",desc:"Evening close routine automation",type:"script"},
+{name:"QUICK_START.txt",desc:"7-day launch plan",type:"doc"},
+{name:"READY_TO_LAUNCH.txt",desc:"3-page go-live checklist",type:"doc"},
+{name:"FIRST_DAY_CHEATSHEET.txt",desc:"10 min / hour / day reference",type:"doc"},
+{name:"BUSINESS_CONTINUITY_KIT.txt",desc:"USB backup & crisis instructions",type:"doc"},
+{name:"DEPLOYMENT_GUIDE.txt",desc:"Make apps live on Vercel/Netlify",type:"doc"},
+{name:"SYSTEM_TEST.txt",desc:"End-to-end feature verification",type:"doc"},
+{name:"FINAL_SUMMARY.txt",desc:"Complete system documentation",type:"doc"},
+{name:"CHANGELOG.txt",desc:"Build history across all sessions",type:"doc"},
+{name:"QUALITY_REPORT.txt",desc:"Validation results",type:"doc"},
+{name:"OPS_CARD.txt",desc:"Printable wallet card",type:"doc"},
+{name:"VALIDATION_REPORT.txt",desc:"Full audit trail",type:"doc"},
+{name:"MASTER_INDEX.txt",desc:"Complete file reference",type:"doc"},
+{name:"README.txt",desc:"Toolkit overview",type:"doc"}
+]}
+};
+
+function renderMap(filter=''){
+const container = document.getElementById('mapContainer');
+const countBar = document.getElementById('countBar');
+container.innerHTML = '';
+let totalApps = 0, totalDocs = 0, totalScripts = 0;
+let shownFolders = 0;
+
+Object.entries(SYSTEM).forEach(([folderName, folder]) => {
+// Filter files
+const filtered = folder.files.filter(f => !filter || 
+f.name.toLowerCase().includes(filter) || f.desc.toLowerCase().includes(filter) || folderName.toLowerCase().includes(filter));
+if(!filter || filtered.length > 0 || folderName.toLowerCase().includes(filter)){
+shownFolders++;
+// Count for stats
+folder.files.forEach(f => {
+if(f.type === 'app') totalApps++;
+else if(f.type === 'script') totalScripts++;
+else totalDocs++;
+});
+// Render folder
+const div = document.createElement('div');
+div.className = 'folder';
+div.innerHTML = `
+<div class="folder-header" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').classList.toggle('open')">
+<span class="name">${folder.icon} ${folderName}</span>
+<span><span class="count">${folder.files.length} files</span> <span class="arrow">▶</span></span>
+</div>
+<div class="folder-body${filter?' open':''}">
+<div class="file-grid">
+${filtered.length > 0 ? filtered.map(f => {
+const dotClass = f.type === 'app' ? 'dot-green' : f.type === 'script' ? 'dot-blue' : 'dot-gold';
+return `<div class="file-card" onclick="openFile('${getPath(folderName, f.name)}')">
+<div class="icon">${f.type === 'app' ? '🌐' : f.type === 'script' ? '🐍' : '📄'}</div>
+<div class="info"><div class="name">${f.name}</div><div class="desc">${f.desc}</div></div>
+<div class="status"><span class="status-dot ${dotClass}"></span></div>
+</div>`;
+}).join('') : '<div style="grid-column:1/-1;padding:12px;color:#999;font-size:.8rem;text-align:center">No matching files</div>'}
+</div></div>`;
+container.appendChild(div);
+}
+});
+
+// Stats
+document.getElementById('stats').textContent = `${shownFolders} folders · ${totalApps} apps · ${totalDocs} docs · ${totalScripts} scripts`;
+countBar.innerHTML = `
+<span class="count-card"><span class="num">${totalApps}</span> Web Apps</span>
+<span class="count-card"><span class="num">${totalDocs}</span> Documents</span>
+<span class="count-card"><span class="num">${totalScripts}</span> Scripts</span>
+<span class="count-card"><span class="num">${totalApps+totalDocs+totalScripts}</span> Total Files</span>
+`;
+}
+
+function getPath(folder, file){
+if(folder === 'ROOT (top-level)') return file;
+const folderMap = {
+'01_Investor_Deck':'01_Investor_Deck','02_Brand_Assets':'02_Brand_Assets',
+'03_Legal_Templates':'03_Legal_Templates','04_Operations':'04_Operations',
+'05_Tech_Dashboard':'05_Tech_Dashboard','06_Web_Catalog':'06_Web_Catalog',
+'07_Marketing':'07_Marketing','08_Financials':'08_Financials',
+'09_Data_Export':'09_Data_Export','10_Launch_Readiness':'10_Launch_Readiness',
+'11_Day1_Launch_Kit':'11_Day1_Launch_Kit','12_Templates':'12_Templates'
+};
+return (folderMap[folder]||'') + '/' + file;
+}
+
+function openFile(path){
+window.open(path, '_blank');
+}
+
+function filterMap(){
+const q = document.getElementById('searchInput').value.toLowerCase();
+renderMap(q);
+}
+
+renderMap();
+</script>
+</body>
+</html>

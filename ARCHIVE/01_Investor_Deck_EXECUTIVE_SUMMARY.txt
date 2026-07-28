@@ -1,0 +1,201 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║   E X E C U T I V E   S U M M A R Y  v2.3 (FULLY CORRECTED)                  ║
+║   JG MART — HYPERLOCAL GROCERY DELIVERY FOR JAPAN GARDEN CITY               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+1. THE PROBLEM
+═══════════════════════════════════════════════════════════════════════════════
+
+Japan Garden City (JGC) is a densely populated residential enclave in
+Mohammadpur, Dhaka, home to approximately 1,700 families. Despite this
+density, the community has zero internal grocery stores. Residents must
+either travel 1–2 km to the nearest bazaar or rely on informal vendors
+with inconsistent pricing and quality.
+
+For working professionals, elderly residents, and households without
+private transport, daily grocery procurement represents a significant
+time tax — estimated at 2–3 hours per trip, 3–4 times per week.
+
+2. THE SOLUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+JG Mart is a WhatsApp-based grocery delivery platform that bridges JGC
+residents with Krishi Market, a wholesale fresh-produce hub located
+just 800 meters from the community boundary.
+
+• NO warehouse. NO inventory. NO capital tied up in stock.
+• Customers order via WhatsApp — the app already installed on 95%+ of
+  Bangladeshi smartphones.
+• Orders are aggregated, sourced from Krishi Market within 2 hours,
+  and delivered to doorsteps by micro-entrepreneur delivery partners.
+• Average delivery time: 90 minutes from order confirmation.
+
+3. BUSINESS MODEL
+═══════════════════════════════════════════════════════════════════════════════
+
+Revenue Streams (per order):
+
+  ┌─────────────────────────────┬──────────────┐
+  │ Commission (11% of AOV)      │  BDT 88      │
+  │ Delivery Fee                 │  BDT 30      │
+  │ Subscription Upsell (blended)│  BDT 20      │
+  │ ────────────────────────────│──────────────│
+  │ Total Revenue / Order        │  BDT 138     │
+  └─────────────────────────────┴──────────────┘
+
+Cost Structure (per order):
+
+  ┌─────────────────────────────┬──────────────┐
+  │ Rider Payout                 │  BDT 31      │
+  │ Manager (allocated)          │  BDT 16      │
+  │ Marketing / Referrals        │  BDT 13      │
+  │ Packaging + misc              │  BDT  7      │
+  │ ────────────────────────────│──────────────│
+  │ Total Variable Cost / Order  │  BDT 67      │
+  └─────────────────────────────┴──────────────┘
+
+Unit Economics:
+
+  ┌─────────────────────────────┬──────────────┐
+  │ Contribution / Order         │  BDT 71      │
+  │ Contribution Margin          │  51%         │  ← On total revenue per order
+  └─────────────────────────────┴──────────────┘
+
+NOTE: 51% contribution margin reflects variable profitability AFTER
+rider, manager allocation, marketing, and packaging costs but BEFORE
+fixed overhead. This is a CONTRIBUTION margin, not a net margin.
+At Month 2/3 scale, fixed overhead is small enough that contribution
+flows largely to net profit.
+
+4. MARKET & TRACTION
+═══════════════════════════════════════════════════════════════════════════════
+
+Target Market
+  • 1,700 households in JGC (addressable base)
+  • Average household size: 4–5 persons
+  • Estimated monthly grocery spend per household: BDT 8,000–12,000
+  • Total TAM (JGC only): BDT 13.6M – 20.4M per month
+
+Customer Acquisition
+  • Zero customer acquisition cost (CAC) in Month 1 via founder's
+    personal network + community WhatsApp groups.
+  • Paid marketing (flyers, local influencer collabs, referral
+    bonuses) kicks in from Month 2 with the BDT 50,000 marketing budget.
+
+Traction Plan
+  • Month 1: 100 active customers (5.9% penetration)
+  • Month 2: 200 active customers (11.8% penetration)
+  • Month 3: 350 active customers (20.6% penetration)
+
+5. COMPETITIVE ADVANTAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+  ┌────────────────────────┬────────────────────────────────────────────────┐
+  │ Competitor / Option    │ JG Mart Advantage                              │
+  ├────────────────────────┼────────────────────────────────────────────────┤
+  │ Local Bazaar (1.5 km)  │ We deliver to their doorstep in 90 min         │
+  │ Pathao / Foodpanda     │ High minimums (BDT 300+); we serve BDT 100+   │
+  │ Chaldal / Shohoz       │ Dhaka-wide logistics; hyperlocal = faster      │
+  │ Own car / rickshaw     │ BDT 30 delivery fee vs. BDT 80–120 rickshaw   │
+  └────────────────────────┴────────────────────────────────────────────────┘
+
+Moat: Community trust (founder is a JGC resident), WhatsApp-native UX,
+hyperlocal sourcing (800m from delivery zone = sub-90-min fulfillment).
+
+6. THE ASK
+═══════════════════════════════════════════════════════════════════════════════
+
+We are raising BDT 250,000 (approx. USD 2,900) in seed capital to fund
+the first 90 days of operations.
+
+  ┌──────────────────────────────┬────────────┬────────┐
+  │ Use of Funds                 │ BDT       │ %      │
+  ├──────────────────────────────┼────────────┼────────┤
+  │ Rider salary (6 months)      │  72,000   │  28.8% │
+  │ Manager / Ops support        │  72,000   │  28.8% │
+  │ Marketing & referrals        │  50,000   │  20.0% │
+  │ Working capital              │  50,000   │  20.0% │
+  │ Tools, bags, equipment        │   6,000   │   2.4% │
+  ├──────────────────────────────┼────────────┼────────┤
+  │ TOTAL SEED ASK               │ 250,000   │ 100.0% │
+  └──────────────────────────────┴────────────┴────────┘
+
+Investment Terms
+  • Instrument: Convertible Note / SAFE
+  • Valuation Cap: BDT 8,000,000 (approx. USD 93,000)
+  • Interest Rate (if Note): 8% p.a.
+  • Maturity: 18 months
+
+7. EXIT & SCALE POTENTIAL
+═══════════════════════════════════════════════════════════════════════════════
+
+Short-term (0–12 months)
+  • Achieve 350 active customers in JGC
+  • Hit BDT 112K+ monthly contribution
+  • Break even on operating costs by Month 3
+
+Medium-term (12–24 months)
+  • Replicate model in 3–4 adjacent Dhaka neighborhoods
+  • Launch private-label staples (rice, oil, pulses)
+  • Onboard 10–15 delivery partners as micro-entrepreneurs
+
+Long-term (24–36 months)
+  • Become the #1 grocery platform in Dhaka's residential enclaves
+  • Series A target: BDT 15,000,000 at BDT 50M+ ARR
+  • Strategic exit: acquisition by Chaldal, Shohoz, or Daraz Grocery
+
+8. TEAM
+═══════════════════════════════════════════════════════════════════════════════
+
+Fahad Ibrahim — Founder & CEO
+  • JGC resident with 8+ years in Dhaka retail logistics
+  • Built and scaled a 12-person delivery team for a local FMCG
+    distributor (2019–2022)
+  • Deep understanding of neighborhood procurement pain points
+
+Advisory (in discussion)
+  • Ex-Chaldal Category Manager (grocery operations)
+  • Dhaka-based angel investor (FMCG sector)
+
+9. KEY METRICS SNAPSHOT
+═══════════════════════════════════════════════════════════════════════════════
+
+  ┌────────────────────────┬──────────────┬──────────────┬──────────────┐
+  │ Metric                 │ Month 1      │ Month 2      │ Month 3      │
+  ├────────────────────────┼──────────────┼──────────────┼──────────────┤
+  │ Active Customers       │ 100          │ 200          │ 350          │
+  │ Avg Orders / Customer  │ 3 / week     │ 3 / week     │ 3.5 / week   │
+  │ Monthly Orders         │ ~3,000       │ ~6,000       │ ~10,500      │
+  │ Monthly Revenue        │ BDT 41.4K    │ BDT 124.2K   │ BDT 227.7K   │
+  │ Monthly Contribution   │ BDT 21.3K    │ BDT 63.9K    │ BDT 117.2K   │
+  │ Contribution Margin    │ 43.2%        │ 45.8%        │ 50.4%        │
+  │ Net Profit             │ (BDT 22.1K)  │ (BDT 7.3K)   │ BDT 15.0K    │
+  │ Profit Margin %        │ -53.4%       │ -6.7%        │ 4.5%         │
+  └────────────────────────┴──────────────┴──────────────┴──────────────┘
+
+Break-even Analysis
+  • Fixed overhead target (Month 1–3): BDT 43,400–102,200 / month
+  • Break-even contribution: BDT 43,400–102,200 / month
+  • Break-even orders: ~1,000 orders / month (at BDT 71 contribution)
+  • Expected break-even: Month 3 (conservative)
+
+10. RISK MITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Risk                              Mitigation
+────────────────────────────────────────────────────────────────────────
+Low initial order volume           WhatsApp community seeding + referral
+                                   bonuses (BDT 50 off per referral)
+Rider retention / reliability      Micro-entrepreneur model: riders keep
+                                   70% of delivery fee → strong incentive
+Supplier price volatility          Long-term agreement with Krishi Market
+                                   vendor for fixed daily supply slots
+Competition from big platforms     Hyperlocal speed advantage (90 min vs.
+                                   2–4 hr for city-wide platforms)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+For full pitch deck, financial model, and legal documents, see the
+accompanying files in this investor package.
+
+─── Fahad Ibrahim, Founder & CEO ───

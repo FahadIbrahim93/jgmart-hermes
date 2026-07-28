@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Fresh Groceries Delivered to Japan Garden City, Mohammadpur</title>
+<meta name="theme-color" content="#00442D">
+<meta name="description" content="Fresh groceries from Krishi Market, delivered to your flat in Japan Garden City, Mohammadpur, Dhaka. WhatsApp-based ordering with morning &amp; evening delivery slots. No minimum order. Serving all 27 buildings, 4 clusters.">
+<meta name="keywords" content="JG Mart, Japan Garden City, Mohammadpur, Dhaka, grocery delivery, Krishi Market, fresh vegetables, fresh meat, WhatsApp order, home delivery, building 1-27, cluster 1-4">
+<meta property="og:title" content="JG Mart — Fresh Groceries, Delivered to Your Flat">
+<meta property="og:description" content="Fresh from Krishi Market to your door in Japan Garden City. WhatsApp-based ordering. No minimum order.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jgmart.com.bd">
+<meta property="og:locale" content="en_BD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JG Mart — Fresh Groceries at Your Doorstep">
+<meta name="twitter:description" content="Order fresh groceries from Krishi Market via WhatsApp. Delivered to your flat in Japan Garden City.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#1a1a1a;background:#f5f7f5;overflow-x:hidden}
+
+/* ===== SECTION WRAPPER ===== */
+.sec{padding:48px 16px;max-width:600px;margin:0 auto}
+.sec h2{font-size:1.15rem;font-weight:800;color:#00442D;margin-bottom:16px;text-align:center}
+.sec h2 span{color:#c9a227}
+.sec p{font-size:.82rem;color:#5c5c5c;line-height:1.5;text-align:center;margin-bottom:20px}
+
+/* ===== DIVIDER ===== */
+.divider{display:flex;align-items:center;gap:12px;max-width:200px;margin:0 auto 28px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#c9a22744,transparent)}
+.divider .dot{width:6px;height:6px;border-radius:50%;background:#c9a227;flex-shrink:0}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#00442D,#063d2a,#0a5a3e);color:#fff;padding:60px 16px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(201,162,39,.08) 0%,transparent 50%);animation:drift 8s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(5%,5%)}}
+.hero h1{font-size:1.6rem;font-weight:800;position:relative;z-index:1;line-height:1.2}
+.hero h1 span{color:#c9a227}
+.hero .sub{font-size:.9rem;opacity:.85;margin:8px auto 16px;max-width:340px;position:relative;z-index:1;line-height:1.4}
+.hero .cta-wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero .cta{background:#25D366;color:#fff;padding:14px 36px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .15s,box-shadow .15s}
+.hero .cta:hover{transform:scale(1.03);box-shadow:0 8px 32px rgba(37,211,102,.45)}
+.hero .cta-sub{font-size:.72rem;opacity:.6;position:relative;z-index:1}
+.hero .cta-sub a{color:#c9a227;opacity:1;font-weight:600}
+.hero .stats{display:flex;gap:24px;justify-content:center;margin-top:24px;position:relative;z-index:1}
+.hero .stats div{text-align:center}
+.hero .stats .num{font-size:1.3rem;font-weight:800;color:#c9a227}
+.hero .stats .lbl{font-size:.6rem;opacity:.7;text-transform:uppercase;letter-spacing:.05em}
+
+/* ===== FEATURES ===== */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.feature{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);transition:transform .15s,box-shadow .15s}
+.feature:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.feature .icon{font-size:1.6rem;margin-bottom:6px}
+.feature h3{font-size:.78rem;font-weight:700;color:#00442D;margin-bottom:3px}
+.feature p{font-size:.68rem;color:#5c5c5c;margin:0}
+
+/* ===== GALLERY ===== */
+.gallery{background:#fff}
+.gallery-scroll{display:flex;gap:12px;overflow-x:auto;padding:4px 4px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.gallery-scroll::-webkit-scrollbar{height:4px}
+.gallery-scroll::-webkit-scrollbar-thumb{background:#c9a22755;border-radius:4px}
+.gallery-scroll::-webkit-scrollbar-track{background:transparent}
+.gallery-card{flex:0 0 130px;background:#f5f7f5;border-radius:14px;padding:16px 10px;text-align:center;scroll-snap-align:start;border:1px solid rgba(0,0,0,.04);transition:transform .15s}
+.gallery-card:hover{transform:translateY(-3px)}
+.gallery-card .emoji{font-size:2.4rem;line-height:1;margin-bottom:8px}
+.gallery-card h4{font-size:.75rem;font-weight:700;color:#00442D;margin-bottom:2px}
+.gallery-card p{font-size:.6rem;color:#5c5c5c;margin:0}
+
+/* ===== HOW IT WORKS (visual) ===== */
+.how{background:#fff;padding:48px 16px}
+.how-steps{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.how-step{display:flex;gap:16px;align-items:flex-start;background:#f9faf9;border-radius:14px;padding:16px;border:1px solid rgba(0,0,0,.04);transition:transform .15s}
+.how-step:hover{transform:translateX(4px)}
+.how-step .icon-wrap{width:48px;height:48px;background:linear-gradient(135deg,#00442D,#0a5a3e);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;box-shadow:0 4px 12px rgba(0,68,45,.15)}
+.how-step .how-body{flex:1}
+.how-step .how-body h3{font-size:.82rem;font-weight:700;color:#00442D;margin-bottom:2px}
+.how-step .how-body p{font-size:.72rem;color:#5c5c5c;text-align:left;margin:0;line-height:1.4}
+
+/* ===== TESTIMONIALS CAROUSEL ===== */
+.test-carousel-wrap{background:#fff;padding:48px 16px;overflow:hidden}
+.test-carousel{position:relative;max-width:500px;margin:0 auto;min-height:150px}
+.test-slide{position:absolute;top:0;left:0;width:100%;background:#f9faf9;border-radius:14px;padding:20px 16px;border:1px solid rgba(0,0,0,.04);text-align:center;opacity:0;animation:testCycle 20s linear infinite}
+.test-slide:nth-child(1){animation-delay:0s}
+.test-slide:nth-child(2){animation-delay:4s}
+.test-slide:nth-child(3){animation-delay:8s}
+.test-slide:nth-child(4){animation-delay:12s}
+.test-slide:nth-child(5){animation-delay:16s}
+@keyframes testCycle{
+  0%,3%{opacity:0;transform:translateY(10px)}
+  5%,18%{opacity:1;transform:translateY(0)}
+  20%,100%{opacity:0;transform:translateY(-10px)}
+}
+.test-slide .stars{color:#c9a227;font-size:.9rem;margin-bottom:6px;letter-spacing:2px}
+.test-slide .text{font-size:.82rem;color:#333;line-height:1.5;margin-bottom:8px;font-style:italic}
+.test-slide .author{font-size:.75rem;color:#00442D;font-weight:700}
+.test-slide .building{font-size:.65rem;color:#999;margin-top:2px}
+/* dots indicator */
+.test-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.test-dots .dot{width:8px;height:8px;border-radius:50%;background:#ddd;transition:background .3s}
+.test-dots .dot:nth-child(1){animation:dotCycle 20s linear infinite}
+.test-dots .dot:nth-child(2){animation:dotCycle 20s linear infinite;animation-delay:4s}
+.test-dots .dot:nth-child(3){animation:dotCycle 20s linear infinite;animation-delay:8s}
+.test-dots .dot:nth-child(4){animation:dotCycle 20s linear infinite;animation-delay:12s}
+.test-dots .dot:nth-child(5){animation:dotCycle 20s linear infinite;animation-delay:16s}
+@keyframes dotCycle{
+  0%,3%{background:#ddd}
+  5%,18%{background:#c9a227}
+  20%,100%{background:#ddd}
+}
+
+/* ===== PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:500px;margin:0 auto}
+.price-card{background:#fff;border-radius:10px;padding:12px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:transform .15s}
+.price-card:hover{transform:translateY(-2px)}
+.price-card .item{font-size:.82rem;font-weight:700;color:#00442D;margin-bottom:2px}
+.price-card .pval{font-size:1rem;font-weight:800;color:#c9a227}
+.price-card .pval small{font-size:.6rem;color:#5c5c5c;font-weight:500}
+.price-card .note{font-size:.58rem;color:#999;margin-top:2px}
+
+/* ===== FAQ ===== */
+.faq-item{background:#fff;border-radius:10px;margin-bottom:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.faq-q{width:100%;padding:12px 14px;text-align:left;font-size:.8rem;font-weight:600;color:#00442D;background:none;border:none;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq-q:hover{background:#f9faf9}
+.faq-q::after{content:'+';font-size:1.1rem;color:#c9a227;font-weight:700;transition:transform .2s}
+.faq-q.open::after{content:'–'}
+.faq-a{padding:0 14px 12px;font-size:.75rem;color:#5c5c5c;line-height:1.4;display:none}
+.faq-a.open{display:block}
+
+/* ===== COMMUNITY (enhanced) ===== */
+.community{background:#00442D;color:#fff;padding:48px 16px;text-align:center}
+.community h2{color:#fff;margin-bottom:8px}
+.community .sub{font-size:.8rem;opacity:.8;max-width:350px;margin:0 auto 20px}
+.community .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:400px;margin:16px auto 0}
+.community .card{background:rgba(255,255,255,.08);border-radius:10px;padding:14px;transition:transform .15s,background .2s}
+.community .card:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+.community .card .num{font-size:1.3rem;font-weight:800;color:#c9a227}
+.community .card .lbl{font-size:.65rem;opacity:.7}
+/* cluster detail cards */
+.cluster-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:400px;margin:12px auto 0}
+.cluster-card{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 8px;border:1px solid rgba(255,255,255,.06);transition:background .2s}
+.cluster-card:hover{background:rgba(255,255,255,.1)}
+.cluster-card .cname{font-size:.75rem;font-weight:700;color:#c9a227;margin-bottom:2px}
+.cluster-card .cbuild{font-size:.6rem;opacity:.7;line-height:1.3}
+.cluster-card .cfam{font-size:.6rem;opacity:.55}
+
+/* ===== FOOTER ===== */
+.footer{background:#0f1a14;color:rgba(255,255,255,.5);padding:28px 16px;text-align:center;font-size:.72rem;line-height:1.6}
+.footer a{color:#c9a227;text-decoration:none}
+.footer .brand{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:6px}
+.footer .brand span{color:#c9a227}
+
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+.whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:transform .15s,box-shadow .15s;animation:floatPulse 2s ease-in-out infinite}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.5)}
+@keyframes floatPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:360px){
+  .hero h1{font-size:1.3rem}
+  .features{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr 1fr}
+  .cluster-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div style="background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;gap:4px"><div style="display:flex;align-items:center;gap:6px"><a href="landing.html" style="color:#fff;text-decoration:none;font-weight:800;font-size:.9rem">JG <span style="color:#c9a227">Mart</span></a></div><div style="display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none"><a href="index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📦 Shop</a><a href="menu.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📋 Menu</a><a href="zone.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📍 Zone</a><a href="track.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📮 Track</a><a href="https://wa.me/8801870489448" style="background:#25D366;color:#fff;padding:4px 10px;border-radius:999px;font-size:.62rem;font-weight:600;text-decoration:none;white-space:nowrap">💬 WA</a><a href="admin.html" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.55rem">⚙️</a></div></div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Fresh Groceries from Krishi Market<br>Delivered to <span>Your Flat</span></h1>
+<p class="sub">Japan Garden City, Mohammadpur. WhatsApp-based ordering. Morning &amp; evening delivery. No minimum order.</p>
+<div class="cta-wrap">
+<a class="cta" href="https://wa.me/8801870489448?text=Hi%20JG%20Mart!%20I%20want%20to%20order%20groceries." target="_blank">💬 Order on WhatsApp</a>
+<span class="cta-sub">or <a href="index.html">browse our full catalog →</a></span>
+</div>
+<div class="stats">
+<div><div class="num">65+</div><div class="lbl">Products</div></div>
+<div><div class="num">27</div><div class="lbl">Buildings</div></div>
+<div><div class="num">800m</div><div class="lbl">From Market</div></div>
+<div><div class="num">90min</div><div class="lbl">Delivery</div></div>
+</div>
+</div>
+
+<!-- FEATURES -->
+<div class="sec">
+<div class="divider"><span class="dot"></span></div>
+<h2>Why <span>JG Mart</span>?</h2>
+<div class="features">
+<div class="feature"><div class="icon">🥬</div><h3>Fresh Daily</h3><p>We source from Krishi Market every morning</p></div>
+<div class="feature"><div class="icon">🚚</div><h3>Free Delivery</h3><p>Buildings 1-13: free. B14-20: ৳20. B21-27: ৳30</p></div>
+<div class="feature"><div class="icon">⏰</div><h3>Two Slots</h3><p>Morning (9AM→12PM) or Evening (3:30→8PM)</p></div>
+<div class="feature"><div class="icon">💳</div><h3>Pay Your Way</h3><p>Cash on delivery or bKash</p></div>
+<div class="feature"><div class="icon">📱</div><h3>WhatsApp Order</h3><p>Text us what you need, we deliver</p></div>
+<div class="feature"><div class="icon">🏠</div><h3>To Your Door</h3><p>Delivered to your flat, anywhere in JGC</p></div>
+</div>
+</div>
+
+<!-- GALLERY: Fresh Produce Visual -->
+<div class="gallery">
+<div class="sec" style="padding-bottom:0">
+<div class="divider"><span class="dot"></span></div>
+<h2>Fresh <span>Produce</span></h2>
+<p>We hand-pick from Krishi Market every morning. Quality guaranteed.</p>
+</div>
+<div style="max-width:600px;margin:0 auto;padding:0 16px 32px">
+<div class="gallery-scroll">
+<div class="gallery-card"><div class="emoji">🥬</div><h4>Leafy Greens</h4><p>Spinach, coriander, mint &amp; more</p></div>
+<div class="gallery-card"><div class="emoji">🍅</div><h4>Vegetables</h4><p>Tomato, brinjal, okra, pumpkin</p></div>
+<div class="gallery-card"><div class="emoji">🥔</div><h4>Root Veg</h4><p>Potato, carrot, radish, beetroot</p></div>
+<div class="gallery-card"><div class="emoji">🍎</div><h4>Fruits</h4><p>Apple, banana, orange, mango</p></div>
+<div class="gallery-card"><div class="emoji">🥚</div><h4>Eggs &amp; Dairy</h4><p>Farm eggs, milk, yogurt, butter</p></div>
+<div class="gallery-card"><div class="emoji">🐟</div><h4>Fish &amp; Meat</h4><p>Ruhi, chicken, beef — halal</p></div>
+<div class="gallery-card"><div class="emoji">🍚</div><h4>Rice &amp; Grains</h4><p>Miniket, basmati, lentils, flour</p></div>
+</div>
+</div>
+</div>
+
+<!-- HOW TO ORDER (visual step-by-step) -->
+<div class="how">
+<div class="divider"><span class="dot"></span></div>
+<h2 style="font-size:1.15rem;font-weight:800;color:#00442D;text-align:center;margin-bottom:20px">How to <span style="color:#c9a227">Order</span></h2>
+<div class="how-steps">
+<div class="how-step">
+<div class="icon-wrap">📱</div>
+<div class="how-body">
+<h3>1. Browse or Message</h3>
+<p>Check our <a href="index.html" style="color:#00442D;font-weight:600">online catalog</a> with 65+ products, or just send a list on WhatsApp — we make it easy.</p>
+</div>
+</div>
+<div class="how-step">
+<div class="icon-wrap">📍</div>
+<div class="how-body">
+<h3>2. Share Your Details</h3>
+<p>Tell us your building &amp; flat number. Pick morning (9AM→12PM) or evening (3:30→8PM) delivery.</p>
+</div>
+</div>
+<div class="how-step">
+<div class="icon-wrap">🛒</div>
+<div class="how-body">
+<h3>3. We Shop Fresh</h3>
+<p>We go to Krishi Market, hand-pick everything fresh, and quality-check before packing.</p>
+</div>
+</div>
+<div class="how-step">
+<div class="icon-wrap">🚪</div>
+<div class="how-body">
+<h3>4. Delivered to Your Door</h3>
+<p>Your groceries arrive at your flat within your chosen slot. Pay cash or bKash on delivery.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TESTIMONIALS CAROUSEL (auto-rotating) -->
+<div class="test-carousel-wrap">
+<div class="divider"><span class="dot"></span></div>
+<h2 style="font-size:1.15rem;font-weight:800;color:#00442D;text-align:center;margin-bottom:16px">What Neighbours <span style="color:#c9a227">Say</span></h2>
+<div class="test-carousel">
+<div class="test-slide">
+<div class="stars">★★★★★</div>
+<div class="text">"First order came in 90 minutes exactly. Fresh vegetables, quality beef. Will order again for sure."</div>
+<div class="author">Sara Ahmed</div>
+<div class="building">Building 5, Cluster 1</div>
+</div>
+<div class="test-slide">
+<div class="stars">★★★★★</div>
+<div class="text">"Being able to order on WhatsApp is so convenient. I don't need another app. My go-to for weekly groceries."</div>
+<div class="author">Rafi Hasan</div>
+<div class="building">Building 12, Cluster 2</div>
+</div>
+<div class="test-slide">
+<div class="stars">★★★★☆</div>
+<div class="text">"Great service! The morning slot works perfectly for me. I order before work and it's there by lunch."</div>
+<div class="author">Nusrat Jahan</div>
+<div class="building">Building 19, Cluster 3</div>
+</div>
+<div class="test-slide">
+<div class="stars">★★★★★</div>
+<div class="text">"Finally someone delivers to our building. Krishi Market is far for us. Thank you JG Mart!"</div>
+<div class="author">Tanvir Ahmed</div>
+<div class="building">Building 25, Cluster 4</div>
+</div>
+<div class="test-slide">
+<div class="stars">★★★★★</div>
+<div class="text">"I've been using JG Mart for 2 months now. The produce is always fresh and the delivery is on time. Highly recommend!"</div>
+<div class="author">Farzana Khan</div>
+<div class="building">Building 8, Cluster 2</div>
+</div>
+</div>
+<div class="test-dots">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</div>
+
+<!-- SAMPLE PRICES -->
+<div class="sec">
+<div class="divider"><span class="dot"></span></div>
+<h2>Popular <span>Prices</span></h2>
+<p>Real prices from Krishi Market. Updated daily.</p>
+<div class="pricing-grid">
+<div class="price-card"><div class="item">🍚 Miniket Rice</div><div class="pval">৳88 <small>/kg</small></div><div class="note">Popular choice</div></div>
+<div class="price-card"><div class="item">🥚 Farm Eggs</div><div class="pval">৳120 <small>/doz</small></div><div class="note">Free range</div></div>
+<div class="price-card"><div class="item">🍗 Broiler Chicken</div><div class="pval">৳220 <small>/kg</small></div><div class="note">Halal</div></div>
+<div class="price-card"><div class="item">🥔 Potato</div><div class="pval">৳35 <small>/kg</small></div><div class="note">Local fresh</div></div>
+<div class="price-card"><div class="item">🐟 Ruhi Fish</div><div class="pval">৳280 <small>/kg</small></div><div class="note">Farm fresh</div></div>
+<div class="price-card"><div class="item">🥛 Cow Milk</div><div class="pval">৳80 <small>/L</small></div><div class="note">Pasteurized</div></div>
+</div>
+<div style="text-align:center;margin-top:12px"><a href="index.html" style="color:#00442D;font-weight:600;font-size:.82rem">→ See all 65+ products</a></div>
+</div>
+
+<!-- COMMUNITY (enhanced) -->
+<div class="community">
+<div class="divider" style="--dot-bg:rgba(255,255,255,.15);border-color:rgba(255,255,255,.1)"><span class="dot" style="background:rgba(255,255,255,.4)"></span></div>
+<h2 style="font-size:1.15rem;font-weight:800;margin-bottom:8px">Japan Garden City — Our <span style="color:#c9a227">Home</span></h2>
+<p class="sub">We live here too. That's why we care about quality and timeliness. Serving every building, every cluster.</p>
+<div class="grid">
+<div class="card"><div class="num">27</div><div class="lbl">Buildings</div></div>
+<div class="card"><div class="num">4</div><div class="lbl">Clusters</div></div>
+<div class="card"><div class="num">1,700</div><div class="lbl">Families</div></div>
+<div class="card"><div class="num">800m</div><div class="lbl">From Market</div></div>
+</div>
+<h3 style="font-size:.9rem;font-weight:700;margin-top:24px;color:#c9a227">Building Clusters</h3>
+<div class="cluster-list">
+<div class="cluster-card"><div class="cname">Cluster 1 🏛️</div><div class="cbuild">Buildings 1–13 (incl. Silver Tower)</div><div class="cfam">~700 families · Free delivery</div></div>
+<div class="cluster-card"><div class="cname">Cluster 2 🏛️</div><div class="cbuild">Buildings 14–20</div><div class="cfam">~400 families · ৳20 delivery</div></div>
+<div class="cluster-card"><div class="cname">Cluster 3 🏛️</div><div class="cbuild">Buildings 21–24</div><div class="cfam">~300 families · ৳30 delivery</div></div>
+<div class="cluster-card"><div class="cname">Cluster 4 🏛️</div><div class="cbuild">Buildings 25–27 (JGC Colony)</div><div class="cfam">~300 families · ৳30 delivery</div></div>
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="sec">
+<div class="divider"><span class="dot"></span></div>
+<h2>Frequently Asked <span>Questions</span></h2>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What areas do you deliver to?</button><div class="faq-a">All 27 buildings in Japan Garden City, Mohammadpur. We cover all 4 clusters — from Silver Tower to the JGC Colony extension. Free delivery for buildings 1–13, ৳20 for 14–20, ৳30 for 21–27.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How do I place an order?</button><div class="faq-a">You can either browse our <a href="index.html" style="color:#00442D;font-weight:600">online catalog</a> and send your cart via WhatsApp, or simply message us directly on WhatsApp with your list. We'll confirm and deliver.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What are your delivery times?</button><div class="faq-a">Morning slot: order by 9AM, delivery by 12PM. Evening slot: order by 3:30PM, delivery by 8PM. Both slots available daily.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Is there a minimum order?</button><div class="faq-a">No minimum order. Whether you need just eggs or a full week's groceries, we deliver.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What payment methods do you accept?</button><div class="faq-a">Cash on delivery and bKash. Pay when your groceries arrive at your door.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Do you deliver to apartments?</button><div class="faq-a">Yes! We deliver directly to your flat. Just provide your building and flat number and we'll bring it to your door.</div></div>
+</div>
+
+<div style="background:#0f1a14;color:rgba(255,255,255,.5);padding:16px;text-align:center;font-size:.68rem;line-height:1.6">
+<div style="font-weight:800;font-size:.85rem;color:#fff;margin-bottom:2px">JG <span style="color:#c9a227">Mart</span></div>
+<p>Fresh groceries, delivered to Japan Garden City, Mohammadpur</p>
+<p>📱 <a href="https://wa.me/8801870489448" style="color:#c9a227;text-decoration:none">+8801870489448</a></p>
+<p style="margin-top:4px"><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none">Catalog</a> · <a href="landing.html" style="color:rgba(255,255,255,.5);text-decoration:none">About</a> · <a href="menu.html" style="color:rgba(255,255,255,.5);text-decoration:none">Menu</a> · <a href="track.html" style="color:rgba(255,255,255,.5);text-decoration:none">Track</a> · <a href="zone.html" style="color:rgba(255,255,255,.5);text-decoration:none">Zone</a></p>
+<p style="opacity:.4;margin-top:4px">© 2026 JG Mart</p>
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="whatsapp-float" href="https://wa.me/8801870489448?text=Hi%20JG%20Mart!%20I%20want%20to%20order%20groceries." target="_blank" aria-label="Order on WhatsApp">💬</a>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+btn.addEventListener('click', function(){
+this.classList.toggle('open');
+this.nextElementSibling.classList.toggle('open');
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — INVESTOR FINANCIALS SUMMARY v2.2                       ║
+║                         Clean Text Version (No Spreadsheet Needed)            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Prepared for: Bangladesh Angels, Anchorless Bangladesh, BD Venture, IDLC VC
+Prepared by: Fahad Ibrahim, Founder, JG Mart
+Date: July 2026
+Confidential — For Investor Review Only
+
+═══════════════════════════════════════════════════════════════════════════════
+1. THE ASK
+═══════════════════════════════════════════════════════════════════════════════
+
+Seed Round: BDT 250,000 (BDT 2.5 Lakhs)
+Valuation: Pre-money BDT 1,00,00,000 (BDT 1 Crore) | Post-money BDT 1,02,50,000
+Dilution: 2.44% equity
+Instrument: SAFE / Convertible Note (pre-seed)
+
+This is a deliberately small, capital-efficient ask. We don't need a lot of
+money to prove the model — we need enough to survive 6 months and hit
+profitability. This signals discipline, not desperation.
+
+═══════════════════════════════════════════════════════════════════════════════
+2. USE OF FUNDS (BDT 250,000)
+═══════════════════════════════════════════════════════════════════════════════
+
+Category                      Amount       % of Ask    Purpose
+───────────────────────────  ───────────  ───────────  ──────────────────────────
+Rider Salary (6 months)       72,000       28.8%       Primary rider (brother)
+Manager / Ops support (6 mo)  72,000       28.8%       Part-time ops manager
+Marketing & Referrals         50,000       20.0%       Flyers, social, referral
+Working Capital                50,000       20.0%       Float, emergencies, buffer
+Tools, Bags, Equipment          6,000        2.4%       Delivery bags, printer
+───────────────────────────  ───────────  ───────────
+TOTAL                         250,000      100.0%
+
+Monthly burn: ~BDT 45,000–55,000 fixed costs
+Runway at this burn: ~4–5 months
+
+═══════════════════════════════════════════════════════════════════════════════
+3. UNIT ECONOMICS (PER ORDER)
+═══════════════════════════════════════════════════════════════════════════════
+
+Revenue Side:
+• Average Order Value (AOV):            800 BDT
+• Commission (11% of AOV):               88 BDT
+• Delivery Fee:                          30 BDT
+• Subscription Upsell (blended):         20 BDT
+────────────────────────────────────────────────────────
+Total Revenue per Order:                138 BDT
+
+Cost Side:
+• Rider (salary + per-order bonus):      31 BDT
+• Manager (part-time allocation):        16 BDT
+• Marketing/Referrals (blended):         13 BDT
+• Packaging + misc:                       7 BDT
+────────────────────────────────────────────────────────
+Total Variable Cost per Order:           67 BDT
+
+Contribution per Order:                  71 BDT
+Contribution Margin:                     51%
+
+NOTE: The 51% contribution margin assumes a blended subscription revenue
+of 20 BDT/order. Without subscriptions, base margin is 43% (51/118).
+Subscriptions are modeled as upsells and repeat-customer incentives.
+
+═══════════════════════════════════════════════════════════════════════════════
+4. MONTHLY PROJECTION SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Month 1 — MVP LAUNCH
+• Customers: 100 | Orders: 300 | Revenue: BDT 41,400
+• Variable costs: BDT 20,100 | Contribution: BDT 21,300
+• Fixed costs: BDT 45,000 | Net Profit: (BDT 23,700)
+• Status: Planned loss, funded by seed
+
+Month 2 — SYSTEMIZE
+• Customers: 200 | Orders: 900 | Revenue: BDT 124,200
+• Variable costs: BDT 60,300 | Contribution: BDT 63,900
+• Fixed costs: BDT 50,000 | Net Profit: BDT 13,900
+• Status: First profit month
+
+Month 3 — SCALE
+• Customers: 350 | Orders: 1,650 | Revenue: BDT 227,700
+• Variable costs: BDT 110,550 | Contribution: BDT 117,150
+• Fixed costs: BDT 55,000 | Net Profit: BDT 62,150
+• Status: Strong profitability, clear path to scale
+
+═══════════════════════════════════════════════════════════════════════════════
+5. KEY METRICS BY MONTH
+═══════════════════════════════════════════════════════════════════════════════
+
+Metric                   Month 1      Month 2      Month 3      Target
+──────────────────────  ───────────  ───────────  ───────────  ───────────
+Active Customers         100          200          350          350+
+Total Orders             300          900          1,650        1,650+
+Revenue (BDT)             41,400      124,200      227,700      227,700+
+Net Profit (BDT)         (23,700)      13,900       62,150       50,000+
+Profit Margin %          -58%         11.2%        27.3%        20%+
+On-time Delivery %       90%          93%          95%          95%+
+Repeat Rate              25%          30%          35%          35%+
+CAC (BDT)                150          100           71          120
+LTV (BDT)                2,400        3,600        4,800        4,800+
+
+═══════════════════════════════════════════════════════════════════════════════
+6. COMPETITIVE ADVANTAGE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Advantage               Why It's Defensible
+──────────────────────  ──────────────────────────────────────────────────────────
+Distance                800m to Krishi Market vs Chaldal's 5km+ warehouses.
+                        15-min pickup vs 2-hr dispatch. Cannot be replicated
+                        without physical presence.
+Cost Structure          Zero warehouse, zero inventory, zero app development.
+                        Chaldal burns $30M+ on 27 warehouses. We burn 0.
+Community Trust         WhatsApp-native, resident founder, building committee
+                        relationships. Platform apps cannot buy this.
+Speed                   2-hour delivery guarantee. Chaldal: 3-5 hours to
+                        Mohammadpur. Speed is the primary purchase driver.
+Pricing                 Krishi Market prices + 11% commission. Chaldal marks
+                        up 25-40% to cover warehouse costs. We don't.
+
+═══════════════════════════════════════════════════════════════════════════════
+7. RISK FACTORS & MITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Risk                            Likelihood   Impact    Mitigation
+─────────────────────────────   ───────────   ───────   ──────────────────────────
+Partner reliability              Medium       High      2 backups per category,
+                                                                 daily checks, penalties
+Chaldal enters Mohammadpur       Low          High      Lock in subscriptions,
+                                                                 community trust
+Rider dependency                 Low          High      Brother + backup + nuclear
+Low adoption                     Medium       High      Free delivery, referrals,
+                                                                 committee endorsements
+Monsoon disruption (Jun-Sep)     High         Medium    Rain gear, buffer, protocol
+WhatsApp ban                     Low          High      Guidelines, backup phone
+Food safety incident             Low          Critical  3-stage QC, recall protocol
+
+═══════════════════════════════════════════════════════════════════════════════
+8. EXIT SCENARIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Scenario 1: Strategic Acquisition (Most Likely)
+• Acquirer: Chaldal, Foodpanda, Pathao, or international grocery chain
+• Trigger: Proven unit economics + 1,000+ customers + adjacent market expansion
+• Timeline: 24-36 months
+• Expected Return: 5-10x on seed investment
+• Valuation at exit: BDT 5-10 Crore
+
+Scenario 2: Organic Growth (Base Case)
+• Self-funded expansion to 5,000+ customers
+• Annual revenue BDT 8-10 Crore, profit BDT 1.5-2 Crore
+• Series A at BDT 20-30 Crore valuation
+• Seed investors can sell partial stake or hold
+
+Scenario 3: Franchise/Platform (Aggressive)
+• Replicate JGC model across 20+ Dhaka gated complexes
+• SaaS-like revenue from franchise fees + commission
+• Valuation at exit: BDT 50+ Crore
+• Timeline: 36-48 months
+
+═══════════════════════════════════════════════════════════════════════════════
+9. INVESTMENT TERMS
+═══════════════════════════════════════════════════════════════════════════════
+
+Instrument: SAFE (Simple Agreement for Future Equity) or Convertible Note
+Interest Rate: 8% per annum (if note)
+Maturity: 24 months
+Valuation Cap: BDT 10 Crore
+Discount Rate: 20% (at Series A)
+Board Seat: No (pre-seed too early)
+Information Rights: Quarterly financial reports, annual board update
+Pro-rata Rights: Yes
+Most Favored Nation: Yes
+
+Why SAFE over equity: Keeps cap table clean, defers valuation negotiation,
+and is standard for pre-seed in Bangladesh. Investors get standard protection
+through the cap and discount.
+
+═══════════════════════════════════════════════════════════════════════════════
+10. CONTACT
+═══════════════════════════════════════════════════════════════════════════════
+
+Founder: Fahad Ibrahim
+Company: JG Mart
+Location: Japan Garden City, Mohammadpur, Dhaka
+WhatsApp: +880 1712-345678
+Email: fahad@jgmart.com
+Website: jgmart.bd (coming soon)
+
+Availability: Available for calls/meetings any weekday 10AM-8PM BDT
+
+═══════════════════════════════════════════════════════════════════════════════
+
+This document is confidential and intended solely for investor review.
+Please do not distribute without permission.
+
+— Fahad Ibrahim, Founder, JG Mart
+July 2026

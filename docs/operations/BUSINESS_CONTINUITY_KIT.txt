@@ -1,0 +1,114 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║  JG MART — BUSINESS CONTINUITY KIT                                          ║
+║  What to Copy to a USB Drive Right Now                                      ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+This document tells you exactly what to copy to a USB drive so you can
+run JG Mart from ANY computer in case your main machine fails.
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 1: COPY TO USB
+═══════════════════════════════════════════════════════════════════════════════
+
+Copy this entire folder to a USB drive:
+  G:\JGC Mart\JGC Mart - Hermes\
+
+That's it. All 87+ files will work from the USB drive.
+Every HTML file is self-contained — no server needed.
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 2: USB FILE STRUCTURE (after copy)
+═══════════════════════════════════════════════════════════════════════════════
+
+USB_ROOT/
+├── LAUNCH_CENTER.bat          ← Double-click → opens menu
+├── index.html                 ← Command Center (central hub)
+├── ops.html                   ← Operations Dashboard
+├── QUICK_START.txt            ← 7-day launch plan
+├── READY_TO_LAUNCH.txt        ← 3-page go-live checklist
+├── README.txt                 ← Toolkit overview
+├── MASTER_INDEX.txt           ← Complete file reference
+├── VALIDATION_REPORT.txt      ← Audit trail
+│
+├── 01_Investor_Deck/          ← 7 files (pitch, 1-pager, FAQ, coaching)
+├── 02_Brand_Assets/           ← 2 files (brand guide, logo guide)
+├── 03_Legal_Templates/        ← 5 files (agreements, terms, privacy)
+├── 04_Operations/             ← 7 files (SOP, playbook, safety net)
+├── 05_Tech_Dashboard/         ← 6 HTML apps + data files
+├── 06_Web_Catalog/            ← 3 HTML apps + catalog data
+├── 07_Marketing/              ← 6 files (battle cards, copy, calendar)
+├── 08_Financials/             ← 8 files (P&L, projections, break-even)
+├── 09_Data_Export/            ← 11 files (scripts, automation)
+├── 10_Launch_Readiness/       ← 7 files (checklists, playbooks)
+├── 11_Day1_Launch_Kit/        ← 2 files (day 1 script, emergency kit)
+└── 12_Templates/              ← 10 files (CSV, HTML scorecard)
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 3: WHAT TO DO IF YOUR MAIN COMPUTER DIES
+═══════════════════════════════════════════════════════════════════════════════
+
+SCENARIO: Laptop dies during operations
+
+  1. Plug USB into any Windows computer
+  2. Open USB drive → double-click LAUNCH_CENTER.bat
+  3. Click "Open All Apps" → all 9 web apps open in browser
+  4. Open QUICK_START.txt → continue your day
+  5. Your data is lost (localStorage doesn't sync across computers)
+     → BUT you can export data from each app as JSON before switching
+
+SCENARIO: Need to work from a phone/tablet
+
+  The HTML apps won't work well on phones (they're desktop web apps).
+  Instead, use:
+    • WhatsApp Business app for customer communication
+    • Google Sheets (import from 12_Templates/GOOGLE_SHEETS_IMPORT.txt)
+    • Printed forms from 11_Day1_Launch_Kit/
+
+SCENARIO: Need to work from another person's computer
+
+  1. Plug in USB
+  2. Open index.html → all apps available
+  3. Data won't sync, but you can:
+     a. Take screenshots of key numbers before switching
+     b. Export JSON data from each app
+     c. Re-enter on the new machine
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 4: REGULAR BACKUP CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+Daily (end of day):
+  □ Export data from Finance Dashboard (finance.html → Export button)
+  □ Export data from Order Tracker (orders.html → Export button)
+  □ Export data from Communications Log (commlog.html → Export button)
+  □ Save exported JSON files to a safe folder
+
+Weekly (Sunday):
+  □ Copy entire JGC Mart - Hermes folder to USB drive
+  □ Also copy to: Google Drive (once rclone is set up)
+  □ Verify USB can open all apps
+
+Monthly:
+  □ Create a dated backup zip: "JG Mart Backup YYYY-MM-DD.zip"
+  □ Store in a second location (cloud or external hard drive)
+  □ Test restore from backup
+
+═══════════════════════════════════════════════════════════════════════════════
+IMPORTANT DATA NOTE
+═══════════════════════════════════════════════════════════════════════════════
+
+Each web app stores its data in your browser's localStorage.
+This data is NOT in the files — it's in your browser profile.
+
+This means:
+  ✓ Apps work offline
+  ✓ Data persists when you close/reopen
+  ✗ Data does NOT sync across computers
+  ✗ Clearing browser cache = losing all data
+
+SOLUTION: Export regularly using each app's Export button.
+The exported JSON files contain ALL your data and can be re-imported.
+
+═══════════════════════════════════════════════════════════════════════════════
+"Your business is in these files. Protect them like cash."
+═══════════════════════════════════════════════════════════════════════════════

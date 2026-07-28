@@ -1,0 +1,138 @@
+================================================================================
+SEO META TAGS & DESCRIPTIONS — JG Mart
+Hyperlocal Grocery Delivery | Japan Garden City, Mohammadpur, Dhaka
+================================================================================
+
+Domain placeholder: jgmart.bd
+Primary language: English (en) / Bengali (bn)
+Currency: BDT (৳)
+
+--------------------------------------------------------------------------------
+PAGE 1: index.html — Catalog / Home Page
+--------------------------------------------------------------------------------
+
+Title Tag (recommended length: 50-60 chars):
+  JG Mart — Fresh Groceries in Japan Garden City, Dhaka
+  (58 chars)
+
+Meta Description (recommended length: 150-160 chars):
+  Order fresh groceries online in Japan Garden City, Mohammadpur, Dhaka.
+  JG Mart delivers produce, essentials & household items to your door.
+  No minimum order. Fast hyperlocal delivery.
+  (161 chars — trim if needed)
+
+Meta Keywords:
+  grocery delivery Dhaka, Japan Garden City groceries, Mohammadpur online
+  grocery, fresh produce Dhaka, hyperlocal delivery Bangladesh, JG Mart
+
+Open Graph (OG) tags — include in <head>:
+  <meta property="og:title" content="JG Mart — Fresh Groceries in Japan Garden City, Dhaka" />
+  <meta property="og:description" content="Order fresh groceries online in Japan Garden City, Mohammadpur, Dhaka. Fast hyperlocal delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jgmart.bd/" />
+  <meta property="og:image" content="https://jgmart.bd/favicon.svg" />
+  <meta property="og:locale" content="en_BD" />
+
+Twitter Card:
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="JG Mart — Fresh Groceries in Japan Garden City, Dhaka" />
+  <meta name="twitter:description" content="Order fresh groceries online in Japan Garden City, Mohammadpur, Dhaka. Fast hyperlocal delivery." />
+  <meta name="twitter:image" content="https://jgmart.bd/favicon.svg" />
+
+Additional <head> tags:
+  <meta name="application-name" content="JG Mart" />
+  <link rel="canonical" href="https://jgmart.bd/" />
+  <link rel="manifest" href="/manifest.json" />
+  <!-- Include JSON-LD Organization + LocalBusiness snippets here -->
+
+Structured data to include:
+  - Organization (every page)
+  - LocalBusiness (home/landing pages)
+
+--------------------------------------------------------------------------------
+PAGE 2: landing.html — Customer Landing Page
+--------------------------------------------------------------------------------
+
+Title Tag:
+  JG Mart — Order Groceries Online | Japan Garden City, Mohammadpur
+  (69 chars — might be long, consider:)
+  JG Mart — Online Grocery, Japan Garden City
+  (45 chars)
+
+Meta Description:
+  Welcome to JG Mart! Order fresh groceries, produce and daily essentials
+  online in Japan Garden City, Mohammadpur, Dhaka. Fast delivery, great prices.
+  (158 chars)
+
+OG tags — same pattern as index.html with landing-specific url:
+  <meta property="og:title" content="JG Mart — Order Groceries Online | Japan Garden City, Mohammadpur" />
+  <meta property="og:description" content="Welcome to JG Mart! Fresh groceries delivered fast in Japan Garden City, Mohammadpur, Dhaka." />
+  <meta property="og:url" content="https://jgmart.bd/landing.html" />
+
+Twitter Card — same pattern as index.html with landing-specific title/description.
+
+Additional:
+  <link rel="canonical" href="https://jgmart.bd/landing.html" />
+  <!-- Include JSON-LD Organization + LocalBusiness snippets here -->
+
+--------------------------------------------------------------------------------
+PAGE 3: order_intake.html — Order Intake / Checkout Page
+--------------------------------------------------------------------------------
+
+Title Tag:
+  Order Intake — JG Mart | Japan Garden City, Dhaka
+  (50 chars)
+
+Meta Description:
+  Complete your grocery order with JG Mart. We deliver fresh produce and
+  essentials to Japan Garden City, Mohammadpur, Dhaka. Fast & reliable.
+  (152 chars)
+
+OG tags:
+  <meta property="og:title" content="Order Intake — JG Mart | Japan Garden City, Dhaka" />
+  <meta property="og:description" content="Complete your grocery order with JG Mart. Fast delivery in Mohammadpur, Dhaka." />
+  <meta property="og:url" content="https://jgmart.bd/order_intake.html" />
+
+Additional:
+  <meta name="robots" content="noindex, follow" />
+  <!-- (Optional: noindex if this is a transactional/checkout page;
+       keep follow so crawlers can follow links through.) -->
+  <link rel="canonical" href="https://jgmart.bd/order_intake.html" />
+  <!-- Include JSON-LD Organization snippet only (no LocalBusiness needed) -->
+
+--------------------------------------------------------------------------------
+GLOBAL META TAGS — Include on ALL pages
+--------------------------------------------------------------------------------
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#00442D" />
+  <meta name="robots" content="index, follow" />           <!-- omit noindex on order_intake if you want it indexed -->
+  <meta name="googlebot" content="index, follow" />
+  <meta name="format-detection" content="telephone=yes" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="JG Mart" />
+
+================================================================================
+SEO CHECKLIST
+================================================================================
+[ ] Every page has a unique <title> (50-60 chars)
+[ ] Every page has a unique <meta name="description"> (150-160 chars)
+[ ] Canonical URL set on every page (prevents duplicate content)
+[ ] JSON-LD Organization snippet on every page
+[ ] JSON-LD LocalBusiness snippet on index.html and landing.html
+[ ] Open Graph tags present on every page
+[ ] Twitter Card tags present on every page
+[ ] robots.txt accessible at /robots.txt
+[ ] sitemap.xml accessible at /sitemap.xml
+[ ] Sitemap URL declared in robots.txt
+[ ] Google Search Console verified (add verification meta tag when available)
+[ ] Pagespeed / Lighthouse tested (mobile-first design as coded)
+================================================================================

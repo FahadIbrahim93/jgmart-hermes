@@ -1,0 +1,439 @@
+================================================================================
+                     JG MART — REFERRAL PROGRAM GUIDE
+                     "Bring a Neighbour, Earn Together"
+================================================================================
+
+Version: 1.0
+Last Updated: July 2026
+Owner: Operations Team
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+1. PROGRAM OVERVIEW
+2. PROGRAM RULES
+3. HOW CUSTOMERS SHARE THEIR CODE
+4. HOW WE TRACK AND CREDIT
+5. MONTHLY CAP
+6. EXPIRATION POLICY
+7. FAQ
+8. PROMOTION TEMPLATES
+9. TROUBLESHOOTING
+
+================================================================================
+1. PROGRAM OVERVIEW
+================================================================================
+
+The JG Mart Referral Program rewards our existing customers for bringing new
+neighbours and friends into the JG Mart community. Every time a referred
+customer places their first order (minimum 300 BDT), both the referrer and
+the referred customer receive 100 BDT credit toward their next purchase.
+
+This program is designed to:
+- Grow our customer base organically through trusted word-of-mouth.
+- Reward loyal customers who advocate for JG Mart.
+- Build community within Japan Garden City buildings and surrounding areas.
+
+================================================================================
+2. PROGRAM RULES
+================================================================================
+
+2.1 Eligibility
+- Any existing JG Mart customer who has placed at least one order is eligible
+  to refer others.
+- The referred person must be a NEW customer — never ordered from JG Mart before.
+- JG Mart employees and their immediate family members are not eligible to
+  participate.
+
+2.2 Referral Credit (100 BDT Per Successful Referral)
+- The referring customer receives 100 BDT credit when the referred customer's
+  first order is completed and delivered.
+- The referred customer also receives 100 BDT credit on their first order
+  (applied automatically as a discount or added as credit after delivery).
+- First order must be minimum 300 BDT to qualify.
+- Credit is non-transferable and can only be used on JG Mart orders.
+
+2.3 Monthly Cap
+- Maximum 500 BDT in referral credits per referrer per calendar month.
+- This equals a maximum of 5 successful referrals per month.
+- The cap resets on the 1st of each month.
+- Any referrals beyond the cap will still count, but the credit is paid out
+  in the following month (subject to that month's cap).
+
+2.4 One Code Per Referral
+- Each referral must use one unique referral code on their first order.
+- If a referred customer tries to apply multiple codes, only the first one
+  applied will be honoured.
+
+2.5 Code Validity
+- Referral codes do not expire — they remain active as long as the referring
+  customer remains an active JG Mart customer.
+- However, the CREDIT earned from a referral expires 90 days after issue
+  (see Section 6).
+
+================================================================================
+3. HOW CUSTOMERS SHARE THEIR CODE
+================================================================================
+
+Each customer receives a unique referral code when they place their first
+order. The code is sent to them via WhatsApp confirmation message.
+
+3.1 Sharing Methods
+
+  A) WhatsApp Forward (Recommended)
+     - Customer opens their WhatsApp chat with JG Mart.
+     - They tap the referral message and select "Forward."
+     - They send it to friends, family, or building groups.
+     - The forwarded message includes their unique code and a short blurb.
+
+  B) Building WhatsApp Groups
+     - Customers can share their code in their building's community group.
+     - Suggested message templates are in Section 8 below.
+     - We encourage building admins to share on behalf of residents.
+
+  C) In-Person / Word of Mouth
+     - Customer tells their neighbour verbally and shares the code.
+     - The neighbour enters the code when placing their first order.
+     - Works well for same-building referrals.
+
+  D) Social Media (Optional)
+     - Customers may share on Facebook groups or community pages.
+     - Only the unique code is shared — no personal contact info.
+
+3.2 Referral Code Format
+     Format: JGC-XXXXX (e.g., JGC-RAF001, JGC-NAS002)
+     The first three letters are always "JGC" for JG Mart.
+     The next three letters are the first three letters of the customer's name.
+     The last three digits are a sequential number.
+
+================================================================================
+4. HOW WE TRACK AND CREDIT
+================================================================================
+
+4.1 Tracking Process
+
+  Step 1: Customer places first order with a referral code.
+  Step 2: Order team spots the referral code in the order notes or customer
+          account.
+  Step 3: Team opens REFERRAL_TRACKER.csv (located in 12_Templates/).
+  Step 4: Fill in:
+          - Referral Date (date code was shared or first order date)
+          - First Order Date (actual first order completion date)
+          - First Order Value (total order amount in BDT)
+          - Referrer Credit Earned (100 BDT per successful referral)
+          - Status → "Active"
+  Step 5: Message the referrer: "Great news! Your referral [Name] just placed
+          their first order. You've earned 100 BDT credit!"
+  Step 6: Message the referred customer: "Welcome to JG Mart! You've earned
+          100 BDT credit for your first order. Use it on your next purchase!"
+
+4.2 Credit Application
+  - Credits are applied as a discount code applied to the customer's account.
+  - When the customer places their next order and asks to use credit, the team
+    deducts from the Credit Balance column in the tracker.
+  - Update: Credit Redeemed + new Credit Balance, and change Status to
+    "Redeemed" when fully used.
+
+4.3 Monthly Reconciliation
+  - On the 1st of each month, review all Active credits.
+  - Calculate total credits earned per referrer to enforce the 500 BDT cap.
+  - Flag any referrers approaching or exceeding the cap.
+  - Credits that exceed the cap roll to the next month.
+
+4.4 Expiration Check (Every 90 Days)
+  - Run a check every week: compare Referral Date + 90 days against today.
+  - Any credit older than 90 days that has not been redeemed → Status = "Expired".
+  - Message the customer: "Your 100 BDT referral credit from [Date] has
+    expired. Don't worry — you can earn new credits by referring someone new!"
+
+================================================================================
+5. MONTHLY CAP
+================================================================================
+
+Purpose: Prevent abuse and ensure the program remains financially sustainable.
+
+Rules:
+- Maximum credit a referrer can earn: 500 BDT per calendar month.
+- Soft cap warning at 400 BDT (4 referrals) — the team proactively messages
+  the customer letting them know they're approaching the limit.
+- Hard cap enforced at 500 BDT (5 referrals) — no further credits issued
+  that month. Excess referrals roll to the next month.
+- The cap resets to 0 on the 1st of every month at 00:00.
+
+Example:
+  - Rafiq refers 6 people in May → earns 500 BDT in May (cap hit).
+  - The 6th referral's 100 BDT rolls to June.
+  - In June, Rafiq can earn up to 500 BDT again. The rolled-over 100 BDT
+    counts against June's cap.
+
+Exception: The cap may be temporarily increased during promotional periods
+(e.g., launch week, anniversary sale) at management's discretion. Any
+promotional change must be announced to all customers in advance.
+
+================================================================================
+6. EXPIRATION POLICY
+================================================================================
+
+- Referral credits expire 90 (ninety) calendar days after they are earned.
+- The expiration date is calculated from the "First Order Date" of the
+  referred customer.
+- Expired credits are forfeited and cannot be reinstated.
+- The team sends a reminder message 7 days before expiry:
+    "Your 100 BDT referral credit will expire in 7 days. Use it on your
+     next order before [date]!"
+- Once expired, the Status column is updated to "Expired" and the credit
+  balance is set to 0 in the tracker.
+
+================================================================================
+7. FAQ
+================================================================================
+
+Q1: What if my referral never orders?
+A: That's okay! Not everyone will order right away. The credit is only earned
+   when the referred person places and completes their first order (minimum
+   300 BDT). You can share your code with as many people as you like — you'll
+   only be credited for those who actually order. There's no penalty for
+   referrals that don't convert.
+
+Q2: Can I refer myself?
+A: No. The referred customer must be a NEW customer who has never ordered from
+   JG Mart before. Referring yourself (using your own code on a second account,
+   asking family members in the same household to use your code, etc.) violates
+   the program rules and may result in forfeiture of all credits and removal
+   from the program.
+
+Q3: What if someone uses multiple referral codes?
+A: Only the FIRST referral code applied to a new customer's first order will
+   be honoured. Our order team checks for this during processing. If a customer
+   tries to enter multiple codes, we use the earliest one and disregard the
+   rest. The customer is informed that only one code could be applied.
+
+Q4: Can I refer someone in the same building as me?
+A: Yes! Same-building referrals are encouraged. Many of our strongest
+   referrals happen between neighbours. The program works exactly the same —
+   you still earn 100 BDT when they place their first order.
+
+Q5: Can I refer someone who lives in a different building or area?
+A: Absolutely. As long as the referred person is within our delivery zone
+   (Japan Garden City and surrounding areas), they are eligible.
+
+Q6: How do I know how much credit I have?
+A: You can ask us anytime via WhatsApp. We'll check the tracker and tell you
+   your current credit balance. We also send updates when you earn credit,
+   when you use it, and when it's about to expire.
+
+Q7: Can I combine referral credit with other discounts or promotions?
+A: Referral credit cannot be combined with other promotional discounts on the
+   same order unless explicitly stated. However, you can use referral credit
+   on one order and a promotion on another — there's no limit to how often you
+   can order.
+
+Q8: What happens to my referral code if I stop ordering from JG Mart?
+A: If an account has been inactive for 6+ months (no orders), the referral
+   code is deactivated. The customer would need to place a new order to
+   reactivate their code.
+
+Q9: Does the referred customer also get 100 BDT?
+A: Yes! Both the referrer AND the referred customer receive 100 BDT credit.
+   The referred customer's credit is applied automatically to their first
+   order (as a discount) or added as post-delivery credit.
+
+Q10: How do I use my credit?
+A: Simply tell our order team via WhatsApp or phone when placing your next
+    order: "I'd like to use my referral credit." We'll check your balance and
+    apply it. Credits can be used in full or in part.
+
+================================================================================
+8. PROMOTION TEMPLATES
+================================================================================
+
+--- TEMPLATE A: Launch Announcement (Existing Customers - WhatsApp) ---
+
+🛒 *JG Mart Referral Program — Bring a Neighbour, Earn Together!* 🎉
+
+Hi [Customer Name],
+
+We're excited to launch our Referral Program! Now you can earn *100 BDT
+credit* every time you refer a friend or neighbour who places their first
+order with JG Mart. 🎊
+
+Here's how it works:
+1️⃣ Share your unique code: *[Customer's Referral Code]*
+2️⃣ Your neighbour orders using your code (minimum 300 BDT first order)
+3️⃣ You both get *100 BDT credit* toward your next purchase!
+
+✨ *Bonus:* There's no limit to how many people you can refer (up to 500 BDT
+per month).
+
+Share your code in your building's WhatsApp group, forward this message to
+friends, or tell your neighbours in person!
+
+👉 *Your Referral Code: [Customer's Referral Code]*
+
+Thank you for being part of the JG Mart family!
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE B: Referral Success Notification (Referrer) ---
+
+🎉 *You've Earned 100 BDT Credit!*
+
+Hi [Referring Customer Name],
+
+Great news! Your referral, *[Referred Customer Name]*, just placed their
+first order with JG Mart. 🛒
+
+As a thank you, *100 BDT credit* has been added to your account.
+Your current credit balance: *[Balance] BDT*
+
+Use your credit on your next order — just tell us when you call or message us!
+
+Keep sharing your code: *[Referral Code]*
+
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE C: Welcome + Credit Notification (Referred Customer) ---
+
+🎉 *Welcome to JG Mart — You've Got 100 BDT Credit!*
+
+Hi [Referred Customer Name],
+
+Thank you for your first order with JG Mart! 🛒✨
+
+Because you were referred by [Referring Customer Name], you've earned
+*100 BDT credit* toward your next purchase. 🎊
+
+Your credit is ready to use. Simply tell our team when you place your next
+order, and we'll apply it.
+
+Want to earn even more? You get *your own referral code* too! Share it with
+friends and neighbours to earn 100 BDT for every successful referral.
+
+Welcome to the family! 🏪❤️
+
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE D: Monthly Cap Warning (Soft) ---
+
+📢 *Referral Program Update*
+
+Hi [Customer Name],
+
+You've referred *[Number]* people this month and earned *[Amount] BDT* in
+credits! 🎉
+
+Just a friendly heads-up — the monthly cap is *500 BDT (5 referrals)*. You're
+approaching the limit. Any additional referrals this month beyond the cap will
+roll over and be credited next month.
+
+Keep up the great referrals! 🚀
+
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE E: Expiry Reminder (7 Days Before) ---
+
+⏰ *Your Referral Credit Expires Soon!*
+
+Hi [Customer Name],
+
+You have *100 BDT referral credit* that will expire on *[Expiry Date]* —
+that's only *7 days away!*
+
+Don't let it go to waste. Use it on your next JG Mart order — just let us
+know when you place your order and we'll apply it.
+
+👉 Reply to this message to place your order now!
+
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE F: Building Group Announcement ---
+
+🏪 *JG Mart — Special Offer for [Building Name] Residents!* 🏪
+
+Hello neighbours! 👋
+
+We're excited to announce our new *Referral Program* for [Building Name]
+residents. Here's the deal:
+
+🤝 *Refer a neighbour → You both get 100 BDT credit!*
+
+How it works:
+1️⃣ Find a JG Mart customer in your building and ask for their code
+2️⃣ Use their code on your first order (minimum 300 BDT)
+3️⃣ You both save 100 BDT on your next order!
+
+Already a customer? Share your code in this group and help your neighbours
+save while you earn credit too.
+
+👉 *Message us on WhatsApp to get started!*
+
+— JG Mart Team 🛒
+
+---
+
+--- TEMPLATE G: End of Month Recap (Active Referrers) ---
+
+📊 *Your Monthly Referral Recap — [Month]*
+
+Hi [Customer Name],
+
+Here's your referral activity for [Month]:
+
+• Successful referrals this month: *[Number]*
+• Total credits earned: *[Amount] BDT*
+• Credits used: *[Amount] BDT*
+• Current balance: *[Amount] BDT*
+• Credits expiring next month: *[Amount] BDT*
+
+Your cap resets on the 1st of next month, so keep those referrals coming!
+
+Your code: *[Referral Code]*
+
+— JG Mart Team 🛒
+
+================================================================================
+9. TROUBLESHOOTING
+================================================================================
+
+9.1 Referral Code Not Working
+- Check for typos in the code (letters vs numbers, case-sensitive?).
+- Confirm the referred customer is actually new (never ordered before).
+- Verify the code hasn't been deactivated due to referrer inactivity.
+- Solution: Manually apply the code from the Operations Dashboard if system
+  issue is confirmed.
+
+9.2 Credit Not Showing After Referral Order
+- Ensure the referred customer's first order met the 300 BDT minimum.
+- Check that the order was completed and delivered (not cancelled/refunded).
+- Confirm the referrer hasn't hit the 500 BDT monthly cap.
+- If all checks pass, manually add the credit and update the tracker.
+
+9.3 Customer Claims They Referred Someone But Didn't Get Credit
+- Ask for the referred customer's name and order date.
+- Check the tracker for the referral code.
+- If the code wasn't applied at order time, investigate whether the referred
+  customer mentioned it verbally.
+- If it was a genuine miss, credit retroactively and apologise.
+- If no evidence, politely explain the policy and encourage them to ensure
+  the code is shared at order time next time.
+
+9.4 Dispute: "I referred them before, why isn't it showing?"
+- Check if the code was used on an earlier order that was cancelled.
+- Check if the referred customer had previously ordered without a code
+  (making them ineligible as a "new" customer).
+- Check for duplicate entries in the tracker.
+- Resolve by referring to the First Order Date in tracker history.
+
+================================================================================
+                        END OF REFERRAL PROGRAM GUIDE
+                For questions, contact Operations Team on WhatsApp
+================================================================================

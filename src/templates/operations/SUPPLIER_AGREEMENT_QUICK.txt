@@ -1,0 +1,82 @@
+================================================================================
+        빠른 সরবরাহকারী চুক্তি — SUPPLIER QUICK AGREEMENT
+        JG Mart — Japan Garden City, Mohammadpur, Dhaka
+        Agreement No: JGM/SUP/____ /2026          Date: ____/____/2026
+================================================================================
+
+Supplier Name: ________________________________________ Shop: __________________
+Supplier ID: _____________  Phone: ____________________  Category: _____________
+Market Location: Krishi Market, Building/Shed: ________________ Stall#: ________
+
+Bank Details (ঐচ্ছিক): Bank: ___________  Account Name: _____________  A/C#: _____________
+
+
+1. চুক্তির সময়কাল — AGREEMENT TERM
+   This agreement starts from ___________ and continues until terminated
+   by either party with 7 (seven) days written notice.
+
+2. দৈনিক অর্ডার — DAILY ORDER COMMITMENT
+   Supplier agrees to supply the following minimum quantities daily:
+   ☐ Rice/Grains: ______ kg      ☐ Vegetables: ______ kg
+   ☐ Chicken: ______ kg          ☐ Fish: ______ kg
+   ☐ Beef/Mutton: ______ kg      ☐ Oil/Dal: ______ litres/kg
+   ☐ Eggs: ______ dozen          ☐ Milk: ______ litres
+   ☐ Fruits: ______ kg           ☐ Other: __________________
+   Order cut-off: Previous day 8:00 PM. Delivery by 7:00 AM to JG Mart.
+
+3. মূল্য নির্ধারণ — PRICING
+   - Wholesale price fixed weekly (Saturday-Wednesday batch).
+   - Supplier must inform JG Mart 24 hours before any price change.
+   - JG Mart's commission: BDT ____ per unit (as per price list).
+
+4. পেমেন্ট শর্ত — PAYMENT TERMS (Select one)
+   ☐ Daily Cash on Delivery (COD) — Payment on delivery same morning
+   ☐ Weekly Settlement — Every Saturday for Mon-Sat supply
+   ☐ Biweekly — 1st & 15th of each month
+   ☐ Net 7 Days — Payment within 7 days of invoice
+   Payment Method: ☐ Cash  ☐ bKash  ☐ Nagad  ☐ Bank Transfer
+
+5. গুণগত মান — QUALITY CLAUSE
+   সরবরাহকারী নিশ্চিত করবেন:
+   - সব পণ্য তাজা, পরিষ্কার এবং ভোজ্য হবে।
+   - সরবরাহকারী গ্যারান্টি দেন যে পণ্য ভালো মানের এবং বাজারে চলতি দামে।
+   (Supplier guarantees products are fresh, clean, and edible.
+    Products must be good quality at current market rates.)
+   - Any substandard product will be rejected at JG Mart's discretion.
+   - Rejected products must be replaced within 2 hours or credit applied.
+   - Weight/shortage: If quantity is less than ordered, payment adjusted.
+
+6. ডেলিভারি — DELIVERY
+   Delivery Point: JG Mart, Japan Garden City, Mohammadpur (Gate-2)
+   Drop-off: ☐ At store front  ☐ At back loading bay
+   Transport responsibility: Supplier bears all transport cost to JG Mart.
+   Late delivery (after 7:30 AM) penalty: BDT 100 per 30 min delay.
+
+7. চুক্তি বাতিল — TERMINATION
+   Either party may end this agreement for:
+   - 7 days written notice without cause.
+   - Immediate termination for:
+        a) Consistent poor quality (3 written complaints in a month)
+        b) Failure to deliver 3 times without 24-hour notice
+        c) Selling below our agreed price to other buyers (পক্ষান্তর)
+        d) If at any time the supplier's product causes customer illness
+
+8. বিতর্ক নিষ্পত্তি — DISPUTE RESOLUTION
+   Any dispute will first try amicable settlement (সমঝোতা).
+   If unresolved, matter will be referred to local Mohammadpur market committee
+   (স্থানীয় বাজার কমিটি). Both parties accept their decision as final.
+
+9. স্বাক্ষর — SIGNATURES
+
+_________________________                         _________________________
+Supplier Signature & Date                        JG Mart Representative & Date
+
+Mobile: ____________________                     Mobile: 017XX-XXXXXX
+
+Witness 1: ___________________ Phone: ___________________
+Witness 2: ___________________ Phone: ___________________
+
+================================================================================
+Version 1.0 — JG Mart Supplier Program | This is a quick-sheet agreement.
+Full legal terms available in SUPPLIER_AGREEMENT_FULL.docx upon request.
+================================================================================

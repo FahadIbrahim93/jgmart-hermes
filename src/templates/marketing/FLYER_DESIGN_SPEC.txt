@@ -1,0 +1,274 @@
+================================================================================
+JG MART — A5 FLYER DESIGN SPECIFICATION
+Print-Ready Technical Document for Designer & Print Vendor
+================================================================================
+
+---------------------------------------------------------------------
+1. DOCUMENT OVERVIEW
+---------------------------------------------------------------------
+
+DOCUMENT:        JG Mart A5 Flyer — Front & Back
+PURPOSE:         Door-to-door distribution, community notice boards, cafe counters
+TARGET AUDIENCE: JGC residents, tower security desks, local shopkeepers
+PRINT RUN:       2,000 – 5,000 copies (initial run)
+
+---------------------------------------------------------------------
+2. DIMENSIONS & BLEED
+---------------------------------------------------------------------
+
+  Finished Size:    148mm × 210mm (A5)
+  Bleed:            3mm on all sides
+  Safe Zone:        5mm from trim edge on all sides
+  Total Artboard:   154mm × 216mm (including bleed)
+
+  FOLDING:          None (flat A5). If folding to DL is required later,
+                    add center fold guide at 74mm.
+
+  COLOUR MODE:      CMYK (no RGB for print)
+  RESOLUTION:       300 DPI minimum for all images and graphics
+  FILE FORMAT:      PDF/X-1a or PDF/X-4 with bleed
+  FONTS:            Outlined or embedded (all Bangla + English fonts licensed)
+
+---------------------------------------------------------------------
+3. FRONT SIDE — DESIGN LAYOUT
+---------------------------------------------------------------------
+
+HEADLINE ZONE (Top 35% of canvas)
+----------------------------------
+  Headline:       "Krishi Market Prices, Delivered to Your Door"
+  Sub-headline:   "In 2 Hours or Less — Japan Garden City"
+  Branding:       JG Mart logo (horizontal lockup) top-left, within clear space
+  Visual:         Hero image of fresh produce basket or delivery rider on
+                  motorcycle with JG Mart branding
+
+  Typography:
+    Headline:     Poppins Bold, 28–32pt, Primary Green (#059669 converted to CMYK)
+    Sub-headline: Inter Regular, 14–16pt, Dark Gray (#1F2937 → CMYK equivalent)
+    Language:     English dominant; Bangla sub-headline optional below
+
+BENEFITS ZONE (Middle 40% of canvas)
+------------------------------------
+  Layout:         3-column or 3-row stacked bullet blocks
+  Each block:
+    Icon:         Simple line icon (basket, clock, price tag)
+    Title:        Bold, 12pt
+    Description:  Regular, 10pt, 2 lines max
+
+  Benefits:
+    1. 🥬 FRESH FROM KRISHI MARKET
+       Hand-picked daily at dawn. No warehouse. No aging.
+
+    2. ⚡ 2-HOUR DELIVERY
+       Order by 9AM, eat by 11AM. We time it so you don’t have to.
+
+    3. 💰 HONEST PRICES
+       Krishi Market rates, not supermarket markup. Fair for you,
+       fair for farmers.
+
+  Color blocks:    Light mint background (#ECFDF5 → CMYK) behind each benefit
+
+CALL-TO-ACTION ZONE (Bottom 25% of canvas)
+------------------------------------------
+  QR Code:        150mm × 150mm (scaled to ~40mm × 40mm on print)
+                  Links to: WhatsApp chat, website, or order form
+                  Place: Centered or right-aligned
+
+  Phone Number:   "Order by WhatsApp: 017XX-XXXXXX"
+                  Large, bold, Primary Green. Minimum 14pt.
+
+  Delivery Zones: Small text block listing active delivery areas:
+                  "Delivering to: JGC Block A, B, C | Tower 1, 2, 3 |
+                  Surrounding apartments in Mohammadpur"
+
+  Footer:         "Prices subject to availability. Delivery fee ৳30.
+                  Free delivery on orders over ৳800."
+                  Tiny, 8pt, gray
+
+---------------------------------------------------------------------
+4. BACK SIDE — DESIGN LAYOUT
+---------------------------------------------------------------------
+
+HEADER (Top 15% of canvas)
+--------------------------
+  Small logo:     JG Mart icon-only, centered, 15mm wide
+  Headline:       "How to Order in 3 Easy Steps"
+  Visual line:    Decorative green line or icon row
+
+HOW TO ORDER (Steps 1–3)
+------------------------
+  Layout:         Vertical timeline or 3-column step flow
+
+  Step 1 — SEND YOUR LIST
+    Icon:          Phone / WhatsApp bubble
+    Text:          "Save our number: [Phone Number]
+                    Send your grocery list via WhatsApp
+                    (text, voice, or photo — any format works!)"
+
+  Step 2 — CONFIRM & PAY
+    Icon:          Checkmark / payment method
+    Text:          "We confirm availability, total price, and
+                    delivery time. Pay cash on delivery or bKash."
+
+  Step 3 — GET IT IN 2 HOURS
+    Icon:          Delivery bike / clock
+    Text:          "Our rider picks, packs, and delivers straight
+                    to your door. Track live on WhatsApp."
+
+  Typography:
+    Step titles:   Poppins SemiBold, 14pt, Primary Green
+    Step body:     Inter Regular, 10pt, Dark Gray
+
+SAMPLE PRODUCTS GRID (Middle 45% of canvas)
+-------------------------------------------
+  Layout:         2 columns × 3 rows = 6 product cards
+  Card size:      ~60mm wide × 55mm tall each
+
+  Product Cards (sample):
+    1. 🍅 Tomatoes      ৳40/kg    "Krishi Market fresh"
+    2. 🥔 Potatoes      ৳25/kg    "Washed & ready to cook"
+    3. 🥬 Cabbage       ৳20/kg    "Locally grown"
+    4. 🍌 Bananas       ৳50/dzn   "Sweet Chapa variety"
+    5. 🥛 Fresh Milk    ৳90/ltr   "Farm-fresh, unpasteurized"
+    6. 🍳 Eggs          ৳140/tray "Free-range, 12 pcs"
+
+  Each card:
+    Image:         White-background product photo (placeholder circle)
+    Name:          Bold, 9pt, Dark Gray
+    Price:         Bold, 11pt, Primary Green
+    Tagline:       Italic, 8pt, Medium Gray
+
+  Total layout note: Ensure 5mm safe zone. Grid lines optional in light gray.
+
+REFERRAL OFFER (Bottom 20% of canvas)
+-------------------------------------
+  Background:     Solid Primary Green (#059669 → CMYK)
+  Text color:     White (#FFFFFF → CMYK)
+
+  Headline:       "Refer a Neighbor, Both Save ৳100!"
+  Sub-text:       "Your code: JGFLYER"
+  Details:        "Give this flyer to a friend. When they order using
+                   your code, they get ৳100 off. You get ৳100 credit."
+  Terms:          "Min order ৳500. Valid 30 days. JG Mart employees
+                   and families excluded."
+  CTA:            "Scan to WhatsApp us directly → [QR Code, 35mm × 35mm]"
+
+  Typography:
+    Headline:     Poppins Bold, 18pt, White
+    Body:         Inter Regular, 11pt, White (90% opacity)
+
+---------------------------------------------------------------------
+5. PRINT SPECIFICATIONS
+---------------------------------------------------------------------
+
+  COLOUR:         CMYK only. Convert all brand colors:
+                  Primary Green:   C78 M0 Y65 K28
+                  Secondary Green: C72 M0 Y60 K0
+                  White:           C0 M0 Y0 K0
+                  Dark Gray:       C70 M60 Y60 K40
+
+  PAPER TYPE:     100gsm coated art paper (preferred)
+                  OR 80gsm uncoated offset paper (budget option)
+                  RECOMMENDED: 128gsm coated for premium feel
+
+  FINISH:         Gloss lamination on front (protects hero image)
+                  Matte lamination on back (writes on referral section)
+                  ALTERNATIVE: Aqueous coating on both sides (cost-effective)
+
+  BLEED SETUP:    3mm bleed on all sides in InDesign / Illustrator
+                  Use slug area for printer notes, crop marks, registration
+
+  FONTS:          Outline all text or embed licensed fonts.
+                  Bangla fonts: Noto Sans Bengali or Kalpurush
+                  English fonts: Inter, Poppins
+
+  IMAGE RES:      All photos must be 300 DPI at final print size.
+                  Minimum 10MB for hero images. Avoid screen grabs.
+
+  PROOFING:       Request a PDF soft proof before final print run.
+                  Check color accuracy, QR code scannability, and bleed.
+
+---------------------------------------------------------------------
+6. QR CODE SPECIFICATIONS
+---------------------------------------------------------------------
+
+  FRONT QR CODE:
+    Purpose:      Link to WhatsApp chat or order page
+    Size:         40mm × 40mm (print), 200px × 200px (digital mockup)
+    Error Corr.:  Medium (M) — 15% damage tolerance
+    Quiet Zone:   4mm white border around QR code
+    Test:         Scan with 3 different phones before sending to print
+
+  BACK QR CODE:
+    Purpose:      Direct WhatsApp link with pre-filled message
+    URL Format:   https://wa.me/8801XXXXXXXXX?text=Hi%20JG%20Mart,%20I%20want%20to%20order
+    Size:         35mm × 35mm
+    Error Corr.:  Medium (M)
+    Quiet Zone:   4mm white border
+
+---------------------------------------------------------------------
+7. DISTRIBUTION STRATEGY
+---------------------------------------------------------------------
+
+7.1 DISTRIBUTION LOCATIONS
+---------------------------
+  Priority 1 (High Foot Traffic):
+    • JGC main gate security desk
+    • Each tower lobby / reception
+    • JGC community center
+    • Near elevators on ground and first floors
+    • Local grocery stores and tea stalls inside JGC
+
+  Priority 2 (Secondary):
+    • Nearby apartments outside JGC but within delivery radius
+    • Mosque notice boards (especially before Ramadan/Eid)
+    • JGC park / playground bulletin board
+    • Local pharmacy counters
+    • Rickshaw and CNG stands near JGC entrances
+
+7.2 DISTRIBUTION METHOD
+------------------------
+  Door-to-door:   Security guards or JG Mart brand ambassadors drop flyers
+                  at every apartment door during [time window: 5–7 PM].
+                  Wear JG Mart branded t-shirts. Carry a clipboard for
+                  interested residents to write their numbers.
+
+  Counter Drop:   Leave stacks of 50–100 flyers at each location listed
+                  above. Rotate weekly to prevent theft or hoarding.
+
+  Event Handout:  Distribute at JGC block tournaments, Eid gatherings,
+                  and community meetings.
+
+7.3 QUANTITY & FREQUENCY
+-------------------------
+  Initial run:    5,000 copies (A5 front + back)
+  Re-print cycle: Monthly or when stock falls below 500
+  Seasonal bump:  Increase to 8,000 during Ramadan, Eid, and exam seasons
+
+7.4 TRACKING EFFECTIVENESS
+---------------------------
+  Unique referral code printed on each flyer: JGFLYER-[AREA]
+  Example codes:
+    JGFLYER-JGC-A   (for JGC Block A drops)
+    JGFLYER-JGC-B   (for JGC Block B drops)
+    JGFLYER-MOSQUE  (for mosque distributions)
+
+  Track redemptions by code to measure ROI per location.
+
+---------------------------------------------------------------------
+8. DESIGNER DELIVERABLES CHECKLIST
+---------------------------------------------------------------------
+
+  [ ] Source file: Adobe InDesign (.indd) with linked images
+  [ ] High-res PDF with bleed and crop marks (PDF/X-1a)
+  [ ] Low-res proof PDF for soft-proofing
+  [ ] QR code source files (EPS + PNG)
+  [ ] All images exported at 300 DPI
+  [ ] Bangla text rendering verified (no missing glyphs)
+  [ ] Color swatches verified against brand guidelines
+  [ ] Typography hierarchy proofed for readability at A5 size
+  [ ] Phone number and link placeholders clearly marked for updates
+  [ ] Print vendor spec sheet included with delivery
+
+================================================================================
+END OF FLYER DESIGN SPECIFICATION
+================================================================================

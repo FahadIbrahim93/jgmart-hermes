@@ -1,0 +1,367 @@
+╔══════════════════════════════════════════════════════════════════╗
+║              JG MART — DEPLOYMENT GUIDE v1.0                     ║
+║         Get Your Web Apps Live on the Internet                    ║
+║         Fahad Ibrahim — Japan Garden City, Dhaka                 ║
+║         July 2026                                                 ║
+╚══════════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────────
+TABLE OF CONTENTS
+────────────────────────────────────────────────────────────────────
+1. What We're Deploying
+2. Option A: Vercel (RECOMMENDED — Easiest, Free)
+3. Option B: Netlify (Alternative)
+4. Custom Domain (jgmart.bd or similar)
+5. Data Migration (VERY IMPORTANT)
+6. After Deployment
+7. Troubleshooting
+
+────────────────────────────────────────────────────────────────────
+1. WHAT WE'RE DEPLOYING
+────────────────────────────────────────────────────────────────────
+
+You have TWO folders that need to go live on the internet:
+
+┌─────────────────────────────────────────────────────────────────┐
+│ PUBLIC (Customer-Facing)    → 06_Web_Catalog/                   │
+│                              Your customers will browse this    │
+│                              to see products and place orders.  │
+├─────────────────────────────────────────────────────────────────┤
+│ PRIVATE (Your Dashboard)    → 05_Tech_Dashboard/                │
+│                              Only YOU access this — KPI panel,  │
+│                              order manager, analytics, finance. │
+├─────────────────────────────────────────────────────────────────┤
+│ LOCAL ONLY (Not deployable) → Root apps: os.html, ops.html,    │
+│                              data.html, health.html, etc.       │
+│                              These use localStorage and work    │
+│                              fine when you open them from your  │
+│                              computer. Do NOT deploy these —    │
+│                              just open them directly in your    │
+│                              browser from the folder.           │
+└─────────────────────────────────────────────────────────────────┘
+
+IMPORTANT: The root web apps (os.html, ops.html, data.html, start.html,
+field_ops.html, health.html) store data in your browser's localStorage.
+This data stays on YOUR computer. When you deploy, the deployed version
+gets a FRESH empty localStorage. See Section 5 (Data Migration) below
+for how to move your data to the deployed site.
+
+BOTH folders already have a vercel.json file inside them. This file
+tells Vercel exactly how to serve your website — so you don't need
+to configure anything. Just drag and drop.
+
+────────────────────────────────────────────────────────────────────
+2. OPTION A: VERCEL (RECOMMENDED)
+────────────────────────────────────────────────────────────────────
+
+Vercel is the easiest way to put a website live. It's free, fast, and
+handles HTTPS (the padlock icon in browsers) automatically.
+
+── Step 1: Create a Vercel Account ──
+
+  1. Open your web browser and go to → https://vercel.com
+  2. Click "Sign Up" (top-right corner)
+  3. Choose "Continue with GitHub" (best option — creates both accounts)
+     OR "Continue with Google" if you don't have GitHub
+  4. Follow the on-screen steps to complete signup
+  5. Verify your email if asked
+
+── Step 2: Deploy the Customer Catalog (06_Web_Catalog/) ──
+
+  1. After logging in, you'll see the Vercel dashboard
+  2. Click the "Add New" button (top-right, blue button)
+  3. Select "Project" from the dropdown
+  4. IMPORTANT: DO NOT connect a Git repository. Instead, look for
+     the section that says "Deploy without Git" or look for the
+     drag-and-drop area near the bottom of the page labelled
+     "Import Third-Party Project" or just a large dashed rectangle
+  5. Open Windows File Explorer and navigate to:
+     This PC → G: → JGC Mart → JGC Mart - Hermes → 06_Web_Catalog
+  6. DRAG the entire 06_Web_Catalog folder from File Explorer and
+     DROP it onto the Vercel import area in your browser
+     (Alternatively: click the area and browse to select the folder)
+  7. Vercel will auto-detect it as a static HTML site
+  8. Click the "Deploy" button (bottom of the page)
+  9. Wait 30-60 seconds — Vercel uploads and deploys
+  10. DONE! You'll see a congratulations screen with your URL like:
+      https://jg-mart-catalog-xxxxxxxx.vercel.app
+  11. Click "Visit" to open your live catalog in a new tab
+  12. TEST IT: Browse products, try the order form, check it works
+      on your phone too
+
+── Step 3: Deploy the Tech Dashboard (05_Tech_Dashboard/) ──
+
+  Repeat the exact same steps for the dashboard:
+
+  1. From the Vercel dashboard, click "Add New" → "Project" again
+  2. Drag the 05_Tech_Dashboard folder (NOT 06_Web_Catalog) onto it
+  3. Click "Deploy"
+  4. When done, you'll get a URL like:
+      https://jg-mart-dashboard-xxxxxxxx.vercel.app
+  5. Bookmark this URL — this is your private command center
+
+── Step 4: Rename Your Projects (Optional but Nice) ──
+
+  The auto-generated URL has random characters. You can make it cleaner:
+
+  1. Go to your Vercel dashboard → click on your catalog project
+  2. Go to "Settings" (top tab bar)
+  3. Scroll to "Project Name" section
+  4. Rename it to something like: jg-mart-catalog
+  5. Your URL becomes: https://jg-mart-catalog.vercel.app
+  6. Repeat for the dashboard: rename to jg-mart-dashboard
+     URL becomes: https://jg-mart-dashboard.vercel.app
+
+✅ VERIFICATION: Open both URLs in your browser. They should work
+   exactly like they do when you open the HTML files from your computer.
+
+────────────────────────────────────────────────────────────────────
+3. OPTION B: NETLIFY (ALTERNATIVE — If Vercel Doesn't Work)
+────────────────────────────────────────────────────────────────────
+
+Netlify works almost the same way as Vercel — also free, also easy.
+
+── Step 1: Sign Up ──
+
+  1. Go to → https://netlify.com
+  2. Click "Sign Up" (top-right)
+  3. Choose GitHub or Google to sign up
+  4. Check your email and verify
+
+── Step 2: Deploy ──
+
+  1. From the Netlify dashboard, look for the section that says
+     "Drag and drop your site folder here"
+  2. Open File Explorer and go to:
+     G: → JGC Mart → JGC Mart - Hermes → 06_Web_Catalog
+  3. Drag the 06_Web_Catalog folder onto the Netlify drop area
+  4. Netlify uploads and deploys automatically
+  5. You'll get a URL like: https://random-name-12345.netlify.app
+  6. Click to visit your live catalog
+  7. Repeat for the 05_Tech_Dashboard folder
+
+── Optional: Add netlify.toml ──
+
+  If you want to use Netlify, create a file called netlify.toml
+  inside the 06_Web_Catalog folder with this content:
+
+    [build]
+      publish = "."
+
+    [[headers]]
+      for = "/*"
+      [headers.values]
+        Cache-Control = "public, max-age=0, must-revalidate"
+
+    [[headers]]
+      for = "/catalog_data.json"
+      [headers.values]
+        Access-Control-Allow-Origin = "*"
+
+────────────────────────────────────────────────────────────────────
+4. CUSTOM DOMAIN (jgmart.bd or similar)
+────────────────────────────────────────────────────────────────────
+
+By default, your site lives at a Vercel or Netlify subdomain. To use
+your own domain name (like jgmart.bd or jgmart.store), follow these
+steps.
+
+── Step 1: Buy a Domain Name ──
+
+  For a Bangladesh (.bd) domain:
+    • https://bdserver.com
+    • https://instra.net
+    • Check Dhaka-based domain registrars
+
+  For international domains (.com, .store, .online, .shop):
+    • https://namecheap.com  (cheap, reliable)
+    • https://godaddy.com    (biggest, slightly pricier)
+    • https://porkbun.com    (very cheap)
+
+  Prices: .com ≈ $10-12/year, .store ≈ $15-30/year,
+  .bd domains vary — check with local registrars.
+
+── Step 2: Add Domain to Vercel ──
+
+  1. Go to your Vercel dashboard → click your catalog project
+  2. Click "Settings" → "Domains" (left sidebar)
+  3. Type your domain (e.g., jgmart.bd) and click "Add"
+  4. Vercel will show you the DNS records to set up
+
+── Step 3: Point Your Domain to Vercel ──
+
+  You have two options:
+
+  OPTION A (EASIEST — Vercel Nameservers):
+    • Go to where you bought your domain → DNS settings
+    • Replace the default nameservers with Vercel's:
+      - ns1.vercel-dns.com
+      - ns2.vercel-dns.com
+    • Save. Wait 1-48 hours for the change to spread.
+
+  OPTION B (CNAME Record):
+    • In your domain's DNS settings, add a CNAME record:
+      - Host/Name: @  (or your subdomain like www)
+      - Target/Points to: cname.vercel-dns.com
+    • Save. Wait a few minutes to an hour.
+
+── Step 4: Verify ──
+
+  • Open your custom domain in a browser: https://jgmart.bd
+  • If you see your catalog, it's working!
+  • While waiting for DNS (can take up to 48 hours), your Vercel
+    .vercel.app URL still works — use that in the meantime
+
+── For Your Dashboard (Private) ──
+
+  It's fine to keep the dashboard at its Vercel subdomain URL.
+  You don't need a custom domain for it — just bookmark it.
+
+────────────────────────────────────────────────────────────────────
+5. DATA MIGRATION (⚠️ READ THIS — PREVENTS DATA LOSS)
+────────────────────────────────────────────────────────────────────
+
+This is the most important section. Here's the problem:
+
+  Your data (products, orders, daily P&L, etc.) is stored in your
+  browser's localStorage — a storage space inside your browser.
+
+  When you deploy to Vercel, the deployed site has its OWN separate
+  localStorage that starts EMPTY. Your existing data stays on your
+  computer and does NOT automatically appear on the live site.
+
+── Step A: Export Data from Your Local Apps ──
+
+  METHOD 1 — Using data.html Export Button (Quickest):
+    1. Open data.html from your computer (double-click the file)
+    2. Look for the "Export" or "Download Backup" button
+    3. Click it — this saves a .json backup file to your computer
+    4. Go to your DEPLOYED catalog dashboard (the Vercel URL)
+    5. Find the "Import" or "Restore" button
+    6. Upload the .json file you just downloaded
+    7. Your data is now on the live site!
+
+  METHOD 2 — Using backup.html (Complete Backup):
+    1. Open 05_Tech_Dashboard/backup.html from your computer
+    2. Click "Backup All" — this exports ALL localStorage data
+       from all JG Mart apps (orders, catalog, P&L, analytics, etc.)
+    3. Save the .json file to a safe folder
+    4. Open the SAME backup.html on your deployed dashboard URL
+    5. Click "Restore" and select the backup file
+    6. ALL your data is now on the live site
+
+── Step B: Repeat After You Enter New Data ──
+
+  Anytime you add data while working locally, export and import
+  to the deployed version. Or better — once the deployed site is
+  working, start using it as your PRIMARY site and stop using the
+  local files day-to-day.
+
+  Recommended workflow:
+    • Week 1-2: Work locally, export/import daily
+    • Week 3+: Use the deployed version as your main tool
+    • Keep backup.html bookmarked on both your phone and laptop
+
+────────────────────────────────────────────────────────────────────
+6. AFTER DEPLOYMENT — YOUR CHECKLIST
+────────────────────────────────────────────────────────────────────
+
+□ Step 1: Share the Catalog URL
+   • Copy your catalog URL: https://jg-mart-catalog.vercel.app
+   • Send it in the Japan Garden City building WhatsApp groups
+   • Write something like:
+     "আমাদের JG Mart ক্যাটালগ অনলাইনে! ব্রাউজ করুন এবং অর্ডার দিন:
+     https://jg-mart-catalog.vercel.app"
+     ("Our JG Mart catalog is online! Browse and order:")
+
+□ Step 2: Open Dashboard on Your Phone
+   • Open your dashboard URL on your phone browser
+   • Add it to your phone's Home Screen for quick access:
+     - iPhone: Share button → "Add to Home Screen"
+     - Android: Menu → "Add to Home Screen"
+   • This installs it as a PWA (Progressive Web App) — it will
+     look and feel like a real app
+
+□ Step 3: Test the Order Flow End-to-End
+   • Place a test order through the live catalog
+   • Check that the order appears in your dashboard
+   • Verify the entire pipeline: customer → order → you receive it
+
+□ Step 4: Set Up Google Analytics (Optional)
+   1. Go to https://analytics.google.com
+   2. Create a new property for your catalog website
+   3. Get the tracking code (starts with "G-XXXXXXXX")
+   4. In your 06_Web_Catalog/index.html, just before the closing
+      </head> tag, paste the Google Analytics snippet
+   5. Re-deploy the folder to Vercel (drag & drop again)
+   Now you can see how many visitors your catalog gets!
+
+□ Step 5: Backup Your Deployment
+   • The original files on your G: drive ARE your backup
+   • If you ever need to redeploy, just drag and drop the folders
+     again to Vercel
+   • Periodically back up your localStorage data using backup.html
+     (see Section 5)
+
+────────────────────────────────────────────────────────────────────
+7. TROUBLESHOOTING
+────────────────────────────────────────────────────────────────────
+
+── "The site doesn't load" or shows a blank page ──
+  • Wait 1-2 minutes after deploying — sometimes it takes a moment
+  • Refresh the page (Ctrl+R or F5)
+  • Check that you deployed the CORRECT folder (06_Web_Catalog or
+    05_Tech_Dashboard — not the root folder)
+  • Make sure your folder has an index.html file inside it
+
+── "Vercel won't let me drag the folder" ──
+  • Some browsers have issues with drag-and-drop. Click the import
+    area instead and browse to select the folder
+  • Try using Chrome or Edge instead of Firefox/Safari
+  • Alternatively: use Netlify instead (Section 3)
+
+── "My data didn't transfer to the live site" ──
+  • Read Section 5 carefully — localStorage does NOT transfer
+    automatically. You must Export from your local files and
+    Import on the deployed site.
+
+── "The site works but looks different on mobile" ──
+  • That's normal and expected — the catalog is designed to be
+    mobile-friendly (responsive design). It should adapt.
+  • If something looks broken, check your phone's browser zoom
+    setting (should be 100%)
+
+── "I need to update the catalog (add/remove products)" ──
+  • Edit the catalog_data.json file on your computer
+  • Open 06_Web_Catalog/catalog_data.json in Notepad
+  • Make your changes (add/remove/edit product entries)
+  • Save the file
+  • Re-deploy: drag the entire 06_Web_Catalog folder to Vercel again
+  • The new version goes live in about 30 seconds
+
+── "I need help or something isn't working" ──
+  • Vercel docs: https://vercel.com/docs
+  • Netlify docs: https://docs.netlify.com
+  • Or search Google with your error message
+
+────────────────────────────────────────────────────────────────────
+QUICK REFERENCE CARD
+────────────────────────────────────────────────────────────────────
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Catalog Live URL:     https://jg-mart-catalog.vercel.app  │
+  │ Dashboard Live URL:   https://jg-mart-dashboard.vercel.app│
+  │ Local Files:          G:\JGC Mart\JGC Mart - Hermes\      │
+  │                                                           │
+  │ Deploy step:          Drag folder → Vercel → Deploy       │
+  │ Re-deploy step:       Same thing — overwrites old version │
+  │ Data backup:          backup.html → Export → Import       │
+  │                                                           │
+  │ Vercel login:         https://vercel.com                  │
+  │ Netlify login:        https://netlify.com                 │
+  └────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────
+Never GIVE UP on your HOPES.
+— JG Mart Command Center v2.0
+July 2026

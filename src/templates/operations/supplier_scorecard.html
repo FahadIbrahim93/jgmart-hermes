@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#00442D">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — Supplier Scorecard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green-900:#14532d;--green-800:#166534;--green-700:#15803d;--green-600:#16a34a;--green-500:#22c55e;--green-200:#bbf7d0;--green-100:#dcfce7;--green-50:#f0fdf4;--gold:#f59e0b;--gold-light:#fef3c7;--red:#dc2626;--red-light:#fecaca;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--white:#ffffff;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);--radius:12px;--radius-sm:8px}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--green-50);color:var(--gray-900);min-height:100vh;padding-bottom:80px}
+/* scrollbar */
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--green-50)}::-webkit-scrollbar-thumb{background:var(--green-200);border-radius:3px}
+/* Layout */
+.app-header{background:linear-gradient(135deg,var(--green-800),var(--green-700));color:var(--white);padding:20px 16px 18px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-md)}
+.app-header h1{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.app-header .sub{font-size:13px;opacity:.85;margin-top:2px;font-weight:500}
+.container{max-width:720px;margin:0 auto;padding:16px}
+/* Stats Bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.stat-card{background:var(--white);border-radius:var(--radius-sm);padding:12px 10px;text-align:center;box-shadow:var(--shadow)}
+.stat-card .num{font-size:20px;font-weight:700;color:var(--green-800)}
+.stat-card .label{font-size:11px;color:var(--gray-500);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;font-weight:600}
+/* Controls */
+.controls{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.search-row{display:flex;gap:8px;flex-wrap:wrap}
+.search-row input,.search-row select{flex:1;min-width:0;padding:10px 14px;border:2px solid var(--gray-200);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;background:var(--white);transition:border .2s}
+.search-row input:focus,.search-row select:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px rgba(22,163,74,.15)}
+.filter-row{display:flex;gap:6px;flex-wrap:wrap}
+.filter-btn{padding:7px 14px;border-radius:20px;border:2px solid var(--gray-200);background:var(--white);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-btn:hover{border-color:var(--green-300)}
+.filter-btn.active{background:var(--green-700);color:var(--white);border-color:var(--green-700)}
+.actions-row{display:flex;gap:8px;flex-wrap:wrap}
+.actions-row button{padding:8px 16px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;border:2px solid var(--green-600)}
+.btn-primary{background:var(--green-600);color:var(--white)}.btn-primary:hover{background:var(--green-700)}
+.btn-outline{background:var(--white);color:var(--green-700)}.btn-outline:hover{background:var(--green-50)}
+.btn-danger{background:var(--white);color:var(--red);border-color:var(--red)!important}
+.btn-danger:hover{background:var(--red-light)}
+/* Supplier Cards */
+.supplier-list{display:flex;flex-direction:column;gap:12px}
+.supplier-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:all .2s;border-left:5px solid var(--gray-200)}
+.supplier-card.green{border-left-color:var(--green-500)}
+.supplier-card.gold{border-left-color:var(--gold)}
+.supplier-card.red{border-left-color:var(--red)}
+.supplier-card:hover{box-shadow:var(--shadow-md)}
+.supplier-card-header{padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer;gap:10px}
+.supplier-info{flex:1;min-width:0}
+.supplier-info .name{font-size:16px;font-weight:700;color:var(--gray-900)}
+.supplier-info .meta{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px;font-size:12px;color:var(--gray-500)}
+.supplier-info .meta span{display:inline-flex;align-items:center;gap:4px}
+.score-badge{display:flex;flex-direction:column;align-items:center;flex-shrink:0;min-width:60px}
+.score-badge .score{font-size:24px;font-weight:800;line-height:1}
+.score-badge .trend{font-size:16px;margin-top:-2px}
+.trend-up{color:var(--green-600)}.trend-down{color:var(--red)}.trend-stable{color:var(--gold)}
+.score-badge .label{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+/* Supplier card body (expandable) */
+.supplier-card-body{display:none;padding:0 16px 16px;border-top:1px solid var(--gray-100)}
+.supplier-card-body.open{display:block}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.detail-item{font-size:13px;color:var(--gray-700)}
+.detail-item strong{color:var(--gray-900);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:1px}
+.call-btn{display:inline-block;margin-top:10px;padding:8px 18px;border-radius:var(--radius-sm);border:2px solid var(--green-600);background:var(--white);color:var(--green-700);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.call-btn:hover{background:var(--green-50)}
+.phone-reveal{display:none;margin-top:8px;padding:10px 14px;background:var(--green-50);border-radius:var(--radius-sm);font-size:16px;font-weight:600;color:var(--green-800);text-align:center;border:1px dashed var(--green-300)}
+.phone-reveal.show{display:block}
+/* Weekly Breakdown Chart */
+.weekly-chart{margin-top:14px}
+.weekly-chart h4{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:8px;font-weight:600}
+.chart-bars{display:flex;gap:6px;align-items:flex-end;height:60px;padding:4px 0}
+.chart-bar-wrapper{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;height:100%;justify-content:flex-end}
+.chart-bar{width:100%;max-width:36px;border-radius:4px 4px 0 0;min-height:4px;transition:height .3s}
+.chart-bar-label{font-size:9px;color:var(--gray-400);font-weight:600}
+/* Historical Ratings Table */
+.history-section{margin-top:14px}
+.history-section h4{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-500);margin-bottom:8px;font-weight:600}
+.history-table{width:100%;border-collapse:collapse;font-size:13px}
+.history-table th{padding:8px 6px;background:var(--green-50);font-weight:600;color:var(--gray-700);text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+.history-table td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--gray-100)}
+.history-table tr:last-child td{border-bottom:none}
+.history-table .week-label{font-weight:600;color:var(--gray-700);text-align:left}
+/* Stars */
+.stars{color:var(--gold);font-size:13px;letter-spacing:1px}
+.stars .empty{color:var(--gray-200)}
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-end;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:var(--white);border-radius:var(--radius) var(--radius) 0 0;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;padding:24px 20px 32px;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal h2{font-size:20px;font-weight:700;margin-bottom:18px;color:var(--gray-900)}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:4px}
+.form-group input,.form-group select{width:100%;padding:10px 14px;border:2px solid var(--gray-200);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;background:var(--white);transition:border .2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--green-500)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-actions{display:flex;gap:10px;margin-top:20px}
+.form-actions button{flex:1;padding:11px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--gray-900);color:var(--white);padding:12px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1}
+/* Empty state */
+.empty-state{text-align:center;padding:60px 20px;color:var(--gray-400)}
+.empty-state .icon{font-size:48px;margin-bottom:12px}
+.empty-state h3{font-size:18px;color:var(--gray-500);margin-bottom:6px}
+.empty-state p{font-size:14px}
+/* Responsive */
+@media(min-width:600px){
+.app-header{padding:24px 32px 20px}
+.app-header h1{font-size:26px}
+.container{padding:20px}
+.controls{flex-direction:row;flex-wrap:wrap;align-items:center}
+.search-row{flex:2;min-width:200px}
+.filter-row{flex:1;min-width:200px}
+.actions-row{margin-left:auto}
+.stats-bar{gap:14px}
+.stat-card{padding:16px}
+.stat-card .num{font-size:26px}
+.supplier-card-header{padding:16px 20px}
+.supplier-card-body{padding:0 20px 20px}
+.detail-grid{grid-template-columns:1fr 1fr 1fr}
+.chart-bar{max-width:48px}
+.modal{padding:32px;border-radius:var(--radius)}
+.modal-overlay{align-items:center}
+}
+@media(max-width:400px){
+.stats-bar{grid-template-columns:repeat(2,1fr)}
+.filter-row{gap:4px}
+.filter-btn{padding:6px 10px;font-size:12px}
+.form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <h1>📊 Supplier Scorecard</h1>
+  <div class="sub">JG Mart — Japan Garden City, Dhaka</div>
+</header>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-card"><div class="num" id="statTotal">0</div><div class="label">Suppliers</div></div>
+    <div class="stat-card"><div class="num" id="statAvgScore">—</div><div class="label">Avg Score</div></div>
+    <div class="stat-card"><div class="num" id="statGreen">0</div><div class="label">⭐ Excellent</div></div>
+    <div class="stat-card"><div class="num" id="statRed">0</div><div class="label">⚠️ Needs Help</div></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="🔍 Search by name or category…" oninput="renderSuppliers()">
+      <select id="categoryFilter" onchange="renderSuppliers()">
+        <option value="">All Categories</option>
+        <option>Rice/Dal</option>
+        <option>Oil/Spices</option>
+        <option>Veg</option>
+        <option>Fish</option>
+        <option>Meat</option>
+        <option>Dairy</option>
+        <option>Fruits</option>
+        <option>FMCG</option>
+      </select>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+      <button class="filter-btn" data-filter="good" onclick="setFilter('good')">✅ Good (4.0+)</button>
+      <button class="filter-btn" data-filter="attention" onclick="setFilter('attention')">⚠️ Needs Attn</button>
+      <button class="filter-btn" data-filter="poor" onclick="setFilter('poor')">❌ Poor</button>
+    </div>
+    <div class="actions-row">
+      <button class="btn-primary" onclick="openAddModal()">+ Add Supplier</button>
+      <button class="btn-outline" onclick="exportJSON()">📦 Export</button>
+    </div>
+  </div>
+
+  <!-- Supplier List -->
+  <div class="supplier-list" id="supplierList"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+</div>
+
+<!-- Add/Edit Supplier Modal -->
+<div class="modal-overlay" id="supplierModal">
+  <div class="modal">
+    <h2 id="modalTitle">Add Supplier</h2>
+    <input type="hidden" id="editId">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Supplier Name *</label>
+        <input type="text" id="supName" placeholder="e.g. Karim Brothers" required>
+      </div>
+      <div class="form-group">
+        <label>Category *</label>
+        <select id="supCategory">
+          <option>Rice/Dal</option>
+          <option>Oil/Spices</option>
+          <option>Veg</option>
+          <option>Fish</option>
+          <option>Meat</option>
+          <option>Dairy</option>
+          <option>Fruits</option>
+          <option>FMCG</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="supPhone" placeholder="01XXXXXXXXX">
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="supLocation" placeholder="Krishi Market">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Join Date</label>
+      <input type="date" id="supJoinDate">
+    </div>
+    <!-- Weekly Rating -->
+    <div style="margin-top:18px;padding-top:16px;border-top:2px solid var(--gray-100)">
+      <h3 style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--gray-700)">Rate This Week (1–5 stars)</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="form-group"><label>Quality</label><select id="rateQuality"><option value="3">3</option><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="form-group"><label>Timeliness</label><select id="rateTimeliness"><option value="3">3</option><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="form-group"><label>Pricing</label><select id="ratePricing"><option value="3">3</option><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="form-group"><label>Communication</label><select id="rateCommunication"><option value="3">3</option><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-outline" onclick="closeModal()" style="border-color:var(--gray-300)">Cancel</button>
+      <button class="btn-primary" onclick="saveSupplier()">Save Supplier</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ======= DATA LAYER =======
+const STORAGE_KEY = 'jgm_suppliers';
+const CATEGORIES = ['Rice/Dal','Oil/Spices','Veg','Fish','Meat','Dairy','Fruits','FMCG'];
+const DIMS = ['quality','timeliness','pricing','communication'];
+const DIM_LABELS = {quality:'Quality',timeliness:'Timeliness',pricing:'Pricing',communication:'Communication'};
+
+let suppliers = [];
+let activeFilter = 'all';
+let expandedId = null;
+
+// ======= SAMPLE DATA =======
+function generateSampleSuppliers() {
+  const names = [
+    {name:'Karim Brothers',cat:'Veg',phone:'01711-223344',loc:'Krishi Market, Plot 12'},
+    {name:'Fresh Catch Traders',cat:'Fish',phone:'01722-334455',loc:'Krishi Market, Fish Zone'},
+    {name:'Rahim Meat Suppliers',cat:'Meat',phone:'01733-445566',loc:'Krishi Market, Meat Block'},
+    {name:'Shwapno Dairy',cat:'Dairy',phone:'01744-556677',loc:'Krishi Market, Dairy Row'},
+    {name:'Bashundhara Rice Mills',cat:'Rice/Dal',phone:'01755-667788',loc:'Krishi Market, Grain Section'}
+  ];
+  // 4 weeks of ratings
+  const weeks = ['Week 1','Week 2','Week 3','Week 4'];
+
+  return names.map((s,i) => {
+    const ratings = weeks.map((wk,wi) => {
+      // Base score drifts per supplier to create variety
+      const base = [3.5,3.8,4.2,3.0,2.8][i] || 3.5;
+      const drift = (wi-1.5)*0.2 + (Math.random()-0.5)*0.4;
+      const avg = Math.max(1,Math.min(5,base+drift));
+      return {
+        week: wk,
+        quality: clamp(avg + (Math.random()-0.5)*0.8),
+        timeliness: clamp(avg + (Math.random()-0.5)*0.8),
+        pricing: clamp(avg + (Math.random()-0.5)*0.8),
+        communication: clamp(avg + (Math.random()-0.5)*0.8),
+        orders: Math.floor(8 + Math.random()*12),
+        spend: Math.floor(5000 + Math.random()*25000)
+      };
+    });
+    return {
+      id: 'sup_' + Date.now() + '_' + i,
+      name: s.name,
+      category: s.cat,
+      phone: s.phone,
+      location: s.loc,
+      joinDate: `2026-0${5+Math.floor(i/2)}-0${(i%3)+1}5`,
+      ratings: ratings
+    };
+  });
+}
+
+function clamp(v) { return Math.round(Math.max(1,Math.min(5,v))*10)/10; }
+
+// ======= STORAGE =======
+function loadSuppliers() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if(stored) {
+    try { suppliers = JSON.parse(stored); } catch(e) { suppliers = generateSampleSuppliers(); saveSuppliers(); }
+  } else {
+    suppliers = generateSampleSuppliers();
+    saveSuppliers();
+  }
+}
+function saveSuppliers() { localStorage.setItem(STORAGE_KEY, JSON.stringify(suppliers)); }
+
+// ======= COMPUTED =======
+function calcOverall(r) {
+  if(!r) return 0;
+  return Math.round((r.quality+r.timeliness+r.pricing+r.communication)/4*10)/10;
+}
+function calcTrend(ratings) {
+  if(!ratings || ratings.length<2) return 'stable';
+  const recent = ratings.slice(-2);
+  const a = calcOverall(recent[0]), b = calcOverall(recent[1]);
+  if(b > a + 0.2) return 'up';
+  if(b < a - 0.2) return 'down';
+  return 'stable';
+}
+function scoreColor(score) {
+  if(score >= 4) return 'green';
+  if(score >= 3) return 'gold';
+  return 'red';
+}
+function totalOrders(sup) {
+  return sup.ratings.reduce((s,r)=>s+(r.orders||0),0);
+}
+function totalSpend(sup) {
+  return sup.ratings.reduce((s,r)=>s+(r.spend||0),0);
+}
+function currentScore(sup) {
+  if(!sup.ratings || sup.ratings.length===0) return 0;
+  return calcOverall(sup.ratings[sup.ratings.length-1]);
+}
+
+// ======= RENDER =======
+function renderSuppliers() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const catFilter = document.getElementById('categoryFilter').value;
+  const list = document.getElementById('supplierList');
+  const q = query;
+
+  let filtered = suppliers.filter(s => {
+    if(q && !s.name.toLowerCase().includes(q) && !s.category.toLowerCase().includes(q)) return false;
+    if(catFilter && s.category !== catFilter) return false;
+    const score = currentScore(s);
+    if(activeFilter==='good' && score<4) return false;
+    if(activeFilter==='attention' && (score<3 || score>=4)) return false;
+    if(activeFilter==='poor' && score>=3) return false;
+    return true;
+  });
+
+  if(filtered.length===0) {
+    list.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No suppliers found</h3><p>Try adjusting your search or filters.</p></div>`;
+  } else {
+    list.innerHTML = filtered.map(s => renderCard(s)).join('');
+  }
+
+  updateStats();
+  // Re-bind click events
+  document.querySelectorAll('.supplier-card-header').forEach(el => {
+    el.addEventListener('click', function(e) {
+      if(e.target.closest('.call-btn') || e.target.closest('.phone-reveal')) return;
+      const id = this.dataset.id;
+      toggleExpand(id);
+    });
+  });
+  document.querySelectorAll('[data-phone-btn]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const id = this.dataset.phoneBtn;
+      const reveal = document.getElementById('phone_'+id);
+      if(reveal) reveal.classList.toggle('show');
+    });
+  });
+}
+
+function renderCard(s) {
+  const score = currentScore(s);
+  const trend = calcTrend(s.ratings);
+  const trendArrow = trend==='up'?'▲':trend==='down'?'▼':'◆';
+  const trendClass = trend==='up'?'trend-up':trend==='down'?'trend-down':'trend-stable';
+  const color = scoreColor(score);
+  const last = s.ratings[s.ratings.length-1] || null;
+  const isExpanded = expandedId === s.id;
+
+  // Weekly chart bars for last 4 weeks
+  const recentWeeks = s.ratings.slice(-4);
+  const maxScore = 5;
+  const bars = recentWeeks.map(r => {
+    const o = calcOverall(r);
+    return `<div class="chart-bar-wrapper">
+      <div class="chart-bar" style="height:${(o/maxScore)*100}%;background:${o>=4?'var(--green-500)':o>=3?'var(--gold)':'var(--red)'}"></div>
+      <span class="chart-bar-label">${r.week.replace('Week ','W')}</span>
+    </div>`;
+  }).join('');
+
+  // History table
+  const historyRows = s.ratings.slice().reverse().map(r => {
+    const o = calcOverall(r);
+    return `<tr>
+      <td class="week-label">${r.week}</td>
+      <td>${stars(r.quality)}</td>
+      <td>${stars(r.timeliness)}</td>
+      <td>${stars(r.pricing)}</td>
+      <td>${stars(r.communication)}</td>
+      <td><strong>${o.toFixed(1)}</strong></td>
+      <td>${r.orders||0}</td>
+      <td>৳${((r.spend||0)/1000).toFixed(0)}k</td>
+    </tr>`;
+  }).join('');
+
+  return `<div class="supplier-card ${color}">
+    <div class="supplier-card-header" data-id="${s.id}">
+      <div class="supplier-info">
+        <div class="name">${s.name}</div>
+        <div class="meta">
+          <span>📂 ${s.category}</span>
+          <span>📍 ${s.location||'Krishi Market'}</span>
+          <span>📦 ${totalOrders(s)} orders</span>
+          <span>💰 ৳${(totalSpend(s)/1000).toFixed(0)}k</span>
+        </div>
+      </div>
+      <div class="score-badge">
+        <div class="score" style="color:${color==='green'?'var(--green-600)':color==='gold'?'var(--gold)':'var(--red)'}">${score.toFixed(1)}</div>
+        <div class="trend ${trendClass}">${trendArrow}</div>
+        <div class="label">Score</div>
+      </div>
+    </div>
+    <div class="supplier-card-body ${isExpanded?'open':''}">
+      <!-- Quick detail grid -->
+      <div class="detail-grid">
+        <div class="detail-item"><strong>Phone</strong>${s.phone||'—'}</div>
+        <div class="detail-item"><strong>Category</strong>${s.category}</div>
+        <div class="detail-item"><strong>Since</strong>${s.joinDate||'—'}</div>
+        <div class="detail-item"><strong>Location</strong>${s.location||'Krishi Market'}</div>
+        <div class="detail-item"><strong>Total Orders</strong>${totalOrders(s)}</div>
+        <div class="detail-item"><strong>Total Spend</strong>৳${totalSpend(s).toLocaleString()}</div>
+      </div>
+      <button class="call-btn" data-phone-btn="${s.id}">📞 Call Supplier</button>
+      <div class="phone-reveal" id="phone_${s.id}">${s.phone||'No number on file'}</div>
+
+      <!-- Weekly Chart -->
+      <div class="weekly-chart">
+        <h4>📈 Recent Performance</h4>
+        <div class="chart-bars">${bars}</div>
+      </div>
+
+      <!-- History Table -->
+      <div class="history-section">
+        <h4>📋 Rating History (newest first)</h4>
+        <div style="overflow-x:auto">
+          <table class="history-table">
+            <thead><tr>
+              <th>Week</th>
+              <th>Quality</th>
+              <th>Timeliness</th>
+              <th>Pricing</th>
+              <th>Comm.</th>
+              <th>Avg</th>
+              <th>Orders</th>
+              <th>Spend</th>
+            </tr></thead>
+            <tbody>${historyRows}</tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Delete -->
+      <div style="margin-top:12px;text-align:right">
+        <button class="btn-danger" onclick="deleteSupplier('${s.id}')" style="padding:6px 14px;font-size:12px">🗑 Delete</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function stars(v) {
+  const full = Math.round(v);
+  let s='';
+  for(let i=1;i<=5;i++) s+= i<=full ? '★' : '<span class="empty">☆</span>';
+  return '<span class="stars">'+s+'</span>';
+}
+
+function updateStats() {
+  document.getElementById('statTotal').textContent = suppliers.length;
+  const scores = suppliers.map(s => currentScore(s)).filter(s=>s>0);
+  const avg = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
+  document.getElementById('statAvgScore').textContent = avg ? avg.toFixed(1) : '—';
+  const green = scores.filter(s=>s>=4).length;
+  const red = scores.filter(s=>s<3).length;
+  document.getElementById('statGreen').textContent = green;
+  document.getElementById('statRed').textContent = red;
+}
+
+// ======= INTERACTIONS =======
+function setFilter(f) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter===f));
+  renderSuppliers();
+}
+
+function toggleExpand(id) {
+  expandedId = expandedId === id ? null : id;
+  renderSuppliers();
+}
+
+function openAddModal() {
+  document.getElementById('modalTitle').textContent = 'Add New Supplier';
+  document.getElementById('editId').value = '';
+  document.getElementById('supName').value = '';
+  document.getElementById('supCategory').value = 'Veg';
+  document.getElementById('supPhone').value = '';
+  document.getElementById('supLocation').value = '';
+  document.getElementById('supJoinDate').value = new Date().toISOString().split('T')[0];
+  // Reset ratings
+  document.getElementById('rateQuality').value = '3';
+  document.getElementById('rateTimeliness').value = '3';
+  document.getElementById('ratePricing').value = '3';
+  document.getElementById('rateCommunication').value = '3';
+  document.getElementById('supplierModal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('supplierModal').classList.remove('show');
+}
+
+function saveSupplier() {
+  const name = document.getElementById('supName').value.trim();
+  if(!name) { toast('Please enter a supplier name'); return; }
+  const cat = document.getElementById('supCategory').value;
+  const phone = document.getElementById('supPhone').value.trim();
+  const loc = document.getElementById('supLocation').value.trim() || 'Krishi Market';
+  const joinDate = document.getElementById('supJoinDate').value || new Date().toISOString().split('T')[0];
+  const editId = document.getElementById('editId').value;
+
+  const rating = {
+    week: 'Week ' + (new Date().getFullYear()) + '-' + (new Date().getMonth()+1),
+    quality: parseInt(document.getElementById('rateQuality').value),
+    timeliness: parseInt(document.getElementById('rateTimeliness').value),
+    pricing: parseInt(document.getElementById('ratePricing').value),
+    communication: parseInt(document.getElementById('rateCommunication').value),
+    orders: Math.floor(5+Math.random()*10),
+    spend: Math.floor(3000+Math.random()*15000)
+  };
+
+  if(editId) {
+    const idx = suppliers.findIndex(s=>s.id===editId);
+    if(idx>=0) {
+      suppliers[idx].name = name;
+      suppliers[idx].category = cat;
+      suppliers[idx].phone = phone;
+      suppliers[idx].location = loc;
+      suppliers[idx].joinDate = joinDate;
+      suppliers[idx].ratings.push(rating);
+    }
+    toast('Supplier updated');
+  } else {
+    suppliers.push({
+      id: 'sup_' + Date.now() + '_' + Math.random().toString(36).substr(2,4),
+      name, category: cat, phone, location: loc, joinDate,
+      ratings: [rating]
+    });
+    toast('Supplier added successfully!');
+  }
+  saveSuppliers();
+  closeModal();
+  renderSuppliers();
+}
+
+function deleteSupplier(id) {
+  if(!confirm('Delete this supplier and all their ratings?')) return;
+  suppliers = suppliers.filter(s => s.id !== id);
+  if(expandedId === id) expandedId = null;
+  saveSuppliers();
+  renderSuppliers();
+  toast('Supplier deleted');
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(()=>el.classList.remove('show'), 2500);
+}
+
+// ======= EXPORT =======
+function exportJSON() {
+  const data = JSON.stringify(suppliers, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'jg-mart-suppliers-' + new Date().toISOString().split('T')[0] + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('Exported as JSON');
+}
+
+// ======= INIT =======
+loadSuppliers();
+renderSuppliers();
+
+// Close modal on overlay click
+document.getElementById('supplierModal').addEventListener('click', function(e) {
+  if(e.target === this) closeModal();
+});
+</script>
+
+</body>
+</html>

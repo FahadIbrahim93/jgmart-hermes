@@ -1,0 +1,323 @@
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   P I T C H   D E C K   O U T L I N E                                        │
+│                                                                             │
+│   JG MART — SEED ROUND PITCH                                                │
+│   Total Slides: 12  |  Recommended Duration: 15–20 minutes                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 01 — TITLE                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   JG MART                                                                   │
+│   Hyperlocal Grocery Delivery for Japan Garden City                         │
+│                                                                             │
+│   ───────────────────────────────────────────────────────────────────────  │
+│   Founder: Fahad Ibrahim                                                    │
+│   Date: July 2026                                                           │
+│   Confidential & Proprietary                                                │
+│                                                                             │
+│   [Visual: Photo of JGC skyline or community map + JG Mart logo]            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 02 — THE PROBLEM                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "1,700 families. Zero grocery stores."                                    │
+│                                                                             │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  PAIN POINT                                   IMPACT ON RESIDENTS      │   │
+│   ├─────────────────────────────────────────────────────────────────────┤   │
+│   │ No grocery store inside JGC               2–3 hrs lost per trip      │   │
+│   │ Nearest bazaar: 1.5–2 km                  BDT 80–120 rickshaw cost   │   │
+│   │ Inconsistent quality & pricing             No trust in vendor stock   │   │
+│   │ Elderly / working pros underserved        Cannot easily stock weekly   │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│   [Visual: Photo of empty JGC ground floor or crowded bazaar]               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 03 — THE SOLUTION                                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   WhatsApp-based grocery delivery, sourced from Krishi Market               │
+│   (800m away), delivered in 90 minutes.                                     │
+│                                                                             │
+│   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌───────────┐  │
+│   │   ORDER      │ → │  AGGREGATE   │ → │   SOURCE     │ → │ DELIVER   │  │
+│   │  (WhatsApp)  │   │  (Dashboard) │   │ (Krishi Mkt) │   │(90 mins)  │  │
+│   └──────────────┘   └──────────────┘   └──────────────┘   └───────────┘  │
+│                                                                             │
+│   Key Differentiators:                                                      │
+│   • NO warehouse, NO inventory, NO capital risk                             │
+│   • WhatsApp-native: zero app download friction                             │
+│   • Hyperlocal: 800m sourcing distance = fastest possible fulfillment       │
+│                                                                             │
+│   [Visual: Simple 4-step flowchart + WhatsApp screenshot mockup]            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 04 — UNIT ECONOMICS                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Per-Order Breakdown (BDT)                                                 │
+│                                                                             │
+│       Average Order Value (AOV)        ████████████████████  BDT 800       │
+│                                                                             │
+│       Platform Revenue                 ████████  BDT 118                   │
+│         ├─ Commission (11%)            ██████    BDT 88                    │
+│         └─ Delivery Fee                ██        BDT 30                    │
+│                                                                             │
+│       Cost to Serve                    █████     BDT 67                    │
+│         ├─ Rider Payout                █████     BDT 45                    │
+│         ├─ Packaging                   ██        BDT 12                    │
+│         └─ Fuel / Transport            █         BDT 10                    │
+│                                                                             │
+│       Contribution / Order             ██████    BDT 51                    │
+│                                                                             │
+│       CONTRIBUTION MARGIN              ████████████  51%                   │
+│       (Variable Profit BEFORE Fixed Overhead)                               │
+│                                                                             │
+│   [Visual: Horizontal stacked bar or waterfall chart]                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 05 — MARKET & TRACTION                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Addressable Market (JGC Only)                                             │
+│                                                                             │
+│   • 1,700 households × avg. BDT 10,000/mo grocery spend                     │
+│   • TAM: BDT 17M per month                                                  │
+│   • SAM (reachable via WhatsApp + delivery): BDT 10M+ per month             │
+│                                                                             │
+│   Customer Acquisition Strategy                                             │
+│                                                                             │
+│   Month 1:  Organic (founder network, community groups) — CAC ≈ BDT 0      │
+│   Month 2:  Referral bonuses (BDT 50 off per new customer referred)         │
+│   Month 3:  Local micro-influencers + flyer campaigns                       │
+│                                                                             │
+│   Traction Targets                                                           │
+│                                                                             │
+│   ┌────────────┬─────────────┬──────────────┬──────────────┐              │
+│   │   Month    │  Customers  │  Orders/mo   │  Revenue/mo  │              │
+│   ├────────────┼─────────────┼──────────────┼──────────────┤              │
+│   │ Month 1    │     100     │    ~3,000    │   BDT 354K   │              │
+│   │ Month 2    │     200     │    ~6,000    │   BDT 708K   │              │
+│   │ Month 3    │     350     │   ~10,500    │   BDT 1.2M   │              │
+│   └────────────┴─────────────┴──────────────┴──────────────┘              │
+│                                                                             │
+│   [Visual: Map of JGC with delivery radius overlay]                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 06 — COMPETITIVE LANDSCAPE                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌─────────────────────────────┬────────────────────────────────────────┐ │
+│   │ Competitor                  │ JG Mart Edge                           │ │
+│   ├─────────────────────────────┼────────────────────────────────────────┤ │
+│   │ Local bazaar (1.5 km)       │ Doorstep delivery in 90 min            │ │
+│   │ Pathao / Foodpanda Grocery   │ BDT 300+ minimums; we serve BDT 100+  │ │
+│   │ Chaldal / Shohoz            │ City-wide ops; hyperlocal = faster      │ │
+│   │ Private rickshaw vendor      │ BDT 80–120 fare vs. our BDT 30 fee     │ │
+│   │ Self-procurement (car)       │ Fuel + parking cost > BDT 150/trip     │ │
+│   └─────────────────────────────┴────────────────────────────────────────┘ │
+│                                                                             │
+│   Our Moat:                                                                 │
+│   1. Community trust — founder is a JGC resident                             │
+│   2. WhatsApp-native UX — no app download barrier                            │
+│   3. Hyperlocal sourcing — 800m from delivery zone = unmatched speed        │
+│   4. Micro-entrepreneur rider model — aligned incentives, low churn         │
+│                                                                             │
+│   [Visual: 2×3 comparison matrix or radar chart]                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 07 — GO-TO-MARKET & OPERATIONS                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Order Flow                                                                 │
+│                                                                             │
+│   1. Customer sends grocery list via WhatsApp                                │
+│   2. Dispatcher confirms items, price, and delivery time                     │
+│   3. Rider collects packed order from Krishi Market                          │
+│   4. Order delivered; payment via bKash / Nagad / cash                      │
+│                                                                             │
+│   Rider Network                                                              │
+│   • 3–4 micro-entrepreneur riders in Month 1                                 │
+│   • Riders keep 70% of delivery fee (BDT 21/order) + 30% to JG Mart         │
+│   • Performance-based bonuses for on-time rate > 95%                        │
+│                                                                             │
+│   Technology Stack                                                            │
+│   • WhatsApp Business API for order intake                                  │
+│   • Simple web dashboard for dispatcher (inventory, routing, payouts)        │
+│   • bKash / Nagad API integration for COD-to-mobile settlement              │
+│                                                                             │
+│   [Visual: Screenshot mockups of WhatsApp chat + dispatcher dashboard]      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 08 — FINANCIAL PROJECTIONS                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   3-Year P&L Summary (BDT '000)                                             │
+│                                                                             │
+│   ┌────────────────┬────────────┬────────────┬────────────┐               │
+│   │ Line Item      │ Year 1     │ Year 2     │ Year 3     │               │
+│   ├────────────────┼────────────┼────────────┼────────────┤               │
+│   │ Revenue        │  4,200     │  18,500    │  52,000    │               │
+│   │ Cost of Sales  │  2,100     │  9,200     │  25,800    │               │
+│   │ Contribution   │  2,100     │  9,300     │  26,200    │               │
+│   │ Gross Margin   │   50%      │   50%      │   50%      │               │
+│   │ Op. Expenses   │  2,800     │  8,500     │  18,000    │               │
+│   │ EBITDA         │   (700)    │    800     │   8,200    │               │
+│   │ EBITDA Margin  │  (17%)     │    4%      │   16%      │               │
+│   └────────────────┴────────────┴────────────┴────────────┘               │
+│                                                                             │
+│   Assumptions:                                                               │
+│   • 51% contribution margin held constant (blended across all orders)       │
+│   • Customer mix: 60% weekly, 30% bi-weekly, 10% monthly                   │
+│   • AOV inflation: BDT 800 → BDT 950 (Year 3) via private-label upsell     │
+│                                                                             │
+│   [Visual: Revenue & EBITDA bar chart]                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 09 — USE OF FUNDS                                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Seed Ask: BDT 250,000  (approx. USD 2,900)                                │
+│                                                                             │
+│   ┌──────────────────────────────┬────────────┬────────┐                  │
+│   │ Use of Funds                 │ BDT       │ %      │                  │
+│   ├──────────────────────────────┼────────────┼────────┤                  │
+│   │ Marketing & Brand Launch     │  80,000   │  32%   │                  │
+│   │  └─ Flyers, standees,        │           │        │                  │
+│   │     WhatsApp promos,         │           │        │                  │
+│   │     referral bonuses,        │           │        │                  │
+│   │     local influencer collabs │           │        │                  │
+│   │                              │           │        │                  │
+│   │ Operations & Logistics       │  70,000   │  28%   │                  │
+│   │  └─ Delivery bags (thermal,  │           │        │                  │
+│   │     rain covers),            │           │        │                  │
+│   │     packaging supplies,      │           │        │                  │
+│   │     rider SIMs & first-aid   │           │        │                  │
+│   │                              │           │        │                  │
+│   │ Technology & Infrastructure  │  50,000   │  20%   │                  │
+│   │  └─ WhatsApp Business API,   │           │        │                  │
+│   │     dispatcher tablet/phone, │           │        │                  │
+│   │     simple ordering SaaS     │           │        │                  │
+│   │                              │           │        │                  │
+│   │ Working Capital (3-mo buf.)  │  50,000   │  20%   │                  │
+│   │  └─ Covers rider payroll,    │           │        │                  │
+│   │     supplier settlements,    │           │        │                  │
+│   │     cash-flow gaps           │           │        │                  │
+│   ├──────────────────────────────┼────────────┼────────┤                  │
+│   │ TOTAL SEED ASK               │ 250,000   │ 100%   │                  │
+│   └──────────────────────────────┴────────────┴────────┘                  │
+│                                                                             │
+│   Milestones for Next Round (Series A, 12–15 months)                        │
+│   • 500+ active customers across 2 neighborhoods                             │
+│   • BDT 15M+ ARR                                                             │
+│   • Unit-level profitability (contribution > fixed costs)                   │
+│                                                                             │
+│   [Visual: Pie chart or horizontal bar of allocation]                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 10 — TEAM                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Fahad Ibrahim — Founder & CEO                                              │
+│   • JGC resident; 8+ years in Dhaka retail logistics                        │
+│   • Scaled a 12-person delivery team for a local FMCG distributor           │
+│     (2019–2022)                                                              │
+│   • Deep operational knowledge of Mohammadpur procurement ecosystem         │
+│                                                                             │
+│   Advisory (In Discussion)                                                   │
+│   • Ex-Chaldal Category Manager — grocery ops & vendor negotiation          │
+│   • Dhaka-based FMCG angel investor — capital & network                     │
+│                                                                             │
+│   Hiring Plan (Months 1–6)                                                   │
+│   • 1 Dispatcher (full-time) — BDT 18,000/mo                                │
+│   • 3–4 Riders (part-time / contract) — BDT 12,000–15,000/mo each          │
+│   • 1 Operations intern (part-time) — BDT 8,000/mo                          │
+│                                                                             │
+│   [Visual: Photos of founder + advisor headshots]                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 11 — FINANCIAL MODEL & SENSITIVITY                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Key Assumptions                                                           │
+│                                                                             │
+│   • Avg. orders/customer/week: 3.0 → 3.5 (ramp to Month 3)                │
+│   • Churn: 8% monthly (post-Month 2)                                        │
+│   • Rider-to-customer ratio: 1 rider per 80–100 customers                  │
+│   • Fuel inflation: 10% YoY                                                  │
+│   • Private-label mix: 0% (Y1) → 15% (Y3)                                  │
+│                                                                             │
+│   Sensitivity: Contribution Margin vs. Break-Even                           │
+│                                                                             │
+│   ┌──────────────┬─────────────────┬─────────────────┐                     │
+│   │ Margin       │ Orders to Break │ Monthly Revenue  │                     │
+│   │              │ Even @ 120K fix │ at Break-Even    │                     │
+│   ├──────────────┼─────────────────┼─────────────────┤                     │
+│   │ 45%          │    ~2,667       │   BDT 320K       │                     │
+│   │ 51% (base)   │    ~2,353       │   BDT 282K       │                     │
+│   │ 57%          │    ~2,105       │   BDT 253K       │                     │
+│   └──────────────┴─────────────────┴─────────────────┘                     │
+│                                                                             │
+│   Upside Scenario (Month 3 bull case)                                       │
+│   If we hit 500 customers instead of 350:                                   │
+│   • Monthly contribution: BDT 765K                                          │
+│   • EBITDA positive by Month 2                                               │
+│                                                                             │
+│   [Visual: Sensitivity table + upside/ downside waterfall]                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SLIDE 12 — THE ASK & CLOSE                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   We are raising BDT 250,000 in seed capital to become the                  │
+│   #1 grocery platform in JGC within 90 days.                                │
+│                                                                             │
+│   Investment Terms                                                           │
+│   • Instrument: Convertible Note / SAFE                                     │
+│   • Valuation Cap: BDT 8,000,000 (~USD 93,000)                              │
+│   • Interest Rate (Note): 8% p.a.                                           │
+│   • Maturity: 18 months                                                     │
+│                                                                             │
+│   Why JG Mart?                                                               │
+│   ✓ 1,700 families with zero grocery options — verified demand             │
+│   ✓ 51% contribution margin — path to profitability is clear               │
+│   ✓ Capital-light: no warehouse, no fleet, no inventory risk               │
+│   ✓ Founder with 8+ years local ops experience                              │
+│   ✓ WhatsApp-native — zero friction for Bangladeshi users                  │
+│                                                                             │
+│   "We don't just deliver groceries. We deliver time back to                │
+│   1,700 families who deserve a better way to eat."                          │
+│                                                                             │
+│   Contact: Fahad Ibrahim  │  +880 1712-345678  │  fahad@jgmart.com                            │
+│                                                                             │
+│   [Visual: Founder photo + JGC community photo + contact details]           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘

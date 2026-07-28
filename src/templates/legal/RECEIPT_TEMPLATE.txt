@@ -1,0 +1,110 @@
+================================================================================
+                    JG MART - DELIVERY RECEIPT
+================================================================================
+
+RECEIPT NO: JG-[YYYYMMDD]-[XXX]
+DATE:       [DD/MM/YYYY]
+TIME:       [HH:MM AM/PM]
+
+--------------------------------------------------------------------------------
+                    JG MART
+                    Hyperlocal Grocery Delivery
+                    Japan Garden City, Mohammadpur, Dhaka
+                    WhatsApp: [WHATSAPP NUMBER]
+                    Phone:     [PHONE NUMBER]
+                    Trade Lic: [TRADE LICENSE NUMBER]
+                    VAT/BIN:   [BIN NUMBER]
+--------------------------------------------------------------------------------
+
+INVOICE TO:
+  Customer Name : [CUSTOMER FULL NAME]
+  Phone Number  : [CUSTOMER PHONE NUMBER]
+  Delivery Addr : [FULL DELIVERY ADDRESS]
+  Landmark      : [LANDMARK / NEAREST LANDMARK]
+
+--------------------------------------------------------------------------------
+ORDER DETAILS:
+  Order Type     : [REGULAR / SUBSCRIPTION / BULK]
+  Delivery Slot  : [MORNING / MIDDAY / AFTERNOON / EVENING] - [TIME WINDOW]
+  Payment Method : [CASH ON DELIVERY / BKASH / NAGAD / OTHER]
+  Payment Status : [PAID / PENDING / COD]
+--------------------------------------------------------------------------------
+
+ITEMIZED LIST:
+--------------------------------------------------------------------------------
+ #  | DESCRIPTION              | QTY | UNIT PRICE (BDT) | AMOUNT (BDT)
+--------------------------------------------------------------------------------
+ 1. | [Item Name 1]            | [X] | [Unit Price]      | [Line Total]
+ 2. | [Item Name 2]            | [X] | [Unit Price]      | [Line Total]
+ 3. | [Item Name 3]            | [X] | [Unit Price]      | [Line Total]
+ 4. | [Item Name 4]            | [X] | [Unit Price]      | [Line Total]
+ 5. | [Item Name 5]            | [X] | [Unit Price]      | [Line Total]
+ 6. | [Item Name 6]            | [X] | [Unit Price]      | [Line Total]
+ 7. | [Item Name 7]            | [X] | [Unit Price]      | [Line Total]
+ 8. | [Item Name 8]            | [X] | [Unit Price]      | [Line Total]
+ 9. | [Item Name 9]            | [X] | [Unit Price]      | [Line Total]
+10. | [Item Name 10]           | [X] | [Unit Price]      | [Line Total]
+--------------------------------------------------------------------------------
+
+  Subtotal (BDT)          : [SUBTOTAL AMOUNT]
+  Delivery Fee (BDT)      : [DELIVERY FEE]
+  Discount / Promo (BDT)  : [DISCOUNT AMOUNT OR 0.00]
+  Packaging Charge (BDT)  : [PACKAGING FEE OR 0.00]
+
+--------------------------------------------------------------------------------
+  TOTAL AMOUNT (BDT)      : [TOTAL AMOUNT IN FIGURES]
+                           [TOTAL AMOUNT IN WORDS]
+--------------------------------------------------------------------------------
+
+  Paid Amount (BDT)       : [AMOUNT PAID / COLLECT]
+  Balance Due (BDT)       : [BALANCE IF ANY]
+
+--------------------------------------------------------------------------------
+PAYMENT DETAILS:
+  Payment Ref No. (if applicable) : [REFERENCE / TRANSACTION ID]
+  Payment Method                  : [CASH / BKASH / NAGAD]
+  Payment Verified By             : [RIDER NAME / OPERATOR NAME]
+
+--------------------------------------------------------------------------------
+ORDER STATUS:
+  Status      : [DELIVERED / PARTIAL / RETURNED]
+  Received By : [CUSTOMER / FAMILY MEMBER / SECURITY / NEIGHBOR NAME]
+  Note        : [ANY SPECIAL INSTRUCTION / DAMAGE NOTE / CUSTOMER FEEDBACK]
+
+--------------------------------------------------------------------------------
+RIDER / DELIVERY DETAILS:
+  Rider Name    : [RIDER FULL NAME]
+  Rider ID      : [RIDER ID / EMPLOYEE CODE]
+  Rider Phone   : [RIDER PHONE NUMBER]
+  Vehicle       : [BIKE / CYCLE / WALKING]
+  Delivery Time : [ACTUAL DELIVERY TIME - HH:MM AM/PM]
+
+--------------------------------------------------------------------------------
+CUSTOMER ACKNOWLEDGMENT:
+
+  Received By (Signature) : ___________________________
+  Printed Name            : ___________________________
+  Date                    : ___________________________
+  Time                    : ___________________________
+
+  If received by someone other than the customer:
+  Relationship to Customer : ___________________________
+
+  Customer Feedback / Complaint:
+  ___________________________________________________________
+  ___________________________________________________________
+
+--------------------------------------------------------------------------------
+JG MART USE ONLY (OFFICE COPY):
+  Order Prepared By    : [OPERATOR NAME]
+  Order Verified By    : [MANAGER NAME]
+  Warehouse Out Time   : [TIME]
+  Dispatch Time        : [TIME]
+  Remarks              : [ANY INTERNAL NOTES]
+--------------------------------------------------------------------------------
+
+RECEIPT GENERATED: [DATE] [TIME] | SYSTEM: JG Mart v1.0 | Page 1 of 1
+Thank you for shopping with JG Mart!
+For queries, WhatsApp us at [WHATSAPP NUMBER] or call [PHONE NUMBER]
+Please retain this receipt for warranty and return purposes.
+--------------------------------------------------------------------------------

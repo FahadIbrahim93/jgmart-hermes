@@ -1,0 +1,420 @@
+╔══════════════════════════════════════════════════════════════╗
+║              JG MART — SYSTEM ACCEPTANCE TEST              ║
+║           End-to-End Walkthrough · ~15 minutes             ║
+╚══════════════════════════════════════════════════════════════╝
+
+Date: _____________  Tester: _____________  Pass: ☐  Fail: ☐
+
+═══════════════════════════════════════════════════════════════
+TEST 1: FILE SYSTEM INTEGRITY
+═══════════════════════════════════════════════════════════════
+
+☐ All 12 folders exist:
+    01_Investor_Deck  02_Brand_Assets  03_Legal_Templates
+    04_Operations     05_Tech_Dashboard  06_Web_Catalog
+    07_Marketing      08_Financials     09_Data_Export
+    10_Launch_Readiness  11_Day1_Launch_Kit  12_Templates
+
+☐ Total file count ~130–131
+    Open /g/JGC Mart/JGC Mart - Hermes/ in Explorer
+    → Status bar shows 131 items (or run: find -type f | wc -l)
+
+☐ 20 Most Important Files Present (check each):
+    [ ] os.html          — JG Mart OS (daily driver)
+    [ ] data.html        — Data Manager
+    [ ] field_ops.html   — Field Ops (mobile)
+    [ ] health.html      — Health Dashboard
+    [ ] ops.html         — Ops Dashboard
+    [ ] start.html       — Startup Wizard
+    [ ] index.html       — Command Center
+    [ ] map.html         — System Map
+    [ ] email_backup.html — Email Backup
+    [ ] theme.css        — Theme styles
+    [ ] sw.js            — Service Worker
+    [ ] favicon.svg      — Brand icon
+    [ ] manifest.json    — PWA manifest
+    [ ] 05_Tech_Dashboard/orders.html     — Order Tracker
+    [ ] 05_Tech_Dashboard/finance.html    — Finance Dashboard
+    [ ] 05_Tech_Dashboard/dailypnl.html   — Daily P&L
+    [ ] 05_Tech_Dashboard/backup.html     — Master Backup
+    [ ] 05_Tech_Dashboard/feedback.html   — Feedback Tracker
+    [ ] 06_Web_Catalog/index.html         — Customer Catalog (47 products)
+    [ ] 12_Templates/supplier_scorecard.html — Supplier Scorecard
+
+═══════════════════════════════════════════════════════════════
+TEST 2: CORE APP — os.html (JG Mart OS)
+═══════════════════════════════════════════════════════════════
+Open os.html in browser.
+
+☐ 2.1 — Sidebar shows all 7 nav items:
+    ___ 🏠 Home     ___ 📦 Orders   ___ 💰 P&L
+    ___ 🤝 Partners ___ 👥 Customers ___ 🌙 Day End
+    ___ 🗺️ Route
+
+☐ 2.2 — Dark mode toggle works
+    → Click 🌓 Theme button at bottom of sidebar
+    → Page switches to dark color scheme
+    → Click again → reverts to light
+
+☐ 2.3 — Home screen shows today-grid with 4 cards
+    Visually verify: Orders Today | Revenue Today | Customers | Cash Position
+    All four cards visible with values (even if 0)
+
+☐ 2.4 — Add an order
+    → Click 📦 Orders in sidebar
+    → Fill Customer Name, Building, Items, Amount
+    → Click "Add Order" button
+    → VERIFY: New order appears in orders list below
+
+☐ 2.5 — Toggle order status
+    → Find the order you just added
+    → Click its status toggle button (pending/delivered)
+    → VERIFY: Border color changes (gold ⟷ green)
+
+☐ 2.6 — P&L tab
+    → Click 💰 P&L in sidebar
+    → Enter numbers in revenue/cost fields
+    → VERIFY: Profit calculation updates automatically
+
+☐ 2.7 — Partners tab
+    → Click 🤝 Partners in sidebar
+    → Click "Add Partner" button
+    → Enter partner name, building, phone
+    → VERIFY: Partner card appears in grid
+
+☐ 2.8 — Customers tab
+    → Click 👥 Customers in sidebar
+    → Type in search box
+    → VERIFY: Results filter as you type
+
+☐ 2.9 — Day End tab
+    → Click 🌙 Day End in sidebar
+    → VERIFY: Today's summary shows (orders count, revenue)
+    → Click Export button if present
+    → VERIFY: Downloads a file or shows summary data
+
+☐ 2.10 — Route tab
+    → Click 🗺️ Route in sidebar
+    → VERIFY: Today's deliveries shown grouped by cluster/building
+    → Delivery stops listed with building names
+
+═══════════════════════════════════════════════════════════════
+TEST 3: DATA MANAGER — data.html
+═══════════════════════════════════════════════════════════════
+Open data.html in browser.
+
+☐ 3.1 — Tab bar shows 4 tabs
+    ___ 👥 Customers   ___ 🤝 Partners
+    ___ ⚙️ Settings    ___ 💾 Backup
+
+☐ 3.2 — Add a customer
+    → Ensure 👥 Customers tab is active
+    → Fill Name, Phone, Building, Flat
+    → Click + Add
+    → VERIFY: Customer appears in table below + stats update
+
+☐ 3.3 — Add a partner
+    → Click 🤝 Partners tab
+    → Fill partner fields
+    → Click Add
+    → VERIFY: Partner appears in table
+
+☐ 3.4 — Edit settings
+    → Click ⚙️ Settings tab
+    → Change a setting value
+    → Click Save
+    → VERIFY: Confirmation shown, value persists
+
+☐ 3.5 — Export All Data
+    → Click 💾 Backup tab
+    → Click Export All Data / Download .json
+    → VERIFY: A .json file downloads with all records
+
+☐ 3.6 — Import Data
+    → Click Import / Upload on Backup tab
+    → Select the .json file you just exported
+    → VERIFY: "Data restored" message shown, records reloaded
+
+═══════════════════════════════════════════════════════════════
+TEST 4: ORDER TRACKER — orders.html (05_Tech_Dashboard)
+═══════════════════════════════════════════════════════════════
+Open 05_Tech_Dashboard/orders.html in browser.
+
+☐ 4.1 — Page loads with:
+    ___ Order form (top)   ___ KPI row (5 cards)   ___ Order list
+
+☐ 4.2 — Add order with all fields
+    Customer: ______   Building: ______   Items: ______
+    Amount: ______     Payment: ______    Slot: ______
+    → Click Add Order
+    → VERIFY: Order appears in list below with order number
+
+☐ 4.3 — Advance order status through lifecycle
+    → Locate the order you just added
+    → Click buttons in sequence:
+        [ ] Received → [ ] Confirmed → [ ] Picked Up → [ ] Delivered
+    → VERIFY: Badge color changes with each step
+      (Received=green, Confirmed=green, Picked=gold, Delivered=blue)
+
+☐ 4.4 — Search orders by name
+    → Type customer name in search box
+    → VERIFY: Order list filters to matching results
+
+☐ 4.5 — Filter by status
+    → Use status dropdown filter
+    → Select "Delivered"
+    → VERIFY: Only delivered orders shown
+
+☐ 4.6 — WhatsApp button works
+    → Look for WhatsApp/send icon on an order
+    → Click it
+    → VERIFY: Opens wa.me link with order details in URL
+
+═══════════════════════════════════════════════════════════════
+TEST 5: FINANCE APPS
+═══════════════════════════════════════════════════════════════
+☐ 5.1 — finance.html (05_Tech_Dashboard/finance.html)
+    → Open in browser
+    → KPI banner shows: Cash Position | This Month Rev | This Month Cost | Net Profit
+    → Enter daily data (revenue, costs) in input fields
+    → Click Add / Save
+    → VERIFY: P&L projection updates, history table shows entry
+
+☐ 5.2 — dailypnl.html (05_Tech_Dashboard/dailypnl.html)
+    → Open in browser
+    → Enter order count and total revenue
+    → VERIFY: Auto-calculates costs, shows profit/loss
+    → Check that the result color is green (profit) or red (loss)
+
+═══════════════════════════════════════════════════════════════
+TEST 6: MASTER BACKUP — backup.html (05_Tech_Dashboard)
+═══════════════════════════════════════════════════════════════
+Open 05_Tech_Dashboard/backup.html in browser.
+
+☐ 6.1 — Scan All Apps
+    → Click "Scan All Apps" / "Scan" button
+    → VERIFY: Finds all jgmart_* localStorage keys
+    → Shows list of detected apps with data sizes
+
+☐ 6.2 — Backup All
+    → Click "Backup All" / "Download Backup"
+    → VERIFY: Downloads a .json file with timestamp in name
+
+☐ 6.3 — Backup reminder
+    → Check the reminder section/note
+    → VERIFY: Shows correct next backup suggestion
+
+═══════════════════════════════════════════════════════════════
+TEST 7: FIELD OPS — field_ops.html
+═══════════════════════════════════════════════════════════════
+Open field_ops.html in browser.
+→ Use Chrome DevTools to set viewport to 375×812 (phone size)
+
+☐ 7.1 — Page is mobile-optimized
+    → Content fits within phone-width viewport
+    → No horizontal scroll needed
+
+☐ 7.2 — Partner quick check
+    → Scroll to partner checklist section
+    → Toggle some checkboxes
+    → VERIFY: Checkboxes check/uncheck, status indicators update
+
+☐ 7.3 — Price card fields
+    → Scroll to price check section (if editable)
+    → Tap/click on a price field
+    → VERIFY: Field is editable, changes can be made
+
+☐ 7.4 — Quick actions open correct URLs
+    → Locate the quick action buttons (grid of 4+)
+    → Each action opens the correct app/URL:
+        [ ] Orders
+        [ ] Catalog
+        [ ] WhatsApp (if shown)
+        [ ] Other actions
+
+═══════════════════════════════════════════════════════════════
+TEST 8: CUSTOMER CATALOG — 06_Web_Catalog/index.html
+═══════════════════════════════════════════════════════════════
+Open 06_Web_Catalog/index.html in browser.
+
+☐ 8.1 — All 47 products visible
+    → Scroll through catalog carousel / grid
+    → VERIFY: Products with images/emojis, names, prices shown
+    → Count roughly: should be 47 products
+
+☐ 8.2 — Search works
+    → Type a product name in search box (e.g. "rice", "egg", "dal")
+    → VERIFY: Results filter to matching products only
+
+☐ 8.3 — Filter by category
+    → Click a category filter button (e.g. "Vegetables", "Dairy")
+    → VERIFY: Only products in that category are shown
+    → Click "All" / reset
+    → VERIFY: All products shown again
+
+☐ 8.4 — Add to cart
+    → Click "Add" / "+" button on a product
+    → VERIFY: Cart icon updates with count badge
+
+☐ 8.5 — Cart badge shows count
+    → Add another product
+    → VERIFY: Badge number increases
+
+☐ 8.6 — Bengali toggle works
+    → Click বাংলা / language toggle button
+    → VERIFY: Product names and UI switch to Bengali
+    → Click again → reverts to English
+
+☐ 8.7 — WhatsApp cart checkout
+    → Click cart icon / "Order via WhatsApp"
+    → VERIFY: Opens wa.me link with product list in message
+
+═══════════════════════════════════════════════════════════════
+TEST 9: OTHER WEB APPS
+═══════════════════════════════════════════════════════════════
+☐ 9.1 — start.html (Startup Wizard)
+    → Open in browser
+    → 5-step wizard loads with progress bar
+    → Step through all 5 steps
+    → VERIFY: Summary screen shows at end with next steps
+
+☐ 9.2 — ops.html (Operations Dashboard)
+    → Open in browser
+    → VERIFY: KPIs loaded (Orders, Revenue, Partners, Customers)
+    → Status indicators shown (green/gold/red dots)
+
+☐ 9.3 — health.html (Toolkit Health Dashboard)
+    → Open in browser
+    → Dark-themed dashboard loads
+    → "Scan All" or status information shows
+    → VERIFY: File counts, sizes, and app status displayed
+
+☐ 9.4 — feedback.html (Customer Feedback)
+    → Open 05_Tech_Dashboard/feedback.html in browser
+    → Fill feedback form (name, rating, comment)
+    → Click star rating — VERIFY stars highlight
+    → Submit form — VERIFY entry appears in feedback list
+
+☐ 9.5 — email_backup.html (Email Backup)
+    → Open in browser
+    → Click scan / detect
+    → VERIFY: Detects local jgmart_* storage keys
+
+☐ 9.6 — commlog.html (Communications Log)
+    → Open 05_Tech_Dashboard/commlog.html in browser
+    → Add a new communication entry (customer, type, note)
+    → VERIFY: Entry appears in the log list
+    → Edit the entry — VERIFY changes saved
+
+☐ 9.7 — supplier_scorecard.html
+    → Open 12_Templates/supplier_scorecard.html in browser
+    → VERIFY: Scorecard loads with sample data or empty state
+    → Filter/search functionality works
+
+☐ 9.8 — landing.html (Customer Landing Page)
+    → Open 07_Marketing/landing.html in browser
+    → VERIFY: Professional landing page renders
+    → Hero section, features, and CTA buttons visible
+    → Responsive layout looks good on mobile
+
+☐ 9.9 — 06_Web_Catalog/order_intake.html
+    → Open in browser
+    → VERIFY: Order intake form with 63 items loads
+    → Select items, quantities auto-calculate
+    → WhatsApp checkout button works
+
+═══════════════════════════════════════════════════════════════
+TEST 10: PWA & INFRASTRUCTURE
+═══════════════════════════════════════════════════════════════
+☐ 10.1 — Service Worker registers
+    → Open browser DevTools → Application → Service Workers
+    → VERIFY: sw.js is registered for JG Mart scope
+
+☐ 10.2 — Manifest loads
+    → DevTools → Application → Manifest
+    → VERIFY: manifest.json loads with name "JG Mart"
+    → Icon reference to favicon.svg present
+
+☐ 10.3 — theme.css applies consistently
+    → Open any HTML app (os.html, data.html, ops.html)
+    → VERIFY: Green (#00442D) + gold (#c9a227) color scheme
+    → Font is Inter / system-ui
+
+☐ 10.4 — Index page links work (Command Center hub)
+    → Open index.html
+    → Click 3 different app cards
+    → VERIFY: Each opens the correct target app
+
+═══════════════════════════════════════════════════════════════
+TEST 11: DATA PERSISTENCE (localStorage)
+═══════════════════════════════════════════════════════════════
+☐ 11.1 — Data survives page refresh
+    → Add data in os.html (an order or customer)
+    → Refresh the page (F5)
+    → VERIFY: Data still present
+
+☐ 11.2 — Cross-app data sharing (where applicable)
+    → Data entered in data.html (Customers tab) should be
+      visible in os.html (Customers tab)
+    → VERIFY: Data Manager is the single source of truth
+
+═══════════════════════════════════════════════════════════════
+TEST 12: DEMO MODE (planned feature)
+═══════════════════════════════════════════════════════════════
+☐ 12.1 — demo.html exists
+    → Check if /g/JGC Mart/JGC Mart - Hermes/demo.html exists
+    → ☐ EXISTS (skip remaining)   ☐ NOT BUILT YET
+    → If exists: verify guided tour with sample data loads
+    → If missing: note as "Planned — not yet implemented"
+
+═══════════════════════════════════════════════════════════════
+TEST 13: MOBILE RESPONSIVENESS
+═══════════════════════════════════════════════════════════════
+☐ 13.1 — os.html works on mobile (375px width)
+    → Sidebar collapses to horizontal scroll strip
+    → Content fits without horizontal overflow
+
+☐ 13.2 — field_ops.html is phone-first
+    → No zoom needed to read
+    → Buttons tappable (min 44px touch targets)
+
+☐ 13.3 — data.html table scrolls horizontally on small screens
+    → Table scrolls without breaking layout
+
+═══════════════════════════════════════════════════════════════
+TEST SUMMARY
+═══════════════════════════════════════════════════════════════
+
+PASSED:   ___ / ___ tests
+FAILED:   ___ / ___ tests
+SKIPPED:  ___ / ___ tests
+
+FAILURE NOTES (test ID, what happened):
+_______________________________________________
+_______________________________________________
+_______________________________________________
+_______________________________________________
+
+FINAL VERDICT:
+
+☐ ✅ ALL TESTS PASSED — READY FOR LAUNCH
+   System is stable. All apps, data persistence, navigation,
+   PWA features, and mobile responsiveness verified.
+
+☐ ⚠️ MOST TESTS PASSED — MINOR ISSUES
+   Launchable with caveats (see failure notes above).
+   Fix priority: _______
+
+☐ ❌ CRITICAL FAILURES — DO NOT LAUNCH
+   Blocking issues found. Must re-test after fixes.
+
+═══════════════════════════════════════════════════════════════
+TESTER NOTES
+═══════════════════════════════════════════════════════════════
+________________________________________________________________
+
+________________________________________________________________
+
+________________________________________________________________
+
+— End of SYSTEM_TEST.txt —

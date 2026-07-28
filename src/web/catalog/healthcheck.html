@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — Site Health Checker</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:960px;margin:0 auto;padding-bottom:60px}
+/* TOPBAR */
+.topbar{background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;gap:4px}
+.topbar .logo{font-weight:800;font-size:.9rem;text-decoration:none;color:#fff}
+.topbar .logo span{color:#c9a227}
+.nav{display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap;flex-shrink:0}
+.nav a:hover{color:#fff}
+.nav .wa-link{background:#25D366;color:#fff;padding:4px 10px;border-radius:999px;font-size:.62rem;font-weight:600;text-decoration:none;white-space:nowrap}
+/* HERO */
+.hero{background:linear-gradient(135deg,#00442D,#063d2a);color:#fff;padding:24px 16px 20px;text-align:center}
+.hero h1{font-size:1.15rem;font-weight:800;margin-bottom:4px}
+.hero h1 span{color:#c9a227}
+.hero p{font-size:.7rem;opacity:.8}
+/* TOOLBAR */
+.toolbar{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:42px;z-index:40;flex-wrap:wrap;gap:6px}
+.toolbar .ts{font-size:.65rem;color:#5c5c5c;display:flex;align-items:center;gap:4px}
+.toolbar .ts .ts-v{font-weight:600;color:#00442D}
+.btn-recheck{background:#00442D;color:#fff;border:none;padding:6px 16px;border-radius:999px;font-size:.7rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;transition:all .12s}
+.btn-recheck:active{transform:scale(.95)}
+.btn-recheck:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-recheck .spin{display:inline-block;animation:spin .8s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* SUMMARY BANNER */
+.summary{display:flex;justify-content:center;gap:20px;padding:12px;background:#fff;border-bottom:1px solid #eee;flex-wrap:wrap}
+.sum-item{text-align:center}
+.sum-item .num{font-size:1.3rem;font-weight:800}
+.sum-item .num.ok{color:#00442D}
+.sum-item .num.fail{color:#c0392b}
+.sum-item .num.warn{color:#c9a227}
+.sum-item .lbl{font-size:.6rem;color:#5c5c5c;text-transform:uppercase;letter-spacing:.03em;margin-top:1px}
+/* PAGES LIST */
+.list{padding:10px 12px}
+.page-card{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #eee;display:flex;align-items:center;gap:10px;transition:all .15s}
+.page-card.loading{opacity:.6;border-color:#c9a227}
+.page-card.ok{border-left:3px solid #00442D}
+.page-card.fail{border-left:3px solid #c0392b}
+.page-card .status{font-size:1.2rem;width:28px;text-align:center;flex-shrink:0}
+.page-card .status .spinner{display:inline-block;width:16px;height:16px;border:2px solid #c9a227;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle}
+.page-card .info{flex:1;min-width:0}
+.page-card .info .name{font-size:.82rem;font-weight:600;color:#00442D;display:flex;align-items:center;gap:5px}
+.page-card .info .name .badge{font-size:.55rem;background:#e8ece8;color:#5c5c5c;padding:1px 6px;border-radius:999px;font-weight:500}
+.page-card .info .detail{font-size:.68rem;color:#5c5c5c;margin-top:2px;word-break:break-word}
+.page-card .info .detail .err{color:#c0392b}
+.page-card .bytes{font-size:.68rem;font-weight:600;color:#1a1a1a;white-space:nowrap;flex-shrink:0}
+/* LOCALSTORAGE SECTION */
+.ls-section{background:#fff;border-radius:10px;margin:4px 12px 10px;padding:12px 12px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #eee}
+.ls-section h3{font-size:.8rem;font-weight:700;color:#00442D;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.ls-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+@media(max-width:400px){.ls-grid{grid-template-columns:1fr}}
+.ls-item{background:#f9faf9;border-radius:8px;padding:8px;text-align:center;border:1px solid #eee}
+.ls-item .key{font-size:.62rem;font-weight:600;color:#00442D;margin-bottom:2px;word-break:break-all}
+.ls-item .val{font-size:.68rem}
+.ls-item .val.ok{color:#00442D}
+.ls-item .val.fail{color:#c0392b}
+/* FOOTER */
+.footer{text-align:center;padding:16px;font-size:.65rem;color:#5c5c5c}
+.footer a{color:#00442D;font-weight:600;text-decoration:none}
+/* ANIMATION */
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.page-card{animation:fadeIn .25s ease-out}
+.page-card:nth-child(1){animation-delay:0s}
+.page-card:nth-child(2){animation-delay:.03s}
+.page-card:nth-child(3){animation-delay:.06s}
+</style>
+</head>
+<body>
+
+<!-- UNIFIED NAV BAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:6px">
+    <a href="landing.html" class="logo">JG <span>Mart</span></a>
+  </div>
+  <div class="nav">
+    <a href="index.html">📦 Shop</a>
+    <a href="menu.html">📋 Menu</a>
+    <a href="zone.html">📍 Zone</a>
+    <a href="track.html">📮 Track</a>
+    <a href="myorders.html">📄 My Orders</a>
+    <a href="order_intake.html">📥 Order Intake</a>
+    <a href="healthcheck.html" style="color:#c9a227;font-weight:700">🔬 Health</a>
+    <a href="https://wa.me/8801870489448" class="wa-link">💬 WA</a>
+    <a href="admin.html" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.55rem">⚙️</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🔬 <span>Site</span> Health Checker</h1>
+  <p>Checking all JG Mart catalog pages for availability</p>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="ts">
+    <span>🕐 Last check:</span>
+    <span class="ts-v" id="lastCheck">—</span>
+  </div>
+  <button class="btn-recheck" id="recheckBtn" onclick="runCheck()">⟳ Re-check</button>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary" id="summary">
+  <div class="sum-item">
+    <div class="num" id="totalPages">0</div>
+    <div class="lbl">Total Pages</div>
+  </div>
+  <div class="sum-item">
+    <div class="num ok" id="okPages">0</div>
+    <div class="lbl">✅ Online</div>
+  </div>
+  <div class="sum-item">
+    <div class="num fail" id="failPages">0</div>
+    <div class="lbl">❌ Offline</div>
+  </div>
+</div>
+
+<!-- PAGES LIST -->
+<div class="list" id="pageList"></div>
+
+<!-- LOCALSTORAGE SECTION -->
+<div class="ls-section">
+  <h3>🗄️ localStorage Keys</h3>
+  <div class="ls-grid" id="lsGrid"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  JG Mart · <a href="index.html">Back to Catalog</a>
+</div>
+
+<script>
+const PAGES = [
+  {id:'index',name:'index.html',path:'index.html'},
+  {id:'landing',name:'landing.html',path:'landing.html'},
+  {id:'menu',name:'menu.html',path:'menu.html'},
+  {id:'track',name:'track.html',path:'track.html'},
+  {id:'zone',name:'zone.html',path:'zone.html'},
+  {id:'admin',name:'admin.html',path:'admin.html'},
+  {id:'manifest',name:'manifest.html',path:'manifest.html'},
+  {id:'myorders',name:'myorders.html',path:'myorders.html'},
+  {id:'order_intake',name:'order_intake.html',path:'order_intake.html'},
+  {id:'404',name:'404.html',path:'404.html'},
+  {id:'nav_template',name:'nav_template.html',path:'nav_template.html'},
+  {id:'jsonld',name:'jsonld-snippets.html',path:'jsonld-snippets.html'}
+];
+
+const LS_KEYS = [
+  {key:'jgmart_prods',label:'Products'},
+  {key:'jgmart_ords',label:'Orders'},
+  {key:'jgmart_addr',label:'Address'}
+];
+
+function $(id){return document.getElementById(id);}
+
+function renderLS(){
+  var g=$('lsGrid');
+  g.innerHTML=LS_KEYS.map(function(k){
+    var exists=localStorage.getItem(k.key)!==null;
+    var val='';
+    if(exists){
+      try{
+        var d=JSON.parse(localStorage.getItem(k.key));
+        if(Array.isArray(d))val=d.length+' items';
+        else if(typeof d==='object'&&d!==null)val=Object.keys(d).length+' keys';
+        else val='✓ set';
+      }catch(e){
+        val='✓ set ('+localStorage.getItem(k.key).length+' chars)';
+      }
+    }
+    return '<div class="ls-item">'+
+      '<div class="key">'+k.key+'</div>'+
+      '<div class="val '+(exists?'ok':'fail')+'">'+(exists?'✅ '+val:'❌ Not found')+'</div>'+
+    '</div>';
+  }).join('');
+}
+
+function runCheck(){
+  var btn=$('recheckBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spin">⟳</span> Checking…';
+
+  var list=$('pageList');
+  list.innerHTML=PAGES.map(function(p){
+    return '<div class="page-card loading" data-id="'+p.id+'">'+
+      '<div class="status"><span class="spinner"></span></div>'+
+      '<div class="info"><div class="name">'+p.name+'</div><div class="detail">Checking...</div></div>'+
+      '<div class="bytes">—</div>'+
+    '</div>';
+  }).join('');
+
+  var okCount=0, failCount=0;
+  var done=0, total=PAGES.length;
+
+  function updateSummary(){
+    $('totalPages').textContent=total;
+    $('okPages').textContent=okCount;
+    $('failPages').textContent=failCount;
+  }
+
+  function finalize(){
+    var now=new Date();
+    $('lastCheck').textContent=now.toLocaleString('en-BD',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    btn.disabled=false;
+    btn.innerHTML='⟳ Re-check';
+    updateSummary();
+    renderLS();
+  }
+
+  PAGES.forEach(function(p){
+    fetch(p.path,{method:'GET',cache:'no-store',mode:'same-origin'})
+      .then(function(r){
+        if(!r.ok)throw new Error('HTTP '+r.status+' '+r.statusText);
+        return r.text();
+      })
+      .then(function(text){
+        var sizeKB=(text.length/1024).toFixed(1);
+        okCount++;
+        done++;
+        var card=list.querySelector('[data-id="'+p.id+'"]');
+        if(card){
+          card.className='page-card ok';
+          card.querySelector('.status').textContent='✅';
+          card.querySelector('.info .name').innerHTML=p.name+' <span class="badge">'+(p.id==='404'?'⚠️ Error page':'OK')+'</span>';
+          card.querySelector('.info .detail').textContent='Loaded successfully · '+(text.length).toLocaleString()+' chars';
+          card.querySelector('.bytes').textContent=sizeKB+' KB';
+        }
+        if(done>=total)finalize();
+      })
+      .catch(function(err){
+        failCount++;
+        done++;
+        var card=list.querySelector('[data-id="'+p.id+'"]');
+        if(card){
+          card.className='page-card fail';
+          card.querySelector('.status').textContent='❌';
+          card.querySelector('.info .name').innerHTML=p.name+' <span class="badge">Failed</span>';
+          card.querySelector('.info .detail').innerHTML='<span class="err">'+err.message+'</span>';
+          card.querySelector('.bytes').textContent='—';
+        }
+        if(done>=total)finalize();
+      });
+  });
+}
+
+// Also check localStorage doesn't cause errors in the localStorage section itself
+(function init(){
+  // Set a timestamp if first run
+  if(!localStorage.getItem('jgmart_hc_ts')){
+    localStorage.setItem('jgmart_hc_ts',new Date().toISOString());
+  }
+  renderLS();
+  runCheck();
+})();
+</script>
+</body>
+</html>

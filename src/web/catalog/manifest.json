@@ -1,0 +1,13 @@
+{
+  "name": "JG Mart — Fresh Groceries Delivered",
+  "short_name": "JG Mart",
+  "description": "Fresh groceries from Krishi Market, delivered to Japan Garden City",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f5f7f5",
+  "theme_color": "#00442D",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "48x48", "type": "image/svg+xml" },
+    { "src": "../02_Brand_Assets/logo_icon.svg", "sizes": "100x100", "type": "image/svg+xml" }
+  ]
+}

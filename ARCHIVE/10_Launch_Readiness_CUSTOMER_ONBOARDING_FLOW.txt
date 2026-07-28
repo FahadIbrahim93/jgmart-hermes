@@ -1,0 +1,437 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                 CUSTOMER ONBOARDING FLOW — JG MART                        ║
+║          From First Contact to Loyal Customer | Hyperlocal Grocery         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+This is the complete customer journey. Each stage has: timing, goal, message
+template, channel, and success metric.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERVIEW — THE 7-STAGE FUNNEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. AWARENESS        → They hear about JG Mart
+  2. FIRST CONTACT    → They message you on WhatsApp
+  3. WELCOME          → You convert the message to an order
+  4. FIRST ORDER      → The experience that decides if they return
+  5. FOLLOW-UP        → Post-delivery engagement
+  6. SECOND ORDER     → Nudge them to buy again
+  7. LOYALTY          → Referral, subscription, advocacy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1: AWARENESS (Day -5 to Day 0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Get the JG Mart name into every JGC household's mind before launch.
+
+Timing: 5 days before launch (Day -5 through Day -1)
+
+Channels:
+  • JGC community WhatsApp groups
+  • JGC Facebook groups
+  • Physical flyers at gates, shops, mosque notice board
+  • Gate announcements (if allowed)
+  • Word of mouth through team's personal networks
+
+Message Template — WhatsApp Group Post:
+  ┌────────────────────────────────────────────────────┐
+  │ Assalamu Alaikum JGC residents! 🌿                │
+  │                                                    │
+  │ We're launching JG Mart — your neighborhood        │
+  │ grocery delivery service right here in Japan       │
+  │ Garden City.                                       │
+  │                                                    │
+  │ 🛒 Fresh vegetables, meat, fish, rice & more       │
+  │ 🚚 Delivered to your door in 60-90 minutes        │
+  │ 💰 Fair prices — same as Krishi Market             │
+  │ 📱 Order on WhatsApp                               │
+  │                                                    │
+  │ 🎉 LAUNCH DAY SPECIAL: Free delivery on all        │
+  │    first 50 orders!                                │
+  │                                                    │
+  │ Save our number now:                               │
+  │ [YOUR NUMBER]                                     │
+  │                                                    │
+  │ Save contact as "JG Mart 🛒"                       │
+  │                                                    │
+  │ Launching [DATE]. Stay tuned! 👀                   │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • Flyers distributed: 200+
+  • Community group posts: 3+ groups
+  • Contacts saved: 30+ before launch
+  • Launch day messages received: 10+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 2: FIRST CONTACT (Day 0+)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Turn a first message into a conversation and eventually an order.
+
+Timing: Within 5 minutes of receiving ANY WhatsApp message
+
+Auto-Reply Message (set in WhatsApp Business):
+  ┌────────────────────────────────────────────────────┐
+  │ 🛒 JGMART — স্বাগতম!                               │
+  │                                                    │
+  │ আমাদের নতুন grocery delivery service-এ              │
+  │ আপনাকে স্বাগতম!                                   │
+  │                                                    │
+  │ আজ আপনার প্রথম অর্ডারে ফ্রি ডেলিভারি! 🎉          │
+  │ (প্রথম ৫০ অর্ডার পর্যন্ত)                          │
+  │                                                    │
+  │ অর্ডার দিতে, নিচেরগুলো জানান:                     │
+  │ ১. আপনার নাম                                      │
+  │ ২. ফ্ল্যাট নম্বর/ builduing                         │
+  │ ৩. আপনার শপিং লিস্ট                               │
+  │                                                    │
+  │ উদাহরণ:                                            │
+  │ "নাম: রাহিম, ফ্ল্যাট ৪B, বিল্ডিং ১০।                 │
+  │   শপিং: আলু ১ কেজি, পrawl ৫০০gm, মুরগির মাংস ১ কেজি" │
+  │                                                    │
+  │ ডেলিভারি সময়: আজ সন্ধ্যা ৭টা পর্যন্ত                 │
+  │ পেমেন্ট: cash / bKash / Nagad                      │
+  │                                                    │
+  │ প্রশ্ন থাকলে যেকোনো সময় বলুন! 😊                   │
+  └────────────────────────────────────────────────────┘
+
+Human Response (when someone messages):
+  ┌────────────────────────────────────────────────────┐
+  │ Walaykum Assalam [Name]! 😊                        │
+  │                                                    │
+  │ Thanks for messaging JG Mart! We're right here in  │
+  │ JGC. Let me help you with your order.              │
+  │                                                    │
+  │ Quick questions to get started:                    │
+  │ ১. আপনার builduing ও flats নম্বর?                  │
+  │ ২. আজ কisco দরকার?                                   │
+  │                                                    │
+  │ I'll send you our full menu too — one moment!       │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • Response time: < 5 minutes (target), < 10 minutes (acceptable)
+  • Response rate: 100% of messages answered
+  • Conversation-to-order rate: > 30%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3: WELCOME & CATALOG SHARING (within 10 minutes of first message)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Give them everything they need to place their first order.
+
+Actions:
+  1. Reply to their message warmly
+  2. Send catalog (WhatsApp catalog or PDF/photos of top items)
+  3. Mention any active promotions
+  4. Confirm delivery timing for their area
+
+Catalog Message:
+  ┌────────────────────────────────────────────────────┐
+  │ Here's our menu, [Name]! 🌿                        │
+  │                                                    │
+  │ [Send WhatsApp Catalog or 3-4 photos with prices]  │
+  │                                                    │
+  │ Current prices (all from Krishi Market):           │
+  │ 🥔 Potato: 30 TK/kg                               │
+  │ 🧅 Onion: 50 TK/kg                                │
+  │ 🍗 Chicken: 220 TK/kg                             │
+  │ 🐟 Hilsha: 350 TK/kg (seasonal)                   │
+  │ 🍚 Rice (25kg): 1,850 TK                          │
+  │                                                    │
+  │ Delivery fee: 30 TK (free for first order!) 🎉     │
+  │ Delivery time: 60-90 minutes                       │
+  │                                                    │
+  │ Just type what you need! Format:                   │
+  │ "Item + quantity"                                   │
+  │                                                    │
+  │ Questions? I'm right here! 😊                      │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • Catalog delivered: 100% of new conversations
+  • Order placed within 30 min of catalog: target 50%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 4: FIRST ORDER EXPERIENCE (THE MOST CRITICAL STAGE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Make the first delivery SO GOOD they want to order again immediately.
+
+Pre-Delivery (Order Confirmed):
+  ┌────────────────────────────────────────────────────┐
+  │ ✅ Order confirmed, [Name]!                        │
+  │                                                    │
+  │ Order: [list items with quantities]                │
+  │ Total: ___ TK                                     │
+  │ Delivery: Within ___ minutes                       │
+  │ Rider: [Name] — [Phone]                            │
+  │                                                    │
+  │ 💰 Payment: bKash/Nagad/Cash                       │
+  │ bKash: [YOUR NUMBER] (send to [NAME])              │
+  │ Transaction ID: [___]                              │
+  │                                                    │
+  │ Your rider will call you when nearby. Please keep  │
+  │ your phone handy!                                  │
+  │                                                    │
+  │ 🎉 Your first delivery is FREE!                     │
+  │    No delivery charge for this order.               │
+  │                                                    │
+  │ Thank you for trying JG Mart! 🙏                    │
+  └────────────────────────────────────────────────────┘
+
+Delivery Moment:
+  • Rider calls 5 minutes before arrival
+  • Rider greets with smile, confirms name and flat number
+  • Rider hands over items carefully packed
+  • Rider shows items, confirms nothing missing/damaged
+  • Rider collects payment (if cash) OR confirms bKash transaction
+  • Rider asks: "Everything okay?" — genuinely
+
+If customer is not home:
+  ┌────────────────────────────────────────────────────┐
+  │ Hi [Name], I'm at your building but you're not     │
+  │ home. Where should I leave the order?              │
+  │                                                    │
+  │ Options:                                           │
+  │ • With gate security                               │
+  │ • With neighbor (give name/flat)                   │
+  │ • Come back later (specify time)                    │
+  │                                                    │
+  │ Please reply quickly — I have other deliveries!     │
+  └────────────────────────────────────────────────────┘
+
+Post-Delivery (within 1 hour):
+  ┌────────────────────────────────────────────────────┐
+  │ ✅ Delivered! Hope everything arrived well, [Name]! │
+  │                                                    │
+  │ Quick check: Are you happy with the order?         │
+  │ Any issues with quality or quantity?               │
+  │                                                    │
+  │ If you love it, next order is just a message away! │
+  │ We deliver 7 days a week, morning and evening.     │
+  │                                                    │
+  │ 😊 [Your name] | JG Mart                           │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • On-time delivery rate: > 95%
+  • Complete order rate: > 98%
+  • Damaged items: < 2%
+  • First order NPS (would recommend): Target 8+/10
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5: FOLLOW-UP (Day +1)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Reinforce the positive experience and start building the relationship.
+
+Timing: Next day, morning (9-10 AM)
+
+If First Order Was Good:
+  ┌────────────────────────────────────────────────────┐
+  │ Good morning, [Name]! 🌞                           │
+  │                                                    │
+  │ Hope yesterday's delivery worked out well for you! │
+  │                                                    │
+  │ Quick question: Was there anything missing or       │
+  │ you'd like us to add to our catalog?               │
+  │                                                    │
+  │ We're always looking to add what JGC residents     │
+  │ actually want.                                     │
+  │                                                    │
+  │ Also — your next order gets 10% off if placed      │
+  │ today! Use code: JGC10                            │
+  │                                                    │
+  │ Thank you for being our Day 1 customer! 🙏          │
+  │ — [Name] | JG Mart                                 │
+  └────────────────────────────────────────────────────┘
+
+If There Was An Issue:
+  ┌────────────────────────────────────────────────────┐
+  │ Good morning, [Name]. I wanted to personally       │
+  │ apologize about yesterday's order issue.           │
+  │                                                    │
+  │ [Specific apology — "The onions were sprouted"     │
+  │  or "We missed the potatoes"]                       │
+  │                                                    │
+  │ I've credited your account with [amount] for the  │
+  │ next order. I've also flagged this with our        │
+  │ Krishi Market partner so it doesn't happen again.  │
+  │                                                    │
+  │ Your next delivery is on us — completely free.     │
+  │                                                    │
+  │ Again, sorry for the inconvenience. We value       │
+  │ your trust.                                        │
+  │ — [Name]                                           │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • Follow-up sent: 100% of Day 1 customers
+  • Customer replies: > 40%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6: SECOND ORDER NUDGE (Day +3)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Get them to place a second order within 3-5 days.
+
+Timing: Day +3, evening (when people think about dinner)
+
+  ┌────────────────────────────────────────────────────┐
+  │ Hi [Name]! 👋                                      │
+  │                                                    │
+  │ It's been a couple of days since your first JG     │
+  │ Mart order. How's everything been?                 │
+  │                                                    │
+  │ By the way — this weekend we have some fresh       │
+  │ [seasonal item: mangoes/lychees/ramadan special]   │
+  │ just arrived from Krishi Market.                   │
+  │                                                    │
+  │ Would you like me to add [popular item] to your   │
+  │ next order? Just reply with your list!             │
+  │                                                    │
+  │ Delivery: Same day, within 60 minutes.             │
+  │                                                    │
+  │ — [Name] | JG Mart                                 │
+  └────────────────────────────────────────────────────┘
+
+Alternative Nudge (if they haven't replied):
+  ┌────────────────────────────────────────────────────┐
+  │ [Name] ji, আজ沈些什么? 😊                          │
+  │                                                    │
+  │ আজকের ডিনার বা tomorrow এর breakfast-এর জন্য        │
+  │fresh vegetables/eggs/চ-worth a message?               │
+  │                                                    │
+  │ অর্ডার করতে just reply — easy!                      │
+  │ ডেলিভারি ১ ঘণ্টার মধ্যে।                             │
+  │                                                    │
+  │ — JG Mart                                          │
+  └────────────────────────────────────────────────────┘
+
+Success Metrics:
+  • Second order rate (Day 1 customers): > 30%
+  • Days between 1st and 2nd order: < 5 days (target)
+  • Message reply rate: > 25%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 7: LOYALTY — REFERRAL & SUBSCRIPTION (Day +14)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Goal: Turn happy customers into advocates who bring in new customers.
+
+Timing: Day +14 (after they've had time to experience 2-3 orders)
+
+A. REFERRAL PROGRAM:
+  ┌────────────────────────────────────────────────────┐
+  │ [Name], thanks for being a loyal customer! 🙏      │
+  │                                                    │
+  │ We've got a special offer for you:                 │
+  │                                                    │
+  │ 📢 Refer a friend or neighbor to JG Mart:          │
+  │ • They get FREE delivery on their first order      │
+  │ • YOU get 50 TK credit for EACH referral          │
+  │                                                    │
+  │ Just share your unique referral code: [CODE]       │
+  │                                                    │
+  │ Tell them: "Order from JG Mart on WhatsApp —       │
+  │ use my code [CODE] for free delivery!"             │
+  │                                                    │
+  │ No limit on referrals — keep earning! 🎉           │
+  └────────────────────────────────────────────────────┘
+
+  Referral Tracking:
+  • Each customer gets a simple code: JG-[Initials]-[Number]
+    Example: JG-FAHAD-001
+  • When new customer mentions code → credit referrer
+  • Track in spreadsheet: Referrer | Code | New Customer | Credit Given
+
+B. SUBSCRIPTION CONVERSION (for recurring items):
+  ┌────────────────────────────────────────────────────┐
+  │ [Name], I noticed you order [milk/eggs/rice]       │
+  │ regularly.                                       │
+  │                                                    │
+  │ Would you like to set up a weekly subscription?    │
+  │                                                    │
+  │ Benefits:                                          │
+  │ ✅ 5% discount on every subscription order         │
+  │ ✅ Automatic delivery — no need to order each time │
+  │ ✅ Same delivery time every week                    │
+  │ ✅ Priority during busy days                       │
+  │                                                    │
+  │ Just tell me:                                      │
+  │ "Every [Monday/Wednesday/Friday], deliver:         │
+  │  [item list]"                                      │
+  │                                                    │
+  │ Cancel anytime. No commitment.                      │
+  └────────────────────────────────────────────────────┘
+
+  Subscription Tracking:
+  • Document in customer file: Items | Frequency | Day | Discount
+  • Send reminder 1 day before each subscription delivery
+  • Allow changes/cancellations anytime
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CUSTOMER LIFECYCLE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Stage              Timing           Action                  Metric
+  ─────────────────────────────────────────────────────────────────────────
+  Awareness          Day -5 to 0      Groups, flyers          30+ contacts saved
+  First Contact      Day 0            Auto-reply              Response <5 min
+  Welcome            Within 10 min    Catalog + greeting      50% order within 30m
+  First Order        Day 0            Perfect delivery         95% on-time
+  Follow-up          Day +1           Thank you + feedback     40% reply rate
+  Second Nudge       Day +3           Offer + discount         30% 2nd order
+  Loyalty            Day +14          Referral + subscription  20% refer 1 person
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CUSTOMER DATABASE — WHAT TO TRACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For every customer, save:
+
+  ┌────────────────────────────────────────────────────┐
+  │ Name: _____________  Phone: _______________        │
+  │ Building: _____  Flat: _____                       │
+  │ WhatsApp Name: _______________                     │
+  │ First Order Date: ____/____/_____                   │
+  │ Total Orders: ____  Total Spend: ____ BDT          │
+  │ Avg Order Value: ____ BDT                          │
+  │ Last Order Date: ____/____/_____                    │
+  │ Favorite Items: ________________________________   │
+  │ Referral Code: ___________                         │
+  │ Referrals Made: ____  Referrals Credit: ____ BDT   │
+  │ Subscription: [None / Weekly / Monthly]            │
+  │ Subscription Items: ___________________________    │
+  │ Subscription Day: _______                          │
+  │ Notes: ___________________________________________  │
+  │ [e.g., "Prefers cash", "Has dog — knock gently"]   │
+  └────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEY PRINCIPLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. FIRST ORDER IS EVERYTHING — If the first delivery is bad, you lose them forever.
+   If it's great, you have a customer for life.
+
+2. SPEED WINS — Respond faster than competitors. In Bangladesh, WhatsApp response
+   within 5 minutes is a competitive advantage.
+
+3. PERSONALIZATION — Use their name. Remember preferences. Make them feel known,
+   not like a number.
+
+4. OVER-DELIVER ON FIRST ORDER — Free delivery is table stakes. Add something
+   extra: a free lime, a handwritten thank you, a next-time discount.
+
+5. EVERY COMPLAINT IS AN OPPORTUNITY — A well-handled complaint can create a
+   more loyal customer than a perfect order.
+
+6. DON'T SPAM — 1-2 messages per week max for engaged customers.
+   Daily messages = blocked/ignored.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF ONBOARDING FLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — Email Backup Tool</title>
+<meta name="theme-color" content="#00442D">
+<style>
+/* ═══════════════════════════════════════════════════
+   JG MART — EMAIL BACKUP TOOL
+   All CSS/JS inline — fully self-contained
+   ═══════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green: #00442D;
+  --green-dark: #002e1e;
+  --green-light: #0a6b47;
+  --green-soft: #e8f5ef;
+  --gold: #c9a227;
+  --gold-light: #f5e6b8;
+  --text: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --text-light: #999;
+  --bg: #f0f2f0;
+  --bg-card: #ffffff;
+  --border: #e0e4e0;
+  --border-light: #f0f0f0;
+  --success: #0a6b47;
+  --success-bg: #e8f5ef;
+  --warning: #c9a227;
+  --warning-bg: #fff8e1;
+  --danger: #c0392b;
+  --danger-bg: #fce4e4;
+  --info: #1565c0;
+  --info-bg: #e3f2fd;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,68,45,0.08);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  padding-bottom: calc(24px + var(--safe-bottom));
+}
+/* ─── TOP BAR ─── */
+.topbar {
+  background: var(--green);
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.topbar h1 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0;
+}
+.topbar h1 span { color: var(--gold); }
+.topbar .sub {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+/* ─── CONTAINER ─── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px;
+}
+/* ─── STATS BAR (quick stats strip) ─── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (max-width: 400px) {
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .stats-strip .stat-card:last-child { grid-column: 1 / -1; }
+}
+.stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 12px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.stat-card .label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.stat-card .value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--green);
+  margin-top: 2px;
+}
+.stat-card .sub {
+  font-size: 0.65rem;
+  color: var(--text-light);
+  margin-top: 1px;
+}
+/* ─── SECTION ─── */
+.section {
+  margin-bottom: 16px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.section-header h2 {
+  font-size: 1rem;
+  color: var(--green);
+  font-weight: 700;
+  margin: 0;
+}
+.section-header .badge {
+  font-size: 0.6rem;
+  background: var(--green);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+/* ─── CARDS ─── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+.card + .card { margin-top: 10px; }
+/* ─── KEY LIST ─── */
+.key-list { list-style: none; }
+.key-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  gap: 8px;
+}
+.key-item:last-child { border-bottom: none; }
+.key-item .key-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  word-break: break-all;
+  flex: 1;
+  min-width: 0;
+}
+.key-item .key-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.key-item .key-size {
+  font-size: 0.62rem;
+  background: var(--green-soft);
+  color: var(--green);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.key-item .key-count {
+  font-size: 0.62rem;
+  background: var(--info-bg);
+  color: var(--info);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.1s, box-shadow 0.1s;
+  white-space: nowrap;
+  text-decoration: none;
+  width: 100%;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary {
+  background: var(--green);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,68,45,0.2);
+}
+.btn-primary:hover { background: var(--green-dark); }
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--green);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--green); }
+.btn-gold {
+  background: var(--gold);
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(201,162,39,0.25);
+}
+.btn-gold:hover { background: #b8921f; }
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+}
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+@media (min-width: 480px) {
+  .btn-group {
+    flex-direction: row;
+  }
+  .btn { width: auto; flex: 1; }
+}
+/* ─── BACKUP STATUS ─── */
+.backup-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+}
+.backup-status.never {
+  background: var(--warning-bg);
+  color: #8a6e00;
+}
+.backup-status.never::before { content: '⚠️'; }
+.backup-status.done {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.backup-status.done::before { content: '✅'; }
+/* ─── INSTRUCTIONS ─── */
+.instructions {
+  background: var(--info-bg);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  color: #0d47a1;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.instructions strong { color: var(--info); }
+.instructions ol {
+  margin: 6px 0 0 16px;
+  padding: 0;
+}
+.instructions li { margin-bottom: 4px; }
+/* ─── EMAIL PREVIEW ─── */
+.email-preview {
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid var(--border);
+  max-height: 160px;
+  overflow-y: auto;
+  margin-top: 8px;
+}
+/* ─── TOAST ─── */
+.toast {
+  position: fixed;
+  bottom: calc(80px + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: white;
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.85rem;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  animation: toastIn 0.3s ease, toastOut 0.3s ease 2.5s forwards;
+  pointer-events: none;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; }
+  to   { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+}
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--text-muted);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 10px; }
+.empty-state h3 { color: var(--green); font-size: 1.1rem; margin-bottom: 6px; }
+.empty-state p { font-size: 0.85rem; }
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center;
+  padding: 20px 16px 0;
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+.footer a { color: var(--text-muted); }
+/* ─── LOADING ─── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-bottom: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>
+    <h1>JG <span>Mart</span></h1>
+    <div class="sub">Daily Email-Backup Tool</div>
+  </div>
+  <div class="sub" id="todayDate"></div>
+</div>
+
+<div class="container" id="app">
+
+  <!-- Loading state -->
+  <div class="loading" id="loadingState">
+    <div class="spinner"></div>
+    <div>Scanning localStorage…</div>
+  </div>
+
+  <!-- Content (hidden until loaded) -->
+  <div id="mainContent" style="display:none">
+
+    <!-- Quick Stats -->
+    <div class="stats-strip" id="statsStrip">
+      <div class="stat-card">
+        <div class="label">Total Keys</div>
+        <div class="value" id="statKeys">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Data Size</div>
+        <div class="value" id="statSize">0 B</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Orders Today</div>
+        <div class="value" id="statOrders">—</div>
+        <div class="sub" id="statOrdersSub"></div>
+      </div>
+    </div>
+
+    <!-- Backup Status -->
+    <div class="section">
+      <div id="backupStatus"></div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="section">
+      <div class="instructions">
+        <strong>📋 How to back up your data:</strong>
+        <ol>
+          <li><strong>Download</strong> the JSON file below</li>
+          <li>Click <strong>"Email to Yourself"</strong> to open your email client</li>
+          <li><strong>Attach</strong> the downloaded JSON file to the email</li>
+          <li>Send it to yourself — that's your daily backup!</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Scanned Keys Table -->
+    <div class="section">
+      <div class="section-header">
+        <h2>📦 Data Found</h2>
+        <span class="badge" id="keyCountBadge">0</span>
+      </div>
+      <div class="card">
+        <ul class="key-list" id="keyList">
+          <!-- populated by JS -->
+        </ul>
+        <div class="empty-state" id="emptyState" style="display:none">
+          <div class="icon">📭</div>
+          <h3>No JG Mart Data Found</h3>
+          <p>No localStorage keys starting with <code>jgmart_</code> were found.<br>Use the app first to generate data.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="section">
+      <div class="card">
+        <div class="section-header">
+          <h2>⚡ Export Actions</h2>
+        </div>
+
+        <div class="btn-group">
+          <a class="btn btn-primary" id="downloadBtn" download="jgmart_backup.json">
+            ⬇️ Download JSON
+          </a>
+          <a class="btn btn-gold" id="emailBtn" target="_blank">
+            📧 Email to Yourself
+          </a>
+        </div>
+
+        <div style="margin-top:8px">
+          <button class="btn btn-secondary" id="copyBtn">
+            📋 Copy to Clipboard
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Preview -->
+    <div class="section">
+      <div class="section-header">
+        <h2>📝 Email Preview</h2>
+      </div>
+      <div class="card">
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px">
+          <strong>To:</strong> you@email.com &nbsp;|&nbsp; <strong>Subject:</strong> <span id="emailSubject">JG Mart Daily Backup —</span>
+        </div>
+        <div class="email-preview" id="emailPreview">Loading…</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  JG Mart — Japan Garden City, Dhaka &nbsp;·&nbsp; <a href="index.html">Command Center</a>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const PREFIX = 'jgmart_';
+  const BACKUP_KEY = 'jgmart_last_backup';
+
+  // ─── DOM refs ───
+  const $ = id => document.getElementById(id);
+  const loadingEl    = $('loadingState');
+  const mainEl       = $('mainContent');
+  const statKeys     = $('statKeys');
+  const statSize     = $('statSize');
+  const statOrders   = $('statOrders');
+  const statOrdersSub= $('statOrdersSub');
+  const keyList      = $('keyList');
+  const emptyState   = $('emptyState');
+  const keyCountBadge= $('keyCountBadge');
+  const backupStatus = $('backupStatus');
+  const downloadBtn  = $('downloadBtn');
+  const emailBtn     = $('emailBtn');
+  const copyBtn      = $('copyBtn');
+  const emailSubject = $('emailSubject');
+  const emailPreview = $('emailPreview');
+  const todayDate    = $('todayDate');
+
+  // ─── Utilities ───
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / 1048576).toFixed(1) + ' MB';
+  }
+
+  function formatDate(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
+
+  function formatDateDisplay(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + y;
+  }
+
+  function showToast(msg) {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+
+  function safeJSONParse(str) {
+    try { return JSON.parse(str); } catch (_) { return null; }
+  }
+
+  function getArrayLength(val) {
+    if (Array.isArray(val)) return val.length;
+    if (typeof val === 'object' && val !== null) return Object.keys(val).length;
+    return 0;
+  }
+
+  // Try to extract today's orders count from common JG Mart patterns
+  function countTodayOrders(data) {
+    const today = formatDate(new Date());
+    let count = 0;
+
+    // Try orders key
+    const ordersKey = Object.keys(data).find(k => k.toLowerCase().includes('order'));
+    if (ordersKey) {
+      const val = data[ordersKey];
+      if (Array.isArray(val)) {
+        count = val.filter(item => {
+          if (!item) return false;
+          const d = item.date || item.createdAt || item.created_at || item.orderDate || '';
+          return String(d).startsWith(today);
+        }).length;
+        return count;
+      }
+    }
+
+    // Try looking for an 'orders' array anywhere in the data
+    for (const key of Object.keys(data)) {
+      const val = data[key];
+      if (Array.isArray(val)) {
+        const todayItems = val.filter(item => {
+          if (!item || typeof item !== 'object') return false;
+          const d = item.date || item.createdAt || item.created_at || item.orderDate || item.timestamp || '';
+          return String(d).startsWith(today);
+        });
+        count += todayItems.length;
+      }
+    }
+    return count;
+  }
+
+  // ─── Main ───
+  function init() {
+    // Set today's date in top bar
+    todayDate.textContent = formatDateDisplay(new Date());
+
+    // Read all jgmart_ keys
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(PREFIX)) {
+        keys.push(key);
+      }
+    }
+    keys.sort();
+
+    // Collect data
+    const totalData = {};
+    let totalBytes = 0;
+    let keyRows = [];
+
+    for (const key of keys) {
+      const raw = localStorage.getItem(key);
+      if (raw === null) continue;
+      const bytes = new Blob([raw]).size;
+      totalBytes += bytes;
+
+      let recordCount = 0;
+      const parsed = safeJSONParse(raw);
+      if (parsed !== null) {
+        recordCount = getArrayLength(parsed);
+        totalData[key] = parsed;
+      } else {
+        // Not JSON — store as string
+        totalData[key] = raw;
+        recordCount = 1;
+      }
+
+      keyRows.push({ key, bytes, recordCount });
+    }
+
+    // ─── Populate Stats ───
+    statKeys.textContent = keys.length;
+    statSize.textContent = formatSize(totalBytes);
+
+    const todayOrders = countTodayOrders(totalData);
+    statOrders.textContent = todayOrders > 0 ? todayOrders : (keys.length > 0 ? '0' : '—');
+    if (keys.length > 0) {
+      statOrdersSub.textContent = todayOrders === 0 ? 'No orders today yet' : 'Orders placed today';
+    } else {
+      statOrdersSub.textContent = '';
+    }
+
+    // ─── Backup Status ───
+    const lastBackup = localStorage.getItem(BACKUP_KEY);
+    const statusEl = document.createElement('div');
+    if (lastBackup) {
+      statusEl.className = 'backup-status done';
+      statusEl.textContent = 'Last backup: ' + lastBackup;
+    } else {
+      statusEl.className = 'backup-status never';
+      statusEl.textContent = 'No backup has been made yet.';
+    }
+    backupStatus.appendChild(statusEl);
+
+    // ─── Key List ───
+    keyCountBadge.textContent = keys.length;
+
+    if (keys.length === 0) {
+      emptyState.style.display = 'block';
+      keyList.style.display = 'none';
+    } else {
+      emptyState.style.display = 'none';
+      keyList.style.display = '';
+      for (const row of keyRows) {
+        const li = document.createElement('li');
+        li.className = 'key-item';
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'key-name';
+        nameSpan.textContent = row.key;
+
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'key-meta';
+
+        const sizeSpan = document.createElement('span');
+        sizeSpan.className = 'key-size';
+        sizeSpan.textContent = formatSize(row.bytes);
+
+        const countSpan = document.createElement('span');
+        countSpan.className = 'key-count';
+        countSpan.textContent = row.recordCount + ' rec' + (row.recordCount !== 1 ? 's' : '');
+
+        metaDiv.appendChild(sizeSpan);
+        metaDiv.appendChild(countSpan);
+        li.appendChild(nameSpan);
+        li.appendChild(metaDiv);
+        keyList.appendChild(li);
+      }
+    }
+
+    // ─── Build Backup JSON ───
+    const backupJson = JSON.stringify(totalData, null, 2);
+    const blob = new Blob([backupJson], { type: 'application/json' });
+    const blobUrl = URL.createObjectURL(blob);
+    downloadBtn.href = blobUrl;
+
+    // ─── Email Subject & Body ───
+    const dateStr = formatDate(new Date());
+    const subject = 'JG Mart Daily Backup ' + dateStr;
+
+    let bodyLines = [];
+    bodyLines.push('JG Mart — Daily Data Backup');
+    bodyLines.push('Date: ' + formatDateDisplay(new Date()));
+    bodyLines.push('');
+    bodyLines.push('─── Summary ───');
+    bodyLines.push('Total Keys: ' + keys.length);
+    bodyLines.push('Total Data Size: ' + formatSize(totalBytes));
+    bodyLines.push('Today\'s Orders: ' + (todayOrders > 0 ? todayOrders : '0'));
+    bodyLines.push('');
+    bodyLines.push('Keys included:');
+    for (const row of keyRows) {
+      bodyLines.push('  • ' + row.key + '  (' + formatSize(row.bytes) + ', ' + row.recordCount + ' records)');
+    }
+    if (keyRows.length === 0) {
+      bodyLines.push('  (no keys found)');
+    }
+    bodyLines.push('');
+    bodyLines.push('─── Instructions ───');
+    bodyLines.push('The attached JSON file contains ALL your JG Mart data.');
+    bodyLines.push('Keep this email as your daily backup.');
+    bodyLines.push('');
+    bodyLines.push('— JG Mart Backup Tool');
+
+    const bodyText = bodyLines.join('\n');
+
+    emailSubject.textContent = subject;
+    emailPreview.textContent = bodyText;
+
+    // ─── Mailto Link ───
+    const mailto = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyText);
+    emailBtn.href = mailto;
+
+    // Note: we can't auto-attach a file to mailto: — user must attach the downloaded JSON manually.
+
+    // ─── Copy to Clipboard ───
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText(backupJson).then(function() {
+        showToast('📋 Copied to clipboard!');
+        // Mark backup date
+        const now = formatDateDisplay(new Date()) + ' at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+        localStorage.setItem(BACKUP_KEY, now);
+        // Update status
+        statusEl.className = 'backup-status done';
+        statusEl.textContent = 'Last backup: ' + now;
+      }).catch(function() {
+        // Fallback for older browsers
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = backupJson;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          const now = formatDateDisplay(new Date()) + ' at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+          localStorage.setItem(BACKUP_KEY, now);
+          statusEl.className = 'backup-status done';
+          statusEl.textContent = 'Last backup: ' + now;
+          showToast('📋 Copied to clipboard!');
+        } catch (e2) {
+          showToast('❌ Failed to copy. Try selecting and copying manually.');
+        }
+      });
+    });
+
+    // ─── On download, also mark backup ───
+    downloadBtn.addEventListener('click', function() {
+      const now = formatDateDisplay(new Date()) + ' at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      localStorage.setItem(BACKUP_KEY, now);
+      statusEl.className = 'backup-status done';
+      statusEl.textContent = 'Last backup: ' + now;
+      showToast('✅ Backup timestamp saved!');
+    });
+
+    // Revoke blobURL on download (to free memory)
+    downloadBtn.addEventListener('click', function() {
+      // Blob URL is revoked after a short delay to allow download to start
+      setTimeout(function() {
+        URL.revokeObjectURL(blobUrl);
+      }, 5000);
+    });
+
+    // ─── Show content ───
+    loadingEl.style.display = 'none';
+    mainEl.style.display = '';
+  }
+
+  // ─── Run on DOM ready ───
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

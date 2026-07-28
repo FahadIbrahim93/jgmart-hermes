@@ -1,0 +1,408 @@
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                   JG MART — HERMES EDITION CHANGELOG                           ║
+║                        Complete Build History (12+ Sessions)                    ║
+║                        July 2026                                                ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+Owner:     Fahad Ibrahim
+Location:  Japan Garden City, Mohammadpur, Dhaka
+Toolkit:   G:\JGC Mart\JGC Mart - Hermes\
+
+═══════════════════════════════════════════════════════════════════════════════════
+PHASE 1 — FOUNDATION (Sessions 1–2)
+═══════════════════════════════════════════════════════════════════════════════════
+
+  Goal: Establish the folder structure, core documents, brand identity,
+         legal foundation, and operational playbooks for JG Mart.
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ WHAT WAS BUILT                                                              │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │                                                                             │
+  │ 📁 01_Investor_Deck (7 files)                                               │
+  │    INVESTOR_1PAGER.txt      — One-page pitch for first contact              │
+  │    EXECUTIVE_SUMMARY.txt    — Detailed executive summary                    │
+  │    PITCH_DECK_OUTLINE.txt   — 12-slide structure for slide deck             │
+  │    PITCH_SCRIPT_3MIN.txt    — Verbatim 3-minute pitch script                │
+  │    INVESTOR_FAQ.txt         — 24 anticipated investor Q&As                  │
+  │    PITCH_COACHING_GUIDE.txt — Delivery coaching and preparation guide       │
+  │    PRD_EXTRACTED.txt        — Full product requirements document            │
+  │                                                                             │
+  │ 📁 02_Brand_Assets (3 files)                                                │
+  │    BRAND_GUIDELINES.txt     — Colour palette, typography, brand voice       │
+  │    LOGO_VARIATIONS_GUIDE.txt — Logo usage rules and variations              │
+  │    logo_icon.svg            — SVG brand icon asset                          │
+  │                                                                             │
+  │ 📁 03_Legal_Templates (5 files)                                             │
+  │    PARTNER_AGREEMENT.txt    — Krishi Market vendor partnership contract     │
+  │    CUSTOMER_TERMS_OF_SERVICE.txt — Customer terms and conditions            │
+  │    PRIVACY_POLICY.txt       — Data handling and privacy policy              │
+  │    FOOD_SAFETY_POLICY.txt   — Quality control and recall protocol           │
+  │    RECEIPT_TEMPLATE.txt     — Printable receipt format for deliveries        │
+  │                                                                             │
+  │ 📁 04_Operations (7 files)                                                  │
+  │    ENHANCED_SOP_MANUAL.txt  — Full standard operating procedures manual     │
+  │    OPERATIONS_PLAYBOOK.txt  — 2-page printable quick-reference playbook     │
+  │    RIDER_TRAINING_GUIDE.txt — Complete rider handbook and training guide    │
+  │    MONSOON_PLAYBOOK.txt     — Dhaka monsoon season protocol                 │
+  │    SAFETY_NET_CONTINGENCY.txt — Risk register and contingency plans         │
+  │    MORNING_ROUTINE_CHECKLIST.txt — Daily opening checklist                   │
+  │    WHATSAPP_API_MIGRATION_PLAN.txt — Plan to migrate from WhatsApp to API   │
+  │                                                                             │
+  │ 📁 12 folders created: 01–12 category system established                    │
+  │                                                                             │
+  │ 📁 ROOT files created: README.txt, MASTER_INDEX.txt                         │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Key Decisions:
+    • 12-category folder system chosen for logical separation of concerns
+    • Investor deck positioned as BDT 250,000 seed ask with unit economics
+    • Legal templates designed for Dhaka's regulatory environment
+    • Operations docs tailored to hyperlocal grocery in Japan Garden City
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ End-of-Phase File Count: ~35 files                                          │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+PHASE 2 — WEB APPS (Sessions 3–5)
+═══════════════════════════════════════════════════════════════════════════════════
+
+  Goal: Build self-contained HTML web applications for day-to-day business
+         operations — dashboards, tracking, analytics, and customer-facing pages.
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ WHAT WAS BUILT                                                              │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │                                                                             │
+  │ 📁 05_Tech_Dashboard (9 files)                                              │
+  │    index.html          — KPI Dashboard with live charts and data CRUD       │
+  │    analytics.html      — Weekly Analytics with growth trends                │
+  │    orders.html         — Order Tracker with lifecycle workflow              │
+  │    finance.html        — Finance Dashboard with P&L and cash position       │
+  │    dailypnl.html       — Daily Auto-P&L Calculator                          │
+  │    commlog.html        — Communications Log for customer interactions       │
+  │    backup.html         — Master Backup Utility for all app data             │
+  │    feedback.html       — Customer Feedback Page                             │
+  │    sample_data.json    — Sample metrics data for dashboards                 │
+  │    README.txt          — Setup and usage instructions                       │
+  │    vercel.json         — Vercel deployment configuration                    │
+  │                                                                             │
+  │ 📁 06_Web_Catalog (6 files)                                                 │
+  │    index.html          — Customer Catalog (merged with Grok design)         │
+  │    order_intake.html   — Order Intake Form with 63+ items                   │
+  │    catalog_data.json   — 50 products with Bengali + English names           │
+  │    manifest.json       — PWA manifest for install-to-homescreen             │
+  │    README.txt          — Deployment guide                                   │
+  │    vercel.json         — Vercel deployment configuration                    │
+  │                                                                             │
+  │ 📁 07_Marketing (7 files)                                                   │
+  │    landing.html        — Landing Page for customer acquisition              │
+  │    SOCIAL_MEDIA_CALENDAR.txt — 90-day content plan for social media         │
+  │    WHATSAPP_BROADCAST_TEMPLATES.txt — 10 WhatsApp broadcast templates        │
+  │    WHATSAPP_BATTLE_CARDS.txt — Quick-response reference cards for comms     │
+  │    LAUNCH_ANNOUNCEMENT_COPY.txt — Launch announcement copy for groups       │
+  │    REFERRAL_PROGRAM_GUIDE.txt — Customer referral program playbook          │
+  │    FLYER_DESIGN_SPEC.txt — Print-ready flyer design specifications          │
+  │                                                                             │
+  │ 📁 08_Financials (9 files)                                                  │
+  │    ENHANCED_FINANCIAL_TRACKER.csv — 26-column daily tracker (20-day proj.)  │
+  │    PROFIT_LOSS_STATEMENT.csv — Monthly P&L template                         │
+  │    UNIT_ECONOMICS_CALCULATOR.csv — Sensitivity analysis per order           │
+  │    BREAK_EVEN_ANALYSIS.csv — Break-even timeline projection                 │
+  │    USE_OF_FUNDS.csv — Seed fund allocation tracker                          │
+  │    RUNWAY_CALCULATOR.csv — Cash runway projection model                     │
+  │    PROJECTION_6MONTH.csv — 6-month financial forecast                       │
+  │    INVESTOR_FINANCIALS_SUMMARY.txt — Corrected v2.2 investor summary        │
+  │    financial_model.xlsx — Full Excel financial model                        │
+  │                                                                             │
+  │ 📁 12_Templates (10 files)                                                  │
+  │    CUSTOMER_DATABASE.csv — 25 sample customer records                       │
+  │    SUPPLIER_DATABASE.csv — Supplier contact records                         │
+  │    PRODUCT_PRICING.csv — Product price reference list                       │
+  │    REFERRAL_TRACKER.csv — Referral program tracking sheet                   │
+  │    supplier_scorecard.html — Supplier Scorecard web app                     │
+  │    RIDER_DAILY_LOG.txt — Printable daily log for riders                     │
+  │    DAILY_PRICE_CHECKLIST.txt — Daily price verification checklist           │
+  │    PARTNER_CARD_AND_ORDER_LOG.txt — Business card + delivery log            │
+  │    SUPPLIER_AGREEMENT_QUICK.txt — One-page quick supplier agreement         │
+  │    GOOGLE_SHEETS_IMPORT.txt — Guide to import data into Google Sheets       │
+  │                                                                             │
+  │ 📁 10_Launch_Readiness (7 files)                                            │
+  │    LAUNCH_READINESS_CHECKLIST.txt — 100+ item launch checklist              │
+  │    PARTNER_OUTREACH_PLAYBOOK.txt — Krishi Market partner recruitment        │
+  │    DAILY_HUDDLE_TEMPLATE.txt — 5-minute daily standup format                │
+  │    CUSTOMER_ONBOARDING_FLOW.txt — Stage-by-stage customer journey           │
+  │    COMPETITOR_INTELLIGENCE.txt — Competitive analysis                       │
+  │    JGC_COMMUNITY_REFERENCE.txt — Building and rider reference               │
+  │    WEEK1_REPORT_TEMPLATE.txt — First week review report template            │
+  │                                                                             │
+  │ 📁 11_Day1_Launch_Kit (2 files)                                             │
+  │    DAY1_LAUNCH_KIT.txt — Complete launch day script and materials           │
+  │    DAY1_EMERGENCY_KIT.txt — Crisis response kit with offline forms          │
+  │                                                                             │
+  │  ▶  Welcome Page added to root (welcome.html / index.html concept)          │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Key Decisions:
+    • Zero-dependency architecture: all apps are self-contained HTML files
+      that work offline from a USB drive — no server, database, or install
+    • localStorage used as the data persistence layer across all apps
+    • Bengali + English bilingual support in the customer catalog
+    • Customer Catalog design merged with Grok's earlier design concepts
+    • All dashboards share sample_data.json for consistent demo data
+    • vercel.json configs added for one-click drag-to-deploy publishing
+    • Financial models cross-checked and corrected to v2.2 consistency
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ End-of-Phase File Count: ~85 files                                          │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+PHASE 3 — INTEGRATION (Sessions 6–8)
+═══════════════════════════════════════════════════════════════════════════════════
+
+  Goal: Build the integration layer — a command center, operations dashboard,
+         central data manager, mobile tools, automation scripts, and sync
+         infrastructure that ties all apps together.
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ WHAT WAS BUILT                                                              │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │                                                                             │
+  │ 📁 ROOT — Integration Apps                                                  │
+  │    index.html           — Command Center: central hub linking all apps      │
+  │    ops.html             — Operations Dashboard (daily HQ)                   │
+  │    data.html            — Data Manager: central source of truth for         │
+  │                           customers, partners, and settings                 │
+  │    field_ops.html       — Mobile Field Ops (phone-optimised, for use        │
+  │                           at Krishi Market)                                 │
+  │    start.html           — Startup Wizard: 5-minute guided setup             │
+  │                                                                             │
+  │ 📁 09_Data_Export — Python Scripts (6 scripts)                              │
+  │    launch_automation.py — Generate daily checklists and reports             │
+  │    auto_deploy.py       — Deploy web apps to Vercel/Netlify                 │
+  │    drive_sync.py        — Upload toolkit to Google Drive via rclone         │
+  │    daily_summary.py     — Generate daily business summary reports           │
+  │    sync_bridge.py       — Cross-app data sync bridge                        │
+  │    validate_toolkit.py  — Full toolkit validation and quality checks        │
+  │                                                                             │
+  │ 📁 09_Data_Export — Launch Outputs (8 files)                                │
+  │    launch_outputs/      — Auto-generated day-1 and day-5 checklists,        │
+  │                           daily reports, partner outreach docs,             │
+  │                           WhatsApp quick-reply cards                        │
+  │    sync_out/            — Cross-app data export files (analytics,           │
+  │                           finance, orders, backup, settings)                │
+  │    test_data.json, partial.json — Test and partial data files              │
+  │    jgmart_data_*.json, jgmart_finance_*.json, jgmart_orders_*.json          │
+  │                         — Exported data snapshots                           │
+  │                                                                             │
+  │ 📁 ROOT — Continuity & Automation                                           │
+  │    BUSINESS_CONTINUITY_KIT.txt — USB backup and disaster recovery guide     │
+  │    COMMAND_CENTER.txt   — Daily/weekly/monthly workflow reference           │
+  │    LAUNCH_CENTER.bat    — Windows batch launcher menu                       │
+  │    QUICK_START.txt      — 7-day action plan from zero to first order       │
+  │                                                                             │
+  │  ▶  Data flow established across all apps via shared localStorage keys      │
+  │  ▶  hvorn: jgmart_data, jgmart_finance, jgmart_orders, jgmart_analytics    │
+  │      jgmart_pnl, jgmart_cart, jgmart_lang, jgmart_launch_checks,           │
+  │      jgmart_fixed_costs, jgcmart_commlog, jgmart_suppliers,                │
+  │      wizard_customers, wizard_partners, wizard_biz, wizard_econ             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Key Decisions:
+    • Single-page Command Center (index.html) designed as the default entry
+      point — users open one app and navigate everywhere from there
+    • Data Manager (data.html) established as the central source of truth;
+      all other apps read from its localStorage namespace
+    • Mobile Field Ops built phone-first for on-the-ground use at Krishi Market
+    • Startup Wizard guides a first-time user through setup in under 5 minutes
+    • Business Continuity Kit ensures the whole toolkit works from a USB drive
+    • Python scripts added for automation but kept optional — all core
+      functionality works without Python for non-technical users
+    • Cross-app sync bridge enables data to be exported/imported between apps
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ End-of-Phase File Count: ~105 files                                         │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+PHASE 4 — POLISH (Sessions 9–12+)
+═══════════════════════════════════════════════════════════════════════════════════
+
+  Goal: Unify the toolkit into a cohesive system, add PWA support, polish
+         the user experience, validate everything, and produce final documentation.
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ WHAT WAS BUILT                                                              │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │                                                                             │
+  │ 🖥️ JG Mart OS (os.html)                                                     │
+  │    Unified daily app that brings all tools into one interface               │
+  │    with shared localStorage and cross-app navigation                        │
+  │                                                                             │
+  │ 🖥️ Toolkit Health Dashboard (health.html)                                   │
+  │    Self-check dashboard to verify all apps are operational                  │
+  │                                                                             │
+  │ 🖥️ Investor Demo Mode (integrated into os.html)                             │
+  │    Demo-data mode for investor presentations                                │
+  │                                                                             │
+  │ 🎨 Unified CSS Theme (theme.css)                                            │
+  │    Single design system applied across all 14+ web apps                    │
+  │    Consistent colours, typography, spacing, and component styles            │
+  │                                                                             │
+  │ 🖥️ Delivery Route Optimizer (integrated into field_ops.html)                │
+  │    Route planning for JGC building deliveries                               │
+  │                                                                             │
+  │ 📱 PWA Support                                                              │
+  │    manifest.json   — App manifest for install-to-homescreen                 │
+  │    sw.js           — Service worker for offline caching                     │
+  │    offline.html    — Offline fallback page for no-connectivity scenarios    │
+  │    favicon.svg     — Browser tab icon                                       │
+  │                                                                             │
+  │ 📁 ROOT — Final Documentation                                               │
+  │    FIRST_DAY_CHEATSHEET.txt  — First 10 min / hour / day reference          │
+  │    FINAL_SUMMARY.txt         — Complete system documentation (single        │
+  │                                source of truth across 239 lines)            │
+  │    READY_TO_LAUNCH.txt       — 3-page go-live checklist (print this)        │
+  │    ROADMAP_COMPLETE.txt     — Final system reference with targets           │
+  │    VALIDATION_REPORT.txt     — Auto-generated toolkit validation report      │
+  │                                (checks all 120 files, 19 HTML files,        │
+  │                                 runs quality checks on every app)           │
+  │                                                                             │
+  │ 📁 05_Tech_Dashboard — Additions                                            │
+  │    feedback.html — Customer Feedback Page (collects reviews)               │
+  │                                                                             │
+  │ ✅ Validation & Quality                                                     │
+  │    validate_toolkit.py auto-scan checks all HTML files for:                 │
+  │      ✓ DOCTYPE declaration                   ✓ Viewport meta tag           │
+  │      ✓ Theme-color meta                      ✓ Tag pair completeness       │
+  │      ✓ localStorage key consistency          ✓ WhatsApp number presence    │
+  │      ✓ Internal link validity                 ✓ File size within limits    │
+  │    19 HTML files validated — 18 PASS, 1 known minor issue (offline.html)   │
+  │    Final validation report generated and saved                             │
+  │                                                                             │
+  │ 📄 README.txt — Updated to v2.0 with complete file listing                  │
+  │ MASTER_INDEX.txt — Updated to v2.1 with all 78+ indexed files             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Key Decisions:
+    • JG Mart OS (os.html) consolidates the most-used functions into one
+      screen for daily use — reduces friction for the founder
+    • PWA support added so all apps work offline (critical for Dhaka's
+      connectivity environment)
+    • Unified CSS theme applied to ALL apps — one stylesheet change updates
+      the entire toolkit's look and feel
+    • Validation script built to automate quality assurance — catches
+      structural issues before they cause runtime errors
+    • Final Summary document acts as the single source of truth — eliminates
+      the need to open multiple docs for daily reference
+    • All financial data cross-checked and corrected for consistency across
+      1-pager, executive summary, and financial models
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ End-of-Phase File Count: ~121 files (across 12 folders + root)             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+FINAL STATISTICS
+═══════════════════════════════════════════════════════════════════════════════════
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │ Total Files:          121                                                   │
+  │ Total Size:           ~1.55 MB                                              │
+  │ Total HTML Apps:      19 (14 core + 5 supporting)                           │
+  │ Total Python Scripts: 6                                                     │
+  │ Total CSV Spreadsheets: 11                                                  │
+  │ Total TXT Documents:  63                                                    │
+  │ Total JSON Files:     15                                                    │
+  │ Total SVG Assets:     2                                                     │
+  │ Total XLSX Models:    1                                                     │
+  │ Total BAT Scripts:    1                                                     │
+  │ Total JS/CSS Files:   2 (sw.js, theme.css)                                  │
+  │ Total Folders:        12 categories                                         │
+  │ Total Sessions:       ~13 autonomous work sessions                          │
+  │                                                                             │
+  │ Data Keys (localStorage): 15 shared across all apps                         │
+  │ Offline Capability:       Yes (PWA + service worker + offline.html)         │
+  │ External Dependencies:    Zero — everything runs from a USB drive           │
+  │ Deploy Targets:           Vercel / Netlify (drag-and-drop)                  │
+  │ Validation Status:        18/19 HTML apps PASS, 1 minor issue               │
+  │ Launch Readiness:         FULLY READY — all checklists, kits, docs done     │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+COMPLETE FILE INVENTORY BY FOLDER
+═══════════════════════════════════════════════════════════════════════════════════
+
+  01_Investor_Deck       (7 files)   Investor pitch materials
+  02_Brand_Assets        (3 files)   Brand guidelines and logo
+  03_Legal_Templates     (5 files)   Legal and compliance documents
+  04_Operations          (7 files)   SOPs, playbooks, training guides
+  05_Tech_Dashboard      (11 files)  8 HTML apps + data + config
+  06_Web_Catalog         (6 files)   Customer catalog + order intake
+  07_Marketing           (7 files)   Marketing materials and templates
+  08_Financials          (9 files)   Spreadsheets and financial model
+  09_Data_Export         (18 files)  6 Python scripts + outputs + sync
+  10_Launch_Readiness    (7 files)   Launch checklists and playbooks
+  11_Day1_Launch_Kit     (2 files)   Launch day and emergency kits
+  12_Templates           (10 files)  CSVs, scorecards, printable logs
+  Root                   (29 files)  OS, command center, dashboards, docs
+
+═══════════════════════════════════════════════════════════════════════════════════
+THE 14 CORE WEB APPLICATIONS
+═══════════════════════════════════════════════════════════════════════════════════
+
+  ┌─────┬─────────────────────────┬──────────────────────────────────────────┐
+  │  #  │ App                     │ Purpose                                  │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────┤
+  │  1  │ start.html              │ Startup Wizard — 5-minute guided setup   │
+  │  2  │ ops.html                │ Operations Dashboard — daily HQ          │
+  │  3  │ data.html               │ Data Manager — central source of truth   │
+  │  4  │ field_ops.html          │ Mobile Field Ops — at Krishi Market      │
+  │  5  │ index.html              │ Command Center — hub for everything      │
+  │  6  │ health.html             │ Toolkit Health Dashboard — verify apps   │
+  │  7  │ 05/orders.html          │ Order Tracker — lifecycle workflow        │
+  │  8  │ 05/dailypnl.html        │ Daily Auto-P&L Calculator                │
+  │  9  │ 05/finance.html         │ Finance Dashboard — P&L and cash         │
+  │ 10  │ 05/analytics.html       │ Weekly Analytics — growth trends         │
+  │ 11  │ 05/commlog.html         │ Communications Log — customer history    │
+  │ 12  │ 05/backup.html          │ Master Backup — export all data          │
+  │ 13  │ 06/index.html           │ Customer Catalog — 50 bilingual products │
+  │ 14  │ 06/order_intake.html    │ Order Intake Form — 63+ menu items       │
+  └─────┴─────────────────────────┴──────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+THE 6 PYTHON AUTOMATION SCRIPTS
+═══════════════════════════════════════════════════════════════════════════════════
+
+  ├──────────────────────────┬───────────────────────────────────────────────┤
+  │ Script                   │ What It Does                                 │
+  ├──────────────────────────┼───────────────────────────────────────────────┤
+  │ launch_automation.py     │ Generate daily checklists, reports, replies   │
+  │ auto_deploy.py           │ Deploy web apps to Vercel / Netlify           │
+  │ drive_sync.py            │ Sync entire toolkit to Google Drive via rclone│
+  │ daily_summary.py         │ Generate daily business summary reports       │
+  │ sync_bridge.py           │ Cross-app data sync and import/export         │
+  │ validate_toolkit.py      │ Full toolkit validation + quality checks      │
+  └──────────────────────────┴───────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════════
+NOTE ON SESSION STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════════
+
+  This changelog organises 12+ autonomous work sessions into four logical
+  phases. Exact per-session boundaries are approximate — some sessions
+  spanned multiple categories, and later sessions included polish work
+  across earlier phases. The phase grouping reflects the natural build
+  progression: Foundation → Web Apps → Integration → Polish.
+
+  Toolkit location: G:\JGC Mart\JGC Mart - Hermes\
+  Backup archive:   G:\JGC Mart\JGC Mart - Hermes Backup 20260728.tar.gz
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+  "You don't need perfection. You need progress.
+   One order at a time. One customer at a time. One day at a time."
+
+  — Hermes Agent · July 2026

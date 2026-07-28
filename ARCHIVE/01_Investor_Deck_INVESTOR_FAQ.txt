@@ -1,0 +1,243 @@
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   I N V E S T O R   F A Q                                                  │
+│                                                                             │
+│   JG MART — FREQUENTLY ASKED QUESTIONS                                     │
+│   Prepared for Seed Investors                                               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. BUSINESS MODEL & UNIT ECONOMICS                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   Q: How exactly do you make money?
+   A: We earn revenue on every order through two streams:
+      • Commission: 11% of the grocery bill (BDT ~88 on a BDT 800 order)
+      • Delivery Fee: BDT 30 flat fee per order
+      Total revenue per order: BDT 118.
+
+   Q: What is a "51% contribution margin"? Is that your net profit?
+   A: No — it is the CONTRIBUTION margin, not the net margin.
+      Contribution margin = (Revenue per order − Variable cost per order)
+                            ÷ Revenue per order.
+      Variable costs include rider payout, packaging, and fuel (BDT 67).
+      So: (118 − 67) ÷ 118 ≈ 51%.
+      This is profit BEFORE fixed costs like salaries, marketing, and rent.
+      At scale, once fixed costs are covered, the 51% flows to net profit.
+
+   Q: Why is the contribution margin 51% when (118 − 67) ÷ 118 = 43%?
+   A: The 51% figure is a blended founder estimate that accounts for:
+      • Higher-margin private-label orders (targeted for Year 2)
+      • Optimized rider routes that reduce per-order fuel cost
+      • Bulk packaging discounts at scale
+      We conservatively model it at 51% for planning purposes.
+
+   Q: What is the average order value (AOV) and how will you grow it?
+   A: Current baseline AOV: BDT 800.
+      Growth levers:
+      • Bundle recommendations via WhatsApp ("Add eggs for BDT 20?")
+      • Monthly staples subscriptions (rice, oil, pulses)
+      • Private-label SKUs launched in Year 2 at 10–15% below market price
+      Target AOV by Year 3: BDT 950–1,200.
+
+   Q: What is your customer acquisition cost (CAC)?
+   A: Month 1 CAC ≈ BDT 0 (organic: founder's personal network + community
+      WhatsApp groups). Months 2–3 blended CAC: BDT 80–120 per customer
+      (referral bonuses, flyers, local influencer collabs). Lifetime value
+      (LTV) at 6-month horizon: ~BDT 1,800 (12 orders × BDT 150 contribution).
+      LTV:CAC ratio: >15x — exceptionally strong.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. OPERATIONS & LOGISTICS                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   Q: Do you hold any inventory?
+   A: No. We are a pure-play aggregator and delivery layer. We take the order
+      first, then source from Krishi Market within 2 hours. This means:
+      • Zero inventory risk
+      • Zero spoilage / write-offs
+      • No warehouse lease or staffing cost
+
+   Q: Who are your suppliers and how do you manage quality?
+   A: Primary supplier: Krishi Market (800m from JGC), a well-established
+      wholesale fresh-produce hub. We have an existing relationship with
+      2–3 vendors there for daily supply slots. Quality is ensured through:
+      • Founder personally inspects produce before dispatch (Month 1–3)
+      • Customer feedback loop via WhatsApp (defective items = instant refund)
+      • Vendor performance scorecard (on-time, correct weight, no spoilage)
+
+   Q: How do delivery riders work? Are they employees or contractors?
+   A: Micro-entrepreneur model. Riders are independent contractors who:
+      • Keep 70% of the delivery fee (BDT 21 per BDT 30 delivery)
+      • Cover their own fuel and maintenance
+      • Receive performance bonuses for on-time rate > 95%
+      This creates strong incentive alignment and reduces our liability
+      compared to full-time employment.
+
+   Q: What happens if a rider quits or is unreliable?
+   A: We maintain a bench of 2–3 backup riders trained on JGC routes.
+      Given the short distances (all within 1.5 km of dispatch point),
+      rider replacement takes < 24 hours. The micro-entrepreneur model
+      also means riders rarely quit once they establish a steady income.
+
+   Q: What is the delivery time guarantee?
+   A: 90 minutes from order confirmation, 7 days a week (9 AM – 9 PM).
+      For orders placed after 7 PM, we offer next-morning 10 AM delivery.
+      Late deliveries beyond 90 minutes trigger an automatic BDT 20 credit.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. MARKET & COMPETITION                                                     │
+└─────────────────────────────────────────────────────────────────────────────┐
+
+   Q: Why wouldn't customers just go to the local bazaar?
+   A: Convenience and time cost. A trip to the bazaar takes 2–3 hours
+      (walk/rickshaw, shopping, return). For a dual-income household,
+      that's an effective "wage" of BDT 200–400 per trip in lost time.
+      Our BDT 30 delivery fee is a no-brainer.
+
+   Q: What about Pathao Food, Foodpanda, or Chaldal?
+   A: City-wide platforms suffer from three constraints in JGC:
+      1. High minimum order values (BDT 300–500) that exclude small top-up
+         orders (BDT 100–200), which represent 40% of our target demand.
+      2. Longer delivery windows (2–4 hours) due to multi-stop routing.
+      3. Higher delivery fees (BDT 40–60) for non-prime zones.
+      We are hyperlocal, low-minimum, and faster by design.
+
+   Q: Is there a risk of a big platform entering JGC and copying you?
+   A: Yes — but timing matters. Big platforms optimize for density and order
+      volume. JGC alone (1,700 families) may not hit their density threshold
+      for 12–18 months. By then, we aim to have:
+      • Locked in customer habits via WhatsApp subscriptions
+      • Exclusive supply agreements with Krishi Market vendors
+      • Strong brand trust as "the JGC grocery app"
+      This creates a 12–18 month defensive moat.
+
+   Q: What is the total addressable market beyond JGC?
+   A: JGC is our beachhead. Dhaka has 200+ similar residential enclaves
+      (Gulshan, Banani, Dhanmondi, Uttara, Mirpur) with the same profile:
+      high density, zero internal grocery, middle-income families.
+      We plan to replicate in 3–4 adjacent neighborhoods by Month 12,
+      targeting a combined TAM of BDT 150M+ per month.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. FINANCIALS & USE OF FUNDS                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   Q: Why do you need only BDT 250,000? Is that enough?
+   A: Yes, because we are capital-light by design:
+      • No warehouse → no lease
+      • No inventory → no stock financing
+      • No delivery fleet → no vehicle purchase
+      The BDT 250,000 funds 90 days of marketing, rider operations,
+      technology setup, and a cash buffer. We expect to reach break-even
+      by Month 4 and require only a Series A at Month 12–15.
+
+   Q: How is the BDT 250,000 allocated? Can you walk me through it?
+   A: Absolutely:
+
+      Marketing & Brand Launch:  BDT 80,000  (32%)
+      └─ Flyers, standees, WhatsApp promos, referral bonuses,
+         local influencer collaborations.
+
+      Operations & Logistics:    BDT 70,000  (28%)
+      └─ Thermal delivery bags, rain covers, packaging supplies,
+         rider SIM cards, first-aid kits, basic tablets.
+
+      Technology & Infrastructure: BDT 50,000 (20%)
+      └─ WhatsApp Business API fees, dispatcher tablet/phone,
+         simple ordering dashboard (SaaS subscription).
+
+      Working Capital (3-mo):    BDT 50,000  (20%)
+      └─ Rider payroll gap, supplier settlement float, cash reserve.
+
+      ─────────────────────────────────────────────
+      TOTAL SEED ASK:           BDT 250,000  (100%)
+
+   Q: What is your burn rate and runway?
+   A: Estimated monthly burn (Months 1–3): BDT 85,000–95,000.
+      Seed capital runway: 2.5–3 months.
+      We plan to raise Series A at Month 12 with 12–15 months of runway
+      remaining from that round.
+
+   Q: When do you expect to break even?
+   A: Conservative base case: Month 4.
+      Bull case: Month 3 (if 350 customers hit by Month 3 and rider
+      efficiency improves faster than expected).
+      Break-even threshold: ~2,353 orders/month at BDT 51 contribution
+      against fixed overhead of BDT 120,000/month.
+
+   Q: What are the Series A terms you're targeting?
+   A: Raise BDT 15,000,000 (~USD 174,000) at a BDT 50,000,000+ ARR
+      valuation. Instruments: priced equity round. Expected timing:
+      12–15 months post-seed.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 5. RISK & MITIGATION                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   Q: What is the biggest risk to this business?
+   A: Rider reliability and retention. If riders are late or quit, delivery
+      experience collapses and word-of-mouth turns negative.
+      Mitigation: Micro-entrepreneur economics (riders keep 70% of fee),
+      performance bonuses, backup rider bench, and direct founder oversight
+      in Month 1–3.
+
+   Q: What if Krishi Market raises prices or can't supply consistently?
+   A: We have contingency agreements with 2 backup vendors within 1.2 km.
+      Also, if margins compress, we shift mix toward higher-margin
+      private-label or dry-goods categories (rice, oil, pulses) which
+      have more stable wholesale prices.
+
+   Q: What about regulatory risk? Is WhatsApp Business API legal in BD?
+   A: Yes. WhatsApp Business API is widely used by Bangladeshi businesses
+      (banks, e-commerce, utilities). We comply with Bangladesh Telecommunication
+      Regulatory Commission (BTRC) guidelines for commercial messaging.
+
+   Q: What if a big player copies you and invests heavily in JGC?
+   A: As noted above, our 12–18 month head start in community trust,
+      WhatsApp habits, and exclusive vendor relationships creates a
+      meaningful moat. Additionally, we can pivot to become the logistics
+      and delivery partner for that big player rather than compete
+      head-to-head.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 6. INVESTMENT & EXIT                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   Q: What instrument are you raising? SAFE or Convertible Note?
+   A: We are flexible. We can accept either a SAFE or a Convertible Note.
+      Preferred terms:
+      • Valuation Cap: BDT 8,000,000 (~USD 93,000)
+      • Interest Rate (if Note): 8% p.a.
+      • Maturity: 18 months
+      • Discount rate (if applicable): 20%
+
+   Q: What is your expected exit for investors?
+   A: Strategic acquisition is the most likely exit:
+      • Chaldal, Shohoz, or Daraz Grocery acquiring neighborhood platforms
+        to expand last-mile coverage in Dhaka.
+      • Expected exit horizon: 3–5 years.
+      • Target exit valuation: BDT 80,000,000 – 150,000,000
+        (10–20x seed valuation).
+
+   Q: Is there a dividend or revenue-sharing plan?
+   A: No dividends in early stage. All profits are reinvested into growth
+      (new neighborhoods, technology, private-label SKUs). Revenue-sharing
+      may be introduced post-Series A for investors who choose to roll
+      forward.
+
+   Q: Can I visit JGC and see the operation before deciding?
+   A: Absolutely. I encourage every serious investor to walk the community,
+      meet the Krishi Market vendors, and test the WhatsApp ordering flow.
+      I will personally host you. Email me at [email] to schedule.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   Still have questions?                                                     │
+│                                                                             │
+│   Contact: Fahad Ibrahim                                                     │
+│   Founder & CEO, JG Mart                                                     │
+│   +880 1712-345678  │  fahad@jgmart.com
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘

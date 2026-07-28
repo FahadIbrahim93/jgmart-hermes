@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#00442D">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JG Mart — Order Intake</title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+    /* ── Font & base ── */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Brand colours ── */
+    :root {
+      --green-50:  #f0fdf4;
+      --green-100: #dcfce7;
+      --green-200: #bbf7d0;
+      --green-300: #86efac;
+      --green-400: #4ade80;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --green-800: #166534;
+      --green-900: #14532d;
+    }
+    .bg-brand      { background: linear-gradient(135deg, #166534 0%, #15803d 100%); }
+    .bg-brand-light { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+    .text-brand    { color: #15803d; }
+    .border-brand  { border-color: #22c55e; }
+    .btn-brand {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      color: #fff; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem;
+      border: none; cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+    }
+    .btn-brand:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4); }
+    .btn-brand:active { transform: translateY(0); }
+    .btn-outline {
+      background: #fff; color: #15803d; font-weight: 600; padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem; border: 2px solid #22c55e; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: #f0fdf4; }
+    .btn-whatsapp {
+      background: #25D366; color: #fff; font-weight: 700; padding: 1rem 2rem;
+      border-radius: 9999px; border: none; cursor: pointer; font-size: 1.125rem;
+      transition: all 0.2s; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      width: 100%;
+    }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45); }
+    .btn-whatsapp:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* ── Category cards ── */
+    .cat-card {
+      background: #fff; border-radius: 1rem; overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      border: 1px solid #f0fdf4; transition: box-shadow 0.2s;
+    }
+    .cat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .cat-header {
+      padding: 0.875rem 1.25rem; font-weight: 700; font-size: 1.05rem;
+      color: #fff; display: flex; align-items: center; gap: 0.625rem;
+    }
+
+    /* ── Item row ── */
+    .item-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.625rem 1.25rem; border-bottom: 1px solid #f0fdf4;
+      gap: 0.5rem;
+    }
+    .item-row:last-child { border-bottom: none; }
+    .item-name  { font-size: 0.925rem; font-weight: 500; color: #1f2937; flex: 1; }
+    .item-unit  { font-size: 0.75rem; color: #6b7280; white-space: nowrap; }
+    .item-price { font-size: 0.875rem; color: #15803d; font-weight: 600; white-space: nowrap; }
+
+    /* ── Quantity control ── */
+    .qty-group { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+    .qty-btn {
+      width: 1.75rem; height: 1.75rem; border-radius: 9999px; border: 1px solid #d1d5db;
+      background: #fff; font-size: 1rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #374151; transition: all 0.15s; user-select: none;
+    }
+    .qty-btn:hover { background: #f0fdf4; border-color: #22c55e; color: #15803d; }
+    .qty-input {
+      width: 3rem; text-align: center; font-weight: 600; font-size: 0.875rem;
+      border: 1px solid #e5e7eb; border-radius: 0.375rem; padding: 0.25rem;
+      background: #f9fafb;
+    }
+    .qty-input:focus { outline: 2px solid #22c55e; outline-offset: -1px; background: #fff; }
+
+    /* ── Customer form ── */
+    .cfield label { display: block; font-size: 0.8125rem; font-weight: 600; color: #374151; margin-bottom: 0.25rem; }
+    .cfield input, .cfield select {
+      width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db;
+      border-radius: 0.75rem; font-size: 0.9375rem; transition: border-color 0.15s;
+      background: #fff;
+    }
+    .cfield input:focus, .cfield select:focus { outline: none; border-color: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.15); }
+
+    /* ── Quick add ── */
+    .quick-tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: #f0fdf4; color: #15803d; padding: 0.375rem 0.75rem;
+      border-radius: 9999px; font-size: 0.8125rem; font-weight: 500;
+      border: 1px solid #bbf7d0;
+    }
+    .quick-tag .rm { cursor: pointer; color: #dc2626; font-weight: 700; font-size: 1rem; line-height: 1; }
+
+    /* ── Order history ── */
+    .history-item {
+      background: #fff; border-radius: 0.75rem; padding: 1rem; margin-bottom: 0.75rem;
+      border: 1px solid #e5e7eb; cursor: pointer; transition: all 0.15s;
+    }
+    .history-item:hover { border-color: #22c55e; }
+    .history-item .hdr { display: flex; justify-content: space-between; align-items: start; }
+    .history-badge {
+      display: inline-block; font-size: 0.6875rem; font-weight: 600; padding: 0.125rem 0.5rem;
+      border-radius: 9999px; text-transform: uppercase;
+    }
+    .badge-draft  { background: #fef3c7; color: #92400e; }
+    .badge-sent   { background: #d1fae5; color: #065f46; }
+
+    /* ── Misc ── */
+    .total-row  { display: flex; justify-content: space-between; padding: 0.25rem 0; font-size: 0.9375rem; }
+    .total-row.final { font-size: 1.25rem; font-weight: 800; color: #15803d; border-top: 2px solid #22c55e; padding-top: 0.75rem; margin-top: 0.5rem; }
+    .section-title { font-size: 1.25rem; font-weight: 700; color: #166534; display: flex; align-items: center; gap: 0.5rem; }
+    .toast {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 999;
+      background: #166534; color: #fff; padding: 0.875rem 2rem; border-radius: 9999px;
+      font-weight: 600; font-size: 0.9375rem; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f0fdf4; }
+    ::-webkit-scrollbar-thumb { background: #86efac; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .anim-in { animation: fadeInUp 0.35s ease forwards; }
+
+    /* ── Print ── */
+    @media print { .no-print { display: none !important; } }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-gray-800 antialiased">
+
+  <!-- ═══ TOAST ═══ -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="bg-brand text-white shadow-lg no-print sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-xl font-extrabold">JG</div>
+        <div>
+          <h1 class="text-lg font-extrabold leading-tight">JG Mart</h1>
+          <p class="text-xs text-green-200">Japan Garden City · Order Intake</p>
+        </div>
+      </div>
+      <button id="showHistoryBtn" class="text-sm bg-white/15 hover:bg-white/25 px-3 py-1.5 rounded-full font-medium transition flex items-center gap-1.5">
+        <span>📋</span> Orders
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-5 pb-32 space-y-6">
+
+    <!-- ═══ CUSTOMER INFO ═══ -->
+    <section class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 anim-in" style="animation-delay:0s">
+      <h2 class="section-title mb-4"><span>👤</span> Customer Information</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="cfield">
+          <label>Full Name *</label>
+          <input type="text" id="custName" placeholder="e.g. Kamal Hossain" required>
+        </div>
+        <div class="cfield">
+          <label>Building No. *</label>
+          <select id="custBuilding">
+            <option value="">— Select —</option>
+          </select>
+        </div>
+        <div class="cfield">
+          <label>Flat / Unit *</label>
+          <input type="text" id="custFlat" placeholder="e.g. 5A, 302" required>
+        </div>
+        <div class="cfield">
+          <label>Phone Number *</label>
+          <input type="tel" id="custPhone" placeholder="e.g. 01712-345678" required>
+        </div>
+        <div class="cfield">
+          <label>Delivery Slot</label>
+          <select id="custSlot">
+            <option value="Morning (9AM–12PM)">🌅 Morning (9AM–12PM)</option>
+            <option value="Evening (5PM–9PM)">🌆 Evening (5PM–9PM)</option>
+          </select>
+        </div>
+        <div class="cfield">
+          <label>Payment Method</label>
+          <select id="custPayment">
+            <option value="Cash on Delivery">💵 Cash on Delivery</option>
+            <option value="bKash">📱 bKash</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ITEMS ORDERING ═══ -->
+    <section class="anim-in" style="animation-delay:0.08s">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="section-title"><span>🛒</span> Your Order</h2>
+        <button id="clearAllBtn" class="text-sm text-red-500 hover:text-red-700 font-medium no-print">Clear All</button>
+      </div>
+
+      <div id="categoriesContainer" class="space-y-4">
+        <!-- categories rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ═══ QUICK ADD ═══ -->
+    <section class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 anim-in" style="animation-delay:0.16s">
+      <h2 class="section-title mb-3"><span>⚡</span> Quick Add</h2>
+      <p class="text-sm text-gray-500 mb-3">Type an item name &amp; quantity for anything not listed above.</p>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <input type="text" id="quickName" placeholder="Item name (e.g. Sausage, Cake)" class="flex-1 min-w-[160px] px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200">
+        <input type="number" id="quickQty" placeholder="Qty" min="0.5" step="0.5" value="1" class="w-20 px-3 py-2.5 border border-gray-300 rounded-xl text-sm text-center focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200">
+        <input type="text" id="quickPrice" placeholder="Price (BDT)" class="w-28 px-3 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200">
+        <button id="quickAddBtn" class="btn-brand text-sm px-5 py-2.5 whitespace-nowrap">+ Add</button>
+      </div>
+      <div id="quickItems" class="flex flex-wrap gap-2">
+        <!-- quick tags go here -->
+      </div>
+    </section>
+
+    <!-- ═══ ORDER TOTALS ═══ -->
+    <section class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 anim-in" style="animation-delay:0.24s">
+      <h2 class="section-title mb-3"><span>🧾</span> Order Summary</h2>
+      <div id="totalsBreakdown" class="space-y-1">
+        <div class="total-row"><span>Subtotal</span><span id="subtotalVal">0 BDT</span></div>
+        <div class="total-row text-sm text-gray-500"><span>Delivery Fee</span><span id="deliveryVal">0 BDT</span></div>
+      </div>
+      <div class="total-row final"><span>Total</span><span id="grandTotalVal">0 BDT</span></div>
+
+      <div class="flex flex-col sm:flex-row gap-3 mt-5 no-print">
+        <button id="saveDraftBtn" class="btn-outline flex-1 flex items-center justify-center gap-2">
+          💾 Save Draft
+        </button>
+        <button id="sendWhatsAppBtn" class="btn-whatsapp flex items-center justify-center gap-2">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Order via WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ ORDER HISTORY (hidden by default) ═══ -->
+    <section id="historySection" class="anim-in hidden" style="animation-delay:0.32s">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="section-title"><span>📋</span> Order History</h2>
+        <button id="hideHistoryBtn" class="text-sm text-gray-500 hover:text-gray-700 font-medium">Close</button>
+      </div>
+      <div id="orderHistoryContainer">
+        <p class="text-sm text-gray-400 italic">No orders yet.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="text-center text-xs text-gray-400 py-4 border-t border-green-100 no-print">
+    JG Mart · Japan Garden City, Mohammadpur, Dhaka · WhatsApp: +8801870489448
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- ═══ JAVASCRIPT ════════════════════════════════════════════════ -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ─── DATA ─── */
+      const WHATSAPP_NUMBER = '8801870489448';
+      const STORAGE_KEY_DRAFT = 'jgmart_draft';
+      const STORAGE_KEY_HISTORY = 'jgmart_orders';
+      const DELIVERY_FEE = 30;
+
+      const CATEGORIES = [
+        { id: 'rice',       name: 'Rice & Dal',       icon: '🍚', color: '#b45309' },
+        { id: 'oil',        name: 'Oil & Spices',     icon: '🧂', color: '#92400e' },
+        { id: 'veggies',    name: 'Vegetables',       icon: '🥬', color: '#16a34a' },
+        { id: 'fishmeat',   name: 'Fish & Meat',      icon: '🐟', color: '#dc2626' },
+        { id: 'dairy',      name: 'Dairy & Eggs',     icon: '🥛', color: '#2563eb' },
+        { id: 'fruits',     name: 'Fruits',           icon: '🍎', color: '#d97706' },
+        { id: 'fmcg',       name: 'FMCG',             icon: '🧴', color: '#7c3aed' },
+      ];
+
+      const ITEMS = {
+        rice: [
+          { name: 'Miniket Rice',        unit: '/kg',  price: 62 },
+          { name: 'Nazirshail Rice',     unit: '/kg',  price: 52 },
+          { name: 'Moog Dal (Yellow)',   unit: '/500g',price: 85 },
+          { name: 'Masoor Dal (Red)',    unit: '/500g',price: 55 },
+          { name: 'Chola / Chickpeas',   unit: '/500g',price: 70 },
+          { name: 'Bashmoti Rice',       unit: '/kg',  price: 130 },
+        ],
+        oil: [
+          { name: 'Soybean Oil',         unit: '/1L',  price: 168 },
+          { name: 'Mustard Oil',         unit: '/1L',  price: 195 },
+          { name: 'Iodised Salt',        unit: '/1kg', price: 30 },
+          { name: 'Turmeric Powder',     unit: '/100g',price: 40 },
+          { name: 'Chilli Powder',       unit: '/100g',price: 50 },
+          { name: 'Cumin (Jeera)',       unit: '/100g',price: 65 },
+          { name: 'Sugar (White)',       unit: '/1kg', price: 130 },
+          { name: 'Tea (Shaan/Taza)',    unit: '/200g',price: 120 },
+        ],
+        veggies: [
+          { name: 'Potato',              unit: '/kg',  price: 35 },
+          { name: 'Onion (Local)',       unit: '/kg',  price: 55 },
+          { name: 'Tomato',              unit: '/kg',  price: 80 },
+          { name: 'Eggplant (Begun)',    unit: '/kg',  price: 50 },
+          { name: 'Cauliflower (Fulkopi)',unit: '/pc', price: 45 },
+          { name: 'Cabbage (Badhakopi)', unit: '/pc',  price: 35 },
+          { name: 'Green Chilli',        unit: '/100g',price: 20 },
+          { name: 'Coriander Leaves',    unit: '/bunch',price: 10 },
+          { name: 'Pumpkin (Misti Kumra)',unit: '/kg', price: 30 },
+          { name: 'Okra (Dherosh)',      unit: '/kg',  price: 45 },
+          { name: 'Beans (Barboti)',     unit: '/kg',  price: 60 },
+          { name: 'Cucumber (Shosha)',   unit: '/pc',  price: 20 },
+          { name: 'Carrot (Gajor)',      unit: '/kg',  price: 50 },
+          { name: 'Lemon (Lebu)',        unit: '/pc',  price: 8 },
+          { name: 'Ginger (Ada)',        unit: '/200g',price: 30 },
+          { name: 'Garlic (Rosun)',      unit: '/200g',price: 25 },
+        ],
+        fishmeat: [
+          { name: 'Chicken (Broiler)',   unit: '/kg',  price: 185 },
+          { name: 'Chicken (Sonali)',    unit: '/kg',  price: 280 },
+          { name: 'Beef (Local)',        unit: '/kg',  price: 700 },
+          { name: 'Beef (Indian)',       unit: '/kg',  price: 650 },
+          { name: 'Rui Fish',            unit: '/kg',  price: 280 },
+          { name: 'Tilapia (Tilapia)',   unit: '/kg',  price: 200 },
+          { name: 'Shrimp (Chingri)',    unit: '/kg',  price: 530 },
+          { name: 'Pabda Fish',          unit: '/kg',  price: 350 },
+          { name: 'Eggs (Deshi)',        unit: '/dozen',price: 145 },
+        ],
+        dairy: [
+          { name: 'Milk (Pasteurised)',  unit: '/1L',  price: 100 },
+          { name: 'Yogurt (Doi)',        unit: '/500g',price: 80 },
+          { name: 'Butter (Dairy)',      unit: '/500g',price: 210 },
+          { name: 'Mozzarella Cheese',   unit: '/200g',price: 150 },
+          { name: 'Ghee (Pure)',         unit: '/500g',price: 380 },
+          { name: 'Evaporated Milk',     unit: '/400g',price: 100 },
+        ],
+        fruits: [
+          { name: 'Banana (Sagor Kola)', unit: '/dozen',price: 60 },
+          { name: 'Apple (Red)',         unit: '/kg',  price: 210 },
+          { name: 'Orange (Malta)',      unit: '/kg',  price: 180 },
+          { name: 'Mango (Haribhanga)',  unit: '/kg',  price: 120 },
+          { name: 'Grapes (Black)',      unit: '/kg',  price: 260 },
+          { name: 'Watermelon (Tormuj)', unit: '/pc',  price: 100 },
+          { name: 'Papaya (Pepe)',       unit: '/kg',  price: 40 },
+          { name: 'Guava (Peyara)',      unit: '/kg',  price: 50 },
+        ],
+        fmcg: [
+          { name: 'Toilet Soap (Tibet)', unit: '/pc',  price: 35 },
+          { name: 'Shampoo Sachet',      unit: '/pc',  price: 5 },
+          { name: 'Toothpaste (Dabur)',  unit: '/100g',price: 85 },
+          { name: 'Detergent (Wheel)',   unit: '/500g',price: 60 },
+          { name: 'Cooking Oil (5L)',    unit: '/5L',  price: 810 },
+          { name: 'Biscuits (Gluco)',    unit: '/pack',price: 25 },
+          { name: 'Instant Noodles',     unit: '/pack',price: 20 },
+          { name: 'Soft Drink (Coke)',   unit: '/500mL',price: 35 },
+          { name: 'Cooking Soda',        unit: '/pack',price: 15 },
+          { name: 'Battery (AA)',        unit: '/4pcs',price: 80 },
+        ],
+      };
+
+      /* ─── STATE ─── */
+      // quantities[itemName] = number (float)
+      let quantities = {};
+      // quickItems[{name, qty, price}]
+      let quickItems = [];
+      let historyVisible = false;
+
+      /* ─── DOM refs ─── */
+      const $ = id => document.getElementById(id);
+      const categoriesContainer = $('categoriesContainer');
+      const custName          = $('custName');
+      const custBuilding      = $('custBuilding');
+      const custFlat          = $('custFlat');
+      const custPhone         = $('custPhone');
+      const custSlot          = $('custSlot');
+      const custPayment       = $('custPayment');
+      const subtotalVal       = $('subtotalVal');
+      const deliveryVal       = $('deliveryVal');
+      const grandTotalVal     = $('grandTotalVal');
+      const quickName         = $('quickName');
+      const quickQty          = $('quickQty');
+      const quickPrice        = $('quickPrice');
+      const quickAddBtn       = $('quickAddBtn');
+      const quickItemsEl      = $('quickItems');
+      const saveDraftBtn      = $('saveDraftBtn');
+      const sendWhatsAppBtn   = $('sendWhatsAppBtn');
+      const clearAllBtn       = $('clearAllBtn');
+      const showHistoryBtn    = $('showHistoryBtn');
+      const hideHistoryBtn    = $('hideHistoryBtn');
+      const historySection    = $('historySection');
+      const orderHistoryContainer = $('orderHistoryContainer');
+      const toastEl           = $('toast');
+
+      /* ─── Init buildings ─── */
+      (function populateBuildings() {
+        for (let i = 1; i <= 27; i++) {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = `Building ${i}`;
+          custBuilding.appendChild(opt);
+        }
+      })();
+
+      /* ─── Render categories ─── */
+      function renderCategories() {
+        let html = '';
+        CATEGORIES.forEach(cat => {
+          const items = ITEMS[cat.id] || [];
+          const rows = items.map(it => {
+            const qty = quantities[it.name] || 0;
+            const total = qty > 0 ? (qty * it.price).toFixed(0) : '';
+            return `
+              <div class="item-row" data-item="${it.name}">
+                <div class="flex-1 min-w-0">
+                  <div class="item-name">${it.name}</div>
+                  <div class="flex items-center gap-2">
+                    <span class="item-unit">${it.unit}</span>
+                    <span class="item-price">৳${it.price}</span>
+                  </div>
+                </div>
+                <div class="qty-group">
+                  <button class="qty-btn dec-btn" data-item="${it.name}">−</button>
+                  <input type="number" class="qty-input" data-item="${it.name}"
+                         value="${qty}" min="0" step="0.5">
+                  <button class="qty-btn inc-btn" data-item="${it.name}">+</button>
+                  ${total ? `<span class="text-sm font-semibold text-green-700 ml-1 w-12 text-right">৳${total}</span>` : ''}
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          html += `
+            <div class="cat-card">
+              <div class="cat-header" style="background:${cat.color}">
+                <span>${cat.icon}</span> ${cat.name}
+              </div>
+              ${rows}
+            </div>
+          `;
+        });
+        categoriesContainer.innerHTML = html;
+      }
+
+      /* ─── Event delegation for qty buttons ─── */
+      categoriesContainer.addEventListener('click', function(e) {
+        const btn = e.target.closest('.qty-btn');
+        if (!btn) return;
+        const item = btn.dataset.item;
+        const input = document.querySelector(`.qty-input[data-item="${item}"]`);
+        if (!input) return;
+        let val = parseFloat(input.value) || 0;
+        if (btn.classList.contains('inc-btn')) val += 1;
+        else if (btn.classList.contains('dec-btn')) val = Math.max(0, val - 1);
+        input.value = val;
+        quantities[item] = val;
+        if (val === 0) delete quantities[item];
+        updateTotals();
+        renderItemTotals(item);
+        autoSaveDraft();
+      });
+
+      categoriesContainer.addEventListener('input', function(e) {
+        const input = e.target.closest('.qty-input');
+        if (!input) return;
+        const item = input.dataset.item;
+        let val = parseFloat(input.value) || 0;
+        if (val < 0) val = 0;
+        input.value = val;
+        quantities[item] = val;
+        if (val === 0) delete quantities[item];
+        updateTotals();
+        renderItemTotals(item);
+        autoSaveDraft();
+      });
+
+      function renderItemTotals(item) {
+        const row = document.querySelector(`.item-row[data-item="${item}"]`);
+        if (!row) return;
+        const qty = quantities[item] || 0;
+        const priceEl = row.querySelector('.item-price');
+        if (!priceEl) return;
+        const price = parseInt(priceEl.textContent.replace('৳',''));
+        const totalSpan = row.querySelector('.qty-group > span');
+        if (qty > 0) {
+          const total = (qty * price).toFixed(0);
+          if (totalSpan) totalSpan.textContent = `৳${total}`;
+          else {
+            const span = document.createElement('span');
+            span.className = 'text-sm font-semibold text-green-700 ml-1 w-12 text-right';
+            span.textContent = `৳${total}`;
+            row.querySelector('.qty-group').appendChild(span);
+          }
+        } else {
+          if (totalSpan) totalSpan.remove();
+        }
+      }
+
+      /* ─── Totals ─── */
+      function updateTotals() {
+        let subtotal = 0;
+        Object.keys(quantities).forEach(name => {
+          const qty = quantities[name];
+          const price = findPrice(name);
+          subtotal += qty * price;
+        });
+        // Quick items
+        quickItems.forEach(qi => {
+          subtotal += (parseFloat(qi.qty) || 0) * (parseFloat(qi.price) || 0);
+        });
+
+        const delivery = subtotal > 0 ? DELIVERY_FEE : 0;
+        const grand = subtotal + delivery;
+
+        subtotalVal.textContent = `৳${subtotal.toFixed(0)}`;
+        deliveryVal.textContent = delivery > 0 ? `৳${delivery}` : 'Free';
+        grandTotalVal.textContent = `৳${grand.toFixed(0)}`;
+      }
+
+      function findPrice(itemName) {
+        for (const catId of Object.keys(ITEMS)) {
+          const found = ITEMS[catId].find(it => it.name === itemName);
+          if (found) return found.price;
+        }
+        return 0;
+      }
+
+      /* ─── Quick Add ─── */
+      quickAddBtn.addEventListener('click', function() {
+        const name = quickName.value.trim();
+        const qty = parseFloat(quickQty.value) || 1;
+        const price = parseFloat(quickPrice.value) || 0;
+        if (!name) { showToast('Please enter an item name.'); return; }
+        if (price <= 0) { showToast('Please enter a valid price.'); return; }
+        quickItems.push({ name, qty, price: price.toString() });
+        renderQuickItems();
+        updateTotals();
+        quickName.value = '';
+        quickQty.value = '1';
+        quickPrice.value = '';
+        autoSaveDraft();
+        showToast(`"${name}" added!`);
+      });
+
+      quickItemsEl.addEventListener('click', function(e) {
+        if (e.target.classList.contains('rm')) {
+          const idx = parseInt(e.target.dataset.idx);
+          if (!isNaN(idx)) {
+            quickItems.splice(idx, 1);
+            renderQuickItems();
+            updateTotals();
+            autoSaveDraft();
+          }
+        }
+      });
+
+      function renderQuickItems() {
+        if (quickItems.length === 0) {
+          quickItemsEl.innerHTML = '<span class="text-sm text-gray-400 italic">No quick-add items yet.</span>';
+          return;
+        }
+        quickItemsEl.innerHTML = quickItems.map((qi, i) => `
+          <span class="quick-tag">
+            ${qi.name} × ${qi.qty} — ৳${(parseFloat(qi.qty)*parseFloat(qi.price)).toFixed(0)}
+            <span class="rm" data-idx="${i}">×</span>
+          </span>
+        `).join('');
+      }
+
+      /* ─── WHATSAPP ─── */
+      function buildWhatsAppMessage() {
+        const name   = custName.value.trim();
+        const bldg   = custBuilding.value;
+        const flat   = custFlat.value.trim();
+        const phone  = custPhone.value.trim();
+        const slot   = custSlot.value;
+        const pay    = custPayment.value;
+
+        if (!name || !bldg || !flat || !phone) {
+          showToast('Please fill in all required customer fields.');
+          return null;
+        }
+
+        let lines = ['🛒 *JG Mart — New Order*', '', `👤 *Name:* ${name}`];
+        lines.push(`🏢 *Building:* ${bldg}, Flat: ${flat}`);
+        lines.push(`📞 *Phone:* ${phone}`);
+        lines.push(`🕐 *Slot:* ${slot}`);
+        lines.push(`💳 *Payment:* ${pay}`);
+        lines.push('');
+
+        // Regular items
+        let hasItems = false;
+        Object.keys(quantities).forEach(iname => {
+          const qty = quantities[iname];
+          if (qty > 0) {
+            const price = findPrice(iname);
+            lines.push(`• ${iname} × ${qty} — ৳${(qty * price).toFixed(0)}`);
+            hasItems = true;
+          }
+        });
+        // Quick items
+        quickItems.forEach(qi => {
+          const total = (parseFloat(qi.qty) * parseFloat(qi.price)).toFixed(0);
+          lines.push(`• ${qi.name} × ${qi.qty} — ৳${total}`);
+          hasItems = true;
+        });
+
+        if (!hasItems && quickItems.length === 0) {
+          showToast('Please add at least one item to your order.');
+          return null;
+        }
+
+        const subtotal = computeSubtotal();
+        const delivery = subtotal > 0 ? DELIVERY_FEE : 0;
+        const grand = subtotal + delivery;
+
+        lines.push('');
+        lines.push(`📦 *Subtotal:* ৳${subtotal.toFixed(0)}`);
+        lines.push(`🚚 *Delivery:* ৳${delivery}`);
+        lines.push(`💰 *Total:* ৳${grand.toFixed(0)}`);
+        lines.push('');
+        lines.push('✅ Thank you! JG Mart will confirm shortly.');
+
+        return lines.join('\n');
+      }
+
+      function computeSubtotal() {
+        let sub = 0;
+        Object.keys(quantities).forEach(n => {
+          sub += quantities[n] * findPrice(n);
+        });
+        quickItems.forEach(qi => {
+          sub += (parseFloat(qi.qty) || 0) * (parseFloat(qi.price) || 0);
+        });
+        return sub;
+      }
+
+      sendWhatsAppBtn.addEventListener('click', function() {
+        const msg = buildWhatsAppMessage();
+        if (!msg) return;
+        // Save to history
+        saveOrderToHistory('sent');
+        const encoded = encodeURIComponent(msg);
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+      });
+
+      /* ─── Save Draft ─── */
+      function getDraftData() {
+        return {
+          customer: {
+            name: custName.value,
+            building: custBuilding.value,
+            flat: custFlat.value,
+            phone: custPhone.value,
+            slot: custSlot.value,
+            payment: custPayment.value,
+          },
+          quantities: { ...quantities },
+          quickItems: JSON.parse(JSON.stringify(quickItems)),
+          savedAt: new Date().toISOString(),
+        };
+      }
+
+      function autoSaveDraft() {
+        try {
+          const data = getDraftData();
+          localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(data));
+        } catch(e) { /* ignore */ }
+      }
+
+      saveDraftBtn.addEventListener('click', function() {
+        autoSaveDraft();
+        showToast('✅ Draft saved!');
+      });
+
+      /* ─── Load Draft ─── */
+      function loadDraft() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY_DRAFT);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          if (data.customer) {
+            custName.value = data.customer.name || '';
+            custBuilding.value = data.customer.building || '';
+            custFlat.value = data.customer.flat || '';
+            custPhone.value = data.customer.phone || '';
+            if (data.customer.slot) custSlot.value = data.customer.slot;
+            if (data.customer.payment) custPayment.value = data.customer.payment;
+          }
+          if (data.quantities) quantities = { ...data.quantities };
+          if (data.quickItems) quickItems = data.quickItems;
+          renderCategories();
+          renderQuickItems();
+          updateTotals();
+          // Re-render per-item totals
+          Object.keys(quantities).forEach(it => renderItemTotals(it));
+        } catch(e) { /* ignore */ }
+      }
+
+      /* ─── Clear All ─── */
+      clearAllBtn.addEventListener('click', function() {
+        if (!confirm('Clear all items from your order?')) return;
+        quantities = {};
+        quickItems = [];
+        renderCategories();
+        renderQuickItems();
+        updateTotals();
+        autoSaveDraft();
+        showToast('Items cleared.');
+      });
+
+      /* ─── Order History ─── */
+      function getOrders() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY_HISTORY);
+          return raw ? JSON.parse(raw) : [];
+        } catch(e) { return []; }
+      }
+
+      function saveOrderToHistory(status) {
+        const data = getDraftData();
+        data.status = status;
+        data.id = Date.now();
+        const orders = getOrders();
+        orders.unshift(data);
+        try {
+          localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(orders.slice(0, 50)));
+        } catch(e) { /* ignore */ }
+      }
+
+      function renderOrderHistory() {
+        const orders = getOrders();
+        if (orders.length === 0) {
+          orderHistoryContainer.innerHTML = '<p class="text-sm text-gray-400 italic">No orders yet.</p>';
+          return;
+        }
+        orderHistoryContainer.innerHTML = orders.map((o, i) => {
+          const dt = new Date(o.savedAt);
+          const dateStr = dt.toLocaleDateString('en-BD', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+          const count = Object.keys(o.quantities||{}).length + (o.quickItems||[]).length;
+          const badge = o.status === 'sent' ? 'badge-sent' : 'badge-draft';
+          const label = o.status === 'sent' ? 'Sent ✓' : 'Draft';
+          // Truncated item list
+          const itemNames = Object.keys(o.quantities||{}).slice(0, 4);
+          const extras = [];
+          (o.quickItems||[]).forEach(qi => extras.push(qi.name));
+          const allNames = [...itemNames, ...extras].slice(0, 5);
+          let preview = allNames.join(', ');
+          if (Object.keys(o.quantities||{}).length + extras.length > 5) preview += ' …';
+
+          return `
+            <div class="history-item" data-idx="${i}">
+              <div class="hdr">
+                <div>
+                  <span class="history-badge ${badge}">${label}</span>
+                  <span class="text-xs text-gray-400 ml-2">${dateStr}</span>
+                </div>
+                <span class="font-bold text-green-700">৳${o._total || '…'}</span>
+              </div>
+              <div class="text-sm text-gray-600 mt-1">${preview}</div>
+            </div>
+          `;
+        }).join('');
+
+        // Compute totals for each history item lazily
+        const ordersData = getOrders();
+        orderHistoryContainer.querySelectorAll('.history-item').forEach((el, idx) => {
+          const o = ordersData[idx];
+          if (!o) return;
+          // Recalc total
+          let sub = 0;
+          if (o.quantities) {
+            Object.keys(o.quantities).forEach(n => {
+              const q = o.quantities[n];
+              const p = findPrice(n);
+              sub += q * p;
+            });
+          }
+          if (o.quickItems) {
+            o.quickItems.forEach(qi => sub += (parseFloat(qi.qty)||0) * (parseFloat(qi.price)||0));
+          }
+          const delivery = sub > 0 ? DELIVERY_FEE : 0;
+          const grand = sub + delivery;
+          o._total = grand.toFixed(0);
+          // Save back
+          try {
+            const all = getOrders();
+            if (all[idx]) { all[idx]._total = grand.toFixed(0); localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(all)); }
+          } catch(e) {}
+          const totalEl = el.querySelector('.font-bold');
+          if (totalEl) totalEl.textContent = `৳${grand.toFixed(0)}`;
+        });
+
+        // Click to restore
+        orderHistoryContainer.querySelectorAll('.history-item').forEach(el => {
+          el.addEventListener('click', function() {
+            const idx = parseInt(this.dataset.idx);
+            const orders = getOrders();
+            const o = orders[idx];
+            if (!o) return;
+            if (!confirm(`Load order from ${new Date(o.savedAt).toLocaleString('en-BD')}?\nCurrent items will be replaced.`)) return;
+            // Restore
+            if (o.customer) {
+              custName.value = o.customer.name || '';
+              custBuilding.value = o.customer.building || '';
+              custFlat.value = o.customer.flat || '';
+              custPhone.value = o.customer.phone || '';
+              if (o.customer.slot) custSlot.value = o.customer.slot;
+              if (o.customer.payment) custPayment.value = o.customer.payment;
+            }
+            quantities = o.quantities ? { ...o.quantities } : {};
+            quickItems = o.quickItems ? JSON.parse(JSON.stringify(o.quickItems)) : [];
+            renderCategories();
+            renderQuickItems();
+            updateTotals();
+            Object.keys(quantities).forEach(it => renderItemTotals(it));
+            autoSaveDraft();
+            showToast('Order restored from history.');
+            // Hide history
+            toggleHistory(false);
+          });
+        });
+      }
+
+      function toggleHistory(show) {
+        historyVisible = show;
+        historySection.classList.toggle('hidden', !show);
+        if (show) renderOrderHistory();
+      }
+
+      showHistoryBtn.addEventListener('click', function() { toggleHistory(true); });
+      hideHistoryBtn.addEventListener('click', function() { toggleHistory(false); });
+
+      /* ─── Toast ─── */
+      let toastTimeout;
+
+      function showToast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 3000);
+      }
+
+      /* ─── Init ─── */
+      renderCategories();
+      renderQuickItems();
+      loadDraft();
+      updateTotals();
+
+      // Re-render item totals for any loaded quantities
+      Object.keys(quantities).forEach(it => renderItemTotals(it));
+
+      console.log('✅ JG Mart Order Intake loaded.');
+    })();
+  </script>
+</body>
+</html>

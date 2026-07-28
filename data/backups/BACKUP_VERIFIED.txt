@@ -1,0 +1,17 @@
+======================================================================
+JGC Mart — DEFINITIVE FINAL BACKUP VERIFICATION
+======================================================================
+
+Backup date:        2026-07-28
+Archive location:   /g/JGC Mart/jgmart_FINAL_BACKUP_20260728.tar.gz
+Archive size:       464K
+File count:         137 files across 12 folders + root
+Total tar entries:  153 (137 files + 16 directories)
+
+Note: This backup includes ALL 137+ files across all 12 folders + root.
+
+Verification:
+  To verify: tar tzf /g/JGC Mart/jgmart_FINAL_BACKUP_20260728.tar.gz | less
+  To extract: tar xzf /g/JGC Mart/jgmart_FINAL_BACKUP_20260728.tar.gz -C /path/to/dest
+  To check integrity: gzip -t /g/JGC Mart/jgmart_FINAL_BACKUP_20260728.tar.gz
+======================================================================

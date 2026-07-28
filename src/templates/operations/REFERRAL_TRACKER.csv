@@ -1,0 +1,16 @@
+Referral Code,Referring Customer,Referring Building,Referred Customer,Referred Building,Referral Date,First Order Date,First Order Value,Referrer Credit Earned,Credit Redeemed,Credit Balance,Status,Notes
+JGC-RAF001,Rafiq Hasan,Silver Tower (Block A),Shamim Ahmed,Garden Heights (Block C),2026-05-01,2026-05-05,850,100,0,100,Active,Shamim ordered on day 4. Both credited 100 BDT. Rafiq's first successful referral.
+JGC-NAS002,Nasrin Begum,Mirpur DOHS (Block B),Farzana Hossain,Lake City (Block A),2026-05-03,2026-05-08,620,100,50,50,Active,Farzana placed order worth 620. Nasrin used 50 BDT on her next order.
+JGC-HAS003,Hasan Ali,Silver Tower (Block B),Jamil Khan,Rose View (Block D),2026-05-05,2026-05-06,1200,100,100,0,Redeemed,Hasan redeemed full 100 BDT on 2026-05-10. Referred by Jamil's wife.
+JGC-FAT004,Fatima Akter,JGC Colony (Block A),Mizanur Rahman,JGC Colony (Block D),2026-05-07,,,0,0,0,Pending,Mizan received code but hasn't placed first order yet. Followed up 2026-05-14.
+JGC-KAR005,Karim Uddin,Jahanabad Society,Shahin Alam,Jahanabad Society,2026-05-08,2026-05-12,450,100,0,100,Active,Shahin ordered within 4 days. Both credited.
+JGC-JAH006,Jahanara Parvin,JGC Colony (Block C),Rina Akter,JGC Colony (Block B),2026-05-02,2026-05-03,1500,100,100,0,Redeemed,Rina ordered big (1500 BDT). Jahanara redeemed on 2026-05-15.
+JGC-SHA007,Shahidul Islam,Silver Tower (Block A),Abdul Karim,Silver Tower (Block C),2026-05-10,,,0,0,0,Pending,Abdul said he'll order next week. Pending follow-up.
+JGC-NUR008,Nurjahan Begum,Rose View (Block A),Taslima Akter,Rose View (Block B),2026-05-04,2026-05-09,780,100,100,0,Redeemed,Taslima is a repeat customer now. Nurjahan redeemed on 2026-05-20.
+JGC-MIZ009,Mizanur Rahman,Mirpur DOHS (Block A),Rafiq Hasan,Silver Tower (Block A),2026-05-06,2026-05-11,320,100,0,100,Active,Small order (320 BDT) but qualifies. Both credited.
+JGC-REH010,Rehana Begum,Garden Heights (Block A),Sabina Yesmin,Lake City (Block B),2026-05-01,,,0,0,0,Pending,Sabina hasn't responded to the code. No follow-up contact available.
+JGC-JAM011,Jamil Hossain,Lake City (Block A),Nasrin Begum,Mirpur DOHS (Block B),2026-05-03,2026-05-07,1100,100,50,50,Active,Nasrin placed order. Jamil used 50 BDT on 2026-05-18.
+JGC-SAL012,Salma Khatun,JGC Colony (Block A),Fatima Akter,JGC Colony (Block A),2026-05-09,2026-05-13,920,100,0,100,Active,Fatima from same building! Both credited. Same-building referrals encouraged.
+JGC-ANA013,Anamul Haque,Silver Tower (Block B),Shahidul Islam,Silver Tower (Block A),2026-05-05,2026-05-06,2000,100,0,200,Active,Shahidul's second order. Anamul earned credit; balance shows rollover from previous.
+JGC-KHA014,Khaleda Begum,Rose View (Block C),Nurjahan Begum,Rose View (Block A),2026-05-02,2026-05-15,550,100,0,0,Expired,Credit not redeemed within 90 days. Expired on 2026-08-13. Nurjahan was informed.
+JGC-SHA015,Shamim Ara,JGC Colony (Block D),Hasan Ali,Silver Tower (Block B),2026-04-28,2026-05-10,680,100,0,0,Expired,Hasan referred Shamim but credit expired 90 days from issue (2026-08-08). No redemption.

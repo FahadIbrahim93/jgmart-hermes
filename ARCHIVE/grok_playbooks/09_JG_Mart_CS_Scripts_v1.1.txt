@@ -1,0 +1,170 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — CUSTOMER SERVICE CONVERSATION SCRIPTS                  ║
+║                    Version 1.1 | July 2026 | Owner: Fahad Ibrahim             ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+WhatsApp Business Number: +8801670-944800
+Use these as Quick Replies in WhatsApp Business.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 1: FIRST-TIME CUSTOMER WELCOME
+═══════════════════════════════════════════════════════════════════════════════
+
+Assalamu Alaikum! Welcome to JG Mart 🌿
+Japan Garden City’s trusted hyperlocal grocery delivery.
+
+🛒 HOW TO ORDER:
+Simply send your list like this:
+"1kg Chinigura rice, 500g dal, 2L oil, 1kg potato, 12 eggs"
+
+⏰ DELIVERY SLOTS:
+• Morning: Order by 9:00 AM → Deliver by 12:00 PM
+• Evening: Order by 3:30 PM → Deliver by 8:00 PM
+
+💰 PAYMENT: Cash on Delivery or bKash
+🚚 DELIVERY FEE: 30 BDT (FREE on your first order)
+
+📍 We deliver to every building inside Japan Garden City.
+
+Reply with your list to place your first order!
+Any questions? Just message us.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 2: ORDER RECEIVED (AUTO-REPLY)
+═══════════════════════════════════════════════════════════════════════════════
+
+Thank you for your order! ✅
+
+Order #JG[00123] received.
+Items: [list]
+Estimated total: [XXX] BDT
+
+We will confirm the exact total shortly.
+Delivery slot: Today [12PM / 8PM]
+
+Reply CANCEL if you need to cancel.
+Questions? Reply here anytime.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 3: ORDER CONFIRMATION + PAYMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Order #JG[00123] confirmed ✅
+
+📋 ITEMS:
+• Chinigura Rice 1kg — 95 BDT
+• Moshur Dal 500g — 65 BDT
+• Potato 1kg — 45 BDT
+• Soybean Oil 1L — 145 BDT
+• Eggs 12 pcs — 165 BDT
+
+Subtotal: 515 BDT
+Delivery: 30 BDT (or FREE)
+🎯 TOTAL: 545 BDT
+
+💳 PAY NOW (preferred):
+bKash Personal: +8801670-944800
+Reference: JG[00123]
+
+Or pay Cash on Delivery.
+
+Reply PAID after sending bKash.
+Your delivery window: Today [12PM / 8PM] 🚚
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 4: DELIVERY ON THE WAY
+═══════════════════════════════════════════════════════════════════════════════
+
+🚚 Order #JG[00123] is on the way!
+
+Rider will arrive in 10–15 minutes.
+Building [X], Flat [Y].
+
+Please keep your phone nearby.
+Thank you for choosing JG Mart!
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 5: DELIVERY COMPLETED + FEEDBACK
+═══════════════════════════════════════════════════════════════════════════════
+
+Alhamdulillah! Order #JG[00123] delivered successfully ✅
+
+Thank you for ordering with JG Mart.
+How was your experience? Reply with 1–5 stars.
+
+⭐⭐⭐⭐⭐ = Excellent
+We appreciate your feedback and referrals!
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 6: ORDER CANCELLATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Order #JG[00123] has been cancelled as requested.
+
+If this was a mistake, just send a new order anytime.
+We’re here whenever you need us.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 7: OUT OF STOCK / SUBSTITUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+Assalamu Alaikum,
+
+Regarding Order #JG[00123]:
+[Item name] is currently unavailable.
+
+Options:
+1. Replace with [similar item] (+/- X BDT)
+2. Remove the item and adjust total
+3. Cancel the full order
+
+Please reply with 1, 2 or 3.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 8: LATE DELIVERY APOLOGY
+═══════════════════════════════════════════════════════════════════════════════
+
+Assalamu Alaikum,
+
+We sincerely apologize — Order #JG[00123] is running 20–30 minutes late due to [traffic / heavy rain / high volume].
+
+Your rider is on the way now.
+As a token of apology we are adding 50 BDT credit to your next order.
+
+Thank you for your patience.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 9: REFERRAL INVITATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Thank you for being a valued JG Mart customer! 🌿
+
+Refer a neighbour in Japan Garden City and both of you get 100 BDT credit.
+
+How it works:
+1. Share your referral code: JG-[YOURCODE]
+2. Friend places first order
+3. Both receive 100 BDT credit
+
+Reply REFER to get your personal code.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCRIPT 10: AFTER-HOURS AUTO-REPLY
+═══════════════════════════════════════════════════════════════════════════════
+
+Assalamu Alaikum! JG Mart is currently closed.
+
+Ordering hours:
+• Morning orders: until 9:00 AM
+• Evening orders: until 3:30 PM
+
+We will reply first thing in the morning.
+For urgent needs, you can still send your list and we will process it in the next available slot.
+
+Thank you for your patience.
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF SCRIPTS
+Version 1.1 | Owner: Fahad Ibrahim | +8801670-944800
+Update these scripts monthly based on real customer conversations.
+═══════════════════════════════════════════════════════════════════════════════

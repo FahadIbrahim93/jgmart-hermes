@@ -1,0 +1,268 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — SAFETY NET & CONTINGENCY PLAN                          ║
+║                         When Things Go Wrong (They Will)                      ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+This document contains the specific action plan for every "what if" scenario.
+Keep this on your phone at all times during operations.
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 1: BROTHER GETS SICK (RIDER UNAVAILABLE)
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE (within 15 minutes):
+  [ ] Call backup rider [NAME] — [PHONE]
+  [ ] If available: brief backup on route + deliveries
+  [ ] If not available: Call second backup [NAME] — [PHONE]
+  [ ] If no backup available: YOU become the rider today
+
+WITH 30 MINUTES:
+  [ ] Message all morning customers:
+      "Fahad here! My brother is unwell today. I'll be delivering
+      personally. Please expect a slight delay of 20-30 minutes.
+      Sorry for the inconvenience! 🙏"
+  [ ] Adjust delivery schedule (add 30 min buffer)
+  [ ] Call partners: delay pickup by 30 minutes
+
+PREVENTION:
+  → Hire backup rider as soon as orders hit 15+/day
+  → Train backup rider on routes during slow days
+  → Have 2 backup contacts always ready
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 2: KRISHI MARKET PARTNER DROPS OUT
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE (within 30 minutes):
+  [ ] Identify alternative supplier in Krishi Market for that category
+  [ ] Visit or call alternative: "Bhai, I have urgent orders for [items]"
+  [ ] Accept first available supplier at market price
+
+WITHIN 2 HOURS:
+  [ ] Message affected customers:
+      "[Partner name] had an issue today. I've sourced from [new partner]
+      at Krishi Market directly. Quality is verified. Thanks for your
+      patience! 🙏"
+  [ ] Update partner database: flag primary as "unavailable"
+  [ ] Begin search for new primary partner within 3 days
+
+PREVENTION:
+  → Always have 2 approved backup vendors per category
+  → Build relationships with 2+ partners in each category
+  → Visit 1 new potential partner every week
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 3: CUSTOMER COMPLAINTS (QUALITY ISSUE)
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE (within 5 minutes of complaint):
+  [ ] Apologise immediately (no excuses, no blame-shifting)
+  [ ] Ask for photo of the issue (via WhatsApp)
+  [ ] Decide resolution:
+
+  MINOR (wrong brand, slightly overripe):
+    → Apologise + offer 30 BDT credit on next order
+    → Fix for next delivery
+
+  MODERATE (spoiled produce, wrong item):
+    → Refund that item's cost
+    → Offer 50 BDT credit on next order
+    → Replace at next delivery slot
+
+  CRITICAL (food safety concern, major quality failure):
+    → Full order refund
+    → Extra delivery on the house
+    → Personal call from Fahad
+
+WITHIN 1 HOUR:
+  [ ] Resolve with customer
+  [ ] Log in COMPLAINT_LOG: date, customer, issue, resolution, cost
+  [ ] Call partner — share photo, discuss quality expectations
+  [ ] If repeated issue with same partner: suspend for 2 days
+
+PREVENTION:
+  → 3-stage quality check: at pickup, at sorting, at delivery
+  → Check produce at pickup in front of partner
+  → Photo of packed order before leaving market
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 4: bKASH / PAYMENT DISPUTE
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE:
+  [ ] Check bKash transaction history
+  [ ] If payment not received: politely ask customer to check
+  [ ] If customer insists they paid: delay resolution to evening
+  [ ] In evening: sit with customer, check their bKash together
+
+ESCALATION:
+  [ ] For COD disputes: customer signature on receipt is final
+  [ ] For bKash: transaction ID is proof
+  [ ] If customer refuses to pay: warn → offer split → last resort: forgive
+
+PREVENTION:
+  → Always send bKash request number to customer
+  → Take signature on receipt for ALL COD deliveries
+  → Never hand over goods without payment
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 5: LOW ORDER VOLUME (UNDER 5 ORDERS IN A SLOT)
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE:
+  [ ] Don't cancel the slot — deliver what you have
+  [ ] Every low-volume day is a marketing opportunity
+  [ ] Use the extra time to:
+      → Visit 2 new potential partners
+      → Hand out flyers in Buildings 4-8
+      → Call 5 existing customers: "How was your last order?"
+      → Post in building WhatsApp groups
+
+NEXT DAY:
+  [ ] Run a promotion: "Free delivery this week only!"
+  [ ] Ask 3 loyal customers for referrals personally
+  [ ] Go door-to-door in 2 buildings (15 min each)
+
+PREVENTION:
+  → Daily WhatsApp status: "Still time for evening slot!"
+  → Referral programme is your growth engine
+  → Week 1 target: 5 orders/slot minimum
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 6: CASH / THEFT / LOSS
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE:
+  [ ] Confirm amount lost
+  [ ] Retrace steps — check delivery bags, pockets, vehicle
+  [ ] Check CCTV if at building entrance
+  [ ] Check with rider (if not you)
+
+RESOLUTION:
+  [ ] Amount < 500 BDT: absorb as cost of business
+  [ ] Amount 500-2,000 BDT: split loss between you and rider (50/50)
+  [ ] Amount 2,000+ BDT: investigate fully, involve building committee if needed
+
+PREVENTION:
+  → Cash counted and logged at 3 points: pickup, before delivery, after delivery
+  → Daily cash cap per rider: 5,000 BDT
+  → Transfer excess to bKash during lunch break
+  → Receipt signed for EVERY order
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 7: MONSOON / HEAVY RAIN
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE (if rain hits during pickup or delivery):
+  [ ] Protect all orders: cover bags with plastic sheet
+  [ ] Message customers: "Heavy rain — deliveries may be delayed 20-30 min"
+  [ ] Avoid flooded routes (check building WhatsApp groups for updates)
+  [ ] Delay or cancel if water level unsafe for bike
+
+COMPENSATION:
+  [ ] 10 BDT discount for every 30 min late due to rain
+  [ ] OR offer free delivery on next order
+
+PREVENTION:
+  → Monsoon kit: rider carries rain poncho + large plastic bags
+  → Protect bag with waterproof cover
+  → Check weather at 6AM and 1PM daily
+  → Have cash ready for alternative transport (CNG) if needed
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 8: WHATSAPP BAN / NUMBER BLOCKED
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE:
+  [ ] Switch to backup phone number immediately
+  [ ] Inform all customers via SMS (if you have their number) or building group
+  [ ] Post updated number on Facebook page + building groups
+  [ ] Begin WhatsApp support ticket to restore original number
+
+RECOVERY:
+  [ ] Original number may be restored in 1-6 hours (spam ban)
+  [ ] If permanently banned: migrate to new number + update everywhere
+  [ ] Update business cards, flyers, all assets
+
+PREVENTION:
+  → Never spam — only reply to individual queries
+  → Don't send bulk messages to 50+ people at once
+  → Use broadcast lists (max 256) instead of groups
+  → Have a backup SIM ready at all times
+  → Register for WhatsApp Business API (free) as long-term solution
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 9: COMPETITOR ENTERS JGC
+═══════════════════════════════════════════════════════════════════════════════
+
+SIGNS TO WATCH:
+  [ ] Ads in JGC mentioning "free delivery" or "grocery"
+  [ ] Flyers on building notice boards
+  [ ] Neighbours mentioning a new service
+  [ ] Call volume drops while building population hasn't changed
+
+RESPONSE:
+  [ ] DO NOT panic — you have an 800m advantage
+  [ ] DO NOT start a price war — you'll both bleed
+  [ ] DO double down on community: mentions in groups, personal service
+  [ ] Offer a loyalty program: every 10th order free
+  [ ] Faster response times (you're a resident, they're not)
+  [ ] Partner exclusivity: ask partners not to work with both
+
+═══════════════════════════════════════════════════════════════════════════════
+SCENARIO 10: CASH RUNS OUT BEFORE BREAKEVEN
+═══════════════════════════════════════════════════════════════════════════════
+
+RED FLAGS (watch for these):
+  [ ] Cash dropped below 100,000 BDT
+  [ ] Month 3 projection shows loss instead of profit
+  [ ] Fixed costs above 70K/month
+  [ ] Orders per day below 15 consistently
+
+ACTIONS:
+  [ ] Cut all non-essential spending immediately
+  [ ] Pause marketing (you have community word-of-mouth)
+  [ ] Reduce manager hours
+  [ ] Offer prepaid subscription packages (collect cash upfront)
+  [ ] Launch a mini-fundraise from building committee members
+  [ ] If desperate: Fahad takes a part-time job, brother runs ops
+
+═══════════════════════════════════════════════════════════════════════════════
+EMERGENCY KIT (Keep in Delivery Bag)
+═══════════════════════════════════════════════════════════════════════════════
+
+Physical Items:
+  [ ] Waterproof bags (3-5 pcs)
+  [ ] Rain poncho
+  [ ] Bungee cords
+  [ ] Small first aid kit
+  [ ] Phone charger + power bank
+  [ ] Umbrella
+  [ ] Spare pen + receipt pad
+  [ ] Cash float (500 BDT in small notes)
+
+Digital Items (Phone):
+  [ ] Offline copy of ORDER LOG (screenshot)
+  [ ] Offline map of JGC building locations
+  [ ] Backup phone number written down
+  [ ] All partner phone numbers saved offline
+  [ ] Building committee phone numbers
+  [ ] Emergency medical contacts (hospital, clinic)
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK REFERENCE NUMBERS
+═══════════════════════════════════════════════════════════════════════════════
+
+Backup Rider 1: _______________ — Phone: __________________
+Backup Rider 2: _______________ — Phone: __________________
+Backup Partner 1: _______________ — Category: ________— Phone: __________________
+Backup Partner 2: _______________ — Category: ________— Phone: __________________
+Building Committee: _______________ — Phone: __________________
+Nearest Hospital: _______________ — Phone: __________________
+Local Police: 999
+bKash Helpline: 16247  # from BD mobile
+
+═══════════════════════════════════════════════════════════════════════════════
+"A good plan today is better than a perfect plan tomorrow.
+The only failure is the one you didn't prepare for."
+═══════════════════════════════════════════════════════════════════════════════

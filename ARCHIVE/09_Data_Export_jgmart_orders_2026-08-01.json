@@ -1,0 +1,205 @@
+{
+  "orders": [
+    {
+      "id": "ORD-001",
+      "customer": "Rafiq",
+      "status": "delivered",
+      "total": 850,
+      "items": [
+        {
+          "name": "Chinigura Rice",
+          "qty": 2,
+          "unit": "kg"
+        },
+        {
+          "name": "Potato",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-002",
+      "customer": "Nusrat",
+      "status": "delivered",
+      "total": 1200,
+      "items": [
+        {
+          "name": "Eggs",
+          "qty": 2,
+          "unit": "dozen"
+        },
+        {
+          "name": "Chicken",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-003",
+      "customer": "Kabir",
+      "status": "delivered",
+      "total": 450,
+      "items": [
+        {
+          "name": "Eggs",
+          "qty": 1,
+          "unit": "dozen"
+        },
+        {
+          "name": "Bread",
+          "qty": 2,
+          "unit": "pack"
+        }
+      ]
+    },
+    {
+      "id": "ORD-004",
+      "customer": "Shamim",
+      "status": "delivered",
+      "total": 780,
+      "items": [
+        {
+          "name": "Chinigura Rice",
+          "qty": 3,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-005",
+      "customer": "Fatima",
+      "status": "delivered",
+      "total": 620,
+      "items": [
+        {
+          "name": "Fish (Rui)",
+          "qty": 1,
+          "unit": "kg"
+        },
+        {
+          "name": "Potato",
+          "qty": 2,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-006",
+      "customer": "Hasan",
+      "status": "pending",
+      "total": 340,
+      "items": [
+        {
+          "name": "Eggs",
+          "qty": 1,
+          "unit": "dozen"
+        }
+      ]
+    },
+    {
+      "id": "ORD-007",
+      "customer": "Jahanara",
+      "status": "delivered",
+      "total": 950,
+      "items": [
+        {
+          "name": "Chinigura Rice",
+          "qty": 2,
+          "unit": "kg"
+        },
+        {
+          "name": "Chicken",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-008",
+      "customer": "Tania",
+      "status": "delivered",
+      "total": 520,
+      "items": [
+        {
+          "name": "Beef",
+          "qty": 0.5,
+          "unit": "kg"
+        },
+        {
+          "name": "Potato",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-009",
+      "customer": "Shahid",
+      "status": "delivered",
+      "total": 1100,
+      "items": [
+        {
+          "name": "Chinigura Rice",
+          "qty": 4,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-010",
+      "customer": "Parvin",
+      "status": "pending",
+      "total": 680,
+      "items": [
+        {
+          "name": "Fish (Rui)",
+          "qty": 1,
+          "unit": "kg"
+        },
+        {
+          "name": "Eggs",
+          "qty": 1,
+          "unit": "dozen"
+        }
+      ]
+    },
+    {
+      "id": "ORD-011",
+      "customer": "Rashed",
+      "status": "delivered",
+      "total": 870,
+      "items": [
+        {
+          "name": "Chicken",
+          "qty": 2,
+          "unit": "kg"
+        },
+        {
+          "name": "Rice (Miniket)",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": "ORD-012",
+      "customer": "Foysal",
+      "status": "delivered",
+      "total": 1290,
+      "items": [
+        {
+          "name": "Chinigura Rice",
+          "qty": 5,
+          "unit": "kg"
+        },
+        {
+          "name": "Beef",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
+    }
+  ]
+}

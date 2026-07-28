@@ -1,0 +1,655 @@
+================================================================================
+                    PARTNERSHIP AGREEMENT
+                    JG MART & [PARTNER SHOP NAME]
+================================================================================
+
+This PARTNERSHIP AGREEMENT ("Agreement") is entered into on [DATE] ("Effective Date")
+
+BETWEEN:
+
+JG Mart, a business operating under the name "JG Mart" with its principal place of
+business at [FULL ADDRESS], Dhaka, Bangladesh, represented by Fahad Ibrahim,
+Founder ("JG Mart" or "Company")
+
+AND:
+
+[PARTNER SHOP NAME], a business registered under [TRADE LICENSE NUMBER / NID /
+PASSPORT DETAILS], with its principal place of business at [SHOP ADDRESS], Dhaka,
+Bangladesh ("Partner" or "Supplier")
+
+Collectively referred to as the "Parties" and individually as a "Party".
+
+--------------------------------------------------------------------------------
+                            RECITALS
+--------------------------------------------------------------------------------
+
+WHEREAS, JG Mart operates a hyperlocal grocery delivery service in the Japan Garden
+City, Mohammadpur, Dhaka area, sourcing fresh produce and grocery items from local
+vendors including Krishi Market and delivering to customers within approximately
+two (2) hours of order placement via WhatsApp-based ordering;
+
+WHEREAS, the Partner owns, operates, or manages a retail shop and/or wholesale
+distribution business capable of supplying grocery items, fresh produce, or related
+products;
+
+WHEREAS, the Parties desire to establish a partnership whereby the Partner supplies
+goods to JG Mart for resale to end customers, subject to the terms and conditions
+set forth herein;
+
+NOW, THEREFORE, in consideration of the mutual covenants and promises contained
+herein, the Parties agree as follows:
+
+================================================================================
+                        ARTICLE 1: DEFINITIONS
+================================================================================
+
+1.1  "Affiliate" means any entity that directly or indirectly controls, is
+     controlled by, or is under common control with a Party, where "control"
+     means the ownership of more than fifty percent (50%) of the voting
+     securities or equivalent voting interest.
+
+1.2  "Applicable Law" means all statutes, ordinances, regulations, rules,
+     orders, decrees, and other laws and requirements of any governmental
+     authority applicable to the subject matter of this Agreement, including
+     but not limited to the Bangladesh Contract Act, 1872, the Sale of Goods
+     Act, 1930, the Companies Act, 1994, the Food Safety Act, and all
+     relevant regulations of the Bangladesh Food Safety Authority.
+
+1.3  "Business Day" means any day other than a Friday, Saturday, or public
+     holiday in Bangladesh.
+
+1.4  "Commission" means the percentage of the sale price retained by JG Mart
+     as described in Article 6.
+
+1.5  "Confidential Information" means all non-public information disclosed by
+     one Party to the other, whether orally, in writing, or electronically,
+     including but not limited to pricing structures, customer data, supplier
+     lists, operational processes, and trade secrets.
+
+1.6  "Covered Products" means the category or categories of goods to be supplied
+     by the Partner to JG Mart as specified in Schedule A attached hereto.
+
+1.7  "Force Majeure" means any event beyond the reasonable control of a Party,
+     including but not limited to acts of God, war, terrorism, riot, fire,
+     flood, epidemic, pandemic, strike, lockout, labor dispute, civil commotion,
+     government action, or failure of public utilities or transportation.
+
+1.8  "Intellectual Property" means all patents, copyrights, trademarks, trade
+     names, logos, service marks, trade secrets, know-how, and all other
+     intellectual property rights of any nature throughout the world.
+
+1.9  "Order" means a purchase order or WhatsApp-based order placed by JG Mart
+     or on behalf of a customer through the JG Mart ordering system for Covered
+     Products.
+
+1.10 "Territory" means the geographic area within which JG Mart operates its
+      delivery service, currently encompassing Japan Garden City, Mohammadpur,
+      Dhaka, and surrounding localities within a [INSERT RADIUS, e.g., 3 km]
+      radius, as may be expanded from time to time.
+
+================================================================================
+                    ARTICLE 2: TERM AND TERMINATION
+================================================================================
+
+2.1  TERM. This Agreement shall commence on the Effective Date and shall
+     continue for an initial term of three (3) months ("Initial Term"),
+     unless earlier terminated in accordance with this Article 2. Upon
+     expiration of the Initial Term, this Agreement shall automatically
+     renew for successive one (1) month periods ("Renewal Terms"), unless
+     either Party provides written notice of non-renewal at least fifteen
+     (15) days prior to the expiration of the then-current term.
+
+2.2  TERMINATION FOR CONVENIENCE. Either Party may terminate this Agreement
+     for any reason upon fifteen (15) days' prior written notice to the
+     other Party.
+
+2.3  TERMINATION FOR CAUSE. Either Party may terminate this Agreement
+     immediately upon written notice if the other Party:
+
+     (a) materially breaches any provision of this Agreement and fails to
+         cure such breach within fifteen (15) days after receiving written
+         notice specifying the breach;
+
+     (b) becomes insolvent, makes an assignment for the benefit of creditors,
+         or has a receiver, trustee, or liquidator appointed for a substantial
+         part of its assets;
+
+     (c) violates any applicable law or regulation in connection with the
+         performance of this Agreement;
+
+     (d) engages in fraudulent activity, misrepresentation, or willful
+         misconduct in connection with this Agreement (for which termination
+         shall be immediate without cure period);
+
+     (e) fails to maintain required licenses, permits, or approvals necessary
+         for the performance of its obligations under this Agreement.
+
+2.4  EFFECT OF TERMINATION. Upon termination or expiration of this Agreement:
+
+     (a) All Orders placed prior to the effective date of termination shall
+         be fulfilled in accordance with the terms hereof;
+
+     (b) The Partner shall immediately cease using JG Mart's branding,
+         trademarks, and Confidential Information;
+
+     (c) Each Party shall return or destroy the other Party's Confidential
+         Information, except as required by applicable law;
+
+     (d) JG Mart shall settle all outstanding amounts due to the Partner
+         within the settlement period specified in Article 7, less any
+         applicable deductions for returns, damages, or disputed amounts.
+
+2.5  SURVIVAL. Articles 1, 8, 9, 10, 11, and any other provisions that by
+     their nature should survive termination shall survive the expiration or
+     termination of this Agreement.
+
+================================================================================
+                    ARTICLE 3: SCOPE OF SUPPLY
+================================================================================
+
+3.1  PRODUCT CATEGORIES. The Partner agrees to supply the Covered Products as
+     listed in Schedule A. The Partner represents that it has the necessary
+     expertise, facilities, inventory, and personnel to consistently supply
+     Covered Products of the quality and quantity required by JG Mart.
+
+3.2  PRODUCT LIST UPDATES. JG Mart may, from time to time, request that the
+     Partner add or remove specific products from Schedule A. Such requests
+     shall be made in writing, and the Partner shall use reasonable efforts to
+     accommodate such requests within seven (7) Business Days.
+
+3.3  PRICING. The Partner shall supply Covered Products to JG Mart at the
+     wholesale rates specified in Schedule B ("Wholesale Rates"). Wholesale
+     Rates shall be [fixed for the Initial Term / subject to review every
+     thirty (30) days] and shall be communicated to JG Mart at least seven (7)
+     days prior to any proposed change. JG Mart reserves the right to
+     renegotiate rates if market conditions materially change.
+
+3.4  PRICE TRANSPARENCY. The Partner shall provide JG Mart with a current
+     price list at the commencement of this Agreement and shall notify JG Mart
+     in writing within twenty-four (24) hours of any change to the price list.
+
+================================================================================
+                    ARTICLE 4: COMMISSION STRUCTURE
+================================================================================
+
+4.1  COMMISSION RATES. JG Mart shall retain a Commission on the sale of each
+     Covered Product. Commission rates shall be determined by product category
+     as follows:
+
+     Category A (Grains, Pulses, Cooking Oil, Staples):           5%  - 8%
+     Category B (Fresh Fruits & Vegetables):                       10% - 14%
+     Category C (Dairy, Eggs, Meat, Fish):                         14% - 18%
+     Category D (Packaged Foods, Snacks, Beverages):               8%  - 12%
+     Category E (Household Items, Personal Care):                  5%  - 8%
+
+     The exact Commission rate applicable to each product shall be specified
+     in Schedule C. JG Mart reserves the right to adjust Commission rates
+     within the ranges specified above upon thirty (30) days' written notice.
+
+4.2  CALCULATION. The Commission shall be calculated as a percentage of the
+     final retail selling price charged to the customer, inclusive of all
+     applicable taxes and delivery fees, or as otherwise agreed in Schedule C.
+
+4.3  SETTLEMENT. The Commission shall be deducted from amounts due to the
+     Partner during the weekly settlement process described in Article 7.
+
+4.4  VOLUME BONUSES. JG Mart may, at its sole discretion, offer volume-based
+     Commission discounts or bonuses to the Partner. Any such bonuses shall be
+     specified in a written addendum to this Agreement.
+
+================================================================================
+                    ARTICLE 5: QUALITY STANDARDS
+================================================================================
+
+5.1  GENERAL STANDARDS. The Partner shall ensure that all Covered Products
+     supplied to JG Mart:
+
+     (a) Are of merchantable quality, fit for human consumption (where
+         applicable), and conform to the descriptions and specifications
+         provided by the Partner;
+
+     (b) Comply with all applicable food safety, health, and sanitation
+         standards under Bangladeshi law, including standards set by the
+         Bangladesh Standards and Testing Institution (BSTI) and the
+         Bangladesh Food Safety Authority;
+
+     (c) Are free from adulteration, contamination, foreign objects, and
+         defects;
+
+     (d) Are properly labeled with batch numbers, expiry dates, manufacturer
+         details, and any other information required by Applicable Law;
+
+     (e) Are stored, handled, and transported in a manner that preserves
+         their quality and safety.
+
+5.2  CERTIFICATIONS. The Partner shall maintain all necessary business
+     licenses, trade licenses, food licenses, and any other certifications
+     required by Applicable Law. Upon request by JG Mart, the Partner shall
+     provide copies of such licenses and certifications.
+
+5.3  QUALITY INSPECTIONS. JG Mart and/or its agents shall have the right, but
+     not the obligation, to inspect the Partner's premises, storage facilities,
+     and inventory at any time during normal business hours upon reasonable
+     prior notice.
+
+5.4  REJECTED GOODS. If any Covered Products fail to meet the quality
+     standards set forth in this Article 5, JG Mart may reject such goods.
+     Rejected goods shall be returned to the Partner at the Partner's expense,
+     and JG Mart shall not be liable for payment of the Wholesale Rate for
+     such goods. Recurring quality failures may constitute grounds for
+     termination under Article 2.3.
+
+================================================================================
+                    ARTICLE 6: ORDER FULFILLMENT
+================================================================================
+
+6.1  ORDER TRANSMISSION. Orders shall be transmitted to the Partner via
+     [WhatsApp / JG Mart mobile application / telephone / email] as mutually
+     agreed. JG Mart shall use commercially reasonable efforts to provide the
+     Partner with accurate and complete order information.
+
+6.2  CONFIRMATION. The Partner shall confirm receipt of each Order within
+     fifteen (15) minutes during business hours (8:00 AM to 10:00 PM, seven
+     days a week). If the Partner cannot fulfill an Order in whole or in part,
+     the Partner shall immediately notify JG Mart, providing the reason and
+     any available alternatives.
+
+6.3  PICKUP WINDOWS. The Partner shall make Covered Products available for
+     pickup by JG Mart riders during the following windows:
+
+     (a) Morning Slot:  8:00 AM - 10:00 AM
+     (b) Afternoon Slot: 12:00 PM - 2:00 PM
+     (c) Evening Slot:   4:00 PM - 6:00 PM
+
+     Specific pickup windows shall be assigned per Order based on customer
+     delivery slot requirements. The Partner shall ensure that Orders are
+     packed, labeled with the customer name and order number, and ready for
+     pickup at the commencement of the assigned pickup window.
+
+6.4  PACKAGING. The Partner shall use appropriate packaging materials to
+     protect Covered Products during transit, including but not limited to
+     ventilated bags for fresh produce, insulated containers for perishable
+     items, and secure packaging for fragile goods. JG Mart may provide
+     standard packaging materials or require the Partner to procure specific
+     packaging at the Partner's expense.
+
+6.5  PREPARATION TIME. The Partner shall complete the preparation and packing
+     of each Order within thirty (30) minutes of receiving the Order
+     confirmation request.
+
+6.6  UNAVAILABILITY. If a Covered Product becomes unavailable, the Partner
+     shall immediately notify JG Mart. JG Mart may substitute a comparable
+     product, remove the item from the Order, or cancel the Order in whole
+     or in part. In the event of partial fulfillment, the Parties shall
+     adjust the Wholesale Rate and Commission accordingly.
+
+================================================================================
+                    ARTICLE 7: PAYMENT AND SETTLEMENT
+================================================================================
+
+7.1  PAYMENT TERMS. JG Mart shall pay the Partner the Wholesale Rate for all
+     Covered Products delivered and accepted by JG Mart customers, less the
+     Commission, less any applicable deductions for returns, damages, or
+     customer refunds.
+
+7.2  SETTLEMENT SCHEDULE. Settlement shall be processed on a weekly basis
+     according to the following schedule:
+
+     (a) Monday through Tuesday: JG Mart shall reconcile the previous week's
+         Orders (Wednesday through Tuesday) and calculate amounts due;
+
+     (b) Wednesday: JG Mart shall issue a remittance advice and initiate
+         payment via [bank transfer / bKash / Nagad / cash] for the net
+         amount due;
+
+     (c) Payment shall be considered complete when funds have been transferred
+         to the Partner's designated bank account or mobile financial service
+         account.
+
+7.3  INVOICING. The Partner shall submit a weekly invoice to JG Mart via
+     [WhatsApp / email / physical delivery] by Tuesday at 5:00 PM for all
+     Orders fulfilled during the previous week. The invoice shall include:
+
+     (a) Partner name, address, and trade license / TIN number;
+
+     (b) Invoice number and date;
+
+     (c) Itemized list of all Covered Products supplied, including Order
+         number, product name, quantity, unit Wholesale Rate, and total
+         Wholesale Rate;
+
+     (d) Total amount due, Commission deducted, and net amount payable;
+
+     (e) Any applicable taxes (VAT / TDS).
+
+7.4  DEDUCTIONS. JG Mart reserves the right to deduct from any payment:
+
+     (a) Amounts attributable to returned, damaged, or defective goods;
+
+     (b) Amounts attributable to customer refunds or chargebacks related to
+         Orders fulfilled by the Partner;
+
+     (c) Any penalties or liquidated damages arising under this Agreement;
+
+     (d) Any amounts owed by the Partner to JG Mart under any other agreement
+         or arrangement.
+
+7.5  DISPUTED AMOUNTS. If the Partner disputes any deduction or calculation,
+     the Partner shall notify JG Mart in writing within seven (7) days of
+     receiving the remittance advice. The Parties shall negotiate in good
+     faith to resolve the dispute. Unresolved disputes shall be referred to
+     dispute resolution under Article 10.
+
+================================================================================
+                    ARTICLE 8: EXCLUSIVITY AND PRIORITY
+================================================================================
+
+8.1  NON-EXCLUSIVITY. This Agreement does not grant the Partner exclusive
+     rights to supply any Covered Products within the Territory. JG Mart
+     reserves the right to source Covered Products from other suppliers.
+
+8.2  PRIORITY DURING PICKUP. During the term of this Agreement, the Partner
+     shall receive priority consideration for Orders that the Partner has
+     confirmed and prepared. Subject to stock availability, JG Mart shall
+     endeavor to fulfill Orders from the Partner before sourcing from
+     alternative suppliers for the same category of products.
+
+8.3  EXCLUSIVITY DURING PICKUP WINDOWS. During the Partner's assigned pickup
+     windows, JG Mart riders shall prioritize pickup from the Partner's
+     premises over other non-contracted suppliers, provided the Partner's
+     Order is ready for pickup at the scheduled time.
+
+8.4  LOYALTY EXPECTATIONS. While not granting exclusivity, JG Mart expects
+     the Partner to prioritize JG Mart Orders and maintain adequate stock
+     levels to fulfill anticipated demand. The Partner shall notify JG Mart
+     immediately of any anticipated stock shortages that may affect Order
+     fulfillment.
+
+================================================================================
+                    ARTICLE 9: INTELLECTUAL PROPERTY
+================================================================================
+
+9.1  OWNERSHIP. Each Party retains all right, title, and interest in and to
+     its respective Intellectual Property.
+
+9.2  LIMITED LICENSE. The Partner grants JG Mart a limited, non-exclusive,
+     royalty-free license to use the Partner's name, logo, and trademarks
+     solely for the purpose of identifying the Partner as a supplier of
+     Covered Products on the JG Mart platform, marketing materials, and
+     customer communications. This license shall terminate upon expiration
+     or termination of this Agreement.
+
+9.3  JG Mart BRANDING. JG Mart grants the Partner a limited, non-exclusive,
+     royalty-free license to use the "JG Mart" name and logo solely for
+     purposes directly related to this Agreement, including labeling Orders
+     for JG Mart customers. The Partner shall not use the JG Mart name or
+     logo for any other purpose without prior written consent.
+
+9.4  RESTRICTIONS. Neither Party shall register or attempt to register the
+     other Party's Intellectual Property in any jurisdiction, nor challenge
+     the validity of the other Party's Intellectual Property rights.
+
+================================================================================
+                    ARTICLE 10: DISPUTE RESOLUTION
+================================================================================
+
+10.1 NEGOTIATION. The Parties shall attempt to resolve any dispute, controversy,
+     or claim arising out of or relating to this Agreement, or the breach
+     thereof, through good-faith negotiations between senior representatives
+     of each Party. Such negotiations shall commence within seven (7) days
+     of a written request by either Party.
+
+10.2 MEDIATION. If the Parties are unable to resolve the dispute through
+     negotiation within twenty-one (21) days, the dispute shall be submitted
+     to mediation administered by the [Dhaka Chamber of Commerce & Industry
+     (DCCI) / Bangladesh Association of Software & Information Services
+     (BASIS) / Local Trade Association] under its then-prevailing mediation
+     rules. The mediation shall be conducted in Dhaka, Bangladesh, in the
+     English and/or Bangla language. The costs of mediation shall be shared
+     equally by the Parties.
+
+10.3 ARBITRATION. If mediation fails to resolve the dispute within forty-five
+     (45) days, the dispute shall be finally resolved by binding arbitration
+     administered by the [Bangladesh International Arbitration Centre (BIAC)
+     / Dhaka Chamber of Commerce & Industry (DCCI) Arbitration Committee]
+     under its then-prevailing arbitration rules. The arbitration shall be
+     conducted in Dhaka, Bangladesh, in the English and/or Bangla language.
+     The arbitral tribunal shall consist of one (1) arbitrator mutually
+     agreed upon by the Parties, or if no agreement is reached within fifteen
+     (15) days, appointed by the administering institution. The award shall
+     be final and binding, and judgment upon the award may be entered in any
+     court having jurisdiction.
+
+10.4 GOVERNING LAW. This Agreement shall be governed by and construed in
+     accordance with the laws of the People's Republic of Bangladesh,
+     without regard to its conflict of laws principles.
+
+10.5 JURISDICTION. Subject to Article 10.3, the courts of Dhaka, Bangladesh
+     shall have exclusive jurisdiction over any matter not subject to
+     arbitration.
+
+================================================================================
+                    ARTICLE 11: CONFIDENTIALITY
+================================================================================
+
+11.1 OBLIGATION. Each Party agrees to keep confidential all Confidential
+     Information of the other Party and shall not disclose, publish, or
+     otherwise disseminate such Confidential Information to any third party
+     without the prior written consent of the disclosing Party, except as
+     required by Applicable Law or as necessary for the performance of this
+     Agreement.
+
+11.2 EXCEPTIONS. The obligations of confidentiality shall not apply to
+     information that:
+
+     (a) is or becomes publicly available through no fault of the receiving
+         Party;
+
+     (b) was rightfully in the receiving Party's possession prior to
+         disclosure by the disclosing Party;
+
+     (c) is rightfully received from a third party without restriction on
+         disclosure;
+
+     (d) is independently developed by the receiving Party without use of
+         the disclosing Party's Confidential Information;
+
+     (e) is required to be disclosed by law, regulation, or court order,
+         provided the receiving Party gives the disclosing Party prompt
+         written notice (where legally permissible) and cooperates in
+         seeking a protective order.
+
+11.3 DURATION. The obligations of confidentiality shall survive the
+     expiration or termination of this Agreement for a period of five (5)
+     years.
+
+================================================================================
+                    ARTICLE 12: REPRESENTATIONS AND WARRANTIES
+================================================================================
+
+12.1 AUTHORITY. Each Party represents and warrants that it has the full power
+     and authority to enter into this Agreement and to perform its obligations
+     hereunder, and that this Agreement constitutes a valid and binding
+     obligation enforceable in accordance with its terms.
+
+12.2 COMPLIANCE. The Partner represents and warrants that:
+
+     (a) It holds all necessary licenses, permits, and approvals required
+         to conduct its business and supply Covered Products;
+
+     (b) All Covered Products supplied shall comply with Applicable Law,
+         including food safety, health, and quality standards;
+
+     (c) It has not entered into, and during the term of this Agreement
+         will not enter into, any agreement that would conflict with its
+         obligations hereunder.
+
+12.3 NO INFRINGEMENT. Each Party represents and warrants that its activities
+     under this Agreement do not and will not infringe upon the Intellectual
+     Property rights of any third party.
+
+================================================================================
+                    ARTICLE 13: LIMITATION OF LIABILITY
+================================================================================
+
+13.1 CONSEQUENTIAL DAMAGES. NEITHER PARTY SHALL BE LIABLE TO THE OTHER PARTY
+     FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
+     DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, REVENUE, DATA,
+     OR GOODWILL, ARISING OUT OF OR RELATING TO THIS AGREEMENT, REGARDLESS
+     OF THE FORM OF ACTION OR THE THEORY OF LIABILITY, EVEN IF SUCH PARTY
+     HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+13.2 CAP ON LIABILITY. EXCEPT FOR BREACHES OF ARTICLE 11 (CONFIDENTIALITY),
+     BREACHES OF ARTICLE 9 (INTELLECTUAL PROPERTY), AND FRAUD OR WILLFUL
+     MISCONDUCT, EACH PARTY'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR
+     RELATING TO THIS AGREEMENT SHALL NOT EXCEED THE TOTAL AMOUNTS PAID OR
+     PAYABLE BY JG MART TO THE PARTNER DURING THE THREE (3) MONTHS
+     PRECEDING THE EVENT GIVING RISE TO THE CLAIM.
+
+13.3 THIRD-PARTY CLAIMS. The Partner shall indemnify, defend, and hold
+     harmless JG Mart, its officers, directors, employees, and agents from
+     and against any and all third-party claims, damages, losses, and
+     expenses (including reasonable attorney's fees) arising out of or
+     relating to:
+
+     (a) Any defect in or failure of Covered Products supplied by the
+         Partner;
+
+     (b) Any breach of the Partner's representations, warranties, or
+         obligations under this Agreement;
+
+     (c) Any negligence, willful misconduct, or violation of Applicable Law
+         by the Partner, its employees, or agents.
+
+================================================================================
+                    ARTICLE 14: GENERAL PROVISIONS
+================================================================================
+
+14.1 ENTIRE AGREEMENT. This Agreement, together with all Schedules attached
+     hereto, constitutes the entire agreement between the Parties with respect
+     to the subject matter hereof and supersedes all prior agreements,
+     understandings, negotiations, and discussions, whether oral or written.
+
+14.2 AMENDMENT. This Agreement may not be amended, modified, or supplemented
+     except by a written instrument signed by authorized representatives of
+     both Parties.
+
+14.3 WAIVER. No waiver by either Party of any provision of this Agreement
+     shall be effective unless set forth in writing and signed by such Party.
+     The failure of either Party to enforce any right or remedy shall not
+     constitute a waiver of such right or remedy.
+
+14.4 SEVERABILITY. If any provision of this Agreement is held to be invalid,
+     illegal, or unenforceable by a court of competent jurisdiction, the
+     remaining provisions shall continue in full force and effect, and the
+     invalid provision shall be replaced by a valid provision that most
+     closely reflects the original intent.
+
+14.5 ASSIGNMENT. Neither Party may assign or transfer this Agreement or any
+     rights or obligations hereunder, whether by operation of law or otherwise,
+     without the prior written consent of the other Party, except that JG Mart
+     may assign this Agreement to an Affiliate or in connection with a merger,
+     acquisition, or sale of all or substantially all of its assets.
+
+14.6 NOTICES. All notices, requests, and other communications under this
+     Agreement shall be in writing and shall be deemed delivered when:
+
+     (a) personally delivered;
+
+     (b) sent by confirmed facsimile or email (with read receipt);
+
+     (c) sent by registered or certified mail, return receipt requested;
+
+     to the addresses set forth below or to such other address as a Party may
+     designate by written notice:
+
+     To JG Mart:
+         Attn: Fahad Ibrahim, Founder
+         Address: [FULL ADDRESS], Japan Garden City, Mohammadpur, Dhaka
+         Phone: [PHONE NUMBER]
+         Email: [EMAIL ADDRESS]
+         WhatsApp: [WHATSAPP NUMBER]
+
+     To Partner:
+         Attn: [AUTHORIZED REPRESENTATIVE NAME], [TITLE]
+         Address: [SHOP ADDRESS], Dhaka, Bangladesh
+         Phone: [PHONE NUMBER]
+         Email: [EMAIL ADDRESS]
+         WhatsApp: [WHATSAPP NUMBER]
+
+14.7 RELATIONSHIP. The Parties are independent contractors. Nothing in this
+     Agreement shall be construed to create a partnership, joint venture,
+     agency, franchise, or employer-employee relationship between the Parties.
+     Neither Party has authority to bind the other Party or incur any
+     obligation on its behalf.
+
+14.8 FORCE MAJEURE. Neither Party shall be liable for any failure or delay
+     in performance due to circumstances beyond its reasonable control,
+     including but not limited to natural disasters, war, terrorism, riot,
+     fire, flood, epidemic, pandemic, strike, lockout, labor dispute, civil
+     commotion, government action, or failure of public utilities or
+     transportation. The affected Party shall notify the other Party within
+     forty-eight (48) hours of the occurrence of the Force Majeure event and
+     shall use commercially reasonable efforts to mitigate the effects of
+     such event.
+
+14.9 FURTHER ASSURANCES. Each Party agrees to execute and deliver such
+     further documents and instruments and to take such further actions as
+     may be reasonably necessary or appropriate to carry out the purposes
+     and intent of this Agreement.
+
+14.10 COUNTERPARTS. This Agreement may be executed in counterparts, each of
+      which shall be deemed an original, and all of which together shall
+      constitute one and the same instrument. Electronic signatures and
+      scanned copies transmitted via email or WhatsApp shall be deemed
+      original signatures for all purposes.
+
+================================================================================
+                    ARTICLE 15: SCHEDULES
+================================================================================
+
+The following Schedules are attached to and form an integral part of this
+Agreement:
+
+     Schedule A: Covered Products and Categories
+     Schedule B: Wholesale Rates
+     Schedule C: Commission Structure by Product
+     Schedule D: Pickup Locations and Contact Details
+     Schedule E: Invoice Template
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the
+Effective Date written above.
+
+FOR JG MART:
+
+Signature: _______________________________
+
+Name:     Fahad Ibrahim
+Title:    Founder
+Date:     _______________________________
+
+FOR [PARTNER SHOP NAME]:
+
+Signature: _______________________________
+
+Name:     _________________________________
+Title:    _________________________________
+Date:     _______________________________
+
+WITNESS 1:
+
+Signature: _______________________________
+Name:     _________________________________
+NID No.:  _________________________________
+Date:     _______________________________
+
+WITNESS 2:
+
+Signature: _______________________________
+Name:     _________________________________
+NID No.:  _________________________________
+Date:     _______________________________
+
+================================================================================
+                            END OF AGREEMENT
+================================================================================

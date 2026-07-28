@@ -1,0 +1,450 @@
+================================================================================
+                JG MART - TERMS OF SERVICE
+                (Customer Terms & Conditions)
+================================================================================
+
+Last Updated: [DATE]
+Effective Date: [DATE]
+
+These Terms of Service ("Terms") govern your use of the JG Mart grocery
+delivery service ("Service") operated by JG Mart ("we", "us", "our", or
+"JG Mart"). By placing an Order through our WhatsApp-based ordering system,
+you agree to be bound by these Terms.
+
+If you do not agree to these Terms, please do not use our Service.
+
+================================================================================
+                    1. ABOUT JG MART
+================================================================================
+
+JG Mart is a hyperlocal grocery delivery service operating in Japan Garden
+City, Mohammadpur, Dhaka, Bangladesh. We source fresh produce and grocery
+items from local vendors and deliver them to customers within approximately
+two (2) hours of order placement.
+
+Our contact details:
+- WhatsApp: [WHATSAPP NUMBER]
+- Phone: [PHONE NUMBER]
+- Address: [FULL BUSINESS ADDRESS], Dhaka, Bangladesh
+
+================================================================================
+                    2. ELIGIBILITY
+================================================================================
+
+2.1  You must be at least eighteen (18) years of age to use our Service.
+
+2.2  By using our Service, you represent and warrant that you have the legal
+     capacity to enter into a binding agreement with JG Mart.
+
+2.3  We reserve the right to refuse service to anyone for any reason at any
+     time, including but not limited to providing false information, abusive
+     behavior toward our staff or riders, or violation of these Terms.
+
+================================================================================
+                    3. ORDERING PROCESS
+================================================================================
+
+3.1  HOW TO ORDER. Orders may be placed through the following channels:
+
+     (a) WhatsApp: Send your order details to our WhatsApp number [WHATSAPP
+         NUMBER] during business hours (8:00 AM to 10:00 PM, seven days a
+         week);
+
+     (b) Phone: Call us at [PHONE NUMBER] during business hours;
+
+     (c) Any other channel we may make available from time to time.
+
+3.2  ORDER CONFIRMATION. After receiving your order, we will send you an
+     order confirmation via WhatsApp or SMS. Your order is not confirmed
+     until you receive this confirmation. We reserve the right to accept or
+     reject any order for any reason, including product unavailability,
+     pricing errors, or suspected fraudulent activity.
+
+3.3  ORDER ACCURACY. You are responsible for providing accurate and complete
+     order information, including delivery address, contact number, and
+     product specifications. We are not liable for orders placed with
+     incorrect information.
+
+3.4  MINIMUM ORDER VALUE. We may impose a minimum order value from time to
+     time, which will be communicated via our WhatsApp channel or website.
+     Orders below the minimum value may be subject to a handling fee or
+     may not be accepted.
+
+================================================================================
+                    4. DELIVERY SLOTS AND TIMING
+================================================================================
+
+4.1  DELIVERY WINDOWS. We offer delivery within approximately two (2) hours
+     of order confirmation. Available delivery windows include:
+
+     (a) Morning: 8:00 AM - 10:00 AM
+     (b) Midday: 12:00 PM - 2:00 PM
+     (c) Afternoon: 4:00 PM - 6:00 PM
+     (d) Evening: 6:00 PM - 8:00 PM
+
+     Exact delivery windows may vary based on your location, weather
+     conditions, traffic, and product availability.
+
+4.2  DELIVERY LOCATION. Deliveries are made to the address provided at the
+     time of order. Please ensure someone is available to receive the
+     delivery. If the recipient is unavailable, we may leave the order with
+     a neighbor, security guard, or at a designated safe location, at our
+     sole discretion. You authorize us to leave the order at such location
+     without further liability.
+
+4.3  DELIVERY ATTEMPTS. We will make at least one (1) delivery attempt per
+     Order. If delivery is unsuccessful due to incorrect address, unavailability
+     of the recipient, or refusal to accept the delivery, the Order may be
+     returned to our warehouse, and you may be charged a redelivery fee or
+     the Order may be cancelled with applicable refund deductions.
+
+4.4  DELAYS. While we strive to deliver within the promised timeframe,
+     delivery times are estimates only. We are not liable for delays caused
+     by traffic, weather, political disturbances, or other circumstances
+     beyond our reasonable control. We will notify you of any significant
+     delays via WhatsApp or phone call.
+
+4.5  SERVICE AREA. We currently deliver within [INSERT AREA, e.g., Japan
+     Garden City, Mohammadpur, and adjacent areas within 3 km]. We reserve
+     the right to modify our service area at any time without prior notice.
+     Orders outside the service area may not be accepted.
+
+================================================================================
+                    5. PRICING AND PAYMENT
+================================================================================
+
+5.1  PRICING. All prices displayed or communicated to you are in Bangladeshi
+     Taka (BDT) and include applicable taxes unless otherwise stated. We
+     reserve the right to change prices at any time without prior notice.
+     Price changes shall not affect orders already confirmed.
+
+5.2  PAYMENT METHODS. We accept the following payment methods:
+
+     (a) Cash on Delivery (COD): Payment in cash upon receipt of the order.
+         Exact change is appreciated.
+
+     (b) bKash: Payment via bKash mobile financial service. Our bKash
+         merchant number is [BKASH MERCHANT NUMBER]. You will receive
+         payment instructions upon order confirmation.
+
+     (c) Nagad / Other Mobile Financial Services: [IF APPLICABLE]
+
+5.3  PAYMENT AUTHORIZATION. By placing an Order, you authorize us to charge
+     the selected payment method for the total order amount, including
+     product costs, delivery fees, and any applicable taxes or service charges.
+
+5.4  PAYMENT FAILURE. If your payment fails or is declined, we reserve the
+     right to cancel your order or request an alternative payment method.
+     Unpaid orders may be subject to collection efforts.
+
+5.5  DELIVERY FEE. A delivery fee of [AMOUNT, e.g., BDT 30] shall apply to
+     each order, unless otherwise waived by JG Mart for promotional or
+     other reasons. The delivery fee will be communicated to you at the time
+     of order confirmation.
+
+================================================================================
+                    6. CANCELLATION POLICY
+================================================================================
+
+6.1  CANCELLATION BY CUSTOMER. You may cancel your order free of charge
+     before it has been dispatched for delivery. Once the order has been
+     dispatched, the following cancellation policy applies:
+
+     (a) Cancellation more than 30 minutes before scheduled delivery: No
+         cancellation fee;
+
+     (b) Cancellation within 30 minutes of scheduled delivery: A
+         cancellation fee of [AMOUNT, e.g., BDT 50] or 20% of the order
+         value, whichever is lower;
+
+     (c) Cancellation after the rider has arrived at the delivery address:
+         No refund shall be provided.
+
+6.2  CANCELLATION BY JG MART. We reserve the right to cancel any order
+     for any reason, including but not limited to product unavailability,
+     pricing errors, or suspected fraudulent activity. In such cases, we
+     will notify you as soon as possible and provide a full refund of any
+     payments made.
+
+6.3  HOW TO CANCEL. To cancel an order, please contact us immediately via
+     WhatsApp or phone. Cancellation requests received after the dispatch
+     threshold may not be processed.
+
+================================================================================
+                    7. REFUND POLICY
+================================================================================
+
+7.1  REFUND ELIGIBILITY. You are eligible for a refund in the following
+     circumstances:
+
+     (a) The order is cancelled by JG Mart or by you before dispatch;
+
+     (b) The product is damaged, defective, or not as described, and you
+         notify us within [TIME PERIOD, e.g., 24 hours] of delivery;
+
+     (c) The product is missing from your order, and you notify us within
+         [TIME PERIOD, e.g., 24 hours] of delivery;
+
+     (d) The order is not delivered within a reasonable timeframe and you
+         choose to cancel.
+
+7.2  REFUND PROCESS. Refunds shall be processed within [TIME PERIOD, e.g.,
+     3 to 7 Business Days] from the date of approval. Refunds shall be
+     issued via the original payment method:
+
+     (a) Cash on Delivery: Refund via bKash / bank transfer / cash, as
+         mutually agreed;
+
+     (b) bKash / Mobile Financial Services: Refund to the original bKash /
+         mobile number used for payment.
+
+7.3  NON-REFUNDABLE ITEMS. The following items are not eligible for refund:
+
+     (a) Perishable goods that have been delivered and accepted, unless
+         damaged or defective;
+
+     (b) Items opened or used after delivery, unless damaged or defective;
+
+     (c) Items purchased during clearance sales or promotions, unless
+         damaged or defective on arrival.
+
+7.4  PARTIAL REFUNDS. In cases of partial fulfillment or partial defects,
+     we may offer a partial refund for the affected items or services.
+
+7.5  REFUND DENIAL. We reserve the right to deny refund requests that are
+     unreasonable, fraudulent, or made after the specified notification
+     period.
+
+================================================================================
+                    8. LIABILITY LIMITATIONS
+================================================================================
+
+8.1  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, JG MART, ITS
+     OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE
+     LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
+     PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS,
+     REVENUE, DATA, OR GOODWILL, ARISING OUT OF OR RELATING TO YOUR USE
+     OF THE SERVICE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF
+     SUCH DAMAGES.
+
+8.2  OUR TOTAL AGGREGATE LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR
+     RELATING TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE AMOUNT
+     YOU PAID TO JG MART IN THE THREE (3) MONTHS PRECEDING THE EVENT
+     GIVING RISE TO THE CLAIM, OR BDT 5,000 (FIVE THOUSAND TAKA),
+     WHICHEVER IS GREATER.
+
+8.3  NOTHING IN THESE TERMS EXCLUDES OR LIMITS LIABILITY FOR DEATH OR
+     PERSONAL INJURY CAUSED BY NEGLIGENCE, FRAUD, OR ANY OTHER LIABILITY
+     THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+
+================================================================================
+                    9. PROHIBITED ITEMS
+================================================================================
+
+9.1  You may not order the following items through our Service:
+
+     (a) Illegal drugs, narcotics, or controlled substances;
+
+     (b) Weapons, firearms, ammunition, explosives, or dangerous weapons;
+
+     (c) Counterfeit, stolen, or illegally obtained goods;
+
+     (d) Items that are hazardous, flammable, toxic, or otherwise dangerous
+         unless properly labeled and permitted by Applicable Law;
+
+     (e) Prescription medicines that require a valid prescription and
+         pharmacist supervision, unless otherwise permitted by law;
+
+     (f) Alcohol, tobacco, or related products unless legally permitted and
+         properly licensed;
+
+     (g) Any item that violates the intellectual property rights of others;
+
+     (h) Any item that we determine, in our sole discretion, to be
+         inappropriate, harmful, or in violation of Applicable Law.
+
+9.2  We reserve the right to refuse, cancel, or report to authorities any
+     order for prohibited items.
+
+================================================================================
+                    10. RIGHT TO REFUSE SERVICE
+================================================================================
+
+10.1 We reserve the right to refuse service, cancel orders, or terminate
+     your access to our Service at any time, without prior notice or
+     liability, if we determine that:
+
+     (a) You have violated these Terms;
+
+     (b) You have provided false, misleading, or incomplete information;
+
+     (c) Your conduct is harmful, abusive, threatening, or harassing to
+         our staff, riders, or other customers;
+
+     (d) Your order raises concerns regarding fraud, security, or legal
+         compliance;
+
+     (e) You have a history of excessive cancellations, false complaints,
+         or abuse of our refund policy;
+
+     (f) We are required to do so by Applicable Law or legal process.
+
+10.2 If we refuse service, we will refund any prepaid amounts in accordance
+     with our Refund Policy.
+
+================================================================================
+                    11. DATA COLLECTION AND PRIVACY
+================================================================================
+
+11.1 INFORMATION WE COLLECT. In order to provide our Service, we collect
+     the following personal information:
+
+     (a) Phone number (used for order confirmation, updates, and customer
+         service);
+
+     (b) Full name (for order identification and delivery);
+
+     (c) Delivery address (including landmark, floor, and contact person);
+
+     (d) Order history and preferences;
+
+     (e) Payment information (processed securely through our payment
+         partners);
+
+     (f) Communication records (WhatsApp messages, call logs related to
+         orders).
+
+11.2 HOW WE USE YOUR INFORMATION. We use your personal information to:
+
+     (a) Process and fulfill your orders;
+
+     (b) Communicate order status, delivery updates, and customer service
+         notifications;
+
+     (c) Improve our Service and customer experience;
+
+     (d) Prevent fraud and ensure security;
+
+     (e) Comply with legal and regulatory requirements.
+
+11.3 DATA SHARING. We do not sell or share your personal information with
+     third parties for marketing purposes. We may share your information
+     with:
+
+     (a) Delivery partners and riders, solely for the purpose of fulfilling
+         your order;
+
+     (b) Payment processors, solely for processing payments;
+
+     (c) Government authorities, if required by Applicable Law or legal
+         process;
+
+     (d) Service providers who assist us in operating our business, subject
+         to confidentiality obligations.
+
+11.4 DATA RETENTION. We retain your personal information for as long as
+     necessary to provide our Service and comply with legal obligations.
+     You may request deletion of your data by contacting us as described
+     in Article 12.
+
+11.5 YOUR RIGHTS. You have the right to:
+
+     (a) Request access to your personal data;
+
+     (b) Request correction of inaccurate or incomplete data;
+
+     (c) Request deletion of your personal data (right to be forgotten),
+         subject to legal retention requirements;
+
+     (d) Opt out of promotional communications by replying "STOP" to any
+         WhatsApp message or contacting us directly;
+
+     (e) Lodge a complaint with the relevant data protection authority if
+         you believe your privacy rights have been violated.
+
+For more details, please refer to our Privacy Policy, available upon request.
+
+================================================================================
+                    12. DISPUTE RESOLUTION
+================================================================================
+
+12.1 INFORMAL RESOLUTION. If you have any dispute, concern, or complaint
+     regarding our Service, please contact us first at [WHATSAPP NUMBER]
+     or [EMAIL ADDRESS]. We will attempt to resolve the issue amicably
+     within fourteen (14) days.
+
+12.2 MEDIATION. If the Parties are unable to resolve the dispute through
+     informal negotiation, the dispute shall be submitted to mediation
+     administered by the [Dhaka Chamber of Commerce & Industry (DCCI)
+     / Bangladesh International Arbitration Centre (BIAC)] under its
+     then-prevailing mediation rules.
+
+12.3 ARBITRATION. If mediation fails, the dispute shall be finally resolved
+     by binding arbitration under the arbitration rules of the [Bangladesh
+     International Arbitration Centre (BIAC)]. The arbitration shall be
+     conducted in Dhaka, Bangladesh, in the English and/or Bangla language.
+     The arbitral award shall be final and binding.
+
+12.4 GOVERNING LAW. These Terms shall be governed by and construed in
+     accordance with the laws of the People's Republic of Bangladesh.
+
+================================================================================
+                    13. GENERAL PROVISIONS
+================================================================================
+
+13.1 ENTIRE AGREEMENT. These Terms, together with our Privacy Policy,
+     constitute the entire agreement between you and JG Mart regarding
+     the use of our Service and supersede all prior agreements and
+     understandings.
+
+13.2 AMENDMENT. We reserve the right to modify these Terms at any time.
+     Changes shall be effective upon posting to our WhatsApp channel or
+     website. Your continued use of our Service after any changes
+     constitutes acceptance of the revised Terms.
+
+13.3 SEVERABILITY. If any provision of these Terms is held to be invalid
+     or unenforceable, the remaining provisions shall continue in full
+     force and effect.
+
+13.4 WAIVER. Our failure to enforce any right or provision of these Terms
+     shall not constitute a waiver of such right or provision.
+
+13.5 ASSIGNMENT. We may assign or transfer these Terms or any rights or
+     obligations hereunder to any Affiliate or in connection with a merger,
+     acquisition, or sale of assets, without your consent. You may not
+     assign or transfer these Terms without our prior written consent.
+
+13.6 FORCE MAJEURE. We shall not be liable for any failure or delay in
+     performance due to circumstances beyond our reasonable control,
+     including but not limited to natural disasters, war, terrorism, riot,
+     fire, flood, epidemic, pandemic, strike, lockout, civil commotion,
+     government action, or failure of public utilities or transportation.
+
+================================================================================
+                    14. CONTACT INFORMATION
+================================================================================
+
+If you have any questions, concerns, or complaints about these Terms or
+our Service, please contact us:
+
+JG Mart
+Attn: Fahad Ibrahim, Founder
+Address: [FULL BUSINESS ADDRESS], Japan Garden City, Mohammadpur, Dhaka,
+         Bangladesh
+WhatsApp: [WHATSAPP NUMBER]
+Phone: [PHONE NUMBER]
+Email: [EMAIL ADDRESS]
+Business Hours: 8:00 AM - 10:00 PM, seven days a week
+
+================================================================================
+                    ACKNOWLEDGMENT
+================================================================================
+
+BY PLACING AN ORDER WITH JG MART, YOU ACKNOWLEDGE THAT YOU HAVE READ,
+UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS OF SERVICE.
+
+IF YOU DO NOT AGREE TO THESE TERMS, PLEASE DO NOT USE OUR SERVICE.
+
+================================================================================
+                    END OF TERMS OF SERVICE
+================================================================================

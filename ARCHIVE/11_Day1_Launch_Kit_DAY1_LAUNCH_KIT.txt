@@ -1,0 +1,253 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║               JG MART — DAY 1 LAUNCH KIT                                      ║
+║               Print these. Carry them. Execute them.                          ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Founder: Fahad Ibrahim
+Location: Japan Garden City (JGC), Mohammadpur, Dhaka
+Date: Day 1 of Launch
+Classification: Internal — Do Not Share
+
+═══════════════════════════════════════════════════════════════════════════════
+1. KRISHI MARKET PARTNER CONTACT SHEET
+═══════════════════════════════════════════════════════════════════════════════
+
+Visit Krishi Market today. Approach shop owners. Fill this sheet.
+
+┌──────┬─────────────────────┬───────────────┬────────────┬────────────┬────────────┐
+│ ID   │ Shop Name / Owner   │ Category      │ Phone      │ Notes      │ Status     │
+├──────┼─────────────────────┼───────────────┼────────────┼────────────┼────────────┤
+│ P001 │                     │ Vegetables    │            │            │ Interested │
+│ P002 │                     │ Fruits        │            │            │ Interested │
+│ P003 │                     │ Meat/Fish     │            │            │ Interested │
+│ P004 │                     │ Dairy/Eggs    │            │            │ Interested │
+│ P005 │                     │ Spices/Dry    │            │            │ Interested │
+└──────┴─────────────────────┴───────────────┴────────────┴────────────┴────────────┘
+
+TODAY'S TARGET: Talk to at least 5 shop owners. Get 3 to agree to a trial.
+WHAT TO SAY: "I live in JGC. I'm starting a delivery service for our
+community. I want to buy from you daily and deliver to my neighbors.
+Can we try for 1 week?"
+
+═══════════════════════════════════════════════════════════════════════════════
+2. JGC BUILDING COMMITTEE CONTACT SHEET
+═══════════════════════════════════════════════════════════════════════════════
+
+Find the Flat Owners Committee for each building. Get informal approval.
+
+┌──────┬─────────────────────┬────────────┬────────────┬─────────────────────┐
+│ Bldg │ Secretary Name      │ Phone      │ WhatsApp   │ Notes / Agreement   │
+├──────┼─────────────────────┼────────────┼────────────┼─────────────────────┤
+│  1   │                     │            │            │                     │
+│  2   │                     │            │            │                     │
+│  3   │                     │            │            │                     │
+│  4   │                     │            │            │                     │
+│  5   │                     │            │            │                     │
+│  6   │                     │            │            │                     │
+│  7   │                     │            │            │                     │
+│  8   │                     │            │            │                     │
+│  9   │                     │            │            │                     │
+│ 10   │                     │            │            │                     │
+│ 11   │                     │            │            │                     │
+│ 12   │                     │            │            │                     │
+│ 13   │                     │            │            │                     │
+│ 14   │                     │            │            │                     │
+│ 15   │                     │            │            │                     │
+│ 16   │                     │            │            │                     │
+│ 17   │                     │            │            │                     │
+│ 18   │                     │            │            │                     │
+│ 19   │                     │            │            │                     │
+│ 20   │                     │            │            │                     │
+│ 21   │                     │            │            │                     │
+│ 22   │                     │            │            │                     │
+│ 23   │                     │            │            │                     │
+│ 24   │                     │            │            │                     │
+│ 25   │                     │            │            │                     │
+│ 26   │                     │            │            │                     │
+└──────┴─────────────────────┴────────────┴────────────┴─────────────────────┘
+
+TODAY'S TARGET: Identify committee members for Buildings 1-6.
+WHAT TO SAY: "I'm starting a grocery delivery service for our buildings.
+Can I put up a flyer? Can I share in the building WhatsApp group?"
+
+═══════════════════════════════════════════════════════════════════════════════
+3. FIRST 10 CUSTOMERS SIGNUP SHEET
+═══════════════════════════════════════════════════════════════════════════════
+
+Recruit your first beta customers today.
+
+┌──────┬─────────────────────┬────────────┬────────────┬────────────┬────────────┐
+│  #   │ Name                │ Building   │ Flat #     │ Phone      │ WhatsApp?  │
+├──────┼─────────────────────┼────────────┼────────────┼────────────┼────────────┤
+│  1   │                     │            │            │            │            │
+│  2   │                     │            │            │            │            │
+│  3   │                     │            │            │            │            │
+│  4   │                     │            │            │            │            │
+│  5   │                     │            │            │            │            │
+│  6   │                     │            │            │            │            │
+│  7   │                     │            │            │            │            │
+│  8   │                     │            │            │            │            │
+│  9   │                     │            │            │            │            │
+│ 10   │                     │            │            │            │            │
+└──────┴─────────────────────┴────────────┴────────────┴────────────┴────────────┘
+
+TODAY'S TARGET: 5 signups minimum.
+OFFER: "Free delivery for your first 3 orders. Help me test the service."
+
+═══════════════════════════════════════════════════════════════════════════════
+4. WHATSAPP BUSINESS QUICK-REPLY TEMPLATES
+═══════════════════════════════════════════════════════════════════════════════
+
+Copy these into your WhatsApp Business quick replies.
+
+[1] ORDER CONFIRMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Hello! Your order has been received.
+
+Items:
+[list items with prices]
+
+Total: BDT [amount]
+Delivery: BDT 30
+Grand Total: BDT [total]
+
+Delivery slot: [time]
+Payment: bKash/Nagad/Cash
+
+Reply CONFIRM to proceed.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[2] DELIVERY UPDATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Hi [Name]! Your JG Mart order is on the way.
+Rider: [Name] | Phone: [number]
+ETA: [time]
+
+Track your order: [WhatsApp status link]
+Questions? Reply to this message.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[3] OUT OF STOCK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Hi [Name]! Quick update on your order.
+
+Unfortunately, [item] is out of stock today.
+Options:
+1. Remove it (refund BDT [amount])
+2. Replace with [alternative]
+3. Wait for restock tomorrow
+
+Please reply by [time] so we can still deliver on time.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[4] PAYMENT REQUEST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Hi [Name]! Payment for today's delivery:
+
+bKash: [your number]
+Nagad: [your number]
+Amount: BDT [amount]
+Ref: [order ID]
+
+Please send payment screenshot once done. Thank you!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════════════════════
+5. DAILY HUDDLE CHECKLIST (Morning + Evening)
+═══════════════════════════════════════════════════════════════════════════════
+
+MORNING HUDDLE (6:00 AM)
+□ Rider status: Available / Unavailable / Late
+□ Partner status: All responding? Any issues?
+□ Weather: Clear / Rain / Storm
+□ Orders from yesterday: All delivered? All paid?
+□ Cash on hand: Count and verify
+□ Today's target: [ ] orders, [ ] customers
+□ Blockers: [list]
+
+EVENING HUDDLE (9:00 PM)
+□ Orders today: [count]
+□ Revenue today: BDT [amount]
+□ COD collected: BDT [amount]
+□ bKash collected: BDT [amount]
+□ Partner payments due: BDT [amount]
+□ Issues today: [list]
+□ Tomorrow's priority: [1 item]
+
+═══════════════════════════════════════════════════════════════════════════════
+6. END-OF-DAY CASH HANDLING CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Count all cash collected today
+□ Match against order records
+□ Deposit cash in secure location (home safe / bank)
+□ Update cash ledger in Google Sheets
+□ Send payment reminders to unpaid customers
+□ Record bKash/Nagad transactions
+□ Verify total collections match expected revenue
+□ Note any discrepancies and investigate
+
+═══════════════════════════════════════════════════════════════════════════════
+7. EMERGENCY NUMBERS
+═══════════════════════════════════════════════════════════════════════════════
+
+Founder (Fahad):        [Your Number]
+Brother / Rider:        [Brother's Number]
+Backup Rider:           [Backup Number]
+Partner P001:           [Phone]
+Partner P002:           [Phone]
+Partner P003:           [Phone]
+Partner P004:           [Phone]
+Partner P005:           [Phone]
+bKash Customer Care:    16247
+Nagad Customer Care:    16016
+Fire:                  999
+Police:                999
+Ambulance:             999
+
+═══════════════════════════════════════════════════════════════════════════════
+8. FIRST ORDER SCRIPT (Memorize This)
+═══════════════════════════════════════════════════════════════════════════════
+
+When a customer places their first order:
+
+"Hi! Welcome to JG Mart. I'm Fahad, your neighbor here in JGC.
+I've noted your order. Here's your total: BDT [amount].
+Delivery will be around [time] today.
+You can pay via bKash/Nagad or cash on delivery.
+Is there anything else you need?"
+
+After delivery:
+"Here's your order. Please check everything.
+If anything is missing or wrong, tell me now and I'll fix it.
+Payment is BDT [amount]. You can pay now or send via bKash.
+Thank you for trying JG Mart! I'd love your feedback."
+
+═══════════════════════════════════════════════════════════════════════════════
+9. DAY 1 SUCCESS METRICS
+═══════════════════════════════════════════════════════════════════════════════
+
+By end of Day 1, you should have:
+
+□ 5+ beta customers signed up
+□ 3+ Krishi Market partners agreed to trial
+□ 2+ building committee members aware of JG Mart
+□ 1 test order completed (even if free)
+□ WhatsApp Business account active
+□ Flyers distributed to 20+ doors
+□ Cash handling system tested
+□ All emergency contacts saved in phone
+
+═══════════════════════════════════════════════════════════════════════════════
+10. MINDSET CHECK
+═══════════════════════════════════════════════════════════════════════════════
+
+□ I am building something my community needs.
+□ Rejection is data, not failure.
+□ Every "no" gets me closer to "yes."
+□ Speed of execution beats perfection.
+□ My neighbors are counting on me.
+□ This is just Day 1. There are 89 more.
+
+Never GIVE UP on your HOPES.
+— Fahad, Founder, JG Mart

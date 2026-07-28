@@ -1,0 +1,107 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JGC MART — MASTER INDEX (Grok Operating System)                  ║
+║                    Version 2.0 | 28 July 2026 | Owner: Fahad Ibrahim          ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Founder: Fahad Ibrahim
+WhatsApp: +8801670-944800
+Location: Japan Garden City (JGC), Mohammadpur, Dhaka
+
+PRIMARY GOOGLE DRIVE (use this):
+https://drive.google.com/drive/folders/1US62pyiirEfW3iABCigkE7LageZcKYHj
+Folder name: JGC Mart - Grok
+
+LIVE WEBSITE:
+https://jg-mart.vercel.app
+(WhatsApp-native order landing + sliding catalog + search + filters)
+
+Legacy / previous structure also exists at:
+https://drive.google.com/drive/folders/14qDBLeEJdzkgjVHGJmQxK3if1mImzCis  (JG Mart)
+
+═══════════════════════════════════════════════════════════════════════════════
+FOLDER MAP (JGC Mart - Grok)
+═══════════════════════════════════════════════════════════════════════════════
+
+00_Admin_&_Legal
+01_Brand_&_Identity
+02_Operations_&_SOPs          ← daily runbooks, SOPs, rider tools
+03_Product_&_Catalog_Website  ← website source + catalog notes
+04_Finance_&_Tracking         ← financial model, dashboards, cash log
+05_Investor_Materials         ← 1-pager, pitch, decks
+06_Marketing_&_Growth         ← announcements, referral tracker
+07_Customer_Data              ← restricted
+08_Risk_&_Compliance
+99_Archive_&_Legacy
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY LIVE DOCUMENTS (latest versions)
+═══════════════════════════════════════════════════════════════════════════════
+
+OPERATIONS
+• 08_JG_Mart_Partner_Guide_v1.2 (Negotiation Playbook included)
+• 09_JG_Mart_CS_Scripts_v1.1
+• JG_Mart_Daily_Pickup_Checklist_Rider
+• JG_Mart_Rider_Training_Card
+• JG_Mart_Quality_Standard_Card
+• JG_Mart_Supplier_Negotiation_Scorecard
+• JG_Mart_Krishi_Market_Logistics_Brief
+• JG_Mart_Building_Delivery_Sheet
+• JG_Mart_Exception_Handling_Card
+• JG_Mart_Daily_Rhythm_Standup
+• JG_Mart_30Day_Pilot_Launch_Playbook
+• JG_Mart_First_Launch_Day_Runbook
+• JG_Mart_PreLaunch_Checklist
+• JG_Mart_Print_Pack_Manifest
+• JG_Mart_WhatsApp_Partner_Templates
+• JG_Mart_Partner_Performance_Tracker.xlsx
+• JG_Mart_Daily_Ops_Dashboard.xlsx
+
+FINANCE
+• JG_Mart_Financial_Model_v1.1.xlsx
+• JG_Mart_Cash_Float_Log.txt
+
+INVESTOR
+• JG_Mart_Investor_1Pager.txt
+• JG_Mart_Executive_Summary.txt
+• JG_Mart_Pitch_Script.txt
+• Pitch Deck PDF + PPTX
+
+MARKETING / WEB
+• Website: https://jg-mart.vercel.app
+• index.html (source)
+• JG_Mart_Customer_First_Order_Kit.txt
+• JG_Mart_Referral_Tracker.xlsx
+
+RISK
+• JG_Mart_Risk_Log_v1.1.txt
+
+═══════════════════════════════════════════════════════════════════════════════
+WEBSITE FEATURES (as of 28 Jul 2026)
+═══════════════════════════════════════════════════════════════════════════════
+
+• Mobile-first order landing page
+• Horizontal sliding product catalog (swipe / drag)
+• Search bar
+• Category filters (Staples / Produce / Protein / Essentials)
+• ★ Most ordered badges driven by ordersThisWeek data fields
+• One-tap WhatsApp order deep links
+• No cart / no payment gateway (by design — WhatsApp-native model)
+
+To update “Most ordered” badges: change ordersThisWeek values in site product
+data from real weekly order counts, then redeploy.
+
+═══════════════════════════════════════════════════════════════════════════════
+CURRENT PRIORITY (Execution)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Print Ops Pack (see Print Pack Manifest)
+2. Complete Pre-Launch Checklist
+3. Dry-run pickup + delivery
+4. Soft launch using Customer First-Order Kit
+5. Fill Daily Ops Dashboard every evening
+6. Weekly: update website ordersThisWeek from real data
+
+═══════════════════════════════════════════════════════════════════════════════
+Document Owner: Fahad Ibrahim | +8801670-944800
+This index is the single source of truth for the Grok-managed project folder.
+═══════════════════════════════════════════════════════════════════════════════

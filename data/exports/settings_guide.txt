@@ -1,0 +1,107 @@
+========================================================================
+  JG Mart — localStorage Key Reference Guide
+  Generated: 2026-07-28 09:28:07
+========================================================================
+
+Every JG Mart HTML app stores its data in a dedicated browser
+localStorage key. Use this guide to manually inject or verify
+data via the browser's DevTools console (F12 → Console).
+
+────────────────────────────────────────────────────────────────────────
+  QUICK INJECTION SNIPPET (works for any key)
+────────────────────────────────────────────────────────────────────────
+
+  localStorage.setItem('KEY_NAME', JSON.stringify(YOUR_DATA));
+  location.reload();
+
+────────────────────────────────────────────────────────────────────────
+  APP-BY-APP KEY REFERENCE
+────────────────────────────────────────────────────────────────────────
+
+  jgmart_analytics
+    App     : analytics.html — weekly analytics dashboard
+    Console : localStorage.setItem('jgmart_analytics', JSON.stringify(data));
+
+  jgmart_cart
+    App     : cart.html — active shopping cart
+    Console : localStorage.setItem('jgmart_cart', JSON.stringify(data));
+
+  jgmart_chat
+    App     : chat.html — message history
+    Console : localStorage.setItem('jgmart_chat', JSON.stringify(data));
+
+  jgmart_data
+    App     : data.html — master customer/partner data
+    Console : localStorage.setItem('jgmart_data', JSON.stringify(data));
+
+  jgmart_delivery
+    App     : delivery.html — delivery zone/routing
+    Console : localStorage.setItem('jgmart_delivery', JSON.stringify(data));
+
+  jgmart_finance
+    App     : finance.html — financial records & P&L
+    Console : localStorage.setItem('jgmart_finance', JSON.stringify(data));
+
+  jgmart_finance_entries
+    App     : finance.html — individual finance entry rows
+    Console : localStorage.setItem('jgmart_finance_entries', JSON.stringify(data));
+
+  jgmart_inventory
+    App     : inventory.html — stock tracking
+    Console : localStorage.setItem('jgmart_inventory', JSON.stringify(data));
+
+  jgmart_lang
+    App     : shared — language/localisation preference
+    Console : localStorage.setItem('jgmart_lang', JSON.stringify(data));
+
+  jgmart_launch_checks
+    App     : launch_checks.html — launch readiness checklist
+    Console : localStorage.setItem('jgmart_launch_checks', JSON.stringify(data));
+
+  jgmart_notifications
+    App     : notifications.html — in-app alerts
+    Console : localStorage.setItem('jgmart_notifications', JSON.stringify(data));
+
+  jgmart_orders
+    App     : orders.html — order management
+    Console : localStorage.setItem('jgmart_orders', JSON.stringify(data));
+
+  jgmart_partners
+    App     : partners.html — partner/vendor management
+    Console : localStorage.setItem('jgmart_partners', JSON.stringify(data));
+
+  jgmart_settings
+    App     : data.html — app-wide settings
+    Console : localStorage.setItem('jgmart_settings', JSON.stringify(data));
+
+────────────────────────────────────────────────────────────────────────
+  DATA SUMMARY FROM MASTER FILE
+────────────────────────────────────────────────────────────────────────
+
+  Customers        : 0
+  Partners         : 0
+  Total Orders     : N/A
+  Language         : N/A
+  Revenue          : N/A
+
+────────────────────────────────────────────────────────────────────────
+  TROUBLESHOOTING
+────────────────────────────────────────────────────────────────────────
+
+  • Data not showing after import?
+    → Open DevTools (F12) → Application → Local Storage.
+      Verify the key exists and has the expected value.
+
+  • 'undefined' after reload?
+    → The app may expect a different data shape.
+      Check the app's source code for the expected schema.
+
+  • Import button not working?
+    → Use the console snippet above — it always works.
+
+  • Accidental data loss?
+    → Restore from backup_all.json (see generated file).
+
+========================================================================
+  END OF GUIDE
+========================================================================

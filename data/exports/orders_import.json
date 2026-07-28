@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "generated": "2026-07-28 09:28:07",
+    "source": "sync_bridge.py",
+    "app": "orders.html",
+    "localStorageKey": "jgmart_orders"
+  },
+  "_instructions": "        // ────────────────────────────────────────────────────────\n        //  TARGET APP : orders.html\n        //  LOCALSTORAGE: jgmart_orders\n        //  IMPORT      : // Paste this in the browser DevTools console:\nlocalStorage.setItem('jgmart_orders', JSON.stringify({PASTE_CONTENT_HERE}));\nlocation.reload();\n        // ────────────────────────────────────────────────────────",
+  "orders": [],
+  "orderCount": 0
+}

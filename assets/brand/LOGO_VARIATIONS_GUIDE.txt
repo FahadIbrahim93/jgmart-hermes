@@ -1,0 +1,261 @@
+================================================================================
+JG MART — LOGO VARIATIONS GUIDE
+Version 1.0 | July 2026
+================================================================================
+
+This guide defines every approved logo lockup and asset format for JG Mart.
+All variations must be exported from the master vector file (AI/EPS/SVG).
+Never recreate the logo using raster editors or manual text tools.
+
+---------------------------------------------------------------------
+1. LOGO FAMILY OVERVIEW
+---------------------------------------------------------------------
+
+We use four primary logo variations to suit different contexts:
+
+  1. PRIMARY LOGO (Horizontal)   — Website headers, flyers, banners
+  2. SECONDARY LOGO (Vertical)   — Social profiles, square posts, stickers
+  3. ICON-ONLY                    — WhatsApp avatar, favicon, app icon
+  4. MONOCHROME                   — Single-color print, embossing, stamps
+
+Each variation exists in both color and reversed (light-on-dark) versions.
+
+================================================================================
+2. PRIMARY LOGO — HORIZONTAL LOCKUP
+================================================================================
+
+DESCRIPTION
+-----------
+The full horizontal wordmark. Icon sits to the left of "JG MART" text in a
+single baseline. This is our default logo and should be used whenever space
+permits.
+
+USE CASES
+---------
+  • Website header / navbar logo
+  • Letterheads and official documents
+  • A5 flyer front header
+  • Vehicle branding (delivery motorcycles)
+  • Large-format banners and signage
+
+SPECIFICATIONS
+--------------
+  Layout:       Icon + wordmark, left-aligned, single baseline
+  Clear space:  Equal to the height of the "JG" letterform on all sides
+  Min width:    120px digital / 25mm print
+  File formats: SVG (preferred), PNG (transparent BG), EPS (print vendors)
+  Colors:       Primary Green (#059669) + Secondary Green (#10B981) accent
+                on White (#FFFFFF) background
+
+VARIATION A — COLOR
+  Background:   White (#FFFFFF)
+  Logo colors:  Primary Green icon, Dark Gray (#1F2937) or Primary Green text
+
+VARIATION B — REVERSED
+  Background:   Primary Green (#059669) or Dark Green (#064E3B)
+  Logo colors:  White (#FFFFFF) icon and text
+
+================================================================================
+3. SECONDARY LOGO — VERTICAL LOCKUP
+================================================================================
+
+DESCRIPTION
+-----------
+The icon sits directly above the "JG MART" wordmark, centered. Used when
+horizontal space is limited or for social media profile pictures and posts
+that require a centered, stacked composition.
+
+USE CASES
+---------
+  • Instagram profile picture (where horizontal is too wide)
+  • Square social media posts
+  • Sticker designs
+  • Packing tape and small-format labels
+  • Business card backs
+
+SPECIFICATIONS
+--------------
+  Layout:       Stacked icon-over-wordmark, centered
+  Clear space:  Equal to the width of the icon on left/right, half icon height
+                above and below
+  Min width:    80px digital / 20mm print
+  File formats: SVG, PNG (transparent), EPS
+
+VARIATION A — COLOR
+  Background:   White
+  Logo colors:  Primary Green icon, Dark Gray or Primary Green text
+
+VARIATION B — REVERSED
+  Background:   Primary Green
+  Logo colors:  White icon and text
+
+================================================================================
+4. ICON-ONLY LOGO
+================================================================================
+
+DESCRIPTION
+-----------
+A simplified mark derived from the "JG" letterforms or a produce-inspired
+symbol (such as a leaf, basket, or sprout) combined with the brand’s green
+identity. This mark must be recognizable even without the wordmark.
+
+USE CASES
+---------
+  • WhatsApp profile picture (1080×1080px)
+  • Website favicon (16×16, 32×32, 48×48px)
+  • Mobile app icon
+  • Delivery bag stamp
+  • Social media story highlights
+  • Invoice / receipt corner mark
+
+SPECIFICATIONS
+--------------
+  Layout:       Icon only, no text
+  Clear space:  Half the icon width on all sides
+  Min size:     24px digital / 8mm print
+  File formats: SVG (scalable), PNG (1024×1024px for WhatsApp), ICO (favicon)
+
+VARIATION A — COLOR
+  Background:   White or transparent
+  Icon colors:  Primary Green (#059669) with Secondary Green (#10B981) accent
+
+VARIATION B — REVERSED
+  Background:   Primary Green or Dark Green
+  Icon colors:  White
+
+VARIATION C — MONOCHROME (for print production)
+  Background:   Any
+  Icon colors:  Single spot color (Pantone 348 C recommended) or 100% black
+
+================================================================================
+5. MONOCHROME LOGO
+================================================================================
+
+DESCRIPTION
+-----------
+A single-color version of the full logo for situations where full-color
+printing is unavailable or cost-prohibitive.
+
+USE CASES
+---------
+  • Single-color flexographic printing (delivery bags, tape)
+  • Embossing / debossing on packaging
+  • Laser engraving (metal tags, wood crates)
+  • Faxed documents
+  • Newspaper classifieds
+
+SPECIFICATIONS
+--------------
+  Color:        Pantone 348 C (preferred) or 100% Black (#000000)
+  Layout:       Horizontal lockup only (vertical is acceptable if space is tight)
+  File formats: EPS (vector), high-resolution PNG (300 DPI minimum)
+
+================================================================================
+6. SOCIAL MEDIA BANNER SPECIFICATIONS
+================================================================================
+
+6.1 FACEBOOK COVER PHOTO
+------------------------
+Dimensions:    820px × 312px (desktop), 640px × 360px (mobile)
+Safe zone:      Center 820px × 230px (keep critical content here)
+Content:
+  - Primary logo (horizontal or vertical) in top-left or centered
+  - Tagline: "Krishi Market prices, delivered to your door in 2 hours."
+  - Visual: Fresh produce or delivery moment
+  - CTA text: "Order now → [website/phone]"
+
+6.2 FACEBOOK PROFILE PICTURE
+----------------------------
+Dimensions:    170px × 170px (displayed), 820px × 820px (uploaded)
+Format:        Square PNG with transparent or branded background
+Content:       Icon-only logo centered on solid green or white square
+
+6.3 INSTAGRAM PROFILE PICTURE
+-----------------------------
+Dimensions:    320px × 320px (displayed), 1080px × 1080px (uploaded)
+Format:        Square PNG
+Content:       Icon-only logo, centered, with 10% padding inside the frame
+
+6.4 INSTAGRAM HIGHLIGHT COVERS
+-------------------------------
+Dimensions:    1080px × 1080px (export as circle mask)
+Content:       Icon-only logo centered on solid background
+Suggested colors:  Primary Green BG with white icon, or White BG with green icon
+Text label:    Short label below icon (e.g., "Catalog", "Offers", "Reviews")
+
+6.5 TWITTER / X HEADER
+----------------------
+Dimensions:    1500px × 500px
+Safe zone:      Center 1200px × 400px
+Content:        Similar to Facebook cover but optimized for wider crop
+
+6.6 YOUTUBE CHANNEL ART (if used)
+---------------------------------
+Dimensions:    2560px × 1440px (safe zone 1546px × 423px centered)
+
+================================================================================
+7. WHATSAPP AVATAR SPECIFICATIONS
+================================================================================
+
+FILE REQUIREMENTS
+-----------------
+  Dimensions:    1080px × 1080px (displayed at various smaller sizes)
+  File size:     < 5MB (WhatsApp compresses uploads)
+  Format:        PNG with transparent background recommended
+
+DESIGN RULES
+------------
+  • Use the ICON-ONLY logo centered on a solid background.
+  • Background color: Primary Green (#059669) or White (#FFFFFF).
+  • Ensure the icon is fully visible at 160px × 160px (WhatsApp chat view).
+  • Do NOT use the full wordmark—the icon must stand alone.
+  • Avoid fine lines or tiny details that will disappear at small sizes.
+
+EXAMPLE COMPOSITION
+-------------------
+  [ 1080×1080 canvas, filled with Primary Green ]
+  [ Icon-only logo centered, white fill, ~600px wide ]
+  [ No additional text or graphics ]
+
+================================================================================
+8. FILE NAMING CONVENTIONS
+================================================================================
+
+All logo files should follow this naming pattern:
+
+  JG_Mart_<Variation>_<Color>_<Format>_<Size>.<ext>
+
+Examples:
+  JG_Mart_Primary_Horizontal_Color_SVG.svg
+  JG_Mart_Primary_Horizontal_Reversed_PNG_120px.png
+  JG_Mart_IconOnly_Color_PNG_1080px.png
+  JG_Mart_Mono_Pantone_EPS.ai
+  JG_Mart_Secondary_Vertical_Color_SVG.svg
+
+Master files (editable vectors) live in:
+  /g/JGC Mart/JGC Mart - Hermes/02_Brand_Assets/MASTER/
+
+Exported raster files for specific use cases live in:
+  /g/JGC Mart/JGC Mart - Hermes/02_Brand_Assets/EXPORTS/<UseCase>/
+
+================================================================================
+9. BRAND COLLATERAL QUICK REFERENCE
+================================================================================
+
+ASSET                  FORMAT          SIZE / SPECS           LOCATION
+----------------------  --------------  ---------------------  -------------------
+Primary Logo           SVG/EPS         Vector                MASTER/
+Primary Logo           PNG             Transparent BG         EXPORTS/Web/
+Primary Logo           PNG             300 DPI, CMYK          EXPORTS/Print/
+Icon Only              PNG             1080×1080             EXPORTS/WhatsApp/
+Icon Only              ICO             16/32/48px            EXPORTS/Favicon/
+Monochrome             EPS             Pantone 348 C         EXPORTS/Print/
+Facebook Cover         PNG/JPG         820×312               EXPORTS/Social/
+Instagram Profile      PNG             1080×1080             EXPORTS/Social/
+WhatsApp Avatar        PNG             1080×1080             EXPORTS/WhatsApp/
+Business Card Back     PNG/EPS         85×55mm + bleed        EXPORTS/Print/
+Flyer Header           PNG/EPS         180mm wide + bleed     EXPORTS/Print/
+
+================================================================================
+END OF LOGO VARIATIONS GUIDE
+================================================================================

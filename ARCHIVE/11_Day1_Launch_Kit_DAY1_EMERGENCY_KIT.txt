@@ -1,0 +1,200 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║          JG MART — DAY 1 EMERGENCY KIT                                       ║
+║          Print this. Keep in your delivery bag. Every single day.             ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+WHAT'S IN THIS KIT:
+  • Emergency contacts (2 min to call)
+  • Offline order capture form (pen + paper backup)
+  • Payment dispute resolution script
+  • Monsoon / rain emergency actions
+  • Quick-reference unit economics
+  • Backup number cards (cut out and distribute)
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 1: EMERGENCY CONTACTS (WRITE THESE DOWN)
+═══════════════════════════════════════════════════════════════════════════════
+
+Fill these in with a pen. Keep in your wallet.
+
+  ┌──────────────────────────┬──────────────────────┬──────────────────────────┐
+  │ Role                     │ Name                 │ Phone                    │
+  ├──────────────────────────┼──────────────────────┼──────────────────────────┤
+  │ YOU (Fahad)              │ _______________      │ +8801870489448           │
+  │ Backup Rider 1           │ _______________      │ __________________       │
+  │ Backup Rider 2           │ _______________      │ __________________       │
+  │ Backup Phone Number      │ _______________      │ __________________       │
+  │ Backup Partner (Rice)    │ _______________      │ __________________       │
+  │ Backup Partner (Veg)     │ _______________      │ __________________       │
+  │ Backup Partner (Fish)    │ _______________      │ __________________       │
+  │ Backup Partner (Meat)    │ _______________      │ __________________       │
+  │ Building Committee C1    │ _______________      │ __________________       │
+  │ Building Committee C2    │ _______________      │ __________________       │
+  │ Building Committee C3    │ _______________      │ __________________       │
+  │ Building Committee C4    │ _______________      │ __________________       │
+  │ Nearest Hospital         │ _______________      │ __________________       │
+  │ bKash Helpline           │ 16247                │                         │
+  │ Police                   │ 999                  │                         │
+  └──────────────────────────┴──────────────────────┴──────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 2: OFFLINE ORDER CAPTURE (When WhatsApp is down)
+═══════════════════════════════════════════════════════════════════════════════
+
+If WhatsApp is down (banned, network issue, phone dies), use this form.
+Hand-write orders. Process when WhatsApp comes back.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  OFFLINE ORDER LOG                      Date: _______________                 │
+│                                           Slot: ☀️ Morning / 🌙 Evening       │
+├──────┬──────────┬────────┬──────────────┬────────┬────────┬───────┬──────────┤
+│  #   │ Customer │ Bldg   │ Items List   │ Total  │ Paid   │ Rider │ Sig      │
+├──────┼──────────┼────────┼──────────────┼────────┼────────┼───────┼──────────┤
+│  1   │          │        │              │        │ COD/bK │       │          │
+│  2   │          │        │              │        │ COD/bK │       │          │
+│  3   │          │        │              │        │ COD/bK │       │          │
+│  4   │          │        │              │        │ COD/bK │       │          │
+│  5   │          │        │              │        │ COD/bK │       │          │
+│  6   │          │        │              │        │ COD/bK │       │          │
+│  7   │          │        │              │        │ COD/bK │       │          │
+│  8   │          │        │              │        │ COD/bK │       │          │
+│  9   │          │        │              │        │ COD/bK │       │          │
+│ 10   │          │        │              │        │ COD/bK │       │          │
+├──────┴──────────┴────────┴──────────────┴────────┴────────┴───────┴──────────┤
+│  TOTAL: _______________ BDT    CASH: ____________    bKASH: ____________     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+HOW TO PROCESS OFFLINE ORDERS:
+  1. Keep this form in your pocket at all times
+  2. When customer messages and you can't reply, note their order
+  3. When WhatsApp comes back:
+     a. Message each customer: "Apologies! Had a network issue. Your order is noted."
+     b. Process each offline order normally
+     c. Mark as "OFFLINE" in your tracker
+  4. For COD orders: collect payment as usual
+  5. For bKash orders: request payment when WhatsApp comes back
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 3: PAYMENT DISPUTE RESOLUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+CUSTOMER SAYS "I ALREADY PAID" BUT YOU DON'T HAVE THE MONEY:
+
+  1. NEVER accuse the customer of lying
+  2. Say: "Let me check — sometimes bKash has a delay. Can you share the
+     transaction ID from your bKash app? I'll verify with bKash and get
+     back to you within 30 minutes."
+  3. Check your bKash app for the transaction
+  4. If found: apologize for the confusion, all good
+  5. If not found:
+     a. Ask customer to check their "Sent Money" history
+     b. If they show a screenshot with transaction ID, forward to bKash support (16247)
+     c. If they can't prove it: offer 50/50 split — "Let's split the difference.
+        Pay half now, I'll cover the rest."
+
+CUSTOMER HAS WRONG CHANGE FOR COD:
+
+  1. Always carry 500 BDT in small notes (20s and 50s)
+  2. If customer can't make exact change:
+     a. Accept what they have and note the difference
+     b. Message them later: "You still owe X BDT. You can send via bKash or
+        pay next time."
+  3. Never argue over small amounts (< 50 BDT) — absorb the loss
+
+BACKUP PHONE NUMBER (when primary WhatsApp is banned):
+
+  Primary: +8801870489448
+  Backup:  ___________________
+
+  If primary WhatsApp is banned:
+    1. Put backup SIM in phone
+    2. Message all building groups: "JG Mart has a new WhatsApp number.
+       Please save: [backup number]. Our primary is temporarily down."
+    3. Update all links, flyers, social media
+    4. File appeal with WhatsApp support
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 4: MONSOON / HEAVY RAIN PROTOCOL
+═══════════════════════════════════════════════════════════════════════════════
+
+BEFORE RAINY SEASON:
+  □ Buy 5 large waterproof delivery bags
+  □ Buy rider rain poncho + boot covers
+  □ Identify flooded routes on your delivery map
+  □ Keep spare dry clothes at the hub
+
+DURING RAIN:
+  1. Protect ALL orders with plastic wrap before leaving market
+  2. Message customers: "Heavy rain — deliveries may be 20-30 min late."
+  3. Never ride through water deeper than your bike's exhaust
+  4. If road is flooded: park and walk the last 100m
+  5. If customer refuses to come down in rain: leave at guard/reception,
+     take a photo, send to customer
+
+AFTER RAIN:
+  1. Check every delivery bag for water damage
+  2. If any items damaged: replace or refund (absorb the cost)
+  3. Dry all bags before next use
+  4. Log rain-related delays in your tracker
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 5: QUICK-REFERENCE UNIT ECONOMICS
+═══════════════════════════════════════════════════════════════════════════════
+
+For every order:
+
+  AOV:              ৳800
+  Commission (11%):  ৳88
+  Delivery Fee:      ৳30
+  =======================
+  JG Mart Revenue:  ৳118
+  + Subscription:   ৳20  (blended, 25%+ of customers)
+  =========================
+  Total Revenue:    ৳138
+  Cost to Serve:    ৳67
+  Contribution:     ৳71
+  Margin:           51%
+
+  BREAK-EVEN ORDERS: ~1,000/month
+  BREAK-EVEN REVENUE: ~৳138,000/month
+
+  5 orders/day = 30,000/month   |  10 orders/day = 60,000/month
+  20 orders/day = 120,000/month |  30 orders/day = 180,000/month
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 6: BACKUP NUMBER CARDS (Cut out, hand to 5 key customers)
+═══════════════════════════════════════════════════════════════════════════════
+
+┌────────────────────────────────────┐  ┌────────────────────────────────────┐
+│  JG MART — BACKUP CONTACT          │  │  JG MART — BACKUP CONTACT          │
+│                                    │  │                                    │
+│  If our main number is down,       │  │  If our main number is down,       │
+│  text me here:                     │  │  text me here:                     │
+│                                    │  │                                    │
+│  Name: Fahad Ibrahim               │  │  Name: Fahad Ibrahim               │
+│  Backup: ____________________      │  │  Backup: ____________________      │
+│                                    │  │                                    │
+│  Save this number today!          │  │  Save this number today!          │
+└────────────────────────────────────┘  └────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 7: WHAT TO DO IN THE FIRST 15 MINUTES OF ANY CRISIS
+═══════════════════════════════════════════════════════════════════════════════
+
+Minute 0-2: STOP. Breathe. Don't panic-message.
+Minute 2-5: IDENTIFY the problem type → which section above applies?
+Minute 5-10: EXECUTE the first 3 steps from that section
+Minute 10-15: INFORM affected customers (not all — just the ones who need to know)
+
+RULE OF THUMB:
+  • Any issue costing < 500 BDT total: absorb it, don't message anyone
+  • Any issue costing 500-2000 BDT: inform the affected customer, solve it
+  • Any issue costing 2000+ BDT: pause operations, call Fahad's backup,
+    solve it properly before resuming
+
+═══════════════════════════════════════════════════════════════════════════════
+
+"Every crisis is a customer service opportunity in disguise."
+"Resolve fast. Apologise once. Fix permanently. Move forward."
+
+═══ KEEP THIS KIT IN YOUR DELIVERY BAG AT ALL TIMES ═══

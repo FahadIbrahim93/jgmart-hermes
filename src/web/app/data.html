@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Data Manager</title>
+<meta name="theme-color" content="#00442D">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f0f2f0;color:#1a1a1a;max-width:900px;margin:0 auto;padding:12px}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.header h1{font-size:1.2rem;font-weight:800;color:#00442D}.header h1 span{color:#c9a227}
+.header .badge{font-size:.7rem;background:#e8f5ef;color:#0a6b47;padding:4px 10px;border-radius:999px;font-weight:600}
+.tabs{display:flex;gap:4px;margin-bottom:12px;overflow-x:auto}
+.tab{padding:8px 14px;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;background:#e8ece8;color:#5c5c5c;white-space:nowrap;border:none;transition:all .1s}
+.tab.active{background:#00442D;color:#fff}
+.tab .count{background:rgba(255,255,255,.2);padding:1px 6px;border-radius:999px;font-size:.65rem;margin-left:4px}
+.tab.active .count{background:rgba(255,255,255,.2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+@media(max-width:400px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:#fff;border-radius:8px;padding:10px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+.stat .num{font-size:1.3rem;font-weight:800;color:#00442D}.stat .lbl{font-size:.65rem;color:#5c5c5c;font-weight:500}
+.card{background:#fff;border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.03);display:none}
+.card.active{display:block}
+.card h2{font-size:.85rem;font-weight:700;color:#00442D;margin-bottom:8px}
+.form-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.form-row input,.form-row select{font-family:inherit;padding:8px 10px;border:1.5px solid #ddd;border-radius:8px;font-size:.8rem;flex:1;min-width:70px;background:#fff}
+.form-row button{background:#00442D;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.78rem;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:.78rem}
+th{text-align:left;padding:6px 4px;border-bottom:2px solid #00442D;color:#00442D;font-size:.68rem;text-transform:uppercase;letter-spacing:.03em;font-weight:700}
+td{padding:6px 4px;border-bottom:1px solid #eee}
+tr:last-child td{border-bottom:none}
+.action-btn{background:transparent;border:none;color:#c0392b;cursor:pointer;font-size:.75rem;padding:2px 6px;border-radius:4px}
+.action-btn:hover{background:#fce4e4}
+.edit-btn{background:transparent;border:none;color:#00442D;cursor:pointer;font-size:.75rem;padding:2px 6px;border-radius:4px}
+.edit-btn:hover{background:#e8f5ef}
+.tag{font-size:.6rem;padding:2px 6px;border-radius:999px;font-weight:600;white-space:nowrap}
+.tag-green{background:#e8f5ef;color:#0a6b47}.tag-gold{background:#fff8e1;color:#c9a227}.tag-red{background:#fce4e4;color:#c0392b}
+.empty{text-align:center;padding:20px;color:#5c5c5c;font-size:.82rem}
+.btn-group{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.btn{background:#00442D;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.78rem}
+.btn-outline{background:transparent;color:#00442D;border:1.5px solid #00442D;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.78rem}
+.btn-danger{background:#c0392b;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.78rem}
+.import-area{border:2px dashed #ddd;border-radius:12px;padding:24px;text-align:center;margin-top:8px;cursor:pointer}
+.import-area:hover{border-color:#00442D;background:#f7fbf8}
+.import-area input{display:none}
+.status-msg{font-size:.78rem;padding:8px 12px;border-radius:8px;margin-top:6px}
+.status-ok{background:#e8f5ef;color:#0a6b47}.status-err{background:#fce4e4;color:#c0392b}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div><h1>JG <span>Mart</span> · Data</h1></div>
+<span class="badge" id="lastSaved">Not saved yet</span>
+</div>
+
+<div class="stats" id="statsBar">
+<div class="stat"><div class="num" id="sCustomers">0</div><div class="lbl">Customers</div></div>
+<div class="stat"><div class="num" id="sPartners">0</div><div class="lbl">Partners</div></div>
+<div class="stat"><div class="num" id="sOrders">0</div><div class="lbl">Total Orders</div></div>
+<div class="stat"><div class="num" id="sProducts">47</div><div class="lbl">Products</div></div>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="switchTab('customers',this)">👥 Customers <span class="count" id="tabCust">0</span></button>
+<button class="tab" onclick="switchTab('partners',this)">🤝 Partners <span class="count" id="tabPart">0</span></button>
+<button class="tab" onclick="switchTab('settings',this)">⚙️ Settings</button>
+<button class="tab" onclick="switchTab('backup',this)">💾 Backup</button>
+</div>
+
+<div class="card active" id="tab-customers">
+<h2>👥 Customers</h2>
+<div class="form-row">
+<input type="text" id="cName" placeholder="Name" style="flex:2">
+<input type="text" id="cPhone" placeholder="Phone" style="flex:2">
+<select id="cBuilding"><option value="">Bldg</option></select>
+<input type="text" id="cFlat" placeholder="Flat" style="flex:1">
+<button onclick="addCustomer()">+ Add</button>
+</div>
+<table><thead><tr><th>Name</th><th>Phone</th><th>Bldg</th><th>Flat</th><th>Orders</th><th>Total</th><th></th></tr></thead><tbody id="customerTable"></tbody></table>
+<div class="empty" id="emptyCustomers">No customers yet. Add your first customer above.</div>
+</div>
+
+<div class="card" id="tab-partners">
+<h2>🤝 Partners</h2>
+<div class="form-row">
+<input type="text" id="pName" placeholder="Shop name" style="flex:2">
+<select id="pCategory">
+<option value="">Category</option>
+<option>Rice & Dal</option><option>Oil & Spices</option><option>Vegetables</option>
+<option>Fish</option><option>Meat</option><option>Dairy & Eggs</option>
+<option>Fruits</option><option>FMCG</option><option>Beverages</option><option>Snacks</option>
+</select>
+<input type="text" id="pPhone" placeholder="Phone" style="flex:2">
+<input type="number" id="pCommission" placeholder="Comm %" style="flex:1" min="0" max="30" step="0.5">
+<button onclick="addPartner()">+ Add</button>
+</div>
+<table><thead><tr><th>Name</th><th>Category</th><th>Phone</th><th>Comm%</th><th>Orders</th><th>Rating</th><th></th></tr></thead><tbody id="partnerTable"></tbody></table>
+<div class="empty" id="emptyPartners">No partners yet. Add your first Krishi Market partner above.</div>
+</div>
+
+<div class="card" id="tab-settings">
+<h2>⚙️ Business Settings</h2>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">AOV (BDT)</label>
+<input type="number" id="sAOV" value="800" style="flex:2">
+</div>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">Commission %</label>
+<input type="number" id="sCommission" value="11" style="flex:2" step="0.5">
+</div>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">Delivery Fee (BDT)</label>
+<input type="number" id="sDelivery" value="30" style="flex:2">
+</div>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">Cost per Order (BDT)</label>
+<input type="number" id="sCost" value="67" style="flex:2">
+</div>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">WhatsApp Number</label>
+<input type="text" id="sWA" value="+8801870489448" style="flex:2">
+</div>
+<div class="form-row">
+<label style="flex:1;font-size:.78rem;color:#5c5c5c">Seed Capital (BDT)</label>
+<input type="number" id="sSeed" value="250000" style="flex:2">
+</div>
+<button class="btn" onclick="saveSettings()">💾 Save Settings</button>
+</div>
+
+<div class="card" id="tab-backup">
+<h2>💾 Export / Import All Data</h2>
+<p style="font-size:.78rem;color:#5c5c5c;margin-bottom:8px">Export all customers, partners, and settings as a single JSON file. Import to restore data on any device.</p>
+<div class="btn-group">
+<button class="btn" onclick="exportAll()">📤 Export All Data</button>
+<button class="btn-outline" onclick="document.getElementById('importFile').click()">📥 Import Data</button>
+<input type="file" id="importFile" accept=".json" onchange="importAll(event)" style="display:none">
+<button class="btn-danger" onclick="if(confirm('Delete ALL data?'))clearAll()">🗑 Clear All</button>
+</div>
+<div class="import-area" onclick="document.getElementById('importFile').click()">
+📥 Drop a backup .json file here or click to select<br>
+<small style="color:#999">All data will be restored from the file</small>
+</div>
+<div id="backupStatus"></div>
+</div>
+
+<script>
+const DB_KEY = 'jgmart_data';
+
+function getDefaultData(){
+return {
+customers:[],
+partners:[],
+settings:{
+aov:800,commission:11,deliveryFee:30,costPerOrder:67,
+whatsapp:"+8801870489448",seedCapital:250000
+},
+totalOrders:0
+};
+}
+
+let data = JSON.parse(localStorage.getItem(DB_KEY));
+if(!data || !data.customers){
+data = getDefaultData();
+save();
+}
+
+function save(){
+localStorage.setItem(DB_KEY, JSON.stringify(data));
+const now = new Date();
+document.getElementById('lastSaved').textContent = `Saved ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+renderAll();
+}
+
+function renderAll(){
+renderStats();
+renderCustomers();
+renderPartners();
+loadSettings();
+}
+
+function renderStats(){
+document.getElementById('sCustomers').textContent = data.customers.length;
+document.getElementById('sPartners').textContent = data.partners.length;
+document.getElementById('sOrders').textContent = data.totalOrders||0;
+document.getElementById('tabCust').textContent = data.customers.length;
+document.getElementById('tabPart').textContent = data.partners.length;
+}
+
+// ========= CUSTOMERS =========
+function renderCustomers(){
+const tbody = document.getElementById('customerTable');
+const empty = document.getElementById('emptyCustomers');
+if(data.customers.length===0){
+tbody.innerHTML=''; empty.style.display='block'; return;
+}
+empty.style.display='none';
+tbody.innerHTML = data.customers.map((c,i) =>
+`<tr><td>${c.name}</td><td>${c.phone||'—'}</td><td>${c.building||'—'}</td>
+<td>${c.flat||'—'}</td><td>${c.orders||0}</td><td>৳${(c.total||0).toLocaleString()}</td>
+<td><button class="edit-btn" onclick="editCustomer(${i})">✎</button>
+<button class="action-btn" onclick="deleteCustomer(${i})">✕</button></td></tr>`
+).join('');
+}
+
+function addCustomer(){
+const name = document.getElementById('cName').value.trim();
+const phone = document.getElementById('cPhone').value.trim();
+const building = document.getElementById('cBuilding').value;
+const flat = document.getElementById('cFlat').value.trim();
+if(!name){alert('Name is required');return;}
+data.customers.push({name,phone,building,flat,orders:0,total:0,joined:new Date().toISOString().slice(0,10)});
+document.getElementById('cName').value='';
+document.getElementById('cPhone').value='';
+document.getElementById('cFlat').value='';
+save();
+}
+
+function deleteCustomer(i){
+data.customers.splice(i,1);
+save();
+}
+
+function editCustomer(i){
+const c = data.customers[i];
+const name = prompt('Name:',c.name);
+if(!name)return;
+const phone = prompt('Phone:',c.phone||'');
+const building = prompt('Building:',c.building||'');
+const flat = prompt('Flat:',c.flat||'');
+data.customers[i] = {...c, name, phone, building, flat};
+save();
+}
+
+// ========= PARTNERS =========
+function renderPartners(){
+const tbody = document.getElementById('partnerTable');
+const empty = document.getElementById('emptyPartners');
+if(data.partners.length===0){
+tbody.innerHTML=''; empty.style.display='block'; return;
+}
+empty.style.display='none';
+tbody.innerHTML = data.partners.map((p,i) =>
+`<tr><td>${p.name}</td><td><span class="tag tag-green">${p.category||'—'}</span></td>
+<td>${p.phone||'—'}</td><td>${p.commission||0}%</td><td>${p.orders||0}</td>
+<td>${p.rating? '★'.repeat(Math.round(p.rating))+'☆'.repeat(5-Math.round(p.rating)) : '—'}</td>
+<td><button class="edit-btn" onclick="editPartner(${i})">✎</button>
+<button class="action-btn" onclick="deletePartner(${i})">✕</button></td></tr>`
+).join('');
+}
+
+function addPartner(){
+const name = document.getElementById('pName').value.trim();
+const category = document.getElementById('pCategory').value;
+const phone = document.getElementById('pPhone').value.trim();
+const commission = parseFloat(document.getElementById('pCommission').value)||0;
+if(!name){alert('Shop name is required');return;}
+data.partners.push({name,category,phone,commission,orders:0,rating:0,joined:new Date().toISOString().slice(0,10)});
+document.getElementById('pName').value='';
+document.getElementById('pPhone').value='';
+document.getElementById('pCommission').value='';
+save();
+}
+
+function deletePartner(i){
+data.partners.splice(i,1);
+save();
+}
+
+function editPartner(i){
+const p = data.partners[i];
+const name = prompt('Shop name:',p.name);
+if(!name)return;
+const phone = prompt('Phone:',p.phone||'');
+const comm = prompt('Commission %:',p.commission);
+data.partners[i] = {...p, name, phone, commission:parseFloat(comm)||p.commission};
+save();
+}
+
+// ========= SETTINGS =========
+function loadSettings(){
+document.getElementById('sAOV').value = data.settings.aov;
+document.getElementById('sCommission').value = data.settings.commission;
+document.getElementById('sDelivery').value = data.settings.deliveryFee;
+document.getElementById('sCost').value = data.settings.costPerOrder;
+document.getElementById('sWA').value = data.settings.whatsapp;
+document.getElementById('sSeed').value = data.settings.seedCapital;
+// Populate building dropdown
+const sel = document.getElementById('cBuilding');
+if(sel.options.length<=1){
+for(let i=1;i<=27;i++){
+const opt = document.createElement('option');
+opt.value = `B${i}`; opt.textContent = `Bldg ${i}`;
+sel.appendChild(opt);
+}
+}
+}
+
+function saveSettings(){
+data.settings.aov = parseInt(document.getElementById('sAOV').value)||800;
+data.settings.commission = parseFloat(document.getElementById('sCommission').value)||11;
+data.settings.deliveryFee = parseInt(document.getElementById('sDelivery').value)||30;
+data.settings.costPerOrder = parseInt(document.getElementById('sCost').value)||67;
+data.settings.whatsapp = document.getElementById('sWA').value.trim()||'+8801870489448';
+data.settings.seedCapital = parseInt(document.getElementById('sSeed').value)||250000;
+save();
+document.getElementById('backupStatus').innerHTML = '<div class="status-msg status-ok">✅ Settings saved</div>';
+setTimeout(()=>document.getElementById('backupStatus').innerHTML='',2000);
+}
+
+// ========= BACKUP =========
+function exportAll(){
+const blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+const a = document.createElement('a');
+a.href = URL.createObjectURL(blob);
+a.download = `jgmart_data_${new Date().toISOString().slice(0,10)}.json`;
+a.click();
+document.getElementById('backupStatus').innerHTML = '<div class="status-msg status-ok">✅ Data exported successfully</div>';
+}
+
+function importAll(event){
+const file = event.target.files[0];
+if(!file)return;
+const reader = new FileReader();
+reader.onload = function(e){
+try{
+const imported = JSON.parse(e.target.result);
+if(!imported.customers || !imported.partners){
+throw new Error('Invalid data format');
+}
+const custCount = imported.customers.length;
+const partCount = imported.partners.length;
+if(confirm(`Import ${custCount} customers and ${partCount} partners? This will OVERWRITE current data.`)){
+data = imported;
+save();
+document.getElementById('backupStatus').innerHTML = `<div class="status-msg status-ok">✅ Imported ${custCount} customers, ${partCount} partners</div>`;
+}
+}catch(err){
+document.getElementById('backupStatus').innerHTML = `<div class="status-msg status-err">❌ Import failed: ${err.message}</div>`;
+}
+};
+reader.readAsText(file);
+event.target.value='';
+}
+
+function clearAll(){
+data = getDefaultData();
+save();
+document.getElementById('backupStatus').innerHTML = '<div class="status-msg status-err">🗑 All data cleared</div>';
+}
+
+function switchTab(id, btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+document.getElementById(`tab-${id}`).classList.add('active');
+}
+
+renderAll();
+</script>
+</body>
+</html>

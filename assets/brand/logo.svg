@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00442D"/>
+      <stop offset="100%" style="stop-color:#063d2a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9a227"/>
+      <stop offset="100%" style="stop-color:#d4a829"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" rx="20" fill="url(#bg)"/>
+  <rect x="20" y="20" width="80" height="80" rx="16" fill="url(#gold)"/>
+  <path d="M40 50 L80 50 L80 80 Q60 90 40 80 Z" fill="#00442D"/>
+  <path d="M45 40 Q60 35 75 40 L70 50 L50 50 Z" fill="#fff"/>
+  <text x="115" y="65" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="800" fill="#fff">JG</text>
+  <text x="115" y="90" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,.8)">Mart</text>
+  <line x1="20" y1="120" x2="380" y2="120" stroke="url(#gold)" stroke-width="2" opacity=".5"/>
+  <text x="200" y="145" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" fill="url(#gold)" text-anchor="middle" letter-spacing="3">FRESH GROCERIES, DELIVERED</text>
+</svg>

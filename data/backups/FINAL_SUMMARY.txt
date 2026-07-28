@@ -1,0 +1,239 @@
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                     JG MART — COMPLETE SYSTEM DOCUMENTATION                      ║
+║                        The Single Source of Truth for Everything                  ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+═══ 1. SYSTEM OVERVIEW ═══
+
+  Business:  JG Mart — Hyperlocal Grocery Delivery
+  Location:  Japan Garden City, Mohammadpur, Dhaka
+  Founder:   Fahad Ibrahim
+  WhatsApp:  +8801870489448
+  Seed Ask:  BDT 250,000
+
+  Toolkit:   ~108 files · ~1.7 MB · 14 web apps · 12 folders · 4 Python scripts
+
+═══ 2. FILE MAP (12 Folders + Root) ═══
+
+  📁 01_Investor_Deck/       (7 files)
+    INVESTOR_1PAGER.txt, EXECUTIVE_SUMMARY.txt, PITCH_DECK_OUTLINE.txt,
+    PITCH_SCRIPT_3MIN.txt, INVESTOR_FAQ.txt, PITCH_COACHING_GUIDE.txt,
+    PRD_EXTRACTED.txt
+
+  📁 02_Brand_Assets/        (3+ files)
+    BRAND_GUIDELINES.txt, LOGO_VARIATIONS_GUIDE.txt, logo.svg,
+    logo_icon.svg
+
+  📁 03_Legal_Templates/     (5 files)
+    PARTNER_AGREEMENT.txt, CUSTOMER_TERMS_OF_SERVICE.txt,
+    RECEIPT_TEMPLATE.txt, PRIVACY_POLICY.txt, FOOD_SAFETY_POLICY.txt
+
+  📁 04_Operations/          (7+ files)
+    ENHANCED_SOP_MANUAL.txt, OPERATIONS_PLAYBOOK.txt,
+    RIDER_TRAINING_GUIDE.txt, MONSOON_PLAYBOOK.txt,
+    MORNING_ROUTINE_CHECKLIST.txt, SAFETY_NET_CONTINGENCY.txt,
+    WHATSAPP_API_MIGRATION_PLAN.txt
+
+  📁 05_Tech_Dashboard/      (9+ HTML apps)
+    index.html (KPI Dashboard), analytics.html (Weekly Analytics),
+    orders.html (Order Tracker), finance.html (Finance Dashboard),
+    dailypnl.html (Daily P&L), commlog.html (Communications Log),
+    backup.html (Master Backup), sample_data.json, README.txt
+
+  📁 06_Web_Catalog/         (6 files)
+    index.html (Customer Catalog), order_intake.html,
+    catalog_data.json, manifest.json, favicon.svg, README.txt
+
+  📁 07_Marketing/           (6+ files)
+    WHATSAPP_BATTLE_CARDS.txt, LAUNCH_ANNOUNCEMENT_COPY.txt,
+    WHATSAPP_BROADCAST_TEMPLATES.txt, SOCIAL_MEDIA_CALENDAR.txt,
+    FLYER_DESIGN_SPEC.txt, REFERRAL_PROGRAM_GUIDE.txt, landing.html
+
+  📁 08_Financials/          (8+ files)
+    PROFIT_LOSS_STATEMENT.csv, PROJECTION_6MONTH.csv,
+    BREAK_EVEN_ANALYSIS.csv, USE_OF_FUNDS.csv,
+    RUNWAY_CALCULATOR.csv, UNIT_ECONOMICS_CALCULATOR.csv,
+    ENHANCED_FINANCIAL_TRACKER.csv, INVESTOR_FINANCIALS_SUMMARY.txt,
+    financial_model.xlsx
+
+  📁 09_Data_Export/         (4+ Python scripts, launch outputs)
+    launch_automation.py, drive_sync.py, auto_deploy.py,
+    daily_summary.py, sync_bridge.py, validate_toolkit.py
+
+  📁 10_Launch_Readiness/    (7 files)
+    LAUNCH_READINESS_CHECKLIST.txt, PARTNER_OUTREACH_PLAYBOOK.txt,
+    DAILY_HUDDLE_TEMPLATE.txt, CUSTOMER_ONBOARDING_FLOW.txt,
+    COMPETITOR_INTELLIGENCE.txt, JGC_COMMUNITY_REFERENCE.txt,
+    WEEK1_REPORT_TEMPLATE.txt
+
+  📁 11_Day1_Launch_Kit/     (2 files)
+    DAY1_LAUNCH_KIT.txt, DAY1_EMERGENCY_KIT.txt
+
+  📁 12_Templates/           (10+ files)
+    CUSTOMER_DATABASE.csv, RIDER_DAILY_LOG.txt,
+    PRODUCT_PRICING.csv, SUPPLIER_DATABASE.csv,
+    DAILY_PRICE_CHECKLIST.txt, SUPPLIER_AGREEMENT_QUICK.txt,
+    PARTNER_CARD_AND_ORDER_LOG.txt, REFERRAL_TRACKER.csv,
+    GOOGLE_SHEETS_IMPORT.txt, supplier_scorecard.html
+
+  📁 ROOT                    (15 files)
+    start.html — Startup Wizard (open FIRST)
+    ops.html — Operations Dashboard (open DAILY)
+    data.html — Central Data Manager
+    field_ops.html — Mobile Field Ops
+    index.html — Command Center (hub for everything)
+    health.html — Toolkit Health Dashboard
+    theme.css — Unified Design System
+    LAUNCH_CENTER.bat — Windows menu launcher
+    QUICK_START.txt — 7-day launch plan
+    READY_TO_LAUNCH.txt — 3-page go-live checklist
+    FIRST_DAY_CHEATSHEET.txt — 10 min / hour / day reference
+    BUSINESS_CONTINUITY_KIT.txt — USB backup instructions
+    README.txt, MASTER_INDEX.txt, VALIDATION_REPORT.txt,
+    ROADMAP_COMPLETE.txt
+
+═══ 3. THE 14 WEB APPS ═══
+
+  ┌─────┬──────────────────────┬────────────────────────────────────────┐
+  │  #  │ App                  │ When to use                            │
+  ├─────┼──────────────────────┼────────────────────────────────────────┤
+  │  1  │ start.html           │ FIRST TIME — 5-min setup wizard       │
+  │  2  │ ops.html             │ EVERY MORNING — daily HQ              │
+  │  3  │ data.html            │ Add customers/partners + backup       │
+  │  4  │ field_ops.html       │ ON PHONE — at Krishi Market           │
+  │  5  │ index.html           │ Command Center — hub for everything   │
+  │  6  │ health.html          │ Verify all apps are working            │
+  │  7  │ 05/orders.html       │ Track every order lifecycle           │
+  │  8  │ 05/dailypnl.html     │ Evening — enter today's numbers       │
+  │  9  │ 05/finance.html      │ Evening — check P&L and cash          │
+  │ 10  │ 05/analytics.html    │ Weekly — growth trends                │
+  │ 11  │ 05/commlog.html      │ Customer interactions log             │
+  │ 12  │ 05/backup.html       │ Master backup of ALL apps             │
+  │ 13  │ 06/index.html        │ Customer catalog (share this!)        │
+  │ 14  │ 06/order_intake.html │ Calculate order totals                │
+  └─────┴──────────────────────┴────────────────────────────────────────┘
+
+═══ 4. THE 4 PYTHON SCRIPTS ═══
+
+  │ 09/launch_automation.py   │ Generate daily checklists              │
+  │ 09/auto_deploy.py         │ Deploy apps to Vercel/Netlify          │
+  │ 09/drive_sync.py          │ Sync to Google Drive via rclone        │
+  │ 09/daily_summary.py       │ Generate daily summary reports         │
+  │ 09/sync_bridge.py         │ Sync data across all apps              │
+  │ 09/validate_toolkit.py    │ Full toolkit validation                │
+
+═══ 5. UNIT ECONOMICS (PER ORDER) ═══
+
+  AOV:              ৳800
+  Commission (11%):  ৳88
+  Delivery Fee:      ৳30
+  Subscription:      ৳20 (blended)
+  ─────────────────────────
+  JG Mart Revenue:  ৳138
+
+  Variable Costs:   ৳67  (31 rider + 16 manager + 13 marketing + 7 packaging)
+  ─────────────────────────
+  Contribution:     ৳71  (51% margin)
+
+═══ 6. 90-DAY TARGETS ═══
+
+  Month 1: 100 customers · 300 orders ·  ৳41,400 revenue · (৳22,100) loss
+  Month 2: 200 customers · 900 orders · ৳124,200 revenue · (৳7,300) loss
+  Month 3: 350 customers · 1,650 orders · ৳227,700 revenue · ৳14,950 profit
+
+  Break-even: ~1,000 orders/month at ৳71 contribution
+
+═══ 7. LOCALSTORAGE KEYS (Data Storage) ═══
+
+  All apps store data in browser localStorage. Key names:
+
+  jgmart_data          — Central Data Manager (customers, partners, settings)
+  jgmart_finance       — Finance Dashboard
+  jgmart_orders        — Order Tracker
+  jgmart_analytics     — Weekly Analytics
+  jgmart_cart          — Customer Catalog cart
+  jgmart_lang          — Language preference
+  jgmart_launch_checks — Command Center checklist
+  jgmart_pnl           — Daily P&L entries
+  jgmart_fixed_costs   — Daily P&L cost settings
+  jgcmart_commlog      — Communications Log
+  jgmart_suppliers     — Supplier Scorecard
+  wizard_customers     — Startup Wizard
+  wizard_partners      — Startup Wizard
+  wizard_biz           — Startup Wizard
+  wizard_econ          — Startup Wizard
+
+  ⚠️ DATA IS IN YOUR BROWSER. Export regularly from data.html or backup.html!
+
+═══ 8. DAILY ROUTINE (10 min) ═══
+
+  MORNING (6:00-6:10, on phone):
+    field_ops.html → check partners, route, prices
+
+  DURING DAY:
+    orders.html → track orders as they come in
+    data.html → add new customers
+    commlog.html → log interactions
+
+  EVENING (8:00-8:10, on laptop):
+    dailypnl.html → enter numbers → auto-calculates P&L
+    finance.html → update cash position
+    data.html → Export All Data → SAVE THE JSON FILE
+    backup.html → Backup All → SAVE THE BACKUP FILE
+
+═══ 9. KEY SCRIPTS ═══
+
+  python 09/launch_automation.py --task all --day 1   # Generate day 1 checklist
+  python 09/auto_deploy.py --catalog --vercel           # Deploy catalog to web
+  python 09/daily_summary.py --today                   # Today's report
+  python 09/validate_toolkit.py                         # Check all files
+  python 09/drive_sync.py --upload                     # Backup to Google Drive
+
+═══ 10. PRINT THESE (Keep in your bag) ═══
+
+  □ FIRST_DAY_CHEATSHEET.txt — First 10 min / hour / day
+  □ DAY1_EMERGENCY_KIT.txt — Crisis response + offline forms
+  □ MORNING_ROUTINE_CHECKLIST.txt — Daily playbook
+  □ READY_TO_LAUNCH.txt — 3-page go-live checklist
+  □ PARTNER_CARD_AND_ORDER_LOG.txt — Business card + delivery log
+  □ COMMAND_CENTER.txt — Full daily workflow
+
+═══ 11. DEPLOY TO THE INTERNET ═══
+
+  To make your apps live (share links with customers):
+
+  Option A: Drag to Vercel (easiest)
+    1. Go to vercel.com
+    2. Drag 06_Web_Catalog/ folder → deployed (customer catalog)
+    3. Drag 05_Tech_Dashboard/ folder → deployed (your dashboard)
+
+  Option B: CLI (auto_deploy.py has vercel.json ready)
+    python 09/auto_deploy.py --catalog --vercel
+    python 09/auto_deploy.py --dashboard --vercel
+
+═══ 12. BACKUP PLAN ═══
+
+  Daily: Export data from data.html (30 seconds)
+  Weekly: Copy entire folder to USB drive
+  Monthly: Create dated ZIP archive
+
+═══ 13. FINAL WORDS ═══
+
+  This toolkit contains everything needed to start, run, and grow JG Mart.
+  108+ files. 14 apps. Zero external dependencies. One founder.
+
+  The only thing left is execution.
+
+  Launch day checklist:
+  □ bKash merchant account started (3-5 days processing)
+  □ WhatsApp Business profile set up
+  □ 3 Krishi Market partners signed
+  □ Catalog deployed to Vercel
+  □ Emergency kit printed and filled
+  □ First customer order processed
+
+  "You don't need perfection. You need progress.
+   One order at a time. One customer at a time. One day at a time."
+
+  — Hermes Agent · July 2026
+  G:\JGC Mart\JGC Mart - Hermes\

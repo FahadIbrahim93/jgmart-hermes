@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Investor Demo</title>
+<meta name="theme-color" content="#00442D">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f1a14;color:#e0e8e3;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+.demo{max-width:600px;width:100%;background:#1a2a22;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;animation:fadeIn .4s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.top{background:linear-gradient(135deg,#00442D,#063d2a);padding:24px;text-align:center}
+.top h1{font-size:1.4rem;font-weight:800;color:#fff}.top h1 span{color:#c9a227}
+.top p{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:4px}
+.progress{display:flex;gap:4px;padding:0 20px;margin-top:12px}
+.prog{flex:1;height:3px;border-radius:999px;background:rgba(255,255,255,.15)}
+.prog.active{background:#c9a227}.prog.done{background:#00442D}
+.body{padding:24px}
+.screen{display:none}.screen.active{display:block}
+.screen h2{font-size:1.1rem;color:#c9a227;margin-bottom:8px;font-weight:700}
+.screen p{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:14px}
+.card{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px}
+.card .label{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.03em}
+.card .value{font-size:1.2rem;font-weight:700;color:#c9a227;margin-top:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.stat{text-align:center;background:rgba(255,255,255,.05);border-radius:10px;padding:12px}
+.stat .num{font-size:1.3rem;font-weight:700;color:#c9a227}.stat .lbl{font-size:.7rem;color:rgba(255,255,255,.4)}
+.bar{border-radius:6px;overflow:hidden;margin:6px 0;height:20px;background:rgba(255,255,255,.08)}
+.bar-fill{height:100%;background:#c9a227;border-radius:6px}
+.bottom{display:flex;justify-content:space-between;align-items:center;padding:12px 24px 20px}
+.btn{background:#c9a227;color:#1a1a1a;border:none;padding:10px 24px;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.9}
+.btn-out{background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);padding:8px 16px;border-radius:8px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.dots{display:flex;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15)}.dot.active{background:#c9a227}.dot.done{background:#00442D}
+</style>
+</head>
+<body>
+<div class="demo">
+<div class="top">
+<h1>JG <span>Mart</span></h1>
+<p>Investor Demo · 2-minute tour</p>
+<div class="progress" id="progress"><div class="prog active"></div><div class="prog"></div><div class="prog"></div><div class="prog"></div><div class="prog"></div><div class="prog"></div></div>
+</div>
+<div class="body">
+<div class="screen active" id="s1">
+<h2>📊 Business Overview</h2>
+<p>Hyperlocal grocery delivery for Japan Garden City, Dhaka — 1,700 families, zero grocery stores.</p>
+<div class="grid2">
+<div class="stat"><div class="num">1,700</div><div class="lbl">Families in JGC</div></div>
+<div class="stat"><div class="num">800m</div><div class="lbl">From Krishi Market</div></div>
+<div class="stat"><div class="num">27</div><div class="lbl">Buildings</div></div>
+<div class="stat"><div class="num">4</div><div class="lbl">Delivery Clusters</div></div>
+</div>
+<div class="card"><div class="label">Unit Economics (per order)</div><div class="value">Revenue ৳138 · Cost ৳67 · Profit ৳71 · 51% Margin</div></div>
+<div class="card"><div class="label">Seed Ask</div><div class="value">BDT 250,000</div></div>
+</div>
+<div class="screen" id="s2">
+<h2>📈 Growth Trajectory</h2>
+<p>Month 1 → 3: from 100 customers and 300 orders to 350 customers and 1,650 orders.</p>
+<div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Month 1</span><span>100 customers</span></div><div class="bar"><div class="bar-fill" style="width:18%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>Month 2</span><span>200 customers</span></div><div class="bar"><div class="bar-fill" style="width:36%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>Month 3</span><span>350 customers</span></div><div class="bar"><div class="bar-fill" style="width:64%"></div></div></div>
+<div class="grid2">
+<div class="stat"><div class="num">1,650</div><div class="lbl">Orders (Month 3)</div></div>
+<div class="stat"><div class="num">৳228K</div><div class="lbl">Revenue (Month 3)</div></div>
+</div>
+</div>
+<div class="screen" id="s3">
+<h2>💰 Use of Funds</h2>
+<p>BDT 250,000 seed allocation — every taka accounted for.</p>
+<div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>📋 Rider Salary (6mo)</span><span>৳72,000</span></div><div class="bar"><div class="bar-fill" style="width:29%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>📋 Manager Support (6mo)</span><span>৳72,000</span></div><div class="bar"><div class="bar-fill" style="width:29%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>📢 Marketing & Referrals</span><span>৳50,000</span></div><div class="bar"><div class="bar-fill" style="width:20%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>💵 Working Capital</span><span>৳50,000</span></div><div class="bar"><div class="bar-fill" style="width:20%"></div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:4px;margin-top:8px"><span>🛠️ Equipment</span><span>৳6,000</span></div><div class="bar"><div class="bar-fill" style="width:2%"></div></div></div>
+</div>
+<div class="screen" id="s4">
+<h2>📊 Financial Projections</h2>
+<p>Path to profitability by Month 3.</p>
+<div class="card"><div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:6px;color:rgba(255,255,255,.6)"><span>Metric</span><span>M1</span><span>M2</span><span>M3</span></div>
+<div style="display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>Customers</span><span>100</span><span>200</span><span>350</span></div>
+<div style="display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>Orders</span><span>300</span><span>900</span><span>1,650</span></div>
+<div style="display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)"><span>Revenue</span><span>৳41K</span><span>৳124K</span><span>৳228K</span></div>
+<div style="display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0"><span style="color:#c9a227;font-weight:700">Net Profit</span><span style="color:#e74c3c">(৳22K)</span><span style="color:#e74c3c">(৳7K)</span><span style="color:#2ecc71">৳15K</span></div></div>
+<div class="card"><div class="label">Break-even achieved: Month 3</div></div>
+</div>
+<div class="screen" id="s5">
+<h2>🎯 The Opportunity</h2>
+<p>Why invest in JG Mart?</p>
+<div class="card"><div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="font-size:1.2rem">📍</span><div><strong style="color:#c9a227">Hyperlocal Advantage</strong><br><span style="font-size:.8rem;color:rgba(255,255,255,.5)">800m from source vs Chaldal's 5km+. 90-min delivery vs 3+ hours.</span></div></div>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="font-size:1.2rem">💰</span><div><strong style="color:#c9a227">Capital Efficient</strong><br><span style="font-size:.8rem;color:rgba(255,255,255,.5)">No warehouse. No inventory. No app. Zero capital tied up in stock.</span></div></div>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><span style="font-size:1.2rem">🤝</span><div><strong style="color:#c9a227">Community Trust</strong><br><span style="font-size:.8rem;color:rgba(255,255,255,.5)">Founder is a JGC resident. Closed community service. Not an app — a neighbour.</span></div></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="font-size:1.2rem">📈</span><div><strong style="color:#c9a227">Scalable Model</strong><br><span style="font-size:.8rem;color:rgba(255,255,255,.5)">80+ residential enclaves in Dhaka with the same problem. Repeatable playbook.</span></div></div></div>
+</div>
+<div class="screen" id="s6">
+<h2>📋 Investment Terms</h2>
+<p>Simple, transparent, aligned with founders.</p>
+<div class="grid2">
+<div class="stat"><div class="num">BDT 2.5L</div><div class="lbl">Seed Ask</div></div>
+<div class="stat"><div class="num">BDT 8Cr</div><div class="lbl">Valuation Cap</div></div>
+<div class="stat"><div class="num">SAFE</div><div class="lbl">Instrument</div></div>
+<div class="stat"><div class="num">5-10x</div><div class="lbl">Expected Return (24-36mo)</div></div>
+</div>
+<div class="card" style="text-align:center;margin-top:8px">
+<p style="color:#c9a227;font-weight:700;margin-bottom:4px">Fahad Ibrahim · Founder</p>
+<p style="font-size:.78rem;color:rgba(255,255,255,.4)">+8801870489448 · fahad@jgmart.com</p>
+<p style="font-size:.78rem;color:rgba(255,255,255,.4)">Japan Garden City, Mohammadpur, Dhaka</p>
+</div>
+</div>
+</div>
+<div class="bottom">
+<button class="btn-out" onclick="prev()">← Back</button>
+<div class="dots" id="dots"></div>
+<button class="btn" onclick="next()" id="nextBtn">Next →</button>
+</div>
+</div>
+<script>
+let step = 1;
+const total = 6;
+function render(){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(`s${step}`).classList.add('active');
+document.querySelectorAll('.prog').forEach((p,i)=>{p.className='prog';if(i+1<step)p.classList.add('done');else if(i+1===step)p.classList.add('active');});
+document.getElementById('nextBtn').textContent = step === total ? '🎉 Done' : 'Next →';
+const dots = document.getElementById('dots');
+dots.innerHTML = '';
+for(let i=1;i<=total;i++){const d=document.createElement('span');d.className=`dot${i===step?' active':''}${i<step?' done':''}`;d.onclick=()=>{step=i;render();};dots.appendChild(d);}
+}
+function next(){if(step<total){step++;render();}else{document.querySelector('.demo').innerHTML='<div style="text-align:center;padding:60px 24px"><div style="font-size:3rem;margin-bottom:12px">🚀</div><h2 style="color:#c9a227;margin-bottom:8px">Thank you!</h2><p style="color:rgba(255,255,255,.6);margin-bottom:20px">JG Mart is ready for investment. Let\'s talk.</p><a href="01_Investor_Deck/INVESTOR_1PAGER.txt" style="display:inline-block;background:#c9a227;color:#1a1a1a;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none">📄 View Investor 1-Pager</a><br><br><button class="btn-out" onclick="step=1;location.reload()">🔄 Restart Demo</button></div>';}}
+function prev(){if(step>1){step--;render();}}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# robots.txt for JG Mart — Hyperlocal Grocery Delivery
+# Japan Garden City, Mohammadpur, Dhaka
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jgmart.bd/sitemap.xml
+
+# Crawl-delay: 1 (optional — be gentle to the server)
+Crawl-delay: 1

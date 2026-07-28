@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="220" viewBox="0 0 300 220">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(30)">
+      <stop offset="0%" style="stop-color:#FFF3E0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFCC80;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="220" fill="url(#g)" rx="8"/>
+  <path d="M100,65 L100,175 L195,175 L195,65 Z" fill="#FFF" opacity="0.9"/>
+  <path d="M100,65 L120,40 L175,40 L195,65 Z" fill="#FFF8E1" opacity="0.85"/>
+  <path d="M147,40 L147,65" fill="#FFCC80" opacity="0.6"/>
+  <path d="M110,90 L110,155 L185,155 L185,90 Z" fill="#FFF3E0" opacity="0.5"/>
+  <path d="M130,105 L130,140 L165,140 L165,105 Z" fill="#FFB74D" opacity="0.3"/>
+  <path d="M55,140 A22,28 0 1,1 55,196 A22,28 0 1,1 55,140" fill="#FFFEF5" opacity="0.9"/>
+  <path d="M50,155 A6,8 0 1,1 50,171 A6,8 0 1,1 50,155" fill="#FFF" opacity="0.5"/>
+  <path d="M240,150 A18,24 0 1,1 240,198 A18,24 0 1,1 240,150" fill="#FFFEF5" opacity="0.85"/>
+  <path d="M236,162 A4,6 0 1,1 236,174 A4,6 0 1,1 236,162" fill="#FFF" opacity="0.5"/>
+  <text x="150" y="195" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="14" fill="#795548" text-anchor="middle" font-weight="700" dominant-baseline="central">Dairy & Eggs</text>
+  <text x="150" y="210" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="11" fill="#8D6E63" text-anchor="middle" font-weight="500" dominant-baseline="central">দুধ ও ডিম</text>
+</svg>

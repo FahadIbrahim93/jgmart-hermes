@@ -1,0 +1,196 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — QUICK START GUIDE                                      ║
+║                         From Zero to First Order in 7 Days                    ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Founder: Fahad Ibrahim
+Location: Japan Garden City (JGC), Mohammadpur, Dhaka
+Start Date: _______________
+
+═══════════════════════════════════════════════════════════════════════════════
+BEFORE DAY 1 — DO THESE TODAY
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Print LAUNCH_READINESS_CHECKLIST.txt and check off completed items
+□ Print OPERATIONS_PLAYBOOK.txt and keep it in your pocket
+□ Open CUSTOMER_DATABASE.csv and fill in your first 10 beta customers
+□ Open RIDER_DAILY_LOG.txt and print 7 copies for Week 1
+□ Create WhatsApp Business account with JG Mart logo
+□ Set up bKash Merchant account (takes 3-5 days — do this NOW)
+□ Create Google Sheets: Orders, Partners, Products tabs
+□ Share INVESTOR_1PAGER.txt with 3 potential investors
+□ Double-click LAUNCH_CENTER.bat — opens all apps in one click
+□ Open index.html — the Command Center hub for everything
+□ Set up Google Drive backup: python "09_Data_Export/drive_sync.py" --setup
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 1 — RESEARCH & SETUP
+═══════════════════════════════════════════════════════════════════════════════
+
+Morning:
+  □ Walk Krishi Market — introduce yourself to 5 shop owners
+  □ Identify building committee members in Buildings 1-6
+  □ Take photos of the market, your route, key landmarks
+
+Afternoon:
+  □ Follow up with Krishi Market contacts
+  □ Create 50-SKU price list draft
+  □ Design 100 A5 flyers (or order online)
+
+Evening:
+  □ Update LAUNCH_READINESS_CHECKLIST.txt
+  □ Plan Day 2 priorities
+  □ Rest — big week ahead
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 2 — PARTNERS & BRANDING
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Visit top 3 partner candidates with proposal
+□ Sign 1-2 trial agreements (1 week, no commitment)
+□ 50-SKU price list finalized
+□ Flyers ordered / picked up
+□ Facebook page + Instagram created
+□ Business cards printed
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 3 — SYSTEMS & SIGNINGS
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Partner agreements signed with 3 partners
+□ WhatsApp quick replies created (use DAY1_LAUNCH_KIT.txt templates)
+□ Financial tracker built
+□ WhatsApp Business catalog created
+□ Test order flow end-to-end with brother
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 4 — EQUIPMENT & INVENTORY
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Delivery bags purchased (5-8 pcs)
+□ Labels, receipt book, thermal printer
+□ Cash float system set up
+□ Inventory tracker with 50 SKUs
+□ Rider training completed with brother
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 5 — BETA RECRUITMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+□ 10 beta customers recruited from Bldg 1-3
+□ Fill CUSTOMER_DATABASE.csv
+□ How to Order guide created
+□ Teaser shared in 3 JGC building WhatsApp groups
+□ Free delivery offer confirmed for beta testers
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 6 — BETA EXECUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+□ 3-5 test orders processed
+□ Every step timed
+□ Real-time feedback collected
+□ Issues documented and fixed
+□ Pricing adjusted if needed
+
+═══════════════════════════════════════════════════════════════════════════════
+DAY 7 — LAUNCH PREP
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Weekly Review completed with brother
+□ Pricing finalized after beta feedback
+□ Final flyers printed
+□ Soft launch scheduled for Day 8
+□ Launch announcement prepared for building groups
+
+═══════════════════════════════════════════════════════════════════════════════
+ESSENTIAL WORKFLOW (DAILY)
+═══════════════════════════════════════════════════════════════════════════════
+
+Every Morning (6:00 AM):
+  1. Check overnight WhatsApp messages
+  2. Send availability check to all partners
+  3. Record partner responses
+  4. Update "Available Today" catalog
+  5. Post catalog on WhatsApp status
+
+Order Processing (8:00 AM - 9:00 AM):
+  1. Receive orders via WhatsApp
+  2. Send auto-reply to each customer
+  3. Calculate totals
+  4. Confirm orders with exact amounts
+  5. Split by partner, send to partners
+  6. Track order count vs capacity
+
+Delivery (10:00 AM - 1:00 PM / 5:30 PM - 9:00 PM):
+  1. Rider departs for pickup
+  2. Collect from all partners
+  3. Sort and pack at hub
+  4. Deliver by building cluster
+  5. Collect payment, update sheet
+
+End of Day (9:00 PM):
+  1. Reconcile all payments
+  2. Update financial tracker
+  3. Update KPI dashboard
+  4. Respond to pending messages
+  5. Set WhatsApp auto-reply for after-hours
+
+═══════════════════════════════════════════════════════════════════════════════
+THE 3 NUMBERS THAT MATTER MOST
+═══════════════════════════════════════════════════════════════════════════════
+
+Track these daily. Everything else is noise.
+
+1. ORDERS TODAY
+   Target Day 1: 0 | Day 8: 3 | Day 30: 10 | Day 90: 30
+
+2. REVENUE THIS WEEK
+   Target Week 1: 0 | Week 2: 15,000 | Week 4: 80,000 | Week 12: 300,000
+
+3. CUSTOMER SATISFACTION
+   Target: >4.0/5 (Month 1), >4.2/5 (Month 2), >4.5/5 (Month 3)
+
+═══════════════════════════════════════════════════════════════════════════════
+EMERGENCY PROTOCOLS
+═══════════════════════════════════════════════════════════════════════════════
+
+If Rider Unavailable:
+  □ Call backup rider immediately
+  □ If no backup: partner delivers directly (+30 BDT to customer)
+  □ Inform affected customers of 30-min delay
+  □ Offer 50 BDT credit
+
+If Partner Fails:
+  □ Switch to backup partner immediately
+  □ Inform customer only if item unavailable
+  □ Never blame partner to customer
+  □ Document failure, adjust partner score
+
+If Customer Complains:
+  □ Apologize, offer specific fix + 50 BDT credit
+  □ Document in Customer Database
+  □ Follow up next day
+
+═══════════════════════════════════════════════════════════════════════════════
+YOUR 90-DAY NORTH STAR
+═══════════════════════════════════════════════════════════════════════════════
+
+Month 1: 100 customers, 300 orders, prove demand exists
+Month 2: 200 customers, 900 orders, prove unit economics work
+Month 3: 350 customers, 1,650 orders, prove scalability
+
+If you hit these numbers, you have a business.
+If you don't, you have data to pivot.
+
+Either outcome is valuable.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+REMEMBER:
+Speed of execution beats perfection of planning.
+Launch in 7 days. Learn from real customers. Iterate fast.
+Never GIVE UP on your HOPES.
+
+— Your JG Mart Quick Start Guide v2.0
+July 2026

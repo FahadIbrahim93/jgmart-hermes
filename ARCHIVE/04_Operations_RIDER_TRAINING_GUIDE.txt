@@ -1,0 +1,254 @@
+JG MART – RIDER TRAINING GUIDE
+For: [Rider Name – Brother / Family Member]
+Location: Japan Garden City, Mohammadpur, Dhaka
+Trainer: [Ops Lead Name] | Date: _______________
+
+================================================================================
+1. JOB DESCRIPTION & EXPECTATIONS
+================================================================================
+
+ROLE: Delivery Rider (JG Mart)
+You are the face of JG Mart. Every customer interaction shapes our brand.
+
+CORE RESPONSIBILITIES
+  • Pick up orders from partners (P001–P005) on time
+  • Deliver orders to 4 clusters within promised ETA
+  • Collect cash (COD) or confirm bKash payments
+  • Handle customer queries politely and professionally
+  • Maintain bike, delivery bag, and uniform in good condition
+  • Report issues to Ops Lead immediately (stock problems, wrong items, delays)
+  • Follow all safety rules (helmet, traffic laws, no phone while riding)
+
+WORKING HOURS
+  • Shift 1: 06:00 – 13:00
+  • Shift 2: 13:00 – 20:00
+  • Overtime only with Founder approval (BDT 50/hour extra)
+  • Lunch break: 30 mins (mid-shift, coordinated with Ops Lead)
+
+EXPECTED STANDARDS
+  - Attendance: < 1 unplanned absence per month
+  - Punctuality: Arrive on time; notify Ops Lead if running late
+  - Appearance: Clean JG Mart uniform, helmet, trimmed nails
+  - Phone: Always charged, WhatsApp active, tracker app running
+  - Integrity: Zero tolerance for theft, cash mishandling, or order fraud
+
+================================================================================
+2. ROUTE MAPS FOR ALL 4 CLUSTERS
+================================================================================
+
+CLUSTER A – JGC Block 1–4 (Gate 1 Entrance)
+  • Start: Hub → Gate 1 (main entrance)
+  • Building order: A1, A2, A3, A4 (ground to 8th floor each)
+  • Approximate time: 20–25 mins for 5 deliveries
+  • Landmarks: Central mosque, Block 1 playground, Main road divider
+  • Note: Some buildings have separate security; call customer 5 mins before
+
+CLUSTER B – JGC Block 5–8 (Gate 2 Entrance)
+  • Start: Hub → Gate 2 (secondary entrance, near market)
+  • Building order: B5, B6, B7, B8 (prioritize B5–B6 first)
+  • Approximate time: 20–25 mins for 5 deliveries
+  • Landmarks: JGC Community Centre, Block 7 parking, Market road junction
+  • Note: Narrow lanes inside Block 7–8; walk bike if needed
+
+CLUSTER C – JGC Central / Market Road
+  • Start: Hub → Market Road (straight 500m)
+  • Delivery points: Shops on Market Road, JGC Central plaza, roadside addresses
+  • Approximate time: 15–20 mins for 5 deliveries
+  • Landmarks: JGC Central gate, Main market, Tea stalls corner
+  • Note: High foot traffic; park in designated zone only
+
+CLUSTER D – JGC Block 9–12 + Annex (Gate 3 Entrance)
+  • Start: Hub → Gate 3 (newest block, near school)
+  • Building order: D9, D10, D11, D12, Annex (Annex last due to distance)
+  • Approximate time: 25–30 mins for 5 deliveries
+  • Landmarks: JGC School, Block 12 playground, Annex security post
+  • Note: Annex has single entry; customer must meet at gate if no visitor pass
+
+OPTIMIZED ROUTE RULES
+  1. Always group by cluster (never mix clusters in one trip)
+  2. Descend from top floor to bottom in each building
+  3. If 2 orders in same building, deliver together
+  4. Avoid U-turns on main roads; use designated service lanes
+  5. Peak hours (12–2PM, 6–8PM): add 10 mins buffer to ETA
+
+================================================================================
+3. CUSTOMER INTERACTION GUIDELINES
+================================================================================
+
+GREETING (In person or WhatsApp)
+  "Hi [Name]! I'm [Your Name] from JG Mart. Here's your order. Thank you!"
+
+DELIVERY PROCESS
+  1. Smile, greet, confirm name
+  2. Hand over items + bill/receipt
+  3. If COD: "Your total is BDT [Amount]. Thank you!"
+  4. If bKash: "Please confirm payment. Thank you!"
+  5. Wait for customer to close door before leaving
+  6. Mark order "Delivered" in tracker immediately
+
+HANDLING CUSTOMER QUESTIONS
+  - "Where is my order?" → "I'm on my way, ETA [Time]. I'll send you a message when I'm 5 minutes away."
+  - "Can I add items?" → "I'm sorry, I can't modify orders after dispatch. You can place a new order for next delivery."
+  - "Why is it late?" → "Apologies for the delay. We had [brief reason]. Your new ETA is [Time]. Thank you for your patience."
+  - "The item is damaged" → "I'm sorry! Please send a photo to our WhatsApp. We'll arrange a replacement or refund immediately."
+
+WHAT TO DO IF CUSTOMER IS ANGRY
+  1. Stay calm, do not argue
+  2. Listen fully without interrupting
+  3. Apologize sincerely: "I'm very sorry for this experience."
+  4. Say: "Let me call my manager and fix this for you right now."
+  5. Call Ops Lead immediately (do not promise anything beyond your authority)
+  6. If customer records video, do not obstruct; cooperate fully
+
+================================================================================
+4. CASH HANDLING PROCEDURES
+================================================================================
+
+COD COLLECTION
+  - State amount clearly: "Your total is BDT [Amount]."
+  - Count change back to customer in front of them
+  - Hand receipt immediately: "Here's your receipt. Thank you!"
+  - Never put cash in delivery bag with items; keep in secure inner pocket
+
+CASH STORAGE DURING SHIFT
+  - Use hidden zippered pouch inside jacket/waist bag
+  - Do NOT keep cash in bike basket, side pocket, or visible bag
+  - If cash exceeds BDT 15,000, inform Ops Lead for top-up collection
+
+END-OF-DAY CASH COUNT
+  1. Return to hub, sit with Ops Lead
+  2. Empty pouch completely onto clean table
+  3. Count by denomination together (BDT 1000 → 500 → 200 → 100 → 50 → 20 → 10)
+  4. Ops Lead writes total in Delivery Log; you sign
+  5. Cash sealed in envelope, signed by both
+  6. Any shortage/explained immediately and honestly
+
+IF CUSTOMER CLAIMS THEY PAID BUT YOU DON'T HAVE CASH
+  1. Do not argue; say: "Let me check my records and call you back."
+  2. Return to hub, check tracker + delivery log
+  3. If tracker shows "unpaid": Call Ops Lead, investigate together
+  4. If tracker shows "paid" but cash missing: Report immediately (theft suspicion)
+
+================================================================================
+5. BIKE MAINTENANCE CHECKLIST
+================================================================================
+
+PRE-SHIFT DAILY CHECK (5 mins)
+  □ Tires: Press both tires; if soft, inflate or report puncture
+  □ Brakes: Squeeze levers; if spongy, report to Ops Lead
+  □ Chain: Look for rust or loose links; oil if dry (carry mini oil bottle)
+  □ Lights: Test headlight + brake light at night
+  □ Fuel / Charge: Check meter; refill/recharge if < 50%
+  □ Mirrors: Adjust to see traffic behind you
+  □ Horn: Test; if broken, report immediately
+  □ Stand: Ensure bike can stand on center stand
+
+WEEKLY CHECK (Weekends)
+  □ Wash bike thoroughly (especially chain area)
+  □ Check tire pressure with gauge (32–35 PSI normal)
+  □ Inspect brake pads for wear
+  □ Test all electronics (indicator, speedometer, phone mount)
+  □ Clean helmet visor + delivery bag
+
+MONTHLY SERVICE
+  □ Take bike to trusted mechanic for full service
+  □ Oil change, chain replacement check, brake fluid top-up
+  □ Get service receipt; submit to Ops Lead for reimbursement
+
+WHAT TO DO IF BIKE BREAKS DOWN
+  1. Move bike to safe side of road immediately
+  2. Call Ops Lead: "Bike broken at [location]. Orders affected: [list]."
+  3. Call customer for each affected order: "Apologies, bike issue. New ETA [Time] or redelivery tomorrow."
+  4. Ops Lead arranges backup bike or transfers orders
+  5. Do NOT attempt risky repairs on busy road; wait for help
+
+================================================================================
+6. WHAT TO DO IF...
+================================================================================
+
+CUSTOMER NOT HOME
+  1. Call customer (2 rings max, no spam)
+  2. If no answer, WhatsApp: "Hi [Name], I'm at your door with your order. Please come down or let me know where to leave it. 📦"
+  3. Take photo of items at door + house number visible
+  4. If no response in 15 mins, return to hub
+  5. Mark order "Redeliver – Customer Not Home" in tracker
+  6. Redeliver next day same time (no extra charge) OR customer picks up from hub
+
+WRONG ADDRESS / CUSTOMER SAYS "I DIDN'T ORDER"
+  1. Stay calm; do not leave items unattended
+  2. Show order details on your phone: name, items, address
+  3. Call Ops Lead: "Customer at [wrong address] says they didn't order. Order ID: [XXX]."
+  4. Ops Lead calls customer to confirm correct address
+  5. If genuine mistake: Deliver to correct address immediately
+  6. If fraud: Return items to hub, Ops Lead handles refund
+
+PAYMENT DISPUTE (Customer says they paid bKash but you see no TrxID)
+  1. Do not take their word; check tracker + bKash statement
+  2. Say: "Let me verify with our team. Please show me your bKash confirmation if you have it."
+  3. If customer shows screenshot with different number/amount: Report to Ops Lead
+  4. If no screenshot: Say "Please send it to our WhatsApp within 10 mins or I'll have to return this order."
+  5. Never leave order without payment resolution
+
+VEHICLE BREAKDOWN
+  1. Move to safe spot; turn on hazard lights
+  2. Call Ops Lead immediately with location + affected orders
+  3. If minor issue (puncture, chain): Fix if safe, else push bike to nearest shop
+  4. If major issue (engine, electrical): Wait for backup rider
+  5. Ops Lead notifies customers of delay; offers reschedule or discount
+
+RAIN / SEVERE WEATHER
+  1. Slow down, use headlight, avoid flooded areas
+  2. Cover order with rain bag before leaving bike
+  3. If rain too heavy: Call Ops Lead for weather hold decision
+  4. Never ride through water deeper than ankle; risk engine damage
+  5. If phone gets wet: Seal in plastic bag immediately, dry at hub
+
+================================================================================
+7. DOS AND DON'TS LIST
+================================================================================
+
+✅ DOS
+  • Wear helmet and JG Mart uniform every shift
+  • Greet customers with a smile
+  • Double-check address before leaving hub
+  • Keep phone on silent while riding, use Bluetooth if available
+  • Report issues to Ops Lead within 5 mins
+  • Count cash honestly in presence of Ops Lead
+  • Thank every customer, even if they complain
+  • Take photos of proof-of-delivery (WhatsApp send or file)
+  • Keep delivery bag clean and organized
+  • Ask for help when you don't know something
+
+❌ DON'TS
+  • Never ride without helmet or uniform
+  • Never argue with customers, even if they are wrong
+  • Never accept tips or personal favors from customers
+  • Never leave bike unlocked or items unattended
+  • Never use personal phone for customer orders (privacy + billing)
+  • Never eat/drink while riding
+  • Never overspeed or run red lights (safety first)
+  • Never share customer phone numbers with anyone
+  • Never open cash envelope without Ops Lead present
+  • Never say "I don't know" – say "Let me check with my team and call you back"
+
+================================================================================
+8. TRAINING CHECKLIST (Sign when complete)
+================================================================================
+
+  □ Read this entire guide and ask questions
+  □ Shadowed Ops Lead for 2 full shifts
+  □ Completed 3 solo deliveries with Ops Lead monitoring
+  □ Demonstrated cash handling + count procedure
+  □ Demonstrated WhatsApp customer communication
+  □ Passed route knowledge test (name all clusters + landmarks)
+  □ Passed bike safety check (pre-shift inspection)
+  □ Signed Rider Agreement + Confidentiality form
+  □ Received uniform, delivery bag, ID card
+  □ Understood escalation rules (when to call Ops Lead / Founder)
+
+TRAINEE SIGNATURE: _________________  DATE: _______________
+TRAINER (Ops Lead) SIGNATURE: _________________  DATE: _______________
+
+================================================================================
+END OF RIDER TRAINING GUIDE
+================================================================================

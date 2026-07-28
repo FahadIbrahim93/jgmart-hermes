@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>JG Mart OS</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+:root{--sidebar:260px}
+body{display:flex;min-height:100vh;background:var(--bg)}
+@media(max-width:768px){body{flex-direction:column}}
+.sidebar{width:var(--sidebar);background:var(--green);color:#fff;padding:16px;display:flex;flex-direction:column;flex-shrink:0}
+@media(max-width:768px){.sidebar{width:100%;flex-direction:row;overflow-x:auto;padding:8px 12px;gap:4px}.sidebar .logo{display:none}.sidebar nav{display:flex;gap:4px}}
+.sidebar .logo{font-size:1.2rem;font-weight:800;margin-bottom:20px;padding:4px 0}
+.sidebar .logo span{color:var(--gold)}
+.sidebar .sub{font-size:.65rem;opacity:.6;margin-top:-14px;margin-bottom:16px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;transition:background .1s;color:rgba(255,255,255,.8);border:none;background:none;font-family:inherit;width:100%;text-align:left}
+.nav-item:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.12);color:#fff;font-weight:600}
+.nav-item .icon{font-size:1rem}
+@media(max-width:768px){.nav-item{font-size:.72rem;padding:6px 10px;white-space:nowrap}.nav-item .label{display:none}}
+.main{flex:1;padding:16px;overflow-y:auto;max-width:800px}
+@media(min-width:768px){.main{margin-left:0}}
+.screen{display:none}.screen.active{display:block}
+h2{font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.today-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:500px){.today-grid{grid-template-columns:1fr 1fr}}
+.today-card{background:var(--bg-card);border-radius:10px;padding:12px;text-align:center;box-shadow:var(--shadow-sm);border-left:3px solid var(--green)}
+.today-card .num{font-size:1.4rem;font-weight:800;color:var(--green)}
+.today-card .lbl{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.today-card .num.gold{color:var(--gold)}.today-card .num.red{color:var(--danger)}
+.order-form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+@media(max-width:400px){.order-form{grid-template-columns:1fr}}
+.order-form input,.order-form select{font-family:inherit;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.82rem}
+.order-form .full{grid-column:1/-1}
+.order-list{display:flex;flex-direction:column;gap:6px}
+.order-item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-card);padding:10px 12px;border-radius:8px;font-size:.8rem;box-shadow:var(--shadow-sm);border-left:3px solid var(--border)}
+.order-item.pending{border-left-color:var(--gold)}.order-item.done{border-left-color:var(--success)}
+.order-item .info{flex:1}.order-item .name{font-weight:600}.order-item .meta{font-size:.7rem;color:var(--text-muted)}
+.order-item .actions{display:flex;gap:4px}
+.order-item .actions button{padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:600;cursor:pointer;border:none;font-family:inherit}
+.btn-sm{background:var(--green);color:#fff}.btn-sm-gold{background:var(--gold);color:#1a1a1a}.btn-sm-outline{background:transparent;color:var(--text-muted);border:1px solid var(--border)}
+.quick-pnl{background:var(--bg-card);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
+.pnl-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.82rem;border-bottom:1px solid var(--border-light)}
+.pnl-row:last-child{border-bottom:none;font-weight:700;color:var(--green)}
+.pnl-row .label{color:var(--text-muted)}.pnl-row .value{font-weight:600}
+.pnl-row .value.green{color:var(--success)}.pnl-row .value.red{color:var(--danger)}
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:400px){.partner-grid{grid-template-columns:1fr}}
+.partner-card{display:flex;justify-content:space-between;align-items:center;background:var(--bg-card);padding:10px;border-radius:8px;font-size:.78rem;box-shadow:var(--shadow-sm)}
+.partner-card .status{width:8px;height:8px;border-radius:50%}
+.customer-search input{width:100%;font-family:inherit;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.82rem;margin-bottom:8px}
+.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.quick-actions a{display:flex;align-items:center;gap:6px;background:var(--bg-card);padding:10px 14px;border-radius:8px;font-size:.78rem;font-weight:600;color:var(--green);text-decoration:none;border:1px solid var(--border-light)}
+.quick-actions a:hover{background:var(--success-bg);border-color:var(--green)}
+.version{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:auto;padding-top:12px}
+@media(max-width:768px){.version{display:none}}
+/* Route Optimizer */
+.route-controls{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;align-items:center}
+.route-controls button,.route-toggle{font-size:.78rem;padding:6px 12px;border-radius:6px;font-weight:600;cursor:pointer;border:none;font-family:inherit}
+.route-controls button{background:var(--green);color:#fff}
+.route-controls button:hover{opacity:.9}
+.route-toggle{display:flex;align-items:center;gap:6px;color:var(--text-muted);cursor:pointer;font-size:.78rem}
+.route-toggle input{accent-color:var(--green)}
+.route-summary{background:linear-gradient(135deg,var(--green),#006b47);color:#fff;border-radius:12px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.route-summary .rs-item{text-align:center}
+.route-summary .rs-item .rs-num{font-size:1.2rem;font-weight:800}
+.route-summary .rs-item .rs-lbl{font-size:.65rem;opacity:.8;text-transform:uppercase;letter-spacing:.03em}
+.route-cluster{background:var(--bg-card);border-radius:10px;margin-bottom:10px;box-shadow:var(--shadow-sm);overflow:hidden}
+.route-cluster-header{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;font-weight:700;font-size:.82rem;cursor:pointer;user-select:none}
+.route-cluster-header .fee{font-size:.7rem;font-weight:500;opacity:.7}
+.route-cluster-body{padding:0 8px 10px}
+.route-stop{display:flex;align-items:center;gap:6px;padding:7px 6px;border-radius:8px;margin-bottom:3px;font-size:.8rem;background:var(--bg);transition:background .15s;border:1px solid transparent}
+.route-stop:hover{border-color:var(--border-light)}
+.route-stop .drag-handle{cursor:grab;color:var(--text-muted);font-size:.8rem;user-select:none}
+.route-stop .stop-building{font-weight:600;min-width:42px;font-size:.82rem}
+.route-stop .stop-orders{color:var(--text-muted);font-size:.7rem;flex:1}
+.route-stop .stop-checkbox{width:16px;height:16px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
+.route-stop.delivered{opacity:.55}
+.route-stop.delivered .stop-building{text-decoration:line-through}
+.route-stop .move-btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);font-size:.65rem;padding:2px 5px;border-radius:4px;background:none;border:1px solid var(--border);font-family:inherit;line-height:1}
+.route-stop .move-btn:hover{background:var(--border-light)}
+.route-order-item{font-size:.7rem;color:var(--text-muted);padding:2px 0 2px 38px;border-bottom:1px solid var(--border-light)}
+.route-order-item:last-child{border-bottom:none}
+.route-help{font-size:.72rem;color:var(--text-muted);text-align:center;padding:6px 0;margin-bottom:8px}
+/* Help System */
+.help-btn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#1a1a1a;font-size:.7rem;font-weight:800;cursor:pointer;margin-left:auto;flex-shrink:0;transition:transform .15s,box-shadow .15s;box-shadow:0 1px 3px rgba(0,0,0,.12);line-height:1}
+.help-btn:hover{transform:scale(1.15);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.help-overlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:transparent}
+.help-popover{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:300px;width:calc(100vw - 32px);background:#fff8e1;color:#3d2e00;border-radius:12px;padding:16px;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.18);font-size:.82rem;line-height:1.5;animation:helpFadeIn .2s ease}
+@keyframes helpFadeIn{from{opacity:0;transform:translate(-50%,-50%) scale(.95)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.help-popover strong{display:block;font-size:.9rem;margin-bottom:8px;color:#1a1a1a}
+.help-popover p{margin:0;color:#3d2e00}
+.help-popover .help-close{position:absolute;top:8px;right:10px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#7a6b1a;font-weight:700;padding:0;line-height:1;font-family:inherit}
+.help-popover .help-close:hover{color:#3d2e00}
+@media print{
+  body *{visibility:hidden!important}
+  #screen-route,#screen-route *{visibility:visible!important}
+  #screen-route{position:absolute!important;left:0!important;top:0!important;width:100%!important}
+  .sidebar,.route-controls,.move-btn,.drag-handle,.route-help{display:none!important}
+  .route-cluster{break-inside:avoid;border:1px solid #ccc!important;page-break-inside:avoid}
+  .route-summary{background:#00442D!important;color:#fff!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .route-stop .stop-checkbox{display:none}
+  .route-cluster-header{cursor:default}
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+<div class="logo">JG <span>Mart</span> OS</div>
+<div class="sub">Operating System v1.0</div>
+<nav>
+<button class="nav-item active" onclick="showScreen('home',this)"><span class="icon">🏠</span><span class="label">Home</span></button>
+<button class="nav-item" onclick="showScreen('orders',this)"><span class="icon">📦</span><span class="label">Orders</span></button>
+<button class="nav-item" onclick="showScreen('pnl',this)"><span class="icon">💰</span><span class="label">P&L</span></button>
+<button class="nav-item" onclick="showScreen('partners',this)"><span class="icon">🤝</span><span class="label">Partners</span></button>
+<button class="nav-item" onclick="showScreen('customers',this)"><span class="icon">👥</span><span class="label">Customers</span></button>
+<button class="nav-item" onclick="showScreen('dayend',this)"><span class="icon">🌙</span><span class="label">Day End</span></button>
+<button class="nav-item" onclick="showScreen('route',this);renderRoute()"><span class="icon">🗺️</span><span class="label">Route</span></button>
+</nav>
+<div class="version">v1.0 · 126 files</div>
+<div style="margin-top:8px">
+<button onclick="toggleTheme()" style="background:rgba(255,255,255,.1);color:#fff;border:none;padding:6px 12px;border-radius:999px;font-size:.7rem;font-weight:600;cursor:pointer;font-family:inherit;width:100%">🌓 Theme</button>
+</div>
+</div>
+
+<div class="main">
+
+<!-- HOME -->
+<div class="screen active" id="screen-home">
+<h2>🏠 Today's Overview <span class="help-btn" onclick="showHelp('home')">?</span></h2>
+<div class="today-grid" id="todayGrid">
+<div class="today-card"><div class="num" id="osOrders">0</div><div class="lbl">Orders Today</div></div>
+<div class="today-card"><div class="num gold" id="osRevenue">৳0</div><div class="lbl">Revenue Today</div></div>
+<div class="today-card"><div class="num" id="osCustomers">0</div><div class="lbl">Customers</div></div>
+<div class="today-card"><div class="num" id="osCash">৳250K</div><div class="lbl">Cash Position</div></div>
+</div>
+
+<div class="quick-pnl">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<h2 style="margin:0;font-size:.9rem">📋 Recent Orders</h2>
+<a href="#" onclick="showScreen('orders',document.querySelector('[onclick*=\"orders\"]'))" style="font-size:.75rem;color:var(--green)">View all →</a>
+</div>
+<div id="osRecentOrders" style="font-size:.82rem;color:var(--text-muted)">No orders today. Start by adding one!</div>
+</div>
+
+<div class="quick-pnl">
+<h2 style="font-size:.9rem;margin-bottom:8px">⚡ Quick Actions</h2>
+<div class="quick-actions">
+<a href="start.html" target="_blank">🚀 Startup Wizard</a>
+<a href="ops.html" target="_blank">🎯 Ops Dashboard</a>
+<a href="data.html" target="_blank">🗃️ Data Manager</a>
+<a href="field_ops.html" target="_blank">📱 Field Ops</a>
+<a href="05_Tech_Dashboard/backup.html" target="_blank">💾 Backup</a>
+<a href="health.html" target="_blank">🏥 Health Check</a>
+</div>
+</div>
+</div>
+
+<!-- ORDERS -->
+<div class="screen" id="screen-orders">
+<h2>📦 Orders <span class="help-btn" onclick="showHelp('orders')">?</span></h2>
+<div class="order-form">
+<input type="text" id="osCustName" placeholder="Customer name" class="full">
+<select id="osBuilding"><option value="">Building</option></select>
+<input type="text" id="osItems" placeholder="Items (e.g. Rice 1kg, Eggs 12)" class="full">
+<input type="number" id="osTotal" placeholder="Total (BDT)" min="0">
+<select id="osPayment"><option value="COD">COD</option><option value="bKash">bKash</option></select>
+<select id="osSlot"><option value="Morning">☀️ Morning</option><option value="Evening">🌙 Evening</option></select>
+<button class="btn btn-primary full" onclick="addOrder()">+ Add Order</button>
+</div>
+<div id="osOrderList" class="order-list"></div>
+</div>
+
+<!-- P&L -->
+<div class="screen" id="screen-pnl">
+<h2>💰 Quick P&L <span class="help-btn" onclick="showHelp('pnl')">?</span></h2>
+<p style="font-size:.78rem;color:var(--text-muted);margin-bottom:12px">Enter today's numbers to see instant profit calculation.</p>
+<div class="order-form">
+<input type="number" id="pnlOrders" placeholder="Orders today" min="0">
+<input type="number" id="pnlRevenue" placeholder="Revenue (BDT)" min="0">
+<input type="number" id="pnlCosts" placeholder="Extra costs (optional)" min="0">
+<button class="btn btn-primary full" onclick="calcPNL()">Calculate</button>
+</div>
+<div class="quick-pnl" id="pnlResults" style="display:none">
+<div class="pnl-row"><span class="label">Revenue</span><span class="value" id="pnlRev">৳0</span></div>
+<div class="pnl-row"><span class="label">Variable Costs (×67)</span><span class="value" id="pnlVar">৳0</span></div>
+<div class="pnl-row"><span class="label">Contribution</span><span class="value green" id="pnlContrib">৳0</span></div>
+<div class="pnl-row"><span class="label">Contribution Margin</span><span class="value" id="pnlMargin">0%</span></div>
+<div class="pnl-row"><span class="label">Fixed Costs (today)</span><span class="value" id="pnlFixed">৳1,447</span></div>
+<div class="pnl-row"><span class="label">Net Profit</span><span class="value" id="pnlNet">৳0</span></div>
+</div>
+</div>
+
+<!-- PARTNERS -->
+<div class="screen" id="screen-partners">
+<h2>🤝 Partners <span class="help-btn" onclick="showHelp('partners')">?</span></h2>
+<div class="order-form">
+<input type="text" id="partName" placeholder="Shop name">
+<select id="partCat"><option>Rice & Dal</option><option>Vegetables</option><option>Fish</option><option>Meat</option><option>Oil & Spices</option><option>Dairy & Eggs</option></select>
+<input type="text" id="partPhone" placeholder="Phone">
+<button class="btn btn-primary" onclick="addPartner()">+ Add</button>
+</div>
+<div class="partner-grid" id="partnerGrid"></div>
+</div>
+
+<!-- CUSTOMERS -->
+<div class="screen" id="screen-customers">
+<h2>👥 Customers <span class="help-btn" onclick="showHelp('customers')">?</span></h2>
+<div class="customer-search"><input type="text" id="custSearch" placeholder="Search by name or building..." oninput="searchCustomers()"></div>
+<div id="custList"></div>
+</div>
+
+<!-- ROUTE -->
+<div class="screen" id="screen-route">
+  <h2>🗺️ Delivery Route Optimizer <span class="help-btn" onclick="showHelp('route')">?</span></h2>
+
+  <div class="route-controls">
+    <button onclick="reverseClusterOrder()">🔄 Reverse Order</button>
+    <label class="route-toggle"><input type="checkbox" id="krishiToggle" onchange="renderRoute()"> 🛒 Krishi Market start</label>
+    <button onclick="printRoute()">🖨️ Print Route</button>
+  </div>
+
+  <div class="route-summary" id="routeSummary">
+    <div class="rs-item"><div class="rs-num" id="rsDeliveries">0</div><div class="rs-lbl">Deliveries</div></div>
+    <div class="rs-item"><div class="rs-num" id="rsTime">0 min</div><div class="rs-lbl">Est. Time</div></div>
+    <div class="rs-item"><div class="rs-num" id="rsDistance">0 km</div><div class="rs-lbl">Distance</div></div>
+    <div class="rs-item"><div class="rs-num" id="rsCompletion">--:--</div><div class="rs-lbl">Completion</div></div>
+  </div>
+
+  <div class="route-help">💡 Drag buildings or use ▲▼ to reorder within cluster</div>
+
+  <div id="routeClusters"></div>
+</div>
+
+<!-- DAY END -->
+<div class="screen" id="screen-dayend">
+<h2>🌙 Day End Routine <span class="help-btn" onclick="showHelp('dayend')">?</span></h2>
+<p style="font-size:.82rem;color:var(--text-muted);margin-bottom:12px">End-of-day summary. Review your numbers, then export data for backup.</p>
+
+<div class="today-grid">
+<div class="today-card"><div class="num" id="deOrders">0</div><div class="lbl">Orders Today</div></div>
+<div class="today-card"><div class="num gold" id="deRevenue">৳0</div><div class="lbl">Revenue</div></div>
+<div class="today-card"><div class="num red" id="deCost">৳0</div><div class="lbl">Est. Costs</div></div>
+<div class="today-card"><div class="num green" id="deProfit">৳0</div><div class="lbl">Net Today</div></div>
+</div>
+
+<div class="quick-pnl">
+<div class="pnl-row"><span class="label">Customers Served</span><span class="value" id="deCustomers">0</span></div>
+<div class="pnl-row"><span class="label">Avg Order Value</span><span class="value" id="deAvgOrder">—</span></div>
+<div class="pnl-row"><span class="label">Delivered</span><span class="value" id="deDelivered">0</span></div>
+</div>
+
+<div class="quick-actions">
+<button class="btn btn-primary" onclick="exportAndBackup()" style="flex:1;justify-content:center">📤 Export & Backup Data</button>
+<button class="btn btn-secondary" onclick="document.querySelector('[onclick*=\"orders\"]').click()" style="flex:1;justify-content:center">📦 Review Orders</button>
+<a class="btn btn-secondary" href="05_Tech_Dashboard/backup.html" target="_blank" style="flex:1;justify-content:center;text-decoration:none">💾 Master Backup</a>
+</div>
+
+<div class="quick-pnl" style="margin-top:12px;background:#fff8e1">
+<p style="font-size:.78rem;color:#7a6b1a"><strong>💡 Tip:</strong> Export your data every evening. This creates two backup files in your Downloads folder. Store them safely or upload to Google Drive.</p>
+</div>
+</div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'jgmart_os';
+let db = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"orders":[],"partners":[],"pnl":[]}');
+let pnlCache = {};
+
+// Populate buildings
+(function(){
+const sel = document.getElementById('osBuilding');
+for(let i=1;i<=27;i++){
+const opt = document.createElement('option');
+opt.value = `B${i}`; opt.textContent = `Bldg ${i}`;
+sel.appendChild(opt);
+}
+loadData();
+})();
+
+function save(){
+localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+// Sync to other apps' localStorage for cross-app data sharing
+try{
+// Sync to central Data Manager (jgmart_data)
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+cd.customers = [...new Set(db.orders.map(o => o.customer))].map(c => {
+const ord = db.orders.find(o => o.customer === c);
+return {name:c, building:ord?.building||'', phone:'', flat:'', orders:db.orders.filter(o=>o.customer===c).length, total:db.orders.filter(o=>o.customer===c).reduce((s,o)=>s+(o.total||0),0)};
+});
+cd.partners = db.partners;
+cd.totalOrders = db.orders.length;
+localStorage.setItem('jgmart_data', JSON.stringify(cd));
+}catch(e){}
+try{
+// Sync to Order Tracker (jgmart_orders)
+const ordData = JSON.parse(localStorage.getItem('jgmart_orders') || '{}');
+ordData.orders = db.orders.map(o => ({
+id: `JG-${o.date.replace(/-/g,'')}-${String(Math.floor(Math.random()*999)).padStart(3,'0')}`,
+customer: o.customer, building: o.building, items: o.items,
+total: o.total, payment: o.payment||'COD', slot: o.slot||'Morning',
+date: o.date, status: o.status === 'done' ? 'Delivered' : 'Received'
+}));
+localStorage.setItem('jgmart_orders', JSON.stringify(ordData));
+}catch(e){}
+try{
+// Sync to Finance Dashboard (jgmart_finance)
+const finData = JSON.parse(localStorage.getItem('jgmart_finance') || '{"entries":[],"cash":250000}');
+const today = new Date().toISOString().slice(0,10);
+const todayEntry = finData.entries.find(e => e.date === today);
+const todayOrders = db.orders.filter(o => o.date === today);
+if(todayOrders.length > 0 && !todayEntry){
+finData.entries.push({
+date: today,
+orders: todayOrders.length,
+revenue: todayOrders.reduce((s,o)=>s+(o.total||0),0),
+cost: todayOrders.length * 67,
+newCust: 0, cashAdd: 0, cashOut: 0
+});
+localStorage.setItem('jgmart_finance', JSON.stringify(finData));
+}
+}catch(e){}
+}
+
+function loadData(){
+// Also read from central data if available
+try{
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+if(cd.partners && cd.partners.length > db.partners.length) db.partners = cd.partners;
+if(cd.customers && cd.orders && cd.orders.length > db.orders.length) db.orders = cd.orders;
+}catch(e){}
+// Read from Order Tracker
+try{
+const ordData = JSON.parse(localStorage.getItem('jgmart_orders') || '{}');
+if(ordData.orders && ordData.orders.length > db.orders.length){
+db.orders = ordData.orders.map(o => ({
+date: o.date||new Date().toISOString().slice(0,10), customer: o.customer,
+building: o.building||'', items: o.items||'', total: o.total||0,
+payment: o.payment||'COD', slot: o.slot||'Morning',
+status: o.status === 'Delivered' ? 'done' : 'pending',
+time: o.time||''
+}));
+}
+}catch(e){}
+localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+renderOrders();
+renderPartners();
+updateHome();
+}
+
+// ========= HOME =========
+function updateHome(){
+const today = new Date().toISOString().slice(0,10);
+const todayOrders = db.orders.filter(o => o.date === today);
+document.getElementById('osOrders').textContent = todayOrders.length;
+const rev = todayOrders.reduce((s,o) => s + (o.total||0), 0);
+document.getElementById('osRevenue').textContent = `৳${rev.toLocaleString()}`;
+document.getElementById('osCustomers').textContent = [...new Set(todayOrders.map(o => o.customer))].length;
+
+// Cash
+const cash = 250000 - db.pnl.reduce((s,p) => s + (p.net||0), 0);
+document.getElementById('osCash').textContent = `৳${(cash/1000).toFixed(1)}K`;
+
+// Recent orders on home
+const container = document.getElementById('osRecentOrders');
+if(todayOrders.length === 0){
+container.innerHTML = 'No orders today. <a href="#" onclick="showScreen(\'orders\',document.querySelector(\'[onclick*=\\\'orders\\\']\'))">Add your first →</a>';
+} else {
+container.innerHTML = todayOrders.slice(-5).reverse().map(o =>
+`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border-light)">
+<span><strong>${o.customer}</strong> · ${o.items||'—'} · ${o.slot||'—'}</span>
+<span>৳${o.total} <span style="font-size:.7rem;color:var(--text-muted)">${o.status||'Pending'}</span></span>
+</div>`
+).join('');
+}
+}
+
+// ========= ORDERS =========
+function renderOrders(){
+const container = document.getElementById('osOrderList');
+const today = new Date().toISOString().slice(0,10);
+const todayOrders = db.orders.filter(o => o.date === today);
+if(todayOrders.length === 0){
+container.innerHTML = '<div style="text-align:center;padding:24px;color:var(--text-muted);font-size:.85rem">No orders yet. Fill in the form above to add your first order.</div>';
+return;
+}
+container.innerHTML = todayOrders.slice().reverse().map((o,i) => {
+const idx = db.orders.indexOf(o);
+const status = o.status || 'pending';
+const statusLabel = status === 'done' ? '✅ Delivered' : '🕐 Pending';
+return `<div class="order-item ${status}">
+<div class="info"><div class="name">${o.customer}</div>
+<div class="meta">${o.items||'—'} · ${o.slot||'—'} · ৳${o.total} · ${o.payment||'COD'}</div></div>
+<div class="actions">
+<button class="btn-sm ${status==='done'?'btn-sm-outline':'btn-sm'}" onclick="toggleOrderStatus(${idx})">${statusLabel}</button>
+<button class="btn-sm-outline" onclick="deleteOrder(${idx})">✕</button>
+</div></div>`;
+}).join('');
+}
+
+function addOrder(){
+const customer = document.getElementById('osCustName').value.trim();
+const building = document.getElementById('osBuilding').value;
+const items = document.getElementById('osItems').value.trim();
+const total = parseInt(document.getElementById('osTotal').value) || 0;
+const payment = document.getElementById('osPayment').value;
+const slot = document.getElementById('osSlot').value;
+if(!customer || !total){alert('Enter customer name and total');return;}
+db.orders.push({
+date: new Date().toISOString().slice(0,10),
+customer, building, items, total, payment, slot,
+status: 'pending', time: new Date().toLocaleTimeString()
+});
+save();
+document.getElementById('osCustName').value='';
+document.getElementById('osItems').value='';
+document.getElementById('osTotal').value='';
+renderOrders(); updateHome();
+}
+
+function toggleOrderStatus(idx){
+const o = db.orders[idx];
+o.status = o.status === 'done' ? 'pending' : 'done';
+save(); renderOrders(); updateHome();
+}
+
+function deleteOrder(idx){
+db.orders.splice(idx,1);
+save(); renderOrders(); updateHome();
+}
+
+// ========= P&L =========
+function calcPNL(){
+const orders = parseInt(document.getElementById('pnlOrders').value) || 0;
+const revenue = parseInt(document.getElementById('pnlRevenue').value) || 0;
+const extra = parseInt(document.getElementById('pnlCosts').value) || 0;
+if(!orders && !revenue){alert('Enter at least orders or revenue');return;}
+const varCost = orders * 67;
+const contrib = revenue - varCost;
+const margin = revenue > 0 ? (contrib/revenue*100).toFixed(1) : 0;
+const fixed = Math.round(43400/30);
+const net = contrib - fixed - extra;
+document.getElementById('pnlRev').textContent = `৳${revenue.toLocaleString()}`;
+document.getElementById('pnlVar').textContent = `৳${varCost.toLocaleString()}`;
+document.getElementById('pnlContrib').textContent = `৳${contrib.toLocaleString()}`;
+document.getElementById('pnlMargin').textContent = `${margin}%`;
+document.getElementById('pnlFixed').textContent = `৳${(fixed+extra).toLocaleString()}`;
+const netEl = document.getElementById('pnlNet');
+netEl.textContent = net >= 0 ? `৳${net.toLocaleString()}` : `−৳${Math.abs(net).toLocaleString()}`;
+netEl.className = `value ${net >= 0 ? 'green' : 'red'}`;
+document.getElementById('pnlResults').style.display = 'block';
+// Save to history
+db.pnl.push({date:new Date().toISOString().slice(0,10), orders, revenue, varCost, fixed, extra, net, margin:parseFloat(margin)});
+save();
+}
+
+// ========= PARTNERS =========
+function renderPartners(){
+const container = document.getElementById('partnerGrid');
+if(db.partners.length === 0){
+container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--text-muted);font-size:.82rem">No partners yet. Add your first Krishi Market supplier above.</div>';
+return;
+}
+container.innerHTML = db.partners.map((p,i) => `
+<div class="partner-card">
+<div><strong>${p.name}</strong><br><span style="font-size:.7rem;color:var(--text-muted)">${p.category} · ${p.phone||'—'}</span></div>
+<button class="btn-sm-outline" onclick="deletePartner(${i})" style="font-size:.65rem">✕</button>
+</div>
+`).join('');
+}
+
+function addPartner(){
+const name = document.getElementById('partName').value.trim();
+const category = document.getElementById('partCat').value;
+const phone = document.getElementById('partPhone').value.trim();
+if(!name){alert('Enter shop name');return;}
+db.partners.push({name, category, phone});
+save();
+document.getElementById('partName').value='';
+document.getElementById('partPhone').value='';
+renderPartners();
+// Also save to central data
+try{
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+if(cd.partners) cd.partners = db.partners;
+localStorage.setItem('jgmart_data', JSON.stringify(cd));
+}catch(e){}
+}
+
+function deletePartner(i){
+db.partners.splice(i,1);
+save(); renderPartners();
+}
+
+// ========= CUSTOMERS =========
+function searchCustomers(){
+const q = document.getElementById('custSearch').value.toLowerCase();
+const customers = [...new Set(db.orders.map(o => o.customer))].filter(c => c.toLowerCase().includes(q));
+const container = document.getElementById('custList');
+if(customers.length === 0){
+container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:.82rem">No customers found</div>';
+return;
+}
+container.innerHTML = customers.map(c => {
+const orders = db.orders.filter(o => o.customer === c);
+const total = orders.reduce((s,o) => s + (o.total||0), 0);
+const building = orders.find(o => o.building)?.building || '—';
+return `<div style="background:var(--bg-card);border-radius:8px;padding:10px 12px;margin-bottom:6px;box-shadow:var(--shadow-sm)">
+<div style="display:flex;justify-content:space-between">
+<span><strong>${c}</strong> · ${building}</span>
+<span style="font-size:.78rem;color:var(--text-muted)">${orders.length} orders · ৳${total.toLocaleString()}</span>
+</div></div>`;
+}).join('');
+}
+
+// ========= NAVIGATION =========
+function showScreen(id, btn){
+document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+document.getElementById(`screen-${id}`).classList.add('active');
+document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+if(btn) btn.classList.add('active');
+if(id === 'dayend' && typeof renderDayEnd === 'function') renderDayEnd();
+if(id === 'route' && typeof renderRoute === 'function') renderRoute();
+}
+
+// ========= THEME TOGGLE =========
+function toggleTheme(){
+const html = document.documentElement;
+const current = html.getAttribute('data-theme') || 'light';
+const next = current === 'dark' ? 'light' : 'dark';
+html.setAttribute('data-theme', next);
+localStorage.setItem('jgmart_theme', next);
+}
+// Load saved theme
+(function(){
+const saved = localStorage.getItem('jgmart_theme');
+if(saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ========= THEME CSS FALLBACK =========
+// If theme.css didn't load, styles still work via inline duplicate in each app
+
+// ========= HELP SYSTEM =========
+const HELP_TEXTS = {
+  home: "Your daily overview. Shows today's orders, revenue, customers, and cash position. Recent orders and quick actions below. Use this as your morning starting point.",
+  orders: "Add and track orders throughout the day. New orders start as 'Pending'. Click to mark as 'Delivered'. Every order saves automatically. Data syncs to the Data Manager and Finance Dashboard.",
+  pnl: "Quick profit & loss calculator. Enter today's order count and revenue. Costs are auto-calculated at ৳67/order (rider + manager + marketing + packaging). Fixed costs are ৳1,447/day (43,400/month ÷ 30). See your contribution margin and net profit instantly.",
+  partners: "Manage your Krishi Market suppliers. Add partners with their category and phone number. Partners sync to the central Data Manager (data.html). Click delete to remove.",
+  customers: "Search your customer database. Shows order count and total spend per customer. Customers are auto-collected from your orders — no manual entry needed.",
+  dayend: "End-of-day summary. Review today's numbers: orders, revenue, estimated costs, and net profit. Click 'Export & Backup' to download your data as JSON files. Store these safely — they're your backup.",
+  route: "Delivery route optimizer. Groups today's deliveries by cluster (C1→C4). Shows optimal building order. Estimated time: 2 min/delivery + 5 min between clusters. Drag to reorder. Check off deliveries as completed. Print for your rider."
+};
+
+function showHelp(screenName){
+  closeHelp();
+  const overlay = document.createElement('div');
+  overlay.className = 'help-overlay';
+  overlay.onclick = closeHelp;
+  document.body.appendChild(overlay);
+  const text = HELP_TEXTS[screenName] || 'No help available for this screen.';
+  const names = {home:'Home',orders:'Orders',pnl:'P&L',partners:'Partners',customers:'Customers',dayend:'Day End',route:'Route'};
+  const popover = document.createElement('div');
+  popover.className = 'help-popover';
+  popover.innerHTML = '<button class="help-close" onclick="closeHelp()">×</button><strong>'+names[screenName]+'</strong><p>'+text+'</p>';
+  document.body.appendChild(popover);
+}
+
+function closeHelp(){
+  document.querySelectorAll('.help-popover').forEach(el => el.remove());
+  document.querySelectorAll('.help-overlay').forEach(el => el.remove());
+}
+
+// ========= ROUTE OPTIMIZER =========
+const CLUSTERS = {
+  C1: { name: 'Cluster 1', buildings: ['B1','B2','B3','B4','B5','B6'], fee: 0 },
+  C2: { name: 'Cluster 2', buildings: ['B7','B8','B9','B10','B11','B12','B13'], fee: 0 },
+  C3: { name: 'Cluster 3', buildings: ['B14','B15','B16','B17','B18','B19','B20'], fee: 20 },
+  C4: { name: 'Cluster 4', buildings: ['B21','B22','B23','B24','B25','B26','B27'], fee: 30 }
+};
+const CLUSTER_ORDER = ['C1','C2','C3','C4'];
+let routeState = { reverse: false };
+
+function getBuildingCluster(b) {
+  for (const cid of CLUSTER_ORDER) {
+    if (CLUSTERS[cid].buildings.includes(b)) return cid;
+  }
+  return null;
+}
+
+function loadRouteOrders() {
+  const today = new Date().toISOString().slice(0,10);
+  const todayOrders = db.orders.filter(o => o.date === today && o.building);
+  const buildingMap = {};
+  todayOrders.forEach(o => {
+    if (!buildingMap[o.building]) buildingMap[o.building] = [];
+    buildingMap[o.building].push(o);
+  });
+  return { allOrders: todayOrders, buildingMap };
+}
+
+function buildRoute() {
+  const { allOrders, buildingMap } = loadRouteOrders();
+  const buildings = Object.keys(buildingMap);
+  const clusterBuildings = {};
+  CLUSTER_ORDER.forEach(c => { clusterBuildings[c] = []; });
+
+  buildings.forEach(b => {
+    const c = getBuildingCluster(b);
+    if (c) clusterBuildings[c].push(b);
+  });
+
+  let order = routeState.reverse ? [...CLUSTER_ORDER].reverse() : [...CLUSTER_ORDER];
+  order = order.filter(c => clusterBuildings[c].length > 0);
+
+  order.forEach(c => {
+    clusterBuildings[c].sort((a, b) => parseInt(a.replace('B','')) - parseInt(b.replace('B','')));
+  });
+
+  return { clusterOrder: order, clusterBuildings, allOrders, buildingMap };
+}
+
+function renderRoute() {
+  const { clusterOrder, clusterBuildings, allOrders, buildingMap } = buildRoute();
+  const krishi = document.getElementById('krishiToggle').checked;
+  let totalDeliveries = allOrders.length;
+  let totalTime = krishi ? 5 : 0;
+  let totalDist = 0;
+
+  clusterOrder.forEach((cid, ci) => {
+    const bldgs = clusterBuildings[cid];
+    const n = bldgs.length;
+    if (n === 0) return;
+    totalDist += (n - 1) * 0.1;
+    totalTime += n * 2;
+    if (ci < clusterOrder.length - 1) { totalDist += 0.5; totalTime += 5; }
+  });
+
+  document.getElementById('rsDeliveries').textContent = totalDeliveries;
+  document.getElementById('rsTime').textContent = Math.round(totalTime) + ' min';
+  document.getElementById('rsDistance').textContent = totalDist.toFixed(1) + ' km';
+
+  const now = new Date();
+  const endTime = new Date(now.getTime() + totalTime * 60000);
+  document.getElementById('rsCompletion').textContent = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const container = document.getElementById('routeClusters');
+  if (clusterOrder.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:24px;color:var(--text-muted);font-size:.85rem">No deliveries today with building assignments. Add orders with a building to see your route.</div>';
+    return;
+  }
+
+  container.innerHTML = clusterOrder.map((cid) => {
+    const c = CLUSTERS[cid];
+    const bldgs = clusterBuildings[cid];
+    const feeLabel = c.fee > 0 ? c.fee + ' BDT fee' : 'Free delivery';
+
+    return `<div class="route-cluster" data-cluster="${cid}">
+      <div class="route-cluster-header" onclick="toggleCluster(this)">
+        <span>🏢 ${c.name} (${bldgs.length} bldg${bldgs.length>1?'s':''})</span>
+        <span class="fee">${feeLabel}</span>
+      </div>
+      <div class="route-cluster-body">
+        ${bldgs.map((b) => {
+          const orders = buildingMap[b] || [];
+          const allDelivered = orders.every(o => o.status === 'done');
+          const orderLines = orders.map(o =>
+            `<div class="route-order-item">${o.customer} — ৳${o.total} ${o.status==='done'?'✅':'⏳'}</div>`
+          ).join('');
+          const totalAmount = orders.reduce((s,o) => s + (o.total||0), 0);
+          return `<div class="route-stop ${allDelivered?'delivered':''}" data-building="${b}" draggable="true" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dropStop(event)">
+            <span class="drag-handle" draggable="false">⠿</span>
+            <span class="stop-building">${b}</span>
+            <span class="stop-orders">${orders.length} order${orders.length>1?'s':''} · ৳${totalAmount}</span>
+            <button class="move-btn" onclick="moveStop(this,-1)" title="Move up">▲</button>
+            <button class="move-btn" onclick="moveStop(this,1)" title="Move down">▼</button>
+            <input type="checkbox" class="stop-checkbox" ${allDelivered?'checked':''} onchange="toggleBuildingStatus('${b}', this.checked)">
+          </div>${orderLines}`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCluster(el) {
+  const body = el.nextElementSibling;
+  body.style.display = body.style.display === 'none' ? 'block' : 'none';
+}
+
+function moveStop(btn, dir) {
+  const stop = btn.closest('.route-stop');
+  const body = stop.closest('.route-cluster-body');
+  const stops = [...body.querySelectorAll('.route-stop')];
+  const idx = stops.indexOf(stop);
+  if (idx + dir < 0 || idx + dir >= stops.length) return;
+  const ref = dir < 0 ? stops[idx + dir] : stops[idx + dir].nextSibling;
+  body.insertBefore(stop, ref);
+}
+
+let dragSrc = null;
+function dragStart(e) {
+  dragSrc = e.target.closest('.route-stop');
+  if (dragSrc) { e.dataTransfer.effectAllowed = 'move'; dragSrc.classList.add('dragging'); }
+}
+function dragOver(e) {
+  e.preventDefault();
+  const target = e.target.closest('.route-stop');
+  if (target && target !== dragSrc) {
+    const rect = target.getBoundingClientRect();
+    const mid = rect.top + rect.height / 2;
+    const parent = target.closest('.route-cluster-body');
+    if (e.clientY < mid) parent.insertBefore(dragSrc, target);
+    else parent.insertBefore(dragSrc, target.nextSibling);
+  }
+}
+function dropStop(e) {
+  e.preventDefault();
+  if (dragSrc) dragSrc.classList.remove('dragging');
+  dragSrc = null;
+}
+
+function reverseClusterOrder() {
+  routeState.reverse = !routeState.reverse;
+  renderRoute();
+}
+
+function toggleBuildingStatus(building, checked) {
+  const today = new Date().toISOString().slice(0,10);
+  db.orders.forEach(o => {
+    if (o.building === building && o.date === today) {
+      o.status = checked ? 'done' : 'pending';
+    }
+  });
+  save();
+  renderRoute();
+  if (typeof renderOrders === 'function') renderOrders();
+  if (typeof updateHome === 'function') updateHome();
+}
+
+function printRoute() { window.print(); }
+
+// ========= DAY END ROUTINE =========
+function renderDayEnd(){
+const today = new Date().toISOString().slice(0,10);
+const todayOrders = db.orders.filter(o => o.date === today);
+const rev = todayOrders.reduce((s,o) => s + (o.total||0), 0);
+const cost = todayOrders.length * 67;
+const profit = rev - cost - Math.round(43400/30);
+const customers = [...new Set(todayOrders.map(o => o.customer))];
+
+document.getElementById('deOrders').textContent = todayOrders.length;
+document.getElementById('deRevenue').textContent = `৳${rev.toLocaleString()}`;
+document.getElementById('deCost').textContent = `৳${cost.toLocaleString()}`;
+const el = document.getElementById('deProfit');
+el.textContent = profit >= 0 ? `৳${profit.toLocaleString()}` : `−৳${Math.abs(profit).toLocaleString()}`;
+el.className = profit >= 0 ? 'green' : 'red';
+document.getElementById('deCustomers').textContent = customers.length;
+document.getElementById('deAvgOrder').textContent = todayOrders.length > 0 ? `৳${Math.round(rev/todayOrders.length)}` : '—';
+document.getElementById('deDelivered').textContent = todayOrders.filter(o => o.status === 'done').length;
+}
+
+function exportAndBackup(){
+const blob = new Blob([JSON.stringify(db, null, 2)], {type:'application/json'});
+const a = document.createElement('a');
+a.href = URL.createObjectURL(blob);
+a.download = `jgmart_os_backup_${new Date().toISOString().slice(0,10)}.json`;
+a.click();
+// Also export via data.html format
+try{
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+const b2 = new Blob([JSON.stringify(cd, null, 2)], {type:'application/json'});
+const a2 = document.createElement('a');
+a2.href = URL.createObjectURL(b2);
+a2.download = `jgmart_data_${new Date().toISOString().slice(0,10)}.json`;
+a2.click();
+}catch(e){}
+alert('✅ Data exported! Files saved to your downloads folder.');
+}
+</script>
+</body>
+</html>

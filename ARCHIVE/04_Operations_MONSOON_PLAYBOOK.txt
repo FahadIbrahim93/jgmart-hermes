@@ -1,0 +1,275 @@
+JG MART – MONSOON PLAYBOOK
+Dhaka Rainy Season Protocol | June – September
+Founder: Fahad Ibrahim | Japan Garden City, Mohammadpur, Dhaka
+Version: 1.0
+
+================================================================================
+1. PRE-MONSOON CHECKLIST (Complete by May 31)
+================================================================================
+
+RIDER GEAR & APPAREL
+  [ ] Full rain suit (jacket + pants) – waterproof rating > 3000mm
+  [ ] Helmet with clear visor (anti-fog coating)
+  [ ] Waterproof shoe covers + extra socks (3 pairs)
+  [ ] Rain bag / dry bag (50L) for orders – tested for leaks
+  [ ] Waterproof phone pouch + zip-lock bags for documents
+  [ ] Umbrella (compact, for customer hand-off if needed)
+
+BIKE PREPARATION
+  [ ] Full service: engine tune-up, oil change, air filter, spark plug
+  [ ] Chain lubrication: waterproof lube applied
+  [ ] Tire tread check: replace if < 2mm depth
+  [ ] Battery check: clean terminals, check voltage
+  [ ] Brake inspection: pads, discs, brake fluid top-up
+  [ ] Electrical wrap: protect wiring with waterproof tape
+  [ ] Add mudguard extensions if not factory-fitted
+
+HUB & OPERATIONS PREP
+  [ ] Waterproof tarp for hub entrance (rain shelter for loading)
+  [ ] Raised platform for order storage (6 inches off floor)
+  [ ] Dehumidifier / moisture absorbers in storage area
+  [ ] Backup generator / power bank for phones and lights
+  [ ] Sandbags / barriers for flood-prone entry points
+  [ ] Stockpile: waterproof bags, extra tags, dry receipts, disinfectant
+  [ ] First-aid kit updated: bandages, antiseptic, anti-fever meds
+
+PARTNER PREPARATION
+  [ ] Confirm partners have waterproof storage for pre-packed orders
+  [ ] Request partners to use sturdy bags (not thin plastic) during monsoon
+  [ ] Agree on cutoff time adjustments (see Section 3)
+  [ ] Ensure partner phones are waterproof-cased or have backup devices
+
+SYSTEM PREPARATION
+  [ ] Update WhatsApp status: "Monsoon mode active – expect 15–20 min delays"
+  [ ] Enable WhatsApp broadcast for weather alerts
+  [ ] Prepare backup power solutions (solar chargers, power banks)
+  [ ] Test GPS tracker in heavy rain (signal interference check)
+
+================================================================================
+2. MONSOON PRICING STRATEGY
+================================================================================
+
+OBJECTIVE: Protect margins while keeping delivery attractive.
+
+RAIN SURCHARGE (Optional / Tiered)
+  - Light rain (drizzle): No surcharge
+  - Moderate rain: BDT 20 surcharge per order (auto-applied if weather alert active)
+  - Heavy rain / waterlogging: BDT 50 surcharge + ETA extension
+  - Communicate clearly: "A small rain surcharge helps us keep your order safe and dry. 🙏"
+
+MINIMUM ORDER ADJUSTMENT
+  - Normal: BDT 300 minimum
+  - Monsoon: Raise to BDT 400 (offset delivery risk + bag costs)
+  - Exempt COD orders < BDT 400 if customer prepays bKash (encourages digital)
+
+BUNDLED OFFERS (Revenue Protection)
+  - "Rainy Day Combo": Rice 5kg + lentils + onions + garlic = BDT 850 (save BDT 120)
+  - "Indoor Essentials Bundle": Floor cleaner + mosquito coil + tissue + soap = BDT 450
+  - "Hot & Cozy Pack": Instant noodles + soup + tea + biscuits = BDT 380
+  - "No-Cook Dinner Box": Bread + butter + jam + eggs + condensed milk = BDT 320
+
+PROMOTIONS TO DRIVE VOLUME
+  - "Monsoon Loyalty": 5th order free delivery (track via WhatsApp sticker or code)
+  - "Pre-order Bonus": Order before 4PM for next-day 7AM guaranteed slot
+  - "Group Order Discount": 3+ orders to same address = 20% off delivery fee
+
+PRICE FREEZE COMMITMENT
+  - Do NOT raise item prices during monsoon (only delivery fee adjustment allowed)
+  - If supplier raises prices, absorb first BDT 50 increase per item; pass rest transparently
+
+================================================================================
+3. DELIVERY BUFFER ADJUSTMENTS
+================================================================================
+
+NORMAL BUFFER → MONSOON BUFFER
+  - Normal ETA: 30–40 mins → Monsoon ETA: 45–60 mins
+  - Normal cutoffs: 10AM, 2PM, 5PM → Monsoon cutoffs: 9AM, 1PM, 4:30PM (cut 30 mins earlier)
+  - Normal batch: every 3 hours → Monsoon batch: every 2 hours (smaller, more frequent)
+  - Normal orders per rider: 15–20 → Monsoon orders per rider: 10–12 (safety first)
+
+DELIVERY WINDOW SLOTS (Monsoon)
+  Slot 1: 07:00 – 09:00 (early bird, dry window)
+  Slot 2: 09:30 – 11:30 (pre-rain window)
+  Slot 3: 12:00 – 14:00 (light rain expected, higher surcharge)
+  Slot 4: 15:00 – 17:00 (afternoon break, if rain stops)
+  Slot 5: 17:30 – 19:30 (evening, if dry)
+
+CUSTOMER COMMUNICATION
+  - WhatsApp broadcast at 06:30 daily: "Today's weather: [rain/dry]. Delivery slots: [list]. Order now!"
+  - If rain starts mid-day: Broadcast "Heavy rain alert. Next delivery at [next slot time]."
+  - Real-time updates: "Rider [Name] is delayed by 20 mins due to waterlogging at [location]."
+
+RIDER SAFETY RULES (NON-NEGOTIABLE)
+  - No riding in water deeper than ankle height (engine + electrical risk)
+  - Maximum speed 25 km/h in rain (vs. 35 km/h normal)
+  - Avoid underpasses prone to flooding (map known flood points)
+  - If lightning within 5 km: Stop, wait 30 mins under shelter, do not resume
+  - Phone in waterproof pouch at all times; no calls while riding
+
+================================================================================
+4. WEATHER CANCELLATION PROTOCOL
+================================================================================
+
+FOUNDER DECISION ONLY
+  Only Founder (Fahad Ibrahim) can declare "Weather Hold."
+  Criteria:
+    - Bangladesh Meteorological Department warning: heavy rain / thunderstorm
+    - Road conditions: waterlogging > 12 inches on main routes
+    - Rider safety: any rider reports unsafe conditions
+
+CANCELLATION PROCESS
+  1. Founder sends WhatsApp broadcast to ALL pending customers: "Weather Hold. Your order [ID] is rescheduled to [next slot]. Full refund if you prefer. Reply YES to confirm new time or NO for refund."
+  2. Ops Lead updates Order Tracker: "Weather Hold – Rescheduled" or "Weather Hold – Refunded"
+  3. Partners notified: "Weather Hold. Do not prepare orders for [time window]."
+  4. If cancellation > 2 hours before delivery: Full refund (no penalty)
+  5. If cancellation < 2 hours: Full refund + BDT 50 credit coupon for next order
+
+CUSTOMER REFUND PROCESS
+  - COD customers: Refund via bKash (ask for number) or cash at next delivery
+  - bKash customers: Auto-refund to same TrxID within 2 hours
+  - Document all refunds in Financial Log under "Weather Hold Refunds"
+
+BUSINESS CONTINUITY DURING WEATHER HOLD
+  - Hub remains open for inquiries
+  - WhatsApp auto-reply updated: "Weather Hold in effect. We'll resume once roads are safe."
+  - Ops Lead monitors weather every 30 mins via BMD app / local news
+  - Resume decision: Founder announces "All Clear" + first delivery slot
+
+================================================================================
+5. CUSTOMER COMMUNICATION TEMPLATES (WEATHER DELAYS)
+================================================================================
+
+06:30 | Daily Weather Update
+"🌧️ Monsoon update: Today's forecast shows [light/moderate/heavy] rain from [time]. Delivery slots adjusted. Order now for guaranteed [slot] delivery! Stay dry, JG Mart 🛵"
+
+07:00 | Order Confirmation (Monsoon)
+"Hi [Name]! 🛒 Your order JG-[Date]-[XXX] is confirmed.
+Items: [List]
+Total: BDT [Amount] (+ BDT [X] rain surcharge if applicable)
+Payment: [COD / bKash]
+Delivery window: [Slot Time] (45–60 mins due to rain)
+Rider: [Name]
+Track us: WhatsApp reply anytime!"
+
+09:00 | Delay Alert (Rain Started)
+"⚠️ Delivery update: Your order is delayed by 20–30 mins due to heavy rain at [location]. Rider [Name] is safe and continuing. New ETA: [Time]. Thank you for your patience! 🙏"
+
+10:00 | Proactive Reschedule Offer
+"Hi [Name], the rain is heavier than expected. Would you prefer:
+A) Continue with current order – ETA [Time]
+B) Reschedule to tomorrow 7AM – same items, no extra charge
+C) Cancel – full refund
+Reply A, B, or C!"
+
+11:00 | All Clear Announcement
+"☀️ Good news! Rain has stopped in JGC area. Resuming deliveries. Next slot: 12:00–14:00. Order now if you need anything! 🛵"
+
+14:00 | End-of-Day Weather Summary
+"Thanks for bearing with us today! 🌧️ We completed [X] deliveries despite the rain. Tomorrow's forecast: [summary]. Pre-order now for 7AM delivery. Rest well!"
+
+17:00 | Auto-Reply (Monsoon Hours)
+"Hi! JG Mart is closing soon. 🛵 Orders placed now will be delivered from 7AM tomorrow. We're monitoring weather and will adjust slots if needed. Stay safe!"
+
+================================================================================
+6. REVENUE PROTECTION STRATEGIES
+================================================================================
+
+A. PIVOT TO IN-DEMAND MONSOON ITEMS
+  Stock heavily during June–September:
+    - Cooking: Rice, lentils, onions, garlic, ginger, turmeric, mustard oil
+    - Beverages: Tea leaves, coffee, milk packets, bottled water
+    - Snacks: Biscuits, chips, noodles, chanachur (non-perishable)
+    - Household: Detergent, dish soap, floor cleaner, mosquito coils, electric mats
+    - Baby: Diapers, baby food, formula (parents avoid going out)
+
+B. BUNDLED OFFERS (See Section 2)
+  - Push bundles via WhatsApp broadcast at 11:00 and 16:00
+  - Offer "Monsoon Survival Kit" as fixed-price package
+  - Partner with P001 (dry goods) and P005 (bakery) for exclusive bundles
+
+C. PRE-ORDER MODEL
+  - "Order tonight, receive tomorrow 7AM" – reduces same-day weather risk
+  - Offer 5% discount for pre-orders placed after 8PM
+  - Use pre-orders to smooth demand and reduce rider idle time
+
+D. CORPORATE / BULK ORDERS
+  - Target JGC apartment buildings for bulk orders (rice, oil, water)
+  - Offer weekly subscription: "Weekly Essentials" delivered every Monday 7AM
+  - Fixed revenue stream, less weather-dependent
+
+E. DOOR-STEP STATION STRATEGY
+  - If rain is persistent, set up temporary pickup point under JGC Central shelter
+  - Customers collect from shelter (no delivery fee if they walk 200m)
+  - Saves rider time + fuel; keeps revenue flowing
+
+F. COST CONTAINMENT
+  - Reduce rider shifts during heavy rain (split shifts: 6–10AM + 3–7PM instead of 6–8PM continuous)
+  - Use bKash more aggressively (COD risky in rain, cash handling slower)
+  - Minimize perishable purchases during peak rain weeks (reduce spoilage)
+  - Negotiate extended payment terms with partners during monsoon
+
+================================================================================
+7. POST-MONSOON RECOVERY PLAN (October)
+================================================================================
+
+IMMEDIATE ACTIONS (First Week of October)
+  [ ] Remove rain surcharge from all orders
+  [ ] Restore normal delivery fees + cutoffs
+  [ ] Audit all bikes for monsoon damage (rust, electrical, engine)
+  [ ] Deep clean hub: disinfect, dehumidify, check for mold
+  [ ] Wash / replace all delivery bags (many will be contaminated)
+  [ ] Check partner stock for price corrections (monsoon premiums removed)
+
+FINANCIAL RECONCILIATION
+  [ ] Calculate total monsoon revenue vs. pre-monsoon baseline
+  [ ] Identify high-performing bundles and keep as permanent offerings
+  [ ] Review rain surcharge policy: continue, modify, or drop?
+  [ ] Assess rider overtime costs; adjust shift planning if over-budget
+  [ ] File insurance claims for any weather-related losses
+
+CUSTOMER RE-ENGAGEMENT
+  [ ] WhatsApp broadcast: "Monsoon season over! 🎉 Free delivery on all orders this week to celebrate dry roads."
+  [ ] Request feedback: "How did we do during the rains? Reply with a rating."
+  [ ] Offer loyalty coupon for next order to monsoon customers who stuck with us
+  [ ] Publish monsoon highlights on social media (if active): "Delivered X orders through the heaviest rains!"
+
+OPERATIONS LESSONS LEARNED
+  [ ] Document what worked: routes, timing, communication
+  [ ] Document what failed: equipment gaps, process bottlenecks
+  [ ] Update SOP Manual with monsoon-specific rules for next year
+  [ ] Train new rider (if hired during monsoon) on standard + rainy protocols
+  [ ] Replace any permanently damaged equipment from monsoon budget
+
+PARTNER DEBRIEF
+  [ ] Thank partners for monsoon support
+  [ ] Review stock availability during peak rain weeks
+  [ ] Adjust minimum order values and cutoff times back to normal
+  [ ] Plan pre-monsoon orders for next year (bulk purchase of rain gear in March–April)
+
+================================================================================
+8. MONSOON SAFETY REMINDERS (Post in Hub)
+================================================================================
+
+RIDER SAFETY
+  • Helmet ON before engine ON
+  • Phone in waterproof pouch – no exceptions
+  • If lightning: stop under shelter, wait 30 mins
+  • No flooded roads – even if shortcut looks passable
+  • Slow down – wet roads double stopping distance
+  • Wear bright/reflective jacket in heavy rain
+
+CUSTOMER SAFETY
+  • If customer opens door in heavy rain: step back, hand items under shelter/roof
+  • Never enter customer home (policy: doorstep only)
+  • Sanitize hands before/after every delivery
+  • If customer is elderly/sick: offer to leave items at designated spot
+
+FOOD SAFETY
+  • Perishables in cool bag + ice pack at all times
+  • If cool bag fails: discard perishables, do not deliver
+  • Raw meat/fish: double-bag, separate from ready-to-eat items
+  • Discard any item that got wet (packaging compromised)
+
+================================================================================
+END OF MONSOON PLAYBOOK
+================================================================================

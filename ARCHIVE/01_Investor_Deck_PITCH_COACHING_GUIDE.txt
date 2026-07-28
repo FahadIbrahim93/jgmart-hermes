@@ -1,0 +1,418 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — INVESTOR PITCH COACHING GUIDE v1.0                     ║
+║                         Objection Handling + Pitch Practice                   ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+═══ FOREWORD ═══
+
+Fahad, this guide is your pre-flight checklist before any investor meeting.
+It contains:
+  1. Pitch Structure (3-min version breakdown)
+  2. The 10 Most Likely Objections + Your Responses
+  3. The "Trap" Questions (and how to dodge them)
+  4. Numbers You MUST Memorise
+  5. Body Language & Tone Cues
+  6. Red Flags Investors Look For
+  7. Post-Pitch Follow-up Protocol
+
+Read this before EVERY pitch. Not after.
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 1: THE 3-MINUTE PITCH BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════════
+
+SECONDS 00-30: THE PROBLEM (Hook)
+  "Japan Garden City has 1,700 families and ZERO grocery stores.
+  Every single day, families lose 2-3 hours getting groceries.
+  My brother-in-law spends more time in traffic than with his kids.
+  This is a problem I've lived for 8 years."
+
+  🎯 TONE: Personal, relatable, from the heart
+  🚫 AVOID: Stats without the human story
+
+SECONDS 30-60: THE SOLUTION (2 sentences + model)
+  "JG Mart delivers fresh groceries from Krishi Market in 90 minutes.
+  No warehouse. No inventory. No app download.
+  Customers order on WhatsApp — already installed on every phone.
+  We batch orders, pick up from partners 800m away, and deliver."
+
+SECONDS 60-90: UNIT ECONOMICS (THE MONEY)
+  "Here's the math investors love: per order —"
+  "Revenue: 138 BDT. Cost to serve: 67 BDT."
+  "Contribution: 71 BDT. 51% margin."
+  "Month one: 100 customers, 300 orders. Month three: 350, 1650."
+  "Break-even by month three."
+
+  🎯 TONE: Confident, practiced, numbers off the top of your head
+  💡 KEY: Say it like you've said it 100 times
+
+SECONDS 90-150: THE ASK + USE OF FUNDS
+  "I'm raising 250,000 BDT — that's 2.9 thousand dollars.
+  72K for rider salary. 72K for ops support. 50K marketing.
+  50K working capital. 6K for equipment."
+  "At our burn rate, this gives us 4-5 months of runway.
+  We'll be profitable by month three."
+
+SECONDS 150-180: THE CLOSE (Invitation)
+  "I'm not asking you to fund a fantasy.
+  Krishi Market is 800 meters from JGC. I've walked it 200 times.
+  I have 5 beta customers ready. My brother is the rider.
+  I need a partner who believes that the best businesses solve
+  real problems for real neighbours.
+  I'd love to walk you through the detailed numbers."
+
+  🎯 TONE: Confident, humble, determined
+  🚫 AVOID: Begging or sounding desperate
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 2: THE 10 MOST LIKELY OBJECTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+OBJECTION 1: "Isn't this too small for VC?"
+═══════════════════════════════════════════════════════════════════════
+
+THE WRONG ANSWER:
+  "No, we'll scale to 10,000 customers in a year..."
+
+THE RIGHT ANSWER:
+  "You're right — 250K BDT is not a VC-sized check.
+  That's exactly the point. We're not asking for a big bet.
+  We're asking for a small bet on a model that WORKS without
+  burning millions.
+  If we prove 350 customers in JGC at 51% contribution margin,
+  we unlock a repeatable playbook. Same model works in Gulshan,
+  Banani, Uttara. That's when the real conversation starts.
+  For now, this is a capital-efficient proof of concept."
+
+OBJECTION 2: "Chaldal will crush you once they enter Mohammadpur"
+═══════════════════════════════════════════════════════════════════════
+
+THE WRONG ANSWER:
+  "We're different from Chaldal..."
+
+THE RIGHT ANSWER:
+  "Chaldal is a $30M warehouse model. We're a 1-man WhatsApp service.
+  When Chaldal enters Mohammadpur, they need a 10,000 sq ft warehouse,
+  50 staff, and 15 vans. They'll spend 15 lakh/month before their
+  first delivery.
+  I operate from my phone. I source from a market 800m away.
+  Chaldal's fastest delivery is 3 hours. Mine is 90 minutes.
+  Most importantly: Chaldal is an app. I'm a neighbour.
+  When a resident messages me, they get a person they've seen
+  in the lift. You can't replicate that with an algorithm."
+
+OBJECTION 3: "Only 300 orders in Month 1? That's nothing."
+═══════════════════════════════════════════════════════════════════════
+
+THE WRONG ANSWER:
+  "We'll actually do 500..."
+
+THE RIGHT ANSWER:
+  "300 orders is deliberately conservative.
+  100 families × 3 orders/month = 3 orders per customer.
+  That's 0.75 orders per WEEK.
+  If each family spends 8,000 BDT/month on groceries,
+  we're capturing just 2,400 BDT — that's 30% of their wallet.
+  We don't need to capture 100%. We just need to be their
+  go-to for daily essentials.
+  At 51% contribution margin, 300 orders already proves
+  unit economics. Month 2 shows the leverage: 200 customers
+  but 900 orders (4.5/month each). That's word-of-mouth + habit."
+
+OBJECTION 4: "Why not build an app like every other startup?"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "Building an app would cost 5-10 lakh and take 4 months.
+  WhatsApp is on 95% of Bangladeshi phones and I can start
+  TODAY.
+  The app is a feature, not a moat. We're starting with
+  the highest-friction channel so when we DO build an app,
+  we already have customers, processes, and trust.
+  Flip the question: why waste money on an app when you
+  haven't proven anyone wants delivery yet?"
+
+OBJECTION 5: "What happens if your brother gets sick?"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "Good question. I've planned for this:
+  Phase 1 (Month 1): My brother is primary. I'm backup.
+  Phase 2 (Month 2): We hire a backup rider — part time.
+  Cost: 6,000 BDT/month. At 900 orders, contribution is
+  63,900. 6K is easily absorbed.
+  Phase 3 (Month 3+): We have 2 full-time riders.
+  Key metric: rider cost as % of revenue caps at 35%.
+  Even at 2 riders, we're well within that."
+
+OBJECTION 6: "How do you handle COD fraud or theft?"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "Two simple controls:
+  1. My brother handles all cash. No exceptions.
+  2. Every order gets a printed receipt with customer signature.
+  Month 1 target is 100 customers known to me personally.
+  Brand-new riders won't handle cash alone until we have
+  a track record and a small security deposit system.
+  bKash payments leave a digital trail, so no risk there.
+  In Bangladesh, bKash is preferred for 60%+ of transactions.
+  We'll actively push bKash over COD."
+
+OBJECTION 7: "250K is too much / too little for what you're doing"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER (if "too much"):
+  "250K covers 6 months of rider and manager salaries, plus
+  marketing and a buffer. The average delivery startup in Dhaka
+  burns 12 lakh/month. We're asking for 2.5 lakh total.
+  That's not too much — that's capital-efficient."
+
+THE RIGHT ANSWER (if "too little"):
+  "You're right that 250K won't build an empire.
+  But it will prove the unit economics. Once I show 350 customers
+  at 51% margin, the next round is easy.
+  I'd rather ask for too little and prove discipline than ask
+  for too much and waste it."
+
+OBJECTION 8: "Krishi Market prices are volatile. How do you handle?"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "We update our prices daily based on morning Krishi Market rates.
+  Customers see TODAY'S price, not a static menu.
+  Our commission model protects us: we charge 11% of the actual
+  price. If prices go up, our absolute commission goes up too.
+  We also offer substitutions: if potato is expensive, we suggest
+  alternatives before checkout.
+  The volatility is a feature, not a bug — it proves we're
+  connected to the real market."
+
+OBJECTION 9: "This doesn't scale beyond JGC"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "JGC is the prototype. There are 80+ residential enclaves
+  in Dhaka with the exact same problem: no grocery store,
+  bazaar is 1+ km away, residents have cars but not time.
+  Once we prove the JGC playbook, we:
+  1. Hire a local ops lead in the next enclave
+  2. Replicate the partnership model with that area's bazaar
+  3. Centralize management (WhatsApp number, accounting, QA)
+  Each enclave is an independent P&L. Total SG&A for 5 enclaves
+  is only ~3-4x a single enclave's overhead because management
+  is centralized."
+
+OBJECTION 10: "Why should I invest NOW? Why not wait 6 months?"
+═══════════════════════════════════════════════════════════════════════
+
+THE RIGHT ANSWER:
+  "If you wait 6 months, you'll see one of two things:
+  1. We succeed — and I'll raise at 5x the valuation.
+  2. We fail — and you'll know exactly why.
+  Investing NOW means you get in at a 1 Crore valuation cap.
+  If we hit 350 customers at 51% margin, the next round is
+  at 5-10 Crore.
+  Your risk: 250K BDT. Your upside: 10x in 12-18 months.
+  If I'm wrong, I'll tell you within 90 days with hard data."
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 3: THE "TRAP" QUESTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+These questions are designed to test you, not gather information.
+If you stumble, they lose confidence.
+
+TRAP 1: "What's your gross margin?"
+  WHAT THEY'RE TESTING: Do you know your numbers?
+  ✗ WRONG: "Um, I think it's around 50%..."
+  ✓ RIGHT: "Our contribution margin is 51% — that's 71 BDT per order
+    after variable costs but before fixed overhead. Our net margin
+    hits 4.5% in Month 3 and scales from there."
+
+TRAP 2: "What keeps you up at night?"
+  WHAT THEY'RE TESTING: Do you understand your biggest risk?
+  ✗ WRONG: "Nothing, I'm super confident..."
+  ✓ RIGHT: "Two things: speed of adoption and rider reliability.
+    If we don't hit 100 customers in Month 1, we don't hit 200
+    in Month 2. That's why marketing and referrals are 20% of
+    our ask — customer acquisition is our single biggest variable."
+
+TRAP 3: "Who else have you pitched?"
+  WHAT THEY'RE TESTING: Social proof / desperation
+  ✗ WRONG: "You're the first person. I've been rejected 15 times..."
+  ✓ RIGHT: "I've shared this with a few people — an ex-Chaldal
+    manager provided input on our model and an FMCG investor
+    is reviewing the terms. I wanted to bring you a refined
+    version rather than a rough draft."
+
+TRAP 4: "Tell me about your team"
+  WHAT THEY'RE TESTING: Are you a one-person show?
+  ✗ WRONG: "It's just me and my brother..."
+  ✓ RIGHT: "I'm the founder — I handle operations, partnerships,
+    and customer acquisition. My brother is my ops lead — he
+    does morning pickups and deliveries. We're exploring an
+    advisory board that includes an ex-Chaldal category manager.
+    I've also built a network of 5 JGC building committee
+    members who act as community ambassadors."
+
+TRAP 5: "What's your exit strategy?"
+  WHAT THEY'RE TESTING: Do you think long-term?
+  ✗ WRONG: "We want to IPO..."
+  ✓ RIGHT: "In 24-36 months, we're most likely an acquisition target
+    for Chaldal, Foodpanda, or Daraz Grocery. A hyperlocal delivery
+    network in Dhaka's premium enclaves is a strategic asset — it
+    saves them 3-4 years of building local partnerships. If that
+    doesn't materialize, we've built a profitable cash-flow
+    business with 50%+ margins. Either outcome works for investors."
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 4: NUMBERS YOU MUST MEMORISE
+═══════════════════════════════════════════════════════════════════════════════
+
+Write these on a card. Review every morning before pitch day.
+
+  ┌──────────────────────────────┬──────────────────────┐
+  │ Metric                       │ Value                │
+  ├──────────────────────────────┼──────────────────────┤
+  │ Seed Ask                     │ BDT 250,000          │
+  │ Seed Ask (USD)               │ ~USD 2,900           │
+  │ Valuation Cap                │ BDT 80,00,000        │
+  │ JGC Families                 │ 1,700                │
+  │ Distance to Krishi Market    │ 800m                 │
+  │ Average Order Value          │ BDT 800              │
+  │ JG Mart Revenue Per Order    │ BDT 138              │
+  │ Cost to Serve Per Order      │ BDT 67               │
+  │ Contribution Per Order       │ BDT 71               │
+  │ Contribution Margin          │ 51%                  │
+  │ Month 1 Customers            │ 100                  │
+  │ Month 3 Customers            │ 350                  │
+  │ Month 1 Orders               │ 300                  │
+  │ Month 3 Orders               │ 1,650                │
+  │ Month 1 Revenue              │ BDT 41,400           │
+  │ Month 3 Revenue              │ BDT 2,27,700         │
+  │ Break-even Month             │ Month 3              │
+  │ Month 3 Net Profit           │ BDT 14,950           │
+  └──────────────────────────────┴──────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 5: BODY LANGUAGE & TONE
+═══════════════════════════════════════════════════════════════════════════════
+
+DO:
+  ✓ Lean forward slightly — shows engagement
+  ✓ Keep hands visible — builds trust
+  ✓ Nod when they're talking — shows listening
+  ✓ Pause before answering hard questions — shows thought
+  ✓ Use hand gestures when talking about JGC (point)
+  ✓ Smile when talking about your customers
+
+DON'T:
+  ✗ Cross your arms — defensive
+  ✗ Look at your phone or watch — disrespectful
+  ✗ Talk too fast when nervous — slow down
+  ✗ Say "honestly" — implies you're usually not
+  ✗ Fill silence with um/uh/like
+  ✗ Apologize for anything
+
+VOICE CADENCE:
+  "Japan Garden City has 1,700 families... and ZERO grocery stores."
+  (pause after 1,700, emphasis on ZERO)
+  "Revenue: 138. Cost: 67. Contribution: 71. 51% margin."
+  (say it fast and rhythmic like a trader)
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 6: RED FLAGS INVESTORS WATCH FOR
+═══════════════════════════════════════════════════════════════════════════════
+
+FLAG 1 — You DON'T KNOW your numbers
+  ❌ "Um, I think the margin is about 50%"
+  ✅ "Contribution margin: 51%. 71 BDT per order."
+
+FLAG 2 — You don't understand the BUSINESS MODEL
+  ❌ "We're like Chaldal but better" (you're NOTHING like Chaldal)
+  ✅ "We're a hyperlocal aggregator. We don't hold inventory."
+
+FLAG 3 — You get DEFENSIVE about questions
+  ❌ "Actually, that's wrong — we would never..."
+  ✅ "Good question. Here's how we handle that..."
+
+FLAG 4 — Your numbers don't ADD UP
+  ❌ "Revenue is 240K month 1 and costs are 65K"
+  ✅ (Make sure everything is consistent across all docs)
+
+FLAG 5 — You don't have SKIN IN THE GAME
+  ❌ "I need 250K to start this business"
+  ✅ "I'm investing my own time, my brother is giving up
+      his job, and I've already spent 15K of my own money
+      on equipment and flyers."
+
+FLAG 6 — You haven't TALKED TO CUSTOMERS
+  ❌ "I know people want this because my neighbours say so"
+  ✅ "I have 5 beta customers confirmed. 3 building committee
+      members are ready to endorse the service."
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 7: POST-PITCH PROTOCOL
+═══════════════════════════════════════════════════════════════════════════════
+
+WITHIN 15 MINUTES:
+  ✓ Send a thank-you WhatsApp
+  ✓ Share the investor 1-pager (PDF)
+  ✓ Note any questions you couldn't answer — research them
+
+WITHIN 24 HOURS:
+  ✓ Follow up with any numbers they asked for
+  ✓ Share a relevant data point (e.g., new beta signup)
+  ✓ Offer to meet again at Krishi Market to see the operation
+
+IF THEY SAY YES (interested):
+  ✓ Share financial model
+  ✓ Set up a follow-up call within 48 hours
+  ✓ Prepare a simple term sheet
+  ✓ Ask for introduction to their network
+
+IF THEY SAY NO:
+  ✓ Ask for specific feedback (WHY?)
+  ✓ Ask if they know anyone else who might be interested
+  ✓ Add them to your monthly update list
+  ✓ Follow up in 3 months with traction that proves them wrong
+
+IF THEY SAY "MAYBE" / "TALK TO ME LATER":
+  ✓ Ask for a specific timeline (1 month? 3 months?)
+  ✓ Add to your newsletter/update list
+  ✓ Send monthly 1-paragraph progress updates
+  ✓ Prove them right by showing traction
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 8: PITCH PRACTICE DRILLS
+═══════════════════════════════════════════════════════════════════════════════
+
+DRILL 1: THE MIRROR
+  Stand in front of a mirror. Pitch for 3 minutes.
+  Watch your own face. Do you look confident?
+  Do it 5 times. Minimum.
+
+DRILL 2: THE FRIEND
+  Pitch to a non-business friend (your brother).
+  If they understand it, anyone will.
+  Get them to ask 5 random questions.
+
+DRILL 3: THE METRONOME
+  Set a timer for 3 minutes.
+  Hit each section within the time.
+  If you rush, you're leaving out context.
+  If you finish early, you're skipping the close.
+
+DRILL 4: THE RECORDING
+  Record yourself on WhatsApp voice note.
+  Listen back. Count the ums and uhs.
+  Do it again until zero filler words.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+"You don't need to convince every investor.
+You need one believer and 350 happy customers."
+
+— Coach 🎯
+═══════════════════════════════════════════════════════════════════════════════

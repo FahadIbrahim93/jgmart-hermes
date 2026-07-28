@@ -1,0 +1,285 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    JG MART — PRODUCT REQUIREMENTS DOCUMENT v2.0               ║
+║                    Extracted & Polished from Original Research                 ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Version: 2.0
+Date: July 2026
+Owner: Fahad Ibrahim
+Product: JG Mart Hyperlocal Grocery Aggregator
+Market: Japan Garden City, Mohammadpur, Dhaka
+
+═══════════════════════════════════════════════════════════════════════════════
+1. PRODUCT OVERVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+1.1 Problem Statement
+---------------------
+Japan Garden City (JGC) houses ~1,700 affluent families in 26 buildings (15-16
+storeys each). The complex has ZERO internal grocery stores. Residents must:
+
+• Exit the gated complex through Ring Road
+• Navigate traffic jams caused by bus terminals
+• Walk/bike 800m to Krishi Market in dust, noise, and heat
+• Spend 45+ minutes for daily essentials
+• Carry heavy items (rice, oil) back through the same conditions
+
+The pain is not just time — it's the cumulative frustration of leaving a premium
+residential complex to buy basic groceries like a refugee. JGC residents pay
+75Lakh-2.6Cr BDT for flats, have special 33/11kv substations (no load-shedding),
+and expect premium service. They are time-starved, stressed, and willing to pay
+for convenience.
+
+1.2 Product Vision
+------------------
+"Be the fastest, most trusted grocery delivery for JG City residents by leveraging
+local shops and community trust. Deliver in 2 hours at Krishi Market prices."
+
+1.3 Success Metrics - 90 Days
+-----------------------------
+Metric                          Target
+Active Customers                250
+Orders per Month                750
+On-time Delivery Rate           >90%
+Repeat Rate                     >35%
+Net Profit                      >42,000 BDT/mo
+
+═══════════════════════════════════════════════════════════════════════════════
+2. USERS & PERSONAS
+═══════════════════════════════════════════════════════════════════════════════
+
+Persona              Need                           Pain Point
+─────────────────── ─────────────────────────────── ──────────────────────────
+Busy Mom - Apu       Quick milk, egg, veg delivery   No time to go to market
+                                                        with kids
+Bachelor - Bhaiya    Rice, oil, snacks at night      Shops close early, apps
+                                                        are slow
+Senior Citizen       Heavy items: Rice, 5L oil       Can't carry from market
+Partner Shop Owner   More sales without delivery      No tech, no riders
+                     cost
+Rider - Brother      Flexible income, known area     Needs clear instructions
+                     (your brother)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. PRODUCT SCOPE - MVP v1
+═══════════════════════════════════════════════════════════════════════════════
+
+We are NOT building an app. MVP = WhatsApp + Google Sheets + Human Ops
+
+3.1 Core Features
+-----------------
+Feature               Description                           User Story
+───────────────────  ────────────────────────────────────  ─────────────────────
+WhatsApp Ordering     Customer sends text list. Manager     "As a customer I can
+                       confirms total.                       order by WhatsApp in
+                                                              30 seconds"
+2-Slot Delivery       12PM and 8PM delivery only.            "As a customer I know
+                       Cut-off 9AM / 3:30PM.                 exactly when it will
+                                                              arrive"
+Order Splitting       Manager splits 1 order into 3-4       "As manager I can send
+                       partner orders                         orders to 5 shops in
+                                                              2 clicks"
+Rider Pickup Route    1 rider collects from all partners     "As rider I complete
+                       in 1 trip                              pickup in 60 min"
+COD + bKash           Cash or bKash on delivery              "As customer I can pay
+                                                              how I want"
+Referral System       Refer 1 friend = 100tk each           "As customer I can earn
+                                                              by referring"
+
+3.2 Out of Scope for MVP
+-------------------------
+• Mobile App
+• Payment Gateway (using bKash personal for now)
+• Real-time tracking
+• 1000+ SKUs
+• 24/7 delivery
+• Warehouse/inventory
+
+═══════════════════════════════════════════════════════════════════════════════
+4. OPERATIONAL WORKFLOW
+═══════════════════════════════════════════════════════════════════════════════
+
+4.1 Order Flow
+--------------
+06:30  Manager sends availability check to all partners via WhatsApp
+07:00  Partners reply with unavailable items and today's prices
+07:30  Manager updates "Available Today" catalog
+08:00  Customer ordering window OPENS
+09:00  MORNING CUTOFF — stop taking orders for 12PM slot
+09:15  Manager splits orders by partner, sends WhatsApp to each partner
+09:30  Partners confirm or flag issues (15-min deadline)
+10:00  Rider departs for Krishi Market pickup
+11:15  Rider returns to sorting hub (home)
+11:30  Sort orders by building, check quality, pack in bags
+11:45  Depart for deliveries — Cluster 1 (Building 1-6)
+12:00  12PM DELIVERY SLOT BEGINS
+12:45  Morning deliveries complete, collect COD, update Sheet
+
+03:30  EVENING CUTOFF
+03:45  Split evening orders, send to partners
+05:30  Rider departs for evening pickup
+08:00  8PM DELIVERY SLOT BEGINS
+08:45  Evening deliveries complete
+
+4.2 Data Model
+--------------
+Order Table:    OrderID, Customer, Block, Items[], Total, PartnerSplit[],
+                Status, Rider, PaymentStatus, CustomerType, IssueFlag
+
+Partner Table:  PartnerID, Name, Category, Commission%, Phone, DueAmount,
+                ReliabilityScore, LastOrderDate, CreditLimit
+
+Product Table:  SKU, Name, Price, Partner, Category, StockStatus
+
+DailyInventory: PartnerID, SKU, AvailableQty, PriceToday, LastUpdated
+
+═══════════════════════════════════════════════════════════════════════════════
+5. PARTNER REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Located within 2km of Japan Garden City (preferably Krishi Market)
+2. WhatsApp Business account active and responsive
+3. Able to confirm orders within 15 minutes during business hours
+4. Willing to provide products at agreed wholesale + commission pricing
+5. Available for pickup between 10:00-11:00 AM and 5:30-6:30 PM daily
+6. Able to maintain consistent quality and stock levels
+7. No history of fraud or customer complaints in last 12 months
+8. Willing to sign 3-month minimum commitment
+9. Must agree to photo-proof of fresh items (fish/veg)
+10. Must allow JG Mart branded bags
+
+═══════════════════════════════════════════════════════════════════════════════
+6. NON-FUNCTIONAL REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Category    Requirement
+──────────  ──────────────────────────────────────────────────────────────────
+Speed       Order to confirmation <5 min. Delivery <2 hours
+Reliability 99% orders delivered. Backup shop for each category
+Cost        CAC <200 BDT. Delivery cost <30 BDT per order
+Tools       WhatsApp Business, Google Sheets, Phone, 2 Delivery Bags
+Quality     3-stage quality check (pickup, sorting, delivery)
+Trust       Community-based, WhatsApp-native, transparent pricing
+
+═══════════════════════════════════════════════════════════════════════════════
+7. RISKS & MITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Risk                           Likelihood   Impact   Mitigation
+─────────────────────────────  ───────────  ───────  ──────────────────────────
+Partner fails to deliver        Medium       High     2 backup partners per
+                                                       category + direct market
+Partner quits                  Low          High     Brother + backup rider +
+                                                       nuclear option (partners
+                                                       deliver direct)
+Low customer adoption           Medium       High     Free delivery Month 1,
+                                                       block-by-block launch,
+                                                       referral program
+JGC Committee blocks service    Medium       CRITICAL Register as resident
+                                                       service, committee
+                                                       endorsements, discounts
+Chaldal enters Mohammadpur      Low          High     Lock in subscriptions,
+                                                       build community trust
+Monsoon delays (Jun-Sep)        High         Medium   Rain gear, waterproof
+                                                       bags, 30-min buffer
+Price fluctuation (Krishi Mkt)  High         Medium   Daily 7AM WhatsApp price
+                                                       update, market rate + X%
+WhatsApp ban/limit              Low          High     Follow guidelines, backup
+                                                       phone, customer list
+
+═══════════════════════════════════════════════════════════════════════════════
+8. ROADMAP
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase              Timeline      Deliverable
+─────────────────  ────────────  ──────────────────────────────────────────────────
+MVP Launch         Week 1-4     100 customers, 3 partners, 1 rider,
+                               Block A only, BDT 8K loss
+Systemize          Month 2-3    Add 3 blocks, 30tk delivery fee,
+                               Part-time manager, BDT 22K profit
+Scale              Month 4-6    Subscription, 6 partners, 2 riders,
+                               550 customers, BDT 53K profit
+Expand             Month 7-12   Adjacent societies, 1500 customers,
+                               4 riders, web app consideration
+
+═══════════════════════════════════════════════════════════════════════════════
+9. COMPETITIVE LANDSCAPE
+═══════════════════════════════════════════════════════════════════════════════
+
+Player       Weakness vs JG Mart           JG Mart Advantage
+──────────  ─────────────────────────────  ─────────────────────────────────────
+Chaldal      No Mohammadpur warehouse      You're 800m away, 2-hour delivery,
+             3-5 hr delivery to JGC         personal WhatsApp relationship
+Foodpanda    Grocery is secondary          Grocery-focused, community trust,
+             60-90 BDT delivery fees        Krishi Market prices
+Pathao       No grocery specialization     30 BDT delivery, WhatsApp-native
+HungryNaki   Food delivery only             First-mover in JGC grocery
+
+JG Mart Structural Advantage:
+• Zero warehouse cost vs Chaldal's 27 warehouses
+• 800m sourcing distance vs 5km+ competitors
+• WhatsApp-native vs app-dependent
+• Community-trusted vs impersonal platform
+
+═══════════════════════════════════════════════════════════════════════════════
+10. FINANCIAL MODEL
+═══════════════════════════════════════════════════════════════════════════════
+
+Revenue per order (AOV 800 BDT):
+• Commission (11% avg):         88 BDT
+• Delivery Fee:                  30 BDT
+• Subscription (blended):        20 BDT
+─────────────────────────────────────
+Total Revenue per order:        138 BDT
+
+Cost per order:
+• Rider (salary+bonus):          31 BDT
+• Manager (part-time):           16 BDT
+• Marketing/Referrals:           13 BDT
+• Packaging/Misc:                 7 BDT
+─────────────────────────────────────
+Total Cost per order:            67 BDT
+
+Contribution per order:         71 BDT (51% contribution margin)
+
+At 750 orders/month → ~BDT 53,000 monthly contribution
+
+Seed Round Use of Funds (BDT 250,000):
+• Rider salary (6 months):     72,000
+• Manager salary (6 months):   72,000
+• Marketing & referrals:       50,000
+• Working capital:             50,000
+• Tools, bags, misc:            6,000
+─────────────────────────────────────
+Total:                        250,000
+
+═══════════════════════════════════════════════════════════════════════════════
+11. APPENDIX
+═══════════════════════════════════════════════════════════════════════════════
+
+A. Sample Product Catalog (50 SKUs)
+   Rice, Dal, Oil, Veg, Fruit, Milk, Egg, FMCG, Fish, Meat
+
+B. KPI Definitions
+   Repeat Rate = Customers who ordered >1 time / Total Customers
+   On-time Rate = Orders delivered within 2hrs / Total Orders
+   CSAT = Average rating (1-5) from customer feedback
+
+C. Tech Stack
+   Comms: WhatsApp Business API (future)
+   Ops: Google Sheets + Google Forms
+   Payments: bKash Merchant + COD
+   Catalog: Static web (Vercel) - future: Next.js + Firebase
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SIGN-OFF
+
+Product Owner: Fahad Ibrahim
+Ops Lead: Brother - Krishi Market Hub
+Launch Date Target: [Insert Date]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+This PRD is the single source of truth for JG Mart.
+Execute the 14-day plan ruthlessly. Speed of learning beats perfection of planning.

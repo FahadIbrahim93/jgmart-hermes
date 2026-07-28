@@ -1,0 +1,140 @@
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   3 - M I N U T E   P I T C H   S C R I P T                                 │
+│                                                                             │
+│   JG MART — HYPERLOCAL GROCERY DELIVERY                                      │
+│   For: [Investor Name]                                                       │
+│   By: Fahad Ibrahim, Founder & CEO                                           │
+│                                                                             │
+│   [Pacing: ~160 words per minute. Pause at [//] for emphasis.]              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPENING (0:00 – 0:20)                                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "Hi, I'm Fahad Ibrahim. I live in Japan Garden City — JGC — in           │
+│   Mohammadpur. We're 1,700 families with a big problem: there are           │
+│   zero grocery stores inside our community.                                  │
+│                                                                             │
+│   Every week, residents spend 2 to 3 hours traveling to the nearest         │
+│   bazaar, waiting in traffic, and carrying heavy bags back home.            │
+│   For working professionals and elderly parents, it's a real burden.        │
+│                                                                             │
+│   That's why I started JG Mart."                                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROBLEM + SOLUTION (0:20 – 0:50)                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "JG Mart is a WhatsApp-based grocery delivery service. We source fresh    │
+│   produce from Krishi Market — just 800 meters from JGC — and deliver it   │
+│   to doorsteps within 90 minutes.                                            │
+│                                                                             │
+│   No warehouse. No inventory. No capital tied up in stock.                  │
+│   Customers simply send us their list on WhatsApp. We pack, we deliver.     │
+│                                                                             │
+│   Think of us as the neighborhood grocery runner — but reliable,            │
+│   affordable, and available 7 days a week."                                 │
+│                                                                             │
+│   [// PAUSE. Let that land.]                                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ UNIT ECONOMICS (0:50 – 1:10)                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "Here's the beauty of the model. Average order value is 800 BDT.         │
+│                                                                             │
+│   We charge an 11% commission — that's 88 BDT — plus a 30 BDT              │
+│   delivery fee. So we make 118 BDT per order.                               │
+│                                                                             │
+│   Our cost to serve: 67 BDT. That covers the rider, packaging, and         │
+│   fuel.                                                                     │
+│                                                                             │
+│   That leaves us with 51 BDT in contribution per order.                     │
+│   Our contribution margin is 51 percent.                                    │
+│                                                                             │
+│   Before fixed costs — but already, at scale, this covers our overhead      │
+│   fast."                                                                    │
+│                                                                             │
+│   [// PAUSE.]                                                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TRACTION & GROWTH (1:10 – 1:40)                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "JGC has 1,700 families. No one is serving them online.                  │
+│   Our target is straightforward:                                               │
+│                                                                             │
+│   Month 1: 100 customers, about 3,000 orders, 354,000 BDT in revenue.      │
+│   Month 2: 200 customers, 6,000 orders.                                     │
+│   Month 3: 350 customers, over 10,000 orders.                               │
+│                                                                             │
+│   By Month 3, we're doing over 1.2 million BDT in monthly revenue          │
+│   with a 51 percent contribution margin.                                    │
+│                                                                             │
+│   Customer acquisition cost in Month 1 is zero — I'm a JGC resident,        │
+│   so I can personally onboard the first 100 families through our            │
+│   community WhatsApp groups."                                               │
+│                                                                             │
+│   [// PAUSE.]                                                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ WHY NOW + ASK (1:40 – 2:10)                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "Why is now the right time?                                                │
+│                                                                             │
+│   First, internet penetration in Bangladesh is over 40 percent, and         │
+│   WhatsApp is the default messaging app.                                    │
+│                                                                             │
+│   Second, Krishi Market is 800 meters away. We can source fresh             │
+│   produce faster than any city-wide platform.                               │
+│                                                                             │
+│   Third, JGC has zero competition. There's no Blinkit, no Chaldal,          │
+│   no local store delivering inside the community.                           │
+│                                                                             │
+│   We're raising 250,000 BDT — about 2,900 US dollars — in seed capital.    │
+│                                                                             │
+│   32 percent goes to marketing.                                             │
+│   28 percent to operations: delivery bags, packaging, rider gear.           │
+│   20 percent to technology: WhatsApp API, a simple dispatcher dashboard.    │
+│   And 20 percent as working capital for the first three months.             │
+│                                                                             │
+│   That's 250,000 BDT exactly. Every taka accounted for."                    │
+│                                                                             │
+│   [// PAUSE.]                                                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLOSE (2:10 – 3:00)                                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   "I want to be clear: this is not a grocery store.                         │
+│   This is a community logistics layer.                                      │
+│                                                                             │
+│   We don't buy stock. We don't rent a warehouse. We don't own a            │
+│   delivery fleet. We connect neighbors with fresh food, faster than         │
+│   anyone else can.                                                          │
+│                                                                             │
+│   With 51 percent contribution margin and a 90-minute delivery promise,     │
+│   the path to profitability is clear.                                       │
+│                                                                             │
+│   I'm asking you to back a business that gives 1,700 families their        │
+│   time back — and delivers strong returns while doing it.                   │
+│                                                                             │
+│   Thank you. I'm Fahad Ibrahim, and this is JG Mart."                       │
+│                                                                             │
+│   [END. Smile. Pause for questions.]                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘

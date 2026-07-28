@@ -1,0 +1,95 @@
+==========================================================================
+  JG MART — FINAL CROSS-REFERENCE VERIFICATION REPORT
+==========================================================================
+
+Workspace:  /g/JGC Mart/JGC Mart - Hermes
+Files on disk:  131
+HTML apps:      23
+Date:           July 28, 2026
+
+--------------------------------------------------------------------------
+Reference File                     Refd Found  Miss  Status
+--------------------------------------------------------------------------
+MASTER_INDEX.txt                    108   106     2  ❌ FAIL
+README.txt                           41    41     0  ✅ PASS
+index.html (Command Center)          39    38     1  ❌ FAIL
+map.html (System Map)               104   101     3  ❌ FAIL
+--------------------------------------------------------------------------
+
+==========================================================================
+  DETAILED MISSING FILE REPORT
+==========================================================================
+
+❌ MASTER_INDEX.txt
+   2 referenced file(s) not found on disk:
+     ✗ 02_Brand_Assets/logo.svg
+     ✗ 06_Web_Catalog/favicon.svg
+
+✅ README.txt
+   All 41 referenced files exist on disk.
+
+❌ index.html (Command Center)
+   1 referenced file(s) not found on disk:
+     ✗ demo.html
+
+❌ map.html (System Map)
+   3 referenced file(s) not found on disk:
+     ✗ 02_Brand_Assets/logo.svg
+     ✗ 06_Web_Catalog/favicon.svg
+     ✗ demo.html
+
+==========================================================================
+  FILES ON DISK NOT LISTED IN ANY INDEX
+==========================================================================
+
+  These files exist but aren't referenced by MASTER_INDEX.txt,
+  README.txt, index.html, or map.html:
+
+    📄 05_Tech_Dashboard/README.txt
+    📄 05_Tech_Dashboard/vercel.json
+    📄 06_Web_Catalog/README.txt
+    📄 06_Web_Catalog/netlify.toml
+    📄 06_Web_Catalog/vercel.json
+    📄 09_Data_Export/partial.json
+    📄 09_Data_Export/test_data.json
+    📄 BACKUP_MANIFEST.txt
+    📄 FINAL_VERIFICATION.txt
+    📄 SYSTEM_READY.txt
+    📄 favicon.svg
+    📄 offline.html
+
+  Total: 12 unindexed file(s)
+
+==========================================================================
+  HTML FILE VALIDATION
+==========================================================================
+
+  ✅ 23 of 23 HTML files passed (valid DOCTYPE + closing tag)
+
+==========================================================================
+  OVERALL VERDICT
+==========================================================================
+
+  🟠 BROKEN FILE REFERENCES — HTML OK
+  • 6 file(s) referenced but missing from disk
+
+  RECOMMENDED ACTIONS:
+  • Create or add the 3 missing files:
+    - 02_Brand_Assets/logo.svg
+    - 06_Web_Catalog/favicon.svg
+    - demo.html
+  • Add 12 unindexed files to MASTER_INDEX.txt:
+    - 05_Tech_Dashboard/README.txt
+    - 05_Tech_Dashboard/vercel.json
+    - 06_Web_Catalog/README.txt
+    - 06_Web_Catalog/netlify.toml
+    - 06_Web_Catalog/vercel.json
+    - 09_Data_Export/partial.json
+    - 09_Data_Export/test_data.json
+    - BACKUP_MANIFEST.txt
+    - FINAL_VERIFICATION.txt
+    - SYSTEM_READY.txt
+    - favicon.svg
+    - offline.html
+
+==========================================================================

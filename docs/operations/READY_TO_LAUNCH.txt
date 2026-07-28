@@ -1,0 +1,124 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║  JG MART — READY TO LAUNCH                                                  ║
+║  The Only 3 Pages You Need. Print. Do. Done.                                ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+═══ PAGE 1: THIS WEEK (DO IN ORDER) ═══
+
+☐ DAY 1 — WALK KRISHI MARKET
+  • Visit 10+ shops, introduce yourself
+  • Identify 5 partner candidates
+  • Get phone numbers, take photos
+  ⏱ 2 hours
+
+☐ DAY 1 — SET UP SYSTEMS
+  • Open index.html (Command Center) in your browser
+  • Open all 4 web apps → verify they work
+  • Set up WhatsApp Business account
+  • Start bKash merchant application (takes days!)
+  ⏱ 1 hour
+
+☐ DAY 2 — SIGN PARTNERS
+  • Visit top 3 candidates
+  • Hand them PARTNER_QUICK_CARD (from 12_Templates)
+  • Sign SUPPLIER_AGREEMENT_QUICK.txt (1 page)
+  • Confirm: commission rate, pickup window, weekly payment
+  ⏱ 2 hours
+
+☐ DAY 2 — DEPLOY
+  • Go to vercel.com
+  • Drag 06_Web_Catalog/ folder → deployed (customer catalog)
+  • Drag 05_Tech_Dashboard/ folder → deployed (your dashboard)
+  • Share the catalog URL in building WhatsApp groups
+  ⏱ 15 minutes
+
+☐ DAY 3 — RECRUIT BETA CUSTOMERS
+  • Message 20 neighbours from Building 1-3
+  • Use LAUNCH_ANNOUNCEMENT_COPY.txt templates
+  • Offer free delivery + 50 BDT discount
+  • Get 10 beta signups minimum
+  ⏱ 1 hour
+
+☐ DAY 4 — EQUIPMENT
+  • Buy delivery bags (5-8 pcs)
+  • Print business cards + flyers
+  • Print DAY1_EMERGENCY_KIT.txt
+  • Print MORNING_ROUTINE_CHECKLIST.txt
+  ⏱ 2 hours
+
+☐ DAY 5 — BETA TEST
+  • Take 3-5 real orders from beta customers
+  • Time every step: order→confirm→pickup→deliver
+  • Fix issues immediately
+  • Update SOP
+  ⏱ Full day
+
+☐ DAY 6 — PREPARE LAUNCH
+  • Share teaser in ALL building WhatsApp groups
+  • Confirm partner readiness for high volume
+  • Load cash float (500 BDT in small notes)
+  ⏱ 1 hour
+
+☐ DAY 7 — SOFT LAUNCH
+  • Post launch announcement in all groups (8AM)
+  • Process first real orders
+  • Collect feedback
+  • End-of-day review with brother
+  ⏱ Go time!
+
+═══ PAGE 2: COMMAND REFERENCE ═══
+
+YOUR NUMBERS:
+  WhatsApp:   +8801870489448
+  bKash:     [FILL IN]
+  Backup:    [FILL IN]
+
+UNIT ECONOMICS (PER ORDER):
+  Revenue:   ৳138  (88 commission + 30 delivery + 20 subscription)
+  Cost:      ৳67   (31 rider + 16 manager + 13 marketing + 7 packaging)
+  Profit:    ৳71   (51% contribution margin)
+  Break-even: 1,000 orders/month
+
+YOUR APPS (Open via Command Center):
+  • Command Center:        index.html
+  • KPI Dashboard:         05_Tech_Dashboard/index.html
+  • Weekly Analytics:      05_Tech_Dashboard/analytics.html
+  • Order Tracker:         05_Tech_Dashboard/orders.html
+  • Customer Catalog:      06_Web_Catalog/index.html
+  • Order Intake Form:     06_Web_Catalog/order_intake.html
+  • Supplier Scorecard:    12_Templates/supplier_scorecard.html
+
+DAILY ROUTINE:
+  6:00 AM — Wake, post in groups, confirm partners
+  8:30 AM — Process morning orders
+  10:00 AM — Pickup window
+  12:00 PM — Deliveries done
+  3:00 PM — Process evening orders
+  5:30 PM — Pickup window
+  8:00 PM — Deliveries done, daily huddle
+
+YOUR SCRIPTS:
+  python "09_Data_Export/auto_deploy.py" --catalog --vercel
+  python "09_Data_Export/drive_sync.py" --upload
+  python "09_Data_Export/launch_automation.py" --task all --day 1
+
+═══ PAGE 3: EMERGENCY NUMBERS ═══
+
+WRITE THESE IN PEN. KEEP IN WALLET + DELIVERY BAG.
+
+  Backup Rider:   __________________________________
+  Backup Phone:   __________________________________
+  Backup Partner: __________________________________
+  Building Comm:  __________________________________
+  Nearest Hospital: __________________________________
+  bKash Helpline:  16247
+  Police:          999
+  Fahad's Backup:  __________________________________
+
+═══ REMEMBER ═══
+
+"Speed of execution beats perfection of planning."
+"You don't need 350 customers on Day 1. You need 1 happy customer who tells 3 neighbours."
+"Every delivery is a marketing opportunity."
+
+═══ NOW GO. 🚀 ═══

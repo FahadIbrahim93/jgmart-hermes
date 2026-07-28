@@ -1,0 +1,17 @@
+Metric,Month 1,Month 2,Month 3,Month 4,Month 5,Month 6
+Fixed Costs (BDT),43000,71000,102000,130000,160000,190000
+
+--- BASE CASE (AOV 800, 11% Commission) ---
+Contribution per Order (BDT),71.0,71.0,71.0,71.0,71.0,71.0
+Break-Even Orders,605.63,1000.0,1436.62,1830.99,2253.52,2676.06
+Break-Even Revenue (BDT),484504.0,800000.0,1149296.0,1464792.0,1802816.0,2140848.0
+
+--- CONSERVATIVE (AOV 750, 8% Commission) ---
+Contribution per Order (BDT),43.0,43.0,43.0,43.0,43.0,43.0
+Break-Even Orders,1000.0,1651.16,2372.09,3023.26,3720.93,4418.6
+Break-Even Revenue (BDT),750000.0,1238370.0,1779067.5,2267445.0,2790697.5,3313950.0
+
+--- AGGRESSIVE (AOV 900, 15% Commission) ---
+Contribution per Order (BDT),118.0,118.0,118.0,118.0,118.0,118.0
+Break-Even Orders,364.41,601.69,864.41,1101.69,1355.93,1610.17
+Break-Even Revenue (BDT),327969.0,541521.0,777969.0,991521.0,1220337.0,1449153.0

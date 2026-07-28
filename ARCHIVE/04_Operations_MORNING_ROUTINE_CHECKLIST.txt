@@ -1,0 +1,177 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — MORNING ROUTINE CHECKLIST                             ║
+║                         Your Daily Pre-Op Playbook                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Print this. Laminate it. Tick it every morning.
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 6:00 AM — WAKE & PREP
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Message building WhatsApp groups:
+    "Assalamu Alaikum! JG Mart is taking orders for today.
+    Morning slot: Order by 9AM → Delivery 12PM
+    Evening slot: Order by 3:30PM → Delivery 8PM
+    Send your list! 🚚"
+
+[ ] Post "Today's Fresh Arrivals" status on WhatsApp Business
+[ ] Check for late-night orders received after 10PM
+[ ] Review yesterday's delivery log
+[ ] Confirm rider availability for today
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 7:00 AM — MORNING KRIŠHI MARKET RUN
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Carry: Price checklist, pen, cash float (500 BDT)
+[ ] Walk Krishi Market with DAILY_PRICE_CHECKLIST
+[ ] Note price changes from yesterday
+[ ] Check quality: produce, fish, meat (look, smell, touch)
+[ ] Call/text each partner: "Bhai, what's available today?"
+[ ] Update partner status in tracker:
+    ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+    │ Partner  │ Available│ Price OK │ Quality  │ Notes    │
+    ├──────────┼──────────┼──────────┼──────────┼──────────┤
+    │ Rice     │ Y/N      │ Y/N      │ A/B/C    │          │
+    │ Oil      │ Y/N      │ Y/N      │ A/B/C    │          │
+    │ Veg      │ Y/N      │ Y/N      │ A/B/C    │          │
+    │ Fish     │ Y/N      │ Y/N      │ A/B/C    │          │
+    │ Meat     │ Y/N      │ Y/N      │ A/B/C    │          │
+    └──────────┴──────────┴──────────┴──────────┴──────────┘
+
+[ ] Confirm order cutoff quantities with each partner
+[ ] Return home by 8:30 AM
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 8:30 AM — ORDER PROCESSING (First Batch)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Open WhatsApp Business
+[ ] Compile all morning slot orders into ORDER LOG
+[ ] For each order:
+    [ ] Confirm items with customer (substitute if needed)
+    [ ] Confirm total price
+    [ ] Confirm delivery building + flat
+    [ ] Assign to delivery route
+[ ] Forward consolidated order list to each partner:
+    "Bhai, today's morning orders:
+    [Partner Name]: [item]: [qty], [item]: [qty]..."
+[ ] Confirm partner has stock for each item
+[ ] Finalize morning delivery route (Cluster order: 1→2→3→4 or reverse)
+[ ] Set departure time
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 10:00 AM — PICKUP WINDOW (Morning)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Rider departs for Krishi Market with order list
+[ ] Visit partners in route order
+[ ] For each pickup:
+    [ ] Check quality of each item
+    [ ] Weigh / count items
+    [ ] Pack in JG Mart bags
+    [ ] Initial partner log
+[ ] Confirm all items collected before leaving market
+[ ] Begin delivery route
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 12:00 PM — DELIVERY COMPLETE (Morning Slot)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] All morning deliveries completed
+[ ] For each delivery:
+    [ ] Collect COD payment (if applicable)
+    [ ] Get customer signature on receipt
+    [ ] Ask "How was everything?"
+    [ ] Note any issues immediately
+[ ] Update ORDER LOG with delivery status
+[ ] Count COD cash — verify against order log
+[ ] Log cash into CASH_LOG
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 1:00 PM — LUNCH + REST
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Deposit COD cash (if significant amount)
+[ ] Update CUSTOMER_DATABASE with new customers
+[ ] Review morning delivery issues
+[ ] Rest / Friday prayer break
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 3:00 PM — EVENING ORDER PROCESSING
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Compile evening slot orders
+[ ] Same process as morning (verify items, totals, addresses)
+[ ] Forward evening orders to partners
+[ ] Confirm partner stock
+[ ] Finalize evening delivery route
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 5:30 PM — PICKUP WINDOW (Evening)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] Same process as morning pickup
+[ ] Quality check EVERY item (produce deteriorates by evening)
+[ ] Pack and begin delivery route
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 8:00 PM — DAY END
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] All deliveries completed
+[ ] Count total COD cash collected
+[ ] Count bKash payments received
+[ ] Log all payments in FINANCIAL_TRACKER
+[ ] Calculate: Revenue today - Costs today = Net today
+[ ] Send "goodnight" message to building groups:
+    "JG Mart is closed for today. 🌙
+    Thanks to everyone who ordered!
+    We'll be back tomorrow morning.
+    Order by 9AM for 12PM delivery.
+    Goodnight, JGC! 🚚"
+
+═══════════════════════════════════════════════════════════════════════════════
+⏰ 8:30 PM — DAILY HUDDLE (Fahad + Brother)
+═══════════════════════════════════════════════════════════════════════════════
+
+Using the DAILY_HUDDLE_TEMPLATE, discuss:
+  [ ] Today's numbers (orders, revenue, issues)
+  [ ] Tomorrow's priorities
+  [ ] Partner issues
+  [ ] Rider status
+  [ ] Customer feedback
+[ ] Set alarm for tomorrow 5:45 AM
+[ ] Sleep by 10:00 PM
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+EMERGENCY CONTACTS:
+  Backup rider: [Name] — [Phone]
+  Backup partner (Rice): [Name] — [Phone]
+  Backup partner (Veg): [Name] — [Phone]
+  Building Committee (Cluster 1): [Name] — [Phone]
+  Building Committee (Cluster 2): [Name] — [Phone]
+
+DELIVERY CLUSTER ROUTES:
+  Route A: Bldg 1-6 → 7-13 (18 orders max)
+  Route B: Bldg 14-20 → 21-27 (18 orders max)
+  If 20+ orders, split between rider + backup
+
+CUTOFF TIMES:
+  Morning: 9:00 AM
+  Evening: 3:30 PM
+  No exceptions. Miss the cutoff = wait for next slot.
+
+PAYMENT LIMITS:
+  COD max per order: 1,500 BDT
+  If >1,500: bKash only (or split delivery)
+  Rider carries max 3,000 BDT cash float
+
+═══════════════════════════════════════════════════════════════════════════════
+"Every morning is a fresh pickup. Every evening is a delivered promise."
+— Fahad's motto
+═══════════════════════════════════════════════════════════════════════════════

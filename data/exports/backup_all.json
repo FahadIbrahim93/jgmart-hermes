@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "generated": "2026-07-28 09:28:07",
+    "source": "sync_bridge.py",
+    "type": "full_backup",
+    "description": "Complete localStorage backup for all JG Mart apps"
+  },
+  "_instructions": "// ────────────────────────────────────────────────────────\n//  FULL BACKUP — ALL JG Mart localStorage keys\n//  To restore any key, paste this in the browser DevTools:\n//\n//     const backup = <PASTE_CONTENT_HERE>;\n//     Object.keys(backup).forEach(key => {\n//       if (key.startsWith('jgmart_')) {\n//         localStorage.setItem(key, JSON.stringify(backup[key]));\n//       }\n//     });\n//     location.reload();\n//\n//  To restore a single key:\n//\n//     localStorage.setItem('jgmart_orders',\n//       JSON.stringify(backup.jgmart_orders));\n//     location.reload();\n// ────────────────────────────────────────────────────────",
+  "backup": {
+    "jgmart_data": {
+      "name": "partial data"
+    },
+    "jgmart_orders": {
+      "orders": [],
+      "orderCount": 0
+    },
+    "jgmart_finance": {
+      "summary": {
+        "totalOrders": 0,
+        "revenue": 0
+      },
+      "transactions": []
+    },
+    "jgmart_analytics": {
+      "totalOrders": 0,
+      "totalCustomers": 0,
+      "weeklyAnalytics": []
+    },
+    "jgmart_cart": {
+      "items": [],
+      "total": 0,
+      "note": "Empty seed — cart state is session-local"
+    },
+    "jgmart_lang": "bn",
+    "jgmart_launch_checks": {},
+    "jgmart_finance_entries": [],
+    "jgmart_chat": [],
+    "jgmart_inventory": {},
+    "jgmart_delivery": {},
+    "jgmart_settings": {},
+    "jgmart_notifications": [],
+    "jgmart_partners": {
+      "partners": []
+    }
+  },
+  "keyCount": 14
+}

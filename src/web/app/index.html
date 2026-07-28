@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Command Center</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f0f2f0;color:#1a1a1a;min-height:100vh}
+.top-bar{background:#00442D;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:50}
+.top-bar h1{font-size:1.2rem;font-weight:800}.top-bar h1 span{color:#c9a227}
+.top-bar .date{font-size:.8rem;opacity:.8}
+.container{max-width:1000px;margin:0 auto;padding:16px}
+.section{margin-bottom:20px}
+.section h2{font-size:1rem;color:#00442D;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h2 span{background:#00442D;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:999px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+@media(max-width:450px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);cursor:pointer;transition:transform .1s,box-shadow .1s}
+.card:active{transform:scale(.97)}
+.card .icon{font-size:1.5rem;margin-bottom:6px}
+.card .name{font-size:.82rem;font-weight:600;color:#00442D;margin-bottom:2px}
+.card .desc{font-size:.7rem;color:#5c5c5c;line-height:1.3}
+.card .badge{display:inline-block;font-size:.6rem;padding:2px 6px;border-radius:999px;font-weight:600;margin-top:6px}
+.badge-new{background:#e8f5e9;color:#0a6b47}.badge-update{background:#fff8e1;color:#c9a227}
+.badge-live{background:#e3f2fd;color:#1565c0}.badge-print{background:#f3e5f5;color:#7b1fa2}
+.quick-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:500px){.quick-metrics{grid-template-columns:repeat(2,1fr)}}
+.metric-card{background:#fff;border-radius:10px;padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.metric-card .label{font-size:.65rem;color:#5c5c5c;text-transform:uppercase;font-weight:600;letter-spacing:.04em}
+.metric-card .value{font-size:1.2rem;font-weight:800;color:#00442D;margin-top:4px}
+.launch-tasks{background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.task-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:.82rem}
+.task-item:last-child{border-bottom:none}
+.task-item input[type=checkbox]{margin-top:2px;accent-color:#00442D;width:16px;height:16px}
+.task-item .task-text{flex:1;line-height:1.4}.task-item .task-text.done{text-decoration:line-through;color:#999}
+.task-item .task-cat{font-size:.6rem;padding:2px 6px;border-radius:4px;font-weight:600;white-space:nowrap}
+.cat-critical{background:#fce4e4;color:#c0392b}.cat-ops{background:#e8f5e9;color:#0a6b47}.cat-tech{background:#e3f2fd;color:#1565c0}
+.cat-marketing{background:#fff8e1;color:#c9a227}.cat-finance{background:#f3e5f5;color:#7b1fa2}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:500px){.roadmap{grid-template-columns:1fr}}
+.phase{background:#fff;border-radius:10px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.phase h3{font-size:.85rem;color:#00442D;margin-bottom:6px}.phase ul{list-style:none;padding:0}
+.phase li{font-size:.75rem;color:#5c5c5c;padding:3px 0;padding-left:14px;position:relative}
+.phase li:before{content:'›';position:absolute;left:2px;color:#c9a227;font-weight:700}
+.phase .timeline{font-size:.65rem;color:#999;margin-top:6px;font-weight:500}
+.footer{text-align:center;padding:20px;font-size:.75rem;color:#999}
+.wa-float{position:fixed;bottom:16px;right:16px;z-index:100;background:#25D366;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);cursor:pointer;color:#fff;font-size:1.4rem;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div><h1>JG <span>Mart</span></h1><div class="date" id="currentDate"></div></div>
+<div style="font-size:.75rem;opacity:.8">79 files · Ready to launch</div>
+</div>
+
+<div class="container">
+<div style="background:#fff8e1;border-radius:12px;padding:16px;margin-bottom:16px;border:2px solid #c9a227;text-align:center">
+<div style="font-size:1.1rem;font-weight:700;color:#00442D;margin-bottom:4px">🚀 JG Mart OS is now your main app</div>
+<p style="font-size:.85rem;color:#5c5c5c;margin-bottom:8px">Open <strong>os.html</strong> for orders, P&L, partners, customers, and route optimization — all in one place.</p>
+<a href="os.html" style="display:inline-block;background:#00442D;color:#fff;padding:10px 24px;border-radius:999px;font-weight:700;font-size:.9rem;text-decoration:none">Open JG Mart OS →</a>
+<a href="start.html" style="display:inline-block;background:#fff;color:#00442D;padding:10px 20px;border-radius:999px;font-weight:600;font-size:.85rem;text-decoration:none;border:1.5px solid #00442D;margin-left:8px">🚀 Startup Wizard</a>
+</div>
+
+<!-- QUICK METRICS -->
+<div class="section">
+<div class="quick-metrics">
+<div class="metric-card"><div class="label">Web Apps</div><div class="value">22</div></div>
+<div class="metric-card"><div class="label">Total Files</div><div class="value">130</div></div>
+<div class="metric-card"><div class="label">Open os.html</div><div class="value">Daily Driver</div></div>
+<div class="metric-card"><div class="label">Open map.html</div><div class="value">System View</div></div>
+</div>
+</div>
+
+<!-- OPEN WEB APPS -->
+<div class="section">
+<h2>🚀 Open Web App</h2>
+<div class="grid">
+<div class="card" onclick="openFile('start.html')"><div class="icon">🚀</div><div class="name">Startup Wizard</div><div class="desc">5-step guided setup — first time only</div><span class="badge badge-new">Start Here</span></div>
+<div class="card" onclick="openFile('tour.html')"><div class="icon">🎓</div><div class="name">Welcome Tour</div><div class="desc">Interactive 7-step walkthrough of the toolkit</div><span class="badge badge-new">NEW</span></div>
+<div class="card" onclick="openFile('os.html')"><div class="icon">💻</div><div class="name">JG Mart OS</div><div class="desc">Single unified app — orders, P&L, partners, route, all in one</div><span class="badge badge-new">★ DAILY</span></div>
+<div class="card" onclick="openFile('map.html')"><div class="icon">🗺️</div><div class="name">System Map</div><div class="desc">Visual navigation of all 130+ files</div><span class="badge badge-new">NEW</span></div>
+<div class="card" onclick="openFile('demo.html')"><div class="icon">🎬</div><div class="name">Investor Demo</div><div class="desc">6-screen guided tour with sample data</div><span class="badge badge-new">NEW</span></div>
+<div class="card" onclick="openFile('ops.html')"><div class="icon">🎯</div><div class="name">Ops Dashboard</div><div class="desc">Single-pane view: KPIs, status, break-even</div><span class="badge badge-new">Daily</span></div>
+<div class="card" onclick="openFile('data.html')"><div class="icon">🗃️</div><div class="name">Data Manager</div><div class="desc">Central customers, partners, settings, backup</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/index.html')"><div class="icon">📊</div><div class="name">KPI Dashboard</div><div class="desc">Orders, revenue, charts, CRUD tables</div><span class="badge badge-live">Live</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/analytics.html')"><div class="icon">📈</div><div class="name">Weekly Analytics</div><div class="desc">Enter data → see growth trends</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/orders.html')"><div class="icon">📋</div><div class="name">Order Tracker</div><div class="desc">Track orders received→delivered</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/finance.html')"><div class="icon">💰</div><div class="name">Finance Dashboard</div><div class="desc">P&amp;L, cash, projections, data entry</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('06_Web_Catalog/index.html')"><div class="icon">🛒</div><div class="name">Customer Catalog</div><div class="desc">47 products, Bengali, WhatsApp cart</div><span class="badge badge-live">Live</span></div>
+<div class="card" onclick="openFile('06_Web_Catalog/order_intake.html')"><div class="icon">📝</div><div class="name">Order Intake Form</div><div class="desc">63 items → auto-calc → WhatsApp</div><span class="badge badge-live">Live</span></div>
+<div class="card" onclick="openFile('07_Marketing/landing.html')"><div class="icon">🏠</div><div class="name">Welcome Landing</div><div class="desc">Customer-facing intro page</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('12_Templates/supplier_scorecard.html')"><div class="icon">⭐</div><div class="name">Supplier Scorecard</div><div class="desc">Rate quality, timeliness, pricing</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/backup.html')"><div class="icon">💾</div><div class="name">Master Backup</div><div class="desc">Backup ALL app data at once</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/commlog.html')"><div class="icon">💬</div><div class="name">Communications Log</div><div class="desc">Track every customer interaction</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('05_Tech_Dashboard/dailypnl.html')"><div class="icon">📉</div><div class="name">Daily P&L</div><div class="desc">Auto-calculates profit from orders</div><span class="badge badge-new">New</span></div>
+<div class="card" onclick="openFile('health.html')"><div class="icon">🏥</div><div class="name">Toolkit Health</div><div class="desc">Verify all apps are working</div><span class="badge badge-new">New</span></div>
+</div>
+</div>
+
+<!-- QUICK DOCUMENTS -->
+<div class="section">
+<h2>📄 Quick Documents <span>Start Here</span></h2>
+<div class="grid">
+<div class="card" onclick="openFile('FIRST_DAY_CHEATSHEET.txt')"><div class="icon">📋</div><div class="name">Cheat Sheet</div><div class="desc">First 10 min / hour / day — print this</div><span class="badge badge-print">Print</span></div>
+<div class="card" onclick="openFile('QUICK_START.txt')"><div class="icon">🏁</div><div class="name">Quick Start</div><div class="desc">7-day launch plan</div></div>
+<div class="card" onclick="openFile('COMMAND_CENTER.txt')"><div class="icon">🎯</div><div class="name">Command Center</div><div class="desc">Daily workflow + KPIs</div></div>
+<div class="card" onclick="openFile('MASTER_INDEX.txt')"><div class="icon">📚</div><div class="name">Master Index</div><div class="desc">Complete file reference</div></div>
+<div class="card" onclick="openFile('FINAL_SUMMARY.txt')"><div class="icon">📖</div><div class="name">Final Summary</div><div class="desc">Everything in one place</div></div>
+<div class="card" onclick="openFile('VALIDATION_REPORT.txt')"><div class="icon">✅</div><div class="name">Validation Report</div><div class="desc">Full audit trail</div></div>
+<div class="card" onclick="openFile('01_Investor_Deck/INVESTOR_1PAGER.txt')"><div class="icon">💰</div><div class="name">Investor 1-Pager</div><div class="desc">Seed ask: 250K BDT</div></div>
+<div class="card" onclick="openFile('01_Investor_Deck/PITCH_COACHING_GUIDE.txt')"><div class="icon">🎤</div><div class="name">Pitch Coach</div><div class="desc">Objections, scripts, drills</div></div>
+</div>
+</div>
+
+<!-- OPERATIONS -->
+<div class="section">
+<h2>⚙️ Operations <span>Print These</span></h2>
+<div class="grid">
+<div class="card" onclick="openFile('04_Operations/MORNING_ROUTINE_CHECKLIST.txt')"><div class="icon">🌅</div><div class="name">Morning Routine</div><div class="desc">Day-by-day checklist</div><span class="badge badge-print">Print</span></div>
+<div class="card" onclick="openFile('04_Operations/SAFETY_NET_CONTINGENCY.txt')"><div class="icon">🛡️</div><div class="name">Safety Net</div><div class="desc">10 crisis scenarios</div><span class="badge badge-print">Print</span></div>
+<div class="card" onclick="openFile('11_Day1_Launch_Kit/DAY1_LAUNCH_KIT.txt')"><div class="icon">📋</div><div class="name">Day 1 Launch Kit</div><div class="desc">Full day script</div><span class="badge badge-print">Print</span></div>
+<div class="card" onclick="openFile('11_Day1_Launch_Kit/DAY1_EMERGENCY_KIT.txt')"><div class="icon">🆘</div><div class="name">Emergency Kit</div><div class="desc">Offline forms, crisis plan</div><span class="badge badge-print">Print</span></div>
+<div class="card" onclick="openFile('07_Marketing/WHATSAPP_BATTLE_CARDS.txt')"><div class="icon">💬</div><div class="name">WhatsApp Cards</div><div class="desc">12 scripts, quick replies</div></div>
+<div class="card" onclick="openFile('07_Marketing/LAUNCH_ANNOUNCEMENT_COPY.txt')"><div class="icon">📢</div><div class="name">Launch Copy</div><div class="desc">8 ready messages</div></div>
+</div>
+</div>
+
+<!-- FINANCIALS -->
+<div class="section">
+<h2>📊 Financials</h2>
+<div class="grid">
+<div class="card" onclick="openFile('08_Financials/PROFIT_LOSS_STATEMENT.csv')"><div class="icon">📉</div><div class="name">P&amp;L Statement</div><div class="desc">Month 1-3 projections</div></div>
+<div class="card" onclick="openFile('08_Financials/PROJECTION_6MONTH.csv')"><div class="icon">📈</div><div class="name">6-Month Projection</div><div class="desc">Revenue, costs, profit</div></div>
+<div class="card" onclick="openFile('08_Financials/USE_OF_FUNDS.csv')"><div class="icon">💵</div><div class="name">Use of Funds</div><div class="desc">250K seed breakdown</div></div>
+<div class="card" onclick="openFile('08_Financials/BREAK_EVEN_ANALYSIS.csv')"><div class="icon">⚖️</div><div class="name">Break-Even</div><div class="desc">3 scenarios</div></div>
+</div>
+</div>
+
+<!-- READY TO LAUNCH CHECKLIST -->
+<div class="section">
+<h2>🎯 Launch Checklist <span>Do These Today</span></h2>
+<div class="launch-tasks" id="checklist">
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-ops">Ops</span><span class="task-text">Walk Krishi Market, introduce yourself to 5 partners</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-tech">Tech</span><span class="task-text">Open all 4 web apps → verify they work in your browser</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-tech">Tech</span><span class="task-text">Deploy catalog to Vercel: drag 06_Web_Catalog/ to vercel.com</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-tech">Tech</span><span class="task-text">Deploy dashboard to Vercel: drag 05_Tech_Dashboard/ to vercel.com</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-critical">Critical</span><span class="task-text">Set up bKash merchant account (takes 3-5 days — start NOW)</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-critical">Critical</span><span class="task-text">Create WhatsApp Business account with JG Mart logo</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-ops">Ops</span><span class="task-text">Print emergency kit + morning routine + launch kit</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-marketing">Marketing</span><span class="task-text">Share teaser in 3 JGC building WhatsApp groups</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-finance">Finance</span><span class="task-text">Send INVESTOR_1PAGER.txt to 3 potential investors</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-ops">Ops</span><span class="task-text">Set up Google Drive backup: rclone config (see drive_sync.py)</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-ops">Ops</span><span class="task-text">Fill emergency kit contacts (backup rider, backup phone)</span></div>
+<div class="task-item"><input type="checkbox" onchange="saveCheck()"><span class="task-cat cat-tech">Tech</span><span class="task-text">Practice pitch with PITCH_COACHING_GUIDE.txt</span></div>
+</div>
+</div>
+
+<!-- 90-DAY ROADMAP -->
+<div class="section">
+<h2>🗺️ 90-Day Roadmap</h2>
+<div class="roadmap">
+<div class="phase">
+<h3>📅 Month 1 — MVP</h3>
+<ul>
+<li>100 customers</li>
+<li>300 orders</li>
+<li>41K revenue</li>
+<li>Prove demand exists</li>
+</ul>
+<div class="timeline">Weeks 1-4</div>
+</div>
+<div class="phase">
+<h3>📅 Month 2 — Systemize</h3>
+<ul>
+<li>200 customers</li>
+<li>900 orders</li>
+<li>124K revenue</li>
+<li>Near break-even</li>
+</ul>
+<div class="timeline">Weeks 5-8</div>
+</div>
+<div class="phase">
+<h3>📅 Month 3 — Scale</h3>
+<ul>
+<li>350 customers</li>
+<li>1,650 orders</li>
+<li>227K revenue</li>
+<li>First profit month</li>
+</ul>
+<div class="timeline">Weeks 9-12</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+JG Mart · Japan Garden City · Mohammadpur · Dhaka<br>
+Fahad Ibrahim · +8801870489448<br>
+Built with Hermes Agent · v2.0
+</div>
+
+</div>
+
+<a class="wa-float" href="https://wa.me/8801870489448" target="_blank" rel="noopener">💬</a>
+
+<script>
+document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-BD', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+
+function openFile(path){
+window.open(path, '_blank');
+}
+
+// Save/load checklist state
+(function(){
+const saved = JSON.parse(localStorage.getItem('jgmart_launch_checks') || '[]');
+document.querySelectorAll('#checklist input[type=checkbox]').forEach((cb, i) => {
+const taskText = cb.closest('.task-item').querySelector('.task-text');
+if(saved[i]){ cb.checked = true; taskText.classList.add('done'); }
+cb.addEventListener('change', function(){
+const states = [];
+document.querySelectorAll('#checklist input[type=checkbox]').forEach(c => states.push(c.checked));
+localStorage.setItem('jgmart_launch_checks', JSON.stringify(states));
+taskText.classList.toggle('done', this.checked);
+});
+});
+})();
+</script>
+
+<!-- PWA Service Worker Registration — activates on HTTPS only -->
+<script>
+(function() {
+  if ('serviceWorker' in navigator) {
+    // Only register when served over HTTPS (or localhost)
+    if (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js')
+          .then(function(reg) {
+            console.log('[SW] Registered successfully. Scope:', reg.scope);
+          })
+          .catch(function(err) {
+            console.log('[SW] Registration failed:', err);
+          });
+      });
+    } else {
+      console.log('[SW] Skipped — requires HTTPS (file:// not supported)');
+    }
+  }
+})();
+</script>
+
+<!-- Web App Manifest link -->
+<link rel="manifest" href="manifest.json">
+
+</body>
+</html>

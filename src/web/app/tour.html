@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Welcome Tour</title>
+<meta name="theme-color" content="#00442D">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f0f2f0;color:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+.tour{max-width:520px;width:100%;background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.12);overflow:hidden;animation:slideIn .4s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.tour-header{background:linear-gradient(135deg,#00442D,#063d2a);color:#fff;padding:28px 24px 20px;text-align:center}
+.tour-header .icon{font-size:2.5rem;margin-bottom:8px}
+.tour-header h1{font-size:1.3rem;font-weight:800;margin-bottom:4px}
+.tour-header h1 span{color:#c9a227}
+.tour-header p{font-size:.82rem;opacity:.85;line-height:1.4}
+.progress{display:flex;gap:4px;padding:0 24px;margin-top:16px}
+.prog-step{flex:1;height:3px;border-radius:999px;background:#e0e4e0;transition:background .3s}
+.prog-step.active{background:#00442D}.prog-step.done{background:#c9a227}
+.tour-body{padding:24px}
+.step{display:none;animation:fadeIn .3s}
+.step.active{display:block}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.step h2{font-size:1.1rem;font-weight:700;color:#00442D;margin-bottom:6px}
+.step p{font-size:.85rem;color:#5c5c5c;line-height:1.55;margin-bottom:12px}
+.step .action{background:#f7fbf8;border-radius:10px;padding:14px;font-size:.82rem;line-height:1.5}
+.step .action strong{color:#00442D}
+.step .action .btn-link{display:inline-block;background:#00442D;color:#fff;padding:8px 16px;border-radius:8px;font-weight:600;font-size:.8rem;text-decoration:none;margin-top:8px}
+.step .tip{font-size:.75rem;color:#999;margin-top:10px;font-style:italic}
+.step .icon-big{font-size:2.8rem;text-align:center;margin-bottom:8px}
+.tour-footer{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-top:1px solid #f0f0f0}
+.tour-footer .dots{display:flex;gap:6px}
+.tour-footer .dot{width:8px;height:8px;border-radius:50%;background:#ddd;cursor:pointer;transition:background .2s}
+.tour-footer .dot.active{background:#00442D}
+.btn{background:#00442D;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.9}
+.btn-outline{background:transparent;color:#00442D;border:1.5px solid #00442D;padding:10px 20px;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:inherit}
+.btn-skip{background:transparent;color:#999;border:none;padding:10px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.checkbox{display:flex;align-items:center;gap:8px;font-size:.75rem;color:#999;margin-top:12px;cursor:pointer}
+.checkbox input{accent-color:#00442D}
+</style>
+</head>
+<body>
+
+<div class="tour" id="tour">
+<div class="tour-header">
+<div class="icon">🚀</div>
+<h1>JG <span>Mart</span> Toolkit</h1>
+<p>Your complete business operating system — 130 files, 22 apps</p>
+<div class="progress" id="progress">
+<div class="prog-step active"></div><div class="prog-step"></div><div class="prog-step"></div>
+<div class="prog-step"></div><div class="prog-step"></div><div class="prog-step"></div>
+<div class="prog-step"></div>
+</div>
+</div>
+
+<div class="tour-body">
+<!-- STEP 1 -->
+<div class="step active" id="step1">
+<div class="icon-big">🎯</div>
+<h2>Welcome to Your Toolkit</h2>
+<p>This toolkit contains everything you need to start, run, and grow JG Mart. 130 files, 22 web apps, all connected and ready to use.</p>
+<div class="action">
+<strong>📋 Your daily flow:</strong><br>
+1. Open <strong>os.html</strong> every morning — it's your main app<br>
+2. Use <strong>field_ops.html</strong> on your phone at Krishi Market<br>
+3. End the day with <strong>Day End</strong> tab in os.html → export data<br><br>
+<a class="btn-link" href="os.html" target="_blank">Open JG Mart OS →</a>
+</div>
+<p class="tip">💡 This tour takes 2 minutes. Let's walk through the key apps.</p>
+</div>
+
+<!-- STEP 2 -->
+<div class="step" id="step2">
+<div class="icon-big">💻</div>
+<h2>JG Mart OS — Your Daily Driver</h2>
+<p>This is the ONE app you'll use every day. 7 screens in one clean interface. Everything saves automatically.</p>
+<div class="action">
+<strong>🏠 Home</strong> — Today's overview, weather, quick actions<br>
+<strong>📦 Orders</strong> — Add orders, track pending → delivered<br>
+<strong>💰 P&L</strong> — Enter numbers, see profit instantly<br>
+<strong>🤝 Partners</strong> — Manage Krishi Market suppliers<br>
+<strong>👥 Customers</strong> — Search and view history<br>
+<strong>🌙 Day End</strong> — Summary + one-click backup export<br>
+<strong>🗺️ Route</strong> — Optimized delivery route planner
+</div>
+<p class="tip">💡 Dark mode toggle in sidebar — easy on the eyes at night.</p>
+</div>
+
+<!-- STEP 3 -->
+<div class="step" id="step3">
+<div class="icon-big">🗃️</div>
+<h2>Data Manager — Your Source of Truth</h2>
+<p>All your customers, partners, and business settings in one place. Add, edit, export, import.</p>
+<div class="action">
+<strong>👥 Customers</strong> — Add with name, phone, building, flat<br>
+<strong>🤝 Partners</strong> — Add Krishi Market shops with commission %<br>
+<strong>⚙️ Settings</strong> — Set AOV, commission rate, delivery fee<br>
+<strong>💾 Backup</strong> — Export ALL data as one JSON file<br><br>
+<a class="btn-link" href="data.html" target="_blank">Open Data Manager →</a>
+</div>
+<p class="tip">💡 Export data every evening. One click. 30 seconds.</p>
+</div>
+
+<!-- STEP 4 -->
+<div class="step" id="step4">
+<div class="icon-big">📱</div>
+<h2>Field Ops — Your Phone Companion</h2>
+<p>Designed for your phone screen. Use this while walking Krishi Market or making deliveries.</p>
+<div class="action">
+<strong>📊 Today's stats</strong> — Orders, revenue at a glance<br>
+<strong>✅ Partner check</strong> — Confirm each supplier with one tap<br>
+<strong>🗺️ Route</strong> — See delivery order by cluster<br>
+<strong>💰 Price card</strong> — Editable quick-reference prices<br>
+<strong>📞 Quick actions</strong> — WhatsApp, call rider, open apps<br><br>
+<a class="btn-link" href="field_ops.html" target="_blank">Open Field Ops →</a>
+</div>
+<p class="tip">💡 Add to phone home screen for one-tap access.</p>
+</div>
+
+<!-- STEP 5 -->
+<div class="step" id="step5">
+<div class="icon-big">🛒</div>
+<h2>Customer Catalog — Share This!</h2>
+<p>This is what your customers see. 47 products with prices, Bengali names, and direct WhatsApp ordering.</p>
+<div class="action">
+<strong>🛍️ Browse</strong> — 47 products across 10 categories<br>
+<strong>🔍 Search</strong> — Find products instantly<br>
+<strong>🛒 Cart</strong> — Add items, see total<br>
+<strong>💬 WhatsApp</strong> — Send order as WhatsApp message<br>
+<strong>🇧🇩 Bengali</strong> — Toggle between English and Bengali<br><br>
+<a class="btn-link" href="06_Web_Catalog/index.html" target="_blank">Open Catalog →</a>
+</div>
+<p class="tip">💡 Deploy this to Vercel so customers can access it from their phones.</p>
+</div>
+
+<!-- STEP 6 -->
+<div class="step" id="step6">
+<div class="icon-big">💰</div>
+<h2>Financial System — Know Your Numbers</h2>
+<p>Three apps that work together to track every taka.</p>
+<div class="action">
+<strong>📉 Daily P&L</strong> — Enter orders + revenue → auto-calculates costs, profit, margin (67 BDT/order costs built in)<br><br>
+<strong>📊 Finance Dashboard</strong> — Cash position, month-to-date, 6-month projection<br><br>
+<strong>💾 Master Backup</strong> — One-click backup of ALL app data. Scan, backup, restore.<br><br>
+<a class="btn-link" href="05_Tech_Dashboard/dailypnl.html" target="_blank">Open Daily P&L →</a>
+</div>
+<p class="tip">💡 Unit economics: ৳138 revenue − ৳67 costs = ৳71 contribution (51% margin).</p>
+</div>
+
+<!-- STEP 7 -->
+<div class="step" id="step7">
+<div class="icon-big">🎬</div>
+<h2>You're Ready!</h2>
+<p>Your complete business toolkit is ready. 130 files, 22 apps, everything connected.</p>
+<div class="action">
+<strong>🚀 What to do now:</strong><br>
+1. Open <strong>start.html</strong> → 5-minute setup wizard (first time only)<br>
+2. Open <strong>os.html</strong> → your daily driver app<br>
+3. Open <strong>DEPLOYMENT_GUIDE.txt</strong> → get your catalog live<br>
+4. Open <strong>map.html</strong> → explore all 130 files<br>
+5. Print <strong>OPS_CARD.txt</strong> → keep in wallet<br><br>
+<a class="btn-link" href="start.html" target="_blank">🚀 Start the Setup Wizard →</a>
+</div>
+<p class="tip">"One order at a time. One customer at a time. You've got this."</p>
+</div>
+</div>
+
+<div class="tour-footer">
+<button class="btn-skip" onclick="finishTour()" id="skipBtn">Skip tour →</button>
+<div class="dots" id="dots"></div>
+<button class="btn" onclick="nextStep()" id="nextBtn">Next →</button>
+</div>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 7;
+
+function renderDots(){
+const container = document.getElementById('dots');
+container.innerHTML = '';
+for(let i=1;i<=totalSteps;i++){
+const dot = document.createElement('span');
+dot.className = `dot ${i === currentStep ? 'active' : ''}`;
+dot.onclick = () => goToStep(i);
+container.appendChild(dot);
+}
+}
+
+function updateProgress(){
+document.querySelectorAll('.prog-step').forEach((s,i) => {
+s.className = 'prog-step';
+if(i+1 < currentStep) s.classList.add('done');
+else if(i+1 === currentStep) s.classList.add('active');
+});
+}
+
+function goToStep(n){
+currentStep = n;
+document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+document.getElementById(`step${n}`).classList.add('active');
+document.getElementById('nextBtn').textContent = n === totalSteps ? '🎉 Done!' : 'Next →';
+updateProgress();
+renderDots();
+// Save progress
+localStorage.setItem('jgmart_tour_step', n);
+}
+
+function nextStep(){
+if(currentStep < totalSteps){
+goToStep(currentStep + 1);
+} else {
+finishTour();
+}
+}
+
+function finishTour(){
+localStorage.setItem('jgmart_tour_complete', 'true');
+const params = new URLSearchParams(window.location.search);
+const returnUrl = params.get('return') || 'start.html';
+window.location.href = returnUrl;
+}
+
+// Check if tour was already completed
+(function(){
+const completed = localStorage.getItem('jgmart_tour_complete');
+if(completed){
+// Show a "Restart tour?" option instead
+document.querySelector('.tour-header .icon').textContent = '👋';
+document.querySelector('.tour-header h1').innerHTML = 'Welcome back!';
+document.querySelector('.tour-header p').textContent = 'Tour already completed. Want to go through it again?';
+document.getElementById('step1').querySelector('h2').textContent = 'Tour Complete';
+document.getElementById('step1').querySelector('p').textContent = 'You\'ve already completed the welcome tour.';
+document.getElementById('step1').querySelector('.action').innerHTML = `
+<a class="btn-link" href="os.html" target="_blank">Open JG Mart OS →</a>
+<a class="btn-link" href="map.html" target="_blank" style="background:#c9a227;margin-left:8px">🗺️ System Map</a>
+`;
+document.getElementById('skipBtn').textContent = 'Restart Tour';
+document.getElementById('skipBtn').onclick = () => {
+localStorage.removeItem('jgmart_tour_complete');
+location.reload();
+};
+document.getElementById('nextBtn').textContent = '🔄 Restart';
+document.getElementById('nextBtn').onclick = () => {
+localStorage.removeItem('jgmart_tour_complete');
+localStorage.removeItem('jgmart_tour_step');
+location.reload();
+};
+// Hide steps 2-7, only show 1
+for(let i=2;i<=totalSteps;i++) document.getElementById(`step${i}`).style.display = 'none';
+document.querySelector('.progress').style.display = 'none';
+}
+renderDots();
+updateProgress();
+})();
+</script>
+</body>
+</html>

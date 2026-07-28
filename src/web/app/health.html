@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#00442D">
+<title>JG Mart — Toolkit Health Dashboard</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--green-900:#002b1e;--green-800:#00442d;--green-700:#006b47;--green-600:#00945f;--green-500:#00c77b;--green-400:#00f096;--green-300:#5affb5;--green-200:#a0ffd4;--green-100:#d4ffea;--gold:#d4a843;--gold-light:#f0d68a;--gold-dark:#a6822e;--bg:#0f1a15;--card:#16231e;--surface:#1c2d25;--text:#e0f0e8;--text-dim:#7b9b8b;--border:#2a4035;--success:#00c77b;--warning:#d4a843;--danger:#e85d5d;--shadow:0 2px 8px rgba(0,0,0,0.4);--radius:10px;--font:'Segoe UI', system-ui, -apple-system, sans-serif}
+  html{font-size:16px;scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;padding:0;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .container{max-width:1200px;margin:0 auto;padding:12px}
+  /* Header */
+  header{padding:16px 12px 8px;text-align:center;border-bottom:1px solid var(--border);margin-bottom:16px;background:linear-gradient(180deg,var(--green-900),var(--bg))}
+  header h1{font-size:1.35rem;font-weight:700;color:var(--green-400);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+  header h1 .logo{font-size:1.5rem}
+  header .subtitle{font-size:.8rem;color:var(--text-dim);margin-top:4px}
+  header .badge{display:inline-block;background:var(--green-700);color:var(--green-200);font-size:.6rem;padding:2px 8px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;margin-top:4px}
+  /* Summary cards */
+  .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:14px}
+  .summary-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 10px;text-align:center}
+  .summary-card .num{font-size:1.6rem;font-weight:800;line-height:1.2}
+  .summary-card .label{font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .summary-card.ok .num{color:var(--success)}
+  .summary-card.warn .num{color:var(--gold)}
+  .summary-card.missing .num{color:var(--danger)}
+  .summary-card.total .num{color:var(--green-300)}
+  .summary-card.bytes .num{font-size:1.1rem;color:var(--green-200)}
+  /* Timestamp bar */
+  .ts-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .ts-bar .ts{font-size:.72rem;color:var(--text-dim);font-family:monospace}
+  .btn{background:var(--green-700);color:var(--green-100);border:none;border-radius:6px;padding:8px 16px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;font-family:var(--font)}
+  .btn:hover{background:var(--green-600);color:#fff}
+  .btn:active{transform:scale(.96)}
+  .btn-gold{background:var(--gold-dark);color:#fff}
+  .btn-gold:hover{background:var(--gold)}
+  .btn-danger{background:#5c1a1a;color:var(--danger)}
+  .btn-danger:hover{background:#7a2222}
+  .btn-sm{padding:5px 10px;font-size:.7rem}
+  /* Section */
+  section{margin-bottom:16px}
+  section h2{font-size:1rem;font-weight:700;color:var(--green-300);margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+  section h2 .count{font-size:.7rem;color:var(--text-dim);font-weight:400;margin-left:auto}
+  /* Table */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--border)}
+  table{width:100%;border-collapse:collapse;font-size:.78rem;min-width:600px}
+  thead{background:var(--green-900)}
+  th{padding:10px 8px;text-align:left;font-weight:700;color:var(--green-300);font-size:.7rem;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--green-900)}
+  td{padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:middle}
+  tr:hover td{background:rgba(0,199,123,0.04)}
+  tr:last-child td{border-bottom:none}
+  .app-name{font-weight:600;color:var(--green-200);white-space:nowrap}
+  .app-path{font-size:.68rem;color:var(--text-dim);font-family:monospace;word-break:break-all}
+  .status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:.68rem;font-weight:600;white-space:nowrap}
+  .status-ok{background:rgba(0,199,123,0.15);color:var(--success)}
+  .status-warn{background:rgba(212,168,67,0.15);color:var(--gold)}
+  .status-missing{background:rgba(232,93,93,0.15);color:var(--danger)}
+  .feat{display:inline-flex;align-items:center;gap:3px;font-size:.68rem;padding:1px 6px;border-radius:4px;margin:1px 2px}
+  .feat-yes{background:rgba(0,199,123,0.1);color:var(--success)}
+  .feat-no{background:rgba(232,93,93,0.1);color:var(--danger)}
+  .feat-na{background:rgba(123,155,139,0.1);color:var(--text-dim)}
+  .size-bar{display:flex;align-items:center;gap:6px}
+  .size-bar-inner{height:6px;border-radius:3px;min-width:2px;transition:width .6s ease}
+  .size-num{font-family:monospace;font-size:.68rem;color:var(--text-dim);white-space:nowrap;min-width:50px;text-align:right}
+  /* Bar chart */
+  .chart-wrap{padding:12px 8px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+  .chart-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:.72rem}
+  .chart-bar-label{width:140px;flex-shrink:0;text-align:right;color:var(--green-200);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chart-bar-track{flex:1;height:16px;background:var(--surface);border-radius:8px;overflow:hidden;position:relative}
+  .chart-bar-fill{height:100%;border-radius:8px;transition:width .8s ease;background:linear-gradient(90deg,var(--green-600),var(--green-400));min-width:2px}
+  .chart-bar-fill.gold{background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
+  .chart-bar-size{width:58px;flex-shrink:0;font-family:monospace;font-size:.65rem;color:var(--text-dim);text-align:right}
+  /* localStorage map */
+  .ls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+  .ls-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+  .ls-card .key{font-family:monospace;font-size:.78rem;font-weight:600;color:var(--green-300);word-break:break-all}
+  .ls-card .apps{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+  .ls-tag{font-size:.62rem;padding:1px 6px;border-radius:4px;background:var(--surface);color:var(--text-dim);border:1px solid var(--border)}
+  .ls-tag.shared{border-color:var(--gold-dark);color:var(--gold-light);background:rgba(212,168,67,0.08)}
+  .ls-badge{font-size:.58rem;text-transform:uppercase;letter-spacing:.4px;padding:1px 5px;border-radius:3px;margin-left:6px}
+  .ls-badge.unique{background:rgba(0,199,123,0.1);color:var(--success)}
+  .ls-badge.shared{background:rgba(212,168,67,0.1);color:var(--gold)}
+  /* Documents */
+  .doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px}
+  .doc-item{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem}
+  .doc-item .doc-name{color:var(--green-200);font-weight:500}
+  .doc-item .doc-size{color:var(--text-dim);font-family:monospace;font-size:.65rem}
+  /* Collapsible filter */
+  .filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .filter-btn{font-size:.68rem;padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all .2s;font-family:var(--font)}
+  .filter-btn.active{background:var(--green-700);border-color:var(--green-500);color:var(--green-100)}
+  .filter-btn:hover{border-color:var(--green-500)}
+  /* Animations */
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .row-anim{animation:fadeIn .3s ease forwards;opacity:0}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+  .scanning .status-badge{animation:pulse .8s ease-in-out infinite}
+  /* Mobile */
+  @media(max-width:600px){
+    .container{padding:8px}
+    header h1{font-size:1.1rem}
+    .summary-grid{grid-template-columns:repeat(3,1fr);gap:5px}
+    .summary-card{padding:8px 6px}
+    .summary-card .num{font-size:1.2rem}
+    .chart-bar-label{width:90px;font-size:.65rem}
+    .chart-bar-size{width:46px;font-size:.6rem}
+    .ls-grid{grid-template-columns:1fr}
+    .doc-grid{grid-template-columns:1fr}
+    table{font-size:.72rem;min-width:480px}
+    th,td{padding:6px 5px}
+    .ts-bar{flex-direction:column;align-items:stretch;text-align:center}
+    .filter-bar{justify-content:center}
+  }
+  @media(max-width:400px){
+    table{min-width:360px;font-size:.65rem}
+    .chart-bar-label{width:70px}
+    .summary-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  /* Spinner */
+  .spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--green-400);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--green-800);color:var(--green-100);padding:10px 20px;border-radius:8px;font-size:.78rem;box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:999;animation:fadeIn .3s ease;border:1px solid var(--green-600)}
+  #section-toggles{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .toggle-section{font-size:.68rem;padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all .2s;font-family:var(--font)}
+  .toggle-section.on{background:var(--green-700);border-color:var(--green-500);color:var(--green-100)}
+  .toggle-section:hover{border-color:var(--green-500)}
+</style>
+</head>
+<body>
+
+<div class="container" id="app">
+  <!-- Header -->
+  <header>
+    <h1>
+      <span class="logo">📊</span>
+      Toolkit Health Dashboard
+      <span class="badge">JG Mart</span>
+    </h1>
+    <div class="subtitle">Auto-scanning all 16 web apps · Real-time status</div>
+  </header>
+
+  <!-- Summary -->
+  <div class="summary-grid" id="summaryGrid"></div>
+
+  <!-- Timestamp + Refresh -->
+  <div class="ts-bar">
+    <span class="ts" id="tsDisplay">⏱ Last checked: —</span>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="btn" onclick="scanAll()" id="refreshBtn">🔄 Refresh Scan</button>
+      <button class="btn btn-sm btn-gold" onclick="toggleSections()">👁 Sections</button>
+    </div>
+  </div>
+
+  <!-- Section toggles -->
+  <div id="section-toggles"></div>
+
+  <!-- App Inventory -->
+  <section id="sec-inventory">
+    <h2>📋 App Inventory <span class="count" id="invCount"></span></h2>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>Status</th>
+            <th>Size</th>
+            <th>Viewport</th>
+            <th>Theme-Color</th>
+            <th>WhatsApp</th>
+            <th>localStorage</th>
+          </tr>
+        </thead>
+        <tbody id="invBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- File Size Chart -->
+  <section id="sec-chart">
+    <h2>📈 File Size Comparison</h2>
+    <div class="chart-wrap" id="chartWrap"></div>
+  </section>
+
+  <!-- localStorage Key Map -->
+  <section id="sec-lsmap">
+    <h2>🔑 localStorage Key Map <span class="count" id="lsCount"></span></h2>
+    <div class="ls-grid" id="lsGrid"></div>
+  </section>
+
+  <!-- Key Documents -->
+  <section id="sec-docs">
+    <h2>📄 Key Documents</h2>
+    <div class="doc-grid" id="docGrid"></div>
+  </section>
+</div>
+
+<script>
+// ─── APP DATA ──────────────────────────────────────────────────────────────
+const APPS = [
+  { id:'start',        name:'Start Page',          path:'start.html',                              size:18175, wp:true,  tc:true,  wa:true,  ls:['jgmart_data'] },
+  { id:'ops',          name:'Operations',          path:'ops.html',                               size:12487, wp:true,  tc:true,  wa:false, ls:['jgmart_finance'] },
+  { id:'data',         name:'Data',                path:'data.html',                              size:16375, wp:true,  tc:true,  wa:true,  ls:['jgmart_data'] },
+  { id:'field_ops',    name:'Field Ops',           path:'field_ops.html',                         size:19968, wp:true,  tc:true,  wa:true,  ls:[] },
+  { id:'root_index',   name:'Command Center',      path:'index.html',                             size:15967, wp:true,  tc:true,  wa:true,  ls:['jgmart_launch_checks'] },
+  { id:'td_index',     name:'Tech Hub',            path:'05_Tech_Dashboard/index.html',           size:81752, wp:true,  tc:false, wa:false, ls:['jgmart_backup_','jgmart_data','jgmart_theme'] },
+  { id:'td_analytics', name:'Analytics',           path:'05_Tech_Dashboard/analytics.html',       size:19658, wp:true,  tc:true,  wa:false, ls:['jgmart_analytics'] },
+  { id:'td_orders',    name:'Orders',              path:'05_Tech_Dashboard/orders.html',          size:26656, wp:true,  tc:true,  wa:false, ls:['jgmart_orders'] },
+  { id:'td_finance',   name:'Finance',             path:'05_Tech_Dashboard/finance.html',         size:11816, wp:true,  tc:true,  wa:false, ls:['jgmart_finance'] },
+  { id:'td_dailypnl',  name:'Daily P&L',           path:'05_Tech_Dashboard/dailypnl.html',        size:35920, wp:true,  tc:false, wa:false, ls:['jgmart_pnl_cash','jgmart_pnl_entries','jgmart_pnl_fixed'] },
+  { id:'td_commlog',   name:'Comm Log',            path:'05_Tech_Dashboard/commlog.html',         size:25120, wp:true,  tc:false, wa:true,  ls:['jgcmart_commlog'] },
+  { id:'td_backup',    name:'Backup Manager',      path:'05_Tech_Dashboard/backup.html',          size:35435, wp:true,  tc:false, wa:false, ls:['jgmart_analytics','jgmart_cart','jgmart_customers','jgmart_delivery','jgmart_finance','jgmart_full_backup_','jgmart_inventory','jgmart_lang','jgmart_last_backup_date','jgmart_launch_checks','jgmart_notifications','jgmart_orders','jgmart_payments','jgmart_promotions','jgmart_selected_backup_','jgmart_settings'] },
+  { id:'wc_index',     name:'Web Catalog',         path:'06_Web_Catalog/index.html',              size:47979, wp:true,  tc:true,  wa:true,  ls:['jgmart_cart','jgmart_lang'] },
+  { id:'wc_orders',    name:'Order Intake',        path:'06_Web_Catalog/order_intake.html',       size:39326, wp:true,  tc:false, wa:true,  ls:['jgmart_draft','jgmart_orders'] },
+  { id:'mk_landing',   name:'Marketing Landing',   path:'07_Marketing/landing.html',              size:10327, wp:true,  tc:true,  wa:true,  ls:[] },
+  { id:'tm_supplier',  name:'Supplier Scorecard',  path:'12_Templates/supplier_scorecard.html',   size:28577, wp:true,  tc:false, wa:false, ls:[] }
+];
+
+const DOCS = [
+  { name:'QUICK_START.txt',       size:11588 },
+  { name:'READY_TO_LAUNCH.txt',   size:4590  },
+  { name:'FIRST_DAY_CHEATSHEET.txt',size:6212},
+  { name:'COMMAND_CENTER.txt',    size:12231 },
+  { name:'MASTER_INDEX.txt',      size:9962  },
+  { name:'README.txt',            size:8123  },
+  { name:'ROADMAP_COMPLETE.txt',  size:5747  },
+  { name:'VALIDATION_REPORT.txt', size:10305 },
+  { name:'BUSINESS_CONTINUITY_KIT.txt',size:7504}
+];
+
+// ─── STATE ─────────────────────────────────────────────────────────────────
+let results = {};       // path -> {exists, size, hasViewport, hasThemeColor, hasWhatsApp, lsKeysFound}
+let scanning = false;
+let visibleSections = ['inventory','chart','lsmap','docs'];
+
+// ─── HELPERS ───────────────────────────────────────────────────────────────
+function $(id){return document.getElementById(id)}
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+
+function fmtSize(bytes){
+  if(bytes===null||bytes===undefined)return '—';
+  return bytes>=1024? (bytes/1024).toFixed(1)+' KB' : bytes+' B';
+}
+
+function statusClass(app){
+  const r=results[app.path];
+  if(!r)return 'scanning';
+  if(!r.exists)return 'status-missing';
+  if(!r.hasViewport||(!r.hasThemeColor&&app.tc)||(!r.hasWhatsApp&&app.wa))return 'status-warn';
+  return 'status-ok';
+}
+
+function statusLabel(app){
+  const r=results[app.path];
+  if(!r)return '🔍 Scanning...';
+  if(!r.exists)return '❌ Missing';
+  if(!r.hasViewport||(!r.hasThemeColor&&app.tc)||(!r.hasWhatsApp&&app.wa))return '⚠️ Check';
+  return '✅ OK';
+}
+
+function getSize(app){
+  const r=results[app.path];
+  if(!r||!r.exists)return null;
+  return r.size||app.size;
+}
+
+// ─── SCANNER ────────────────────────────────────────────────────────────────
+async function scanAll(){
+  if(scanning)return;
+  scanning=true;
+  $('refreshBtn').disabled=true;
+  $('refreshBtn').innerHTML='<span class="spinner"></span> Scanning...';
+  results={};
+
+  for(let i=0;i<APPS.length;i++){
+    const app=APPS[i];
+    await scanApp(app);
+    renderRow(app,i);
+    updateSummary();
+  }
+
+  renderChart();
+  renderLSMap();
+  renderDocs();
+  $('tsDisplay').textContent='⏱ Last checked: '+new Date().toLocaleString();
+  $('invCount').textContent='('+APPS.length+' apps)';
+  $('refreshBtn').disabled=false;
+  $('refreshBtn').innerHTML='🔄 Refresh Scan';
+  scanning=false;
+}
+
+async function scanApp(app){
+  const r={exists:false,size:null,hasViewport:false,hasThemeColor:false,hasWhatsApp:false,lsKeysFound:[]};
+  try{
+    const resp=await fetch(app.path,{method:'HEAD',cache:'no-store'});
+    if(resp.ok||resp.status===200||resp.status===304){
+      r.exists=true;
+      // Try to get content-length
+      const cl=resp.headers.get('content-length');
+      if(cl)r.size=parseInt(cl,10);
+    }
+  }catch(e){
+    // fallback: try GET
+    try{
+      const resp2=await fetch(app.path,{method:'GET',cache:'no-store'});
+      if(resp2.ok||resp2.status===200){
+        r.exists=true;
+        const cl=resp2.headers.get('content-length');
+        if(cl)r.size=parseInt(cl,10);
+        // Get text to check features
+        const text=await resp2.text();
+        r.hasViewport=/<meta[^>]*name=["']viewport["']/i.test(text);
+        r.hasThemeColor=/<meta[^>]*name=["']theme-color["']/i.test(text);
+        r.hasWhatsApp=/whatsapp|8801[0-9]{9}/i.test(text);
+        // Find localStorage keys
+        const keys=new Set();
+        const re=/(?:jgmart|jgcmart)_[a-zA-Z_]+/g;
+        let m;
+        while((m=re.exec(text))!==null)keys.add(m[0]);
+        r.lsKeysFound=[...keys].sort();
+        if(!r.size)r.size=text.length;
+      }
+    }catch(e2){
+      r.exists=false;
+    }
+  }
+  // If HEAD succeeded but no size, try GET just for size
+  if(r.exists && !r.size){
+    try{
+      const resp2=await fetch(app.path,{method:'GET',cache:'no-store'});
+      if(resp2.ok){
+        const text=await resp2.text();
+        r.size=text.length;
+        r.hasViewport=/<meta[^>]*name=["']viewport["']/i.test(text);
+        r.hasThemeColor=/<meta[^>]*name=["']theme-color["']/i.test(text);
+        r.hasWhatsApp=/whatsapp|8801[0-9]{9}/i.test(text);
+        const keys=new Set();
+        const re=/(?:jgmart|jgcmart)_[a-zA-Z_]+/g;
+        let m;
+        while((m=re.exec(text))!==null)keys.add(m[0]);
+        r.lsKeysFound=[...keys].sort();
+      }
+    }catch(e){}
+  }
+  results[app.path]=r;
+}
+
+// ─── RENDER ROW ─────────────────────────────────────────────────────────────
+function renderRow(app,idx){
+  const tbody=$('invBody');
+  const r=results[app.path];
+  const exists=r&&r.exists;
+  const sz=getSize(app);
+
+  const feat=(val)=>val?'<span class="feat feat-yes">✓</span>':'<span class="feat feat-no">✗</span>';
+  const featNA=(val,expected)=>expected?feat(val):'<span class="feat feat-na">—</span>';
+
+  const lsStr=r&&r.lsKeysFound&&r.lsKeysFound.length
+    ? r.lsKeysFound.map(k=>'<span style="font-family:monospace;font-size:.62rem;background:rgba(0,199,123,0.06);color:var(--green-300);padding:0 4px;border-radius:3px;margin:1px">'+esc(k)+'</span>').join(' ')
+    : (exists?'<span style="color:var(--text-dim);font-size:.68rem">none</span>':'<span style="color:var(--text-dim);font-size:.68rem">—</span>');
+
+  const row=document.createElement('tr');
+  row.id='row-'+app.id;
+  row.className='row-anim';
+  row.style.animationDelay=(idx*30)+'ms';
+  row.innerHTML=
+    '<td><div class="app-name">'+esc(app.name)+'</div><div class="app-path">'+esc(app.path)+'</div></td>'+
+    '<td><span class="status-badge '+statusClass(app)+'">'+statusLabel(app)+'</span></td>'+
+    '<td>'+(sz!==null?fmtSize(sz):'—')+'</td>'+
+    '<td>'+featNA(r&&r.hasViewport,true)+'</td>'+
+    '<td>'+featNA(r&&r.hasThemeColor,app.tc)+'</td>'+
+    '<td>'+featNA(r&&r.hasWhatsApp,app.wa)+'</td>'+
+    '<td style="max-width:180px">'+lsStr+'</td>';
+
+  // Replace or append
+  const existing=$('row-'+app.id);
+  if(existing)existing.replaceWith(row);
+  else tbody.appendChild(row);
+}
+
+// ─── SUMMARY ───────────────────────────────────────────────────────────────
+function updateSummary(){
+  const total=APPS.length;
+  let ok=0, warn=0, missing=0, totalBytes=0;
+  APPS.forEach(a=>{
+    const r=results[a.path];
+    if(!r||!r.exists){missing++;return}
+    const sz=getSize(a);
+    if(sz)totalBytes+=sz;
+    if(!r.hasViewport||(!r.hasThemeColor&&a.tc)||(!r.hasWhatsApp&&a.wa)){warn++;return}
+    ok++;
+  });
+
+  $('summaryGrid').innerHTML=
+    '<div class="summary-card ok"><div class="num">'+ok+'</div><div class="label">✅ OK</div></div>'+
+    '<div class="summary-card warn"><div class="num">'+warn+'</div><div class="label">⚠️ Check</div></div>'+
+    '<div class="summary-card missing"><div class="num">'+missing+'</div><div class="label">❌ Missing</div></div>'+
+    '<div class="summary-card total"><div class="num">'+total+'</div><div class="label">📦 Total Apps</div></div>'+
+    '<div class="summary-card bytes"><div class="num">'+(totalBytes>0?fmtSize(totalBytes):'—')+'</div><div class="label">📐 Total Size</div></div>';
+}
+
+// ─── CHART ─────────────────────────────────────────────────────────────────
+function renderChart(){
+  const wrap=$('chartWrap');
+  const maxSize=Math.max(...APPS.map(a=>getSize(a)||0),1);
+  let html='';
+  APPS.forEach((a,i)=>{
+    const sz=getSize(a);
+    const pct=sz?Math.max((sz/maxSize)*100,1):0;
+    const cls=a.path.startsWith('05_Tech')||a.path.startsWith('06_')?'gold':'';
+    html+='<div class="chart-bar-row row-anim" style="animation-delay:'+(i*20)+'ms">'+
+      '<div class="chart-bar-label" title="'+esc(a.path)+'">'+esc(a.name)+'</div>'+
+      '<div class="chart-bar-track"><div class="chart-bar-fill '+cls+'" style="width:'+pct+'%"></div></div>'+
+      '<div class="chart-bar-size">'+(sz!==null?fmtSize(sz):'—')+'</div></div>';
+  });
+  wrap.innerHTML=html;
+}
+
+// ─── LOCALSTORAGE MAP ──────────────────────────────────────────────────────
+function renderLSMap(){
+  const grid=$('lsGrid');
+  // Collect all known keys from app definitions
+  const keyMap={}; // key -> {apps:[], shared:bool}
+  APPS.forEach(a=>{
+    a.ls.forEach(k=>{
+      if(!keyMap[k])keyMap[k]={apps:[],shared:false};
+      keyMap[k].apps.push(a.name);
+    });
+  });
+  // Also add keys found during scan that aren't in the definitions
+  const foundKeys={};
+  APPS.forEach(a=>{
+    const r=results[a.path];
+    if(r&&r.lsKeysFound){
+      r.lsKeysFound.forEach(k=>{
+        if(!keyMap[k])keyMap[k]={apps:[],shared:false};
+        if(!keyMap[k].apps.includes(a.name))keyMap[k].apps.push(a.name);
+      });
+    }
+  });
+
+  Object.keys(keyMap).forEach(k=>{
+    keyMap[k].shared=keyMap[k].apps.length>1;
+  });
+
+  const entries=Object.entries(keyMap).sort((a,b)=>a[0].localeCompare(b[0]));
+  $('lsCount').textContent='('+entries.length+' keys)';
+
+  if(!entries.length){
+    grid.innerHTML='<div style="color:var(--text-dim);font-size:.78rem;text-align:center;padding:20px">Scan apps to see localStorage keys.</div>';
+    return;
+  }
+
+  let html='';
+  entries.forEach(([key,val])=>{
+    html+='<div class="ls-card">'+
+      '<div class="key">'+esc(key)+
+        '<span class="ls-badge '+(val.shared?'shared':'unique')+'">'+(val.shared?'SHARED':'UNIQUE')+'</span>'+
+      '</div>'+
+      '<div class="apps">'+
+        val.apps.map(n=>'<span class="ls-tag '+(val.shared?'shared':'')+'">'+esc(n)+'</span>').join('')+
+      '</div></div>';
+  });
+  grid.innerHTML=html;
+}
+
+// ─── DOCS ──────────────────────────────────────────────────────────────────
+function renderDocs(){
+  const grid=$('docGrid');
+  let html='';
+  DOCS.forEach(d=>{
+    html+='<div class="doc-item">'+
+      '<span class="doc-name">📄 '+esc(d.name)+'</span>'+
+      '<span class="doc-size">'+fmtSize(d.size)+'</span></div>';
+  });
+  grid.innerHTML=html;
+}
+
+// ─── FILTERS ───────────────────────────────────────────────────────────────
+function renderFilters(){
+  const bar=$('filterBar');
+  const statuses=[
+    {id:'all',label:'All',on:true},
+    {id:'ok',label:'✅ OK'},
+    {id:'warn',label:'⚠️ Check'},
+    {id:'missing',label:'❌ Missing'}
+  ];
+  let html='';
+  statuses.forEach(s=>{
+    html+='<button class="filter-btn '+(s.on?'active':'')+'" data-filter="'+s.id+'" onclick="setFilter(\''+s.id+'\')">'+s.label+'</button>';
+  });
+  bar.innerHTML=html;
+}
+
+let currentFilter='all';
+function setFilter(f){
+  currentFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.filter===f);
+  });
+  APPS.forEach(a=>{
+    const r=results[a.path];
+    const row=$('row-'+a.id);
+    if(!row)return;
+    let show=true;
+    if(f==='ok')show=r&&r.exists&&r.hasViewport&&(!a.tc||r.hasThemeColor)&&(!a.wa||r.hasWhatsApp);
+    else if(f==='warn')show=r&&r.exists&&!(r.hasViewport&&(!a.tc||r.hasThemeColor)&&(!a.wa||r.hasWhatsApp));
+    else if(f==='missing')show=!r||!r.exists;
+    row.style.display=show?'':'none';
+  });
+}
+
+// ─── SECTION TOGGLES ──────────────────────────────────────────────────────
+function renderSectionToggles(){
+  const c=$('section-toggles');
+  const sections=[
+    {id:'inventory',label:'📋 Apps'},
+    {id:'chart',label:'📈 Chart'},
+    {id:'lsmap',label:'🔑 Keys'},
+    {id:'docs',label:'📄 Docs'}
+  ];
+  let html='';
+  sections.forEach(s=>{
+    const on=visibleSections.includes(s.id);
+    html+='<button class="toggle-section '+(on?'on':'')+'" data-sec="'+s.id+'" onclick="toggleSection(\''+s.id+'\')">'+s.label+'</button>';
+  });
+  c.innerHTML=html;
+}
+
+function toggleSection(id){
+  const idx=visibleSections.indexOf(id);
+  if(idx>-1)visibleSections.splice(idx,1);
+  else visibleSections.push(id);
+  renderSectionToggles();
+  $('sec-'+id).style.display=visibleSections.includes(id)?'':'none';
+}
+
+function toggleSections(){
+  // Toggle all on/off
+  const allOn=$('sec-inventory').style.display!=='none'||visibleSections.length>0;
+  if(allOn){
+    visibleSections=[];
+  }else{
+    visibleSections=['inventory','chart','lsmap','docs'];
+  }
+  ['inventory','chart','lsmap','docs'].forEach(id=>{
+    $('sec-'+id).style.display=visibleSections.includes(id)?'':'none';
+  });
+  renderSectionToggles();
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────────────
+renderFilters();
+renderSectionToggles();
+
+// Render rows skeleton
+$('invBody').innerHTML=APPS.map((a,i)=>{
+  const sz=a.size;
+  return '<tr id="row-'+a.id+'" class="row-anim" style="animation-delay:'+(i*30)+'ms">'+
+    '<td><div class="app-name">'+esc(a.name)+'</div><div class="app-path">'+esc(a.path)+'</div></td>'+
+    '<td><span class="status-badge status-missing">⏳ Pending</span></td>'+
+    '<td>—</td>'+
+    '<td><span class="feat feat-na">—</span></td>'+
+    '<td><span class="feat feat-na">—</span></td>'+
+    '<td><span class="feat feat-na">—</span></td>'+
+    '<td><span style="color:var(--text-dim);font-size:.68rem">—</span></td></tr>';
+}).join('');
+
+$('invCount').textContent='('+APPS.length+' apps)';
+$('tsDisplay').textContent='⏱ Last checked: —';
+
+// Build document grid immediately
+renderDocs();
+
+// Summary skeleton
+$('summaryGrid').innerHTML=
+  '<div class="summary-card ok"><div class="num">—</div><div class="label">✅ OK</div></div>'+
+  '<div class="summary-card warn"><div class="num">—</div><div class="label">⚠️ Check</div></div>'+
+  '<div class="summary-card missing"><div class="num">—</div><div class="label">❌ Missing</div></div>'+
+  '<div class="summary-card total"><div class="num">'+APPS.length+'</div><div class="label">📦 Total Apps</div></div>'+
+  '<div class="summary-card bytes"><div class="num">—</div><div class="label">📐 Total Size</div></div>';
+
+// Auto-scan on load
+document.addEventListener('DOMContentLoaded',()=>{
+  setTimeout(scanAll,300);
+});
+</script>
+</body>
+</html>

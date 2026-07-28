@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Startup Wizard</title>
+<meta name="theme-color" content="#00442D">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f0f2f0;color:#1a1a1a;min-height:100vh;display:flex;flex-direction:column}
+.wizard{max-width:680px;margin:0 auto;padding:16px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.header{text-align:center;margin-bottom:20px}
+.header h1{font-size:1.5rem;font-weight:800;color:#00442D}.header h1 span{color:#c9a227}.header p{color:#5c5c5c;font-size:.88rem;margin-top:4px}
+.progress{display:flex;gap:4px;margin-bottom:20px;padding:0 4px}
+.prog-step{flex:1;height:4px;border-radius:999px;background:#e0e4e0;transition:background .3s}
+.prog-step.done{background:#0a6b47}.prog-step.active{background:#c9a227}
+.step-indicator{text-align:center;font-size:.78rem;color:#5c5c5c;margin-bottom:16px;font-weight:500}
+.card{background:#fff;border-radius:16px;padding:28px 24px;box-shadow:0 4px 20px rgba(0,0,0,.06);display:none;animation:fadeIn .3s}
+.card.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card h2{font-size:1.15rem;font-weight:700;color:#00442D;margin-bottom:6px}.card .desc{font-size:.85rem;color:#5c5c5c;margin-bottom:18px;line-height:1.4}
+.field-group{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:3px}
+.field label{font-size:.78rem;font-weight:600;color:#00442D}
+.field input,.field select{font-family:inherit;padding:11px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:.9rem;background:#fff;transition:border-color .15s}
+.field input:focus,.field select:focus{border-color:#00442D;outline:none;box-shadow:0 0 0 3px rgba(0,68,45,.08)}
+.field .hint{font-size:.72rem;color:#999;margin-top:2px}
+.btn-row{display:flex;gap:10px;margin-top:8px}
+.btn-primary{background:#00442D;color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;flex:1;transition:transform .1s}
+.btn-primary:hover{transform:translateY(-1px)}.btn-primary:active{transform:translateY(0)}
+.btn-secondary{background:#f0f2f0;color:#00442D;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.9rem;border:none;cursor:pointer}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.summary-item{background:#f7f9f7;border-radius:10px;padding:14px;text-align:center}
+.summary-item .num{font-size:1.5rem;font-weight:800;color:#00442D}
+.summary-item .lbl{font-size:.72rem;color:#5c5c5c;margin-top:2px}
+.next-steps{background:#fff8e1;border-radius:10px;padding:14px;font-size:.82rem;line-height:1.5;margin-top:10px;color:#7a6b1a}
+.next-steps strong{color:#00442D}
+.next-steps a{color:#00442D;font-weight:600;text-decoration:underline}
+.preview{background:#f4f7f5;border-radius:10px;padding:14px;margin-bottom:14px;font-size:.82rem;line-height:1.5;border-left:4px solid #c9a227}
+.preview strong{color:#00442D}
+.tip{display:flex;align-items:flex-start;gap:8px;background:#e8f5ef;border-radius:10px;padding:12px;font-size:.8rem;color:#0a6b47;margin-bottom:12px}
+.tip .icon{font-size:1.1rem}
+.checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.check-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f7f9f7;border-radius:8px;font-size:.82rem;cursor:pointer;transition:background .1s}
+.check-item:hover{background:#e8f5ef}
+.check-item input[type=checkbox]{accent-color:#00442D;width:16px;height:16px}
+.check-item .text{flex:1}
+.check-item .text.done{text-decoration:line-through;color:#999}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.action-btn{display:flex;align-items:center;gap:6px;background:#00442D;color:#fff;padding:10px 16px;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:inherit}
+.action-btn-outline{background:#fff;color:#00442D;border:1.5px solid #00442D;padding:10px 16px;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.finish-screen{text-align:center;padding:20px 0}
+.finish-screen .emoji{font-size:3rem;margin-bottom:12px}
+.finish-screen h2{color:#00442D;margin-bottom:6px}
+.finish-screen p{color:#5c5c5c;font-size:.88rem;max-width:400px;margin:0 auto 16px}
+</style>
+</head>
+<body>
+
+<div class="wizard">
+<div class="header">
+<h1>JG <span>Mart</span></h1>
+<p>Get your business ready in 5 minutes</p>
+</div>
+
+<div class="progress" id="progressBar">
+<div class="prog-step active"></div>
+<div class="prog-step"></div>
+<div class="prog-step"></div>
+<div class="prog-step"></div>
+<div class="prog-step"></div>
+</div>
+
+<div class="step-indicator" id="stepLabel">Step 1 of 5 — Business Info</div>
+
+<!-- STEP 1: BUSINESS INFO -->
+<div class="card active" id="step1">
+<h2>🏪 Your Business</h2>
+<p class="desc">Tell us about your grocery delivery service. This sets up your dashboard.</p>
+<div class="field-group">
+<div class="field"><label>Business Name</label><input type="text" id="bizName" value="JG Mart" placeholder="Your business name"><div class="hint">This appears on all your dashboards</div></div>
+<div class="field"><label>Your Name</label><input type="text" id="founderName" value="Fahad Ibrahim" placeholder="Your full name"></div>
+<div class="field"><label>WhatsApp Number</label><input type="text" id="waNumber" value="+8801870489448" placeholder="+880XXXXXXXXXX"></div>
+<div class="field"><label>Location</label><input type="text" id="bizLocation" value="Japan Garden City, Mohammadpur, Dhaka" placeholder="Delivery area"></div>
+</div>
+<div class="btn-row">
+<button class="btn-primary" onclick="nextStep()">Next →</button>
+</div>
+</div>
+
+<!-- STEP 2: UNIT ECONOMICS -->
+<div class="card" id="step2">
+<h2>💰 Your Numbers</h2>
+<p class="desc">Set your pricing model. These are used to calculate profit automatically.</p>
+<div class="tip"><span class="icon">💡</span> Don't worry — you can change these anytime in the Settings.</div>
+<div class="field-group">
+<div class="field"><label>Average Order Value (BDT)</label><input type="number" id="aov" value="800" min="0"><div class="hint">What customers typically spend per order</div></div>
+<div class="field"><label>Commission Rate (%)</label><input type="number" id="commissionRate" value="11" min="0" max="30" step="0.5"><div class="hint">Your cut from Krishi Market prices</div></div>
+<div class="field"><label>Delivery Fee (BDT)</label><input type="number" id="deliveryFee" value="30" min="0"></div>
+<div class="field"><label>Cost to Serve Per Order (BDT)</label><input type="number" id="costPerOrder" value="67" min="0"><div class="hint">Rider + manager + marketing + packaging per order</div></div>
+<div class="field"><label>Seed Capital (BDT)</label><input type="number" id="seedCapital" value="250000" min="0"></div>
+</div>
+<div class="preview">
+<strong>Your unit economics:</strong><br>
+Revenue per order: ৳<span id="previewRevenue">138</span> · Cost per order: ৳<span id="previewCost">67</span> · <strong>Contribution: ৳<span id="previewContrib">71</span> (<span id="previewMargin">51</span>%)</strong>
+</div>
+<div class="btn-row">
+<button class="btn-secondary" onclick="prevStep()">← Back</button>
+<button class="btn-primary" onclick="nextStep()">Next →</button>
+</div>
+</div>
+
+<!-- STEP 3: FIRST CUSTOMER -->
+<div class="card" id="step3">
+<h2>👥 Your First Customer</h2>
+<p class="desc">Add your first real customer. You can add more later in the Data Manager.</p>
+<div class="field-group">
+<div class="field"><label>Customer Name</label><input type="text" id="custName" placeholder="e.g. Sara Ahmed"></div>
+<div class="field"><label>Phone Number</label><input type="text" id="custPhone" placeholder="01712-XXXXXX"></div>
+<div class="field"><label>Building</label>
+<select id="custBuilding"><option value="">Select building</option></select></div>
+<div class="field"><label>Flat Number</label><input type="text" id="custFlat" placeholder="e.g. 3A"></div>
+</div>
+<div class="btn-row">
+<button class="btn-secondary" onclick="prevStep()">← Back</button>
+<button class="btn-primary" onclick="addCustomer()">+ Add Customer</button>
+<button class="btn-secondary" onclick="nextStep()" style="flex:0.5">Skip →</button>
+</div>
+</div>
+
+<!-- STEP 4: FIRST PARTNER -->
+<div class="card" id="step4">
+<h2>🤝 Your First Partner</h2>
+<p class="desc">Add a Krishi Market supplier. Partners are how you get fresh products daily.</p>
+<div class="field-group">
+<div class="field"><label>Shop Name</label><input type="text" id="partName" placeholder="e.g. Shahjalal Rice Agency"></div>
+<div class="field"><label>Category</label>
+<select id="partCategory"><option value="Rice & Dal">Rice & Dal</option><option value="Vegetables">Vegetables</option><option value="Fish">Fish</option><option value="Meat">Meat</option><option value="Oil & Spices">Oil & Spices</option><option value="Dairy & Eggs">Dairy & Eggs</option><option value="Fruits">Fruits</option></select></div>
+<div class="field"><label>Phone Number</label><input type="text" id="partPhone" placeholder="01712-XXXXXX"></div>
+<div class="field"><label>Commission %</label><input type="number" id="partCommission" value="11" min="0" max="30" step="0.5"></div>
+</div>
+<div class="btn-row">
+<button class="btn-secondary" onclick="prevStep()">← Back</button>
+<button class="btn-primary" onclick="addPartner()">+ Add Partner</button>
+<button class="btn-secondary" onclick="nextStep()" style="flex:0.5">Skip →</button>
+</div>
+</div>
+
+<!-- STEP 5: DONE -->
+<div class="card" id="step5">
+<div class="finish-screen">
+<div class="emoji">🎉</div>
+<h2>You're ready to launch!</h2>
+<p>Your business is configured. Here's your quick-start command center.</p>
+</div>
+
+<div class="summary-grid">
+<div class="summary-item"><div class="num" id="finalCustomers">0</div><div class="lbl">Customers</div></div>
+<div class="summary-item"><div class="num" id="finalPartners">0</div><div class="lbl">Partners</div></div>
+<div class="summary-item"><div class="num" id="finalRevenue">138</div><div class="lbl">Revenue/Order (৳)</div></div>
+<div class="summary-item"><div class="num" id="finalMargin">51%</div><div class="lbl">Contribution Margin</div></div>
+</div>
+
+<div class="next-steps">
+<strong>🚀 Next steps:</strong><br>
+1. Open <a href="data.html" target="_blank">Data Manager</a> → add more customers and partners<br>
+2. Open <a href="ops.html" target="_blank">Operations Dashboard</a> → track your daily metrics<br>
+3. Open <a href="field_ops.html" target="_blank">Field Ops</a> → use on your phone while at Krishi Market<br>
+4. Open <a href="05_Tech_Dashboard/orders.html" target="_blank">Order Tracker</a> → log your first order<br>
+5. Open <a href="05_Tech_Dashboard/dailypnl.html" target="_blank">Daily P&L</a> → enter today's revenue and costs
+</div>
+
+<div class="actions">
+<a class="action-btn" href="ops.html" target="_blank">🎯 Open Ops Dashboard</a>
+<a class="action-btn-outline" href="data.html" target="_blank">🗃️ Data Manager</a>
+<a class="action-btn-outline" href="field_ops.html" target="_blank">📱 Field Ops</a>
+</div>
+
+<div class="btn-row" style="margin-top:16px">
+<button class="btn-secondary" onclick="prevStep()">← Back</button>
+<button class="btn-primary" onclick="resetWizard()">🔄 Start Over</button>
+</div>
+</div>
+
+</div>
+
+<script>
+let step = 1;
+const TOTAL_STEPS = 5;
+let customers = JSON.parse(localStorage.getItem('wizard_customers') || '[]');
+let partners = JSON.parse(localStorage.getItem('wizard_partners') || '[]');
+
+// First-time visitors: redirect to welcome tour first
+if (!localStorage.getItem('jgmart_tour_complete')) {
+  window.location.href = 'tour.html?return=start.html';
+}
+
+// Populate building dropdown
+(function(){
+const sel = document.getElementById('custBuilding');
+for(let i=1;i<=27;i++){
+const opt = document.createElement('option');
+opt.value = `B${i}`; opt.textContent = `Building ${i}`;
+sel.appendChild(opt);
+}
+})();
+
+// Live preview for step 2
+document.getElementById('aov').addEventListener('input', updatePreview);
+document.getElementById('commissionRate').addEventListener('input', updatePreview);
+document.getElementById('deliveryFee').addEventListener('input', updatePreview);
+document.getElementById('costPerOrder').addEventListener('input', updatePreview);
+
+function updatePreview(){
+const aov = parseFloat(document.getElementById('aov').value) || 800;
+const comm = parseFloat(document.getElementById('commissionRate').value) || 11;
+const del = parseFloat(document.getElementById('deliveryFee').value) || 30;
+const cost = parseFloat(document.getElementById('costPerOrder').value) || 67;
+const revenue = Math.round(aov * comm / 100) + del;
+document.getElementById('previewRevenue').textContent = revenue;
+document.getElementById('previewCost').textContent = cost;
+const contrib = revenue - cost;
+const margin = revenue > 0 ? Math.round(contrib / revenue * 100) : 0;
+document.getElementById('previewContrib').textContent = contrib;
+document.getElementById('previewMargin').textContent = margin;
+}
+
+function updateProgress(){
+const steps = document.querySelectorAll('.prog-step');
+steps.forEach((s, i) => {
+s.className = 'prog-step';
+if(i + 1 < step) s.classList.add('done');
+else if(i + 1 === step) s.classList.add('active');
+});
+document.getElementById('stepLabel').textContent = `Step ${step} of ${TOTAL_STEPS}`;
+const labels = ['Business Info','Your Numbers','First Customer','First Partner','Launch Ready'];
+document.getElementById('stepLabel').textContent = `Step ${step} of ${TOTAL_STEPS} — ${labels[step-1]}`;
+}
+
+function showStep(n){
+document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+document.getElementById(`step${n}`).classList.add('active');
+step = n;
+updateProgress();
+}
+
+function nextStep(){
+if(step === 1) saveBusinessInfo();
+if(step === 2) saveEconomics();
+if(step < TOTAL_STEPS) showStep(step + 1);
+if(step === TOTAL_STEPS - 1) showFinal();
+}
+
+function prevStep(){
+if(step > 1) showStep(step - 1);
+}
+
+function saveBusinessInfo(){
+const data = {
+name: document.getElementById('bizName').value.trim() || 'JG Mart',
+founder: document.getElementById('founderName').value.trim() || 'Fahad Ibrahim',
+wa: document.getElementById('waNumber').value.trim() || '+8801870489448',
+location: document.getElementById('bizLocation').value.trim() || 'Japan Garden City, Dhaka'
+};
+localStorage.setItem('wizard_biz', JSON.stringify(data));
+}
+
+function saveEconomics(){
+const data = {
+aov: parseFloat(document.getElementById('aov').value) || 800,
+commission: parseFloat(document.getElementById('commissionRate').value) || 11,
+deliveryFee: parseFloat(document.getElementById('deliveryFee').value) || 30,
+costPerOrder: parseFloat(document.getElementById('costPerOrder').value) || 67,
+seedCapital: parseFloat(document.getElementById('seedCapital').value) || 250000
+};
+localStorage.setItem('wizard_econ', JSON.stringify(data));
+// Also save to central data format
+const centralData = {
+customers: customers,
+partners: partners,
+settings: {
+aov: data.aov,
+commission: data.commission,
+deliveryFee: data.deliveryFee,
+costPerOrder: data.costPerOrder,
+whatsapp: (JSON.parse(localStorage.getItem('wizard_biz')||'{}')).wa || '+8801870489448',
+seedCapital: data.seedCapital
+},
+totalOrders: 0
+};
+localStorage.setItem('jgmart_data', JSON.stringify(centralData));
+}
+
+function addCustomer(){
+const name = document.getElementById('custName').value.trim();
+const phone = document.getElementById('custPhone').value.trim();
+const building = document.getElementById('custBuilding').value;
+const flat = document.getElementById('custFlat').value.trim();
+if(!name){alert('Enter a customer name'); return;}
+customers.push({name, phone, building, flat, orders:0, total:0, joined:new Date().toISOString().slice(0,10)});
+localStorage.setItem('wizard_customers', JSON.stringify(customers));
+document.getElementById('custName').value = '';
+document.getElementById('custPhone').value = '';
+document.getElementById('custFlat').value = '';
+// Update central data
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+if(cd.customers) cd.customers = customers;
+localStorage.setItem('jgmart_data', JSON.stringify(cd));
+alert(`✅ ${name} added!`);
+}
+
+function addPartner(){
+const name = document.getElementById('partName').value.trim();
+const category = document.getElementById('partCategory').value;
+const phone = document.getElementById('partPhone').value.trim();
+const commission = parseFloat(document.getElementById('partCommission').value) || 11;
+if(!name){alert('Enter a partner/shop name'); return;}
+partners.push({name, category, phone, commission, orders:0, rating:0, joined:new Date().toISOString().slice(0,10)});
+localStorage.setItem('wizard_partners', JSON.stringify(partners));
+document.getElementById('partName').value = '';
+document.getElementById('partPhone').value = '';
+// Update central data
+const cd = JSON.parse(localStorage.getItem('jgmart_data') || '{}');
+if(cd.partners) cd.partners = partners;
+localStorage.setItem('jgmart_data', JSON.stringify(cd));
+alert(`✅ ${name} added!`);
+}
+
+function showFinal(){
+document.getElementById('finalCustomers').textContent = customers.length;
+document.getElementById('finalPartners').textContent = partners.length;
+const econ = JSON.parse(localStorage.getItem('wizard_econ') || '{}');
+const aov = econ.aov || 800;
+const comm = econ.commission || 11;
+const del = econ.deliveryFee || 30;
+const rev = Math.round(aov * comm / 100) + del;
+const cost = econ.costPerOrder || 67;
+document.getElementById('finalRevenue').textContent = rev;
+const margin = rev > 0 ? Math.round((rev - cost) / rev * 100) : 0;
+document.getElementById('finalMargin').textContent = margin + '%';
+showStep(5);
+}
+
+function resetWizard(){
+if(!confirm('Reset all wizard data? This won\'t affect your other apps.')) return;
+localStorage.removeItem('wizard_customers');
+localStorage.removeItem('wizard_partners');
+localStorage.removeItem('wizard_biz');
+localStorage.removeItem('wizard_econ');
+customers = [];
+partners = [];
+showStep(1);
+}
+
+// Auto-run preview on load
+updatePreview();
+</script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Customer Feedback & Satisfaction Tracker</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f0f2f0;color:#1a1a1a;padding:16px;max-width:960px;margin:0 auto;padding-bottom:80px}
+h1{font-size:1.2rem;font-weight:800;color:#00442D;margin-bottom:4px}
+h1 span{color:#c9a227}
+.subtitle{font-size:.78rem;color:#5c5c5c;margin-bottom:14px}
+
+/* QUICK STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+@media(max-width:500px){.stats-bar{grid-template-columns:1fr 1fr}}
+.stat-card{background:#fff;border-radius:10px;padding:10px 8px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+.stat-card .stat-icon{font-size:1rem}
+.stat-card .stat-val{font-size:1.1rem;font-weight:800;color:#00442D;margin-top:2px}
+.stat-card .stat-lbl{font-size:.62rem;color:#5c5c5c;text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+
+/* CARDS */
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card h2{font-size:.88rem;font-weight:700;color:#00442D;margin-bottom:12px}
+
+/* FORM */
+.form-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.form-row label{width:100%;font-size:.78rem;font-weight:600;color:#00442D;margin-bottom:2px}
+.form-row input,.form-row select,.form-row textarea{font-family:Inter;padding:9px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:.8rem;flex:1;min-width:80px;background:#fff;color:#1a1a1a}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:#00442D}
+.form-row textarea{min-height:60px;resize:vertical}
+.form-half{display:flex;gap:8px;flex-wrap:wrap}
+.form-half>*{flex:1;min-width:120px}
+
+/* STAR RATING */
+.star-rating{display:flex;align-items:center;gap:4px;margin:4px 0}
+.star-rating .star{font-size:1.6rem;cursor:pointer;color:#ddd;transition:color .15s;line-height:1}
+.star-rating .star.active,.star-rating .star.hover{color:#f1c40f}
+.star-rating .star-num{font-size:.8rem;font-weight:600;color:#5c5c5c;margin-left:6px}
+
+/* BUTTONS */
+.btn{background:#00442D;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem;transition:background .15s;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{background:#003620}
+.btn-sm{font-size:.73rem;padding:6px 12px}
+.btn-outline{background:transparent;color:#00442D;border:1.5px solid #00442D;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.75rem;transition:all .15s}
+.btn-outline:hover{background:#00442D;color:#fff}
+.btn-gold{background:#c9a227;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}
+.btn-gold:hover{background:#b48c1e}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.toolbar input,.toolbar select{font-family:Inter;padding:8px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:.78rem;background:#fff;color:#1a1a1a}
+.toolbar input:focus,.toolbar select:focus{outline:none;border-color:#00442D}
+.toolbar input{flex:1;min-width:140px}
+.toolbar .filter-group{display:flex;gap:4px;flex-wrap:wrap}
+
+/* ENTRY */
+.entry{border-radius:10px;padding:12px 14px;margin-bottom:8px;border-left:4px solid;cursor:pointer;transition:background .12s}
+.entry:hover{filter:brightness(.97)}
+.entry.rating-5{border-left-color:#27ae60;background:linear-gradient(135deg,#eafaf1 0%,#fff 70%)}
+.entry.rating-4{border-left-color:#f1c40f;background:linear-gradient(135deg,#fef9e7 0%,#fff 70%)}
+.entry.rating-3{border-left-color:#e67e22;background:linear-gradient(135deg,#fdf2e9 0%,#fff 70%)}
+.entry.rating-2{border-left-color:#e74c3c;background:linear-gradient(135deg,#fdedec 0%,#fff 70%)}
+.entry.rating-1{border-left-color:#c0392b;background:linear-gradient(135deg,#f9e7e6 0%,#fff 70%)}
+.entry-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
+.entry-name{font-weight:700;font-size:.85rem;color:#00442D}
+.entry-building{font-size:.72rem;color:#5c5c5c;background:#f0f2f0;padding:2px 8px;border-radius:4px}
+.entry-meta{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#5c5c5c;flex-wrap:wrap}
+.entry-stars{color:#f1c40f;font-size:.9rem}
+.entry-stars .star-empty{color:#ddd}
+.entry-date{font-size:.7rem;color:#888}
+.entry-category{font-size:.68rem;background:#e8ece8;color:#00442D;padding:2px 8px;border-radius:4px}
+.entry-order{font-size:.68rem;color:#888}
+.entry-review{font-size:.78rem;color:#4a4a4a;margin-top:8px;line-height:1.5;display:none;padding:8px 10px;background:rgba(255,255,255,.7);border-radius:6px}
+.entry-review.expanded{display:block}
+.entry .expand-hint{font-size:.68rem;color:#aaa;margin-top:4px}
+
+/* MODAL OVERLAY */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:16px;padding:20px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
+.modal h3{font-size:1rem;color:#00442D;margin-bottom:12px}
+.modal textarea{width:100%;min-height:120px;font-family:Inter;padding:10px;border:1.5px solid #ddd;border-radius:8px;font-size:.8rem;resize:vertical}
+.modal .btn-row{justify-content:flex-end}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:30px 16px;color:#5c5c5c}
+.empty-state .empty-icon{font-size:2.4rem;margin-bottom:8px}
+.empty-state p{font-size:.85rem}
+
+/* RESPONSIVE TOGGLE */
+@media(min-width:600px){
+  .form-row{flex-direction:row;align-items:flex-end}
+  .form-row label{width:auto;margin-bottom:0;min-width:70px}
+}
+</style>
+</head>
+<body>
+
+<h1>JG <span>Mart</span> Customer Feedback</h1>
+<p class="subtitle">📋 Satisfaction tracker — Japan Garden City, Dhaka</p>
+
+<!-- QUICK STATS BAR -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-card">
+    <div class="stat-icon">⭐</div>
+    <div class="stat-val" id="statAvg">—</div>
+    <div class="stat-lbl">Average</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📝</div>
+    <div class="stat-val" id="statTotal">—</div>
+    <div class="stat-lbl">Total Reviews</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">💚</div>
+    <div class="stat-val" id="stat5star">—</div>
+    <div class="stat-lbl">5★ Reviews</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">💬</div>
+    <div class="stat-val" id="statWithReview">—</div>
+    <div class="stat-lbl">With Review</div>
+  </div>
+</div>
+
+<!-- ADD FEEDBACK BUTTON / FORM TOGGLE -->
+<div class="toolbar">
+  <button class="btn" onclick="toggleForm()">➕ Add Feedback</button>
+  <button class="btn-outline" onclick="exportJSON()">📥 Export JSON</button>
+  <button class="btn-gold" onclick="shareFeedbackLink()">📤 Share Feedback Link</button>
+</div>
+
+<!-- FEEDBACK FORM -->
+<div class="card" id="feedbackForm" style="display:none">
+  <h2>✏️ New Feedback Entry</h2>
+  <div class="form-row">
+    <label>Customer Name</label>
+    <input type="text" id="fName" placeholder="e.g. Fatima Begum" oninput="clearFieldError(this)">
+  </div>
+  <div class="form-half">
+    <div class="form-row" style="margin:0">
+      <label>Building</label>
+      <select id="fBuilding">
+        <option value="">Select Building</option>
+      </select>
+    </div>
+    <div class="form-row" style="margin:0">
+      <label>Date</label>
+      <input type="date" id="fDate">
+    </div>
+  </div>
+  <div class="form-row">
+    <label>Rating</label>
+    <div class="star-rating" id="formStars">
+      <span class="star" data-val="1" onclick="setRating(1)">★</span>
+      <span class="star" data-val="2" onclick="setRating(2)">★</span>
+      <span class="star" data-val="3" onclick="setRating(3)">★</span>
+      <span class="star" data-val="4" onclick="setRating(4)">★</span>
+      <span class="star" data-val="5" onclick="setRating(5)">★</span>
+      <span class="star-num" id="starNum">0/5</span>
+    </div>
+  </div>
+  <div class="form-half">
+    <div class="form-row" style="margin:0">
+      <label>Category</label>
+      <select id="fCategory">
+        <option value="Product Quality">Product Quality</option>
+        <option value="Delivery Speed">Delivery Speed</option>
+        <option value="Rider Attitude">Rider Attitude</option>
+        <option value="Overall">Overall</option>
+      </select>
+    </div>
+    <div class="form-row" style="margin:0">
+      <label>Order # (optional)</label>
+      <input type="text" id="fOrder" placeholder="e.g. JG-1234">
+    </div>
+  </div>
+  <div class="form-row">
+    <label>Review (optional)</label>
+    <textarea id="fReview" placeholder="Share your experience…"></textarea>
+  </div>
+  <div class="btn-row">
+    <button class="btn" onclick="saveFeedback()">💾 Save Feedback</button>
+    <button class="btn-outline" onclick="toggleForm()">Cancel</button>
+  </div>
+  <p id="formError" style="color:#c0392b;font-size:.78rem;margin-top:8px;display:none"></p>
+</div>
+
+<!-- SEARCH & FILTER -->
+<div class="toolbar">
+  <input type="text" id="searchInput" placeholder="🔍 Search by name, building, or category…" oninput="renderEntries()">
+  <div class="filter-group">
+    <select id="ratingFilter" onchange="renderEntries()">
+      <option value="0">All Ratings</option>
+      <option value="5">5★</option>
+      <option value="4">4★</option>
+      <option value="3">3★</option>
+      <option value="2">2★</option>
+      <option value="1">1★</option>
+    </select>
+  </div>
+</div>
+
+<!-- ENTRIES LIST -->
+<div id="entriesContainer">
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">📋</div>
+    <p>No feedback entries yet. Click <strong>"Add Feedback"</strong> to get started or load sample data.</p>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:16px">
+  <button class="btn-outline" onclick="loadSampleData()" style="font-size:.72rem">📦 Load Sample Data</button>
+  <button class="btn-outline" onclick="clearAllData()" style="font-size:.72rem;color:#c0392b;border-color:#c0392b">🗑️ Clear All</button>
+</p>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+  <div class="modal">
+    <h3>📤 Share Feedback Link</h3>
+    <p style="font-size:.8rem;color:#5c5c5c;margin-bottom:10px">Share this WhatsApp message with your customers to collect feedback:</p>
+    <textarea id="shareMessage" readonly></textarea>
+    <div class="btn-row">
+      <button class="btn" onclick="copyShareMessage()">📋 Copy Message</button>
+      <button class="btn-outline" onclick="closeShareModal()">Close</button>
+    </div>
+    <p id="copyStatus" style="font-size:.75rem;color:#27ae60;margin-top:6px;display:none">✓ Copied to clipboard!</p>
+  </div>
+</div>
+
+<script>
+// ===== STORAGE KEY =====
+const STORAGE_KEY = 'jgmart_feedback';
+
+// ===== DATA =====
+let feedbackData = [];
+let currentRating = 0;
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Populate building dropdown
+  const sel = document.getElementById('fBuilding');
+  for (let i = 1; i <= 27; i++) {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = 'Building ' + i;
+    sel.appendChild(opt);
+  }
+  // Set today's date
+  document.getElementById('fDate').value = new Date().toISOString().slice(0,10);
+  // Load from storage
+  loadFromStorage();
+  renderEntries();
+});
+
+// ===== STORAGE =====
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      feedbackData = JSON.parse(raw);
+      // Ensure all entries have required fields
+      feedbackData = feedbackData.filter(e => e && e.name && e.rating);
+    } else {
+      feedbackData = [];
+    }
+  } catch(e) {
+    feedbackData = [];
+  }
+}
+
+function saveToStorage() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(feedbackData));
+}
+
+// ===== FORM TOGGLE =====
+function toggleForm() {
+  const form = document.getElementById('feedbackForm');
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  if (form.style.display === 'block') {
+    // Focus on name
+    setTimeout(() => document.getElementById('fName').focus(), 100);
+  }
+}
+
+// ===== STAR RATING =====
+function setRating(val) {
+  currentRating = val;
+  const stars = document.querySelectorAll('#formStars .star');
+  stars.forEach(s => {
+    s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+  });
+  document.getElementById('starNum').textContent = val + '/5';
+}
+
+// Hover effect
+document.addEventListener('DOMContentLoaded', function() {
+  const stars = document.querySelectorAll('#formStars .star');
+  stars.forEach(s => {
+    s.addEventListener('mouseenter', function() {
+      const val = parseInt(this.dataset.val);
+      stars.forEach(st => {
+        st.classList.toggle('hover', parseInt(st.dataset.val) <= val);
+      });
+    });
+    s.addEventListener('mouseleave', function() {
+      stars.forEach(st => st.classList.remove('hover'));
+    });
+  });
+});
+
+// ===== SAVE FEEDBACK =====
+function saveFeedback() {
+  const name = document.getElementById('fName').value.trim();
+  const building = document.getElementById('fBuilding').value;
+  const date = document.getElementById('fDate').value;
+  const category = document.getElementById('fCategory').value;
+  const order = document.getElementById('fOrder').value.trim();
+  const review = document.getElementById('fReview').value.trim();
+  const errEl = document.getElementById('formError');
+
+  // Validation
+  if (!name) {
+    showError('Please enter the customer name.');
+    document.getElementById('fName').focus();
+    return;
+  }
+  if (!building) {
+    showError('Please select a building.');
+    return;
+  }
+  if (currentRating === 0) {
+    showError('Please select a star rating.');
+    return;
+  }
+
+  errEl.style.display = 'none';
+
+  const entry = {
+    id: Date.now(),
+    name: name,
+    building: parseInt(building),
+    date: date,
+    rating: currentRating,
+    category: category,
+    order: order || '',
+    review: review || '',
+    timestamp: Date.now()
+  };
+
+  feedbackData.push(entry);
+  saveToStorage();
+  renderEntries();
+  resetForm();
+  document.getElementById('feedbackForm').style.display = 'none';
+}
+
+function showError(msg) {
+  const el = document.getElementById('formError');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function clearFieldError(el) {
+  document.getElementById('formError').style.display = 'none';
+}
+
+function resetForm() {
+  document.getElementById('fName').value = '';
+  document.getElementById('fBuilding').value = '';
+  document.getElementById('fDate').value = new Date().toISOString().slice(0,10);
+  document.getElementById('fOrder').value = '';
+  document.getElementById('fReview').value = '';
+  currentRating = 0;
+  document.getElementById('starNum').textContent = '0/5';
+  document.querySelectorAll('#formStars .star').forEach(s => s.classList.remove('active'));
+}
+
+// ===== RENDER ENTRIES =====
+function renderEntries() {
+  const container = document.getElementById('entriesContainer');
+  const emptyEl = document.getElementById('emptyState');
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const ratingFilter = parseInt(document.getElementById('ratingFilter').value);
+
+  // Filter
+  let filtered = [...feedbackData];
+
+  if (search) {
+    filtered = filtered.filter(e =>
+      e.name.toLowerCase().includes(search) ||
+      'building ' + e.building === search ||
+      'building' + e.building === search ||
+      '' + e.building === search ||
+      e.category.toLowerCase().includes(search) ||
+      (e.order && e.order.toLowerCase().includes(search)) ||
+      (e.review && e.review.toLowerCase().includes(search))
+    );
+  }
+
+  if (ratingFilter > 0) {
+    filtered = filtered.filter(e => e.rating === ratingFilter);
+  }
+
+  // Sort newest first
+  filtered.sort((a, b) => (b.date || '') + 'Z' < (a.date || '') + 'Z' ? -1 : 1);
+  // If same date, sort by timestamp
+  filtered.sort((a, b) => {
+    if (a.date !== b.date) return a.date > b.date ? -1 : 1;
+    return (b.timestamp || b.id) - (a.timestamp || a.id);
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🔍</div>
+        <p>No matching feedback entries found.</p>
+      </div>`;
+    updateStats();
+    return;
+  }
+
+  let html = '';
+  filtered.forEach(e => {
+    const stars = renderStars(e.rating);
+    const dateStr = formatDate(e.date);
+    const categoryColors = {
+      'Product Quality': '#27ae60',
+      'Delivery Speed': '#2980b9',
+      'Rider Attitude': '#8e44ad',
+      'Overall': '#c9a227'
+    };
+    const catColor = categoryColors[e.category] || '#00442D';
+    const bldgCluster = getCluster(e.building);
+
+    html += `
+      <div class="entry rating-${e.rating}" onclick="toggleReview(${e.id})">
+        <div class="entry-header">
+          <div>
+            <span class="entry-name">${escapeHtml(e.name)}</span>
+            <span class="entry-building">Bldg ${e.building} ${bldgCluster ? '· '+bldgCluster : ''}</span>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-stars">${stars}</span>
+            <span class="entry-date">${dateStr}</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:4px;flex-wrap:wrap">
+          <span class="entry-category" style="background:${catColor}15;color:${catColor}">${e.category}</span>
+          ${e.order ? '<span class="entry-order">#' + escapeHtml(e.order) + '</span>' : ''}
+        </div>
+        <div class="entry-review" id="review-${e.id}">
+          ${e.review ? escapeHtml(e.review) : '<em style="color:#aaa">No written review.</em>'}
+        </div>
+        ${e.review ? '<div class="expand-hint">👆 Click to ' + (e._expanded ? 'collapse' : 'expand') + ' review</div>' : ''}
+      </div>`;
+  });
+
+  container.innerHTML = html;
+  updateStats();
+}
+
+function renderStars(rating) {
+  let s = '';
+  for (let i = 1; i <= 5; i++) {
+    s += i <= rating ? '⭐' : '<span class="star-empty">☆</span>';
+  }
+  return s;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-BD', { day: 'numeric', month: 'short', year: 'numeric' });
+  } catch(e) {
+    return dateStr;
+  }
+}
+
+function getCluster(building) {
+  const clusters = [
+    [1,6,'Cluster 1'],[7,13,'Cluster 2'],[14,20,'Cluster 3'],[21,27,'Cluster 4']
+  ];
+  const found = clusters.find(([s,e]) => building >= s && building <= e);
+  return found ? found[2] : '';
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ===== TOGGLE REVIEW =====
+function toggleReview(id) {
+  const el = document.getElementById('review-' + id);
+  if (el) {
+    el.classList.toggle('expanded');
+    // Update expand hint
+    const entry = el.closest('.entry');
+    if (entry) {
+      const hint = entry.querySelector('.expand-hint');
+      if (hint) {
+        hint.textContent = el.classList.contains('expanded')
+          ? '👆 Click to collapse review'
+          : '👆 Click to expand review';
+      }
+    }
+  }
+}
+
+// ===== UPDATE STATS =====
+function updateStats() {
+  const total = feedbackData.length;
+  const withReview = feedbackData.filter(e => e.review && e.review.trim()).length;
+  const fiveStar = feedbackData.filter(e => e.rating === 5).length;
+  const avg = total > 0
+    ? (feedbackData.reduce((s, e) => s + e.rating, 0) / total).toFixed(1)
+    : '—';
+
+  document.getElementById('statAvg').textContent = total > 0 ? avg + '/5' : '—';
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('stat5star').textContent = fiveStar;
+  document.getElementById('statWithReview').textContent = withReview;
+}
+
+// ===== EXPORT JSON =====
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(feedbackData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'jgmart_feedback_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ===== SHARE FEEDBACK LINK =====
+function shareFeedbackLink() {
+  const msg = encodeURIComponent(
+    '🛒 JG Mart — We value your feedback!\n\n' +
+    'Dear Customer, thank you for ordering from JG Mart (Japan Garden City, Dhaka).\n' +
+    'We would love to hear about your experience! Please take a moment to rate and review:\n\n' +
+    '👉 Share your feedback: [Link to your feedback page]\n\n' +
+    'Your feedback helps us serve you better. 🙏\n' +
+    '— JG Mart Team'
+  );
+  const whatsappUrl = 'https://wa.me/?text=' + msg;
+  document.getElementById('shareMessage').value =
+    '🛒 JG Mart — We value your feedback!\n\n' +
+    'Dear Customer, thank you for ordering from JG Mart (Japan Garden City, Dhaka).\n' +
+    'We would love to hear about your experience! Please take a moment to rate and review:\n\n' +
+    '👉 Share your feedback: [Replace with your feedback page URL]\n\n' +
+    'Your feedback helps us serve you better. 🙏\n' +
+    '— JG Mart Team';
+  document.getElementById('shareModal').classList.add('show');
+  document.getElementById('copyStatus').style.display = 'none';
+}
+
+function closeShareModal() {
+  document.getElementById('shareModal').classList.remove('show');
+}
+
+function copyShareMessage() {
+  const ta = document.getElementById('shareMessage');
+  ta.select();
+  document.execCommand('copy');
+  document.getElementById('copyStatus').style.display = 'block';
+  setTimeout(() => { document.getElementById('copyStatus').style.display = 'none'; }, 2500);
+}
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('shareModal').addEventListener('click', function(e) {
+    if (e.target === this) closeShareModal();
+  });
+});
+
+// ===== SAMPLE DATA =====
+function loadSampleData() {
+  if (feedbackData.length > 0) {
+    if (!confirm('This will replace all existing data with sample data. Continue?')) return;
+  }
+
+  feedbackData = [
+    {id:1710000001,name:'Fatima Begum',building:5,date:'2026-07-28',rating:5,category:'Product Quality',order:'JG-4521',review:'Excellent quality produce! The vegetables were fresh and well-packaged. My family loved the seasonal fruits. Will definitely order again.',timestamp:1710000001000},
+    {id:1710000002,name:'Md. Kamal Hossain',building:12,date:'2026-07-27',rating:4,category:'Delivery Speed',order:'JG-4498',review:'Delivery was on time, about 25 minutes. The rider was courteous. Only wish the eggs were packed a bit more carefully — one had a small crack.',timestamp:1710000002000},
+    {id:1710000003,name:'Shamima Akhter',building:8,date:'2026-07-27',rating:5,category:'Rider Attitude',order:'JG-4502',review:'Rider was very polite and waited while I found exact change. He even helped carry the bags to the door. Excellent service!',timestamp:1710000003000},
+    {id:1710000004,name:'Rafiqul Islam',building:22,date:'2026-07-26',rating:3,category:'Overall',order:'JG-4475',review:'Average experience. The order was correct but took about 50 minutes to arrive. The chicken was okay but could be fresher. Not bad but not great either.',timestamp:1710000004000},
+    {id:1710000005,name:'Nasrin Sultana',building:3,date:'2026-07-26',rating:5,category:'Product Quality',order:'JG-4463',review:'Best grocery delivery in Japan Garden City! The fish was very fresh and properly cleaned. Prices are reasonable too. Highly recommended!',timestamp:1710000005000},
+    {id:1710000006,name:'Abdur Rahman',building:17,date:'2026-07-25',rating:2,category:'Delivery Speed',order:'JG-4440',review:'Order took over 1.5 hours to arrive. I called twice and was told "on the way" each time. Very disappointed with the delay. The products were fine though.',timestamp:1710000006000},
+    {id:1710000007,name:'Jahanara Parvin',building:9,date:'2026-07-25',rating:4,category:'Rider Attitude',order:'JG-4451',review:'Rider was friendly and professional. Called before arriving which I appreciate. The delivery was within the promised timeframe. Good experience overall.',timestamp:1710000007000},
+    {id:1710000008,name:'Shahidul Alam',building:14,date:'2026-07-24',rating:1,category:'Product Quality',order:'JG-4412',review:'Very poor quality tomatoes — half were rotten. The bread was also expired. I expect better quality control. Will not order again unless things improve significantly.',timestamp:1710000008000},
+    {id:1710000009,name:'Tahmina Yesmin',building:25,date:'2026-07-24',rating:5,category:'Overall',order:'JG-4428',review:'Absolutely love JG Mart! Been ordering every week for a month now. Never had a single issue. The WhatsApp ordering is very convenient and the delivery team knows my building well. 10/10!',timestamp:1710000009000},
+    {id:1710000010,name:'Mizanur Rahman',building:7,date:'2026-07-23',rating:3,category:'Delivery Speed',order:'JG-4395',review:'Delivery took about 45 mins which is okay. The rider was fine. Products were as ordered. No complaints but also nothing exceptional.',timestamp:1710000010000},
+    {id:1710000011,name:'Laily Begum',building:19,date:'2026-07-23',rating:4,category:'Product Quality',order:'JG-4401',review:'Good quality vegetables and dairy products. The milk was fresh with good expiry date. Would appreciate if you stocked more organic options. Overall satisfied.',timestamp:1710000011000},
+    {id:1710000012,name:'Hasan Mahmud',building:2,date:'2026-07-22',rating:5,category:'Rider Attitude',order:'JG-4378',review:'Exceptional service! The rider went above and beyond — it was raining heavily and he made sure all bags stayed dry. He even waited under the porch to hand everything over properly. True professionalism!',timestamp:1710000012000}
+  ];
+
+  saveToStorage();
+  renderEntries();
+}
+
+// ===== CLEAR ALL =====
+function clearAllData() {
+  if (!confirm('Are you sure you want to delete all feedback entries? This cannot be undone.')) return;
+  feedbackData = [];
+  saveToStorage();
+  renderEntries();
+}
+</script>
+
+</body>
+</html>

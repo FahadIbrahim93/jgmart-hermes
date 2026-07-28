@@ -1,0 +1,230 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — COMMAND CENTER v2.0                                   ║
+║                         Your Single Source of Truth                           ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+This is the first document you should read every morning.
+It tells you exactly what to do, in what order, and how to measure success.
+
+═══════════════════════════════════════════════════════════════════════════════
+1. RIGHT NOW — BEFORE YOU DO ANYTHING ELSE
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Fill in ALL placeholders: [Your Name], [Your Number], [Your Email]
+□ Print the LAUNCH_READINESS_CHECKLIST and check off completed items
+□ Set up bKash Merchant account (this takes 3-5 business days — DO IT TODAY)
+□ Create WhatsApp Business account with JG Mart logo
+□ Share 01_Investor_Deck/INVESTOR_1PAGER.txt with 3 potential investors
+
+═══════════════════════════════════════════════════════════════════════════════
+2. DAY 1 — TODAY
+═══════════════════════════════════════════════════════════════════════════════
+
+Morning:
+  □ Read 04_Operations/OPERATIONS_PLAYBOOK.txt (2 pages, print it)
+  □ Read 09_Data_Export/launch_outputs/Day1_Checklist_*.txt
+  □ Walk Krishi Market — introduce yourself to 5 shop owners
+  □ Identify building committee members in Buildings 1-6
+  □ Set up Google Sheets: Orders, Partners, Products tabs
+  □ Set up WhatsApp Business account with logo
+
+Afternoon:
+  □ Follow up with Krishi Market contacts
+  □ Create 50-SKU price list draft
+  □ Design and order 100 A5 flyers
+
+Evening:
+  □ Run launch_automation.py --task daily-report --day 1
+  □ Review what you accomplished vs. the checklist
+  □ Plan Day 2 priorities
+
+═══════════════════════════════════════════════════════════════════════════════
+3. WEEK 1 — THE FOUNDATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Day 1: Research & Setup
+  □ Krishi Market walk, 5 partner candidates identified
+  □ Building committee members identified
+  □ Google Sheets built
+  □ WhatsApp Business ready
+  □ bKash Merchant application STARTED
+
+Day 2: Partners & Branding
+  □ Visit top 3 partner candidates
+  □ 50-SKU price list created
+  □ Flyers designed and ordered
+  □ Facebook page + Instagram created
+  □ Business cards printed
+
+Day 3: Systems & Signings
+  □ Partner agreements signed with 3 partners
+  □ WhatsApp quick replies created
+  □ Financial tracker built
+  □ WhatsApp Business catalog created
+  □ Test order flow end-to-end
+
+Day 4: Equipment & Inventory
+  □ Delivery bags purchased (5-8 pcs)
+  □ Labels, receipt book, thermal printer
+  □ Cash float system set up
+  □ Inventory tracker with 50 SKUs
+
+Day 5: Beta Recruitment
+  □ 10 beta customers recruited from Bldg 1-3
+  □ How to Order guide created
+  □ Teaser shared in 3 JGC building WhatsApp groups
+  □ Free delivery offer confirmed for beta testers
+
+Day 6: Beta Execution
+  □ 3-5 test orders processed
+  □ Every step timed
+  □ Real-time feedback collected
+  □ Issues documented and fixed
+
+Day 7: Launch Prep
+  □ Weekly Review completed with brother
+  □ Pricing finalized after beta feedback
+  □ Final flyers printed
+  □ Soft launch scheduled for Day 8
+  □ Launch announcement prepared for building groups
+
+═══════════════════════════════════════════════════════════════════════════════
+4. ESSENTIAL WORKFLOW (DAILY)
+═══════════════════════════════════════════════════════════════════════════════
+
+Every Morning (6:00 AM):
+  1. Check overnight WhatsApp messages
+  2. Send availability check to all partners
+  3. Record partner responses
+  4. Update "Available Today" catalog
+  5. Post catalog on WhatsApp status
+
+Order Processing (8:00 AM - 9:00 AM):
+  1. Receive orders via WhatsApp
+  2. Send auto-reply to each customer
+  3. Calculate totals
+  4. Confirm orders with exact amounts
+  5. Split by partner, send to partners
+  6. Track order count vs capacity
+
+Delivery (10:00 AM - 1:00 PM / 5:30 PM - 9:00 PM):
+  1. Rider departs for pickup
+  2. Collect from all partners
+  3. Sort and pack at hub
+  4. Deliver by building cluster
+  5. Collect payment, update sheet
+
+End of Day (9:00 PM):
+  1. Reconcile all payments
+  2. Update financial tracker
+  3. Update KPI dashboard
+  4. Respond to pending messages
+  5. Set WhatsApp auto-reply for after-hours
+
+═══════════════════════════════════════════════════════════════════════════════
+5. ESSENTIAL WORKFLOW (WEEKLY)
+═══════════════════════════════════════════════════════════════════════════════
+
+Every Sunday:
+  □ Complete Weekly Review (use 04_Operations/WEEKLY_REVIEW.txt)
+  □ Review Risk Log and update incidents
+  □ Review KPI Dashboard vs targets
+  □ Plan next week's marketing using 07_Marketing/SOCIAL_MEDIA_CALENDAR.txt
+  □ Pay partners and update their scores
+  □ Update Task Board (mark completed tasks)
+  □ Send weekly summary to investors (if funded)
+
+═══════════════════════════════════════════════════════════════════════════════
+6. ESSENTIAL WORKFLOW (MONTHLY)
+═══════════════════════════════════════════════════════════════════════════════
+
+First Sunday of Month:
+  □ Deep dive Financial Tracker — P&L analysis
+  □ Review Customer Database — segment and target
+  □ Update KPI targets based on actual performance
+  □ Review and update SOP Manual if needed
+  □ Plan next month's expansion and marketing
+  □ Send investor update (monthly report)
+  □ Order new flyers/marketing materials if needed
+
+═══════════════════════════════════════════════════════════════════════════════
+7. THE 3 NUMBERS THAT MATTER MOST
+═══════════════════════════════════════════════════════════════════════════════
+
+Track these daily. Everything else is noise.
+
+1. ORDERS TODAY
+   Target Day 1: 0 | Day 8: 3 | Day 30: 10 | Day 90: 30
+   If below target: Check marketing, WhatsApp response rate, flyer distribution
+
+2. REVENUE THIS WEEK
+   Target Week 1: 0 | Week 2: 15,000 | Week 4: 80,000 | Week 12: 300,000
+   If below target: Check AOV, order count, delivery fee collection
+
+3. CUSTOMER SATISFACTION
+   Target: >4.0/5 (Month 1), >4.2/5 (Month 2), >4.5/5 (Month 3)
+   If below target: Check delivery times, item quality, CS response speed
+
+═══════════════════════════════════════════════════════════════════════════════
+8. THE 5 DOCUMENTS TO OPEN EVERY WEEK
+═══════════════════════════════════════════════════════════════════════════════
+
+Monday: 04_Operations/ENHANCED_SOP_MANUAL.txt
+Tuesday: 08_Financials/ENHANCED_FINANCIAL_TRACKER.csv
+Wednesday: 08_Financials/PROFIT_LOSS_STATEMENT.csv
+Thursday: 04_Operations/WEEKLY_REVIEW.txt
+Friday: 07_Marketing/SOCIAL_MEDIA_CALENDAR.txt
+
+Weekend: 05_Tech_Dashboard/index.html + 06_Web_Catalog/index.html
+
+═══════════════════════════════════════════════════════════════════════════════
+9. EMERGENCY PROTOCOLS
+═══════════════════════════════════════════════════════════════════════════════
+
+If Rider Unavailable:
+  □ Call backup rider immediately
+  □ If no backup: partner delivers directly (+30 BDT to customer)
+  □ Inform affected customers of 30-min delay
+  □ Offer 50 BDT credit
+
+If Partner Fails:
+  □ Switch to backup partner immediately
+  □ Inform customer only if item unavailable
+  □ Never blame partner to customer
+  □ Document failure, adjust partner score
+
+If Customer Complains:
+  □ Read 04_Operations/CS_SCRIPTS.txt Script 9
+  □ Apologize, offer specific fix + 50 BDT credit
+  □ Document in Customer Database
+  □ Follow up next day
+
+If Food Safety Issue:
+  □ STOP all deliveries immediately
+  □ Recall affected orders
+  □ Full refund + medical expense offer
+  □ Document everything
+  □ Review partner sourcing protocol
+
+═══════════════════════════════════════════════════════════════════════════════
+10. YOUR 90-DAY NORTH STAR
+═══════════════════════════════════════════════════════════════════════════════
+
+Month 1: 100 customers, 300 orders, prove demand exists
+Month 2: 200 customers, 900 orders, prove unit economics work
+Month 3: 350 customers, 1,650 orders, prove scalability
+
+If you hit these numbers, you have a business.
+If you don't, you have data to pivot.
+
+Either outcome is valuable.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+REMEMBER:
+Speed of execution beats perfection of planning.
+Launch in 7 days. Learn from real customers. Iterate fast.
+Never GIVE UP on your HOPES.
+
+— Your JG Mart Command Center v2.0
+July 2026

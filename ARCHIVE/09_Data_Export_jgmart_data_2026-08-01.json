@@ -1,0 +1,152 @@
+{
+  "customers": [
+    {
+      "name": "Rafiq",
+      "building": "Bldg 3",
+      "active": true,
+      "joined": "2026-07-15"
+    },
+    {
+      "name": "Nusrat",
+      "building": "Bldg 3",
+      "active": true,
+      "joined": "2026-06-01"
+    },
+    {
+      "name": "Kabir",
+      "building": "Bldg 1",
+      "active": true,
+      "joined": "2026-08-01"
+    },
+    {
+      "name": "Shamim",
+      "building": "Bldg 5",
+      "active": true,
+      "joined": "2026-05-20"
+    },
+    {
+      "name": "Fatima",
+      "building": "Bldg 2",
+      "active": true,
+      "joined": "2026-08-01"
+    },
+    {
+      "name": "Hasan",
+      "building": "Bldg 3",
+      "active": true,
+      "joined": "2026-04-10"
+    },
+    {
+      "name": "Jahanara",
+      "building": "Bldg 4",
+      "active": true,
+      "joined": "2026-06-15"
+    },
+    {
+      "name": "Anik",
+      "building": "Bldg 6",
+      "active": false,
+      "joined": "2026-03-01"
+    },
+    {
+      "name": "Tania",
+      "building": "Bldg 2",
+      "active": true,
+      "joined": "2026-07-01"
+    },
+    {
+      "name": "Shahid",
+      "building": "Bldg 1",
+      "active": true,
+      "joined": "2026-05-10"
+    },
+    {
+      "name": "Parvin",
+      "building": "Bldg 3",
+      "active": true,
+      "joined": "2026-07-20"
+    },
+    {
+      "name": "Rashed",
+      "building": "Bldg 5",
+      "active": true,
+      "joined": "2026-04-22"
+    },
+    {
+      "name": "Nazma",
+      "building": "Bldg 4",
+      "active": true,
+      "joined": "2026-06-05"
+    },
+    {
+      "name": "Foysal",
+      "building": "Bldg 7",
+      "active": true,
+      "joined": "2026-08-01"
+    },
+    {
+      "name": "Selina",
+      "building": "Bldg 2",
+      "active": false,
+      "joined": "2026-02-15"
+    },
+    {
+      "name": "Mizan",
+      "building": "Bldg 3",
+      "active": true,
+      "joined": "2026-05-25"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Rice House",
+      "category": "Rice",
+      "active": true
+    },
+    {
+      "name": "Vegi Fresh",
+      "category": "Vegetables",
+      "active": true
+    },
+    {
+      "name": "Fish Bazar",
+      "category": "Fish",
+      "active": true
+    },
+    {
+      "name": "Meat Corner",
+      "category": "Meat",
+      "active": true
+    },
+    {
+      "name": "Dairy Farm",
+      "category": "Dairy",
+      "active": true
+    },
+    {
+      "name": "Spice World",
+      "category": "Spices",
+      "active": true
+    },
+    {
+      "name": "Beverage Hub",
+      "category": "Beverages",
+      "active": false
+    }
+  ],
+  "settings": {
+    "business_name": "JG Mart",
+    "location": "Japan Garden City, Dhaka",
+    "currency": "BDT",
+    "delivery_fee": 30,
+    "min_order": 200,
+    "cash_position": 255910
+  },
+  "finance": {
+    "revenue_today": 9660,
+    "costs_today": 3750,
+    "profit_today": 5910,
+    "month_to_date": 5910,
+    "cash_position": 255910
+  }
+}

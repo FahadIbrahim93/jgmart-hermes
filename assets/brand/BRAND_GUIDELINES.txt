@@ -1,0 +1,350 @@
+================================================================================
+JG MART — BRAND GUIDELINES
+Version 1.0 | July 2026
+================================================================================
+
+---------------------------------------------------------------------
+TABLE OF CONTENTS
+---------------------------------------------------------------------
+1. Brand Story
+2. Mission & Vision
+3. Brand Personality
+4. Logo Usage Rules
+5. Color Palette
+6. Typography Guidelines
+7. Voice & Tone
+8. Photography Style
+9. Do’s and Don’ts
+
+================================================================================
+1. BRAND STORY
+================================================================================
+
+JG Mart was born from a simple frustration: paying supermarket prices for
+everyday groceries while the best produce—fresh vegetables, fruits, and
+staples—sits just kilometers away at Dhaka’s Krishi Markets, sold at honest
+prices by the very farmers who grew them.
+
+Founder Fahad Ibrahim saw the gap between two worlds:
+  • The premium, convenience-priced supermarkets of Gulshan and Banani.
+  • The fresh, affordable, community-rooted Krishi Markets of Mohammadpur,
+    Savar, and surrounding areas.
+
+JG Mart bridges that gap. We curate the best of the Krishi Market experience
+and deliver it straight to the doorsteps of Japan Garden City (JGC) and
+neighboring clusters—within 2 hours. No markup drama. No middlemen fatigue.
+Just fresh produce, fair prices, and the speed of modern delivery.
+
+We exist because JGC residents deserve better grocery options without leaving
+their homes, and because local farmers deserve a direct channel to urban
+customers who value quality.
+
+Our name, "JG Mart," is a nod to our home community. "Mart" signals a
+neighborhood grocery—approachable, reliable, and always open when you need
+it. Together, "JG Mart" means: your community, your market, your way.
+
+================================================================================
+2. MISSION & VISION
+================================================================================
+
+MISSION
+-------
+To deliver Krishi Market-quality groceries at honest prices to every home in
+Japan Garden City and surrounding neighborhoods within 2 hours, every single
+day—making fresh, affordable food the default choice for our community.
+
+VISION
+------
+To become Dhaka’s most trusted hyperlocal grocery brand—one cluster at a
+time—while uplifting local farmers and creating a scalable model that other
+neighborhoods can replicate.
+
+CORE VALUES
+-----------
+1. COMMUNITY FIRST   We live in the neighborhoods we serve.
+2. FAIR PRICING      Krishi Market prices, not supermarket margins.
+3. SPEED WITH CARE   Fast delivery that never sacrifices freshness.
+4. TRANSPARENCY      Clear pricing, honest communication, no hidden fees.
+5. FARMER PARTNERSHIP Direct relationships that benefit growers and eaters alike.
+
+================================================================================
+3. BRAND PERSONALITY
+================================================================================
+
+JG Mart is:
+
+  TRUSTWORTHY
+  -----------
+  We show up on time. We price honestly. We admit mistakes and fix them fast.
+  Customers should feel relaxed, not suspicious, when ordering from us.
+
+  FAST
+  ----
+  "2 hours or less" is a promise, not a marketing line. Our brand moves with
+  purpose, urgency, and efficiency.
+
+  COMMUNITY-FOCUSED
+  -----------------
+  We are neighbors, not a faceless corporation. We celebrate local events,
+  sponsor block tournaments, and know our customers by name.
+
+  PREMIUM BUT AFFORDABLE
+  ----------------------
+  The quality feels premium—freshness, packaging, service—but the price stays
+  rooted in Krishi Market reality. Premium experience, everyday price.
+
+BRAND ARCHETYPE: The Helpful Neighbor
+--------------------------------------
+Think of that trusted local shopkeeper who always saves you the good produce,
+keeps fair prices, and delivers personally when you’re busy. That’s JG Mart.
+
+EMOTIONAL TONE
+--------------
+Warm, energetic, and genuinely helpful. We use humor sparingly—we’re here to
+solve problems, not entertain. But when we do joke, it’s self-aware, light,
+and inclusive.
+
+================================================================================
+4. LOGO USAGE RULES
+================================================================================
+
+4.1 CLEAR SPACE
+---------------
+Maintain a minimum clear space around the logo equal to the height of the "JG"
+letterform on all sides. No other graphics, text, or edges may intrude into
+this zone.
+
+  [ Clear Space = "x" where x = height of "JG" in the logo ]
+
+4.2 MINIMUM SIZE
+---------------
+Digital (screen):  120px wide (minimum)
+Print (CMYK):      25mm wide (minimum)
+
+Below these sizes, use the icon-only version instead of the full wordmark.
+
+4.3 DON’TS
+----------
+  ✗ Do not stretch, skew, rotate, or distort the logo.
+  ✗ Do not change the logo colors outside of approved variations.
+  ✗ Do not place the logo on busy backgrounds without a solid backing shape.
+  ✗ Do not add drop shadows, outlines, gradients, or effects unless specified.
+  ✗ Do not separate the icon from the wordmark in non-approved layouts.
+  ✗ Do not use the logo in low-contrast situations where it becomes unreadable.
+
+4.4 PLACEMENT PREFERENCE
+------------------------
+  • Top-left corner of digital assets and flyers.
+  • Centered for primary brand hero images.
+  • Bottom-right corner when overlaid on photography (keep clear space intact).
+
+================================================================================
+5. COLOR PALETTE
+================================================================================
+
+PRIMARY GREEN
+-------------
+Hex:  #059669  (Deep Emerald — trust, stability, growth)
+RGB:  5, 150, 105
+CMYK: 78, 0, 65, 28
+Usage: Primary brand color. Headlines, buttons, key accents.
+
+SECONDARY GREEN
+---------------
+Hex:  #10B981  (Bright Mint — freshness, speed, energy)
+RGB:  16, 185, 129
+CMYK: 72, 0, 60, 0
+Usage: Highlights, hover states, secondary buttons, success indicators.
+
+WHITE
+-----
+Hex:  #FFFFFF
+RGB:  255, 255, 255
+CMYK: 0, 0, 0, 0
+Usage: Backgrounds, negative space, text on dark backgrounds.
+
+TEXT COLORS
+-----------
+Primary Text:   #1F2937  (Dark Gray — almost black, softer than pure black)
+Secondary Text: #6B7280  (Medium Gray — captions, subtitles)
+Accent Text:    #059669  (Primary Green for links and emphasis)
+
+BACKGROUND COLORS
+-----------------
+Primary BG:     #FFFFFF  (White)
+Secondary BG:   #ECFDF5  (Very light mint tint for cards/sections)
+Dark BG:        #064E3B  (Deep green for footers, dark headers)
+
+ACCESSIBILITY CHECK
+-------------------
+Primary green on white meets WCAG AA for large text. For small text or UI
+buttons, use #059669 text on white or white text on #059669 background for
+optimal contrast.
+
+================================================================================
+6. TYPOGRAPHY GUIDELINES
+================================================================================
+
+ENGLISH TYPOGRAPHY
+------------------
+Primary Font Family:  Inter (Sans-serif)
+Secondary Font Family: Poppins (Headlines & display text)
+Monospace (for prices/codes): DM Mono
+
+Font Hierarchy:
+  H1 (Hero / Main Headlines):    Poppins Bold / 600   — 36–48px
+  H2 (Section Headlines):        Poppins SemiBold / 500 — 28–36px
+  H3 (Sub-sections):             Poppins Medium / 500   — 22–28px
+  Body (Paragraphs):             Inter Regular / 400    — 16–18px
+  Small / Captions:              Inter Medium / 500     — 12–14px
+  Buttons / Labels:              Inter SemiBold / 600   — 14–16px
+
+BANGLA TYPEOGRAPHY
+------------------
+Primary Font Family:  Noto Sans Bengali (Kalpurush if Noto unavailable)
+Secondary Font Family: Noto Serif Bengali (for formal/headline use)
+
+Font Hierarchy:
+  H1 (Hero / Main Headlines):    Noto Sans Bengali Bold  — 32–42px
+  H2 (Section Headlines):        Noto Sans Bengali SemiBold — 26–32px
+  H3 (Sub-sections):             Noto Sans Bengali Medium — 20–24px
+  Body (Paragraphs):             Noto Sans Bengali Regular — 16–18px
+  Small / Captions:              Noto Sans Bengali Medium — 12–14px
+
+TYPESETTING RULES
+-----------------
+  • Line height: 1.5× for body text, 1.2× for headlines.
+  • Paragraph spacing: 1.0× font size between paragraphs.
+  • Maximum line length: 70 characters for readability.
+  • Always use Bangla numerals (১২, ৩৪) for Bangla text. Use Western numerals
+    (1, 2, 3) for English text and mixed content.
+  • Avoid all-caps for long passages. All-caps acceptable for short labels
+    only, with increased letter-spacing (10–20%).
+
+================================================================================
+7. VOICE & TONE
+================================================================================
+
+JG Mart speaks like a friendly, knowledgeable neighbor who genuinely wants to
+help. We are never corporate, never robotic, and never pushy.
+
+ATTRIBUTES
+----------
+  Clear        We explain things simply. No jargon.
+  Friendly     Warm without being cheesy.
+  Helpful      Every message offers value or solves a problem.
+  Confident    We know our quality and prices are good—no need to shout.
+  Inclusive    We speak to students, families, and elderly residents equally.
+
+CHANNEL-SPECIFIC GUIDANCE
+--------------------------
+
+WHATSAPP MESSAGES
+  • Short, scannable lines (1–2 sentences max per bullet).
+  • Use emojis sparingly and meaningfully (🥬, 🚚, ⏰, 💚).
+  • Always include a clear call-to-action (CTA).
+  • Format with line breaks and bullet points, not walls of text.
+  Example:
+    🥬 Fresh Morning Catalog — July 28
+    Today’s picks: Tomatoes ৳40/kg, Potatoes ৳25/kg
+    Order by 9AM for delivery by 11AM!
+    Reply or tap: bit.ly/jgmart-order
+
+SOCIAL MEDIA POSTS (Instagram / Facebook)
+  • Hook in the first line. Make it visual or relatable.
+  • Mix Bangla and English naturally (code-switching is expected and preferred).
+  • Keep captions under 220 words; put longer stories in comments or Stories.
+  • Use #JG Mart, #JGC, #DhakaDelivery, #KrishiMarket hashtags.
+  • Tag @JGC_Mart and encourage tagging friends who shop at JGC.
+
+FLYERS & PRINT
+  • Headline-first. The reader should grasp the offer in 3 seconds.
+  • Use bullet points, not paragraphs, for benefits.
+  • Bold the price. Make the CTA phone number or QR code impossible to miss.
+  • Keep Bangla text slightly larger than English for dominant readability.
+
+EMAIL / NEWSLETTER
+  • Subject lines under 50 characters for mobile.
+  • Personal greeting using the customer’s first name when possible.
+  • Single-column layout, one primary CTA per section.
+  • "View in browser" link always included.
+
+================================================================================
+8. PHOTOGRAPHY STYLE
+================================================================================
+
+PHILOSOPHY
+----------
+Authentic, fresh, and rooted in the Krishi Market reality. We do not use
+overly stylized, sterile supermarket stock photos. Our imagery should feel
+like a neighbor’s kitchen—bright, real, and appetizing.
+
+LIGHTING
+--------
+  • Bright, natural daylight. Avoid harsh flash.
+  • Soft shadows. Food should glow, not glare.
+  • Morning light preferred (matches our morning delivery promise).
+
+COMPOSITION
+-----------
+  • Close-up textures: dew on cucumbers, rough potato skin, vibrant red
+    tomato slices.
+  • Loose, generous negative space around subjects for social media crops.
+  • People shots: real JGC residents (with consent), delivery riders in
+    uniform, families cooking together.
+
+COLOR GRADING
+-------------
+  • Boost greens and warm tones slightly.
+  • Keep whites clean—no yellow/sepia tints unless for a specific campaign.
+  • Maintain natural skin tones. Avoid over-saturation.
+
+SUBJECTS
+--------
+  • Fresh produce at Krishi Market stalls (crates, baskets, heaped piles).
+  • JG Mart branded delivery bags on doorsteps, balconies, and elevators.
+  • Product-only shots for catalog: top-down or 45-degree angle, white or
+    light wooden background.
+  • Behind-the-scenes: packing, sorting, loading, riding.
+
+STYLE DON’TS
+------------
+  ✗ Over-edited, plastic-looking food.
+  ✗ Generic stock models who do not look like JGC residents.
+  ✗ Dark, moody food photography (we are bright and fresh, not gourmet-fine).
+  ✗ Excessive text overlays on photography (let the image breathe).
+
+================================================================================
+9. DO’S AND DON’TS
+================================================================================
+
+DO
+--
+  ✔ Use our green palette consistently across all touchpoints.
+  ✔ Keep messaging simple, direct, and benefit-oriented.
+  ✔ Show real people, real products, real JGC locations.
+  ✔ Highlight speed ("2 hours") and price ("Krishi Market prices") together.
+  ✔ Use Bangla and English together—it is our community’s natural voice.
+  ✔ Maintain clear logo spacing on every piece of creative.
+  ✔ Update seasonal catalogs weekly to keep content fresh.
+  ✔ Test QR codes and links before printing flyers.
+  ✔ Respond to negative comments publicly with empathy and a solution.
+  ✔ Celebrate local JGC milestones (block tournaments, festivals, etc.).
+
+DON’T
+-----
+  ✗ Use pure black (#000000) for body text—use #1F2937 instead.
+  ✗ Promise "1 hour" delivery unless we can guarantee it 99% of the time.
+  ✗ Post low-resolution images that look pixelated on mobile.
+  ✗ Use overly formal or corporate language ("leverage synergies," etc.).
+  ✗ Run flash sales without restocking—nothing damages trust faster than
+    an advertised product that is immediately out of stock.
+  ✗ Share customer photos or names without explicit permission.
+  ✗ Ignore Ramadan, Eid, or local holiday timing in scheduling posts.
+  ✗ Compare ourselves negatively to competitors—focus on our own strengths.
+  ✗ Use confusing bundle pricing—always show per-unit and total clearly.
+  ✗ Leave outdated flyers or posters up after promotions end.
+
+================================================================================
+END OF BRAND GUIDELINES
+================================================================================

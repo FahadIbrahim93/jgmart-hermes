@@ -1,0 +1,360 @@
+================================================================================
+JG MART — WHATSAPP BROADCAST TEMPLATES
+Ready to copy-paste with placeholders.
+================================================================================
+
+BROADCAST RULES (MANDATORY)
+----------------------------
+  1. Only send to customers who have explicitly opted in.
+  2. Use broadcast lists — never create groups without permission.
+  3. Include an opt-out instruction in every message (see footer template).
+  4. Keep messages under 300 words for readability.
+  5. Send between 7:00 AM – 9:00 PM Bangladesh time only.
+  6. Personalize with the customer’s first name when possible.
+
+================================================================================
+TEMPLATE 1 — DAILY CATALOG BROADCAST (MORNING 7:30 AM)
+================================================================================
+
+PURPOSE
+-------
+Send fresh daily catalog highlights every morning to drive same-day orders.
+
+TEMPLATE:
+  🌅 Good morning, [Customer First Name]!
+
+  Here’s what’s fresh at JG Mart today — straight from Krishi Market:
+
+  🍅 Tomatoes — ৳40/kg
+  🥔 Potatoes — ৳25/kg
+  🥬 Cabbage — ৳20/kg
+  🍌 Bananas (Chapa) — ৳50/dozen
+  🥛 Fresh Milk — ৳90/liter
+  🍳 Eggs (tray) — ৳140
+
+  📦 Today’s Combo Deal:
+  Family Veggie Pack (5kg mixed) — ৳250 (Save ৳50!)
+
+  ⏰ Order by 9AM for delivery by 11AM.
+  💬 Reply with your list or call us at [Phone Number]
+  🌐 Order online: [Website/Link]
+
+  — Team JG Mart
+  🚚 Delivering to JGC & surrounding areas in 2 hours or less.
+
+OPTIONAL ADD-ON (for high-value customers):
+  🌟 Bonus: You get FREE delivery today because you’re on our VIP list!
+  (Orders above ৳800)
+
+================================================================================
+TEMPLATE 2 — FLASH SALE ANNOUNCEMENT
+================================================================================
+
+PURPOSE
+-------
+Urgent, time-limited sale to create FOMO and drive immediate orders.
+
+TEMPLATE:
+  ⚡ FLASH SALE — NEXT 4 HOURS ONLY!
+
+  [Customer First Name], this is not a drill. 😄
+
+  🔥 [Product / Category] — [Discount]% OFF
+  Regular price: ৳[X] | Flash price: ৳[Y]
+
+  🛒 What’s on sale today:
+  • [Product 1] — [Price]
+  • [Product 2] — [Price]
+  • [Product 3] — [Price]
+
+  ⏰ Sale ends at [Time] or when stock runs out.
+  📍 Delivery to JGC in 2 hours if ordered before [Time].
+
+  👉 To order:
+     Reply "FLASH [Quantity]"
+     Call: [Phone Number]
+     Or tap: [Link]
+
+  Don’t wait — last time this sold out in 90 minutes! ⏱️
+
+  — Team JG Mart
+
+OPTIONAL ADD-ON (for repeat flash sale customers):
+  🌟 You get early access because you ordered from us last week.
+  Sale opens to everyone in 30 minutes. You have a head start!
+
+================================================================================
+TEMPLATE 3 — NEW CLUSTER LAUNCH ANNOUNCEMENT
+================================================================================
+
+PURPOSE
+-------
+Announce that JG Mart has expanded delivery to a new neighborhood or block.
+
+TEMPLATE:
+  🎉 BIG NEWS, [Cluster Name]!
+
+  JG Mart is now delivering to your neighborhood!
+
+  After months of requests, we’re finally live in [Cluster Name / Area].
+  Same Krishi Market freshness. Same honest prices. Same 2-hour delivery.
+
+  🎁 LAUNCH OFFER (This Week Only):
+  First 50 orders from [Cluster Name] get 20% OFF + FREE delivery!
+
+  What you can order:
+  ✅ Fresh vegetables & fruits
+  ✅ Dairy & bakery
+  ✅ Daily groceries & staples
+  ✅ [Any cluster-specific items, e.g., "Special fish delivery on Fridays"]
+
+  📲 How to order:
+     1. Save our number: [Phone Number]
+     2. Send your list via WhatsApp
+     3. Get delivery in 2 hours!
+
+  🗺️ Delivery zones in [Cluster Name]:
+     • [Sub-area 1] — Active now
+     • [Sub-area 2] — Active now
+     • [Sub-area 3] — Coming next week
+
+  Have questions? Reply here or call [Phone Number].
+
+  Welcome to the JG Mart family, [Cluster Name]! 💚
+
+  — Team JG Mart
+
+================================================================================
+TEMPLATE 4 — HOLIDAY / SPECIAL OCCASION MESSAGE
+================================================================================
+
+PURPOSE
+-------
+Send festive greetings tied to a relevant shopping occasion (Eid, Ramadan,
+Puja, etc.) with a subtle order CTA.
+
+RAMADAN TEMPLATE:
+  🌙 Ramadan Mubarak, [Customer First Name]!
+
+  May this holy month bring peace, barakah, and delicious iftars to your
+  home. 🕌
+
+  We know Ramadan means extra grocery runs. Let us handle the heavy lifting
+  so you can focus on prayer and family.
+
+  🍽️ Our Iftar Essentials Bundle:
+  Dates 1kg + Vermicelli 1kg + Spice Mix + Oil 1L = ৳850
+  (Save ৳150 compared to buying separately!)
+
+  ⏰ Order before 4PM for delivery before iftar.
+  🌙 Special Ramadan hours: 7AM – 11PM.
+
+  Reply "IFTAR" to order, or call [Phone Number].
+
+  Ramadan Kareem from all of us at JG Mart. 💚
+
+EID TEMPLATE:
+  🎊 Eid Mubarak, [Customer First Name]!
+
+  May this Eid bring joy, laughter, and unlimited pitha to your home. 🥟
+
+  We’re closed on Eid day, but we’re open now for your pre-Eid grocery
+  rush. Stock up on meat, rice, spices, and everything else before the
+  markets get crazy.
+
+  🎁 Eid Special: Pre-order your Eid groceries today and get 15% off.
+  Delivery guaranteed by [Eid Eve Date].
+
+  👉 Reply "EID" to place your pre-order.
+
+  Eid Mubarak from Team JG Mart! 💚
+
+DIWALI / PUJA TEMPLATE:
+  🪔 Shubho Deepawali / Shubho Puja, [Customer First Name]!
+
+  May the lights of [festival] bring prosperity and happiness to your
+  home. 🎆
+
+  We’ve got everything you need for the puja thali and family feasts:
+  sweets, fruits, snacks, and special ingredients.
+
+  🎁 Festival Bundle: [Items list] = ৳[Price] (Save ৳[X]!)
+  Order now for delivery before [time] on [festival date].
+
+  Reply "PUJA" or call [Phone Number].
+
+  Shubho Noboborsho / Shubho Deepawali from JG Mart! 🪔
+
+================================================================================
+TEMPLATE 5 — WEATHER DELAY NOTIFICATION
+================================================================================
+
+PURPOSE
+-------
+Proactively inform customers about delivery delays due to rain, strikes,
+traffic, or other disruptions. Transparency builds trust.
+
+HEAVY RAIN / MONSOON TEMPLATE:
+  🌧️ Heads Up, [Customer First Name]!
+
+  Heavy rain across Dhaka today. Our riders are out, but deliveries may
+  be delayed by 30–60 minutes.
+
+  We’re prioritizing:
+  ✅ Essential grocery orders (vegetables, milk, bread)
+  ⏳ Non-essential / snack orders may be slightly delayed
+
+  Safety first — our riders will not ride in dangerous conditions. We
+  appreciate your patience.
+
+  If you need to reschedule, reply "RESCHEDULE" and we’ll move your
+  order to tomorrow morning.
+
+  Stay dry! 🌂
+  — Team JG Mart
+
+TRAFFIC / STRIKE TEMPLATE:
+  🚧 Delivery Notice: Traffic Disruption
+
+  Due to [reason: road work / strike / major event] near [location],
+  deliveries in [affected zones] may be delayed by 45–90 minutes today.
+
+  Affected areas: [Zone A], [Zone B]
+  Unaffected areas: [Zone C], [Zone D] (delivering on time)
+
+  We’re sorry for the inconvenience. If you can’t wait, reply "CANCEL"
+  and we’ll issue a full refund immediately.
+
+  Thanks for understanding!
+  — Team JG Mart
+
+================================================================================
+TEMPLATE 6 — MONTHLY NEWSLETTER
+================================================================================
+
+PURPOSE
+-------
+Monthly recap, new products, community updates, and a special offer.
+
+TEMPLATE:
+  📬 JG Mart Monthly — [Month, Year]
+
+  Hi [Customer First Name],
+
+  Here’s what happened at JG Mart this month:
+
+  📊 BY THE NUMBERS
+  • [X] orders delivered across JGC
+  • [X] new products added to our catalog
+  • [X] Krishi Market vendors we now partner with
+  • Average delivery time: [X] minutes
+
+  🆕 NEW THIS MONTH
+  • [New Product Line]: e.g., "Organic vegetable bundles every Tuesday"
+  • [New Cluster]: e.g., "Now delivering to Tower 4!"
+  • [New Feature]: e.g., "One-tap reorder via WhatsApp"
+
+  🏆 CUSTOMER SPOTLIGHT
+  "[Customer quote about their favorite JG Mart experience]"
+  — [Name], [Block/Area]
+
+  🎁 MONTHLY EXCLUSIVE FOR YOU
+  As a thank-you for being a loyal customer, use code:
+  [MONTHLYCODE]
+
+  Get [X]% off your next order + a FREE [bonus item] with any order
+  above ৳[Threshold].
+
+  Code valid until: [Date]
+
+  👉 Order now: [Phone Number] | [Link]
+
+  💬 Have feedback? We read every message. Reply to this broadcast.
+
+  — Team JG Mart
+
+  [Opt-out footer: Reply STOP to unsubscribe from JG Mart broadcasts.]
+
+================================================================================
+TEMPLATE 7 — WIN-BACK CAMPAIGN (INACTIVE CUSTOMERS)
+================================================================================
+
+PURPOSE
+-------
+Re-engage customers who haven’t ordered in 30+ days. Personal, warm, and
+offering a strong incentive to return.
+
+TEMPLATE:
+  👋 We Miss You, [Customer First Name]!
+
+  It’s been [X] days since your last JG Mart order, and we’ve been
+  saving something special just for you. 😊
+
+  We know life gets busy. But we also know that when you’re tired and
+  hungry, the last thing you want to do is run to the market.
+
+  🎁 YOUR WELCOME-BACK GIFT:
+  [X]% OFF your next order + FREE delivery, no minimum.
+
+  Here’s what’s fresh right now:
+  🥬 [Star Product 1] — ৳[Price]
+  🍅 [Star Product 2] — ৳[Price]
+  🥛 [Star Product 3] — ৳[Price]
+
+  ⏰ This offer expires in [X] days.
+  👉 Reply "BACK" to claim your discount and place your order.
+
+  We’d love to see you again. 💚
+
+  — Team JG Mart
+
+  [Opt-out footer: Reply STOP to unsubscribe from JG Mart broadcasts.]
+
+PERSONALIZED VARIANT (for customers who ordered specific items):
+  👋 We Miss You, [Customer First Name]!
+
+  It’s been a while since you ordered [favorite item, e.g., "our fresh
+  tomatoes"]. We just wanted to let you know: they’re back and better
+  than ever.
+
+  🎁 Come back and get [X]% OFF [favorite item] this week.
+  Plus FREE delivery on your entire order.
+
+  Reply "TOMATOES" to order now.
+
+  — Team JG Mart
+
+  [Opt-out footer: Reply STOP to unsubscribe from JG Mart broadcasts.]
+
+================================================================================
+BROADCAST OPT-OUT & COMPLIANCE FOOTER (REQUIRED ON ALL MESSAGES)
+================================================================================
+
+STANDARD FOOTER:
+  —
+  You’re receiving this because you ordered from JG Mart.
+  Reply STOP to unsubscribe. Reply HELP for support.
+
+OPTIONAL PRIVACY LINE:
+  JG Mart respects your privacy. We never share your number.
+
+================================================================================
+BROADCAST SCHEDULE SUMMARY
+================================================================================
+
+  TEMPLATE                    FREQUENCY          BEST TIME (BST)
+  --------------------------  -----------------  -----------------
+  Daily Catalog                Every day          7:30 AM
+  Flash Sale                  1–2x per week      12:00 PM or 6:00 PM
+  New Cluster Launch          As needed          10:00 AM
+  Holiday Message             1x per occasion    5:00 PM (day before)
+  Weather Delay               As needed          As soon as detected
+  Monthly Newsletter          1x per month       First Monday, 10:00 AM
+  Win-Back Campaign           1x per month       10:00 AM (Tue/Wed)
+
+NOTE: Always segment your broadcast list by zone, order frequency, and
+preferences to avoid sending irrelevant messages.
+
+================================================================================
+END OF WHATSAPP BROADCAST TEMPLATES
+================================================================================

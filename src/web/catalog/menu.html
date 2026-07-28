@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Menu Card</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,'Segoe UI',system-ui,sans-serif;color:#1a1a1a;background:#f5f7f5;max-width:900px;margin:0 auto;padding:8px}
+.header{text-align:center;padding:12px 8px 8px;border-bottom:3px solid #c9a227}
+.header .brand{font-size:1.3rem;font-weight:800;color:#00442D}
+.header .brand span{color:#c9a227}
+.header .tagline{font-size:.7rem;color:#5c5c5c;margin-top:2px}
+.header .info{font-size:.65rem;color:#5c5c5c;margin-top:4px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cat-section{margin-bottom:10px;page-break-inside:avoid}
+.cat-title{font-size:.85rem;font-weight:800;color:#00442D;padding:5px 0 3px;border-bottom:1.5px solid #e0e8e0;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.cat-title span{font-size:.75rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px}
+.item{display:flex;justify-content:space-between;align-items:baseline;padding:1.5px 0;font-size:.7rem;border-bottom:1px dotted #e8ece8}
+.item .nm{color:#1a1a1a;font-weight:500}
+.item .pr{font-weight:700;color:#00442D;white-space:nowrap}
+.item .pr small{font-weight:400;color:#5c5c5c;font-size:.58rem}
+.footer{text-align:center;padding:10px 8px;border-top:2px solid #00442D;margin-top:6px}
+.footer .wa{font-size:.85rem;font-weight:700;color:#25D366}
+.footer .det{font-size:.6rem;color:#5c5c5c;margin-top:2px;line-height:1.4}
+.footer .small{font-size:.55rem;color:#999;margin-top:4px}
+/* Screen-only: download/print button */
+.toolbar{display:flex;justify-content:center;gap:8px;padding:8px;margin-bottom:8px}
+.toolbar button{background:#00442D;color:#fff;border:none;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.75rem;cursor:pointer;font-family:inherit}
+.toolbar .print-only{display:none}
+/* Print styles */
+@media print{
+body{background:#fff;padding:0;max-width:100%}
+.toolbar{display:none}
+.header{padding:8px 4px 4px;border-bottom-width:2px}
+.header .brand{font-size:1.1rem}
+.cat-title{font-size:.75rem;padding:3px 0}
+.grid{grid-template-columns:1fr 1fr;gap:1px 8px}
+.item{padding:1px 0;font-size:.65rem}
+.footer{margin-top:4px;padding:6px 4px}
+.footer .wa{font-size:.75rem}
+.print-only{display:block!important;text-align:center;font-size:.55rem;color:#999;margin-top:4px}
+@page{margin:0.4in}
+}
+</style>
+</head>
+<body>
+<div style="background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:4px"><div style="display:flex;align-items:center;gap:6px"><a href="landing.html" style="color:#fff;text-decoration:none;font-weight:800;font-size:.9rem">JG <span style="color:#c9a227">Mart</span></a></div><div style="display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none"><a href="index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📦 Shop</a><a href="menu.html" style="color:#fff;text-decoration:none;font-size:.65rem;font-weight:700;padding:3px 6px;white-space:nowrap">📋 Menu</a><a href="zone.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📍 Zone</a><a href="track.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📮 Track</a><a href="https://wa.me/8801870489448" style="background:#25D366;color:#fff;padding:4px 10px;border-radius:999px;font-size:.62rem;font-weight:600;text-decoration:none;white-space:nowrap">💬 WA</a><a href="admin.html" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.55rem">⚙️</a></div></div>
+<div class="toolbar">
+<button onclick="window.print()">🖨️ Print Menu</button>
+<button onclick="downloadPDF()">📥 Save PDF</button>
+</div>
+
+<div class="header">
+<div class="brand">JG <span>Mart</span></div>
+<div class="tagline">Fresh Groceries — Delivered to Japan Garden City</div>
+<div class="info">
+<span>💬 <strong>+8801870489448</strong></span>
+<span>🕐 ☀️9AM→12PM · 🌙3:30→8PM</span>
+<span>💵 Cash · 📱 bKash</span>
+<span>🚚 Free (B1-13) · ৳20 (B14-20) · ৳30 (B21-27)</span>
+</div>
+</div>
+
+<div id="menu">
+<div class="cat-section"><div class="cat-title">🍚 Rice & Dal</div><div class="grid" id="g-rice_dal"></div></div>
+<div class="cat-section"><div class="cat-title">🌶️ Oil & Spices</div><div class="grid" id="g-oil_spices"></div></div>
+<div class="cat-section"><div class="cat-title">🥬 Vegetables</div><div class="grid" id="g-vegetables"></div></div>
+<div class="cat-section"><div class="cat-title">🐟 Fish</div><div class="grid" id="g-fish"></div></div>
+<div class="cat-section"><div class="cat-title">🍗 Meat</div><div class="grid" id="g-meat"></div></div>
+<div class="cat-section"><div class="cat-title">🥛 Dairy & Eggs</div><div class="grid" id="g-dairy_eggs"></div></div>
+<div class="cat-section"><div class="cat-title">🍎 Fruits</div><div class="grid" id="g-fruits"></div></div>
+<div class="cat-section"><div class="cat-title">🧴 Household</div><div class="grid" id="g-fmcg"></div></div>
+<div class="cat-section"><div class="cat-title">🥤 Drinks</div><div class="grid" id="g-beverages"></div></div>
+<div class="cat-section"><div class="cat-title">🍪 Snacks</div><div class="grid" id="g-snacks"></div></div>
+</div>
+
+<div style="background:#0f1a14;color:rgba(255,255,255,.5);padding:16px;text-align:center;font-size:.68rem;line-height:1.6">
+<div style="font-weight:800;font-size:.85rem;color:#fff;margin-bottom:2px">JG <span style="color:#c9a227">Mart</span></div>
+<p>Fresh groceries, delivered to Japan Garden City, Mohammadpur</p>
+<p>📱 <a href="https://wa.me/8801870489448" style="color:#c9a227;text-decoration:none">+8801870489448</a></p>
+<p style="margin-top:4px"><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none">Catalog</a> · <a href="landing.html" style="color:rgba(255,255,255,.5);text-decoration:none">About</a> · <a href="menu.html" style="color:rgba(255,255,255,.5);text-decoration:none">Menu</a> · <a href="track.html" style="color:rgba(255,255,255,.5);text-decoration:none">Track</a> · <a href="zone.html" style="color:rgba(255,255,255,.5);text-decoration:none">Zone</a></p>
+<p style="opacity:.4;margin-top:4px">© 2026 JG Mart</p>
+</div>
+
+<script>
+const CATS = ['rice_dal','oil_spices','vegetables','fish','meat','dairy_eggs','fruits','fmcg','beverages','snacks'];
+const PRODS = [
+['Premium Miniket Rice','rice_dal',88,'kg'],['Chinigura Rice','rice_dal',120,'kg'],['Nazirshail Rice','rice_dal',75,'kg'],['Basmati Rice','rice_dal',160,'kg'],
+['Moshur Dal (Red)','rice_dal',110,'kg'],['Moong Dal (Yellow)','rice_dal',140,'kg'],['Chola (Bengal Gram)','rice_dal',100,'kg'],
+['Soybean Oil','oil_spices',165,'L'],['Mustard Oil','oil_spices',185,'L'],['Sunflower Oil','oil_spices',175,'L'],
+['Turmeric Powder','oil_spices',85,'100g'],['Chili Powder','oil_spices',120,'100g'],['Cumin Powder','oil_spices',95,'100g'],
+['Coriander Powder','oil_spices',80,'100g'],['White Sugar','oil_spices',135,'kg'],['Salt (Premium)','oil_spices',30,'kg'],
+['Potato','vegetables',35,'kg'],['Red Onion','vegetables',65,'kg'],['Tomato','vegetables',70,'kg'],
+['Eggplant (Brinjal)','vegetables',45,'kg'],['Cauliflower','vegetables',55,'pc'],['Cabbage','vegetables',35,'pc'],
+['Green Chili','vegetables',40,'100g'],['Coriander Leaves','vegetables',15,'bunch'],['Lady Finger (Okra)','vegetables',50,'kg'],
+['Green Papaya','vegetables',40,'kg'],['Fresh Ginger','vegetables',80,'100g'],['Fresh Garlic','vegetables',60,'100g'],
+['Ruhi Fish','fish',280,'kg'],['Tilapia Fish','fish',200,'kg'],['Hilsa (Ilish)','fish',850,'kg'],
+['Prawns (Large)','fish',480,'kg'],['Katla Fish','fish',260,'kg'],['Shrimp (Medium)','fish',380,'kg'],
+['Chicken (Broiler)','meat',220,'kg'],['Chicken (Sonali)','meat',320,'kg'],['Beef (Premium)','meat',520,'kg'],
+['Mutton (Curry Cut)','meat',680,'kg'],['Beef Liver','meat',280,'kg'],
+['Farm Eggs (Dozen)','dairy_eggs',120,'doz'],['Fresh Cow Milk','dairy_eggs',80,'L'],['Full Cream Milk','dairy_eggs',90,'L'],
+['Mishti Doi','dairy_eggs',60,'250g'],['Fresh Paneer','dairy_eggs',250,'250g'],['Butter (Block)','dairy_eggs',180,'200g'],
+['Banana (Sagor)','fruits',50,'doz'],['Apple (Red)','fruits',220,'kg'],['Mango (Himsagar)','fruits',180,'kg'],
+['Mango (Fazli)','fruits',120,'kg'],['Watermelon','fruits',40,'kg'],['Orange','fruits',200,'kg'],
+['Toothpaste (Colgate)','fmcg',75,'pc'],['Dove Soap','fmcg',45,'pc'],['Washing Powder','fmcg',240,'500g'],['Shampoo (Sunsilk)','fmcg',180,'200ml'],
+['Coca-Cola (1.5L)','beverages',70,'pc'],['Pepsi (2L)','beverages',90,'pc'],['7UP (2L)','beverages',85,'pc'],
+['Mineral Water (2L)','beverages',25,'pc'],['Tea (Ispahani)','beverages',140,'200g'],
+['Parle-G Biscuits','snacks',20,'pc'],['Lays Classic Chips','snacks',40,'pc'],['Chicken Momos','snacks',150,'pc'],
+['Maggi Noodles','snacks',25,'pc'],['Marie Biscuits','snacks',30,'pc']
+];
+
+PRODS.forEach(p => {
+const g = document.getElementById('g-'+p[1]);
+if(g) g.innerHTML += `<div class="item"><span class="nm">${p[0]}</span><span class="pr">৳${p[2]} <small>/${p[3]}</small></span></div>`;
+});
+
+function downloadPDF(){
+const w = window.open('','_blank');
+w.document.write('<html><head><style>'+document.querySelector('style').innerHTML+'</style></head><body>'+document.querySelector('.header').outerHTML+document.getElementById('menu').innerHTML+document.querySelector('.footer').outerHTML+'</body></html>');
+w.document.close();
+setTimeout(()=>{w.print();w.close();},500);
+}
+</script>
+<a href="https://wa.me/8801870489448" target="_blank" style="position:fixed;bottom:14px;right:14px;z-index:90;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.35);color:#fff;font-size:1.3rem;text-decoration:none">💬</a>
+</body>
+</html>

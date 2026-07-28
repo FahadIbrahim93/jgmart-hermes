@@ -1,0 +1,26 @@
+Customer ID,Customer Name,Building,Flat Number,Phone,WhatsApp,Email,Join Date,Customer Type,Orders/Week,Avg Order Value,Total Orders,Total Revenue,Last Order Date,Payment Method,Preferred Delivery Slot,Notes,Status
+CUST-001,Ahmad Khan,Building 1,A-101,+880 1712-100001,Yes,ahmad@email.com,2026-08-01,Beta,3,800,0,0,,bKash,10:00-13:00,Founder neighbor,Active
+CUST-002,Sara Ahmed,Building 1,A-205,+880 1712-100002,Yes,sara@email.com,2026-08-01,Beta,3,800,0,0,,Cash,10:00-13:00,Colleague of founder,Active
+CUST-003,Rahim Uddin,Building 2,B-102,+880 1712-100003,Yes,rahim@email.com,2026-08-01,Beta,2,600,0,0,,bKash,17:30-20:00,Elderly resident,Active
+CUST-004,Nasreen Akter,Building 2,B-301,+880 1712-100004,Yes,nasreen@email.com,2026-08-01,Beta,3,750,0,0,,Nagad,10:00-13:00,Working professional,Active
+CUST-005,Kamal Hossain,Building 3,C-104,+880 1712-100005,Yes,kamal@email.com,2026-08-01,Beta,2,900,0,0,,bKash,17:30-20:00,Family of 5,Active
+CUST-006,Jasmine Ahmed,Building 3,C-202,+880 1712-100006,Yes,jasmine@email.com,2026-08-02,Beta,3,800,0,0,,Cash,10:00-13:00,New mom,Active
+CUST-007,Imran Malik,Building 4,D-103,+880 1712-100007,Yes,imran@email.com,2026-08-02,Beta,2,700,0,0,,bKash,17:30-20:00,Student,Active
+CUST-008,Taslima Begum,Building 4,D-205,+880 1712-100008,Yes,taslima@email.com,2026-08-02,Beta,3,850,0,0,,Nagad,10:00-13:00,Senior citizen,Active
+CUST-009,Shahidul Islam,Building 5,E-101,+880 1712-100009,Yes,shahid@email.com,2026-08-03,Beta,2,650,0,0,,bKash,17:30-20:00,Government employee,Active
+CUST-010,Ruma Akter,Building 5,E-304,+880 1712-100010,Yes,ruma@email.com,2026-08-03,Beta,3,750,0,0,,Cash,10:00-13:00,Teacher,Active
+CUST-011,Farid Uddin,Building 6,F-102,+880 1712-100011,Yes,farid@email.com,2026-08-03,Organic,3,800,0,0,,bKash,17:30-20:00,Referred by CUST-003,Active
+CUST-012,Maliha Khan,Building 6,F-201,+880 1712-100012,Yes,maliha@email.com,2026-08-04,Organic,2,700,0,0,,Nagad,10:00-13:00,Doctor,Active
+CUST-013,Arman Hossain,Building 7,G-103,+880 1712-100013,Yes,arman@email.com,2026-08-04,Organic,3,900,0,0,,bKash,17:30-20:00,Restaurant owner,Active
+CUST-014,Shahnaz Parvin,Building 7,G-205,+880 1712-100014,Yes,shahnaz@email.com,2026-08-05,Organic,2,600,0,0,,Cash,10:00-13:00,Housewife,Active
+CUST-015,Tariq Rahman,Building 8,H-101,+880 1712-100015,Yes,tariq@email.com,2026-08-05,Organic,3,800,0,0,,bKash,17:30-20:00,Engineer,Active
+CUST-016,Nusrat Jahan,Building 8,H-302,+880 1712-100016,Yes,nusrat@email.com,2026-08-06,Organic,2,750,0,0,,Nagad,10:00-13:00,Banker,Active
+CUST-017,Shakib Hasan,Building 9,I-104,+880 1712-100017,Yes,shakib@email.com,2026-08-06,Organic,3,850,0,0,,bKash,17:30-20:00,Cricket fan,Active
+CUST-018,Sumaiya Akter,Building 9,I-201,+880 1712-100018,Yes,sumaiya@email.com,2026-08-07,Organic,2,700,0,0,,Cash,10:00-13:00,Student,Active
+CUST-019,Javed Iqbal,Building 10,J-103,+880 1712-100019,Yes,javed@email.com,2026-08-07,Organic,3,800,0,0,,bKash,17:30-20:00,Businessman,Active
+CUST-020,Rifat Hasan,Building 10,J-205,+880 1712-100020,Yes,rifat@email.com,2026-08-08,Organic,2,650,0,0,,Nagad,10:00-13:00,Pharmacist,Active
+CUST-021,Tania Ahmed,Building 11,K-101,+880 1712-100021,Yes,tania@email.com,2026-08-08,Organic,3,750,0,0,,Cash,10:00-13:00,Designer,Active
+CUST-022,Moin Uddin,Building 11,K-304,+880 1712-100022,Yes,moin@email.com,2026-08-09,Organic,2,800,0,0,,bKash,17:30-20:00,Teacher,Active
+CUST-023,Nabila Hasan,Building 12,L-102,+880 1712-100023,Yes,nabila@email.com,2026-08-09,Organic,3,700,0,0,,Nagad,10:00-13:00,Software engineer,Active
+CUST-024,Karim Miah,Building 12,L-201,+880 1712-100024,Yes,karim@email.com,2026-08-10,Organic,2,600,0,0,,bKash,17:30-20:00,Retired,Active
+CUST-025,Samira Akter,Building 13,M-103,+880 1712-100025,Yes,samira@email.com,2026-08-10,Organic,3,800,0,0,,Cash,10:00-13:00,Nurse,Active

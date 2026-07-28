@@ -1,0 +1,571 @@
+JG MART – ENHANCED STANDARD OPERATING PROCEDURES (SOP) MANUAL
+Founder: Fahad Ibrahim | Location: Japan Garden City, Mohammadpur, Dhaka
+Version: 1.0 | Date: July 2026
+
+================================================================================
+SECTION 1: HOURLY SCHEDULE & ORDER PROCESSING
+================================================================================
+
+06:00 – Founder + Ops Lead
+  • Review WhatsApp order queue from previous night (5PM–10PM cutoff window)
+  • Check cash float from yesterday (target: BDT 5,000–10,000)
+  • Verify bike fuel/charge, rain gear, delivery bags
+  • Send "Good Morning – Today's Open" message to partner shops
+
+06:30 – Partner Coordination
+  • Confirm fresh stock with P001–P005 via WhatsApp/phone
+  • Flag items out of stock (update catalog within 30 mins)
+  • Send consolidated order batches to each partner by 07:00
+
+07:00 – RIDER DEPARTURE / ORDER DISPATCH
+  • Rider picks up first batch from P001–P003
+  • Ops Lead scans WhatsApp order list, assigns orders by cluster
+  • Mark orders as "Picked Up" in tracking sheet
+
+07:30 – FIRST DELIVERY WINDOW
+  • Cluster A (JGC Block 1–4) deliveries begin
+  • WhatsApp message sent to each customer: "Order on the way 🛵 – Rider [Name], ETA 20 mins"
+  • Collect COD / bKash confirmation; hand over items + bill
+
+08:00 – SECOND DELIVERY WINDOW
+  • Cluster B (JGC Block 5–8) deliveries begin
+  • Rider returns to hub for second batch from P004–P005 if needed
+
+09:00 – LATE MORNING CATCH-UP
+  • Process any delayed orders, address gaps
+  • Reconcile morning cash + bKash payments
+  • Update WhatsApp status for pending orders
+
+10:00 – MIDDAY RESET
+  • Rider break / bike check (15 mins)
+  • Ops Lead processes new WhatsApp orders received 09:00–10:00
+  • Confirm lunch-hour partner stock levels
+
+11:00 – NOON DELIVERY ROUND
+  • Cluster C (JGC Central / Market area) deliveries
+  • Flash offers / upsell messages to customers with open WhatsApp chat
+
+12:00 – LUNCH / HUB RE-SUPPLY
+  • Rider lunch break
+  • Re-stock delivery bags, collect returns/damaged goods
+  • Ops Lead sends midday partner summary
+
+13:00 – EARLY AFTERNOON ROUND
+  • Cluster D (JGC Block 9–12 + Annex) deliveries
+  • Process office/remote orders for same-day delivery
+
+14:00 – STOCK CHECK & PARTNER CALLS
+  • Call partners for evening stock planning
+  • Mark low-stock items as "Limited" in catalog
+  • Prepare pre-order list for next day
+
+15:00 – LATE AFTERNOON DELIVERIES
+  • Catch remaining orders, priority to COD + time-sensitive (breakfast items, bread, dairy)
+  • Send WhatsApp reminder: "Last orders for today at 5PM!"
+
+16:00 – PRE-CLOSING ROUND
+  • Final delivery attempts for pending orders
+  • Rider returns to hub by 16:30
+
+17:00 – ORDER CUTOFF
+  • WhatsApp auto-reply / broadcast: "Order cutoff reached. Next orders from 6AM tomorrow."
+  • Stop accepting new orders. Process only pre-committed late orders.
+
+17:30 – RIDER DEBRIEF
+  • Count cash collected, verify bKash screenshots
+  • Log damaged / returned items
+  • Brief planning for next day clusters
+
+18:00 – FINANCIAL RECONCILIATION (see Section 5)
+  • Founder/Ops Lead reconcile cash, bKash, and ledger
+
+19:00 – END OF DAY
+  • Lock cash in safe
+  • Charge devices, store bikes securely
+  • Send WhatsApp broadcast to partners: daily summary + tomorrow forecast
+
+20:00 – LATE NIGHT (Optional)
+  • Accept WhatsApp orders for next-day delivery only
+  • Auto-reply: "We're closed. Order now for delivery tomorrow from 7AM."
+
+================================================================================
+SECTION 2: ORDER PROCESSING STEP-BY-STEP
+================================================================================
+
+1. INTAKE
+   - Customer sends WhatsApp message: "I want [items] + delivery to [address]"
+   - Ops Lead logs order in Google Sheets / Order Tracker with timestamp
+   - Order ID format: JG-[Date]-[Sequential] (e.g., JG-280726-001)
+
+2. VALIDATION
+   - Confirm address belongs to serviceable area (4 clusters)
+   - Verify stock availability with partner
+   - Calculate total (items + delivery fee)
+   - Send WhatsApp confirmation with exact total + payment method
+
+3. PAYMENT CONFIRMATION
+   - COD: Customer pays rider upon delivery
+   - bKash: Customer sends screenshot OR Ops Lead confirms via bKash statement
+   - Advance payment: Process before dispatch
+
+4. PICKING
+   - Ops Lead assigns order to partner (P001–P005)
+   - Partner prepares items, tags with Order ID
+   - Rider collects batch, scans for completeness
+
+5. DISPATCH & DELIVERY
+   - Rider follows optimized cluster route
+   - Sends pre-arrival WhatsApp message (5 mins before)
+   - Delivers, collects payment, obtains signature/WhatsApp acknowledgement
+
+6. POST-DELIVERY
+   - Mark order "Delivered" in tracker
+   - Send thank-you WhatsApp with feedback request
+   - Log any issues (wrong item, damaged, late)
+
+7. CANCELLATION / RETURN
+   - Customer must request within 10 mins of ordering
+   - If rider already dispatched, cancellation fee = delivery fee
+   - Returned items logged, credit issued within 24 hours
+
+================================================================================
+SECTION 3: CUSTOMER SERVICE PROTOCOLS
+================================================================================
+
+RESPONSE TIME TARGETS
+  - WhatsApp message acknowledgement: < 5 minutes during business hours
+  - Order confirmation: < 10 minutes
+  - Complaint resolution: < 30 minutes (first response), < 4 hours (resolution)
+
+CS SCRIPTS
+  Greeting:   "Hi [Name]! 👋 Thanks for ordering from JG Mart. How can I help?"
+  Confirmation: "Your order JG-280726-001 for BDT [Amount] is confirmed! Delivery by [Time]. Pay via COD or bKash."
+  Delay:      "Apologies, your order is delayed by [X] mins due to [reason]. We'll keep you updated. Thank you for your patience!"
+  Out of Stock: "Sorry, [Item] is temporarily out of stock. We can replace with [Alternative] or refund. Please confirm."
+  Feedback:   "Hope you enjoyed your order! Rate us 1–5 ⭐. Any issues? Reply here anytime."
+
+COMPLAINT CATEGORIES
+  - Wrong item / missing item → Resend immediately or full refund
+  - Late delivery (>45 mins) → Partial refund (20%) or credit coupon
+  - Damaged item → Full refund or replacement
+  - Rider behavior → Immediate apology + investigation + rider warning
+  - Pricing error → Honor displayed price, absorb loss, correct catalog
+
+ESCALATION RULES
+  - Customer threatens to leave / social media complaint → Founder immediately
+  - Order value > BDT 5,000 or corporate client → Founder approval for special handling
+  - Repeated issue with same partner → Ops Lead convenes partner review (see Section 8)
+  - Rider misconduct / accident → Founder + Ops Lead joint response
+
+================================================================================
+SECTION 4: PARTNER MANAGEMENT
+================================================================================
+
+PARTNER ONBOARDING
+  - P001–P005: signed agreement, WhatsApp contact, daily stock list, minimum order value
+  - New partners require 3-day trial with shadow orders
+  - Partners must confirm order readiness within 15 mins of batch message
+
+PARTNER PERFORMANCE METRICS (Monthly)
+  - Order accuracy: > 98%
+  - Pickup time from batch message: < 10 mins average
+  - Stock availability rate: > 95%
+  - Return rate: < 2%
+  - Response time to WhatsApp: < 5 mins
+
+PARTNER COMMUNICATION
+  - Daily batch messages sent at 06:00, 12:00, 16:00
+  - Weekly summary sent Sunday 20:00
+  - Emergency calls only for stock-out or rider delays
+  - Partners must use provided order tag format
+
+PARTNER ISSUES & PENALTIES
+  - Late pickup (2x/week) → Warning + reduced order allocation
+  - Wrong item (>2%) → BDT 50 penalty per incident + retraining
+  - Stock manipulation (accepting orders for out-of-stock items) → Immediate suspension
+
+================================================================================
+SECTION 5: RIDER MANAGEMENT
+================================================================================
+
+RIDER SCHEDULE
+  - Shift 1: 06:00 – 13:00 (morning cluster)
+  - Shift 2: 13:00 – 20:00 (afternoon cluster)
+  - Overtime only with Founder approval + extra pay (BDT 50/hr)
+
+RIDER REQUIREMENTS
+  - Valid driving license + national ID
+  - Own bike or company-provided bike
+  - Smartphone with WhatsApp + tracker app
+  - Uniform: JG Mart branded t-shirt, helmet, delivery bag
+
+RIDER PERFORMANCE METRICS (Weekly)
+  - On-time delivery rate: > 90%
+  - Customer rating (via feedback): > 4.2/5
+  - Cash handling accuracy: 100%
+  - Order damage rate: < 1%
+  - Attendance: < 1 unplanned absence/month
+
+RIDER DISCIPLINE
+  - Late arrival (>15 mins, 2x/week) → Verbal warning
+  - Customer complaint (validated, 1x) → Written warning
+  - Theft / cash shortage → Immediate termination + police report if needed
+  - Accident while on duty → Report within 30 mins, insurance claim initiated
+
+================================================================================
+SECTION 6: QUALITY CONTROL
+================================================================================
+
+QC CHECKLIST (Before Dispatch)
+  [ ] All items match order slip
+  [ ] Perishables within expiry date (check labels)
+  [ ] Packaging intact (no leaks, tears)
+  [ ] Temperature-sensitive items in cool bag
+  [ ] Heavy items double-bagged
+  [ ] Order tag visible and correct
+
+INCOMING QC (Partner to Hub)
+  [ ] Spot-check 10% of incoming orders for correct items
+  [ ] Photograph any discrepancies immediately
+  [ ] Log in QC Daily Sheet with timestamp + photo
+
+OUTGOING QC (Hub to Customer)
+  [ ] Rider checks order completeness before leaving hub
+  [ ] Customer signs / WhatsApp acknowledges receipt
+  [ ] If customer absent, photograph left-at-door placement + send WhatsApp
+
+RETURNS & DAMAGES
+  - Customer returns within 15 mins of delivery: full refund, no questions
+  - Returns after 15 mins: case-by-case basis, photo evidence required
+  - Damaged in transit: rider liable if negligence proven; company absorbs if packaging failure
+
+PHOTO QC REQUIREMENTS
+  - Missing/broken item: photo + timestamp before refund
+  - Wrong address delivery: photo of correct location + rider GPS screenshot
+  - Perishable spoilage: photo of item + expiry date before replacement
+
+================================================================================
+SECTION 7: EMERGENCY PROTOCOLS
+================================================================================
+
+BIKE BREAKDOWN
+  1. Rider calls Ops Lead immediately
+  2. Ops Lead arranges backup bike or transfers orders to other rider
+  3. Customer notified within 10 mins with revised ETA
+  4. Bike repaired within 4 hours or备用方案 activated
+
+CUSTOMER NOT HOME
+  1. Call customer (2 rings max)
+  2. If no answer, WhatsApp message + photo at door
+  3. Return to hub if no response within 15 mins
+  4. Redeliver next day (no extra charge) or arrange pickup point
+
+ACCIDENT / INJURY
+  1. Ensure rider safety first; call emergency services if needed
+  2. Call Founder + Ops Lead immediately
+  3. Document scene with photos
+  4. Inform customer of delay, arrange redelivery or refund
+  5. Insurance claim within 24 hours
+
+SEVERE WEATHER (see also Section 10: Monsoon Playbook)
+  1. Founder declares weather hold if rain intensity > threshold
+  2. WhatsApp broadcast to all pending customers
+  3. Reschedule to next available slot or full refund
+
+FOUNDER EMERGENCY CONTACTS
+  - Fahad Ibrahim: +880 1[XXX-XXXXXX]
+  - Ops Lead: +880 1[XXX-XXXXXX]
+  - Backup Rider: +880 1[XXX-XXXXXX]
+  - Nearest Hospital: [Name] – [Phone]
+  - Police Station (JGC Area): [Name] – [Phone]
+  - Bike Repair Shop: [Name] – [Phone]
+
+================================================================================
+SECTION 8: WHATSAPP MESSAGE TEMPLATES (WITH TIMESTAMPS)
+================================================================================
+
+06:00 | Founder → Partners
+"Good morning! 🌅 Please confirm today's stock availability by 06:30. Today's high-demand items: onions, potatoes, rice 5kg, cooking oil, bread, eggs. Reply with ✅ or any shortages."
+
+06:15 | Ops Lead → Rider
+"Good morning! Today's schedule: Shift 1 – 06:00 to 13:00. Clusters A+B. Pick up batch from P001 at 06:45. Check bike + rain gear. Weather: cloudy, chance of rain. Stay safe!"
+
+07:00 | Ops Lead → Customer (Order Confirmation)
+"Hi [Name]! 🛒 Your order JG-280726-001 is confirmed.
+Items: [List]
+Total: BDT [Amount]
+Payment: [COD / bKash / Advance]
+Delivery by: [Time]
+Rider: [Name] | ETA: [Time]
+Track your order: [Link/Status]
+Questions? Reply here anytime!"
+
+07:15 | Rider → Customer (Pre-Arrival)
+"Hi [Name]! 👋 I'm [Name] from JG Mart. I'm 5 minutes away with your order. Please have BDT [Amount] ready if COD. Thank you!"
+
+07:30 | Ops Lead → Customer (Delay Notice)
+"Hi [Name], we're running a few minutes behind. Your order will arrive by [New Time]. Sorry for the inconvenience! 🙏"
+
+08:00 | Ops Lead → Customer (Feedback Request)
+"Hi [Name]! Hope your order arrived fresh. 🎉 How was your experience? Rate us ⭐⭐⭐⭐⭐ or reply with feedback. We appreciate you!"
+
+09:00 | Founder → Partners (Midday Update)
+"Thanks for today's support! Midday summary: [X] orders processed. Please ensure afternoon stock is ready by 12:00. Let me know any issues ASAP."
+
+12:00 | Ops Lead → Rider (Shift Change)
+"Shift 1 wrap-up: [X] deliveries completed, BDT [Amount] cash collected. Hand over to Shift 2 rider. Shift 2: Clusters C+D. Pick up batch from P004 at 13:00."
+
+17:00 | System → All Customers (Broadcast)
+"🔔 Order cutoff reached! Last orders for today at 5PM. Next delivery window opens 7AM tomorrow. Pre-order now for guaranteed morning slot! 🛵"
+
+19:00 | Founder → Partners (EOD Summary)
+"Day closed! Total orders: [X], GMV: BDT [Amount]. Top performers: P003 (fastest pickup). Tomorrow's plan: [focus items]. Rest well!"
+
+20:00 | Auto-Reply (Off-hours)
+"Hi! JG Mart is currently closed. 🌙 Orders placed now will be delivered from 7AM tomorrow. For emergencies, call [Backup Number]. Sweet dreams!"
+
+================================================================================
+SECTION 9: CUSTOMER DATA HANDLING (PRIVACY & DELETION)
+================================================================================
+
+DATA WE COLLECT
+  - Name, delivery address (cluster + building number), phone number (WhatsApp)
+  - Order history, payment preferences, feedback ratings
+  - bKash transaction ID + sender number (for reconciliation)
+
+DATA STORAGE
+  - Primary: Encrypted Google Sheets / local Order Tracker
+  - Backups: Daily export to encrypted USB drive (Founder custody)
+  - Retention: 24 months for financial/legal requirements; 12 months for marketing
+
+PRIVACY RULES
+  - Never share customer phone numbers with partners or third parties
+  - Rider only sees customer name + address + phone for current delivery
+  - bKash numbers redacted in reports shared with partners (show last 4 digits only)
+
+DATA DELETION REQUESTS
+  - Customer requests deletion: Founder approves, Ops Lead executes within 48 hours
+  - Legal deletion request: Comply within 30 days, document in Legal Log
+  - Backup deletion: Purge from encrypted backups within 90 days
+  - Send confirmation WhatsApp: "Your data deletion request has been processed. Thank you for trusting JG Mart."
+
+BREACH RESPONSE
+  - If data leak suspected: Isolate affected system, change passwords, notify Founder
+  - Notify affected customers within 72 hours via WhatsApp + email (if available)
+  - Document breach in Security Log, review controls within 7 days
+
+================================================================================
+SECTION 10: BKASH RECONCILIATION PROCESS
+================================================================================
+
+DAILY BKASH RECONCILIATION (18:00 – 19:00)
+  1. Ops Lead downloads bKash statement for the day (PDF / app screenshot)
+  2. Cross-reference each bKash transaction with Order Tracker:
+     - Match: bKash TrxID ↔ Order ID ↔ Customer name ↔ Amount
+     - Flag: Unmatched bKash receipts for investigation
+     - Flag: Orders marked "paid" without bKash confirmation
+  3. Reconciliation sheet columns:
+     Date | Order ID | Customer | Expected Amount | bKash TrxID | Sender Number | Status (Matched/Unmatched/Short/Excess) | Notes
+
+COMMON DISCREPANCIES & FIXES
+  - Wrong amount sent: Customer refunds difference or Ops Lead adjusts order total
+  - Duplicate TrxID: Confirm with bKash support, refund duplicate
+  - Missing TrxID: Call customer, request screenshot, match within 24 hours
+  - Wrong sender number: Verify with customer, update records
+
+WEEKLY BKASH AUDIT (Sunday 18:00)
+  1. Total bKash receipts vs. Total bKash orders (by count and value)
+  2. Identify patterns: specific customers, specific rider, specific time windows
+  3. Adjust rider cash float or bKash collection SOP if anomaly persists
+  4. Report to Founder: Net bKash collected, fees, discrepancies resolved
+
+BKASH FEES ACCOUNTING
+  - bKash fee per transaction: BDT [X] (flat or percentage – update current rate)
+  - Deduct from daily settlement or absorb as operational cost
+  - Record in Financial Log under "Payment Gateway Fees"
+
+================================================================================
+SECTION 11: END-OF-DAY CASH HANDLING PROCEDURE
+================================================================================
+
+CASH COLLECTION SUMMARY (16:30 – 17:30)
+  - Rider counts cash in presence of Ops Lead (two-person rule)
+  - Count denominations separately: BDT 1000, 500, 200, 100, 50, 20, 10
+  - Verify against Delivery Log:
+    Total Expected = Sum of all COD orders for the day
+    Total Collected = Cash on hand
+    Variance = Collected – Expected
+    Shortage / Excess = Variance (must be explained)
+
+CASH DEPOSIT / SAFEKEEPING
+  1. Cash counted and sealed in tamper-evident envelope
+  2. Envelope signed by Rider + Ops Lead with date + amount
+  3. Deposit into lockable safe / bank deposit box at hub
+  4. Safe combination known only to Founder + Ops Lead
+  5. Bank deposit next business day (or daily if > BDT 50,000)
+
+CASH FLOAT MANAGEMENT
+  - Morning float: BDT 5,000 (replenished from previous day's deposit)
+  - Maximum float on rider: BDT 15,000 (for high-value COD orders)
+  - If float runs low midday, Ops Lead delivers top-up to rider
+
+CASH SHORTAGE PROTOCOL
+  - Shortage < BDT 500: Rider explains, Ops Lead approves write-off or deduction
+  - Shortage BDT 500–2,000: Written explanation required, 50% deduction from next payout
+  - Shortage > BDT 2,000: Investigation by Founder, possible police report, rider suspended pending investigation
+
+CASH SECURITY RULES
+  - Never leave cash unattended in bike or unlocked hub
+  - If rider feels unsafe, deposit cash at nearest trusted shop (record location)
+  - All cash transactions require receipt (pre-printed or handwritten with Order ID)
+
+================================================================================
+SECTION 12: EQUIPMENT MAINTENANCE SCHEDULE
+================================================================================
+
+DAILY (Rider)
+  [ ] Pre-shift bike inspection: tires, brakes, chain, lights
+  [ ] Check fuel/charge level (refill if < 50%)
+  [ ] Inspect delivery bags for tears, clean if dirty
+  [ ] Test smartphone WhatsApp + tracker app
+  [ ] Verify rain gear is dry and functional
+
+WEEKLY (Ops Lead)
+  [ ] Deep clean all delivery bags
+  [ ] Check bike tire pressure, chain lubrication (all bikes)
+  [ ] Order replacement parts if needed (tires, brake pads, bulbs)
+  [ ] Update inventory of packaging materials (bags, tags, receipts)
+  [ ] Backup check: verify daily exports are complete
+
+MONTHLY (Founder + Ops Lead)
+  [ ] Full bike service: engine tune-up, oil change, brake inspection
+  [ ] Smartphone health check: battery, screen, storage
+  [ ] Safety audit: first-aid kit, fire extinguisher, emergency lights
+  [ ] Software updates: tracker app, WhatsApp Business, order sheet
+  [ ] Cost review: fuel efficiency, maintenance spend vs. budget
+
+QUARTERLY (Founder)
+  [ ] Major bike service or replacement decision
+  [ ] Insurance renewal for bikes and rider
+  [ ] Review equipment budget, approve upgrades
+  [ ] Update SOP manual if equipment changes
+
+REPLACEMENT POLICY
+  - Delivery bags: replace if torn or contaminated (cannot sanitize)
+  - Smartphones: replace if screen broken or battery < 6 hours life
+  - Bikes: replace if repair cost > 40% of bike value or age > 5 years
+
+================================================================================
+SECTION 13: PERFORMANCE REVIEW CRITERIA
+================================================================================
+
+RIDER PERFORMANCE REVIEW (Monthly)
+  Criteria                          | Weight | Excellent | Good    | Needs Improvement
+  ----------------------------------|--------|-----------|---------|------------------
+  On-time delivery rate             | 30%    | > 95%     | 90–95%  | < 90%
+  Customer feedback score           | 25%    | > 4.5/5   | 4.0–4.5 | < 4.0
+  Cash handling accuracy            | 20%    | 100%      | 98–100% | < 98%
+  Attendance & punctuality          | 15%    | < 1 hr late/mo | 1–2 hrs | > 2 hrs
+  Safety & compliance               | 10%    | Zero incidents | 1 minor | Any major
+
+  Actions:
+  - Excellent: Bonus BDT 2,000 + public recognition
+  - Good: No action, maintain standards
+  - Needs Improvement: 30-day performance plan + weekly check-ins
+  - Critical (< 60% score): Termination review
+
+PARTNER PERFORMANCE REVIEW (Monthly)
+  Criteria                          | Weight | Excellent | Good    | Needs Improvement
+  ----------------------------------|--------|-----------|---------|------------------
+  Order accuracy                    | 30%    | 100%      | 98–100% | < 98%
+  Pickup time from batch message    | 25%    | < 5 mins  | 5–10 mins| > 10 mins
+  Stock availability                | 20%    | > 98%     | 95–98%  | < 95%
+  Return rate                       | 15%    | < 1%      | 1–2%    | > 2%
+  WhatsApp responsiveness           | 10%    | < 2 mins  | 2–5 mins| > 5 mins
+
+  Actions:
+  - Excellent: Bonus order allocation + featured in weekly summary
+  - Good: Maintain partnership
+  - Needs Improvement: Written warning, reduced allocation
+  - Critical: Suspension after 2 consecutive months
+
+OPS LEAD PERFORMANCE REVIEW (Monthly by Founder)
+  Criteria                          | Weight | Excellent | Good    | Needs Improvement
+  ----------------------------------|--------|-----------|---------|------------------
+  Order processing accuracy         | 25%    | < 0.5% error | 0.5–1% | > 1%
+  Customer response time            | 25%    | < 3 mins  | 3–5 mins| > 5 mins
+  Partner coordination              | 20%    | Zero stock-outs from miscommunication | 1–2 issues | > 2 issues
+  Financial reconciliation          | 20%    | Zero variance | < 1% variance | > 1%
+  Safety & compliance               | 10%    | Zero incidents | 1 minor | Any major
+
+================================================================================
+SECTION 14: ESCALATION MATRIX
+================================================================================
+
+ISSUE TYPE                          | WHO HANDLES          | WHEN TO ESCALATE TO FOUNDER
+------------------------------------|----------------------|-------------------------------
+Wrong item / missing item           | Ops Lead             | Value > BDT 2,000 OR repeat offender partner
+Late delivery (< 45 mins)           | Ops Lead             | Customer demands refund + complaint thread > 3 msgs
+Late delivery (> 45 mins)           | Ops Lead + Founder   | Immediately (promise compensation)
+Customer abusive / threatening      | Ops Lead             | Immediately (safety concern)
+Rider misconduct / complaint        | Ops Lead             | Immediately (legal risk)
+Partner stock-out / unresponsive    | Ops Lead             | > 2 hours unresolved OR affects > 5 orders
+bKash discrepancy > BDT 1,000       | Ops Lead             | Immediately (financial risk)
+Bike accident / injury              | Ops Lead + Founder   | Immediately (medical + legal)
+Data breach / privacy concern       | Ops Lead + Founder   | Immediately (legal + reputational)
+Weather hold decision               | Founder              | N/A (Founder decides)
+Partner contract termination        | Founder              | N/A (Founder decides)
+Rider termination                   | Founder              | N/A (Founder approves)
+
+ESCALATION COMMUNICATION RULES
+  1. Ops Lead calls Founder within 5 mins of identifying escalatable issue
+  2. Founder responds within 15 mins or delegates to trusted deputy
+  3. Document escalation in Incident Log: timestamp, issue, action taken, resolution
+  4. Weekly review: Founder + Ops Lead review all escalations for process improvement
+
+================================================================================
+SECTION 15: APPENDIX – QUICK REFERENCE CARDS
+================================================================================
+
+A. PARTNER CONTACT SHEET TEMPLATE
+  Partner ID | Name | Phone | Category | WhatsApp | Notes
+  P001       |      |       |          |          |
+  P002       |      |       |          |          |
+  P003       |      |       |          |          |
+  P004       |      |       |          |          |
+  P005       |      |       |          |          |
+
+B. EMERGENCY CONTACTS
+  Founder:      +880 1[XXX-XXXXXX]
+  Ops Lead:     +880 1[XXX-XXXXXX]
+  Backup Rider: +880 1[XXX-XXXXXX]
+  Hospital:     +880 2[XXXXXXX]
+  Police:       +880 2[XXXXXXX] or 999
+  Bike Repair:  +880 1[XXX-XXXXXX]
+
+C. ORDER CUTOFF TIMES
+  Morning cutoff: 10:00 AM (for same-day 12PM–2PM delivery)
+  Afternoon cutoff: 2:00 PM (for same-day 4PM–6PM delivery)
+  Final cutoff: 5:00 PM (for next-day 7AM delivery)
+
+D. SERVICE CLUSTERS
+  Cluster A: JGC Block 1–4 (Gate 1 entrance)
+  Cluster B: JGC Block 5–8 (Gate 2 entrance)
+  Cluster C: JGC Central / Market Road
+  Cluster D: JGC Block 9–12 + Annex (Gate 3 entrance)
+
+E. PAYMENT METHODS ACCEPTED
+  - Cash on Delivery (COD)
+  - bKash Personal / Merchant
+  - Nagad (if enabled)
+  - Bank transfer (corporate clients only)
+
+F. DELIVERY FEES
+  - Same cluster: BDT 30
+  - Cross cluster: BDT 50
+  - Minimum order: BDT 300
+  - Free delivery on orders > BDT 1,000
+
+================================================================================
+END OF ENHANCED SOP MANUAL
+================================================================================

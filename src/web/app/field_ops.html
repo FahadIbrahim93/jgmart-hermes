@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — Field Ops</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:#e8ece8;color:#1a1a1a;display:flex;flex-direction:column;height:100vh;max-height:100vh}
+/* ----- DARK HEADER ----- */
+.top-bar{background:#00442D;color:#fff;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.top-bar h1{font-size:.95rem;font-weight:800;line-height:1.2}
+.top-bar h1 span{color:#c9a227}
+.top-bar .top-date{font-size:.6rem;opacity:.8;text-align:right;line-height:1.2}
+
+/* ----- SCROLLABLE CONTENT AREA ----- */
+.scroll-wrap{flex:1;overflow-y:auto;padding:6px 8px 0;-webkit-overflow-scrolling:touch}
+.scroll-wrap::-webkit-scrollbar{width:3px}
+.scroll-wrap::-webkit-scrollbar-thumb{background:#00442D55;border-radius:9px}
+
+/* ----- STATS ROW (compact) ----- */
+.stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:5px}
+.stat-box{background:#fff;border-radius:8px;padding:5px 4px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.stat-box .stat-icon{font-size:.85rem}
+.stat-box .stat-val{font-size:1.1rem;font-weight:800;color:#00442D;line-height:1.1}
+.stat-box .stat-lbl{font-size:.5rem;color:#6b6b6b;text-transform:uppercase;font-weight:600;letter-spacing:.02em;line-height:1}
+
+/* ----- DELIVERY STATUS MINI ----- */
+.delivery-mini{display:flex;gap:5px;margin-bottom:5px}
+.delivery-mini>div{flex:1;background:#fff;border-radius:7px;padding:4px 6px;box-shadow:0 1px 3px rgba(0,0,0,.04);font-size:.6rem;display:flex;align-items:center;gap:4px;line-height:1.2}
+.delivery-mini .dlv-label{color:#5c5c5c;font-weight:600;white-space:nowrap}
+.delivery-mini .dlv-val{font-weight:700;white-space:nowrap}
+.delivery-mini .dlv-val.green{color:#0a6b47}
+.delivery-mini .dlv-val.gold{color:#c9a227}
+.delivery-mini .dlv-val.red{color:#c0392b}
+
+/* ----- CASH ROW ----- */
+.cash-row{background:#fff;border-radius:7px;padding:4px 8px;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.04);font-size:.7rem}
+.cash-row .cash-lbl{font-weight:600;color:#5c5c5c}
+.cash-row .cash-val{font-weight:800;color:#00442D;font-size:.85rem}
+
+/* ----- QUICK ACTIONS ----- */
+.actions-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:5px}
+.action-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;border-radius:9px;padding:6px 4px;text-decoration:none;color:#1a1a1a;font-weight:600;font-size:.65rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1.5px solid transparent;transition:background .1s;min-height:48px;gap:1px}
+.action-btn:active{background:#f0f5f0}
+.action-btn .act-icon{font-size:1.1rem}
+.action-btn.call-btn{border-color:#0a6b47;background:#f0faf5}
+.action-btn.call-btn .act-sub{font-size:.55rem;color:#0a6b47;font-weight:500}
+
+/* ----- SECTION CARDS (compact) ----- */
+.section-card{background:#fff;border-radius:8px;padding:6px 8px;margin-bottom:5px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.section-card .sec-title{font-size:.65rem;font-weight:700;color:#00442D;text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center}
+.section-card .sec-title .sec-action{font-size:.55rem;color:#0a6b47;font-weight:600;cursor:pointer;text-transform:none;letter-spacing:0}
+
+/* ----- PARTNER CHECK ----- */
+.partner-list{display:flex;flex-direction:column;gap:1px}
+.partner-item{display:flex;align-items:center;gap:5px;padding:2px 0;font-size:.65rem}
+.partner-item input[type=checkbox]{accent-color:#00442D;width:14px;height:14px;flex-shrink:0;cursor:pointer}
+.partner-item .p-name{flex:1;font-weight:500}
+.partner-item .p-status{padding:1px 7px;border-radius:999px;font-size:.5rem;font-weight:700;white-space:nowrap;line-height:1.5}
+.p-status.confirmed{background:#e8f5e9;color:#0a6b47}
+.p-status.waiting{background:#fff8e1;color:#b8860b}
+.p-status.noresp{background:#fce4e4;color:#c0392b}
+
+/* ----- ROUTE ----- */
+.route-wrap{display:flex;align-items:center;gap:2px;font-size:.65rem;justify-content:center;padding:2px 0}
+.route-wrap .route-num{background:#00442D;color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.6rem;flex-shrink:0}
+.route-wrap .route-arrow{color:#c9a227;font-size:.7rem;font-weight:700}
+.route-wrap .route-bldg{color:#5c5c5c;font-size:.5rem}
+.route-reorder{font-size:.55rem;color:#0a6b47;font-weight:600;cursor:pointer;background:#e8f5e9;padding:1px 8px;border-radius:999px;border:none;white-space:nowrap}
+
+/* ----- PRICE CHECK ----- */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px 8px}
+.price-item{display:flex;justify-content:space-between;font-size:.6rem;padding:1.5px 0;border-bottom:1px solid #f0f0f0;cursor:pointer}
+.price-item:last-child,.price-item:nth-last-child(2){border-bottom:none}
+.price-item .p-item{color:#5c5c5c}
+.price-item .p-rate{font-weight:700;color:#1a1a1a}
+.price-item.editing{background:#fff8e1;border-radius:3px;padding:1.5px 4px;margin:0 -4px}
+
+/* ----- STATUS BAR ----- */
+.status-bar{flex-shrink:0;background:#00442D;color:#fff;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;font-size:.6rem;font-weight:500;gap:4px}
+.status-bar .sb-item{display:flex;align-items:center;gap:3px;white-space:nowrap}
+
+/* ----- INLINE EDIT ----- */
+.inline-edit{width:70px;border:none;background:transparent;font:inherit;font-weight:700;color:#1a1a1a;text-align:right;padding:0;border-bottom:1.5px dashed #c9a227;outline:none;font-size:.6rem}
+
+/* ----- RESPONSIVE TWEAKS ----- */
+@media(min-width:431px){
+  body{max-width:430px;margin:0 auto;border-left:1px solid #ddd;border-right:1px solid #ddd}
+}
+@media(max-height:700px){
+  .stat-box .stat-icon{font-size:.75rem}
+  .stat-box .stat-val{font-size:.95rem}
+  .stat-box .stat-lbl{font-size:.45rem}
+  .action-btn{min-height:40px;padding:4px 4px;font-size:.6rem}
+  .action-btn .act-icon{font-size:.95rem}
+  .section-card{padding:4px 6px}
+  .partner-item{font-size:.6rem}
+}
+@media(max-height:640px){
+  .top-bar{padding:4px 8px}
+  .top-bar h1{font-size:.85rem}
+  .scroll-wrap{padding:4px 6px 0}
+  .stats-row{margin-bottom:3px}
+  .delivery-mini{margin-bottom:3px}
+  .cash-row{margin-bottom:3px;padding:3px 6px}
+  .actions-grid{margin-bottom:3px}
+  .section-card{margin-bottom:3px;padding:3px 5px}
+  .route-wrap{font-size:.6rem}
+  .price-grid{font-size:.55rem}
+}
+@media(max-height:600px){
+  .stat-box .stat-val{font-size:.85rem}
+  .action-btn{min-height:34px}
+  .partner-item{padding:1px 0}
+  .route-wrap .route-num{width:16px;height:16px;font-size:.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ DARK HEADER ═══════════ -->
+<div class="top-bar">
+  <h1>JG Mart <span>Field Ops</span></h1>
+  <div class="top-date" id="topDate">—</div>
+</div>
+
+<!-- ═══════════ SCROLLABLE CONTENT ═══════════ -->
+<div class="scroll-wrap">
+
+  <!-- ─── TODAY'S STATS ─── -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-icon">📦</div>
+      <div class="stat-val" id="statOrders">0</div>
+      <div class="stat-lbl">Orders Today</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-icon">💰</div>
+      <div class="stat-val" id="statRevenue">Tk 0</div>
+      <div class="stat-lbl">Revenue Today</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-icon">👥</div>
+      <div class="stat-val" id="statCustomers">0</div>
+      <div class="stat-lbl">Customers Today</div>
+    </div>
+  </div>
+
+  <!-- ─── DELIVERY STATUS ─── -->
+  <div class="delivery-mini">
+    <div>
+      <span class="dlv-label">☀️ Morning</span>
+      <span class="dlv-val green" id="dlvMorning">Delivered 6/6</span>
+    </div>
+    <div>
+      <span class="dlv-label">🌙 Evening</span>
+      <span class="dlv-val gold" id="dlvEvening">Confirmed 3/4</span>
+    </div>
+  </div>
+
+  <!-- ─── CASH COLLECTED ─── -->
+  <div class="cash-row">
+    <span class="cash-lbl">💵 Cash Collected Today</span>
+    <span class="cash-val" id="cashCollected">Tk 8,450</span>
+  </div>
+
+  <!-- ─── QUICK ACTIONS ─── -->
+  <div class="actions-grid">
+    <a class="action-btn" href="https://wa.me/8801870489448" target="_blank">
+      <span class="act-icon">📱</span>
+      <span>Open WhatsApp</span>
+    </a>
+    <a class="action-btn" href="05_Tech_Dashboard/orders.html">
+            <span class="emoji">📋</span>
+            <span>Order Tracker</span>
+          </a>
+          <a class="action-btn" href="05_Tech_Dashboard/finance.html">
+      <span class="act-icon">💰</span>
+      <span>Finance</span>
+    </a>
+    <a class="action-btn call-btn" href="tel:+8801870489448">
+      <span class="act-icon">📞</span>
+      <span>Call Backup Rider</span>
+      <span class="act-sub">+880 1870-489448</span>
+    </a>
+  </div>
+
+  <!-- ─── PARTNER QUICK CHECK ─── -->
+  <div class="section-card">
+    <div class="sec-title">
+      🤝 Partner Quick Check
+      <span class="sec-action" id="partnerCount">0/5 confirmed</span>
+    </div>
+    <div class="partner-list" id="partnerList">
+      <div class="partner-item">
+        <input type="checkbox" checked data-pid="rice">
+        <span class="p-name">🍚 Rice</span>
+        <span class="p-status confirmed">Confirmed ✓</span>
+      </div>
+      <div class="partner-item">
+        <input type="checkbox" checked data-pid="oil">
+        <span class="p-name">🫒 Oil</span>
+        <span class="p-status confirmed">Confirmed ✓</span>
+      </div>
+      <div class="partner-item">
+        <input type="checkbox" data-pid="veg">
+        <span class="p-name">🥬 Veg</span>
+        <span class="p-status waiting">Waiting...</span>
+      </div>
+      <div class="partner-item">
+        <input type="checkbox" checked data-pid="fish">
+        <span class="p-name">🐟 Fish</span>
+        <span class="p-status confirmed">Confirmed ✓</span>
+      </div>
+      <div class="partner-item">
+        <input type="checkbox" data-pid="meat">
+        <span class="p-name">🥩 Meat</span>
+        <span class="p-status noresp">No response</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TODAY'S DELIVERY ROUTE ─── -->
+  <div class="section-card">
+    <div class="sec-title">
+      🚚 Today's Delivery Route
+      <span class="sec-action" id="routeToggle">↻ Reverse</span>
+    </div>
+    <div class="route-wrap" id="routeDisplay">
+      <span class="route-num">1</span><span class="route-bldg">(3 bldg)</span>
+      <span class="route-arrow">→</span>
+      <span class="route-num">2</span><span class="route-bldg">(2 bldg)</span>
+      <span class="route-arrow">→</span>
+      <span class="route-num">3</span><span class="route-bldg">(4 bldg)</span>
+      <span class="route-arrow">→</span>
+      <span class="route-num">4</span><span class="route-bldg">(2 bldg)</span>
+    </div>
+  </div>
+
+  <!-- ─── PRICE CHECK ─── -->
+  <div class="section-card">
+    <div class="sec-title">
+      🏪 Price Check (tap to edit)
+      <span class="sec-action">Today's rate</span>
+    </div>
+    <div class="price-grid" id="priceGrid">
+      <div class="price-item" data-item="rice">
+        <span class="p-item">Chinigura Rice</span>
+        <span class="p-rate" contenteditable="true">95-110</span>
+        <span style="color:#999;font-size:.5rem">/kg</span>
+      </div>
+      <div class="price-item" data-item="potato">
+        <span class="p-item">Potato</span>
+        <span class="p-rate" contenteditable="true">35</span>
+        <span style="color:#999;font-size:.5rem">/kg</span>
+      </div>
+      <div class="price-item" data-item="onion">
+        <span class="p-item">Onion</span>
+        <span class="p-rate" contenteditable="true">60</span>
+        <span style="color:#999;font-size:.5rem">/kg</span>
+      </div>
+      <div class="price-item" data-item="eggs">
+        <span class="p-item">Eggs</span>
+        <span class="p-rate" contenteditable="true">150-170</span>
+        <span style="color:#999;font-size:.5rem">/dozen</span>
+      </div>
+      <div class="price-item" data-item="chicken">
+        <span class="p-item">Chicken</span>
+        <span class="p-rate" contenteditable="true">220</span>
+        <span style="color:#999;font-size:.5rem">/kg</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- spacer so content doesn't hide behind status bar -->
+  <div style="height:4px"></div>
+</div>
+
+<!-- ═══════════ STATUS BAR ═══════════ -->
+<div class="status-bar">
+  <span class="sb-item">📶 Online</span>
+  <span class="sb-item">📍 Krishi Market</span>
+  <span class="sb-item">⏱ 90min avg</span>
+  <span class="sb-item" id="clockDisplay">—</span>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // ── Set date ──
+  const now = new Date();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('topDate').textContent =
+    days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()];
+
+  // ── Clock in status bar ──
+  function updateClock(){
+    const d = new Date();
+    const h = d.getHours().toString().padStart(2,'0');
+    const m = d.getMinutes().toString().padStart(2,'0');
+    document.getElementById('clockDisplay').textContent = '🕐 ' + h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // ── Load/Save stats from localStorage ──
+  // Editors get defaults that can be overridden
+  const DEFAULT = {
+    orders: 18,
+    revenue: 12450,
+    customers: 14,
+    dlvMorningDone: 6, dlvMorningTotal: 6,
+    dlvEveningDone: 3, dlvEveningTotal: 4,
+    cash: 8450,
+    partners: { rice: true, oil: true, veg: false, fish: true, meat: false },
+    routeReversed: false
+  };
+
+  function load(key, fallback){
+    try {
+      const v = localStorage.getItem('jg_fieldops_' + key);
+      return v !== null ? JSON.parse(v) : fallback;
+    } catch(e){ return fallback; }
+  }
+  function save(key, val){
+    try { localStorage.setItem('jg_fieldops_' + key, JSON.stringify(val)); } catch(e){}
+  }
+
+  // ── Apply stats ──
+  function applyStats(){
+    const o = load('orders', DEFAULT.orders);
+    const r = load('revenue', DEFAULT.revenue);
+    const c = load('customers', DEFAULT.customers);
+    document.getElementById('statOrders').textContent = o;
+    document.getElementById('statRevenue').textContent = 'Tk ' + Number(r).toLocaleString('en-IN');
+    document.getElementById('statCustomers').textContent = c;
+
+    const md = load('dlvMorningDone', DEFAULT.dlvMorningDone);
+    const mt = load('dlvMorningTotal', DEFAULT.dlvMorningTotal);
+    const ed = load('dlvEveningDone', DEFAULT.dlvEveningDone);
+    const et = load('dlvEveningTotal', DEFAULT.dlvEveningTotal);
+    const mEl = document.getElementById('dlvMorning');
+    mEl.textContent = 'Delivered ' + md + '/' + mt;
+    mEl.className = 'dlv-val ' + (md >= mt ? 'green' : md > 0 ? 'gold' : 'red');
+    const eEl = document.getElementById('dlvEvening');
+    eEl.textContent = 'Confirmed ' + ed + '/' + et;
+    eEl.className = 'dlv-val ' + (ed >= et ? 'green' : ed > 0 ? 'gold' : 'red');
+
+    document.getElementById('cashCollected').textContent =
+      'Tk ' + Number(load('cash', DEFAULT.cash)).toLocaleString('en-IN');
+  }
+  applyStats();
+
+  // ── Partners ──
+  function updatePartnerCount(){
+    const saved = load('partners', DEFAULT.partners);
+    const count = Object.values(saved).filter(Boolean).length;
+    document.getElementById('partnerCount').textContent = count + '/5 confirmed';
+  }
+
+  function initPartners(){
+    const saved = load('partners', DEFAULT.partners);
+    const cbs = document.querySelectorAll('#partnerList input[type=checkbox]');
+    cbs.forEach(cb => {
+      const pid = cb.dataset.pid;
+      if(saved.hasOwnProperty(pid)) cb.checked = saved[pid];
+      cb.addEventListener('change', function(){
+        const cur = load('partners', DEFAULT.partners);
+        cur[this.dataset.pid] = this.checked;
+        save('partners', cur);
+        updatePartnerCount();
+        // update status badge
+        const item = this.closest('.partner-item');
+        const badge = item.querySelector('.p-status');
+        if(this.checked){
+          badge.textContent = 'Confirmed ✓';
+          badge.className = 'p-status confirmed';
+        } else {
+          badge.textContent = 'Waiting...';
+          badge.className = 'p-status waiting';
+        }
+      });
+    });
+    // Restore badges from saved state
+    cbs.forEach(cb => {
+      const item = cb.closest('.partner-item');
+      const badge = item.querySelector('.p-status');
+      if(cb.checked){
+        badge.textContent = 'Confirmed ✓';
+        badge.className = 'p-status confirmed';
+      }
+    });
+    updatePartnerCount();
+  }
+  initPartners();
+
+  // ── Route reorder ──
+  function renderRoute(reversed){
+    const clusters = [
+      { num: 1, bldg: 3 },
+      { num: 2, bldg: 2 },
+      { num: 3, bldg: 4 },
+      { num: 4, bldg: 2 }
+    ];
+    const order = reversed ? [...clusters].reverse() : clusters;
+    const container = document.getElementById('routeDisplay');
+    container.innerHTML = order.map((c, i) => {
+      let html = '<span class="route-num">' + c.num + '</span><span class="route-bldg">(' + c.bldg + ' bldg)</span>';
+      if(i < order.length - 1) html += '<span class="route-arrow">→</span>';
+      return html;
+    }).join('');
+  }
+
+  let routeReversed = load('routeReversed', DEFAULT.routeReversed);
+  renderRoute(routeReversed);
+  document.getElementById('routeToggle').addEventListener('click', function(){
+    routeReversed = !routeReversed;
+    save('routeReversed', routeReversed);
+    renderRoute(routeReversed);
+  });
+
+  // ── Price check: save edits ──
+  document.querySelectorAll('#priceGrid .p-rate').forEach(el => {
+    el.addEventListener('blur', function(){
+      const parent = this.closest('.price-item');
+      const item = parent.dataset.item;
+      const prices = load('prices', {});
+      prices[item] = this.textContent.trim();
+      save('prices', prices);
+    });
+    // Restore saved value
+    const parent = el.closest('.price-item');
+    const item = parent.dataset.item;
+    const prices = load('prices', {});
+    if(prices[item]){
+      el.textContent = prices[item];
+    }
+  });
+
+  // ── Auto-save stats from URL params (for linking from other pages) ──
+  const params = new URLSearchParams(window.location.search);
+  if(params.has('orders')){ save('orders', parseInt(params.get('orders'),10) || DEFAULT.orders); applyStats(); }
+  if(params.has('revenue')){ save('revenue', parseInt(params.get('revenue'),10) || DEFAULT.revenue); applyStats(); }
+  if(params.has('customers')){ save('customers', parseInt(params.get('customers'),10) || DEFAULT.customers); applyStats(); }
+  if(params.has('cash')){ save('cash', parseInt(params.get('cash'),10) || DEFAULT.cash); applyStats(); }
+  if(params.has('dlvMd')){ save('dlvMorningDone', parseInt(params.get('dlvMd'),10) || DEFAULT.dlvMorningDone); applyStats(); }
+  if(params.has('dlvMt')){ save('dlvMorningTotal', parseInt(params.get('dlvMt'),10) || DEFAULT.dlvMorningTotal); applyStats(); }
+  if(params.has('dlvEd')){ save('dlvEveningDone', parseInt(params.get('dlvEd'),10) || DEFAULT.dlvEveningDone); applyStats(); }
+  if(params.has('dlvEt')){ save('dlvEveningTotal', parseInt(params.get('dlvEt'),10) || DEFAULT.dlvEveningTotal); applyStats(); }
+
+})();
+</script>
+</body>
+</html>

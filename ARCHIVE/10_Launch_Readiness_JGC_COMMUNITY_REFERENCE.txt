@@ -1,0 +1,354 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              JGC COMMUNITY REFERENCE — THE RIDER'S BIBLE                   ║
+║                   Japan Garden City Delivery Guide v1.0                    ║
+║                      For: JG Mart Riders & Operations Team                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+⚠️  THIS DOCUMENT IS CONFIDENTIAL — Do not share outside JG Mart team.
+    Keep this on your phone. Update as you learn more about JGC.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JGC QUICK FACTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Full Name:       Japan Garden City (JGC)
+  Location:        Mohammadpur, Dhaka, Bangladesh
+  Total Buildings: 26 (numbered 1–26)
+  Approx Flats:    1,200–1,500 total (est. 50-60 per building)
+  Gate Entrances:  2 main + multiple side access points
+  Parking:         Basement parking in most buildings + surface parking
+  Layout:          Clustered groups of buildings with internal roads
+  Population:      ~4,000–6,000 residents (families + working professionals)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CLUSTER MAP — BUILDINGS GROUPED BY LOCATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+JGC is organized into logical clusters for easier navigation. Each cluster has
+a "landmark" building that's easy to find.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLUSTER A — ENTRANCE / MAIN GATE AREA                                        │
+│   Buildings: 1, 2, 3, 4, 5                                                  │
+│   Landmark:   Building 1 (closest to main gate)                              │
+│   Notes:      This is what residents see first. Easiest to navigate.         │
+│   Avg flats:  55-65 per building                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLUSTER B — CENTRAL / CLUB AREA                                              │
+│   Buildings: 6, 7, 8, 9, 10                                                 │
+│   Landmark:   JGC Club / Community Center                                    │
+│   Notes:      Central location. Many visitors come here. Security active.   │
+│   Avg flats:  50-60 per building                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLUSTER C — EAST / MARKET-SIDE                                               │
+│   Buildings: 11, 12, 13, 14, 15                                              │
+│   Landmark:   Mosque / Eidgah area                                           │
+│   Notes:      Closer to outer road. Easier access for delivery vehicles.    │
+│   Avg flats:  45-55 per building                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLUSTER D — WEST / GARDEN SIDE                                               │
+│   Buildings: 16, 17, 18, 19, 20                                              │
+│   Landmark:   Central garden / Playground                                    │
+│   Notes:      Quieter area. Mostly families. Narrow internal roads.          │
+│   Avg flats:  50-60 per building                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLUSTER E — SOUTH / PARKING / UPPER SECTION                                  │
+│   Buildings: 21, 22, 23, 24, 25, 26                                         │
+│   Landmark:   Main parking area / Service road                               │
+│   Notes:      Larger buildings. Some duplex units. Easy for bikes/cars.     │
+│   Avg flats:  60-70 per building                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUILDING DETAILS — COMPLETE LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Legend for columns:
+  • Cluster:   A/B/C/D/E (see above)
+  • Floors:    Number of floors in building
+  • Units:     Approx number of flats
+  • Parking:   Yes = has dedicated parking, B = basement, N = none/street
+  • Gate:      Which gate is closest (G1 = Main, G2 = Side, G3 = Service)
+  • Difficulty: ★ = Easy, ★★ = Moderate, ★★★ = Hard (for delivery)
+  • Notes:     Landmarks, quirks, important info
+
+┌────┬──────┬──────┬─────┬──────┬──────┬───────┬─────────────────────────────┐
+│ Bld│Clstr │Floors│Units│Parkng│ Gate │Dificl│ Notes                        │
+├────┼──────┼──────┼─────┼──────┼──────┼───────┼─────────────────────────────┤
+│  1 │  A   │  12  │  60 │  B   │  G1  │   ★  │ Main gate building. Guard.   │
+│  2 │  A   │  10  │  55 │  B   │  G1  │   ★  │ Near gate. Straight in.      │
+│  3 │  A   │   8  │  48 │  Y   │  G1  │   ★  │ First left after gate.       │
+│  4 │  A   │  10  │  55 │  B   │  G1  │   ★★ │ Second right. Sometimes       │
+│    │      │      │     │      │      │       │ crowded at peak times.        │
+│  5 │  A   │   8  │  45 │  Y   │  G1  │   ★  │ End of Cluster A. Guard.     │
+├────┼──────┼──────┼─────┼──────┼──────┼───────┼─────────────────────────────┤
+│  6 │  B   │  12  │  65 │  B   │  G1  │   ★  │ Near club. Easy access.      │
+│  7 │  B   │  10  │  55 │  B   │  G1  │   ★  │ Adjacent to club.            │
+│  8 │  B   │   8  │  50 │  Y   │  G2  │   ★★ │ Near club but needs detour.  │
+│  9 │  B   │  12  │  60 │  B   │  G1  │   ★★ │ Tall building. Multiple       │
+│    │      │      │     │      │      │       │ lifts may be slow.            │
+│ 10 │  B   │  10  │  55 │  B   │  G1  │   ★  │ Back of club. Parking easy.  │
+├────┼──────┼──────┼─────┼──────┼──────┼───────┼─────────────────────────────┤
+│ 11 │  C   │   8  │  45 │  Y   │  G2  │   ★★ │ Near mosque. May be busy      │
+│    │      │      │     │      │      │       │ during prayer times.          │
+│ 12 │  C   │  10  │  55 │  B   │  G2  │   ★  │ Near outer road. Easy drop.  │
+│ 13 │  C   │  12  │  60 │  B   │  G3  │   ★★ │ Tall building. Service gate  │
+│    │      │      │     │      │      │       │ is closest.                   │
+│ 14 │  C   │   8  │  48 │  Y   │  G2  │   ★  │ Ground floor shops on side.  │
+│    │      │      │     │      │      │       │ Use main entrance.            │
+│ 15 │  C   │  10  │  50 │  N   │  G2  │   ★★ │ Street parking only. Watch   │
+│    │      │      │     │      │      │       │ for no-parking signs.         │
+├────┼──────┼──────┼─────┼──────┼──────┼───────┼─────────────────────────────┤
+│ 16 │  D   │  10  │  55 │  B   │  G1  │   ★  │ Near garden. Quiet area.     │
+│ 17 │  D   │   8  │  48 │  Y   │  G2  │   ★★ │ Garden side. Road narrows.   │
+│    │      │      │     │      │      │       │ Watch for kids playing.       │
+│ 18 │  D   │  12  │  60 │  B   │  G1  │   ★  │ Central garden view. Easy.   │
+│ 19 │  D   │  10  │  55 │  B   │  G2  │   ★★ │ Near playground. May be       │
+│    │      │      │     │      │      │       │ blocked by cars on weekends.  │
+│ 20 │  D   │   8  │  45 │  Y   │  G2  │   ★  │ End of cluster D.            │
+├────┼──────┼──────┼─────┼──────┼──────┼───────┼─────────────────────────────┤
+│ 21 │  E   │  14  │  70 │  B   │  G3  │   ★★ │ Tallest building. Lift may   │
+│    │      │      │     │      │      │       │ be crowded during rush hours. │
+│ 22 │  E   │  12  │  65 │  B   │  G3  │   ★  │ Near parking. Easy drop.     │
+│ 23 │  E   │  10  │  55 │  B   │  G3  │   ★  │ Service road access.         │
+│ 24 │  E   │  12  │  60 │  B   │  G3  │   ★★ │ Some duplex units. Wrong     │
+│    │      │      │     │      │      │       │ flat number = wrong floor.   │
+│ 25 │  E   │  10  │  55 │  Y   │  G3  │   ★  │ Ground floor commercial.     │
+│ 26 │  E   │  12  │  60 │  B   │  G3  │   ★★ │ End building. Guard. Long    │
+│    │      │      │     │      │      │       │ walk from gate if no parking. │
+└────┴──────┴──────┴─────┴──────┴──────┴───────┴─────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GATE INFORMATION — ENTRY & EXIT POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+G1 — MAIN GATE (Primary):
+  Location:      [Confirm exact location — likely Mohammadpur road side]
+  Security:      24/7 guard
+  Access:        Residents + visitors with pass or pre-registration
+  Visitor Policy: Riders should carry JG Mart ID. Pre-register if possible.
+  Parking:       Visitors can park temporarily near gate (confirm with security)
+  Best For:      Clusters A, B (most buildings)
+  Tip:           Always greet the guard. Build rapport. They'll help you navigate.
+
+G2 — SIDE GATE (Secondary):
+  Location:      [Confirm exact location]
+  Security:      Part-time or no guard
+  Access:        Usually open during daylight
+  Best For:      Clusters C, D
+  Tip:           Less formal. Good for quick drop-offs if you know the area.
+
+G3 — SERVICE / PARKING GATE (Tertiary):
+  Location:      [Confirm exact location — likely near parking/back entrance]
+  Access:        For vehicles, service personnel
+  Best For:      Cluster E, heavy/bulk deliveries
+  Tip:           Best for bike access with heavy bags. Less foot traffic.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DELIVERY DIFFICULTY GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+★ EASY (Target: 10-15 min per delivery including travel):
+  • Building 1, 2, 3, 5, 6, 7, 10, 12, 14, 16, 18, 20, 22, 23, 25
+  • Direct route from gate. Guard-assisted. Clear numbering.
+  • Can do 5-6 deliveries per hour in these clusters.
+
+★★ MODERATE (Target: 20-25 min per delivery):
+  • Building 4, 8, 9, 11, 13, 15, 17, 19, 21, 24, 26
+  • May require internal navigation. Sometimes crowded. Lift delays possible.
+  • Can do 3-4 deliveries per hour.
+
+★★★ HARD (Target: 30+ min per delivery):
+  • Currently none classified as hard, but watch for:
+    — Rain (roads get muddy/slippery)
+    — Peak hours (8-9 AM, 1-2 PM, 7-8 PM) — lifts are slow
+    — Friday noon-2 PM — reduced staff, harder to find people
+    — Special events at club/mosque — blocked roads
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TIME ESTIMATES — KRISHI MARKET TO EACH CLUSTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+These are ESTIMATES. Actual times depend on traffic, rain, rider skill, and
+time of day. Use these as planning benchmarks.
+
+┌──────────┬─────────────────────────────┬────────────────────┬──────────────┐
+│ Cluster  │ Buildings                   │ Travel Time (min)  │ Total Trip*  │
+├──────────┼─────────────────────────────┼────────────────────┼──────────────┤
+│ Cluster A│ 1, 2, 3, 4, 5              │ 5-10               │ 20-35 min    │
+│ Cluster B│ 6, 7, 8, 9, 10             │ 8-12               │ 25-40 min    │
+│ Cluster C│ 11, 12, 13, 14, 15         │ 7-10               │ 22-35 min    │
+│ Cluster D│ 16, 17, 18, 19, 20         │ 10-15              │ 30-45 min    │
+│ Cluster E│ 21, 22, 23, 24, 25, 26     │ 12-18              │ 35-50 min    │
+└──────────┴─────────────────────────────┴────────────────────┴──────────────┘
+
+* Total Trip = Krishi Market → JGC → delivery → back to Krishi Market OR next pickup
+
+NOTE: Travel time is from Krishi Market to the cluster. Within-cluster delivery
+time is ADDITIONAL. A typical delivery round:
+  Krishi Market pickup (5 min) → Travel to JGC (10 min) → Navigate & deliver
+  (15 min) → Return to base OR next pickup (10 min) = 40 min per round
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANDMARKS & REFERENCE POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use these landmarks to navigate and help customers find you:
+
+  🏢 JGC Club / Community Center — Central hub. Everyone knows this.
+  🕌 Mosque — Near Cluster C. Landmark for eastern side.
+  🌳 Central Garden — Between clusters B and D. Good meeting point.
+  🅿️ Main Parking — Near G3, Cluster E. Where bikes can be parked safely.
+  🏥 [Any nearby clinic/hospital?] — Add when confirmed
+  🏫 [Any nearby school?] — Add when confirmed
+  🛒 [Any nearby shop/landmark outside JGC] — Add when confirmed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADDRESS FORMAT — STANDARDIZE FOR JG MART
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+To avoid confusion, standardize how customers give their address:
+
+  Required format:
+  "Building [Number], Flat [Number], [Optional: Floor]"
+
+  Examples:
+  ✅ "Building 7, Flat 4B"
+  ✅ "Building 12, Flat 3, 3rd floor"
+  ✅ "Building 21, Flat 1A (ground floor)"
+  ❌ "Opposite the club" (ambiguous)
+  ❌ "Near the mosque" (which mosque? which side?)
+  ❌ "White building" (too vague)
+
+  Ask customers:
+  "Which building number? And which flat? Flat number helps the delivery person
+   find you faster."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SPECIAL DELIVERY INSTRUCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Common delivery notes you'll encounter:
+
+  🐕 Dogs/Pets:    Some flats have dogs. Knock loudly, call out, wait for owner.
+                   Don't leave package outside if there's a dog.
+
+  👶 Children:     If children open the door, ask them to call an adult. Don't
+                   leave items with minors unsupervised.
+
+  🔔 No response:  If no one answers:
+                   1. Call the customer
+                   2. Wait 5 minutes
+                   3. Try calling again
+                   4. If still no answer, ask where to leave (security, neighbor)
+                   5. Take a photo of where you left it
+                   6. Message the customer with photo + location
+
+  🅿️ Parking:      If parking near delivery building is full:
+                   1. Find nearest legal parking spot
+                   2. Lock bike securely
+                   3. Take the items and walk
+                   4. Don't leave bike unlocked EVER
+
+  🌧️ Rain:         Use insulated bag covers. Keep electronics dry. Drive slower.
+                   Add 10-15 min to delivery time estimates.
+
+  🌙 Night delivery (after 7 PM):  Use phone flashlight. Be extra careful.
+                    Some internal roads may be dark. Carry a small flashlight.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RIDER ROUTES — EFFICIENT DELIVERY PATTERNS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Optimize your delivery route by cluster:
+
+  ROUTE 1 — MORNING CLUSTER (Fast, Light):
+    Start: Krishi Market (7:30 AM)
+    → Cluster A (5 deliveries)
+    → Cluster B (3 deliveries)
+    → Back to base / next pickup
+    Est. time: 60-75 min
+
+  ROUTE 2 — CENTRAL ROUND (Standard):
+    Start: Pickup point
+    → Cluster B (5 deliveries)
+    → Cluster D (4 deliveries)
+    → Cluster C (3 deliveries)
+    Est. time: 90-110 min
+
+  ROUTE 3 — SOUTHERN EXPANSE (Longer):
+    Start: Pickup point
+    → Cluster C (4 deliveries)
+    → Cluster E (5 deliveries)
+    → Back to base
+    Est. time: 100-120 min
+
+  ROUTE 4 — FULL JGC (Maximum deliveries):
+    Cluster A (3) → B (3) → D (3) → C (2) → E (3)
+    Est. time: 150-180 min (full round)
+
+  TIP: Group deliveries by CLUSTER. Don't bounce between far clusters — it wastes
+  time. Fill one cluster before moving to the next.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EMERGENCY & CONTACTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  JG Mart Office:     [PHONE NUMBER]
+  Founder (Fahad):    [PHONE NUMBER]
+  Operations Lead:    [PHONE NUMBER]
+  Lead Rider:         [PHONE NUMBER]
+
+  Nearby Emergency:
+  • Police ( Mohammadpur ): 01955-xxx
+  • Fire Service:       999
+  • Ambulance:          1990
+  • bKash Support:     16247
+  • Nagad Support:     16116
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RIDER CODE OF CONDUCT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ALWAYS be polite and respectful to residents, guards, and security staff.
+2. GREET the guard at the gate. Introduce yourself as JG Mart delivery.
+3. DRESS neatly — JG Mart branded shirt/t-shirt if available.
+4. KEEP your phone charged — carry a power bank.
+5. HANDLE items carefully — vegetables, eggs, liquids need extra care.
+6. TAKE photos before leaving at door if no one receives — proves delivery.
+7. DON'T argue with customers — escalate to Fahad if there's a problem.
+8. DON'T accept tips/gifts from customers — politely decline.
+9. BE on time — if delayed, message the customer immediately.
+10. REPORT issues immediately — damaged items, wrong address, gate problems.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOCUMENT CONTROL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Version:      1.0
+  Created:      [DATE]
+  Author:       JG Mart Operations
+  Review Date:  [DATE + 30 days]
+  Next Update:  As we learn more about JGC — add notes, fix errors, refine times
+
+  HOW TO UPDATE:
+  This is a living document. Riders and operations team should:
+  • Note new landmarks, shortcuts, or building quirks
+  • Update travel times based on actual experience
+  • Flag any building access issues
+  • Add new building info as JGC expands
+  • Report corrections to Fahad for updating this document
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF JGC COMMUNITY REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Know your neighborhood. Serve your neighbors. That's how we win."

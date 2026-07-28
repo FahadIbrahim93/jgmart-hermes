@@ -1,0 +1,17 @@
+RUNWAY CALCULATOR - Cash Runway Analysis
+Starting Capital: BDT 250000
+
+SCENARIO SUMMARY
+Scenario,Monthly Burn (BDT),Runway (Months),Runway (Days),Depletion Month
+Lean (45K/mo),45000,5.56,167,Month 6 (day 17)
+Moderate (72K/mo),72000,3.47,104,Month 4 (day 14)
+Scaling (102K/mo),102000,2.45,74,Month 3 (day 14)
+
+MONTHLY CASH BALANCE BY SCENARIO
+Month,Lean (45K/mo),Moderate (72K/mo),Scaling (102K/mo)
+Month 1,205000,178000,148000
+Month 2,160000,106000,46000
+Month 3,115000,34000,DEPLETED
+Month 4,70000,DEPLETED,DEPLETED
+Month 5,25000,DEPLETED,DEPLETED
+Month 6,DEPLETED,DEPLETED,DEPLETED

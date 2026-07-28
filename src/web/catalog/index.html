@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — Fresh Groceries JGC</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:960px;margin:0 auto;padding-bottom:60px}
+/* TOPBAR */
+.topbar{background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;gap:4px}
+.topbar .logo{font-weight:800;font-size:.95rem}.topbar .logo span{color:#c9a227}
+.topbar .right{display:flex;gap:6px;align-items:center}
+.topbar .lang-btn{background:rgba(255,255,255,.15);color:#fff;border:none;padding:4px 10px;border-radius:999px;font-size:.65rem;font-weight:600;cursor:pointer;font-family:inherit}
+.topbar .wa-top{background:#25D366;color:#fff;padding:5px 10px;border-radius:999px;font-size:.65rem;font-weight:600;text-decoration:none;white-space:nowrap}
+/* SPECIALS */
+.specials{background:linear-gradient(135deg,#c9a227,#d4a829);color:#1a1a1a;padding:6px 10px;display:flex;align-items:center;gap:4px;font-size:.7rem;font-weight:600;overflow-x:auto;scrollbar-width:none}
+.specials::-webkit-scrollbar{display:none}
+.specials .tag{background:rgba(0,0,0,.08);padding:2px 8px;border-radius:999px;white-space:nowrap;font-size:.6rem;flex-shrink:0}
+.specials .ed{background:rgba(0,0,0,.08);border:none;color:#1a1a1a;padding:1px 6px;border-radius:999px;font-size:.55rem;cursor:pointer;font-family:inherit;font-weight:700;flex-shrink:0}
+.spec-ed{display:none;padding:4px 10px 6px;background:#fff8e1}
+.spec-ed.show{display:block}
+.spec-ed input{width:100%;padding:6px 8px;border:1px solid #c9a227;border-radius:5px;font-size:.7rem;font-family:inherit;margin-bottom:3px}
+.spec-ed button{background:#00442D;color:#fff;border:none;padding:4px 12px;border-radius:5px;font-weight:600;font-size:.65rem;cursor:pointer;font-family:inherit}
+/* PROMO BANNER */
+.promo-banner{background:linear-gradient(135deg,#063d2a,#00442D);color:#c9a227;padding:8px 12px;text-align:center;font-size:.75rem;font-weight:600;display:none;align-items:center;justify-content:center;gap:6px;border-top:1px solid rgba(201,162,39,.2)}
+.promo-banner.show{display:flex}
+.promo-banner .close-promo{background:none;border:none;color:rgba(201,162,39,.5);font-size:.8rem;cursor:pointer;padding:0 2px;line-height:1;margin-left:4px;font-family:inherit}
+.promo-banner .close-promo:hover{color:#c9a227}
+/* HERO */
+.hero{background:linear-gradient(135deg,#00442D,#063d2a);color:#fff;padding:16px 12px;text-align:center}
+.hero h1{font-size:1.05rem;font-weight:800;margin-bottom:2px}
+.hero p{font-size:.7rem;opacity:.85;margin-bottom:8px}
+.srch{max-width:440px;margin:0 auto;position:relative}
+.srch input{width:100%;padding:8px 12px 8px 30px;border-radius:999px;border:none;font-size:.78rem;font-family:inherit;outline:none;background:#fff}
+.srch svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:13px;height:13px;color:#999;pointer-events:none}
+/* CATS */
+.cats{display:flex;gap:3px;padding:6px 8px;overflow-x:auto;scrollbar-width:none;background:#fff;border-bottom:1px solid #eee;position:sticky;top:42px;z-index:40}
+.cats::-webkit-scrollbar{display:none}
+.c{background:#f0f2f0;border:none;padding:4px 10px;border-radius:999px;font-size:.67rem;font-weight:600;white-space:nowrap;cursor:pointer;font-family:inherit;color:#5c5c5c;flex-shrink:0}
+.c.active{background:#00442D;color:#fff}
+/* POPULAR */
+.pop{overflow-x:auto;scrollbar-width:none;padding:6px 8px;display:none}
+.pop.show{display:block}
+.pop h3{font-size:.72rem;color:#00442D;font-weight:700;margin-bottom:4px}
+.pop-t{display:flex;gap:6px}
+.pop-i{flex:0 0 100px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);cursor:pointer;border:1px solid #eee}
+.pop-i .im{height:60px;overflow:hidden;background:#e8f5ef;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.pop-i .im img{width:100%;height:100%;object-fit:cover}
+.pop-i .inf{padding:4px 5px 6px}
+.pop-i .inf .nm{font-size:.6rem;font-weight:600;color:#00442D;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pop-i .inf .pr{font-size:.65rem;font-weight:700;color:#1a1a1a}
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px;padding:7px 7px 60px}
+@media(max-width:350px){.grid{grid-template-columns:1fr 1fr;gap:5px;padding:5px}}
+.crd{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.03);cursor:pointer;transition:transform .1s,box-shadow .1s}
+.crd:active{transform:scale(.96)}
+.crd .im{height:110px;overflow:hidden;background:linear-gradient(135deg,#e8f5ef,#d4ede0);display:flex;align-items:center;justify-content:center;position:relative}
+.crd .im img{width:100%;height:100%;object-fit:cover;display:block}
+.crd .bdg{position:absolute;top:3px;left:3px;background:#c9a227;color:#1a1a1a;font-size:.48rem;font-weight:700;padding:2px 5px;border-radius:999px;z-index:2}
+.crd .bd{width:100%;padding:6px 6px 8px}
+.crd .bd .st{font-size:.5rem;color:#c9a227;letter-spacing:.5px;margin-bottom:1px}
+.crd .bd .nm{font-size:.72rem;font-weight:700;color:#00442D;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
+.crd .bd .pr{font-size:.78rem;font-weight:700;color:#1a1a1a;margin-top:2px;display:inline}
+.crd .bd .un{font-size:.57rem;color:#5c5c5c;font-weight:500}
+.crd .add{width:100%;background:#00442D;color:#fff;border:none;padding:5px;border-radius:5px;font-size:.64rem;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px;transition:all .12s}
+.crd .add:active{transform:scale(.95)}
+.crd .add.inc{background:#c9a227;color:#1a1a1a}
+/* FAB */
+.fab{position:fixed;bottom:14px;right:14px;z-index:90;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.35);color:#fff;font-size:1.3rem;text-decoration:none;cursor:pointer;border:none}
+.fab-b{position:absolute;top:-3px;right:-3px;background:#c0392b;color:#fff;font-size:.55rem;font-weight:700;padding:1px 5px;border-radius:999px;min-width:16px;text-align:center}
+/* MODALS */
+.mo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:200;align-items:flex-end;justify-content:center}
+.mo.open{display:flex}
+.ms{background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:500px;padding:16px 16px calc(16px + env(safe-area-inset-bottom));max-height:85vh;overflow-y:auto;animation:up .25s}
+@keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.ms h3{font-size:.9rem;color:#00442D;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.ms .cl{background:none;border:none;font-size:1.2rem;cursor:pointer;color:#999;padding:0 4px}
+.fl{margin-bottom:8px}
+.fl label{font-size:.65rem;font-weight:600;color:#00442D;display:block;margin-bottom:2px}
+.fl input,.fl select{width:100%;padding:7px 10px;border:1.5px solid #ddd;border-radius:7px;font-size:.75rem;font-family:inherit;outline:none}
+.fl input:focus,.fl select:focus{border-color:#00442D}
+/* Cart items */
+.ci{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:.75rem}
+.ci .cn{flex:1;font-weight:600;color:#00442D}
+.ci .cp{font-weight:700;color:#1a1a1a;min-width:45px;text-align:right}
+.ci .cq{display:flex;align-items:center;gap:3px}
+.ci .cq button{width:22px;height:22px;border-radius:50%;border:1.5px solid #00442D;background:#fff;color:#00442D;font-weight:700;font-size:.75rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ci .cq span{font-weight:700;font-size:.72rem;min-width:14px;text-align:center}
+.ct{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;font-weight:700;color:#00442D;border-top:2px solid #00442D;margin-top:4px}
+.ct .fee{font-size:.65rem;font-weight:500;color:#5c5c5c}
+/* Quick view */
+.qv-img{width:100%;height:190px;object-fit:cover;border-radius:8px;background:#e8f5ef}
+.qv-st{font-size:.8rem;color:#c9a227;margin:6px 0 3px}
+.qv-nm{font-size:1rem;font-weight:800;color:#00442D}
+.qv-pr{font-size:1.2rem;font-weight:800;color:#1a1a1a;margin:3px 0}
+.qv-pr small{font-size:.7rem;font-weight:500;color:#5c5c5c}
+.qv-d{font-size:.78rem;color:#5c5c5c;line-height:1.35;margin:6px 0}
+/* Order history */
+.oh-item{padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:.72rem;cursor:pointer}
+.oh-item .oh-date{color:#5c5c5c;font-size:.65rem}
+.oh-item .oh-total{font-weight:700;color:#00442D}
+.oh-item .oh-items{color:#5c5c5c;margin-top:2px}
+/* Toast */
+.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#00442D;color:#fff;padding:7px 18px;border-radius:8px;font-weight:600;font-size:.72rem;z-index:300;animation:ti .3s;pointer-events:none;white-space:nowrap}
+@keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+/* Confetti */
+.cnf{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:400;overflow:hidden}
+.cnf span{position:absolute;width:8px;height:8px;border-radius:50%;animation:cf 2s ease-out forwards}
+@keyframes cf{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(400px) rotate(720deg);opacity:0}}
+/* Order confirmation overlay */
+.oc{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);z-index:350;align-items:center;justify-content:center}
+.oc.open{display:flex}
+.oc-box{background:#fff;border-radius:16px;width:92%;max-width:360px;padding:22px 18px 16px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.12);animation:ocu .25s}
+@keyframes ocu{from{transform:scale(.85) translateY(15px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.oc-box .oc-icon{font-size:2.6rem;margin-bottom:2px}
+.oc-box .oc-title{font-size:1.08rem;font-weight:800;color:#00442D;margin-bottom:2px}
+.oc-box .oc-sub{font-size:.68rem;color:#5c5c5c;margin-bottom:10px}
+.oc-box .oc-sum{background:#f5faf7;border-radius:10px;padding:8px 12px;text-align:left;font-size:.68rem;margin-bottom:10px;line-height:1.6}
+.oc-box .oc-sum .oc-row{display:flex;justify-content:space-between;gap:6px}
+.oc-box .oc-sum .oc-label{color:#5c5c5c}
+.oc-box .oc-sum .oc-value{font-weight:700;color:#00442D}
+.oc-box .oc-id{font-size:.55rem;color:#bbb;margin-bottom:8px}
+.oc-box .oc-btn{display:block;width:100%;padding:10px;border-radius:999px;border:none;font-size:.73rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .12s;margin-bottom:6px;text-decoration:none;box-sizing:border-box}
+.oc-box .oc-btn:active{transform:scale(.96)}
+.oc-box .oc-btn-primary{background:#00442D;color:#fff}
+.oc-box .oc-btn-secondary{background:#eef1ee;color:#00442D}
+</style>
+</head>
+<body>
+<div class="topbar">
+<div class="logo">JG <span>Mart</span></div>
+<div class="right">
+<a href="landing.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" id="aboutLink">About</a>
+<a href="#" onclick="referNeighbor();return false" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" id="referLink">🤝 Refer</a>
+<a href="track.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Track Order">📦 Track</a>
+<a href="admin.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.6rem;margin-right:4px" title="Admin">⚙️</a>
+<button class="lang-btn" id="langBtn" onclick="togLang()">বাংলা</button>
+<a class="wa-top" href="https://wa.me/8801870489448" target="_blank">💬 WA</a>
+</div>
+</div>
+
+<div class="specials" id="specialsBar"></div>
+<div class="spec-ed" id="specialsEdit"><input type="text" id="specialsInput"><button onclick="saveSpecs()" id="specSaveBtn">💾 Save</button></div>
+<div class="promo-banner" id="promoBanner"></div>
+
+<div class="hero">
+<h1 id="heroTitle">Fresh from Krishi Market, delivered to JGC</h1>
+<p id="heroSub">☀️ 9AM → 12PM &nbsp;·&nbsp; 🌙 3:30PM → 8PM &nbsp;·&nbsp; 💵💳 COD/bKash</p>
+<div style="display:flex;justify-content:center;gap:8px;margin-top:8px;margin-bottom:8px">
+<button onclick="shareCat()" style="background:rgba(255,255,255,.15);color:#fff;border:none;padding:5px 14px;border-radius:999px;font-size:.68rem;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px">📤 Share</button>
+<button onclick="referNeighbor()" id="heroRefBtn" style="background:rgba(255,255,255,.15);color:#fff;border:none;padding:5px 14px;border-radius:999px;font-size:.68rem;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px">🤝 Refer a Neighbor</button>
+<span id="refCount" style="font-size:.6rem;opacity:.7;display:none;margin-left:4px"></span>
+</div>
+<div class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="s" placeholder="Search..." autocomplete="off" oninput="rend()"></div>
+</div>
+
+<div class="cats" id="catBar"></div>
+<div class="pop" id="popSec"><h3 id="popTitle">⭐ Popular Picks</h3><div class="pop-t" id="popTr"></div></div>
+<div class="grid" id="grid"></div>
+
+<button class="fab" id="fabBtn" onclick="openCart()">💬<span class="fab-b" id="fabB">0</span></button>
+
+<!-- CART MODAL -->
+<div class="mo" id="cartMo" onclick="if(event.target===this)closeCart()"><div class="ms">
+<h3 id="cartTitle">🛒 Your Order <button class="cl" onclick="closeCart()">✕</button></h3>
+<div id="cartItems"></div>
+<div id="cartForm">
+<div class="fl"><label id="lName">Your Name</label><input type="text" id="dlvName" placeholder="e.g. Sara Ahmed"></div>
+<select id="dlvBuilding" style="width:100%;padding:7px 10px;border:1.5px solid #ddd;border-radius:7px;font-size:.75rem;font-family:inherit;margin-bottom:8px;outline:none"><option value="" id="optBldg">Select building...</option></select>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+<div class="fl"><label id="lFlat">Flat</label><input type="text" id="dlvFlat" placeholder="3A"></div>
+<div class="fl"><label id="lPhone">Phone</label><input type="tel" id="dlvPhone" placeholder="01712-XXXXXX"></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+<div class="fl"><label id="lSlot">Slot</label><select id="dlvSlot"><option value="Morning" id="optAM">☀️ Morning (9AM-12PM)</option><option value="Evening" id="optPM">🌙 Evening (3:30PM-8PM)</option></select></div>
+<div class="fl"><label id="lPay">Payment</label><select id="dlvPayment"><option value="COD">💵 Cash</option><option value="bKash">📱 bKash</option></select></div>
+</div>
+<button class="add" style="padding:10px;font-size:.8rem" onclick="sendOrd()" id="sendBtn">📱 Send to WhatsApp</button>
+<div id="delFee" style="font-size:.65rem;color:#5c5c5c;margin-top:4px"></div>
+</div></div></div>
+
+<!-- QUICK VIEW -->
+<div class="mo" id="qvMo" onclick="if(event.target===this)closeQV()"><div class="ms"><div id="qvContent"></div></div></div>
+
+<!-- ORDER HISTORY MODAL -->
+<div class="mo" id="histMo" onclick="if(event.target===this)closeHist()"><div class="ms">
+<h3 id="histTitle">📋 Order History <button class="cl" onclick="closeHist()">✕</button></h3>
+<div id="histList"></div>
+<button class="add" style="padding:8px;font-size:.72rem;margin-top:6px" onclick="clearHist()" id="clearHistBtn">🗑 Clear History</button>
+</div></div>
+
+<script>
+// ========= DATA =========
+const CATS=[
+{id:"rice_dal",n:"Rice & Dal",i:"🍚",b:"চাল ও ডাল"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️",b:"তেল ও মশলা"},
+{id:"vegetables",n:"Vegetables",i:"🥬",b:"সবজি"},{id:"fish",n:"Fish",i:"🐟",b:"মাছ"},
+{id:"meat",n:"Meat",i:"🍗",b:"মাংস"},{id:"dairy_eggs",n:"Dairy & Eggs",i:"🥛",b:"দুধ ও ডিম"},
+{id:"fruits",n:"Fruits",i:"🍎",b:"ফল"},{id:"fmcg",n:"Household",i:"🧴",b:"গৃহস্থালি"},
+{id:"beverages",n:"Drinks",i:"🥤",b:"পানীয়"},{id:"snacks",n:"Snacks",i:"🍪",b:"স্ন্যাকস"}
+];
+const PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || [];
+if(!PRODS.length){
+[
+["p01","Premium Miniket Rice","rice_dal",88,"kg","🍚",4.5,48,"High-quality Miniket rice, soft and fragrant"],
+["p02","Chinigura Rice","rice_dal",120,"kg","🍚",5,42,"Premium fine-grain aromatic rice"],
+["p03","Nazirshail Rice","rice_dal",75,"kg","🍚",4,35,"Popular daily-use rice"],
+["p04","Basmati Rice","rice_dal",160,"kg","🍚",4.5,25,"Extra-long grain basmati"],
+["p05","Moshur Dal (Red)","rice_dal",110,"kg","🟠",4.5,38,"Clean red lentils"],
+["p06","Moong Dal (Yellow)","rice_dal",140,"kg","🟡",4,30,"Split yellow gram"],
+["p07","Chola (Bengal Gram)","rice_dal",100,"kg","🟤",3.5,18,"Dried chickpeas"],
+["p08","Soybean Oil","oil_spices",165,"L","🫗",4.5,45,"Refined soybean oil"],
+["p09","Mustard Oil","oil_spices",185,"L","🫗",4,32,"Cold-pressed mustard oil"],
+["p10","Sunflower Oil","oil_spices",175,"L","🌻",4,28,"Light refined oil"],
+["p11","Turmeric Powder","oil_spices",85,"100g","🧡",4.5,36,"Premium turmeric"],
+["p12","Chili Powder","oil_spices",120,"100g","🌶️",4,34,"Pure red chili powder"],
+["p13","Cumin Powder","oil_spices",95,"100g","🟤",4,30,"Aromatic cumin"],
+["p14","Coriander Powder","oil_spices",80,"100g","🌿",3.5,22,"Ground coriander"],
+["p15","White Sugar","oil_spices",135,"kg","🍚",4,38,"Fine white sugar"],
+["p16","Potato","vegetables",35,"kg","🥔",4,50,"Fresh local potatoes"],
+["p17","Red Onion","vegetables",65,"kg","🧅",4.5,48,"Fresh red onions"],
+["p18","Tomato","vegetables",70,"kg","🍅",4,38,"Ripe red tomatoes"],
+["p19","Eggplant (Brinjal)","vegetables",45,"kg","🍆",3.5,30,"Tender brinjals"],
+["p20","Cauliflower","vegetables",55,"pc","🥦",4,25,"Fresh white cauliflower"],
+["p21","Cabbage","vegetables",35,"pc","🥬",3.5,20,"Fresh green cabbage"],
+["p22","Green Chili","vegetables",40,"100g","🌶️",4,44,"Spicy green chilies"],
+["p23","Coriander Leaves","vegetables",15,"bunch","🌿",4.5,36,"Fresh coriander"],
+["p24","Lady Finger (Okra)","vegetables",50,"kg","🥒",3.5,28,"Tender okra"],
+["p25","Green Papaya","vegetables",40,"kg","🫛",3.5,22,"Raw green papaya"],
+["p26","Fresh Ginger","vegetables",80,"100g","🫚",4,32,"Fresh ginger root"],
+["p27","Fresh Garlic","vegetables",60,"100g","🧄",4,34,"Fresh garlic cloves"],
+["p28","Ruhi Fish","fish",280,"kg","🐟",4.5,35,"Freshwater ruhi"],
+["p29","Tilapia Fish","fish",200,"kg","🐟",4,30,"Farm-raised tilapia"],
+["p30","Hilsa (Ilish)","fish",850,"kg","🐟",5,22,"Premium river hilsa"],
+["p31","Prawns (Large)","fish",480,"kg","🦐",4.5,18,"Jumbo river prawns"],
+["p32","Katla Fish","fish",260,"kg","🐟",4,20,"Premium katla"],
+["p33","Shrimp (Medium)","fish",380,"kg","🦐",4,15,"Medium shrimp"],
+["p34","Chicken (Broiler)","meat",220,"kg","🍗",4.5,42,"Halal broiler chicken"],
+["p35","Chicken (Sonali)","meat",320,"kg","🐔",4.5,25,"Free-range Sonali"],
+["p36","Beef (Premium Cut)","meat",520,"kg","🥩",4.5,35,"Premium beef"],
+["p37","Mutton (Curry Cut)","meat",680,"kg","🍖",4,18,"Tender mutton"],
+["p38","Beef Liver","meat",280,"kg","🥩",3.5,14,"Fresh beef liver"],
+["p39","Farm Eggs (Dozen)","dairy_eggs",120,"doz","🥚",5,48,"Fresh free-range eggs"],
+["p40","Fresh Cow Milk","dairy_eggs",80,"L","🥛",4.5,35,"Farm-fresh whole milk"],
+["p41","Full Cream Milk","dairy_eggs",90,"L","🥛",4,30,"Rich full cream milk"],
+["p42","Mishti Doi","dairy_eggs",60,"250g","🍯",4.5,28,"Sweet yogurt"],
+["p43","Fresh Paneer","dairy_eggs",250,"250g","🧀",4,20,"Soft fresh paneer"],
+["p44","Butter (Block)","dairy_eggs",180,"200g","🧈",4,22,"Creamy unsalted butter"],
+["p45","Banana (Sagor)","fruits",50,"doz","🍌",4.5,40,"Ripe sagor bananas"],
+["p46","Apple (Red)","fruits",220,"kg","🍎",4,28,"Crisp red apples"],
+["p47","Mango (Himsagar)","fruits",180,"kg","🥭",5,35,"Sweet Himsagar mango"],
+["p48","Mango (Fazli)","fruits",120,"kg","🥭",4.5,25,"Large fazli mangoes"],
+["p49","Watermelon","fruits",40,"kg","🍉",4,22,"Sweet summer watermelon"],
+["p50","Orange","fruits",200,"kg","🍊",4,20,"Juicy oranges"],
+["p51","Toothpaste (Colgate)","fmcg",75,"pc","🪥",4,25,"Colgate strong teeth"],
+["p52","Dove Soap","fmcg",45,"pc","🧼",4,30,"Moisturizing beauty bar"],
+["p53","Washing Powder","fmcg",240,"500g","🧺",4,22,"Ariel detergent"],
+["p54","Shampoo (Sunsilk)","fmcg",180,"200ml","🧴",3.5,20,"Sunsilk shampoo"],
+["p55","Coca-Cola (1.5L)","beverages",70,"pc","🥤",4,28,"Chilled Coca-Cola"],
+["p56","Pepsi (2L)","beverages",90,"pc","🥤",4,25,"Chilled Pepsi"],
+["p57","7UP (2L)","beverages",85,"pc","🥤",3.5,18,"Chilled 7UP"],
+["p58","Mineral Water (2L)","beverages",25,"pc","💧",4,35,"Pure drinking water"],
+["p59","Tea (Ispahani)","beverages",140,"200g","🫖",4.5,30,"Premium CTC tea"],
+["p60","Parle-G Biscuits","snacks",20,"pc","🍪",4,40,"Glucose biscuits"],
+["p61","Lays Classic Chips","snacks",40,"pc","🍟",4,32,"Salted potato chips"],
+["p62","Chicken Momos","snacks",150,"pc","🥟",4,15,"Frozen chicken momos"],
+["p63","Maggi Noodles","snacks",25,"pc","🍜",4,35,"Instant noodles"],
+["p64","Marie Biscuits","snacks",30,"pc","🍪",3.5,28,"Tea-time biscuits"],
+["p65","Salt (Premium)","oil_spices",30,"kg","🧂",4,40,"Iodized salt"]
+].forEach(p=>{
+PRODS.push({id:p[0],nm:p[1],ct:p[2],pr:p[3],un:p[4],em:p[5],rt:p[6],rv:p[7],de:p[8]||'Fresh from Krishi Market',im:'images/p'+p[0].slice(1).padStart(3,'0')+'.jpg'});
+});
+localStorage.setItem('jgmart_prods',JSON.stringify(PRODS));
+}
+
+// ========= STATE =========
+let cart = JSON.parse(localStorage.getItem('jgmart_c')||'[]');
+let orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
+let lang = localStorage.getItem('jgmart_lang')||'en';
+let actCat = 'all';
+
+// ========= I18N =========
+const L = {
+en:{heroT:"Fresh from Krishi Market, delivered to JGC",heroS:"☀️ Order by 9AM → 12PM · 🌙 by 3:30PM → 8PM · 💵 COD/bKash",popT:"⭐ Popular Picks",cartT:"🛒 Your Order",lName:"Your Name",lFlat:"Flat",lPhone:"Phone",lSlot:"Delivery Slot",lPay:"Payment",optB:"Select building...",optAM:"☀️ Morning (9AM-12PM)",optPM:"🌙 Evening (3:30PM-8PM)",send:"📱 Send to WhatsApp",hist:"📋 Order History",histT:"📋 Order History",clear:"🗑 Clear History",emp:"No orders yet",srch:"Search rice, eggs, fish...",sp:"🔥 Today's Specials",saving:"💾 Save",add:"+ Add",added:"Added ✓",rm:"Removed",opening:"✅ Opening WhatsApp...",saved:"✅ Specials updated!",fee:"No delivery fee",fee1:"Delivery fee: ৳20 (Cluster 3)",fee2:"Delivery fee: ৳30 (Cluster 4)",empt:"Your cart is empty",selB:"Please select your building",selF:"Please enter your flat number",refer:"🤝 Refer a Neighbor",referCopied:"📋 Copied! Share referral link",ordConfT:"✅ Order Sent!",ordConfS:"Your order has been placed"},
+bn:{heroT:"ক্রিসি মার্কেট থেকে তাজা, জেসিসিতে ডেলিভারি",heroS:"☀️ সকাল ৯টা → ১২টা · 🌙 বিকাল ৩:৩০ → ৮টা · 💵 নগদ/বিকাশ",popT:"⭐ জনপ্রিয় পণ্য",cartT:"🛒 আপনার অর্ডার",lName:"আপনার নাম",lFlat:"ফ্লাট নং",lPhone:"ফোন নম্বর",lSlot:"ডেলিভারি স্লট",lPay:"পেমেন্ট",optB:"বিল্ডিং নির্বাচন...",optAM:"☀️ সকাল (৯টা-১২টা)",optPM:"🌙 বিকাল (৩:৩০-৮টা)",send:"📱 হোয়াটসঅ্যাপে পাঠান",hist:"📋 অর্ডার ইতিহাস",histT:"📋 অর্ডার ইতিহাস",clear:"🗑 ইতিহাস মুছুন",emp:"কোনো অর্ডার নেই",srch:"রাইস, ডিম, মাছ খুঁজুন...",sp:"🔥 আজকের স্পেশাল",saving:"💾 সংরক্ষণ",add:"+ যোগ করুন",added:"✓ যোগ হয়েছে",rm:"সরানো হয়েছে",opening:"✅ হোয়াটসঅ্যাপ খুলছে...",saved:"✅ স্পেশাল আপডেট!",fee:"কোনো ডেলিভারি ফি নেই",fee1:"ডেলিভারি ফি: ২০ টাকা (ক্লাস্টার ৩)",fee2:"ডেলিভারি ফি: ৩০ টাকা (ক্লাস্টার ৪)",empt:"কার্ট খালি",selB:"বিল্ডিং নির্বাচন করুন",selF:"ফ্লাট নম্বর দিন",refer:"🤝 প্রতিবেশীকে জানান",referCopied:"📋 কপি! রেফারেল লিঙ্ক শেয়ার করুন",ordConfT:"✅ অর্ডার পাঠানো হয়েছে!",ordConfS:"আপনার অর্ডার জমা হয়েছে"}
+};
+
+function t(key){const t=L[lang];return t[key]||key;}
+function togLang(){
+lang=lang==='en'?'bn':'en';
+localStorage.setItem('jgmart_lang',lang);
+document.getElementById('langBtn').textContent=lang==='en'?'বাংলা':'EN';
+applyLang(); renderCats(); rend();
+}
+function applyLang(){
+const m=L[lang];
+document.getElementById('heroTitle').textContent=m.heroT;
+document.getElementById('heroSub').textContent=m.heroS;
+document.getElementById('popTitle').textContent=m.popT;
+document.getElementById('cartTitle').innerHTML=m.cartT+' <button class="cl" onclick="closeCart()">✕</button>';
+document.getElementById('lName').textContent=m.lName;
+document.getElementById('lFlat').textContent=m.lFlat;
+document.getElementById('lPhone').textContent=m.lPhone;
+document.getElementById('lSlot').textContent=m.lSlot;
+document.getElementById('lPay').textContent=m.lPay;
+document.getElementById('optBldg').textContent=m.optB;
+document.getElementById('optAM').textContent=m.optAM;
+document.getElementById('optPM').textContent=m.optPM;
+document.getElementById('sendBtn').textContent=m.send;
+document.getElementById('histTitle').innerHTML=m.histT+' <button class="cl" onclick="closeHist()">✕</button>';
+document.getElementById('clearHistBtn').textContent=m.clear;
+document.getElementById('specSaveBtn').textContent=m.saving;
+document.querySelector('.srch input').placeholder=m.srch;
+document.getElementById('specialsLabel').textContent=m.sp;
+const refBtns=document.querySelectorAll('#heroRefBtn');
+refBtns.forEach(el=>el.textContent=t('refer'));
+}
+
+// ========= INIT =========
+(function(){
+const s=document.getElementById('dlvBuilding');
+for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Bldg ${i}`;s.appendChild(o);}
+loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount();
+// Re-apply lang after specials load
+})();
+
+function renderCats(){
+const b=document.getElementById('catBar');
+b.innerHTML=`<button class="c active" onclick="setC('all')">📦 ${lang==='bn'?'সব':'All'}</button>`;
+CATS.forEach(c=>{b.innerHTML+=`<button class="c" onclick="setC('${c.id}')">${c.i} ${lang==='bn'?c.b:c.n}</button>`;});
+}
+function setC(c){actCat=c;
+document.querySelectorAll('.c').forEach(b=>b.classList.remove('active'));
+if(event.target)event.target.classList.add('active'); rend();
+}
+
+function rend(){
+const q=document.getElementById('s').value.toLowerCase();
+const f=PRODS.filter(p=>(actCat==='all'||p.ct===actCat)&&(!q||p.nm.toLowerCase().includes(q)||p.ct.includes(q)));
+const g=document.getElementById('grid');
+if(!f.length){g.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:#5c5c5c;font-size:.8rem">${lang==='bn'?'কিছু পাওয়া যায়নি':'No products found'}</div>`;updFab();return;}
+g.innerHTML=f.map(p=>{
+const c=cart.find(x=>x.id===p.id);const qty=c?c.qty:0;
+const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
+const pop=(p.rv||0)>35;
+return `<div class="crd" onclick="showQV('${p.id}')">
+<div class="im">${pop?'<span class="bdg">★ Top</span>':''}
+<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'"></div>
+<div class="bd"><div class="st">${st}</div><div class="nm">${p.nm}</div>
+<div class="pr">৳${p.pr}</div><div class="un">/${p.un}</div>
+<button class="add ${qty>0?'inc':''}" onclick="event.stopPropagation();tog('${p.id}')">${qty>0?'✓ '+qty:(lang==='bn'?'+ যোগ করুন':'+ Add')}</button>
+</div></div>`;
+}).join('');
+updFab(); rendPop();
+}
+
+function rendPop(){
+const top=[...PRODS].sort((a,b)=>b.rt-a.rt).slice(0,6);
+const tr=document.getElementById('popTr');
+tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
+document.getElementById('popSec').classList.add('show');
+}
+
+// ========= CART =========
+function tog(id){
+const i=cart.findIndex(c=>c.id===id);
+if(i>-1){if(cart[i].qty<3)cart[i].qty++;else cart.splice(i,1);}
+else cart.push({id,qty:1});
+localStorage.setItem('jgmart_c',JSON.stringify(cart));
+rend(); toast(cart.find(c=>c.id===id)?t('added'):t('rm'));
+}
+function updFab(){const t=cart.reduce((s,c)=>s+c.qty,0);document.getElementById('fabB').textContent=t;}
+function openCart(){document.getElementById('cartMo').classList.add('open');rendCart();
+// Load saved address
+const addr=JSON.parse(localStorage.getItem('jgmart_addr')||'{}');
+if(addr.name)document.getElementById('dlvName').value=addr.name;
+if(addr.building)document.getElementById('dlvBuilding').value=addr.building;
+if(addr.flat)document.getElementById('dlvFlat').value=addr.flat;
+if(addr.phone)document.getElementById('dlvPhone').value=addr.phone;
+if(addr.slot)document.getElementById('dlvSlot').value=addr.slot;
+if(addr.payment)document.getElementById('dlvPayment').value=addr.payment;
+}
+function closeCart(){document.getElementById('cartMo').classList.remove('open');}
+
+function rendCart(){
+const el=document.getElementById('cartItems');
+if(!cart.length){el.innerHTML=`<div style="text-align:center;padding:16px;color:#5c5c5c;font-size:.8rem">${t('empt')}</div>`;return;}
+el.innerHTML=cart.map(c=>{
+const p=PRODS.find(x=>x.id===c.id);if(!p)return'';
+return `<div class="ci"><div class="cn">${p.em} ${p.nm}</div>
+<div class="cq"><button onclick="cq('${p.id}',-1)">−</button><span>${c.qty}</span><button onclick="cq('${p.id}',1)">+</button></div>
+<div class="cp">৳${p.pr*c.qty}</div></div>`;
+}).join('');
+const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
+const b=parseInt(document.getElementById('dlvBuilding').value.replace('B',''))||0;
+const fee=b>20?30:b>13?20:0;
+const total=sub+fee;
+el.innerHTML+=`<div class="ct"><span>${lang==='bn'?'সর্বমোট':'Total'}${fee>0?' <span class="fee">(+৳'+fee+' ডেলিভারি)</span>':''}</span><span>৳${total.toLocaleString()}</span></div>`;
+document.getElementById('delFee').textContent=fee>0?(b>20?t('fee2'):t('fee1')):t('fee');
+}
+
+function cq(id,d){
+const i=cart.findIndex(c=>c.id===id);
+if(i<0)return;cart[i].qty+=d;
+if(cart[i].qty<1||cart[i].qty>10)cart.splice(i,1);
+localStorage.setItem('jgmart_c',JSON.stringify(cart));
+rendCart();updFab();rend();
+}
+
+function sendOrd(){
+const n=document.getElementById('dlvName').value.trim()||'Customer';
+const b=document.getElementById('dlvBuilding').value;
+const f=document.getElementById('dlvFlat').value.trim();
+const s=document.getElementById('dlvSlot').value;
+const pm=document.getElementById('dlvPayment').value;
+const ph=document.getElementById('dlvPhone').value.trim();
+if(!b||!f){alert(t('selB')+'\n'+t('selF'));return;}
+if(!cart.length){alert(t('empt'));return;}
+// Save customer address for next visit
+localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
+const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
+const bi=parseInt(b.replace('B',''))||0;
+const fee=bi>20?30:bi>13?20:0;
+const total=sub+fee;
+let msg=`Assalamu Alaikum! I would like to order from JG Mart:%0A%0A📋 *My Order:*%0A`;
+cart.forEach(c=>{const p=PRODS.find(x=>x.id===c.id);if(p)msg+=`${p.em} ${p.nm} × ${c.qty} = ৳${p.pr*c.qty}%0A`;});
+msg+=`%0A*Subtotal: ৳${sub}*${fee>0?`%0A🚚 Delivery: ৳${fee}`:''}%0A*Total: ৳${total}*%0A📍 ${b}, Flat ${f}%0A⏰ ${s}%0A💳 ${pm}${ph?'%0A📞 '+ph:''}`;
+// Save order history
+orders.unshift({id:'JG-'+Date.now().toString(36).toUpperCase(),date:new Date().toLocaleDateString('en-BD'),time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}),
+items:cart.map(c=>{const p=PRODS.find(x=>x.id===c.id);return{nm:p?.nm||'',qty:c.qty,pr:p?.pr||0};}),sub,fee,total,building:b,flat:f,slot:s,payment:pm});
+if(orders.length>50)orders.pop();
+localStorage.setItem('jgmart_ords',JSON.stringify(orders));
+closeCart();
+window.open(`https://wa.me/8801870489448?text=${msg}`,'_blank');
+toast(t('opening'));
+// Confetti
+const cnf=document.createElement('div');cnf.className='cnf';
+for(let i=0;i<20;i++){const s=document.createElement('span');s.style.cssText=`left:${Math.random()*100}%;background:${['#c9a227','#00442D','#25D366','#c0392b'][Math.floor(Math.random()*4)]};animation-delay:${Math.random()*0.5}s`;cnf.appendChild(s);}
+document.body.appendChild(cnf);
+setTimeout(()=>{cnf.remove();localStorage.setItem('jgmart_lastOrd',JSON.stringify(orders[0]));showOrdConf();},2500);
+}
+
+// ========= QUICK VIEW =========
+function showQV(id){
+const p=PRODS.find(x=>x.id===id);if(!p)return;
+const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
+document.getElementById('qvContent').innerHTML=
+`<img class="qv-img" src="${p.im}" alt="${p.nm}" onerror="this.style.cssText='height:190px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:#e8f5ef;border-radius:8px';this.textContent='${p.em}'">
+<div class="qv-st">${st} ${p.rt}</div><div class="qv-nm">${p.nm}</div>
+<div class="qv-pr">৳${p.pr} <small>/ ${p.un}</small></div>
+<div class="qv-d">${p.de||'Fresh from Krishi Market.'}</div>
+<button class="add" style="padding:10px;font-size:.8rem" onclick="event.stopPropagation();tog('${p.id}');closeQV()">${lang==='bn'?'+ কার্টে যোগ করুন':'+ Add to Cart'}</button>`;
+document.getElementById('qvMo').classList.add('open');
+// ========= CROSS-SELL =========
+const related=PRODS.filter(x=>x.ct===p.ct&&x.id!==p.id).sort((a,b)=>b.rv-a.rv).slice(0,3);
+if(related.length){
+setTimeout(()=>{
+const el=document.getElementById('qvContent');
+el.innerHTML+=`<div style="margin-top:12px;padding-top:10px;border-top:1px solid #eee">
+<div style="font-size:.7rem;font-weight:600;color:#00442D;margin-bottom:6px">${lang==='bn'?'সাথে নিন':'Frequently bought together'}</div>
+<div style="display:flex;gap:6px">${related.map(r=>`<div style="flex:1;background:#f8faf8;border-radius:6px;padding:6px;text-align:center;cursor:pointer" onclick="tog('${r.id}');toast('✓ '+r.nm)"><div style="font-size:1.2rem">${r.em}</div><div style="font-size:.6rem;font-weight:600;color:#00442D">${r.nm.length>18?r.nm.slice(0,16)+'…':r.nm}</div><div style="font-size:.65rem;font-weight:700;color:#c9a227">৳${r.pr}</div></div>`).join('')}</div></div>`;
+},100);
+}
+}
+function closeQV(){document.getElementById('qvMo').classList.remove('open');}
+
+// ========= ORDER HISTORY =========
+function openHist(){
+const el=document.getElementById('histList');
+if(!orders.length){el.innerHTML=`<div style="text-align:center;padding:20px;color:#5c5c5c;font-size:.8rem">${t('emp')}</div>`;document.getElementById('histMo').classList.add('open');return;}
+el.innerHTML=orders.map((o,i)=>`<div class="oh-item" onclick="viewOrd(${i})">
+<div class="oh-date">${o.date} ${o.time} · ${o.building} · ${o.slot}</div>
+<div class="oh-items">${o.items.map(it=>it.nm+' ×'+it.qty).join(', ').slice(0,60)}${o.items.map(it=>it.nm+' ×'+it.qty).join(', ').length>60?'...':''}</div>
+<div class="oh-total">৳${o.total.toLocaleString()}</div>
+</div>`).join('');
+document.getElementById('histMo').classList.add('open');
+}
+function closeHist(){document.getElementById('histMo').classList.remove('open');}
+function viewOrd(i){const o=orders[i];alert(`Order ${o.id}\n${o.date} ${o.time}\n${o.items.map(it=>`${it.nm} × ${it.qty} = ৳${it.pr*it.qty}`).join('\n')}\n\nSubtotal: ৳${o.sub}\nDelivery: ৳${o.fee}\nTotal: ৳${o.total}\n📍 ${o.building}, Flat ${o.flat}\n⏰ ${o.slot} · 💳 ${o.payment}`);}
+function clearHist(){if(confirm(lang==='bn'?'ইতিহাস মুছবেন?':'Clear all orders?')){orders=[];localStorage.setItem('jgmart_ords',JSON.stringify(orders));openHist();}}
+
+// ========= SPECIALS =========
+function loadSpecials(){
+const s=localStorage.getItem('jgmart_specials');
+const items=s?s.split(','):['🐟 Fresh Hilsa — ৳850/kg','🥭 Himsagar Mango — ৳180/kg','🥚 Farm Eggs — ৳120/doz','🍚 Miniket Rice — ৳88/kg'];
+const bar=document.getElementById('specialsBar');
+bar.innerHTML=`<span id="specialsLabel">🔥 Today's Specials</span>`+items.map(t=>`<span class="tag">${t.trim()}</span>`).join('')+`<button class="ed" onclick="document.getElementById('specialsEdit').classList.toggle('show')">✎</button>`;
+document.getElementById('specialsInput').value=items.join(', ');
+}
+function saveSpecs(){
+const v=document.getElementById('specialsInput').value.trim();
+if(v){localStorage.setItem('jgmart_specials',v);loadSpecials();document.getElementById('specialsEdit').classList.remove('show');toast(t('saved'));}
+}
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1200);}
+// ========= PWA REGISTRATION =========
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('sw.js').catch(()=>{});
+// Install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
+}
+// ========= PROMO BANNER =========
+function loadPromo(){
+const p=localStorage.getItem('jgmart_promo');
+const el=document.getElementById('promoBanner');
+const txt=(p&&p.trim())?p:'🎉 New: Biryani Masala! Fresh stock from Krishi Market';
+el.textContent=txt;
+const btn=document.createElement('button');
+btn.className='close-promo';
+btn.textContent='✕';
+btn.onclick=function(){el.classList.remove('show');};
+el.appendChild(btn);
+el.classList.add('show');
+}
+// ========= ORDER CONFIRMATION =========
+function showOrdConf(){
+const o=orders[0];if(!o)return;
+document.getElementById('confTitle').textContent=t('ordConfT');
+document.getElementById('confSub').textContent=t('ordConfS');
+document.getElementById('confSummary').innerHTML=
+`<div class="oc-row"><span class="oc-label">Items</span><span class="oc-value">${o.items.reduce((s,i)=>s+i.qty,0)} items</span></div>
+<div class="oc-row"><span class="oc-label">Total</span><span class="oc-value">৳${o.total.toLocaleString()}</span></div>
+<div class="oc-row"><span class="oc-label">Delivery</span><span class="oc-value">${o.building}, Flat ${o.flat}</span></div>
+<div class="oc-row"><span class="oc-label">Slot</span><span class="oc-value">${o.slot}</span></div>`;
+document.getElementById('confOrdId').textContent='Order '+o.id;
+document.getElementById('ordConfMo').classList.add('open');
+}
+function closeOrdConf(){document.getElementById('ordConfMo').classList.remove('open');}
+// ========= REFERRAL =========
+function referNeighbor(){
+  const url=window.location.href;
+  const msg=`Hey! I order groceries from JG Mart in JGC. Fresh from Krishi Market, delivered to our building. Order here: ${url} Use code NEIGHBOR for 50 BDT off!`;
+  if(navigator.share){
+    navigator.share({title:'JG Mart — Fresh Groceries',text:msg,url:url}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(msg).then(()=>{
+      toast(t('referCopied'));
+    }).catch(()=>{
+      prompt(t('refer'),msg);
+    });
+  }
+  // Track referral
+  let cnt=parseInt(localStorage.getItem('jgmart_ref_count')||'0');
+  cnt++;
+  localStorage.setItem('jgmart_ref_count',cnt);
+  updateRefCount();
+}
+function updateRefCount(){
+  const el=document.getElementById('refCount');
+  const cnt=parseInt(localStorage.getItem('jgmart_ref_count')||'0');
+  if(cnt>0){el.textContent='🔥 '+cnt;el.style.display='inline';}
+  else el.style.display='none';
+}
+// ========= SHARE =========
+function shareCat(){
+const u=window.location.href;
+if(navigator.share){navigator.share({title:'JG Mart — Fresh Groceries',text:'Fresh from Krishi Market, delivered to JGC!',url:u}).catch(()=>{});}
+else{
+const msg=`Check out JG Mart! Fresh groceries delivered to Japan Garden City 🥬🍗🐟\n\nBrowse: ${u}`;
+if(window.innerWidth<768)navigator.clipboard?.writeText(msg).then(()=>toast('📋 Copied! Share on WhatsApp')).catch(()=>{});
+else{prompt('📤 Share this link:',msg);}
+}
+}
+</script>
+<!-- ORDER CONFIRMATION OVERLAY -->
+<div class="oc" id="ordConfMo" onclick="if(event.target===this)closeOrdConf()"><div class="oc-box">
+<div class="oc-icon">✅</div>
+<div class="oc-title" id="confTitle">Order Sent!</div>
+<div class="oc-sub" id="confSub">Your order has been placed</div>
+<div class="oc-sum" id="confSummary"></div>
+<div class="oc-id" id="confOrdId"></div>
+<a class="oc-btn oc-btn-primary" href="track.html" id="confTrackBtn">📮 Track Order</a>
+<button class="oc-btn oc-btn-secondary" onclick="closeOrdConf()">🛍️ Continue Shopping</button>
+</div></div>
+
+<div style="background:#0f1a14;color:rgba(255,255,255,.5);padding:16px;text-align:center;font-size:.68rem;line-height:1.6">
+<div style="font-weight:800;font-size:.85rem;color:#fff;margin-bottom:2px">JG <span style="color:#c9a227">Mart</span></div>
+<p>Fresh groceries, delivered to Japan Garden City, Mohammadpur</p>
+<p>📱 <a href="https://wa.me/8801870489448" style="color:#c9a227;text-decoration:none">+8801870489448</a></p>
+<p style="margin-top:4px"><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none">Catalog</a> · <a href="landing.html" style="color:rgba(255,255,255,.5);text-decoration:none">About</a> · <a href="menu.html" style="color:rgba(255,255,255,.5);text-decoration:none">Menu</a> · <a href="track.html" style="color:rgba(255,255,255,.5);text-decoration:none">Track</a> · <a href="zone.html" style="color:rgba(255,255,255,.5);text-decoration:none">Zone</a></p>
+<p style="opacity:.4;margin-top:4px">© 2026 JG Mart</p>
+</div>
+
+</body>
+</html>

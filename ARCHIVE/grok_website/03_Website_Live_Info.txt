@@ -1,0 +1,25 @@
+JGC MART — LIVE WEBSITE REFERENCE
+Updated: 28 July 2026
+Owner: Fahad Ibrahim | +8801670-944800
+
+LIVE URL
+https://jg-mart.vercel.app
+
+SOURCE FILE IN THIS FOLDER
+jg_mart_website_index.html
+
+WHAT THE SITE DOES
+• Order landing page for Japan Garden City residents
+• Horizontal sliding product catalog (swipe/drag)
+• Search + category filters
+• ★ Most ordered badges (driven by ordersThisWeek in product data)
+• One-tap WhatsApp deep links — no cart, no payment gateway
+
+HOW TO UPDATE “MOST ORDERED” BADGES
+1. From Daily Ops Dashboard, count weekly orders per category/item
+2. Ask Grok to update ordersThisWeek values and redeploy
+   OR edit the PRODUCTS array in index.html and redeploy to Vercel
+
+STRATEGIC NOTE
+Site is intentionally WhatsApp-native. Full e-commerce cart is not required
+until pilot volume and customer demand justify it.

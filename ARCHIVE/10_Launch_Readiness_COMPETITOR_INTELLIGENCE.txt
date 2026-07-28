@@ -1,0 +1,251 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              JG MART — COMPETITOR INTELLIGENCE REPORT                          ║
+║                         Know Your Enemy. Win Anyway.                          ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Prepared: July 2026
+Owner: Fahad Ibrahim, JG Mart
+Classification: Internal — Do Not Distribute
+
+═══════════════════════════════════════════════════════════════════════════════
+EXECUTIVE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+JG Mart competes in three arenas:
+1. Local bazaar proximity (convenience vs cost)
+2. City-wide delivery platforms (Chaldal, Foodpanda, Pathao)
+3. Future grocery entrants (Shohoz, local copycats)
+
+Our structural advantage: 800m sourcing distance + WhatsApp-native + community trust.
+No competitor can replicate all three simultaneously.
+
+═══════════════════════════════════════════════════════════════════════════════
+1. CHALDAL
+═══════════════════════════════════════════════════════════════════════════════
+
+Overview
+--------
+Bangladesh's largest online grocery platform. Raised $30M+. 27 warehouses nationwide.
+Backed by Nitol-Niloy Group. Market leader in Dhaka.
+
+Strengths
+---------
+• Massive SKU selection (10,000+)
+• 30-min delivery promise in prime zones
+• Strong brand recognition
+• Professional app + web platform
+• Integrated payments, subscriptions, loyalty
+
+Weaknesses vs JG Mart
+---------------------
+• NO warehouse in Mohammadpur. Nearest: likely Hazaribag or Dhanmondi (5+ km).
+• Delivery to JGC takes 3-5 hours minimum.
+• High minimum order values (BDT 300-500)
+• Delivery fees BDT 40-60 for non-prime zones
+• Cash-flow crisis reported: workforce cut from 3,300 to 2,200 in 2025
+• Impersonal app-based UX; no community relationship
+
+JG Mart Counter-Strategy
+------------------------
+• Lead with speed: "2 hours vs 3-5 hours"
+• Lead with proximity: "800m away vs 5km away"
+• Lead with relationship: "Your neighbor delivers vs anonymous app"
+• Lock in customers with WhatsApp subscriptions before Chaldal enters
+• Build switching costs: loyalty program, referral credits, weekly habits
+
+Threat Level: MEDIUM (6-12 month head start before they can serve JGC efficiently)
+
+═══════════════════════════════════════════════════════════════════════════════
+2. FOODPANDA
+═══════════════════════════════════════════════════════════════════════════════
+
+Overview
+--------
+Delivery Hero subsidiary. Restaurant delivery leader expanding into grocery.
+Present in Dhaka with restaurant network. Grocery is secondary vertical.
+
+Strengths
+---------
+• Massive rider network (10,000+ in Dhaka)
+• Strong app UX
+• Brand recognition from food delivery
+
+Weaknesses vs JG Mart
+---------------------
+• Grocery is NOT their focus — restaurants are
+• No grocery-specific inventory or sourcing
+• High delivery fees (BDT 40-60)
+• No community trust or local relationships
+• Restaurant-first routing optimizations don't suit grocery batched delivery
+
+JG Mart Counter-Strategy
+------------------------
+• Be the grocery specialist they can't compete with
+• Emphasize fresh produce quality (their advantage over restaurant food)
+• Offer lower minimums than their grocery section
+• Build community before they can scale grocery
+
+Threat Level: LOW (not a grocery-first player)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. PATHAO
+═══════════════════════════════════════════════════════════════════════════════
+
+Overview
+--------
+Bangladesh's super app. Courier + food delivery + ride-sharing.
+Strong brand, massive user base, but grocery is not a core vertical.
+
+Strengths
+---------
+• Massive user base (10M+ registered)
+• Courier network covers all Dhaka
+• Strong brand trust
+• Multi-service app (reduces churn)
+
+Weaknesses vs JG Mart
+---------------------
+• Courier-first, not grocery-first
+• No sourcing or inventory capability
+• Higher delivery fees for non-food items
+• No grocery-specific UX
+• Impersonal platform; no community relationship
+
+JG Mart Counter-Strategy
+------------------------
+• Own the grocery vertical in JGC before Pathao expands it
+• Build deeper customer relationships via WhatsApp (not app)
+• Focus on freshness and quality — Pathao's strength is logistics, not produce
+• Create category expertise they can't match
+
+Threat Level: LOW (strategic mismatch)
+
+═══════════════════════════════════════════════════════════════════════════════
+4. LOCAL BAZAARS & INFORMAL VENDORS
+═══════════════════════════════════════════════════════════════════════════════
+
+Overview
+--------
+Krishi Market is the primary wholesale hub. Informal delivery exists but is
+unreliable. Small shops within walking distance offer limited selection.
+
+Strengths
+---------
+• Trusted by community
+• Cash transactions, no digital friction
+• Flexible pricing
+• Social relationships
+
+Weaknesses vs JG Mart
+---------------------
+• No delivery to doorsteps
+• Inconsistent quality and pricing
+• Limited hours
+• No ordering convenience
+• No accountability or guarantees
+
+JG Mart Counter-Strategy
+------------------------
+• Don't compete on price — compete on convenience
+• Position as "bazaar quality, delivered"
+• Use bazaar prices as marketing anchor
+• Offer consistency bazaars can't match
+
+Threat Level: LOW (we're complementary, not competitive)
+
+═══════════════════════════════════════════════════════════════════════════════
+5. FUTURE ENTRANTS / COPYCATS
+═══════════════════════════════════════════════════════════════════════════════
+
+Overview
+--------
+Any local entrepreneur seeing JG Mart's success may copy the model in JGC
+or adjacent societies.
+
+Strengths
+---------
+• Can replicate WhatsApp + sourcing model cheaply
+• Local knowledge
+• Speed to market
+
+Weaknesses vs JG Mart
+---------------------
+• No first-mover advantage
+• No established partner relationships
+• No customer habits locked in
+• No brand trust
+
+JG Mart Counter-Strategy
+------------------------
+• Move fast: lock in customers in Months 1-3
+• Build exclusive partnerships with Krishi Market vendors
+• Create subscription lock-in
+• Establish JG Mart as "the" grocery service in JGC
+• Build network effects: more customers → more volume → better prices → more customers
+
+Threat Level: MEDIUM (defensible only if we execute fast)
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPETITIVE MOAT SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Moat Layer               Defensibility    Time to Replicate   Status
+──────────────────────  ───────────────  ───────────────────  ──────────────
+Physical proximity        HIGH            6-12 months          SECURE
+  (800m sourcing distance)                            (requires warehouse
+                                                      or partnership)
+
+Partner relationships    HIGH            3-6 months           BUILDING
+  (Krishi Market vendors)                             (requires trust,
+                                                      trial periods)
+
+Customer habits          MEDIUM-HIGH     1-3 months           AT RISK
+  (WhatsApp ordering)                                 (easy to switch if
+                                                       experience is poor)
+
+Brand trust              MEDIUM          6-12 months          BUILDING
+  (community reputation)                              (requires consistent
+                                                      execution)
+
+Subscription lock-in     MEDIUM          Immediate            NOT STARTED
+  (recurring revenue)                                 (easy to cancel if
+                                                       value isn't clear)
+
+Data/learning advantage  LOW-MEDIUM      Immediate            BUILDING
+  (order patterns, routes)                            (requires execution
+                                                      to accumulate)
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY COMPETITIVE MOVES TO MAKE
+═══════════════════════════════════════════════════════════════════════════════
+
+Month 1:
+□ Secure exclusive-ish agreements with 5 Krishi Market vendors
+□ Onboard 10 beta customers, deliver flawless experience
+□ Get 2-3 building committee endorsements
+
+Month 2:
+□ Launch subscription model (lock in recurring revenue)
+□ Hit 200 customers — make switching not worth it for competitors
+□ Publish first customer testimonials in building WhatsApp groups
+
+Month 3:
+□ Reach 350 customers — critical mass in JGC
+□ Expand to adjacent cluster — demonstrate scalability
+□ Build "JG Mart Family" referral program — network effects
+
+═══════════════════════════════════════════════════════════════════════════════
+WHAT TO MONITOR WEEKLY
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Chaldal app: check if they expand Mohammadpur coverage
+□ Foodpanda/Patha: monitor grocery vertical pricing and delivery zones
+□ JGC WhatsApp groups: watch for new grocery delivery mentions
+□ Krishi Market: track if competitors approach our partner vendors
+□ Customer feedback: listen for "I found cheaper/faster" signals
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Bottom Line: We have a 6-12 month window before city-wide platforms can serve
+JGC efficiently. Execute fast, lock in customers and partners, and build a
+community moat that's harder to replicate than any technology.

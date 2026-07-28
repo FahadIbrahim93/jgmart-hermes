@@ -1,0 +1,150 @@
+JG MART – OPERATIONS PLAYBOOK
+Quick-Reference Guide | Print 1 Page Front / 1 Page Back
+Founder: Fahad Ibrahim | Japan Garden City, Mohammadpur, Dhaka
+
+================================================================================
+PAGE 1 (FRONT) – MORNING ROUTINE + DAILY CHECKLISTS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 06:00 – 08:00 MORNING ROUTINE CHECKLIST                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ □ Unlock hub, power on devices                                             │
+│ □ Check cash float (target BDT 5,000–10,000)                               │
+│ □ Review WhatsApp order queue (last night 5PM–10PM)                        │
+│ □ Send "Good Morning" + stock check to partners P001–P005                  │
+│ □ Confirm partner stock by 06:30; flag shortages                           │
+│ □ Send order batches to partners by 07:00                                  │
+│ □ Rider bike inspection: tires, brakes, fuel/charge, rain gear             │
+│ □ Pack delivery bags: cool bag, dry bag, rain cover                        │
+│ □ Check smartphone: WhatsApp, tracker app, battery > 80%                  │
+│ □ Final order confirmation messages sent to customers by 07:15            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ RIDER DAILY CHECKLIST                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ □ Pre-shift bike check (tires, brakes, chain, lights)                     │
+│ □ Fuel / charge > 50%                                                      │
+│ □ Delivery bags clean, no tears                                             │
+│ □ Cool bag + ice packs ready (for perishables)                              │
+│ □ Rain gear accessible                                                      │
+│ □ Smartphone: WhatsApp active, tracker running, battery charged            │
+│ □ Uniform: JG Mart t-shirt, helmet, ID card                                │
+│ □ Cash float verified by Ops Lead                                           │
+│ □ Collect first batch from assigned partners                                │
+│ □ Verify each order tag before leaving hub                                 │
+│ □ End of day: cash counted in presence of Ops Lead                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ORDER CUTOFF TIMES                                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 10:00 AM  → Same-day delivery 12PM–2PM                                     │
+│  02:00 PM  → Same-day delivery 4PM–6PM                                     │
+│  05:00 PM  → FINAL cutoff (next-day 7AM delivery)                          │
+│                                                                             │
+│  After 5PM: Auto-reply "Closed. Order now for tomorrow 7AM."              │
+│  Minimum order: BDT 300 | Free delivery > BDT 1,000                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ EMERGENCY NUMBERS BLOCK                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Founder (Fahad Ibrahim):  +880 1[XXX-XXXXXX]                             │
+│  Ops Lead:                 +880 1[XXX-XXXXXX]                             │
+│  Backup Rider:             +880 1[XXX-XXXXXX]                             │
+│  Hospital:                 +880 2[XXXXXXX] / [Name]                       │
+│  Police:                   +880 2[XXXXXXX] / 999                           │
+│  Bike Repair:              +880 1[XXX-XXXXXX]                             │
+│  bKash Support:            16247                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+PAGE 2 (BACK) – PARTNERS + COMMON ISSUES
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PARTNER CONTACT SHEET TEMPLATE                                             │
+├──────┬─────────────────────┬────────────────┬──────────────┬───────────────┤
+│  ID  │ Name                │ Phone          │ Category     │ WhatsApp      │
+├──────┼─────────────────────┼────────────────┼──────────────┼───────────────┤
+│ P001 │ [Shop Name]         │ +880 1[XXX]    │ [Dry goods]  │ [Number]      │
+│      │ Contact: [Name]     │                │              │               │
+├──────┼─────────────────────┼────────────────┼──────────────┼───────────────┤
+│ P002 │ [Shop Name]         │ +880 1[XXX]    │ [Vegetables] │ [Number]      │
+│      │ Contact: [Name]     │                │              │               │
+├──────┼─────────────────────┼────────────────┼──────────────┼───────────────┤
+│ P003 │ [Shop Name]         │ +880 1[XXX]    │ [Dairy/Eggs] │ [Number]      │
+│      │ Contact: [Name]     │                │              │               │
+├──────┼─────────────────────┼────────────────┼──────────────┼───────────────┤
+│ P004 │ [Shop Name]         │ +880 1[XXX]    │ [Meat/Fish]  │ [Number]      │
+│      │ Contact: [Name]     │                │              │               │
+├──────┼─────────────────────┼────────────────┼──────────────┼───────────────┤
+│ P005 │ [Shop Name]         │ +880 1[XXX]    │ [Bakery]     │ [Number]      │
+│      │ Contact: [Name]     │                │              │               │
+└──────┴─────────────────────┴────────────────┴──────────────┴───────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SERVICE CLUSTERS                                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Cluster A: JGC Block 1–4 (Gate 1)      Cluster C: JGC Central / Market   │
+│  Cluster B: JGC Block 5–8 (Gate 2)      Cluster D: JGC Block 9–12 + Annex │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ COMMON ISSUES + 1-LINE FIXES                                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISSUE                              │ FIX                                    │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Partner not responding to batch    │ Call directly; if no reply in 10 mins, │
+│                                   │ reallocate order to nearest partner.    │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Customer says "wrong item"         │ Apologize, verify with partner,         │
+│                                   │ redeliver correct item within 1 hour.   │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ bKash payment not received         │ Ask customer for TrxID screenshot;      │
+│                                   │ if missing, refund COD to rider.        │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Customer not home                   │ Call (2 rings), WhatsApp with photo;    │
+│                                   │ return to hub, redeliver next day.      │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Bike puncture mid-route            │ Call Ops Lead for backup rider; if no   │
+│                                   │ backup, push ETA + offer 10% discount.  │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Wrong address / gate               │ Confirm cluster + gate on order sheet;  │
+│                                   │ call customer for landmark if unclear.  │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Perishable item damaged in rain    │ Full refund + replacement coupon;       │
+│                                   │ check rain bag integrity next time.      │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ Cash short on rider count          │ Rider explains variance; if < BDT 500,  │
+│                                   │ write off; if >, investigate + deduct.  │
+├───────────────────────────────────┼────────────────────────────────────────┤
+│ WhatsApp message not delivered      │ Check phone balance + internet;         │
+│                                   │ resend via SMS or call if critical.      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PAYMENT QUICK REFERENCE                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  COD:          Rider collects cash, hands receipt                           │
+│  bKash:        Customer sends to [Merchant Number] OR sends screenshot      │
+│  Advance:      Process before dispatch; confirm TrxID before pickup        │
+│  Refund:       Ops Lead approves, processes same day (COD from float)      │
+│  Receipt:      Pre-printed OR handwritten (Order ID + Amount + Date)       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ KEY METRICS TO WATCH DAILY                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Orders processed: ____   |   Cash collected: BDT ____   | bKash: BDT ____ │
+│  Deliveries completed: ____ / ____ pending                                 │
+│  Customer complaints: ____ (target: 0)                                    │
+│  Partner stock-outs: ____ (target: 0)                                     │
+│  Rider late arrivals: ____ (target: 0)                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+END OF PLAYBOOK
+================================================================================

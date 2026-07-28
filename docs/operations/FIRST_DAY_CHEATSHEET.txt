@@ -1,0 +1,135 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║  JG MART — FIRST 10 MINUTES / FIRST HOUR / FIRST DAY                         ║
+║  Print this. Put it on your wall. Follow it in order.                        ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+═══ FIRST 10 MINUTES (Setup) ═══
+
+□ Open start.html           → Run the Startup Wizard (5 steps, 3 min)
+  • Enter your business info
+  • Set your prices (AOV 800, commission 11%, delivery 30)
+  • Add 1 customer (yourself or a neighbour)
+  • Add 1 partner (any Krishi Market shop)
+  → Your data is now saved in all the right places.
+
+□ Open ops.html             → Operations Dashboard (1 min)
+  • Check that your name and business name appear
+  • Look at the break-even tracker
+  • Click any app link to verify it opens
+
+□ Open field_ops.html       → Mobile Field Ops (30 sec)
+  • Scroll through on your phone
+  • Tap "Open WhatsApp" — does it open your chat?
+  • Check the partner section
+
+═══ FIRST HOUR (First Real Order) ═══
+
+□ Get your first order via WhatsApp
+□ Open 05_Tech_Dashboard/orders.html → Order Tracker (2 min)
+  • Click "New Order" → enter customer details
+  • Select Morning or Evening slot
+  • Set total to what they ordered
+  • Status starts at "Received"
+
+□ Process the order:
+  • Confirm with partner → click "Confirmed"
+  • Pick up from Krishi Market → click "Picked Up"
+  • Deliver to customer → click "Delivered"
+  • Get payment → click "Completed"
+
+□ After delivery:
+  • Open data.html → Data Manager
+  • Add customer permanently (if new)
+  • Add partner permanently (if new)
+  • Click "Export All Data" → save the JSON file
+
+□ Open 05_Tech_Dashboard/dailypnl.html (2 min)
+  • Enter: today's date, total orders, total revenue
+  • See auto-calculated: costs, profit, margin
+  • Check: did you make or lose money today?
+
+═══ FIRST DAY (End of Day) ═══
+
+□ Open 05_Tech_Dashboard/finance.html → Financial Dashboard (2 min)
+  • Enter: date, orders, revenue, costs, new customers
+  • Check cash position — did it go up or down?
+
+□ Open data.html → Export All Data (30 sec)
+  • Click Export → save as jgmart_data_YYYY-MM-DD.json
+  → This is your daily backup. Store it safely.
+
+□ Open 12_Templates/REFERRAL_TRACKER.csv (if you have referrals)
+  • Add any new referrals from today
+
+□ Review the day:
+  • How many orders? _____
+  • How much revenue? ৳_____
+  • Any issues? ________________________________
+  • What will you do better tomorrow? ________________________________
+
+═══ DAILY ROUTINE (Every Day) ═══
+
+Morning (phone):
+  field_ops.html → check status, confirm partners
+
+Throughout day:
+  orders.html → track each order through lifecycle
+  data.html → add new customers and partners
+
+Evening (laptop):
+  dailypnl.html → enter numbers, check profit
+  finance.html → update cash position
+  data.html → Export All Data (backup!)
+
+═══ THE 3 METRICS THAT MATTER ═══
+
+1. ORDERS TODAY     → Target: 3 (Week 1) → 10 (Month 1) → 30 (Month 3)
+2. REVENUE TODAY    → ৳414 (3 orders × 138) → ৳1,380 (10 orders) → ৳4,140 (30 orders)
+3. CASH POSITION    → Start at 250,000. If it drops below 200K, you're burning too fast.
+
+═══ QUICK APP REFERENCE ═══
+
+┌──────────────────────────┬────────────────────────────────────────────┐
+│ Open this                │ When to use it                             │
+├──────────────────────────┼────────────────────────────────────────────┤
+│ start.html               │ First time only — setup wizard             │
+│ ops.html                 │ Every morning — quick overview             │
+│ field_ops.html           │ On your phone — at Krishi Market           │
+│ data.html                │ Add customers/partners + backup            │
+│ 05/orders.html           │ Track every order lifecycle               │
+│ 05/dailypnl.html         │ Evening — enter today's numbers            │
+│ 05/finance.html          │ Evening — check P&L and cash              │
+│ 06/index.html            │ Share with customers — product catalog    │
+│ 06/order_intake.html     │ Calculate order totals for customers      │
+│ 12/supplier_scorecard.html│ Rate partner performance weekly          │
+│ 05/commlog.html          │ Log every customer interaction            │
+└──────────────────────────┴────────────────────────────────────────────┘
+
+═══ WHEN THINGS GO WRONG ═══
+
+Phone banned / WhatsApp down:
+  → See 11/DAY1_EMERGENCY_KIT.txt
+  → Use backup SIM
+  → Process orders offline (paper form in the kit)
+
+Can't remember what to do:
+  → Open ops.html → click any app
+  → Open READY_TO_LAUNCH.txt
+  → Open BUSINESS_CONTINUITY_KIT.txt
+
+Data lost / browser cleared:
+  → Import your last exported JSON file
+  → Open data.html → click Import → select your backup file
+  → All customers, partners, and settings restored
+
+═══ REMEMBER ═══
+
+"You don't need to master all 13 apps on Day 1.
+You need 3 things:
+  1. A customer who orders
+  2. A partner who supplies
+  3. A delivery that arrives on time
+
+Everything else is optimization. Start with the 3. Add the rest later."
+
+═══ PRINT THIS. KEEP IT ON YOUR DESK. ═══

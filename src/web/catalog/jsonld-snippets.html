@@ -1,0 +1,145 @@
+<!-- ============================================================
+     JSON-LD STRUCTURED DATA — JG Mart
+     Hyperlocal Grocery Delivery | Japan Garden City, Mohammadpur, Dhaka
+     Include these <script> blocks inside the <head> (or <body>) of
+     each HTML page as indicated.
+     ============================================================ -->
+
+<!-- ------------------------------------------
+     1. ORGANIZATION — include on every page
+     ------------------------------------------ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "JG Mart",
+  "url": "https://jgmart.bd",
+  "logo": "https://jgmart.bd/favicon.svg",
+  "description": "Hyperlocal grocery delivery in Japan Garden City, Mohammadpur, Dhaka. Fresh produce, daily essentials, and household staples delivered to your door.",
+  "telephone": "+8801870489448",
+  "areaServed": {
+    "@type": "City",
+    "name": "Dhaka",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Japan Garden City, Mohammadpur",
+      "addressRegion": "Dhaka",
+      "addressCountry": "BD"
+    }
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+8801870489448",
+    "contactType": "customer service",
+    "availableLanguage": ["en", "bn"]
+  },
+  "sameAs": [
+    "https://wa.me/8801870489448"
+  ]
+}
+</script>
+
+<!-- ------------------------------------------
+     2. LOCAL BUSINESS — include on index.html
+        and landing.html
+     ------------------------------------------ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "JG Mart",
+  "image": "https://jgmart.bd/favicon.svg",
+  "url": "https://jgmart.bd",
+  "telephone": "+8801870489448",
+  "description": "Hyperlocal grocery delivery in Japan Garden City, Mohammadpur, Dhaka. Fresh produce, daily essentials, and household staples delivered to your door.",
+  "priceRange": "৳",
+  "areaServed": {
+    "@type": "City",
+    "name": "Dhaka",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Japan Garden City, Mohammadpur",
+      "addressRegion": "Dhaka",
+      "addressCountry": "BD"
+    }
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Japan Garden City, Mohammadpur",
+    "addressRegion": "Dhaka",
+    "addressCountry": "BD"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "09:00",
+      "closes": "21:00"
+    }
+  ],
+  "sameAs": [
+    "https://wa.me/8801870489448"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Grocery Products",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Fresh Produce",
+          "description": "Fresh fruits and vegetables sourced daily"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Daily Essentials",
+          "description": "Rice, oil, spices, and household staples"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- ------------------------------------------
+     3. PRODUCT (Placeholder) — include on
+        catalog/product pages for individual items.
+        Replace values per product.
+     ------------------------------------------ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "PRODUCT_NAME_HERE",
+  "image": "https://jgmart.bd/images/PRODUCT_IMAGE_HERE",
+  "description": "PRODUCT_DESCRIPTION_HERE",
+  "sku": "SKU_HERE",
+  "brand": {
+    "@type": "Brand",
+    "name": "JG Mart"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://jgmart.bd/",
+    "priceCurrency": "BDT",
+    "price": "PRICE_HERE",
+    "priceValidUntil": "2027-12-31",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "JG Mart"
+    }
+  }
+}
+</script>

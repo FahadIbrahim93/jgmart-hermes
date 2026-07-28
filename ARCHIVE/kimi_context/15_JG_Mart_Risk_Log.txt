@@ -1,0 +1,188 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    JG MART — RISK MANAGEMENT LOG                              ║
+║                         Live Document — Update Weekly                         ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════════
+RISK REGISTER
+═══════════════════════════════════════════════════════════════════════════════
+
+RISK ID: R001
+Risk: Partner fails to deliver / runs out of stock
+Likelihood: MEDIUM    Impact: HIGH    Score: 8/10
+Mitigation:
+  • Maintain 2 backup partners per category
+  • Daily availability check at 6:30 AM
+  • Penalty clause: 200 BDT per missed order
+  • Emergency sourcing from market directly
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R002
+Risk: Rider quits / gets injured / unavailable
+Likelihood: LOW    Impact: HIGH    Score: 6/10
+Mitigation:
+  • Primary rider (brother) + backup rider on retainer
+  • Backup rider: 200 BDT/day retainer, 20 BDT/order
+  • Emergency: Direct partner delivery (+30 BDT)
+  • Manager delivers critical orders if needed
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R003
+Risk: Low customer adoption / slow growth
+Likelihood: MEDIUM    Impact: HIGH    Score: 7/10
+Mitigation:
+  • Free delivery Month 1
+  • Block-by-block launch strategy
+  • Building committee endorsements
+  • Referral program (100 BDT each)
+  • Beta test with friends to create social proof
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R004
+Risk: Flat Owners Committee blocks service
+Likelihood: MEDIUM    Impact: CRITICAL    Score: 9/10
+Mitigation:
+  • Register as "resident service" not commercial
+  • Get informal approval from building committees
+  • Offer 5-10% discount to committee members
+  • Position as community benefit, not profit-driven
+  • Maintain clean, professional operations
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R005
+Risk: Chaldal or big player enters Mohammadpur
+Likelihood: LOW    Impact: HIGH    Score: 5/10
+Mitigation:
+  • Lock in customers with subscription model
+  • Build deep community relationships
+  • Maintain price advantage (no warehouse cost)
+  • Focus on speed (2-hour vs. their 3-5 hour)
+  • Create switching costs (subscriptions, loyalty)
+Owner: Founder
+Status: MONITORING    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R006
+Risk: Price fluctuation at Krishi Market
+Likelihood: HIGH    Impact: MEDIUM    Score: 6/10
+Mitigation:
+  • Daily price update via WhatsApp at 7 AM
+  • "Market rate + X%" pricing model
+  • Buffer margin in commission structure
+  • Transparent communication with customers
+  • Weekly price review with partners
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R007
+Risk: Cash flow issues / late payments
+Likelihood: MEDIUM    Impact: HIGH    Score: 7/10
+Mitigation:
+  • COD + bKash = immediate cash inflow
+  • Weekly partner payments (not monthly)
+  • Keep 50,000 BDT working capital buffer
+  • Track daily cash position
+  • Minimize credit to partners
+Owner: Founder
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R008
+Risk: Food safety incident / customer gets sick
+Likelihood: LOW    Impact: CRITICAL    Score: 8/10
+Mitigation:
+  • Quality check at pickup (rider inspects)
+  • Quality check at sorting (manager verifies)
+  • Partner reliability scoring
+  • Immediate recall protocol
+  • Medical expense coverage offer
+  • Document everything
+Owner: Founder + Rider
+Status: ACTIVE    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R009
+Risk: Monsoon / weather delays (June-September)
+Likelihood: HIGH    Impact: MEDIUM    Score: 6/10
+Mitigation:
+  • Rain gear for rider (poncho, waterproof bags)
+  • Add 30-min buffer to delivery promise in monsoon
+  • WhatsApp status update for weather delays
+  • Full refund + credit for weather cancellations
+  • Pre-position extra stock at hub before storms
+Owner: Founder + Rider
+Status: SEASONAL    Last Updated: [DATE]
+
+───────────────────────────────────────────────────────────────────────────────
+
+RISK ID: R010
+Risk: WhatsApp Business account banned / limited
+Likelihood: LOW    Impact: HIGH    Score: 5/10
+Mitigation:
+  • Follow WhatsApp Business API guidelines
+  • Don't spam — only respond to inbound messages
+  • Keep message frequency reasonable
+  • Have backup phone number ready
+  • Maintain customer phone list independently
+Owner: Founder
+Status: MONITORING    Last Updated: [DATE]
+
+═══════════════════════════════════════════════════════════════════════════════
+INCIDENT LOG (Update as incidents occur)
+═══════════════════════════════════════════════════════════════════════════════
+
+Date: ___________    Risk ID: ___________    Severity: _____
+Incident Description:
+_______________________________________________________________________________
+
+Immediate Action Taken:
+_______________________________________________________________________________
+
+Resolution:
+_______________________________________________________________________________
+
+Lessons Learned:
+_______________________________________________________________________________
+
+Follow-up Required:
+_______________________________________________________________________________
+
+Owner: ___________    Status: _____    Closed Date: ___________
+
+───────────────────────────────────────────────────────────────────────────────
+
+Date: ___________    Risk ID: ___________    Severity: _____
+Incident Description:
+_______________________________________________________________________________
+
+Immediate Action Taken:
+_______________________________________________________________________________
+
+Resolution:
+_______________________________________________________________________________
+
+Lessons Learned:
+_______________________________________________________________________________
+
+Follow-up Required:
+_______________________________________________________________________________
+
+Owner: ___________    Status: _____    Closed Date: ___________
