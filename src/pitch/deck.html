@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Investor Pitch</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:#0a0f0c;color:#fff;display:flex;flex-direction:column}
+.slides{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;padding:32px 24px;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateX(40px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.slide.prev{transform:translateX(-40px)}
+.slide h1{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:16px;letter-spacing:-.02em}
+.slide h2{font-size:clamp(1.2rem,3.5vw,2rem);font-weight:800;color:#c9a227;margin-bottom:12px}
+.slide h3{font-size:clamp(.9rem,2.5vw,1.2rem);font-weight:700;color:#c9a227;margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.slide p{font-size:clamp(.85rem,2vw,1.05rem);line-height:1.6;color:rgba(255,255,255,.85);max-width:700px}
+.slide ul{list-style:none;padding:0;max-width:700px}
+.slide li{padding:6px 0;font-size:clamp(.85rem,2vw,1.05rem);color:rgba(255,255,255,.85);display:flex;align-items:flex-start;gap:10px}
+.slide li::before{content:'▸';color:#c9a227;font-weight:700;flex-shrink:0;margin-top:2px}
+.slide .big{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#c9a227;line-height:1;margin:8px 0}
+.slide .medium{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:700;color:#fff;margin:6px 0}
+.slide .accent-box{background:linear-gradient(135deg,#00442D,#0a6b47);border:1px solid rgba(201,162,39,.3);border-radius:16px;padding:24px;margin:16px 0;max-width:700px}
+.slide .gold-box{background:linear-gradient(135deg,#c9a227,#8b6914);border-radius:12px;padding:20px 24px;margin:12px 0;color:#0a0f0c;font-weight:700}
+.slide .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px}
+.slide .stat{text-align:center;padding:16px;background:rgba(255,255,255,.05);border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.slide .stat .num{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;color:#c9a227}
+.slide .stat .lbl{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+
+.nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;background:rgba(0,0,0,.4);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
+.nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .15s}
+.nav button:hover:not(:disabled){background:rgba(255,255,255,.2)}
+.nav button:disabled{opacity:.3;cursor:not-allowed}
+.nav .dots{display:flex;gap:6px}
+.nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .2s}
+.nav .dot.active{background:#c9a227;transform:scale(1.3)}
+.nav .slide-num{font-size:.75rem;color:rgba(255,255,255,.5);font-weight:500;min-width:40px;text-align:center}
+
+.brand{position:absolute;top:16px;left:20px;font-size:.7rem;color:rgba(255,255,255,.3);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+
+@media print{
+body{background:#fff;color:#000;overflow:visible;height:auto}
+.slide{position:relative;opacity:1!important;transform:none!important;page-break-after:always;padding:40px;min-height:100vh;display:flex!important;flex-direction:column;justify-content:center}
+.nav{display:none!important}
+.brand{color:#666}
+.slide h1,.slide h2,.slide h3{color:#00442D!important}
+.slide .big,.slide .num{color:#00442D!important}
+.slide .gold-box{background:#f5f0e0!important;color:#000!important;border:2px solid #00442D}
+.slide li::before{color:#00442D!important}
+*{color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="brand">JG Mart — Confidential</div>
+
+<div class="slides">
+
+<!-- SLIDE 1: Title -->
+<div class="slide active">
+<div style="max-width:700px">
+<h1 style="font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:.95;margin-bottom:12px">JG <span style="color:#c9a227">Mart</span></h1>
+<p style="font-size:clamp(1rem,3vw,1.5rem);font-weight:600;color:rgba(255,255,255,.9);margin-bottom:8px">Fresh Groceries from Krishi Market</p>
+<p style="font-size:clamp(.9rem,2.5vw,1.1rem);color:rgba(255,255,255,.6)">Delivered to Japan Garden City, Mohammadpur, Dhaka</p>
+<div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+<span style="background:rgba(201,162,39,.15);color:#c9a227;padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600">Seed Round</span>
+<span style="background:rgba(0,68,45,.4);color:#fff;padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600">250K BDT Ask</span>
+<span style="background:rgba(255,255,255,.08);color:#fff;padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600">15% Equity</span>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 2: Problem -->
+<div class="slide">
+<h2>The Problem</h2>
+<p style="margin-bottom:16px">1.7 million families in Dhaka pay retail prices for vegetables that cost 30% less at wholesale. The gap isn't supply — it's logistics.</p>
+<div class="accent-box">
+<h3 style="margin-bottom:12px">Every morning, 1,700 families in JGC face the same choice:</h3>
+<ul>
+<li>Wake up at 6AM, haggle at the market, carry heavy bags up 4 flights of stairs</li>
+<li>Pay 30-50% markup at the local retail shop</li>
+<li>Order online, wait 2-3 days, get wilted produce delivered by strangers</li>
+<li>Skip fresh vegetables and survive on packaged food</li>
+</ul>
+</div>
+<p style="margin-top:12px"><strong>Nobody offers wholesale prices + same-day delivery + personal trust.</strong></p>
+</div>
+
+<!-- SLIDE 3: Solution -->
+<div class="slide">
+<h2>The Solution</h2>
+<p style="margin-bottom:20px">JG Mart is the hyperlocal grocery delivery service built specifically for gated apartment communities.</p>
+<div class="two-col">
+<div class="accent-box">
+<h3>🥬 Fresh Produce</h3>
+<p>Sourced daily from Krishi Market, 800m from JGC. Same quality, wholesale prices.</p>
+</div>
+<div class="accent-box">
+<h3>🚚 Same-Day Delivery</h3>
+<p>Morning slot: order by 9AM → delivered by 12PM. Evening slot: order by 3:30PM → delivered by 8PM.</p>
+</div>
+<div class="accent-box">
+<h3>💰 No Hidden Costs</h3>
+<p>Free delivery for 13 buildings. ৳20 for 7 buildings. ৳30 for 7 buildings. No surge pricing.</p>
+</div>
+<div class="accent-box">
+<h3>📱 WhatsApp Ordering</h3>
+<p>No app download needed. Order via WhatsApp in 30 seconds. Everyone already has it.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 4: Market -->
+<div class="slide">
+<h2>Market Opportunity</h2>
+<div class="two-col" style="margin-bottom:16px">
+<div class="stat"><div class="num">1,700</div><div class="lbl">Families in JGC</div></div>
+<div class="stat"><div class="num">27</div><div class="lbl">Buildings</div></div>
+<div class="stat"><div class="num">4</div><div class="lbl">Delivery Clusters</div></div>
+<div class="stat"><div class="num">800m</div><div class="lbl">From Krishi Market</div></div>
+</div>
+<div class="accent-box">
+<h3 style="margin-bottom:8px">Dhaka Context</h3>
+<p style="margin-bottom:8px">Dhaka has 10,000+ apartment compounds. JGC is one of the largest — 1,700 families, 27 buildings, 4 distinct clusters. This is our beachhead.</p>
+<p>If we prove unit economics here, the playbook works for Gulshan, Banani, Dhanmondi, Uttara.</p>
+</div>
+<div class="gold-box">Total Addressable Market in JGC: ৳16.3M/year at current penetration</div>
+</div>
+
+<!-- SLIDE 5: Business Model -->
+<div class="slide">
+<h2>Business Model</h2>
+<div class="two-col" style="margin-bottom:16px">
+<div class="accent-box">
+<h3>Revenue Streams</h3>
+<ul>
+<li>Product markup (wholesale → retail)</li>
+<li>Delivery fees (৳0-30 per order)</li>
+<li>Subscription model (৳20/month unlimited)</li>
+</ul>
+</div>
+<div class="accent-box">
+<h3>Unit Economics</h3>
+<p>AOV: ৳800<br>Contribution margin: 51%<br>Delivery cost: ৳40<br>Net per order: ৳368</p>
+</div>
+</div>
+<div class="accent-box">
+<h3 style="margin-bottom:8px">Why This Works</h3>
+<p>We cut out 2 middlemen (retail markup + delivery markup). Customers save 30-40%. We keep 51% margin. Everyone wins.</p>
+</div>
+</div>
+
+<!-- SLIDE 6: Traction -->
+<div class="slide">
+<h2>Traction & Milestones</h2>
+<div class="two-col" style="margin-bottom:16px">
+<div class="stat"><div class="num">65</div><div class="lbl">Products in Catalog</div></div>
+<div class="stat"><div class="num">10</div><div class="lbl">Categories</div></div>
+<div class="stat"><div class="num">50</div><div class="lbl">Local Product Images</div></div>
+<div class="stat"><div class="num">11</div><div class="lbl">Category SVGs</div></div>
+</div>
+<div class="accent-box">
+<h3 style="margin-bottom:12px">What's Built</h3>
+<ul>
+<li>Full-stack catalog website with cart, checkout, order tracking</li>
+<li>Admin panel with product management, order tracking, CSV export</li>
+<li>WhatsApp integration for zero-friction ordering</li>
+<li>Bengali/English bilingual support</li>
+<li>PWA installable on mobile home screens</li>
+<li>Delivery manifest for rider operations</li>
+<li>Order status tracking for customers</li>
+</ul>
+</div>
+</div>
+
+<!-- SLIDE 7: Competition -->
+<div class="slide">
+<h2>Competitive Landscape</h2>
+<div class="accent-box" style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:.8rem">
+<tr style="border-bottom:1px solid rgba(255,255,255,.1)"><th style="text-align:left;padding:8px;color:#c9a227">Competitor</th><th style="padding:8px;color:#c9a227">Delivery Fee</th><th style="padding:8px;color:#c9a227">Sourcing</th><th style="padding:8px;color:#c9a227">Our Edge</th></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)"><td style="padding:8px">Chaldal</td><td style="padding:8px;text-align:center">৳40-60</td><td style="padding:8px;text-align:center">Imported/retail</td><td style="padding:8px;color:#c9a227">50% cheaper</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)"><td style="padding:8px">Shwapno</td><td style="padding:8px;text-align:center">৳30-50</td><td style="padding:8px;text-align:center">Retail chain</td><td style="padding:8px;color:#c9a227">Wholesale prices</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)"><td style="padding:8px">Daraz Mart</td><td style="padding:8px;text-align:center">৳39+</td><td style="padding:8px;text-align:center">Marketplace</td><td style="padding:8px;color:#c9a227">Same-day fresh</td></tr>
+<tr><td style="padding:8px">Local vendors</td><td style="padding:8px;text-align:center">None</td><td style="padding:8px;text-align:center">Retail</td><td style="padding:8px;color:#c9a227">Digital ordering</td></tr>
+</table>
+</div>
+<div class="gold-box">Our moat: 800m from Krishi Market = structural sourcing advantage no competitor can replicate at this density.</div>
+</div>
+
+<!-- SLIDE 8: Go-to-Market -->
+<div class="slide">
+<h2>Go-to-Market Strategy</h2>
+<div class="accent-box" style="margin-bottom:12px">
+<h3 style="margin-bottom:12px">Phase 1: JGC Dominance (Months 1-3)</h3>
+<ul>
+<li>Flyer distribution to all 27 buildings</li>
+<li>WhatsApp broadcast to building groups</li>
+<li>Free delivery week to drive trial</li>
+<li>Referral program: ৳50 off for each new customer</li>
+</ul>
+</div>
+<div class="accent-box" style="margin-bottom:12px">
+<h3 style="margin-bottom:12px">Phase 2: Compound Expansion (Months 4-6)</h3>
+<ul>
+<li>Replicate playbook to 3-5 nearby compounds</li>
+<li>Partner with 2-3 building committees</li>
+<li>Hire 2-3 dedicated riders</li>
+</ul>
+</div>
+<div class="accent-box">
+<h3 style="margin-bottom:12px">Phase 3: Platform Play (Months 7-12)</h3>
+<ul>
+<li>Open marketplace for other vendors</li>
+<li>Subscription model launch</li>
+<li>Data-driven inventory optimization</li>
+</ul>
+</div>
+</div>
+
+<!-- SLIDE 9: Team -->
+<div class="slide">
+<h2>Team</h2>
+<div class="two-col">
+<div class="accent-box">
+<h3>Fahad Ibrahim</h3>
+<p style="font-size:.85rem;color:rgba(255,255,255,.7)">Founder & CEO</p>
+<p>Solo dev/entrepreneur. 6 ventures (CODE, CRYPTO, MARJAHANS, SNAPTRAP, BUILD, PHILO). Built the entire JG Mart platform solo — website, admin panel, operations tools. Lives in JGC.</p>
+</div>
+<div class="accent-box">
+<h3>Operations Partner</h3>
+<p style="font-size:.85rem;color:rgba(255,255,255,.7)">Krishi Market Sourcing</p>
+<p>Established vendor relationships at Krishi Market. 5+ years of wholesale produce experience. Ensures consistent quality and pricing.</p>
+</div>
+</div>
+<div class="accent-box" style="margin-top:16px">
+<h3 style="margin-bottom:8px">Why Us</h3>
+<p>We're not a Silicon Valley team building a grocery app. We're a JGC resident building a logistics solution for his own neighborhood. That means we eat our own dog food, we know the customers, and we care about quality.</p>
+</div>
+</div>
+
+<!-- SLIDE 10: Financials -->
+<div class="slide">
+<h2>Financial Projections</h2>
+<div class="two-col" style="margin-bottom:16px">
+<div class="accent-box">
+<h3>Month 6 Projections</h3>
+<p>Active customers: 1,000<br>Orders/month: 4,000<br>GMV: ৳3.2M<br>Revenue: ৳368K<br>Net: ৳184K</p>
+</div>
+<div class="accent-box">
+<h3>Use of Funds (250K BDT)</h3>
+<p>Technology: 50K (20%)<br>Marketing: 75K (30%)<br>Working capital: 75K (30%)<br>Operations: 50K (20%)</p>
+</div>
+</div>
+<div class="gold-box">Runway: 6 months to profitability. Break-even: Month 5.</div>
+</div>
+
+<!-- SLIDE 11: Ask -->
+<div class="slide">
+<h2>The Ask</h2>
+<div class="accent-box" style="text-align:center;padding:40px 24px">
+<h1 style="font-size:clamp(2rem,6vw,3.5rem);color:#c9a227;margin-bottom:8px">৳250,000</h1>
+<p style="font-size:clamp(.9rem,2.5vw,1.2rem);margin-bottom:16px">Seed Capital for 15% Equity</p>
+<p style="font-size:.85rem;color:rgba(255,255,255,.7)">Valuation: ৳1.67M BDT pre-money</p>
+</div>
+<div class="two-col" style="margin-top:16px">
+<div class="accent-box">
+<h3>What You Get</h3>
+<ul>
+<li>15% equity in a profitable micro-business</li>
+<li>Board seat / quarterly updates</li>
+<li>First-look at Series A (6 months)</li>
+<li>Direct line to founder (WhatsApp)</li>
+</ul>
+</div>
+<div class="accent-box">
+<h3>Milestones for Next Round</h3>
+<ul>
+<li>1,000 active customers (Month 6)</li>
+<li>৳3.2M GMV (Month 6)</li>
+<li>Positive unit economics proven</li>
+<li>Expansion playbook documented</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 12: Vision -->
+<div class="slide">
+<h2>Vision</h2>
+<div class="accent-box" style="margin-bottom:16px">
+<p style="font-size:clamp(1.1rem,3vw,1.5rem);font-weight:600;color:#fff;margin-bottom:12px">"Dhaka has 10,000+ apartment compounds like JGC. If we nail this one, the playbook works everywhere."</p>
+<p>We're not building a grocery store — we're building the last-mile infrastructure for fresh food in Bangladesh.</p>
+</div>
+<div class="two-col">
+<div class="stat"><div class="num">10K+</div><div class="lbl">Apartment compounds in Dhaka</div></div>
+<div class="stat"><div class="num">5M+</div><div class="lbl">Potential customers</div></div>
+</div>
+<div style="margin-top:24px;text-align:center">
+<p style="font-size:1.1rem;font-weight:700;color:#c9a227">Let's build JG Mart together.</p>
+<p style="font-size:.9rem;color:rgba(255,255,255,.6)">Contact: fhdib — WhatsApp: +8801870489448</p>
+</div>
+</div>
+
+</div>
+
+<div class="nav">
+<button id="prevBtn" onclick="changeSlide(-1)">← Prev</button>
+<div class="dots" id="dots"></div>
+<div class="slide-num" id="slideNum">1 / 12</div>
+<button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+<button onclick="window.print()" style="background:#c9a227;color:#0a0f0c;border:none;font-weight:700">🖨️ PDF</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+const numEl=document.getElementById('slideNum');
+let cur=0;
+const total=slides.length;
+
+slides.forEach((_,i)=>{
+const d=document.createElement('div');
+d.className='dot'+(i===0?' active':'');
+d.onclick=()=>goTo(i);
+dotsEl.appendChild(d);
+});
+
+function goTo(n){
+if(n<0||n>=total)return;
+slides[cur].classList.remove('active');
+slides[cur].classList.add(n>cur?'prev':'');
+cur=n;
+slides.forEach((s,i)=>{
+s.classList.remove('prev');
+if(i<cur)s.classList.add('prev');
+});
+slides[cur].classList.add('active');
+document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+numEl.textContent=`${cur+1} / ${total}`;
+document.getElementById('prevBtn').disabled=cur===0;
+document.getElementById('nextBtn').disabled=cur===total-1;
+}
+
+function changeSlide(d){goTo(cur+d)}
+document.addEventListener('keydown',e=>{
+if(e.key==='ArrowRight'||e.key===' ')changeSlide(1);
+if(e.key==='ArrowLeft')changeSlide(-1);
+if(e.key==='Home')goTo(0);
+if(e.key==='End')goTo(total-1);
+});
+goTo(0);
+</script>
+</body>
+</html>
