@@ -1,0 +1,90 @@
+{
+  "categories": [
+    { "id": "rice", "name": "Rice & Dal", "icon": "🍚", "color": "#b45309" },
+    { "id": "oil", "name": "Oil & Spices", "icon": "🧂", "color": "#92400e" },
+    { "id": "veggies", "name": "Vegetables", "icon": "🥬", "color": "#16a34a" },
+    { "id": "fishmeat", "name": "Fish & Meat", "icon": "🐟", "color": "#dc2626" },
+    { "id": "dairy", "name": "Dairy & Eggs", "icon": "🥛", "color": "#2563eb" },
+    { "id": "fruits", "name": "Fruits", "icon": "🍎", "color": "#d97706" },
+    { "id": "fmcg", "name": "FMCG", "icon": "🧴", "color": "#7c3aed" }
+  ],
+  "items": {
+    "rice": [
+      { "name": "Miniket Rice", "unit": "/kg", "price": 62 },
+      { "name": "Nazirshail Rice", "unit": "/kg", "price": 52 },
+      { "name": "Moog Dal (Yellow)", "unit": "/500g", "price": 85 },
+      { "name": "Masoor Dal (Red)", "unit": "/500g", "price": 55 },
+      { "name": "Chola / Chickpeas", "unit": "/500g", "price": 70 },
+      { "name": "Bashmoti Rice", "unit": "/kg", "price": 130 }
+    ],
+    "oil": [
+      { "name": "Soybean Oil", "unit": "/1L", "price": 168 },
+      { "name": "Mustard Oil", "unit": "/1L", "price": 195 },
+      { "name": "Iodised Salt", "unit": "/1kg", "price": 30 },
+      { "name": "Turmeric Powder", "unit": "/100g", "price": 40 },
+      { "name": "Chilli Powder", "unit": "/100g", "price": 50 },
+      { "name": "Cumin (Jeera)", "unit": "/100g", "price": 65 },
+      { "name": "Sugar (White)", "unit": "/1kg", "price": 130 },
+      { "name": "Tea (Shaan/Taza)", "unit": "/200g", "price": 120 }
+    ],
+    "veggies": [
+      { "name": "Potato", "unit": "/kg", "price": 35 },
+      { "name": "Onion (Local)", "unit": "/kg", "price": 55 },
+      { "name": "Tomato", "unit": "/kg", "price": 80 },
+      { "name": "Eggplant (Begun)", "unit": "/kg", "price": 50 },
+      { "name": "Cauliflower (Fulkopi)", "unit": "/pc", "price": 45 },
+      { "name": "Cabbage (Badhakopi)", "unit": "/pc", "price": 35 },
+      { "name": "Green Chilli", "unit": "/100g", "price": 20 },
+      { "name": "Coriander Leaves", "unit": "/bunch", "price": 10 },
+      { "name": "Pumpkin (Misti Kumra)", "unit": "/kg", "price": 30 },
+      { "name": "Okra (Dherosh)", "unit": "/kg", "price": 45 },
+      { "name": "Beans (Barboti)", "unit": "/kg", "price": 60 },
+      { "name": "Cucumber (Shosha)", "unit": "/pc", "price": 20 },
+      { "name": "Carrot (Gajor)", "unit": "/kg", "price": 50 },
+      { "name": "Lemon (Lebu)", "unit": "/pc", "price": 8 },
+      { "name": "Ginger (Ada)", "unit": "/200g", "price": 30 },
+      { "name": "Garlic (Rosun)", "unit": "/200g", "price": 25 }
+    ],
+    "fishmeat": [
+      { "name": "Chicken (Broiler)", "unit": "/kg", "price": 185 },
+      { "name": "Chicken (Sonali)", "unit": "/kg", "price": 280 },
+      { "name": "Beef (Local)", "unit": "/kg", "price": 700 },
+      { "name": "Beef (Indian)", "unit": "/kg", "price": 650 },
+      { "name": "Rui Fish", "unit": "/kg", "price": 280 },
+      { "name": "Tilapia (Tilapia)", "unit": "/kg", "price": 200 },
+      { "name": "Shrimp (Chingri)", "unit": "/kg", "price": 530 },
+      { "name": "Pabda Fish", "unit": "/kg", "price": 350 },
+      { "name": "Eggs (Deshi)", "unit": "/dozen", "price": 145 }
+    ],
+    "dairy": [
+      { "name": "Milk (Pasteurised)", "unit": "/1L", "price": 100 },
+      { "name": "Yogurt (Doi)", "unit": "/500g", "price": 80 },
+      { "name": "Butter (Dairy)", "unit": "/500g", "price": 210 },
+      { "name": "Mozzarella Cheese", "unit": "/200g", "price": 150 },
+      { "name": "Ghee (Pure)", "unit": "/500g", "price": 380 },
+      { "name": "Evaporated Milk", "unit": "/400g", "price": 100 }
+    ],
+    "fruits": [
+      { "name": "Banana (Sagor Kola)", "unit": "/dozen", "price": 60 },
+      { "name": "Apple (Red)", "unit": "/kg", "price": 210 },
+      { "name": "Orange (Malta)", "unit": "/kg", "price": 180 },
+      { "name": "Mango (Haribhanga)", "unit": "/kg", "price": 120 },
+      { "name": "Grapes (Black)", "unit": "/kg", "price": 260 },
+      { "name": "Watermelon (Tormuj)", "unit": "/pc", "price": 100 },
+      { "name": "Papaya (Pepe)", "unit": "/kg", "price": 40 },
+      { "name": "Guava (Peyara)", "unit": "/kg", "price": 50 }
+    ],
+    "fmcg": [
+      { "name": "Toilet Soap (Tibet)", "unit": "/pc", "price": 35 },
+      { "name": "Shampoo Sachet", "unit": "/pc", "price": 5 },
+      { "name": "Toothpaste (Dabur)", "unit": "/100g", "price": 85 },
+      { "name": "Detergent (Wheel)", "unit": "/500g", "price": 60 },
+      { "name": "Cooking Oil (5L)", "unit": "/5L", "price": 810 },
+      { "name": "Biscuits (Gluco)", "unit": "/pack", "price": 25 },
+      { "name": "Instant Noodles", "unit": "/pack", "price": 20 },
+      { "name": "Soft Drink (Coke)", "unit": "/500mL", "price": 35 },
+      { "name": "Cooking Soda", "unit": "/pack", "price": 15 },
+      { "name": "Battery (AA)", "unit": "/4pcs", "price": 80 }
+    ]
+  }
+}

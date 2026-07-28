@@ -186,7 +186,16 @@ INSERT INTO public.profiles (
 
 ## 6. Update App Configuration
 
-### Step 1: Update Supabase Config
+### Option A: Via In-App UI (Recommended)
+
+1. Open the admin panel (`admin.html`) or any dashboard page
+2. Go to the **Settings** tab
+3. Find the **🔌 Supabase Connection** card
+4. Paste your **Project URL** and **Anon Key** from Step 2.3
+5. Click **💾 Save Connection** → the page reloads
+6. Done. No code edits needed.
+
+### Option B: Via config.js (Legacy)
 
 Edit `src/web/supabase/config.js`:
 
@@ -197,15 +206,16 @@ export const SUPABASE_ANON_KEY = 'eyJhbGc...';
 
 Replace with your actual values from Step 2.3.
 
-### Step 2: Enable Database Mode
+### Option C: Via localStorage (Dev)
 
-In `src/web/catalog/db.js`, ensure:
+Open browser DevTools Console and run:
 
 ```javascript
-const USE_SUPABASE = true;
+localStorage.setItem('jgmart_supabase_url', 'https://xxxxxxxxxxxxx.supabase.co');
+localStorage.setItem('jgmart_supabase_anon_key', 'eyJhbGc...');
 ```
 
-### Step 3: Deploy
+### Then Deploy
 
 ```bash
 git add .

@@ -6,12 +6,13 @@ This repository contains the complete technical, business, and operational found
 
 ## Status
 
-> **Production-ready admin system with Supabase backend.** See `docs/SUPABASE_SETUP.md` for setup.
+> **✅ All 37 HTML pages pass validation. Supabase Auth integrated. Zero hardcoded credentials.**
 
 - **Stage:** Pre-seed / Pilot
 - **License:** MIT
 - **Stack:** Vanilla HTML/JS frontend, Supabase backend (PostgreSQL + Auth)
-- **Live:** https://jg-mart.vercel.app (catalog), deploy `src/web/admin-new/` for admin
+- **Catalog:** https://jg-mart.vercel.app
+- **Validation:** `python tests/validate_toolkit.py` — 37/37 HTML ✅, 12/12 Python ✅
 
 ## Quick Start
 
@@ -20,37 +21,58 @@ This repository contains the complete technical, business, and operational found
 git clone https://github.com/FahadIbrahim93/jgmart-hermes.git
 cd jgmart-hermes
 
-# Install Python deps
-pip install -r requirements.txt  # when available
+# Install Python deps (optional — only for validation scripts)
+pip install -r requirements.txt
 
-# Run validation toolkit
+# Run validation toolkit (verifies all HTML, Python, cross-references)
 python tests/validate_toolkit.py
+
+# Serve locally
+cd src/web/catalog && python -m http.server 8080
+cd src/web/dashboard && python -m http.server 8081
 ```
 
-## Authentication & Admin
+## Authentication
 
-The admin panel uses **Supabase authentication** with email/password.
+All admin and dashboard pages use **Supabase Auth** with email/password.
 
-### Setup
+### Quick Setup (2 ways)
 
-1. Create Supabase project: https://supabase.com
-2. Run `src/web/supabase/schema.sql` in Supabase SQL Editor
-3. Run `src/web/supabase/seed.sql` to seed categories and products
-4. Update `src/web/supabase/config.js` with your Supabase URL and anon key
-5. Create admin user in Supabase Auth with role `admin`
-6. Deploy `src/web/admin-new/` to Vercel/Netlify
-7. Access at `/admin-new/` or `/admin/` (redirects)
+**Option A — Via In-App UI (easiest):**
+1. Open `admin.html` → Settings tab → **🔌 Supabase Connection**
+2. Paste your Supabase Project URL and Anon Key
+3. Click Save → Reload
 
-### Default Roles
+**Option B — Via localStorage:**
+```js
+localStorage.setItem('jgmart_supabase_url', 'https://your-project.supabase.co');
+localStorage.setItem('jgmart_supabase_anon_key', 'eyJhbGciOi...');
+```
 
-- **customer:** Can browse catalog, place orders
-- **partner:** Can view assigned orders
-- **operator:** Can manage products, orders, customers
+### When Supabase is not configured
+
+All auth pages fall back to **Demo Mode** — accepts any email/password combo. No configuration required to browse the codebase.
+
+### Supabase Project Setup
+
+1. Create project at https://supabase.com
+2. Run `src/web/supabase/schema.sql` in SQL Editor
+3. Run `src/web/supabase/seed.sql` to seed initial data
+4. See `docs/SUPABASE_SETUP.md` for full guide
+
+### Pages using Supabase Auth
+
+| Page | Auth |
+|------|------|
+| `src/web/dashboard/*.html` | `auth.js` (Supabase Auth, auto-wired) |
+| `src/web/catalog/admin.html` | `auth.js` (Supabase Auth via shared module) |
+
+### Roles
+
+- **customer:** Browse catalog, place orders
+- **partner:** View assigned orders
+- **operator:** Manage products, orders, customers
 - **admin:** Full access to all features
-
-### Old Admin Panel
-
-The old PIN-based admin panel (`/admin`) is deprecated. It now redirects to the new system. Data is still in localStorage until migrated. See `docs/MIGRATION_GUIDE.md`.
 
 ## Repository Structure
 
@@ -104,9 +126,11 @@ The old PIN-based admin panel (`/admin`) is deprecated. It now redirects to the 
 ## Tech Stack (Current)
 
 - **Frontend:** Vanilla HTML/CSS/JS (web catalog + dashboard)
+- **Auth:** Supabase Auth (email/password) with localStorage session persistence
 - **Backend:** Python scripts for data sync and automation
-- **Data:** JSON exports, CSV trackers
-- **Hosting:** Vercel / Netlify (catalog), TBD (backend)
+- **Data:** JSON product catalogs (`catalog_data.json`, `order_intake_data.json`), CSV trackers
+- **Hosting:** Vercel / Netlify (catalog + dashboard)
+- **Validation:** Custom toolkit (`python tests/validate_toolkit.py`) — 37 HTML, 12 Python
 
 ## Roadmap
 

@@ -6,6 +6,7 @@
 <title>JG Mart - Operations Dashboard</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="auth.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script>
 tailwind.config = {
@@ -37,45 +38,12 @@ tailwind.config = {
   .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
   .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
   .dark .scrollbar-thin::-webkit-scrollbar-thumb { background: #475569; }
-  .login-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-    display: flex; align-items: center; justify-content: center; z-index: 100;
-  }
-  .login-box {
-    background: white; border-radius: 16px; padding: 32px; width: 90%; max-width: 360px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
-  }
-  .login-box input {
-    width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px;
-    font-size: 1rem; text-align: center; letter-spacing: 6px; margin: 16px 0;
-    font-family: inherit; outline: none;
-  }
-  .login-box input:focus { border-color: #00442D; }
-  .login-box button {
-    width: 100%; background: #00442D; color: white; border: none; padding: 12px;
-    border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;
-    font-family: inherit;
-  }
-  .login-box .error {
-    color: #c0392b; font-size: 0.85rem; margin-top: 8px; display: none;
-  }
+  .hidden { display: none !important; }
 </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
 
-<!-- LOGIN OVERLAY -->
-<div id="loginOverlay" class="login-overlay">
-  <div class="login-box">
-    <h2 class="text-2xl font-bold text-jg-900 mb-2">🔐 JG Mart</h2>
-    <p class="text-sm text-gray-500 mb-4">Operations Dashboard</p>
-    <input type="password" id="dashPin" maxlength="6" placeholder="Enter PIN" onkeydown="if(event.key==='Enter')dashLogin()">
-    <button onclick="dashLogin()">Unlock Dashboard</button>
-    <div class="error" id="dashError">Wrong PIN. Try again.</div>
-    <p class="text-xs text-gray-400 mt-4">Default PIN: <code class="bg-gray-100 px-2 py-1 rounded">1234</code></p>
-  </div>
-</div>
-
-<!-- MAIN DASHBOARD (hidden until login) -->
+<!-- MAIN DASHBOARD (hidden until login via auth.js) -->
 <div id="dashboardMain" class="hidden">
 
 <!-- Sidebar -->
@@ -203,27 +171,6 @@ tailwind.config = {
 </div>
 
 <script>
-// Auth
-const DEFAULT_PIN = '1234';
-
-function dashLogin() {
-  const pin = document.getElementById('dashPin').value;
-  const savedPin = localStorage.getItem('jgmart_dashboard_pin') || DEFAULT_PIN;
-  if (pin === savedPin) {
-    document.getElementById('loginOverlay').classList.add('hidden');
-    document.getElementById('dashboardMain').classList.remove('hidden');
-    initDashboard();
-  } else {
-    document.getElementById('dashError').style.display = 'block';
-    setTimeout(() => document.getElementById('dashError').style.display = 'none', 2000);
-  }
-}
-
-function dashLogout() {
-  localStorage.removeItem('jgmart_dashboard_pin');
-  location.reload();
-}
-
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   sidebar.classList.toggle('sidebar-open');
@@ -311,13 +258,6 @@ function initDashboard() {
       </td>
     </tr>
   `).join('');
-}
-
-// Auto-login if session exists
-if (localStorage.getItem('jgmart_dashboard_pin')) {
-  document.getElementById('loginOverlay').classList.add('hidden');
-  document.getElementById('dashboardMain').classList.remove('hidden');
-  initDashboard();
 }
 </script>
 </body>

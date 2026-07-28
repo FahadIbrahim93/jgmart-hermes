@@ -87,35 +87,34 @@ body{background:#fff;padding:0;max-width:100%}
 
 <script>
 const CATS = ['rice_dal','oil_spices','vegetables','fish','meat','dairy_eggs','fruits','fmcg','beverages','snacks'];
-const PRODS = [
-['Premium Miniket Rice','rice_dal',88,'kg'],['Chinigura Rice','rice_dal',120,'kg'],['Nazirshail Rice','rice_dal',75,'kg'],['Basmati Rice','rice_dal',160,'kg'],
-['Moshur Dal (Red)','rice_dal',110,'kg'],['Moong Dal (Yellow)','rice_dal',140,'kg'],['Chola (Bengal Gram)','rice_dal',100,'kg'],
-['Soybean Oil','oil_spices',165,'L'],['Mustard Oil','oil_spices',185,'L'],['Sunflower Oil','oil_spices',175,'L'],
-['Turmeric Powder','oil_spices',85,'100g'],['Chili Powder','oil_spices',120,'100g'],['Cumin Powder','oil_spices',95,'100g'],
-['Coriander Powder','oil_spices',80,'100g'],['White Sugar','oil_spices',135,'kg'],['Salt (Premium)','oil_spices',30,'kg'],
-['Potato','vegetables',35,'kg'],['Red Onion','vegetables',65,'kg'],['Tomato','vegetables',70,'kg'],
-['Eggplant (Brinjal)','vegetables',45,'kg'],['Cauliflower','vegetables',55,'pc'],['Cabbage','vegetables',35,'pc'],
-['Green Chili','vegetables',40,'100g'],['Coriander Leaves','vegetables',15,'bunch'],['Lady Finger (Okra)','vegetables',50,'kg'],
-['Green Papaya','vegetables',40,'kg'],['Fresh Ginger','vegetables',80,'100g'],['Fresh Garlic','vegetables',60,'100g'],
-['Ruhi Fish','fish',280,'kg'],['Tilapia Fish','fish',200,'kg'],['Hilsa (Ilish)','fish',850,'kg'],
-['Prawns (Large)','fish',480,'kg'],['Katla Fish','fish',260,'kg'],['Shrimp (Medium)','fish',380,'kg'],
-['Chicken (Broiler)','meat',220,'kg'],['Chicken (Sonali)','meat',320,'kg'],['Beef (Premium)','meat',520,'kg'],
-['Mutton (Curry Cut)','meat',680,'kg'],['Beef Liver','meat',280,'kg'],
-['Farm Eggs (Dozen)','dairy_eggs',120,'doz'],['Fresh Cow Milk','dairy_eggs',80,'L'],['Full Cream Milk','dairy_eggs',90,'L'],
-['Mishti Doi','dairy_eggs',60,'250g'],['Fresh Paneer','dairy_eggs',250,'250g'],['Butter (Block)','dairy_eggs',180,'200g'],
-['Banana (Sagor)','fruits',50,'doz'],['Apple (Red)','fruits',220,'kg'],['Mango (Himsagar)','fruits',180,'kg'],
-['Mango (Fazli)','fruits',120,'kg'],['Watermelon','fruits',40,'kg'],['Orange','fruits',200,'kg'],
-['Toothpaste (Colgate)','fmcg',75,'pc'],['Dove Soap','fmcg',45,'pc'],['Washing Powder','fmcg',240,'500g'],['Shampoo (Sunsilk)','fmcg',180,'200ml'],
-['Coca-Cola (1.5L)','beverages',70,'pc'],['Pepsi (2L)','beverages',90,'pc'],['7UP (2L)','beverages',85,'pc'],
-['Mineral Water (2L)','beverages',25,'pc'],['Tea (Ispahani)','beverages',140,'200g'],
-['Parle-G Biscuits','snacks',20,'pc'],['Lays Classic Chips','snacks',40,'pc'],['Chicken Momos','snacks',150,'pc'],
-['Maggi Noodles','snacks',25,'pc'],['Marie Biscuits','snacks',30,'pc']
-];
 
-PRODS.forEach(p => {
-const g = document.getElementById('g-'+p[1]);
-if(g) g.innerHTML += `<div class="item"><span class="nm">${p[0]}</span><span class="pr">৳${p[2]} <small>/${p[3]}</small></span></div>`;
-});
+// Load products from catalog_data.json
+(async function loadMenuProducts() {
+  let prodList = [];
+  const cached = localStorage.getItem('jgmart_prods');
+  if (cached) {
+    try { prodList = JSON.parse(cached); } catch(e) {}
+  }
+  if (!prodList.length) {
+    try {
+      const res = await fetch('catalog_data.json');
+      const data = await res.json();
+      if (data && data.products && data.products.length) {
+        prodList = data.products;
+        localStorage.setItem('jgmart_prods', JSON.stringify(prodList));
+      }
+    } catch(e) {
+      console.warn('Failed to load catalog_data.json', e);
+    }
+  }
+
+  if (prodList.length) {
+    prodList.forEach(p => {
+      const g = document.getElementById('g-'+p.ct);
+      if(g) g.innerHTML += `<div class="item"><span class="nm">${p.nm}</span><span class="pr">৳${p.pr} <small>/${p.un}</small></span></div>`;
+    });
+  }
+})();
 
 function downloadPDF(){
 const w = window.open('','_blank');

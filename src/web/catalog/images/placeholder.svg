@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="220" viewBox="0 0 300 220">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(30)">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="220" fill="url(#g)" rx="8"/>
+  <path d="M150,70 A40,40 0 1,1 150,150 A40,40 0 1,1 150,70" fill="rgba(255,255,255,0.15)" opacity="1"/>
+  <text x="150" y="110" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="40" fill="#FFF" text-anchor="middle" font-weight="700" dominant-baseline="central">?</text>
+  <text x="150" y="175" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-weight="600" dominant-baseline="central">Placeholder</text>
+</svg>

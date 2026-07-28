@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00442D"/>
+      <stop offset="100%" style="stop-color:#0a6b47"/>
+    </linearGradient>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse" patternOpacity="0.08">
+      <circle cx="10" cy="10" r="1.5" fill="#c9a227"/>
+    </pattern>
+  </defs>
+  <rect width="300" height="300" fill="url(#bg)"/>
+  <rect width="300" height="300" fill="url(#dots)"/>
+  <circle cx="150" cy="150" r="90" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="150" cy="150" r="75" fill="rgba(255,255,255,0.15)"/>
+  <text x="150" y="160" text-anchor="middle" font-size="80">🍊</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="220" viewBox="0 0 300 220">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(45)">
+      <stop offset="0%" style="stop-color:#FDBB2D;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#E07A1B;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="220" fill="url(#g)" rx="8"/>
+  <path d="M100,90 L100,180 L195,180 L195,90 Z" fill="#FFF8DC" opacity="0.85"/>
+  <path d="M120,90 L120,65 L175,65 L175,90 Z" fill="#FFF8DC" opacity="0.85"/>
+  <path d="M125,60 L125,50 L170,50 L170,60 Z" fill="#B8520A" opacity="0.8"/>
+  <path d="M115,110 L115,160 L180,160 L180,110 Z" fill="#D4691E" opacity="0.3"/>
+  <path d="M140,100 C140,108 145,110 148,110 C151,110 155,108 155,100 C155,95 148,85 148,85 C148,85 140,95 140,100" fill="#FDBB2D" opacity="0.7"/>
+  <path d="M80,150 C82,148 78,145 80,143" fill="#B22222" opacity="0.7"/>
+  <path d="M82,160 C84,158 80,155 82,153" fill="#B22222" opacity="0.6"/>
+  <path d="M84,170 C86,168 82,165 84,163" fill="#B22222" opacity="0.5"/>
+  <path d="M215,145 C217,143 213,140 215,138" fill="#228B22" opacity="0.6"/>
+  <path d="M213,155 C215,153 211,150 213,148" fill="#228B22" opacity="0.7"/>
+  <path d="M217,165 C219,163 215,160 217,158" fill="#228B22" opacity="0.5"/>
+  <text x="150" y="195" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="15" fill="#5C2D0A" text-anchor="middle" font-weight="700" dominant-baseline="central">Oil & Spices</text>
+  <text x="150" y="210" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="11" fill="#7A4010" text-anchor="middle" font-weight="500" dominant-baseline="central">তেল ও মশলা</text>
+</svg>

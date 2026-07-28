@@ -1,0 +1,547 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Generated: Tuesday, July 28, 2026 at 19:45
+Toolkit Path: /workspaces/jgmart-hermes
+
+═══════════════════════════════════════════════════════════════════════════════
+1. OVERVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+  Total Files: 500
+  Total Size:  7.84 MB
+
+  HTML Files:  37
+  Python Files: 12
+  CSV Files:   17
+  TXT Files:   105
+  JSON Files:  19
+  SVG Files:   54
+  XLSX Files:  0
+  BAT Files:   4
+  Other:       252 files (md, (no ext), toml, yml, jpg, js, sql, xml, css, sample, idx, rev, pack)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. HTML VALIDATION
+═══════════════════════════════════════════════════════════════════════════════
+
+  [PASS] ARCHIVE/grok_website/jg_mart_website_index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/templates/marketing/landing.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/templates/operations/supplier_scorecard.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/catalog/404.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 2
+
+  [PASS] src/web/catalog/menu.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_prods
+         WhatsApp:    2x +8801870489448
+         Internal Links: 11
+
+  [PASS] src/web/catalog/zone.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    1x +8801870489448
+         Internal Links: 13
+
+  [PASS] src/web/catalog/admin.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_admin_wa, jgmart_backup_date, jgmart_ords, jgmart_prods, jgmart_promo, jgmart_specials, jgmart_supabase_anon_key, jgmart_supabase_url
+         WhatsApp:    (none)
+         Internal Links: 1
+
+  [PASS] src/web/catalog/myorders.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_ords
+         WhatsApp:    1x +8801870489448
+         Internal Links: 12
+
+  [PASS] src/web/catalog/order_intake.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    1x +8801870489448
+         Internal Links: 0
+
+  [PASS] src/web/catalog/landing.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    1x +8801870489448
+         Internal Links: 15
+
+  [PASS] src/web/catalog/jsonld-snippets.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    3x +8801870489448
+         Internal Links: 0
+
+  [PASS] src/web/catalog/manifest.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_ords
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/catalog/healthcheck.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_hc_ts
+         WhatsApp:    (none)
+         Internal Links: 10
+
+  [PASS] src/web/catalog/nav_template.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 12
+
+  [PASS] src/web/catalog/track.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_ords
+         WhatsApp:    1x +8801870489448
+         Internal Links: 11
+
+  [PASS] src/web/catalog/index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_addr, jgmart_c, jgmart_lang, jgmart_ords, jgmart_prods, jgmart_promo, jgmart_ref_count, jgmart_specials
+         WhatsApp:    1x +8801870489448
+         Internal Links: 11
+
+  [PASS] src/web/dashboard/backup.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_last_backup_date
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/finance.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/dailypnl.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/analytics.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/orders.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/commlog.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/feedback.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/dashboard/index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✗
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 8
+         ISSUES:
+           • Missing theme-color meta
+
+  [PASS] src/web/admin-new/index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✗
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 1
+         ISSUES:
+           • Missing theme-color meta
+
+  [PASS] src/web/app/offline.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/app/health.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/app/field_ops.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    1x +8801870489448
+         Internal Links: 2
+
+  [PASS] src/web/app/tour.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_tour_complete, jgmart_tour_step
+         WhatsApp:    (none)
+         Internal Links: 8
+
+  [PASS] src/web/app/email_backup.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 1
+
+  [PASS] src/web/app/start.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_data, jgmart_tour_complete, wizard_biz, wizard_customers, wizard_econ, wizard_partners
+         WhatsApp:    3x +8801870489448
+         Internal Links: 8
+
+  [PASS] src/web/app/demo.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    1x +8801870489448
+         Internal Links: 1
+
+  [PASS] src/web/app/map.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [PASS] src/web/app/index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_launch_checks
+         WhatsApp:    1x +8801870489448
+         Internal Links: 3
+
+  [PASS] src/web/app/ops.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_finance
+         WhatsApp:    (none)
+         Internal Links: 9
+
+  [PASS] src/web/app/data.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    3x +8801870489448
+         Internal Links: 0
+
+  [PASS] src/web/app/os.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_data, jgmart_finance, jgmart_orders, jgmart_theme
+         WhatsApp:    (none)
+         Internal Links: 8
+
+═══════════════════════════════════════════════════════════════════════════════
+4. PYTHON VALIDATION
+═══════════════════════════════════════════════════════════════════════════════
+
+  [FAIL] scripts/generate_repo_index.py
+         Shebang:    ✓
+         Docstring:  ✗
+         Syntax:     ✓
+
+  [PASS] tests/validate_toolkit.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [FAIL] tests/test_smoke.py
+         Shebang:    ✗
+         Docstring:  ✗
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/cache_images.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/drive_sync.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/daily_whatsapp_summary.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/add_image_urls.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/daily_summary.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/generate_placeholders.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/sync_bridge.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/launch_automation.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] src/scripts/automation/auto_deploy.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+═══════════════════════════════════════════════════════════════════════════════
+5. CROSS-REFERENCE CHECKS
+═══════════════════════════════════════════════════════════════════════════════
+
+  5a. MASTER_INDEX.txt References
+  ──────────────────────────────────────────────────
+      Files referenced: 0
+      All referenced files exist ✓
+      All files covered by MASTER_INDEX ✓
+
+  5b. README.txt References
+  ──────────────────────────────────────────────────
+      Files referenced: 0
+      All referenced files exist ✓
+
+  5c. index.html (Command Center) References
+  ──────────────────────────────────────────────────
+      Files referenced: 0
+      All referenced files exist ✓
+
+═══════════════════════════════════════════════════════════════════════════════
+6. LOCALSTORAGE KEYS ACROSS ALL HTML FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+  Total unique localStorage keys: 25
+
+  • jgmart_addr
+      → src/web/catalog/index.html
+  • jgmart_admin_wa
+      → src/web/catalog/admin.html
+  • jgmart_backup_date
+      → src/web/catalog/admin.html
+  • jgmart_c
+      → src/web/catalog/index.html
+  • jgmart_data
+      → src/web/app/start.html
+      → src/web/app/os.html
+  • jgmart_finance
+      → src/web/app/ops.html
+      → src/web/app/os.html
+  • jgmart_hc_ts
+      → src/web/catalog/healthcheck.html
+  • jgmart_lang
+      → src/web/catalog/index.html
+  • jgmart_last_backup_date
+      → src/web/dashboard/backup.html
+  • jgmart_launch_checks
+      → src/web/app/index.html
+  • jgmart_orders
+      → src/web/app/os.html
+  • jgmart_ords
+      → src/web/catalog/admin.html
+      → src/web/catalog/myorders.html
+      → src/web/catalog/manifest.html
+      → src/web/catalog/track.html
+      → src/web/catalog/index.html
+  • jgmart_prods
+      → src/web/catalog/menu.html
+      → src/web/catalog/admin.html
+      → src/web/catalog/index.html
+  • jgmart_promo
+      → src/web/catalog/admin.html
+      → src/web/catalog/index.html
+  • jgmart_ref_count
+      → src/web/catalog/index.html
+  • jgmart_specials
+      → src/web/catalog/admin.html
+      → src/web/catalog/index.html
+  • jgmart_supabase_anon_key
+      → src/web/catalog/admin.html
+  • jgmart_supabase_url
+      → src/web/catalog/admin.html
+  • jgmart_theme
+      → src/web/app/os.html
+  • jgmart_tour_complete
+      → src/web/app/tour.html
+      → src/web/app/start.html
+  • jgmart_tour_step
+      → src/web/app/tour.html
+  • wizard_biz
+      → src/web/app/start.html
+  • wizard_customers
+      → src/web/app/start.html
+  • wizard_econ
+      → src/web/app/start.html
+  • wizard_partners
+      → src/web/app/start.html
+
+═══════════════════════════════════════════════════════════════════════════════
+7. FINAL SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+  Files Checked:        500
+  Total Size:           7.84 MB
+
+  HTML Valid:           37/37
+  HTML With Issues:     0
+  Python Valid:         10/12
+  Python Warnings:      2
+  Python Failed:        0
+
+  Cross-References:
+    MASTER_INDEX:       0 missing refs, 0 files not indexed
+    README:             0 broken references
+    Command Center:     0 broken references
+
+  localStorage Keys:    25 unique keys
+
+  ╔══════════════════════════════════════════════════╗
+  ║  ALL CHECKS PASSED                              ║
+  ╚══════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Document Owner: Fahad Ibrahim
+Version: Auto-Validation | July 2026
+
+Never GIVE UP on your HOPES.

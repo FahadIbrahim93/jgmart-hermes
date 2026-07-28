@@ -1,0 +1,74 @@
+{
+  "name": "jgmart-hermes",
+  "version": "2.0.0",
+  "private": true,
+  "description": "JG Mart — Hyperlocal grocery delivery platform. WhatsApp-first ordering, real-time inventory, rider logistics.",
+  "keywords": [
+    "grocery-delivery",
+    "whatsapp-ordering",
+    "hyperlocal",
+    "bangladesh",
+    "pwa",
+    "dashboard"
+  ],
+  "homepage": "https://jg-mart.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FahadIbrahim93/jgmart-hermes.git"
+  },
+  "license": "MIT",
+  "author": "Fahad Ibrahim",
+  "type": "module",
+
+  "scripts": {
+    "validate": "python tests/validate_toolkit.py",
+    "validate:quiet": "python tests/validate_toolkit.py --quiet",
+    "lint": "npx prettier --check 'src/web/**/*.html' 'src/web/**/*.js'",
+    "lint:fix": "npx prettier --write 'src/web/**/*.html' 'src/web/**/*.js'",
+    "lint:py": "black --check src/scripts/ && ruff check src/scripts/",
+    "lint:py:fix": "black src/scripts/ && ruff check --fix src/scripts/",
+    "test": "python -m pytest tests/ -v",
+    "test:coverage": "python -m pytest tests/ --cov=src/scripts/ --cov-report=term-missing",
+    "security": "bandit -r src/scripts/ -x tests/",
+    "ci": "npm run validate:quiet && npm run lint && npm run lint:py && npm run test",
+    "deploy:setup": "python src/scripts/automation/auto_deploy.py --setup",
+    "deploy:vercel": "python src/scripts/automation/auto_deploy.py --all --vercel",
+    "deploy:netlify": "python src/scripts/automation/auto_deploy.py --all --netlify",
+    "deploy:catalog": "python src/scripts/automation/auto_deploy.py --catalog --vercel",
+    "deploy:dashboard": "python src/scripts/automation/auto_deploy.py --dashboard --netlify",
+    "summary": "python src/scripts/automation/daily_summary.py --today",
+    "launch:checklist": "python src/scripts/automation/launch_automation.py --task checklist --day"
+  },
+
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "chart.js": "^4.4.4",
+    "tailwindcss": "^3.4.0"
+  },
+
+  "devDependencies": {
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.0"
+  },
+
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "printWidth": 100,
+    "plugins": ["prettier-plugin-tailwindcss"]
+  },
+
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

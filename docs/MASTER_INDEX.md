@@ -126,6 +126,10 @@ Live operational dashboard — single-page HTML apps for daily business manageme
 | `feedback.html` | Customer feedback tracker |
 | `backup.html` | Data backup & export |
 | `sample_data.json` | Demo data for dashboard |
+| `auth.js` | **Supabase Auth module** (email/password login, session management, forgot password, demo mode fallback) |
+| `config.js` | Supabase configuration (project URL + anon key) |
+| `schema.sql` | PostgreSQL schema for Supabase |
+| `seed.sql` | Seed data (categories, products) |
 | `vercel.json` | Vercel deployment config |
 | `README.txt` | Dashboard setup guide |
 
@@ -141,7 +145,7 @@ Full e-commerce website for JG Mart — mobile-first, WhatsApp-native ordering.
 | `landing.html` | Hermes | Marketing landing page |
 | `menu.html` | Hermes | Product menu view |
 | `order_intake.html` | Hermes | Order intake form |
-| `admin.html` | Hermes | Admin panel |
+| `admin.html` | Hermes | **Admin panel** (Supabase Auth via shared `auth.js`, product management, orders, analytics, Settings with Supabase Config UI) |
 | `myorders.html` | Hermes | Customer order history |
 | `track.html` | Hermes | Order tracking |
 | `zone.html` | Hermes | Delivery zone info |
@@ -159,13 +163,16 @@ Full e-commerce website for JG Mart — mobile-first, WhatsApp-native ordering.
 | `vercel.json` | Deploy | Vercel configuration |
 | `_redirects` | Deploy | URL redirects |
 | `favicon.svg` | Brand | Favicon |
-| `catalog_data.json` | Data | Product catalog data |
+| `catalog_data.json` | Data | **Product catalog data** (65 products, 10 categories — loaded by index, menu, admin pages) |
+| `order_intake_data.json` | Data | **Order intake product data** (63 items, 7 categories — loaded by order_intake page) |
+| `README.txt` | Docs | **Data flow documentation** — explains how catalog_data.json and order_intake_data.json are used across pages |
 | `LINK_AUDIT.txt` | QA | Cross-link audit |
 | `DEPLOY_README.txt` | Deploy | Deployment instructions |
-| **`images/`** | | **65 product images (real photos + category SVGs)** |
+| **`images/`** | | **65 product images + 15 SVG placeholders** — real photos for p001–p025, auto-generated SVG placeholders for p026–p052, plus category icon SVGs (vegetables, fish, meat, dairy, fruits, beverages) |
 | **`grok_website/`** | **✅ Grok v2** | |
 | `jg_mart_website_index.html` | Grok v2 | Grok's website variant (sliding catalog) |
 | `03_Website_Live_Info.txt` | Grok v2 | Live website notes & URL: **jg-mart.vercel.app** |
+| `VALIDATION_REPORT.txt` | QA | Auto-generated validation toolkit report (37/37 HTML ✅) |
 
 ---
 
@@ -339,13 +346,14 @@ Automation scripts for daily operations, data export, and sync.
 
 | Category | Count |
 |----------|-------|
-| Total Files | 250+ |
-| Core Documents (TXT/MD) | 80+ |
-| HTML Pages | 25+ |
-| Images (PNG/SVG/JPG) | 75+ |
+| Total Files | 500+ |
+| Core Documents (TXT/MD) | 105+ |
+| HTML Pages (all validated ✅) | 37 |
+| Images (PNG/SVG/JPG) | 80+ (incl. 15 SVG placeholders) |
 | Spreadsheets (CSV/XLSX) | 20+ |
-| Python Scripts | 10+ |
+| Python Scripts | 12 |
 | Presentation Files | 2 (PPTX + PDF) |
+| JSON Data Files | 4+ (catalog, orders, finance, analytics) |
 
 ---
 

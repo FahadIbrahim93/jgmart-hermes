@@ -95,6 +95,10 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 .ci .cq span{font-weight:700;font-size:.72rem;min-width:14px;text-align:center}
 .ct{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;font-weight:700;color:#00442D;border-top:2px solid #00442D;margin-top:4px}
 .ct .fee{font-size:.65rem;font-weight:500;color:#5c5c5c}
+/* Placeholder for broken product images */
+.plh{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:2.5rem}
+.crd .im .plh,.pop-i .im .plh{background:linear-gradient(135deg,#e8f5ef,#d4ede0)}
+.qv-plh{display:flex;align-items:center;justify-content:center;height:190px;font-size:3.5rem;background:linear-gradient(135deg,#e8f5ef,#d4ede0);border-radius:8px}
 /* Quick view */
 .qv-img{width:100%;height:190px;object-fit:cover;border-radius:8px;background:#e8f5ef}
 .qv-st{font-size:.8rem;color:#c9a227;margin:6px 0 3px}
@@ -205,78 +209,35 @@ const CATS=[
 {id:"fruits",n:"Fruits",i:"🍎",b:"ফল"},{id:"fmcg",n:"Household",i:"🧴",b:"গৃহস্থালি"},
 {id:"beverages",n:"Drinks",i:"🥤",b:"পানীয়"},{id:"snacks",n:"Snacks",i:"🍪",b:"স্ন্যাকস"}
 ];
-const PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || [];
-if(!PRODS.length){
-[
-["p01","Premium Miniket Rice","rice_dal",88,"kg","🍚",4.5,48,"High-quality Miniket rice, soft and fragrant"],
-["p02","Chinigura Rice","rice_dal",120,"kg","🍚",5,42,"Premium fine-grain aromatic rice"],
-["p03","Nazirshail Rice","rice_dal",75,"kg","🍚",4,35,"Popular daily-use rice"],
-["p04","Basmati Rice","rice_dal",160,"kg","🍚",4.5,25,"Extra-long grain basmati"],
-["p05","Moshur Dal (Red)","rice_dal",110,"kg","🟠",4.5,38,"Clean red lentils"],
-["p06","Moong Dal (Yellow)","rice_dal",140,"kg","🟡",4,30,"Split yellow gram"],
-["p07","Chola (Bengal Gram)","rice_dal",100,"kg","🟤",3.5,18,"Dried chickpeas"],
-["p08","Soybean Oil","oil_spices",165,"L","🫗",4.5,45,"Refined soybean oil"],
-["p09","Mustard Oil","oil_spices",185,"L","🫗",4,32,"Cold-pressed mustard oil"],
-["p10","Sunflower Oil","oil_spices",175,"L","🌻",4,28,"Light refined oil"],
-["p11","Turmeric Powder","oil_spices",85,"100g","🧡",4.5,36,"Premium turmeric"],
-["p12","Chili Powder","oil_spices",120,"100g","🌶️",4,34,"Pure red chili powder"],
-["p13","Cumin Powder","oil_spices",95,"100g","🟤",4,30,"Aromatic cumin"],
-["p14","Coriander Powder","oil_spices",80,"100g","🌿",3.5,22,"Ground coriander"],
-["p15","White Sugar","oil_spices",135,"kg","🍚",4,38,"Fine white sugar"],
-["p16","Potato","vegetables",35,"kg","🥔",4,50,"Fresh local potatoes"],
-["p17","Red Onion","vegetables",65,"kg","🧅",4.5,48,"Fresh red onions"],
-["p18","Tomato","vegetables",70,"kg","🍅",4,38,"Ripe red tomatoes"],
-["p19","Eggplant (Brinjal)","vegetables",45,"kg","🍆",3.5,30,"Tender brinjals"],
-["p20","Cauliflower","vegetables",55,"pc","🥦",4,25,"Fresh white cauliflower"],
-["p21","Cabbage","vegetables",35,"pc","🥬",3.5,20,"Fresh green cabbage"],
-["p22","Green Chili","vegetables",40,"100g","🌶️",4,44,"Spicy green chilies"],
-["p23","Coriander Leaves","vegetables",15,"bunch","🌿",4.5,36,"Fresh coriander"],
-["p24","Lady Finger (Okra)","vegetables",50,"kg","🥒",3.5,28,"Tender okra"],
-["p25","Green Papaya","vegetables",40,"kg","🫛",3.5,22,"Raw green papaya"],
-["p26","Fresh Ginger","vegetables",80,"100g","🫚",4,32,"Fresh ginger root"],
-["p27","Fresh Garlic","vegetables",60,"100g","🧄",4,34,"Fresh garlic cloves"],
-["p28","Ruhi Fish","fish",280,"kg","🐟",4.5,35,"Freshwater ruhi"],
-["p29","Tilapia Fish","fish",200,"kg","🐟",4,30,"Farm-raised tilapia"],
-["p30","Hilsa (Ilish)","fish",850,"kg","🐟",5,22,"Premium river hilsa"],
-["p31","Prawns (Large)","fish",480,"kg","🦐",4.5,18,"Jumbo river prawns"],
-["p32","Katla Fish","fish",260,"kg","🐟",4,20,"Premium katla"],
-["p33","Shrimp (Medium)","fish",380,"kg","🦐",4,15,"Medium shrimp"],
-["p34","Chicken (Broiler)","meat",220,"kg","🍗",4.5,42,"Halal broiler chicken"],
-["p35","Chicken (Sonali)","meat",320,"kg","🐔",4.5,25,"Free-range Sonali"],
-["p36","Beef (Premium Cut)","meat",520,"kg","🥩",4.5,35,"Premium beef"],
-["p37","Mutton (Curry Cut)","meat",680,"kg","🍖",4,18,"Tender mutton"],
-["p38","Beef Liver","meat",280,"kg","🥩",3.5,14,"Fresh beef liver"],
-["p39","Farm Eggs (Dozen)","dairy_eggs",120,"doz","🥚",5,48,"Fresh free-range eggs"],
-["p40","Fresh Cow Milk","dairy_eggs",80,"L","🥛",4.5,35,"Farm-fresh whole milk"],
-["p41","Full Cream Milk","dairy_eggs",90,"L","🥛",4,30,"Rich full cream milk"],
-["p42","Mishti Doi","dairy_eggs",60,"250g","🍯",4.5,28,"Sweet yogurt"],
-["p43","Fresh Paneer","dairy_eggs",250,"250g","🧀",4,20,"Soft fresh paneer"],
-["p44","Butter (Block)","dairy_eggs",180,"200g","🧈",4,22,"Creamy unsalted butter"],
-["p45","Banana (Sagor)","fruits",50,"doz","🍌",4.5,40,"Ripe sagor bananas"],
-["p46","Apple (Red)","fruits",220,"kg","🍎",4,28,"Crisp red apples"],
-["p47","Mango (Himsagar)","fruits",180,"kg","🥭",5,35,"Sweet Himsagar mango"],
-["p48","Mango (Fazli)","fruits",120,"kg","🥭",4.5,25,"Large fazli mangoes"],
-["p49","Watermelon","fruits",40,"kg","🍉",4,22,"Sweet summer watermelon"],
-["p50","Orange","fruits",200,"kg","🍊",4,20,"Juicy oranges"],
-["p51","Toothpaste (Colgate)","fmcg",75,"pc","🪥",4,25,"Colgate strong teeth"],
-["p52","Dove Soap","fmcg",45,"pc","🧼",4,30,"Moisturizing beauty bar"],
-["p53","Washing Powder","fmcg",240,"500g","🧺",4,22,"Ariel detergent"],
-["p54","Shampoo (Sunsilk)","fmcg",180,"200ml","🧴",3.5,20,"Sunsilk shampoo"],
-["p55","Coca-Cola (1.5L)","beverages",70,"pc","🥤",4,28,"Chilled Coca-Cola"],
-["p56","Pepsi (2L)","beverages",90,"pc","🥤",4,25,"Chilled Pepsi"],
-["p57","7UP (2L)","beverages",85,"pc","🥤",3.5,18,"Chilled 7UP"],
-["p58","Mineral Water (2L)","beverages",25,"pc","💧",4,35,"Pure drinking water"],
-["p59","Tea (Ispahani)","beverages",140,"200g","🫖",4.5,30,"Premium CTC tea"],
-["p60","Parle-G Biscuits","snacks",20,"pc","🍪",4,40,"Glucose biscuits"],
-["p61","Lays Classic Chips","snacks",40,"pc","🍟",4,32,"Salted potato chips"],
-["p62","Chicken Momos","snacks",150,"pc","🥟",4,15,"Frozen chicken momos"],
-["p63","Maggi Noodles","snacks",25,"pc","🍜",4,35,"Instant noodles"],
-["p64","Marie Biscuits","snacks",30,"pc","🍪",3.5,28,"Tea-time biscuits"],
-["p65","Salt (Premium)","oil_spices",30,"kg","🧂",4,40,"Iodized salt"]
-].forEach(p=>{
-PRODS.push({id:p[0],nm:p[1],ct:p[2],pr:p[3],un:p[4],em:p[5],rt:p[6],rv:p[7],de:p[8]||'Fresh from Krishi Market',im:'images/p'+p[0].slice(1).padStart(3,'0')+'.jpg'});
-});
-localStorage.setItem('jgmart_prods',JSON.stringify(PRODS));
+let PRODS = JSON.parse(localStorage.getItem('jgmart_prods') || '[]');
+
+// Load products from catalog_data.json if not in localStorage
+async function loadProducts() {
+  if (PRODS.length) return PRODS;
+  try {
+    const res = await fetch('catalog_data.json');
+    const data = await res.json();
+    if (data && data.products && data.products.length) {
+      PRODS = data.products;
+      localStorage.setItem('jgmart_prods', JSON.stringify(PRODS));
+      return PRODS;
+    }
+  } catch (e) {
+    console.warn('Failed to load catalog_data.json, using fallback', e);
+  }
+  // Fallback: minimal product set if JSON fails
+  PRODS = [
+    {id:"p01",nm:"Premium Miniket Rice",ct:"rice_dal",pr:88,un:"kg",em:"🍚",rt:4.5,rv:48,de:"High-quality Miniket rice",im:"images/p001.jpg"},
+    {id:"p02",nm:"Chinigura Rice",ct:"rice_dal",pr:120,un:"kg",em:"🍚",rt:5,rv:42,de:"Premium fine-grain aromatic rice",im:"images/p002.jpg"},
+    {id:"p16",nm:"Potato",ct:"vegetables",pr:35,un:"kg",em:"🥔",rt:4,rv:50,de:"Fresh local potatoes",im:"images/p016.jpg"},
+    {id:"p17",nm:"Red Onion",ct:"vegetables",pr:65,un:"kg",em:"🧅",rt:4.5,rv:48,de:"Fresh red onions",im:"images/p017.jpg"},
+    {id:"p34",nm:"Chicken (Broiler)",ct:"meat",pr:220,un:"kg",em:"🍗",rt:4.5,rv:42,de:"Halal broiler chicken",im:"images/p034.jpg"},
+    {id:"p39",nm:"Farm Eggs (Dozen)",ct:"dairy_eggs",pr:120,un:"doz",em:"🥚",rt:5,rv:48,de:"Fresh free-range eggs",im:"images/p039.jpg"},
+    {id:"p59",nm:"Tea (Ispahani)",ct:"beverages",pr:140,un:"200g",em:"🫖",rt:4.5,rv:30,de:"Premium CTC tea",im:"images/p059.jpg"},
+    {id:"p60",nm:"Parle-G Biscuits",ct:"snacks",pr:20,un:"pc",em:"🍪",rt:4,rv:40,de:"Glucose biscuits",im:"images/p060.jpg"}
+  ];
+  localStorage.setItem('jgmart_prods', JSON.stringify(PRODS));
+  return PRODS;
 }
 
 // ========= STATE =========
@@ -323,9 +284,10 @@ refBtns.forEach(el=>el.textContent=t('refer'));
 }
 
 // ========= INIT =========
-(function(){
+(async function(){
 const s=document.getElementById('dlvBuilding');
 for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Bldg ${i}`;s.appendChild(o);}
+await loadProducts();
 loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount();
 // Re-apply lang after specials load
 })();
@@ -351,7 +313,7 @@ const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
 const pop=(p.rv||0)>35;
 return `<div class="crd" onclick="showQV('${p.id}')">
 <div class="im">${pop?'<span class="bdg">★ Top</span>':''}
-<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'"></div>
+<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.outerHTML='<div class=&quot;plh&quot;>${p.em}</div>'"></div>
 <div class="bd"><div class="st">${st}</div><div class="nm">${p.nm}</div>
 <div class="pr">৳${p.pr}</div><div class="un">/${p.un}</div>
 <button class="add ${qty>0?'inc':''}" onclick="event.stopPropagation();tog('${p.id}')">${qty>0?'✓ '+qty:(lang==='bn'?'+ যোগ করুন':'+ Add')}</button>
@@ -363,7 +325,7 @@ updFab(); rendPop();
 function rendPop(){
 const top=[...PRODS].sort((a,b)=>b.rt-a.rt).slice(0,6);
 const tr=document.getElementById('popTr');
-tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
+tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.outerHTML='<div class=&quot;plh&quot;>${p.em}</div>'"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
 document.getElementById('popSec').classList.add('show');
 }
 
@@ -451,7 +413,7 @@ function showQV(id){
 const p=PRODS.find(x=>x.id===id);if(!p)return;
 const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
 document.getElementById('qvContent').innerHTML=
-`<img class="qv-img" src="${p.im}" alt="${p.nm}" onerror="this.style.cssText='height:190px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:#e8f5ef;border-radius:8px';this.textContent='${p.em}'">
+`<img class="qv-img" src="${p.im}" alt="${p.nm}" onerror="this.outerHTML='<div class=&quot;qv-plh&quot;>${p.em}</div>'">
 <div class="qv-st">${st} ${p.rt}</div><div class="qv-nm">${p.nm}</div>
 <div class="qv-pr">৳${p.pr} <small>/ ${p.un}</small></div>
 <div class="qv-d">${p.de||'Fresh from Krishi Market.'}</div>

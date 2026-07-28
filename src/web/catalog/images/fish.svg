@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="220" viewBox="0 0 300 220">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(30)">
+      <stop offset="0%" style="stop-color:#64B5F6;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1565C0;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="220" fill="url(#g)" rx="8"/>
+  <path d="M90,130 Q90,80 150,100 Q210,80 210,130 Q210,170 150,150 Q90,170 90,130 Z" fill="#90CAF9" opacity="0.9"/>
+  <path d="M210,100 L240,75 L240,180 L210,155 Z" fill="#64B5F6" opacity="0.85"/>
+  <path d="M115,115 A8,8 0 1,1 115,131 A8,8 0 1,1 115,115" fill="#FFF" opacity="0.9"/>
+  <path d="M118,120 A4,4 0 1,1 118,128 A4,4 0 1,1 118,120" fill="#0D47A1" opacity="0.9"/>
+  <path d="M140,115 Q145,105 150,115 Q145,125 140,115" fill="rgba(255,255,255,0.3)" opacity="1"/>
+  <path d="M155,110 Q160,100 165,110 Q160,120 155,110" fill="rgba(255,255,255,0.3)" opacity="1"/>
+  <path d="M130,130 Q135,120 140,130 Q135,140 130,130" fill="rgba(255,255,255,0.3)" opacity="1"/>
+  <path d="M150,125 Q155,115 160,125 Q155,135 150,125" fill="rgba(255,255,255,0.3)" opacity="1"/>
+  <path d="M92,128 L100,128" fill="#1565C0" opacity="0.5"/>
+  <path d="M140,95 L145,75 L155,80 L155,95" fill="rgba(255,255,255,0.2)" opacity="1"/>
+  <path d="M150,150 L155,175 L165,170 L165,150" fill="rgba(255,255,255,0.2)" opacity="1"/>
+  <text x="150" y="195" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="16" fill="#E3F2FD" text-anchor="middle" font-weight="700" dominant-baseline="central">Fish</text>
+  <text x="150" y="210" font-family="Inter,Segoe UI,system-ui,sans-serif" font-size="11" fill="#BBDEFB" text-anchor="middle" font-weight="500" dominant-baseline="central">মাছ</text>
+</svg>

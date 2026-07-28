@@ -6,19 +6,13 @@
 <title>JG Mart — Admin Panel</title>
 <meta name="theme-color" content="#00442D">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="../dashboard/auth.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:960px;margin:0 auto;padding:12px}
 h1{font-size:1.2rem;font-weight:800;color:#00442D;margin-bottom:4px}
 h1 span{color:#c9a227}
 .sub{font-size:.72rem;color:#5c5c5c;margin-bottom:16px}
-/* LOGIN */
-.login{max-width:320px;margin:80px auto;background:#fff;padding:24px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.login h2{font-size:1rem;color:#00442D;margin-bottom:12px;text-align:center}
-.login input{width:100%;padding:10px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:.85rem;font-family:inherit;outline:none;text-align:center;letter-spacing:4px;margin-bottom:10px}
-.login input:focus{border-color:#00442D}
-.login button{width:100%;background:#00442D;color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit}
-.login .error{color:#c0392b;font-size:.75rem;text-align:center;margin-top:6px;display:none}
 /* TABS */
 .tabs{display:flex;gap:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
 .tabs button{padding:8px 16px;border-radius:8px;border:none;font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;background:#e8ece8;color:#5c5c5c}
@@ -97,18 +91,11 @@ h1 span{color:#c9a227}
 </head>
 <body>
 
-<!-- LOGIN -->
-<div id="loginScreen" class="login">
-<h2>🔐 Admin Login</h2>
-<input type="password" id="pinInput" maxlength="6" placeholder="Enter PIN" onkeydown="if(event.key==='Enter')login()">
-<button onclick="login()">Unlock</button>
-<div class="error" id="loginError">Wrong PIN. Try again.</div>
-</div>
-
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="hidden">
+<!-- ADMIN PANEL (auth.js handles login overlay) -->
+<div id="dashboardMain" class="hidden">
 <h1>JG <span>Mart</span> Admin</h1>
-<p class="sub">Manage products, prices, orders, and settings</p>
+<p class="sub">Manage products, prices, orders, and settings
+<a href="#" onclick="dashLogout()" style="float:right;background:rgba(0,0,0,.06);color:#5c5c5c;text-decoration:none;padding:3px 10px;border-radius:6px;font-size:.65rem;font-weight:500">🚪 Logout</a></p>
 
 <div class="tabs" id="tabBar">
 <button class="active" onclick="showTab('products')">📦 Products</button>
@@ -153,10 +140,23 @@ h1 span{color:#c9a227}
 <div id="tab-settings" class="hidden">
 <div class="settings-grid">
 <div class="settings-card">
-<h3>🔐 Change PIN</h3>
-<input type="password" id="newPin" placeholder="New 4-6 digit PIN" maxlength="6">
-<button onclick="changePin()">Save PIN</button>
+<h3>🔐 Account</h3>
+<p style="font-size:.72rem;color:#5c5c5c;margin-bottom:8px;line-height:1.5">Signed in via <strong>Supabase Auth</strong>. To change your password, sign out and use the <strong>Forgot password?</strong> link on the login screen.</p>
+<button onclick="dashLogout()" style="background:#c0392b;color:#fff">🚪 Sign Out</button>
 </div>
+<div class="settings-card">
+<h3>🔌 Supabase Connection</h3>
+<p style="font-size:.68rem;color:#5c5c5c;margin-bottom:6px;line-height:1.4" id="supaStatus">Status: <span id="supaStatusText" style="font-weight:700">Checking...</span></p>
+<label>Supabase Project URL</label>
+<input type="url" id="supaUrl" placeholder="https://your-project-id.supabase.co">
+<label>Supabase Anon Key</label>
+<input type="text" id="supaKey" placeholder="your-anon-key" style="font-family:monospace;font-size:.7rem">
+<button onclick="saveSupaConfig()">💾 Save Connection</button>
+<button onclick="clearSupaConfig()" style="background:#c0392b;color:#fff">🗑 Clear</button>
+<button onclick="testSupaConfig()" style="background:#c9a227;color:#1a1a1a">🔍 Test</button>
+<p style="font-size:.62rem;color:#aaa;margin-top:4px">Saved to browser localStorage. Reload page after saving.</p>
+</div>
+
 <div class="settings-card">
 <h3>📱 WhatsApp Number</h3>
 <input type="tel" id="waNum" placeholder="8801870489448">
@@ -191,7 +191,6 @@ h1 span{color:#c9a227}
 </div>
 
 <script>
-const DEFAULT_PIN = '1234';
 const CATS = [
 {id:"rice_dal",n:"Rice & Dal",i:"🍚"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️"},{id:"vegetables",n:"Veg",i:"🥬"},
 {id:"fish",n:"Fish",i:"🐟"},{id:"meat",n:"Meat",i:"🍗"},{id:"dairy_eggs",n:"Dairy",i:"🥛"},
@@ -200,26 +199,13 @@ const CATS = [
 let products = JSON.parse(localStorage.getItem('jgmart_prods')||'[]');
 let orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
 
-function login(){
-const pin = document.getElementById('pinInput').value;
-const savedPin = localStorage.getItem('jgmart_admin_pin')||DEFAULT_PIN;
-if(pin === savedPin){
-document.getElementById('loginScreen').classList.add('hidden');
-document.getElementById('adminPanel').classList.remove('hidden');
-init();
-} else {
-document.getElementById('loginError').style.display='block';
-setTimeout(()=>document.getElementById('loginError').style.display='none',2000);
-}
-}
-
-function init(){
+// Wait for auth to be ready, then init dashboard
+function initDashboard(){
 renderStats();
 renderProds();
 renderOrders();
 renderAnalytics();
 // Populate category dropdowns
-const cats=['']+CATS.map(c=>c.id);
 const catSel1=document.getElementById('catFilter');
 const catSel2=document.getElementById('newCat');
 CATS.forEach(c=>{
@@ -228,6 +214,9 @@ const o2=document.createElement('option');o2.value=c.id;o2.textContent=`${c.i} $
 catSel1.appendChild(o1);catSel2.appendChild(o2);
 });
 document.getElementById('waNum').value = localStorage.getItem('jgmart_admin_wa')||'8801870489448';
+document.getElementById('supaUrl').value = localStorage.getItem('jgmart_supabase_url')||'';
+document.getElementById('supaKey').value = localStorage.getItem('jgmart_supabase_anon_key')||'';
+updateSupaStatus();
 loadPromo();
 }
 
@@ -240,6 +229,27 @@ if(id==='products')renderStats();
 if(id==='orders')renderOrders();
 if(id==='analytics')renderAnalytics();
 }
+
+// Load products from catalog_data.json if localStorage is empty (e.g. direct visit)
+(async function loadAdminProducts() {
+  if (products.length) return;
+  try {
+    const res = await fetch('catalog_data.json');
+    const data = await res.json();
+    if (data && data.products && data.products.length) {
+      products = data.products;
+      localStorage.setItem('jgmart_prods', JSON.stringify(products));
+    }
+  } catch(e) {
+    console.warn('Failed to load catalog_data.json', e);
+  }
+  // Re-render if admin panel is already visible (user logged in before fetch completed)
+  const panel = document.getElementById('dashboardMain');
+  if (panel && !panel.classList.contains('hidden')) {
+    renderStats();
+    renderProds();
+  }
+})();
 
 function renderStats(){
 const el=document.getElementById('statsGrid');
@@ -412,12 +422,70 @@ document.getElementById('topProducts').innerHTML='<h3 style="font-size:.8rem;col
 (top.length?`<div class="stats-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr))">${top.map(([n,c])=>`<div class="stat-card"><div class="num" style="font-size:.9rem">${c}</div><div class="lbl">${n.length>20?n.slice(0,20)+'...':n}</div></div>`).join('')}</div>`:'<p style="font-size:.75rem;color:#5c5c5c">No orders yet</p>');}
 
 // SETTINGS
-function changePin(){
-const p=document.getElementById('newPin').value.trim();
-if(p.length<4||p.length>6){alert('PIN must be 4-6 digits');return;}
-localStorage.setItem('jgmart_admin_pin',p);
-toast('PIN updated ✓');
+// Supabase Auth handles password — no local PIN management needed
+function updateSupaStatus(){
+const url = localStorage.getItem('jgmart_supabase_url');
+const key = localStorage.getItem('jgmart_supabase_anon_key');
+const el = document.getElementById('supaStatusText');
+const configured = url && key && !url.includes('your-project-id') && !key.includes('your-anon-key');
+if(configured){
+el.textContent = '✅ Connected'; el.style.color = '#2ecc71';
+} else if(url || key){
+el.textContent = '⚠️ Partial config'; el.style.color = '#c9a227';
+} else {
+el.textContent = '❌ Not configured (demo mode)'; el.style.color = '#aaa';
 }
+}
+
+function saveSupaConfig(){
+const url = document.getElementById('supaUrl').value.trim();
+const key = document.getElementById('supaKey').value.trim();
+if(url) localStorage.setItem('jgmart_supabase_url', url);
+if(key) localStorage.setItem('jgmart_supabase_anon_key', key);
+if(!url && !key){alert('Enter at least the URL or key'); return;}
+updateSupaStatus();
+toast('✅ Credentials saved! Reload page to apply.');
+}
+
+function clearSupaConfig(){
+if(!confirm('Clear saved Supabase credentials?')) return;
+localStorage.removeItem('jgmart_supabase_url');
+localStorage.removeItem('jgmart_supabase_anon_key');
+updateSupaStatus();
+location.reload();
+}
+
+async function testSupaConfig(){
+const url = document.getElementById('supaUrl').value.trim() || localStorage.getItem('jgmart_supabase_url');
+const key = document.getElementById('supaKey').value.trim() || localStorage.getItem('jgmart_supabase_anon_key');
+if(!url || !key || url.includes('your-project-id')){
+alert('Please enter valid Supabase credentials first.');
+return;
+}
+const btn = event.target;
+btn.textContent = '⏳ Testing...';
+btn.disabled = true;
+try {
+const res = await fetch(url.replace(/\/+$/,'') + '/auth/v1/health', {
+headers: { 'apikey': key, 'Content-Type': 'application/json' }
+});
+if(res.ok || res.status === 404){
+// 404 means health endpoint not available but server reached
+alert('✅ Connection successful! Supabase server is reachable.
+
+Save your credentials and reload the page.');
+} else {
+const txt = await res.text();
+alert('⚠️ Server responded but may have issues: HTTP ' + res.status + '
+' + txt.slice(0,200));
+}
+} catch(e) {
+alert('❌ Connection failed: ' + e.message);
+}
+btn.textContent = '🔍 Test';
+btn.disabled = false;
+}
+
 function saveWa(){
 localStorage.setItem('jgmart_admin_wa',document.getElementById('waNum').value);
 toast('Saved ✓');
@@ -445,7 +513,7 @@ updateBackupDate();
 toast('✅ Backup marked!');
 }
 function exportData(){
-const d={products,orders,specials:localStorage.getItem('jgmart_specials'),promo:localStorage.getItem('jgmart_promo'),pin:localStorage.getItem('jgmart_admin_pin'),wa:localStorage.getItem('jgmart_admin_wa')};
+const d={products,orders,specials:localStorage.getItem('jgmart_specials'),promo:localStorage.getItem('jgmart_promo'),wa:localStorage.getItem('jgmart_admin_wa')};
 const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
 const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`jgmart_admin_backup_${new Date().toISOString().slice(0,10)}.json`;a.click();
 toast('Exported ✓');
@@ -461,7 +529,6 @@ if(d.products){products=d.products;localStorage.setItem('jgmart_prods',JSON.stri
 if(d.orders){orders=d.orders;localStorage.setItem('jgmart_ords',JSON.stringify(orders));}
 if(d.specials)localStorage.setItem('jgmart_specials',d.specials);
 if(d.promo)localStorage.setItem('jgmart_promo',d.promo);
-if(d.pin)localStorage.setItem('jgmart_admin_pin',d.pin);
 if(d.wa)localStorage.setItem('jgmart_admin_wa',d.wa);
 renderProds();renderStats();renderOrders();loadPromo();
 toast('Imported ✓');
