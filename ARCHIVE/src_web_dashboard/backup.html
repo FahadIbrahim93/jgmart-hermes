@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#00442D">
+<title>JG Mart — Master Backup</title>
+<style>
+  :root {
+    --green: #00442D;
+    --green-hover: #006644;
+    --gold: #c9a227;
+    --gold-light: #e8c44a;
+    --gold-dim: #a8821f;
+    --bg: #f5f2eb;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-light: #5a5a5a;
+    --danger: #c0392b;
+    --danger-hover: #e74c3c;
+    --success: #27ae60;
+    --warn: #e67e22;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 80px 0;
+  }
+
+  /* Header */
+  .header {
+    background: var(--green);
+    color: #fff;
+    padding: 20px 16px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header h1 span { color: var(--gold); }
+  .header p {
+    font-size: 0.82rem;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+
+  /* Container */
+  .container { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 16px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .icon { font-size: 1.2rem; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 50px;
+    touch-action: manipulation;
+    user-select: none;
+    width: 100%;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--gold);
+    color: #1a1a1a;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-green {
+    background: var(--green);
+    color: #fff;
+  }
+  .btn-green:hover { background: var(--green-hover); }
+  .btn-danger {
+    background: var(--danger);
+    color: #fff;
+  }
+  .btn-danger:hover { background: var(--danger-hover); }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
+  }
+  .btn-outline:hover { background: rgba(0,68,45,0.06); }
+  .btn-outline-gold {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold-dim);
+  }
+  .btn-outline-gold:hover { background: rgba(201,162,39,0.08); }
+  .btn-sm { padding: 10px 16px; font-size: 0.88rem; min-height: 40px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-row .btn { flex: 1; min-width: 0; }
+
+  /* Status badge */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-success { background: #d5f5e3; color: #1a7a42; }
+  .badge-warning { background: #fdebd0; color: #b7771a; }
+  .badge-danger  { background: #fadbd8; color: #a93226; }
+  .badge-muted   { background: #eaeaea; color: #888; }
+
+  /* Scan results table */
+  .scan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+  .scan-table th {
+    text-align: left;
+    padding: 8px 6px;
+    border-bottom: 2px solid var(--gold);
+    color: var(--green);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .scan-table td {
+    padding: 10px 6px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+  .scan-table tr:last-child td { border-bottom: none; }
+  .scan-table .key-name {
+    font-weight: 600;
+    word-break: break-all;
+    font-size: 0.8rem;
+  }
+  .scan-table .key-status { text-align: center; }
+  .scan-table .key-size,
+  .scan-table .key-records,
+  .scan-table .key-modified {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .scan-table .key-check {
+    width: 36px;
+    text-align: center;
+  }
+  .scan-table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--green);
+    cursor: pointer;
+  }
+
+  /* Last backup info */
+  .backup-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .backup-info:last-child { border-bottom: none; }
+  .backup-info .label { font-size: 0.88rem; color: var(--text-light); }
+  .backup-info .value { font-weight: 700; font-size: 1rem; }
+
+  /* Warning banner */
+  .warning-banner {
+    background: #fdebd0;
+    border-left: 4px solid var(--warn);
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    color: #7a5a10;
+  }
+  .warning-banner strong { color: #a0680a; }
+  .success-banner {
+    background: #d5f5e3;
+    border-left: 4px solid var(--success);
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    color: #1a6a3a;
+  }
+  .info-banner {
+    background: #d6eaf8;
+    border-left: 4px solid #2980b9;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    color: #1a5276;
+  }
+  .danger-banner {
+    background: #fadbd8;
+    border-left: 4px solid var(--danger);
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    color: #922b21;
+  }
+
+  /* Restore preview */
+  .restore-preview { display: none; }
+  .restore-preview.visible { display: block; }
+  .preview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .preview-item .key { font-weight: 600; color: var(--green); }
+  .preview-item .val { color: var(--text-light); }
+
+  /* Confirm delete */
+  .confirm-delete { display: none; }
+  .confirm-delete.visible { display: block; }
+  .confirm-delete input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin: 8px 0;
+    text-align: center;
+    font-weight: 600;
+    outline: none;
+  }
+  .confirm-delete input:focus { border-color: var(--danger); }
+
+  /* Cloud instructions */
+  .cloud-steps {
+    padding: 0 0 0 20px;
+    margin: 8px 0;
+  }
+  .cloud-steps li {
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  .spinner-dark {
+    border-color: rgba(0,68,45,0.2);
+    border-top-color: var(--green);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Result toasts */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: opacity 0.3s;
+    max-width: 90%;
+    text-align: center;
+    pointer-events: none;
+  }
+  .toast.visible { opacity: 1; }
+  .toast.success { background: var(--success); }
+  .toast.error { background: var(--danger); }
+  .toast.warning { background: var(--warn); }
+
+  /* Hidden file input */
+  .hidden-input { display: none; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 24px 10px;
+    color: var(--text-light);
+  }
+  .empty-state .emoji { font-size: 2.5rem; margin-bottom: 10px; }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .stat-box {
+    flex: 1;
+    text-align: center;
+    padding: 12px 6px;
+    background: #f8f6f0;
+    border-radius: 8px;
+  }
+  .stat-box .num {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .stat-box .lbl {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: #e0ddd5;
+    margin: 14px 0;
+  }
+
+  /* Checkbox label */
+  .check-all-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .check-all-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--green);
+    cursor: pointer;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 400px) {
+    .header h1 { font-size: 1.15rem; }
+    .btn { padding: 12px 16px; font-size: 0.92rem; min-height: 46px; }
+    .scan-table { font-size: 0.78rem; }
+    .scan-table .key-name { font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔐 <span>JG Mart</span> — Backup &amp; Restore</h1>
+  <p>Scan, back up, and restore all app data at once</p>
+</div>
+
+<div class="container">
+
+  <!-- LAST BACKUP STATUS -->
+  <div class="card" id="backup-status-card">
+    <div class="card-title"><span class="icon">📋</span> Backup Schedule</div>
+    <div id="backup-schedule-content">
+      <div class="backup-info">
+        <span class="label">Last backup</span>
+        <span class="value" id="last-backup-date">Never</span>
+      </div>
+      <div class="backup-info">
+        <span class="label">Days since backup</span>
+        <span class="value" id="days-since-backup">—</span>
+      </div>
+      <div id="backup-warning"></div>
+    </div>
+  </div>
+
+  <!-- SCAN ALL APPS -->
+  <div class="card">
+    <div class="card-title"><span class="icon">🔍</span> Scan All Apps</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Discover every <code>jgmart_*</code> key in localStorage and see its status.
+    </p>
+    <button class="btn btn-green" id="btn-scan" onclick="scanAll()">
+      🔎 Scan All Apps
+    </button>
+    <div id="scan-results" style="margin-top:14px;display:none;"></div>
+  </div>
+
+  <!-- BACKUP ALL -->
+  <div class="card">
+    <div class="card-title"><span class="icon">💾</span> Backup All Data</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Download a complete <code>.json</code> backup of every <code>jgmart_*</code> key.
+    </p>
+    <button class="btn btn-primary" id="btn-backup-all" onclick="backupAll()">
+      ⬇️ Download Full Backup
+    </button>
+  </div>
+
+  <!-- INDIVIDUAL BACKUP -->
+  <div class="card" id="individual-backup-card">
+    <div class="card-title"><span class="icon">📦</span> Individual Backup</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Select specific apps to back up. <strong>Scan first</strong> to see available keys.
+    </p>
+    <div id="individual-list" class="empty-state">
+      <div class="emoji">📭</div>
+      <p>No keys loaded. Click <strong>Scan All Apps</strong> above first.</p>
+    </div>
+    <button class="btn btn-primary btn-sm" id="btn-backup-selected" onclick="backupSelected()" disabled style="margin-top:10px;">
+      ⬇️ Backup Selected
+    </button>
+  </div>
+
+  <!-- RESTORE -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📂</span> Restore from Backup</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Import a <code>jgmart_full_backup_*.json</code> file to restore all data.
+    </p>
+    <input type="file" accept=".json" class="hidden-input" id="restore-file-input" onchange="handleRestoreFile(event)">
+    <button class="btn btn-outline" onclick="document.getElementById('restore-file-input').click()">
+      📤 Choose Backup File
+    </button>
+    <div id="restore-preview" class="restore-preview"></div>
+  </div>
+
+  <!-- CLOUD EXPORT -->
+  <div class="card">
+    <div class="card-title"><span class="icon">☁️</span> Cloud Export</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Save your backup to iCloud, Google Drive, or Dropbox.
+    </p>
+    <button class="btn btn-outline-gold btn-sm" onclick="toggleCloud()">
+      ☁️ Show Cloud Instructions
+    </button>
+    <div id="cloud-instructions" style="display:none;margin-top:12px;"></div>
+  </div>
+
+  <!-- CLEAR ALL DATA -->
+  <div class="card" style="border: 2px solid var(--danger);">
+    <div class="card-title" style="color:var(--danger);"><span class="icon">⚠️</span> Clear All Data</div>
+    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+      Permanently delete all <code>jgmart_*</code> localStorage data. This cannot be undone.
+    </p>
+    <button class="btn btn-danger" onclick="toggleClearConfirm()">
+      🗑️ Clear All JG Mart Data
+    </button>
+    <div id="clear-confirm" class="confirm-delete">
+      <div class="danger-banner">
+        This will permanently remove ALL jgmart_* data from localStorage.
+        Make sure you have a backup first!
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-light);margin:8px 0;">
+        Type <strong>DELETE</strong> below to confirm:
+      </p>
+      <input type="text" id="delete-confirm-input" placeholder="Type DELETE to confirm" autocomplete="off">
+      <div class="btn-row">
+        <button class="btn btn-danger btn-sm" onclick="clearAllData()">Yes, Delete Everything</button>
+        <button class="btn btn-outline btn-sm" onclick="toggleClearConfirm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   MASTER BACKUP & RESTORE UTILITY — JG Mart
+   ========================================================= */
+
+// Known JG Mart apps — used for status display
+const KNOWN_APPS = [
+  'jgmart_analytics',
+  'jgmart_finance',
+  'jgmart_cart',
+  'jgmart_lang',
+  'jgmart_launch_checks',
+  'jgmart_orders',
+  'jgmart_inventory',
+  'jgmart_customers',
+  'jgmart_settings',
+  'jgmart_promotions',
+  'jgmart_delivery',
+  'jgmart_payments',
+  'jgmart_notifications'
+];
+
+let scannedKeys = [];   // array of { key, sizeKB, records, modified, status }
+let restoreData = null; // parsed backup file waiting for confirmation
+
+/* --- Toast ------------------------------------------------- */
+function showToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (type || '');
+  t.classList.add('visible');
+  clearTimeout(t._hide);
+  t._hide = setTimeout(() => t.classList.remove('visible'), 3000);
+}
+
+/* --- Date helpers ----------------------------------------- */
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' +
+    String(d.getMonth()+1).padStart(2,'0') + '-' +
+    String(d.getDate()).padStart(2,'0');
+}
+
+function nowStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' +
+    String(d.getMonth()+1).padStart(2,'0') + '-' +
+    String(d.getDate()).padStart(2,'0') + '_' +
+    String(d.getHours()).padStart(2,'0') +
+    String(d.getMinutes()).padStart(2,'0');
+}
+
+function friendlyDate(ts) {
+  if (!ts) return 'Unknown';
+  const d = new Date(ts);
+  return d.toLocaleDateString('en-BD', {
+    day: 'numeric', month: 'short', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+}
+
+/* --- Key utilities ---------------------------------------- */
+function getAllJgmartKeys() {
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('jgmart_')) keys.push(k);
+  }
+  return keys.sort();
+}
+
+function getKeyStatus(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw === null) return { status: 'not_found', sizeKB: 0, records: 0, modified: null };
+    if (raw === '' || raw === '[]' || raw === '{}') return { status: 'empty', sizeKB: 0, records: 0, modified: null };
+    const sizeKB = (new Blob([raw]).size / 1024);
+    let records = 0;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) records = parsed.length;
+      else if (typeof parsed === 'object' && parsed !== null) records = Object.keys(parsed).length;
+      else records = 1;
+    } catch { records = 1; }
+    // Approximate "last modified" by checking if the data has a timestamp field
+    let modified = null;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const last = parsed[parsed.length - 1];
+        if (last && (last.timestamp || last.date || last.createdAt || last.updatedAt)) {
+          modified = new Date(last.timestamp || last.date || last.createdAt || last.updatedAt).getTime();
+        }
+      }
+      if (!modified && typeof parsed === 'object' && parsed !== null) {
+        if (parsed.timestamp || parsed.date || parsed.lastUpdated || parsed.createdAt || parsed.updatedAt) {
+          modified = new Date(parsed.timestamp || parsed.date || parsed.lastUpdated || parsed.createdAt || parsed.updatedAt).getTime();
+        }
+      }
+    } catch {}
+    // Fallback: use localStorage key discovery order as proxy — no reliable mod time in localStorage
+    return { status: 'has_data', sizeKB: Math.round(sizeKB * 10) / 10, records, modified };
+  } catch (e) {
+    return { status: 'error', sizeKB: 0, records: 0, modified: null };
+  }
+}
+
+/* --- SCAN ------------------------------------------------- */
+function scanAll() {
+  const btn = document.getElementById('btn-scan');
+  const resultsDiv = document.getElementById('scan-results');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Scanning…';
+
+  // Clear previous individual list
+  document.getElementById('individual-list').innerHTML = '';
+  document.getElementById('btn-backup-selected').disabled = true;
+
+  setTimeout(() => {
+    const keys = getAllJgmartKeys();
+    scannedKeys = [];
+
+    // Build scan data: start with known apps for reporting
+    const foundKeys = new Set(keys);
+    const allAppKeys = [...KNOWN_APPS];
+
+    // Also include any extra jgmart_ keys not in known list
+    keys.forEach(k => {
+      if (!allAppKeys.includes(k)) allAppKeys.push(k);
+    });
+
+    let totalSize = 0;
+    let totalRecords = 0;
+    let appsWithData = 0;
+    let appsEmpty = 0;
+    let appsNotFound = 0;
+
+    allAppKeys.forEach(key => {
+      const info = getKeyStatus(key);
+      info.key = key;
+      if (info.status === 'has_data') {
+        totalSize += info.sizeKB;
+        totalRecords += info.records;
+        appsWithData++;
+      } else if (info.status === 'empty') {
+        appsEmpty++;
+      } else if (info.status === 'not_found') {
+        appsNotFound++;
+      }
+      scannedKeys.push(info);
+    });
+
+    // Render results
+    let html = '';
+
+    // Summary stats
+    html += '<div class="stats-row">';
+    html += '<div class="stat-box"><div class="num">' + appsWithData + '</div><div class="lbl">With Data</div></div>';
+    html += '<div class="stat-box"><div class="num">' + appsEmpty + '</div><div class="lbl">Empty</div></div>';
+    html += '<div class="stat-box"><div class="num">' + appsNotFound + '</div><div class="lbl">Not Found</div></div>';
+    html += '<div class="stat-box"><div class="num">' + totalRecords + '</div><div class="lbl">Records</div></div>';
+    html += '</div>';
+
+    if (scannedKeys.length === 0) {
+      html += '<div class="empty-state"><div class="emoji">🔍</div><p>No jgmart_* keys found in localStorage.</p></div>';
+    } else {
+      // Check-all row
+      html += '<div class="check-all-row">';
+      html += '<input type="checkbox" id="check-all" onchange="toggleAllCheckboxes(this.checked)">';
+      html += '<label for="check-all">Select all for individual backup</label>';
+      html += '</div>';
+
+      // Table
+      html += '<table class="scan-table">';
+      html += '<thead><tr>';
+      html += '<th class="key-check"></th>';
+      html += '<th>Key</th>';
+      html += '<th class="key-status">Status</th>';
+      html += '<th class="key-size">Size</th>';
+      html += '<th class="key-records">#</th>';
+      html += '</tr></thead><tbody>';
+
+      scannedKeys.forEach((info, idx) => {
+        let statusBadge = '';
+        let sizeDisplay = '—';
+        let recordsDisplay = '—';
+        let checked = '';
+
+        if (info.status === 'has_data') {
+          statusBadge = '<span class="badge badge-success">Has Data</span>';
+          sizeDisplay = info.sizeKB + ' KB';
+          recordsDisplay = info.records;
+          checked = 'checked';
+        } else if (info.status === 'empty') {
+          statusBadge = '<span class="badge badge-warning">Empty</span>';
+        } else if (info.status === 'not_found') {
+          statusBadge = '<span class="badge badge-muted">Not Found</span>';
+        } else {
+          statusBadge = '<span class="badge badge-danger">Error</span>';
+        }
+
+        html += '<tr>';
+        html += '<td class="key-check"><input type="checkbox" class="item-checkbox" data-key="' + escAttr(info.key) + '" ' + checked + ' onchange="updateSelectedBtn()"></td>';
+        html += '<td><div class="key-name">' + escHtml(info.key) + '</div></td>';
+        html += '<td class="key-status">' + statusBadge + '</td>';
+        html += '<td class="key-size">' + sizeDisplay + '</td>';
+        html += '<td class="key-records">' + recordsDisplay + '</td>';
+        html += '</tr>';
+      });
+
+      html += '</tbody></table>';
+
+      // Total row
+      if (totalSize > 0) {
+        html += '<div style="text-align:right;font-size:0.82rem;color:var(--text-light);padding-top:8px;border-top:1px solid #eee;margin-top:6px;">';
+        html += 'Total: <strong>' + totalSize.toFixed(1) + ' KB</strong> across <strong>' + appsWithData + '</strong> apps';
+        html += '</div>';
+      }
+    }
+
+    resultsDiv.innerHTML = html;
+    resultsDiv.style.display = 'block';
+    btn.disabled = false;
+    btn.innerHTML = '🔎 Scan All Apps';
+    buildIndividualList();
+    updateBackupReminder();
+
+    showToast('Scan complete — found ' + scannedKeys.length + ' key(s)', 'success');
+  }, 300);
+}
+
+/* --- Individual list (for backup-card) -------------------- */
+function buildIndividualList() {
+  const container = document.getElementById('individual-list');
+  const keys = getAllJgmartKeys();
+  if (keys.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="emoji">📭</div><p>No jgmart_* keys found. Scan first.</p></div>';
+    document.getElementById('btn-backup-selected').disabled = true;
+    return;
+  }
+  let html = '<div class="check-all-row" style="margin-bottom:4px;">';
+  html += '<input type="checkbox" id="indiv-check-all" onchange="toggleIndivCheckboxes(this.checked)">';
+  html += '<label for="indiv-check-all">Select all</label>';
+  html += '</div>';
+  html += '<table class="scan-table"><tbody>';
+  keys.forEach(k => {
+    const info = getKeyStatus(k);
+    const hasData = info.status === 'has_data';
+    html += '<tr>';
+    html += '<td class="key-check"><input type="checkbox" class="indiv-checkbox" data-key="' + escAttr(k) + '" ' + (hasData ? 'checked' : 'disabled') + ' onchange="updateIndivBtn()"></td>';
+    html += '<td><div class="key-name" style="' + (!hasData ? 'opacity:0.5;' : '') + '">' + escHtml(k) + '</div></td>';
+    html += '<td style="text-align:right;font-size:0.78rem;color:var(--text-light);">' + (hasData ? info.sizeKB + ' KB' : '—') + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+  updateIndivBtn();
+}
+
+function toggleIndivCheckboxes(checked) {
+  document.querySelectorAll('.indiv-checkbox:not(:disabled)').forEach(cb => cb.checked = checked);
+  updateIndivBtn();
+}
+
+function updateIndivBtn() {
+  const checked = document.querySelectorAll('.indiv-checkbox:checked').length;
+  document.getElementById('btn-backup-selected').disabled = checked === 0;
+}
+
+/* --- Scan table checkbox helpers -------------------------- */
+function toggleAllCheckboxes(checked) {
+  document.querySelectorAll('.item-checkbox').forEach(cb => cb.checked = checked);
+  updateSelectedBtn();
+}
+
+function updateSelectedBtn() {
+  // individual backup card uses its own checkboxes
+}
+
+/* --- BACKUP ALL ------------------------------------------- */
+function backupAll() {
+  const keys = getAllJgmartKeys();
+  if (keys.length === 0) {
+    showToast('No jgmart_* data found to back up.', 'warning');
+    return;
+  }
+  const data = {};
+  keys.forEach(k => {
+    try { data[k] = JSON.parse(localStorage.getItem(k)); }
+    catch { data[k] = localStorage.getItem(k); }
+  });
+  const backup = {
+    app: 'JG Mart',
+    version: '1.0',
+    exportedAt: new Date().toISOString(),
+    keyCount: keys.length,
+    data: data
+  };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'jgmart_full_backup_' + nowStr() + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Store today as last backup date
+  try {
+    localStorage.setItem('jgmart_last_backup_date', todayStr());
+  } catch {}
+
+  updateBackupReminder();
+  showToast('Full backup downloaded! ' + keys.length + ' key(s) saved.', 'success');
+}
+
+/* --- BACKUP SELECTED -------------------------------------- */
+function backupSelected() {
+  const checked = document.querySelectorAll('.indiv-checkbox:checked');
+  if (checked.length === 0) {
+    showToast('No apps selected.', 'warning');
+    return;
+  }
+  const data = {};
+  checked.forEach(cb => {
+    const k = cb.getAttribute('data-key');
+    try { data[k] = JSON.parse(localStorage.getItem(k)); }
+    catch { data[k] = localStorage.getItem(k); }
+  });
+  const keys = Object.keys(data);
+  const backup = {
+    app: 'JG Mart',
+    version: '1.0',
+    exportedAt: new Date().toISOString(),
+    keyCount: keys.length,
+    data: data
+  };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'jgmart_selected_backup_' + nowStr() + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  try {
+    localStorage.setItem('jgmart_last_backup_date', todayStr());
+  } catch {}
+  updateBackupReminder();
+  showToast('Selected backup downloaded! ' + keys.length + ' key(s) saved.', 'success');
+}
+
+/* --- RESTORE ---------------------------------------------- */
+function handleRestoreFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      restoreData = JSON.parse(e.target.result);
+      if (!restoreData.data || typeof restoreData.data !== 'object') {
+        showToast('Invalid backup file: missing "data" object.', 'error');
+        restoreData = null;
+        document.getElementById('restore-preview').classList.remove('visible');
+        return;
+      }
+      showRestorePreview(restoreData);
+    } catch (err) {
+      showToast('Invalid JSON file.', 'error');
+      restoreData = null;
+      document.getElementById('restore-preview').classList.remove('visible');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function showRestorePreview(backup) {
+  const div = document.getElementById('restore-preview');
+  const keys = Object.keys(backup.data);
+  const timestamp = backup.exportedAt ? friendlyDate(backup.exportedAt) : 'Unknown';
+
+  let html = '<div class="divider"></div>';
+  html += '<div class="success-banner">📄 Backup file loaded successfully</div>';
+  html += '<div class="backup-info"><span class="label">Exported</span><span class="value">' + timestamp + '</span></div>';
+  html += '<div class="backup-info"><span class="label">Keys found</span><span class="value">' + keys.length + '</span></div>';
+  html += '<div style="margin:10px 0;font-size:0.85rem;font-weight:600;color:var(--green);">Keys to restore:</div>';
+
+  keys.forEach(k => {
+    const val = backup.data[k];
+    let count = 0;
+    if (Array.isArray(val)) count = val.length;
+    else if (typeof val === 'object' && val !== null) count = Object.keys(val).length;
+    else count = 1;
+    html += '<div class="preview-item"><span class="key">' + escHtml(k) + '</span><span class="val">' + count + ' record(s)</span></div>';
+  });
+
+  html += '<div class="warning-banner" style="margin-top:12px;">';
+  html += '⚠️ This will <strong>overwrite</strong> any existing data for these keys. ';
+  html += 'Current data will be lost. Consider backing up first.';
+  html += '</div>';
+
+  html += '<div class="btn-row" style="margin-top:12px;">';
+  html += '<button class="btn btn-green" onclick="confirmRestore()">✅ Restore All Data</button>';
+  html += '<button class="btn btn-outline" onclick="cancelRestore()">Cancel</button>';
+  html += '</div>';
+
+  div.innerHTML = html;
+  div.classList.add('visible');
+}
+
+function confirmRestore() {
+  if (!restoreData) return;
+  const keys = Object.keys(restoreData.data);
+  let restored = 0;
+  keys.forEach(k => {
+    try {
+      localStorage.setItem(k, JSON.stringify(restoreData.data[k]));
+      restored++;
+    } catch (e) {
+      console.error('Failed to restore', k, e);
+    }
+  });
+  document.getElementById('restore-preview').classList.remove('visible');
+  restoreData = null;
+  showToast('Restored ' + restored + ' key(s) successfully!', 'success');
+  // Refresh display
+  updateBackupReminder();
+}
+
+function cancelRestore() {
+  document.getElementById('restore-preview').classList.remove('visible');
+  restoreData = null;
+  showToast('Restore cancelled.', 'warning');
+}
+
+/* --- SCHEDULE REMINDER ------------------------------------ */
+function updateBackupReminder() {
+  const lastBackup = localStorage.getItem('jgmart_last_backup_date');
+  const dateEl = document.getElementById('last-backup-date');
+  const daysEl = document.getElementById('days-since-backup');
+  const warnEl = document.getElementById('backup-warning');
+
+  if (!lastBackup) {
+    dateEl.textContent = 'Never';
+    daysEl.textContent = '—';
+    warnEl.innerHTML = '<div class="warning-banner"><strong>⚠️ No backup recorded yet.</strong> Run a full backup to protect your data.</div>';
+    return;
+  }
+
+  const lastDate = new Date(lastBackup + 'T00:00:00');
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const diffDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
+
+  dateEl.textContent = friendlyDate(lastDate);
+  daysEl.textContent = diffDays + ' day(s)';
+
+  if (diffDays > 14) {
+    warnEl.innerHTML = '<div class="danger-banner"><strong>🔴 CRITICAL:</strong> ' + diffDays + ' days since last backup! Your data is at risk.</div>';
+  } else if (diffDays > 7) {
+    warnEl.innerHTML = '<div class="warning-banner"><strong>⚠️ Warning:</strong> ' + diffDays + ' days since last backup. Please back up soon (recommended every 7 days).</div>';
+  } else if (diffDays > 0) {
+    warnEl.innerHTML = '<div class="info-banner">✅ Last backup was ' + diffDays + ' day(s) ago. No action needed.</div>';
+  } else {
+    warnEl.innerHTML = '<div class="success-banner">✅ Backed up today! Your data is current.</div>';
+  }
+}
+
+/* --- CLEAR ALL DATA --------------------------------------- */
+function toggleClearConfirm() {
+  const div = document.getElementById('clear-confirm');
+  div.classList.toggle('visible');
+  if (div.classList.contains('visible')) {
+    document.getElementById('delete-confirm-input').focus();
+  }
+}
+
+function clearAllData() {
+  const input = document.getElementById('delete-confirm-input');
+  if (input.value.trim() !== 'DELETE') {
+    showToast('Type DELETE to confirm.', 'error');
+    input.focus();
+    return;
+  }
+  const keys = getAllJgmartKeys();
+  if (keys.length === 0) {
+    showToast('No jgmart_* data to clear.', 'warning');
+    toggleClearConfirm();
+    input.value = '';
+    return;
+  }
+  keys.forEach(k => localStorage.removeItem(k));
+  // Also clear the backup date tracker
+  try { localStorage.removeItem('jgmart_last_backup_date'); } catch {}
+
+  showToast('Cleared ' + keys.length + ' key(s). All JG Mart data removed.', 'success');
+  toggleClearConfirm();
+  input.value = '';
+
+  // Refresh UI
+  document.getElementById('scan-results').style.display = 'none';
+  document.getElementById('individual-list').innerHTML = '<div class="empty-state"><div class="emoji">📭</div><p>No keys loaded. Scan first.</p></div>';
+  document.getElementById('btn-backup-selected').disabled = true;
+  updateBackupReminder();
+}
+
+/* --- CLOUD INSTRUCTIONS ----------------------------------- */
+function toggleCloud() {
+  const div = document.getElementById('cloud-instructions');
+  if (div.style.display === 'block') {
+    div.style.display = 'none';
+    return;
+  }
+
+  const html = `
+<div class="divider"></div>
+<div class="info-banner">☁️ After downloading a backup file, save it to your cloud storage:</div>
+
+<ol class="cloud-steps">
+  <li><strong>Download the backup</strong> using the <strong>Backup All</strong> or <strong>Individual Backup</strong> buttons above.</li>
+  <li><strong>Open your cloud provider</strong> on your phone or computer:</li>
+</ol>
+
+<table class="scan-table" style="margin:8px 0 12px;">
+  <thead><tr><th>Service</th><th>How to save</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>☁️ iCloud</strong></td>
+      <td style="font-size:0.82rem;">On iPhone: open Files app → iCloud Drive → upload the .json file. Or save backup and enable iCloud Drive sync.</td>
+    </tr>
+    <tr>
+      <td><strong>📁 Google Drive</strong></td>
+      <td style="font-size:0.82rem;">Open Google Drive app → tap + → Upload → select the .json file. Or drag into drive.google.com on desktop.</td>
+    </tr>
+    <tr>
+      <td><strong>📦 Dropbox</strong></td>
+      <td style="font-size:0.82rem;">Open Dropbox app → tap + → Upload files → select the .json. Or save to Dropbox folder on desktop.</td>
+    </tr>
+    <tr>
+      <td><strong>📬 Email</strong></td>
+      <td style="font-size:0.82rem;">Attach the .json file to an email to yourself for safekeeping.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warning-banner">
+  <strong>💡 Tip:</strong> Schedule a backup every week and store at least 2 copies in different locations (e.g. Google Drive + local download).
+</div>
+  `;
+  div.innerHTML = html;
+  div.style.display = 'block';
+}
+
+/* --- ESCAPE HELPERS --------------------------------------- */
+function escHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+function escAttr(str) {
+  return str.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+/* --- INIT ------------------------------------------------ */
+window.addEventListener('DOMContentLoaded', function() {
+  updateBackupReminder();
+  // Auto-scan on load if there are JG Mart keys
+  const keys = getAllJgmartKeys();
+  if (keys.length > 0) {
+    scanAll();
+  }
+});
+</script>
+
+</body>
+</html>

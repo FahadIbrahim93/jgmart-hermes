@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Financial Dashboard</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f0f2f0;color:#1a1a1a;padding:16px;max-width:1000px;margin:0 auto}
+h1{font-size:1.2rem;font-weight:800;color:#00442D;margin-bottom:16px}h1 span{color:#c9a227}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:500px){.metrics{grid-template-columns:1fr 1fr}}
+.metric{background:#fff;border-radius:10px;padding:12px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.03)}
+.metric .label{font-size:.68rem;color:#5c5c5c;text-transform:uppercase;font-weight:600;letter-spacing:.04em}
+.metric .value{font-size:1.2rem;font-weight:800;color:#00442D;margin-top:4px}
+.metric .value.gold{color:#c9a227}.metric .value.red{color:#c0392b}.metric .value.green{color:#0a6b47}
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card h2{font-size:.9rem;font-weight:700;color:#00442D;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{text-align:left;padding:8px 6px;border-bottom:2px solid #00442D;color:#00442D;font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;font-weight:700}
+td{padding:8px 6px;border-bottom:1px solid #eee}
+tr:last-child td{border-bottom:none}
+tr.total td{font-weight:700;border-top:2px solid #00442D;color:#00442D}
+tr.profit td{color:#0a6b47;font-weight:700}
+tr.loss td{color:#c0392b}
+.text-right{text-align:right}
+.tabs{display:flex;gap:4px;margin-bottom:12px;overflow-x:auto}
+.tab{padding:8px 14px;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;background:#e8ece8;color:#5c5c5c;white-space:nowrap;border:none}
+.tab.active{background:#00442D;color:#fff}
+.input-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.input-row input{font-family:Inter;padding:8px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:.8rem;flex:1;min-width:80px}
+.input-row button{background:#00442D;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}
+.history-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:.82rem}
+.history-item:last-child{border-bottom:none}
+.history-item .date{color:#5c5c5c;font-weight:500;min-width:90px}
+.history-item .amount{font-weight:700}
+.history-item .amount.positive{color:#0a6b47}.history-item .amount.negative{color:#c0392b}
+.empty-state{text-align:center;padding:20px;color:#5c5c5c;font-size:.82rem}
+.btn-group{display:flex;gap:8px;margin-top:12px}
+.btn{background:#00442D;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}
+.btn-outline{background:transparent;color:#00442D;border:1.5px solid #00442D;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}
+.btn-danger{background:#c0392b;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<h1>JG <span>Mart</span> Financials</h1>
+
+<!-- KPI BANNER -->
+<div class="metrics" id="kpiBanner">
+<div class="metric"><div class="label">Cash Position</div><div class="value gold" id="cashPos">—</div></div>
+<div class="metric"><div class="label">This Month Rev</div><div class="value" id="monthRev">—</div></div>
+<div class="metric"><div class="label">This Month Cost</div><div class="value red" id="monthCost">—</div></div>
+<div class="metric"><div class="label">Net Profit (MTD)</div><div class="value" id="monthProfit">—</div></div>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('projection',this)">📊 Projection</button>
+<button class="tab" onclick="showTab('entry',this)">✏️ Enter Data</button>
+<button class="tab" onclick="showTab('history',this)">📋 History</button>
+</div>
+
+<!-- PROJECTION TAB -->
+<div class="card" id="tab-projection">
+<h2>📊 6-Month P&L Projection</h2>
+<table>
+<thead><tr><th>Month</th><th>Customers</th><th>Orders</th><th>Revenue</th><th>Costs</th><th>Profit</th><th>Margin</th><th>Cash</th></tr></thead>
+<tbody id="projectionTable"></tbody>
+</table>
+<p style="font-size:.7rem;color:#5c5c5c;margin-top:8px">* Revenue = orders × 138 BDT · Costs = orders × 67 + fixed costs · Cash assumes 250K seed</p>
+</div>
+
+<!-- DATA ENTRY TAB -->
+<div class="card" id="tab-entry" style="display:none">
+<h2>✏️ Enter Daily Financial Data</h2>
+<p style="font-size:.8rem;color:#5c5c5c;margin-bottom:12px">Track your actual daily numbers. Data saves automatically.</p>
+<div class="input-row">
+<input type="date" id="entryDate">
+<input type="number" id="entryOrders" placeholder="Orders" min="0">
+<input type="number" id="entryRevenue" placeholder="Revenue (BDT)" min="0">
+<input type="number" id="entryCost" placeholder="Costs (BDT)" min="0">
+<button onclick="addEntry()">+ Add</button>
+</div>
+<div class="input-row">
+<input type="number" id="entryNewCust" placeholder="New customers" min="0">
+<input type="number" id="entryCashAdd" placeholder="Cash in (+)" min="0">
+<input type="number" id="entryCashOut" placeholder="Cash out (-)" min="0">
+</div>
+</div>
+
+<!-- HISTORY TAB -->
+<div class="card" id="tab-history" style="display:none">
+<h2>📋 Daily History</h2>
+<div id="historyList"></div>
+<div class="btn-group">
+<button class="btn-outline" onclick="exportData()">📤 Export</button>
+<button class="btn-danger" onclick="if(confirm('Delete ALL data?'))clearAll()">🗑 Clear</button>
+</div>
+</div>
+
+<script>
+const DB_KEY = 'jgmart_finance';
+let db = JSON.parse(localStorage.getItem(DB_KEY) || '{"entries":[],"cash":250000}');
+
+// Projection data
+const PROJ = [
+{month:1,cust:100,orders:300,rev:41400,cost:63500,fixed:43400},
+{month:2,cust:200,orders:900,rev:124200,cost:131500,fixed:71200},
+{month:3,cust:350,orders:1650,rev:227700,cost:212750,fixed:102200},
+{month:4,cust:500,orders:3000,rev:414000,cost:361000,fixed:130000},
+{month:5,cust:700,orders:5000,rev:690000,cost:585000,fixed:160000},
+{month:6,cust:1000,orders:8000,rev:1104000,cost:916000,fixed:190000}
+];
+
+function renderProjection(){
+let cash = 250000;
+const tbody = document.getElementById('projectionTable');
+tbody.innerHTML = PROJ.map(p => {
+const profit = p.rev - p.cost;
+cash += profit;
+const margin = p.rev > 0 ? (profit/p.rev*100).toFixed(1) : '—';
+return `<tr class="${profit>=0?'profit':'loss'}">
+<td>Month ${p.month}</td><td>${p.cust.toLocaleString()}</td><td>${p.orders.toLocaleString()}</td>
+<td>৳${p.rev.toLocaleString()}</td><td>৳${p.cost.toLocaleString()}</td>
+<td>${profit>=0?'':'−'}৳${Math.abs(profit).toLocaleString()}</td>
+<td>${margin}%</td><td>৳${cash.toLocaleString()}</td></tr>`;
+}).join('');
+}
+
+function renderKPI(){
+const entries = db.entries;
+if(entries.length===0){
+document.getElementById('cashPos').textContent = '৳250,000';
+document.getElementById('monthRev').textContent = '—';
+document.getElementById('monthCost').textContent = '—';
+document.getElementById('monthProfit').textContent = '—';
+return;
+}
+const now = new Date();
+const thisMonth = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+const monthEntries = entries.filter(e => e.date.startsWith(thisMonth));
+const monthRev = monthEntries.reduce((s,e)=>s+(e.revenue||0),0);
+const monthCost = monthEntries.reduce((s,e)=>s+(e.cost||0),0);
+const monthProfit = monthRev - monthCost;
+const cashIn = entries.reduce((s,e)=>s+(e.cashAdd||0),0);
+const cashOut = entries.reduce((s,e)=>s+(e.cashOut||0),0);
+const cash = 250000 + cashIn - cashOut;
+
+document.getElementById('cashPos').textContent = `৳${cash.toLocaleString()}`;
+document.getElementById('monthRev').textContent = `৳${monthRev.toLocaleString()}`;
+document.getElementById('monthCost').textContent = `৳${monthCost.toLocaleString()}`;
+const profitEl = document.getElementById('monthProfit');
+profitEl.textContent = monthProfit>=0 ? `৳${monthProfit.toLocaleString()}` : `−৳${Math.abs(monthProfit).toLocaleString()}`;
+profitEl.className = `value ${monthProfit>=0?'green':'red'}`;
+}
+
+function renderHistory(){
+const container = document.getElementById('historyList');
+const entries = db.entries.sort((a,b)=>b.date.localeCompare(a.date));
+if(entries.length===0){
+container.innerHTML = '<div class="empty-state">No entries yet. Switch to Enter Data tab to add your first day.</div>';
+return;
+}
+const total = {rev:0,cost:0,cashIn:0,cashOut:0};
+container.innerHTML = entries.map(e => {
+total.rev += e.revenue||0; total.cost += e.cost||0;
+total.cashIn += e.cashAdd||0; total.cashOut += e.cashOut||0;
+const profit = (e.revenue||0) - (e.cost||0);
+return `<div class="history-item">
+<span class="date">${e.date}</span>
+<span>${e.orders||0} orders</span>
+<span>${e.newCust||0} new</span>
+<span class="amount">+৳${(e.revenue||0).toLocaleString()}</span>
+<span class="amount negative">−৳${(e.cost||0).toLocaleString()}</span>
+<span class="amount ${profit>=0?'positive':'negative'}">${profit>=0?'+':'−'}৳${Math.abs(profit).toLocaleString()}</span>
+</div>`;
+}).join('');
+// Show totals
+container.innerHTML += `
+<div class="history-item" style="border-top:2px solid #00442D;margin-top:8px;padding-top:10px;font-weight:700">
+<span class="date">TOTAL</span><span></span><span></span>
+<span class="amount positive">+৳${total.rev.toLocaleString()}</span>
+<span class="amount negative">−৳${total.cost.toLocaleString()}</span>
+<span class="amount ${total.rev-total.cost>=0?'positive':'negative'}">${total.rev-total.cost>=0?'+':'−'}৳${Math.abs(total.rev-total.cost).toLocaleString()}</span>
+</div>`;
+}
+
+function addEntry(){
+const date = document.getElementById('entryDate').value;
+const orders = parseInt(document.getElementById('entryOrders').value)||0;
+const revenue = parseInt(document.getElementById('entryRevenue').value)||0;
+const cost = parseInt(document.getElementById('entryCost').value)||0;
+const newCust = parseInt(document.getElementById('entryNewCust').value)||0;
+const cashAdd = parseInt(document.getElementById('entryCashAdd').value)||0;
+const cashOut = parseInt(document.getElementById('entryCashOut').value)||0;
+if(!date){alert('Select a date');return;}
+if(!orders && !revenue){alert('Enter at least orders or revenue');return;}
+db.entries.push({date,orders,revenue,cost,newCust,cashAdd,cashOut});
+save();
+document.getElementById('entryOrders').value='';
+document.getElementById('entryRevenue').value='';
+document.getElementById('entryCost').value='';
+document.getElementById('entryNewCust').value='';
+document.getElementById('entryCashAdd').value='';
+document.getElementById('entryCashOut').value='';
+renderKPI();renderHistory();
+}
+
+function exportData(){
+const blob = new Blob([JSON.stringify(db,null,2)],{type:'application/json'});
+const a = document.createElement('a');
+a.href = URL.createObjectURL(blob);
+a.download = `jgmart_finance_${new Date().toISOString().slice(0,10)}.json`;
+a.click();
+}
+
+function clearAll(){
+db = {entries:[],cash:250000};
+save();
+renderKPI();renderHistory();
+}
+
+function save(){
+localStorage.setItem(DB_KEY, JSON.stringify(db));
+}
+
+function showTab(id, btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('.card[id^="tab-"]').forEach(c=>c.style.display='none');
+document.getElementById(`tab-${id}`).style.display='block';
+}
+
+// Set today's date
+document.getElementById('entryDate').value = new Date().toISOString().slice(0,10);
+
+renderProjection();
+renderKPI();
+renderHistory();
+</script>
+</body>
+</html>

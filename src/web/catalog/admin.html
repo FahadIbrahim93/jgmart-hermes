@@ -2,484 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>JG Mart — Admin Panel</title>
-<meta name="theme-color" content="#00442D">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Redirecting...</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:960px;margin:0 auto;padding:12px}
-h1{font-size:1.2rem;font-weight:800;color:#00442D;margin-bottom:4px}
-h1 span{color:#c9a227}
-.sub{font-size:.72rem;color:#5c5c5c;margin-bottom:16px}
-/* LOGIN */
-.login{max-width:320px;margin:80px auto;background:#fff;padding:24px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.login h2{font-size:1rem;color:#00442D;margin-bottom:12px;text-align:center}
-.login input{width:100%;padding:10px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:.85rem;font-family:inherit;outline:none;text-align:center;letter-spacing:4px;margin-bottom:10px}
-.login input:focus{border-color:#00442D}
-.login button{width:100%;background:#00442D;color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit}
-.login .error{color:#c0392b;font-size:.75rem;text-align:center;margin-top:6px;display:none}
-/* TABS */
-.tabs{display:flex;gap:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
-.tabs button{padding:8px 16px;border-radius:8px;border:none;font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;background:#e8ece8;color:#5c5c5c}
-.tabs button.active{background:#00442D;color:#fff}
-/* PRODUCTS */
-.search-box{margin-bottom:10px;display:flex;gap:6px}
-.search-box input{flex:1;padding:8px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:.78rem;font-family:inherit;outline:none}
-.search-box input:focus{border-color:#00442D}
-.search-box select{padding:8px;border:1.5px solid #ddd;border-radius:8px;font-size:.75rem;font-family:inherit;outline:none}
-.prod-table{width:100%;border-collapse:collapse;font-size:.72rem;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.prod-table th{background:#00442D;color:#fff;padding:8px 6px;text-align:left;font-weight:600;font-size:.65rem}
-.prod-table td{padding:6px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
-.prod-table tr:hover{background:#f8faf8}
-.prod-table .editable{background:#fff8e1;padding:4px 6px;border-radius:4px;border:1px solid #c9a227;font-size:.7rem;font-family:inherit;width:100%;outline:none}
-.prod-table .editable:focus{border-color:#00442D}
-.prod-table .price-input{width:60px;text-align:right}
-.prod-table .save-btn{background:#00442D;color:#fff;border:none;padding:3px 10px;border-radius:4px;font-size:.65rem;font-weight:600;cursor:pointer;font-family:inherit}
-.prod-table .del-btn{background:#c0392b;color:#fff;border:none;padding:3px 8px;border-radius:4px;font-size:.65rem;cursor:pointer;font-family:inherit}
-.prod-table .add-row td{background:#f0fff4}
-.add-product{display:flex;gap:6px;padding:8px 0;flex-wrap:wrap;align-items:center;background:#fff;border-radius:8px;padding:10px;margin-top:8px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.add-product input,.add-product select{padding:6px 10px;border:1.5px solid #ddd;border-radius:6px;font-size:.72rem;font-family:inherit;outline:none;flex:1;min-width:80px}
-.add-product button{background:#00442D;color:#fff;border:none;padding:7px 16px;border-radius:6px;font-weight:600;font-size:.72rem;cursor:pointer;font-family:inherit}
-/* DASHBOARD / STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:14px}
-.stat-card{background:#fff;border-radius:8px;padding:12px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.stat-card .num{font-size:1.2rem;font-weight:800;color:#00442D}
-.stat-card .lbl{font-size:.62rem;color:#5c5c5c}
-.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px}
-.dash-card{background:#fff;border-radius:10px;padding:14px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05);border-top:3px solid #00442D}
-.dash-card.gold{border-top-color:#c9a227}
-.dash-card .num{font-size:1.35rem;font-weight:800;color:#00442D}
-.dash-card.gold .num{color:#c9a227}
-.dash-card .lbl{font-size:.6rem;color:#5c5c5c;margin-top:3px;text-transform:uppercase;letter-spacing:.4px;font-weight:600}
-.dash-top{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.dash-top h3{font-size:.78rem;color:#00442D;margin-bottom:10px;font-weight:700}
-.dash-top-items{display:flex;gap:8px;flex-wrap:wrap}
-.dash-top-item{background:#f5f7f5;border-radius:8px;padding:10px 14px;flex:1;min-width:110px;text-align:center;transition:transform .15s}
-.dash-top-item:hover{transform:translateY(-1px)}
-.dash-top-item .rank{font-size:.6rem;color:#c9a227;font-weight:700;letter-spacing:.3px}
-.dash-top-item .name{font-size:.72rem;color:#1a1a1a;font-weight:600;margin:2px 0}
-.dash-top-item .count{font-size:.62rem;color:#5c5c5c}
-/* 7-DAY TREND */
-.trend-section{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.trend-section h3{font-size:.78rem;color:#00442D;margin-bottom:10px;font-weight:700}
-.trend-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:10px}
-.trend-day{text-align:center}
-.trend-day-label{font-size:.58rem;color:#5c5c5c;margin-bottom:3px;font-weight:600;letter-spacing:.2px}
-.trend-day-label .date{font-size:.62rem;color:#1a1a1a;font-weight:700}
-.trend-bar-bg{background:#f0f4f0;border-radius:4px;height:72px;position:relative;overflow:hidden;margin:0 auto 4px;width:100%;display:flex;flex-direction:column;justify-content:flex-end}
-.trend-bar-fill{background:linear-gradient(to top,#00442D,#1a7a55);border-radius:4px;width:100%;min-height:2px;transition:height .4s}
-.trend-bar-fill.gold{background:linear-gradient(to top,#c9a227,#e8c44a)}
-.trend-day-stats{font-size:.55rem;color:#5c5c5c;line-height:1.5}
-.trend-day-stats .ord{font-weight:700;color:#00442D}
-.trend-day-stats .rev{color:#c9a227;font-weight:600}
-.trend-summary{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding-top:8px;border-top:1px solid #f0f0f0}
-.trend-summary span{font-size:.63rem;color:#5c5c5c;background:#f5f7f5;padding:4px 10px;border-radius:6px}
-.trend-summary span b{color:#1a1a1a}
-/* ORDERS */
-.order-card{background:#fff;border-radius:8px;padding:10px;margin-bottom:6px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.order-card .date{font-size:.65rem;color:#5c5c5c}
-.order-card .items{font-size:.72rem;margin:3px 0}
-.order-card .total{font-weight:700;color:#00442D;font-size:.78rem}
-.order-card .details{font-size:.65rem;color:#5c5c5c}
-/* SETTINGS */
-.settings-grid{display:grid;gap:10px;margin-bottom:14px}
-.settings-card{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.settings-card h3{font-size:.82rem;color:#00442D;margin-bottom:8px}
-.settings-card label{font-size:.68rem;color:#5c5c5c;display:block;margin-bottom:2px}
-.settings-card input,.settings-card select{width:100%;padding:7px 10px;border:1.5px solid #ddd;border-radius:6px;font-size:.75rem;font-family:inherit;outline:none;margin-bottom:6px}
-.settings-card input:focus{border-color:#00442D}
-.settings-card button{background:#00442D;color:#fff;border:none;padding:7px 16px;border-radius:6px;font-weight:600;font-size:.72rem;cursor:pointer;font-family:inherit;margin-right:4px}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#00442D;color:#fff;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.75rem;z-index:300;animation:ti .3s;pointer-events:none}
-@keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.hidden{display:none}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #00442D 0%, #003322 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+  .redirect-box {
+    background: white;
+    color: #1a1a1a;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .redirect-box h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #00442D;
+  }
+  .redirect-box p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .redirect-box .icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: inline-block;
+    background: #00442D;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 8px;
+    transition: all 0.2s;
+  }
+  .btn:hover {
+    background: #003322;
+    transform: translateY(-2px);
+  }
+  .btn-secondary {
+    background: #f3f4f6;
+    color: #00442D;
+  }
+  .btn-secondary:hover {
+    background: #e5e7eb;
+  }
+  .note {
+    margin-top: 24px;
+    padding: 16px;
+    background: #fef3c7;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #92400e;
+    text-align: left;
+  }
+  .note strong {
+    display: block;
+    margin-bottom: 8px;
+  }
 </style>
 </head>
 <body>
+  <div class="redirect-box">
+    <div class="icon">🔐</div>
+    <h1>Admin Panel Moved</h1>
+    <p>
+      The admin panel has been upgraded to a new system with Supabase authentication and database.
+    </p>
+    <a href="/admin-new/" class="btn">Go to New Admin Panel →</a>
+    <br>
+    <a href="/" class="btn btn-secondary">← Back to Catalog</a>
 
-<!-- LOGIN -->
-<div id="loginScreen" class="login">
-<h2>🔐 Admin Login</h2>
-<input type="password" id="pinInput" maxlength="6" placeholder="Enter PIN" onkeydown="if(event.key==='Enter')login()">
-<button onclick="login()">Unlock</button>
-<div class="error" id="loginError">Wrong PIN. Try again.</div>
-</div>
+    <div class="note">
+      <strong>⚠️ Important:</strong>
+      The old admin panel used a simple PIN (1234). The new panel requires email/password authentication via Supabase.
+      <br><br>
+      <strong>Setup Required:</strong>
+      <ol style="margin-left:20px;margin-top:8px;">
+        <li>Create a Supabase project</li>
+        <li>Run the SQL schema from <code>src/web/supabase/schema.sql</code></li>
+        <li>Update <code>src/web/supabase/config.js</code> with your credentials</li>
+        <li>Deploy the updated code</li>
+      </ol>
+      See <code>docs/SUPABASE_SETUP.md</code> for full instructions.
+    </div>
+  </div>
 
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="hidden">
-<h1>JG <span>Mart</span> Admin</h1>
-<p class="sub">Manage products, prices, orders, and settings</p>
-
-<div class="tabs" id="tabBar">
-<button class="active" onclick="showTab('products')">📦 Products</button>
-<button onclick="showTab('orders')">📋 Orders</button>
-<button onclick="showTab('analytics')">📊 Analytics</button>
-<button onclick="showTab('settings')">⚙️ Settings</button>
-</div>
-
-<!-- TAB: Products -->
-<div id="tab-products">
-<div class="stats-grid" id="statsGrid"></div>
-<div class="search-box">
-<input type="search" id="prodSearch" placeholder="Search products..." oninput="renderProds()">
-<select id="catFilter" onchange="renderProds()"><option value="">All Categories</option></select>
-</div>
-<table class="prod-table" id="prodTable"></table>
-<div class="add-product" id="addForm">
-<input type="text" id="newName" placeholder="Product name">
-<input type="number" id="newPrice" placeholder="Price ৳" style="max-width:70px">
-<select id="newUnit"><option value="kg">kg</option><option value="L">L</option><option value="pc">pc</option><option value="doz">dozen</option><option value="100g">100g</option><option value="200g">200g</option><option value="250g">250g</option><option value="500g">500g</option><option value="bunch">bunch</option></select>
-<select id="newCat"></select>
-<button onclick="addProd()">+ Add</button>
-</div>
-</div>
-
-<!-- TAB: Orders -->
-<div id="tab-orders" class="hidden">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-<h3 style="font-size:.85rem;color:#00442D">📋 All Orders (${orders.length})</h3>
-<button onclick="exportCSV()" style="background:#00442D;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:600;font-size:.68rem;cursor:pointer;font-family:inherit">📥 Export CSV</button>
-</div>
-<div id="ordersList"></div>
-</div>
-
-<!-- TAB: Analytics -->
-<div id="tab-analytics" class="hidden">
-<div class="stats-grid" id="analyticsGrid"></div>
-<div id="topProducts"></div>
-</div>
-
-<!-- TAB: Settings -->
-<div id="tab-settings" class="hidden">
-<div class="settings-grid">
-<div class="settings-card">
-<h3>🔐 Change PIN</h3>
-<input type="password" id="newPin" placeholder="New 4-6 digit PIN" maxlength="6">
-<button onclick="changePin()">Save PIN</button>
-</div>
-<div class="settings-card">
-<h3>📱 WhatsApp Number</h3>
-<input type="tel" id="waNum" placeholder="8801870489448">
-<button onclick="saveWa()">Save Number</button>
-</div>
-<div class="settings-card">
-<h3>📢 Promo Banner</h3>
-<label>Seasonal promotion text shown on catalog</label>
-<input type="text" id="promoInput" placeholder="🎉 New: Biryani Masala! Fresh stock from Krishi Market">
-<button onclick="savePromo()">💾 Save Promo</button>
-</div>
-<div class="settings-card">
-<h3>💾 Data Management</h3>
-<button onclick="exportData()">📥 Export All Data</button>
-<button onclick="importData()" style="background:#c9a227;color:#1a1a1a">📤 Import Data</button>
-<input type="file" id="importFile" accept=".json" style="display:none" onchange="doImport(event)">
-<button onclick="resetData()" style="background:#c0392b">🗑 Reset All Data</button>
-</div>
-<div class="settings-card">
-<h3>⏰ Backup Reminder</h3>
-<p style="font-size:.68rem;color:#5c5c5c;margin-bottom:6px">Last backup: <span id="lastBackupDate">Never</span></p>
-<button onclick="markBackupDone()">✅ Mark Backup Done Today</button>
-<button onclick="exportData()" style="background:#c9a227;color:#1a1a1a">📥 Download Backup Now</button>
-</div>
-<div class="settings-card">
-<h3>📋 Tools</h3>
-<a href="manifest.html" target="_blank" style="display:block;background:#e8f5ef;color:#00442D;text-decoration:none;padding:8px 12px;border-radius:6px;font-weight:600;font-size:.75rem;margin-bottom:4px">📮 Print Delivery Manifest</a>
-<p style="font-size:.62rem;color:#5c5c5c">Opens today's orders grouped by building for rider delivery</p>
-</div>
-</div>
-</div>
-</div>
-
-<script>
-const DEFAULT_PIN = '1234';
-const CATS = [
-{id:"rice_dal",n:"Rice & Dal",i:"🍚"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️"},{id:"vegetables",n:"Veg",i:"🥬"},
-{id:"fish",n:"Fish",i:"🐟"},{id:"meat",n:"Meat",i:"🍗"},{id:"dairy_eggs",n:"Dairy",i:"🥛"},
-{id:"fruits",n:"Fruits",i:"🍎"},{id:"fmcg",n:"Household",i:"🧴"},{id:"beverages",n:"Drinks",i:"🥤"},{id:"snacks",n:"Snacks",i:"🍪"}
-];
-let products = JSON.parse(localStorage.getItem('jgmart_prods')||'[]');
-let orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
-
-function login(){
-const pin = document.getElementById('pinInput').value;
-const savedPin = localStorage.getItem('jgmart_admin_pin')||DEFAULT_PIN;
-if(pin === savedPin){
-document.getElementById('loginScreen').classList.add('hidden');
-document.getElementById('adminPanel').classList.remove('hidden');
-init();
-} else {
-document.getElementById('loginError').style.display='block';
-setTimeout(()=>document.getElementById('loginError').style.display='none',2000);
-}
-}
-
-function init(){
-renderStats();
-renderProds();
-renderOrders();
-renderAnalytics();
-// Populate category dropdowns
-const cats=['']+CATS.map(c=>c.id);
-const catSel1=document.getElementById('catFilter');
-const catSel2=document.getElementById('newCat');
-CATS.forEach(c=>{
-const o1=document.createElement('option');o1.value=c.id;o1.textContent=`${c.i} ${c.n}`;
-const o2=document.createElement('option');o2.value=c.id;o2.textContent=`${c.i} ${c.n}`;
-catSel1.appendChild(o1);catSel2.appendChild(o2);
-});
-document.getElementById('waNum').value = localStorage.getItem('jgmart_admin_wa')||'8801870489448';
-loadPromo();
-}
-
-function showTab(id){
-document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
-event.target.classList.add('active');
-document.querySelectorAll('[id^="tab-"]').forEach(t=>t.classList.add('hidden'));
-document.getElementById('tab-'+id).classList.remove('hidden');
-if(id==='products')renderStats();
-if(id==='orders')renderOrders();
-if(id==='analytics')renderAnalytics();
-}
-
-function renderStats(){
-const el=document.getElementById('statsGrid');
-const total=products.length;
-const totalOrders=orders.length;
-const itemsSold=orders.reduce((s,o)=>s+(o.items?.reduce((a,i)=>a+i.qty,0)||0),0);
-const totalRev=orders.reduce((s,o)=>s+(o.total||o.sub||0),0);
-// Days since last order
-let daysSince='—';
-if(orders.length){
-const dates=orders.map(o=>new Date(o.date)).filter(d=>!isNaN(d));
-if(dates.length){
-const lastOrder=new Date(Math.max(...dates));
-const diff=Math.floor((Date.now()-lastOrder)/(864e5));
-daysSince=diff===0?'Today':diff===1?'1 day':`${diff} days`;
-}
-}
-// Top 3 products by distinct order count
-const orderCounts={};
-orders.forEach(o=>{
-const seen=new Set;
-o.items?.forEach(i=>{
-if(!seen.has(i.nm)){seen.add(i.nm);orderCounts[i.nm]=(orderCounts[i.nm]||0)+1;}
-});
-});
-const top3=Object.entries(orderCounts).sort((a,b)=>b[1]-a[1]).slice(0,3);
-el.innerHTML=`
-<div class="dashboard-grid">
-<div class="dash-card"><div class="num">${total}</div><div class="lbl">Products</div></div>
-<div class="dash-card gold"><div class="num">${totalOrders}</div><div class="lbl">Orders</div></div>
-<div class="dash-card"><div class="num">${itemsSold}</div><div class="lbl">Items Sold</div></div>
-<div class="dash-card gold"><div class="num">৳${totalRev.toLocaleString()}</div><div class="lbl">Revenue</div></div>
-<div class="dash-card"><div class="num">${daysSince}</div><div class="lbl">Since Last Order</div></div>
-</div>
-${top3.length?`<div class="dash-top"><h3>🏆 Top 3 Products</h3>
-<div class="dash-top-items">${top3.map(([n,c],i)=>`
-<div class="dash-top-item"><div class="rank">#${i+1}</div><div class="name">${n.length>22?n.slice(0,22)+'…':n}</div><div class="count">${c} order${c!==1?'s':''}</div></div>`).join('')}
-</div></div>`:''}`;}
-
-function renderProds(){
-const q=document.getElementById('prodSearch').value.toLowerCase();
-const cf=document.getElementById('catFilter').value;
-const f=products.filter(p=>(!cf||p.ct===cf)&&(!q||p.nm.toLowerCase().includes(q)));
-const t=document.getElementById('prodTable');
-t.innerHTML=`<tr><th>#</th><th>Product</th><th>Cat</th><th>Price</th><th>Unit</th><th>Orders</th><th></th></tr>`+
-f.map((p,i)=>`<tr>
-<td style="color:#999;font-size:.6rem">${p.id}</td>
-<td><input class="editable" value="${p.nm}" onchange="editProd('${p.id}','nm',this.value)" style="min-width:120px"></td>
-<td><select class="editable" onchange="editProd('${p.id}','ct',this.value)">${CATS.map(c=>`<option value="${c.id}"${p.ct===c.id?' selected':''}>${c.i}</option>`).join('')}</select></td>
-<td><input class="editable price-input" type="number" value="${p.pr}" onchange="editProd('${p.id}','pr',parseInt(this.value)||0)"></td>
-<td><select class="editable" onchange="editProd('${p.id}','un',this.value)">${['kg','L','pc','doz','100g','200g','250g','500g','bunch'].map(u=>`<option value="${u}"${p.un===u?' selected':''}>${u}</option>`).join('')}</select></td>
-<td style="color:#5c5c5c;font-size:.65rem">${p.rv||0}</td>
-<td><button class="del-btn" onclick="delProd('${p.id}')">✕</button></td>
-</tr>`).join('');
-}
-
-function editProd(id,field,val){
-const p=products.find(x=>x.id===id);
-if(!p)return;
-p[field]=val;
-localStorage.setItem('jgmart_prods',JSON.stringify(products));
-toast('Saved');
-}
-
-function delProd(id){
-if(!confirm('Delete this product?'))return;
-products=products.filter(p=>p.id!==id);
-localStorage.setItem('jgmart_prods',JSON.stringify(products));
-renderProds();renderStats();
-toast('Deleted');
-}
-
-function addProd(){
-const nm=document.getElementById('newName').value.trim();
-const pr=parseInt(document.getElementById('newPrice').value);
-const un=document.getElementById('newUnit').value;
-const ct=document.getElementById('newCat').value;
-if(!nm||!pr||!ct){alert('Fill all fields');return;}
-const id='p'+(products.length+1).toString().padStart(2,'0');
-products.unshift({id,nm:nm,ct,pr,un,em:'📦',rt:4,rv:0,de:'',im:''});
-localStorage.setItem('jgmart_prods',JSON.stringify(products));
-document.getElementById('newName').value='';
-document.getElementById('newPrice').value='';
-renderProds();renderStats();
-toast('Added ✓');
-}
-
-// ORDERS TAB
-function renderOrders(){
-updateBackupDate();
-const el=document.getElementById('ordersList');
-if(!orders.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#5c5c5c;font-size:.8rem">No orders yet</div>';return;}
-el.innerHTML=orders.map(o=>`<div class="order-card"><div class="date">${o.date} ${o.time||''} · ${o.building} · ${o.slot}</div>
-<div class="items">${o.items.map(it=>it.nm+' ×'+it.qty).join(', ')}</div>
-<div class="total">৳${o.total?.toLocaleString()||o.sub} · ${o.payment}</div>
-<div class="details">${o.flat?'Flat '+o.flat+'. ':''}${o.phone?'📞'+o.phone:''}</div></div>`).join('');
-}
-// ========= EXPORT CSV =========
-function exportCSV(){
-if(!orders.length){alert('No orders to export');return;}
-let csv='ID,Date,Time,Items,Subtotal,Delivery,Total,Payment,Building,Flat,Slot\n';
-orders.forEach(o=>{
-const items=o.items.map(i=>i.nm+' x'+i.qty).join('; ');
-csv+=`${o.id||''},${o.date},${o.time||''},"${items}",${o.sub||0},${o.fee||0},${o.total||o.sub||0},${o.payment||''},${o.building||''},${o.flat||''},${o.slot||''}\n`;
-});
-const blob=new Blob([csv],{type:'text/csv'});
-const a=document.createElement('a');a.href=URL.createObjectURL(blob);
-a.download=`jgmart_orders_${new Date().toISOString().slice(0,10)}.csv`;a.click();
-toast('📥 CSV exported!');
-}
-
-// ANALYTICS TAB
-function renderAnalytics(){
-const el=document.getElementById('analyticsGrid');
-const totalOrders=orders.reduce((s,o)=>s+o.items?.reduce((a,i)=>a+i.qty,0)||0,0);
-const totalRev=orders.reduce((s,o)=>s+(o.total||o.sub||0),0);
-const uniqueItems=[...new Set(orders.flatMap(o=>o.items?.map(i=>i.nm)||[]))];
-el.innerHTML=`
-<div class="stat-card"><div class="num">${orders.length}</div><div class="lbl">Total Orders</div></div>
-<div class="stat-card"><div class="num">${totalOrders}</div><div class="lbl">Items Sold</div></div>
-<div class="stat-card"><div class="num">৳${totalRev.toLocaleString()}</div><div class="lbl">Total Revenue</div></div>
-<div class="stat-card"><div class="num">${uniqueItems.length}</div><div class="lbl">Unique Items</div></div>`;
-// === 7-Day Order Trend ===
-const today=new Date();today.setHours(0,0,0,0);
-const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const days=[];
-for(let i=6;i>=0;i--){
-const d=new Date(today);d.setDate(d.getDate()-i);
-const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0');
-const key=y+'-'+m+'-'+dd;
-const dayOrders=orders.filter(o=>o.date===key);
-const itemCount=dayOrders.reduce((s,o)=>s+(o.items?.reduce((a,i)=>a+i.qty,0)||0),0);
-const revenue=dayOrders.reduce((s,o)=>s+(o.total||o.sub||0),0);
-days.push({key,date:d,label:DAYS[d.getDay()],dayNum:dd,month:MONTHS[d.getMonth()],orders:dayOrders.length,items:itemCount,revenue});
-}
-const maxOrders=Math.max(...days.map(d=>d.orders),1);
-// Remove old trend section before re-rendering
-document.querySelector('.trend-section')?.remove();
-let trendHTML='<div class="trend-section"><h3>📈 Last 7 Days — Order Trend</h3><div class="trend-grid">';
-days.forEach(d=>{
-const pct=d.orders/maxOrders*100;
-const isMax=d.orders===maxOrders&&d.orders>0;
-trendHTML+='<div class="trend-day">'+
-'<div class="trend-day-label">'+d.label+'<span class="date">'+d.dayNum+' '+d.month+'</span></div>'+
-'<div class="trend-bar-bg"><div class="trend-bar-fill'+(isMax?' gold':'')+'" style="height:'+Math.max(pct,3)+'%"></div></div>'+
-'<div class="trend-day-stats">'+
-'<span class="ord">'+d.orders+'</span> · '+
-'<span>'+d.items+'</span><br>'+
-'<span class="rev">৳'+d.revenue.toLocaleString()+'</span>'+
-'</div></div>';
-});
-// Summary stats
-const busiest=days.reduce((a,b)=>a.orders>b.orders?a:b);
-const activeDays=days.filter(d=>d.orders>0).length;
-const avgOrders=(days.reduce((s,d)=>s+d.orders,0)/7).toFixed(1);
-const weekRev=days.reduce((s,d)=>s+d.revenue,0);
-trendHTML+='</div><div class="trend-summary">'+
-'<span>🔥 Busiest: <b>'+busiest.label+' '+busiest.dayNum+'</b> ('+busiest.orders+' order'+(busiest.orders!==1?'s':'')+')</span>'+
-'<span>📊 Avg: <b>'+avgOrders+'</b> orders/day</span>'+
-'<span>💰 Week: <b>৳'+weekRev.toLocaleString()+'</b></span>'+
-(activeDays<7?'<span>📅 <b>'+activeDays+'</b> day'+(activeDays!==1?'s':'')+' with orders</span>':'')+
-'</div></div>';
-el.insertAdjacentHTML('afterend',trendHTML);
-// Top products (unchanged)
-const counts={};
-orders.forEach(o=>o.items?.forEach(i=>{counts[i.nm]=(counts[i.nm]||0)+i.qty;}));
-const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,10);
-document.getElementById('topProducts').innerHTML='<h3 style="font-size:.8rem;color:#00442D;margin-bottom:6px">🏆 Top Ordered Products</h3>'+
-(top.length?`<div class="stats-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr))">${top.map(([n,c])=>`<div class="stat-card"><div class="num" style="font-size:.9rem">${c}</div><div class="lbl">${n.length>20?n.slice(0,20)+'...':n}</div></div>`).join('')}</div>`:'<p style="font-size:.75rem;color:#5c5c5c">No orders yet</p>');}
-
-// SETTINGS
-function changePin(){
-const p=document.getElementById('newPin').value.trim();
-if(p.length<4||p.length>6){alert('PIN must be 4-6 digits');return;}
-localStorage.setItem('jgmart_admin_pin',p);
-toast('PIN updated ✓');
-}
-function saveWa(){
-localStorage.setItem('jgmart_admin_wa',document.getElementById('waNum').value);
-toast('Saved ✓');
-}
-function loadPromo(){
-const p=localStorage.getItem('jgmart_promo');
-document.getElementById('promoInput').value=p||'';
-}
-function savePromo(){
-const v=document.getElementById('promoInput').value.trim();
-if(v){localStorage.setItem('jgmart_promo',v);toast('Promo saved ✓');}
-}
-function updateBackupDate(){
-const d=localStorage.getItem('jgmart_backup_date');
-const el=document.getElementById('lastBackupDate');
-if(!el)return;
-if(!d){el.textContent='Never';return;}
-const days=Math.floor((Date.now()-new Date(d).getTime())/86400000);
-el.textContent=d+(days>0?` (${days} day${days>1?'s':''} ago)`:' (Today)');
-if(days>7)el.style.color='#c0392b';else if(days>3)el.style.color='#c9a227';else el.style.color='#2ecc71';
-}
-function markBackupDone(){
-localStorage.setItem('jgmart_backup_date',new Date().toISOString().slice(0,10));
-updateBackupDate();
-toast('✅ Backup marked!');
-}
-function exportData(){
-const d={products,orders,specials:localStorage.getItem('jgmart_specials'),promo:localStorage.getItem('jgmart_promo'),pin:localStorage.getItem('jgmart_admin_pin'),wa:localStorage.getItem('jgmart_admin_wa')};
-const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
-const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`jgmart_admin_backup_${new Date().toISOString().slice(0,10)}.json`;a.click();
-toast('Exported ✓');
-}
-function importData(){document.getElementById('importFile').click();}
-function doImport(e){
-const file=e.target.files[0];if(!file)return;
-const reader=new FileReader();
-reader.onload=function(ev){
-try{
-const d=JSON.parse(ev.target.result);
-if(d.products){products=d.products;localStorage.setItem('jgmart_prods',JSON.stringify(products));}
-if(d.orders){orders=d.orders;localStorage.setItem('jgmart_ords',JSON.stringify(orders));}
-if(d.specials)localStorage.setItem('jgmart_specials',d.specials);
-if(d.promo)localStorage.setItem('jgmart_promo',d.promo);
-if(d.pin)localStorage.setItem('jgmart_admin_pin',d.pin);
-if(d.wa)localStorage.setItem('jgmart_admin_wa',d.wa);
-renderProds();renderStats();renderOrders();loadPromo();
-toast('Imported ✓');
-}catch(e){alert('Invalid file');}
-};
-reader.readAsText(file);
-}
-function resetData(){
-if(!confirm('⚠️ Delete ALL products and orders?'))return;
-if(!confirm('Are you sure? This cannot be undone.'))return;
-products=[];orders=[];
-localStorage.setItem('jgmart_prods',JSON.stringify(products));
-localStorage.setItem('jgmart_ords',JSON.stringify(orders));
-renderProds();renderStats();renderOrders();
-toast('Reset complete');
-}
-
-function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1500);}
-</script>
+  <script>
+    // Auto-redirect after 3 seconds if user doesn't click
+    setTimeout(() => {
+      window.location.href = '/admin-new/';
+    }, 3000);
+  </script>
 </body>
 </html>
