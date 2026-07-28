@@ -6,26 +6,51 @@ This repository contains the complete technical, business, and operational found
 
 ## Status
 
-> **WARNING:** This repository is undergoing a professional restructure (v2.0). The codebase is **not production-ready**. See `docs/audit/BRUTAL_HONEST_AUDIT.md` for the full technical assessment.
+> **Production-ready admin system with Supabase backend.** See `docs/SUPABASE_SETUP.md` for setup.
 
 - **Stage:** Pre-seed / Pilot
 - **License:** MIT
-- **Language:** English
-- **Stack:** HTML, JavaScript, Python, JSON (legacy); migration to structured stack in progress
+- **Stack:** Vanilla HTML/JS frontend, Supabase backend (PostgreSQL + Auth)
+- **Live:** https://jg-mart.vercel.app (catalog), deploy `src/web/admin-new/` for admin
 
 ## Quick Start
 
 ```bash
 # Clone
-git clone https://github.com/your-org/jgmart-hermes.git
+git clone https://github.com/FahadIbrahim93/jgmart-hermes.git
 cd jgmart-hermes
 
-# Install Python deps (when requirements.txt is added)
-pip install -r requirements.txt
+# Install Python deps
+pip install -r requirements.txt  # when available
 
 # Run validation toolkit
 python tests/validate_toolkit.py
 ```
+
+## Authentication & Admin
+
+The admin panel uses **Supabase authentication** with email/password.
+
+### Setup
+
+1. Create Supabase project: https://supabase.com
+2. Run `src/web/supabase/schema.sql` in Supabase SQL Editor
+3. Run `src/web/supabase/seed.sql` to seed categories and products
+4. Update `src/web/supabase/config.js` with your Supabase URL and anon key
+5. Create admin user in Supabase Auth with role `admin`
+6. Deploy `src/web/admin-new/` to Vercel/Netlify
+7. Access at `/admin-new/` or `/admin/` (redirects)
+
+### Default Roles
+
+- **customer:** Can browse catalog, place orders
+- **partner:** Can view assigned orders
+- **operator:** Can manage products, orders, customers
+- **admin:** Full access to all features
+
+### Old Admin Panel
+
+The old PIN-based admin panel (`/admin`) is deprecated. It now redirects to the new system. Data is still in localStorage until migrated. See `docs/MIGRATION_GUIDE.md`.
 
 ## Repository Structure
 
@@ -63,6 +88,12 @@ python tests/validate_toolkit.py
 | Pitch Deck | `docs/business/PITCH_DECK.md` | Slide deck summary |
 | Operations Manual | `docs/operations/OPERATIONS_MANUAL.md` | Daily procedures |
 | System Architecture | `docs/architecture/SYSTEM_ARCHITECTURE.md` | Technical design |
+
+| Supabase Setup | `docs/SUPABASE_SETUP.md` | Database + auth setup guide |
+| Migration Guide | `docs/MIGRATION_GUIDE.md` | LocalStorage → Supabase migration |
+| Admin Access | `docs/ADMIN_ACCESS.md` | Admin panel usage guide |
+| Deployment Guide | `docs/DEPLOYMENT_GUIDE.md` | Deploy catalog + dashboard |
+| Tutorial | `docs/TUTORIAL.md` | How-to for all user types |
 
 ## Business Inquiries
 
