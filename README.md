@@ -1,17 +1,22 @@
 # JG Mart Hermes
 
-**JG Mart** is a neighborhood grocery delivery platform built for hyperlocal communities. We combine WhatsApp-first ordering, real-time inventory tracking, and rider logistics to deliver fresh products within hours.
+**JG Mart** is a hyperlocal grocery delivery platform built for Japan Garden City (JGC), Mohammadpur, Dhaka. We source fresh produce from Krishi Market (800m away) and deliver same-day to 1,700 families across 27 buildings — at wholesale prices, with zero app download friction.
 
-This repository contains the complete technical, business, and operational foundation for the JG Mart platform.
+This repository contains the production website, operational tools, investor pitch package, and automation scripts.
+
+## Live Website
+
+- **Catalog:** `src/web/catalog/index.html`
+- **Admin:** `src/web/catalog/admin.html`
+- **Deploy:** Vercel / Netlify static deploy from repo root (`vercel.json`, `netlify.toml`)
 
 ## Status
 
-> **Production-ready admin system with Supabase backend.** See `docs/SUPABASE_SETUP.md` for setup.
-
 - **Stage:** Pre-seed / Pilot
 - **License:** MIT
-- **Stack:** Vanilla HTML/JS frontend, Supabase backend (PostgreSQL + Auth)
-- **Live:** https://jg-mart.vercel.app (catalog), deploy `src/web/admin-new/` for admin
+- **Stack:** Vanilla HTML/CSS/JS, localStorage persistence, Python automation
+- **Products:** 65 items across 10 categories
+- **Coverage:** 27 buildings, 4 delivery clusters (C1–C4)
 
 ## Quick Start
 
@@ -20,100 +25,103 @@ This repository contains the complete technical, business, and operational found
 git clone https://github.com/FahadIbrahim93/jgmart-hermes.git
 cd jgmart-hermes
 
-# Install Python deps
-pip install -r requirements.txt  # when available
-
 # Run validation toolkit
 python tests/validate_toolkit.py
 ```
 
-## Authentication & Admin
-
-The admin panel uses **Supabase authentication** with email/password.
-
-### Setup
-
-1. Create Supabase project: https://supabase.com
-2. Run `src/web/supabase/schema.sql` in Supabase SQL Editor
-3. Run `src/web/supabase/seed.sql` to seed categories and products
-4. Update `src/web/supabase/config.js` with your Supabase URL and anon key
-5. Create admin user in Supabase Auth with role `admin`
-6. Deploy `src/web/admin-new/` to Vercel/Netlify
-7. Access at `/admin-new/` or `/admin/` (redirects)
-
-### Default Roles
-
-- **customer:** Can browse catalog, place orders
-- **partner:** Can view assigned orders
-- **operator:** Can manage products, orders, customers
-- **admin:** Full access to all features
-
-### Old Admin Panel
-
-The old PIN-based admin panel (`/admin`) is deprecated. It now redirects to the new system. Data is still in localStorage until migrated. See `docs/MIGRATION_GUIDE.md`.
-
-## Repository Structure
+## Website Structure
 
 ```
-├── .github/              # CI/CD, issue templates, PR template
-├── .gitignore
-├── LICENSE               # MIT License
-├── README.md
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-├── docs/
-│   ├── audit/           # Technical audits
-│   ├── architecture/    # System design
-│   ├── business/        # Plans, financials, pitch decks
-│   ├── operations/      # SOPs, manuals, protocols
-│   └── api/             # Integration guides
-├── src/
-│   ├── web/             # Catalog, dashboard, templates
-│   ├── scripts/         # Automation, deployment
-│   └── templates/       # Legal, marketing, ops templates
-├── assets/              # Brand, images, documents
-├── data/                # Exports, samples, backups
-├── config/              # Deployment configs
-├── tests/               # Validation and test suite
-└── ARCHIVE/             # Legacy files (read-only)
+src/web/catalog/
+├── index.html          # 65-product catalog (main entry)
+├── landing.html        # Customer-facing about/features page
+├── menu.html           # Printable menu card (24 products)
+├── track.html          # Order status lookup
+├── zone.html           # Delivery zones & fees
+├── myorders.html       # Customer order history
+├── admin.html          # PIN-protected admin panel
+├── manifest.html       # Delivery manifest print page
+├── healthcheck.html    # Site health checker
+├── 404.html            # Custom error page
+├── sw.js               # PWA service worker
+├── manifest.json       # PWA manifest
+└── images/             # Product + category images
 ```
+
+## Admin Panel
+
+The admin panel uses **PIN authentication** with localStorage persistence.
+
+- Default PIN: configured in `admin.html`
+- Manages products, prices, orders, promo banners, CSV export, backup reminders
+- Data stored in `jgmart_prods`, `jgmart_orders`, `jgmart_promo` localStorage keys
+
+## Operational Tools
+
+| Tool | Path | Purpose |
+|------|------|---------|
+| Daily Summary | `src/scripts/automation/daily_summary.py` | Generate daily box-drawing reports |
+| WhatsApp Summary | `src/scripts/automation/daily_whatsapp_summary.py` | Broadcast message generator |
+| Image Cache | `src/scripts/automation/cache_images.py` | Download product images locally |
+| Sync Bridge | `src/scripts/automation/sync_bridge.py` | Central data export/import |
+| Placeholder Gen | `src/scripts/automation/generate_placeholders.py` | SVG category placeholders |
+
+## Pitch Package
+
+Ready-to-use materials for investor, partner, and committee meetings:
+
+- `src/pitch/deck.html` — 12-slide HTML pitch deck
+- `src/pitch/onepager.md` — Investor one-pager
+- `src/pitch/partner_script.md` — Krishi Market vendor pitch script
+- `src/pitch/committee_script.md` — JGC building committee pitch script
+- `src/pitch/qa_cheatsheet.md` — Objection handling Q&A
+- `src/pitch/deck_notes.md` — Speaker notes + timing guide
+- `src/pitch/financial_model.md` — Unit economics + projections
+- `src/pitch/RESEARCH_BRAINSTORM.md` — Audience research + competitive analysis
+
+## Business Model
+
+| Metric | Value |
+|--------|-------|
+| Average Order Value | ৳800 |
+| Contribution Margin | 51% |
+| Seed Ask | ৳250,000 |
+| Equity Offered | 15% |
+| Pre-Money Valuation | ৳1.67M |
+| Runway | 6 months |
+| Break-Even | Month 5 |
+
+## Delivery Zones
+
+| Cluster | Buildings | Delivery Fee |
+|---------|-----------|--------------|
+| C1 | B1–B6 | Free |
+| C2 | B7–B13 | Free |
+| C3 | B14–B20 | ৳20 |
+| C4 | B21–B27 | ৳30 |
+
+## Deployment
+
+### Vercel
+1. Connect repo to Vercel
+2. Root directory: `.` (repo root)
+3. Vercel auto-detects `vercel.json`
+4. Deploy triggers on push to `main`
+
+### Netlify
+1. Connect repo to Netlify
+2. Build command: empty (static)
+3. Publish directory: `src/web/catalog`
+4. Netlify auto-detects `netlify.toml`
 
 ## Documentation
 
-| Document | Location | Description |
-|----------|----------|-------------|
-| Business Plan | `docs/business/BUSINESS_PLAN.md` | Full business strategy |
-| Executive Summary | `docs/business/EXECUTIVE_SUMMARY.md` | One-page investor summary |
-| Financial Model | `docs/business/FINANCIAL_MODEL.md` | 6-month projections |
-| Pitch Deck | `docs/business/PITCH_DECK.md` | Slide deck summary |
-| Operations Manual | `docs/operations/OPERATIONS_MANUAL.md` | Daily procedures |
-| System Architecture | `docs/architecture/SYSTEM_ARCHITECTURE.md` | Technical design |
-
-| Supabase Setup | `docs/SUPABASE_SETUP.md` | Database + auth setup guide |
-| Migration Guide | `docs/MIGRATION_GUIDE.md` | LocalStorage → Supabase migration |
-| Admin Access | `docs/ADMIN_ACCESS.md` | Admin panel usage guide |
-| Deployment Guide | `docs/DEPLOYMENT_GUIDE.md` | Deploy catalog + dashboard |
-| Tutorial | `docs/TUTORIAL.md` | How-to for all user types |
-
-## Business Inquiries
-
-- **Investors:** Use the [investor inquiry issue template](.github/ISSUE_TEMPLATE/investor_inquiry.md) or email investors@jgmart.example
-- **Partners:** See `docs/operations/PARTNER_AGREEMENT.md`
-- **Press:** See `docs/business/PRESS_KIT.md` (coming soon)
-
-## Tech Stack (Current)
-
-- **Frontend:** Vanilla HTML/CSS/JS (web catalog + dashboard)
-- **Backend:** Python scripts for data sync and automation
-- **Data:** JSON exports, CSV trackers
-- **Hosting:** Vercel / Netlify (catalog), TBD (backend)
-
-## Roadmap
-
-1. **Q3 2026:** Complete repo restructure, add tests, set up CI/CD
-2. **Q4 2026:** Migrate to structured backend (FastAPI/Flask), add database
-3. **Q1 2027:** Launch pilot in 1 neighborhood, onboard 20 partners
-4. **Q2 2027:** Scale to 5 neighborhoods, raise seed round
+| Document | Location |
+|----------|----------|
+| Changelog | `CHANGELOG.md` |
+| Contributing | `CONTRIBUTING.md` |
+| Operations | `src/scripts/automation/` |
+| Validation | `tests/validate_toolkit.py` |
 
 ## License
 
