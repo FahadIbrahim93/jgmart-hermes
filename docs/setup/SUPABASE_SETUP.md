@@ -188,7 +188,10 @@ INSERT INTO public.profiles (
 
 ### Step 1: Update Supabase Config
 
-Edit `src/web/supabase/config.js`:
+1. Copy `src/web/supabase/config.local.example.js` to `src/web/supabase/config.local.js` (gitignored)
+2. Fill in your Project URL and anon key from Supabase Dashboard → Settings → API
+
+Alternatively edit `src/web/supabase/config.js` directly for development only (do not commit real keys).
 
 ```javascript
 export const SUPABASE_URL = 'https://xxxxxxxxxxxxx.supabase.co';

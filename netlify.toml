@@ -1,10 +1,16 @@
 [build]
-  publish = "src/web/catalog"
+  publish = "."
+  command = "echo 'Static site — no build step'"
 
 [[headers]]
   for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/"
+  to = "/src/web/catalog/index.html"
+  status = 200
 
 [[redirects]]
   from = "/catalog"
@@ -54,6 +60,16 @@
 [[redirects]]
   from = "/healthcheck"
   to = "/src/web/catalog/healthcheck.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/src/web/dashboard/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard/"
+  to = "/src/web/dashboard/index.html"
   status = 200
 
 [[redirects]]

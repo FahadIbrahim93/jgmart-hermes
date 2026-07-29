@@ -1,25 +1,28 @@
 {
   "version": 2,
-  "name": "jgmart",
-  "builds": [
-    { "src": "src/web/catalog/*.html", "use": "@vercel/static" },
-    { "src": "src/web/catalog/*.svg", "use": "@vercel/static" },
-    { "src": "src/web/catalog/images/*", "use": "@vercel/static" },
-    { "src": "src/web/catalog/*.json", "use": "@vercel/static" },
-    { "src": "src/web/catalog/*.txt", "use": "@vercel/static" }
+  "rewrites": [
+    { "source": "/", "destination": "/src/web/catalog/index.html" },
+    { "source": "/catalog", "destination": "/src/web/catalog/index.html" },
+    { "source": "/shop", "destination": "/src/web/catalog/index.html" },
+    { "source": "/about", "destination": "/src/web/catalog/landing.html" },
+    { "source": "/menu", "destination": "/src/web/catalog/menu.html" },
+    { "source": "/track", "destination": "/src/web/catalog/track.html" },
+    { "source": "/zone", "destination": "/src/web/catalog/zone.html" },
+    { "source": "/admin", "destination": "/src/web/catalog/admin.html" },
+    { "source": "/manifest", "destination": "/src/web/catalog/manifest.html" },
+    { "source": "/myorders", "destination": "/src/web/catalog/myorders.html" },
+    { "source": "/healthcheck", "destination": "/src/web/catalog/healthcheck.html" },
+    { "source": "/offline", "destination": "/src/web/catalog/offline.html" },
+    { "source": "/rider", "destination": "/src/web/catalog/rider.html" },
+    { "source": "/dashboard", "destination": "/src/web/dashboard/index.html" },
+    { "source": "/dashboard/", "destination": "/src/web/dashboard/index.html" }
   ],
-  "routes": [
-    { "src": "/", "dest": "/src/web/catalog/index.html" },
-    { "src": "/catalog", "dest": "/src/web/catalog/index.html" },
-    { "src": "/shop", "dest": "/src/web/catalog/index.html" },
-    { "src": "/about", "dest": "/src/web/catalog/landing.html" },
-    { "src": "/menu", "dest": "/src/web/catalog/menu.html" },
-    { "src": "/track", "dest": "/src/web/catalog/track.html" },
-    { "src": "/zone", "dest": "/src/web/catalog/zone.html" },
-    { "src": "/admin", "dest": "/src/web/catalog/admin.html" },
-    { "src": "/manifest", "dest": "/src/web/catalog/manifest.html" },
-    { "src": "/myorders", "dest": "/src/web/catalog/myorders.html" },
-    { "src": "/healthcheck", "dest": "/src/web/catalog/healthcheck.html" },
-    { "src": "/(.*)", "dest": "/src/web/catalog/404.html" }
+  "headers": [
+    {
+      "source": "/src/web/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
   ]
 }
