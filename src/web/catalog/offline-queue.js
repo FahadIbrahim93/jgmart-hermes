@@ -80,6 +80,8 @@ async function syncWithSupabase(order){
     const result=await window.submitOrderToSupabase(order);
     if(result && result.success){
       toast('✅ Order synced');
+      updateStatus('Online · Supabase');
+      updateBadge();
       return true;
     }
     return false;

@@ -563,6 +563,31 @@ function updateDashboard() {
   document.getElementById('statRevenue').textContent = '৳' + revenue.toFixed(0);
   const customers = new Set(orders.map(o => o.customerName).filter(Boolean)).size;
   document.getElementById('statCustomers').textContent = customers;
+
+  // Analytics
+  const delivered = orders.filter(o => o.status === 'delivered');
+  const totalAov = delivered.length ? delivered.reduce((s,o)=>s+(o.total||0),0)/delivered.length : 0;
+  document.getElementById('aovValue').textContent = '৳' + totalAov.toFixed(0);
+
+  const clusterCounts = {C1:0,C2:0,C3:0,C4:0};
+  orders.forEach(o => {
+    const b = parseInt((o.building||'').replace('B','')) || 0;
+    if(b<=6) clusterCounts.C1++;
+    else if(b<=13) clusterCounts.C2++;
+    else if(b<=20) clusterCounts.C3++;
+    else clusterCounts.C4++;
+  });
+  const topCluster = Object.entries(clusterCounts).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('topCluster').textContent = topCluster && topCluster[1] ? `${topCluster[0]} (${topCluster[1]})` : '—';
+
+  const hourCounts = {};
+  orders.forEach(o => {
+    if(!o.time) return;
+    const h = parseInt(o.time.split(':')[0], 10);
+    hourCounts[h] = (hourCounts[h]||0) + 1;
+  });
+  const peak = Object.entries(hourCounts).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('peakHour').textContent = peak ? `${peak[0]}:00 (${peak[1]})` : '—';
 }
 
 function showToast(msg, isError) {
