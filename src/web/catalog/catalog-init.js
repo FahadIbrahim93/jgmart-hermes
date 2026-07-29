@@ -98,3 +98,6 @@ async function bootstrapCatalog() {
 }
 
 window.__JG_CATALOG_READY = bootstrapCatalog();
+if (window.JG_OFFLINE_QUEUE?.updateStatus) {
+  window.JG_OFFLINE_QUEUE.updateStatus();
+}

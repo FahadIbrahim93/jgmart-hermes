@@ -13,6 +13,7 @@ const FILES = [
   './notify.html',
   './rider.html',
   './offline.html',
+  './csp-report.html',
   './404.html',
   './manifest.json',
   './favicon.svg',
@@ -38,7 +39,7 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
   e.waitUntil(
-    caches.keys().then(keys => 
+    caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
@@ -46,15 +47,15 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const req = e.request;
-  
+
   // Skip non-GET requests
   if(req.method !== 'GET') return;
-  
-  // Skip cross-origin requests (except fonts)
-  if(req.url.includes('http') && !req.url.includes('fonts.googleapis.com') && !req.url.includes('wa.me')) {
+
+  // Skip cross-origin requests (except fonts, wa.me, and Supabase)
+  if(req.url.includes('http') && !req.url.includes('fonts.googleapis.com') && !req.url.includes('wa.me') && !req.url.includes('supabase.co')) {
     return;
   }
-  
+
   e.respondWith(
     caches.match(req).then(cached => {
       const fetchPromise = fetch(req).then(res => {
@@ -67,20 +68,20 @@ self.addEventListener('fetch', e => {
       }).catch(() => {
         // Return cached version if network fails
         if(cached) return cached;
-        
+
         // Special handling for navigation requests
         if(req.mode === 'navigate') {
           return caches.match('./offline.html');
         }
-        
+
         // Return placeholder for images
-        if(req.url.match(/\\.(jpg|jpeg|png|gif|svg|webp)$/)) {
+        if(req.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
           return caches.match('./images/placeholder.svg');
         }
-        
+
         return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
       });
-      
+
       return cached || fetchPromise;
     })
   );

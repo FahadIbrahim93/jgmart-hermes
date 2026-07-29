@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — CSP Report</title>
+<style>
+  body { font-family: monospace; background:#f5f7f5; color:#1a1a1a; padding:16px; }
+  pre { background:#fff; padding:12px; border-radius:8px; border:1px solid #e5e7eb; overflow:auto; }
+</style>
+</head>
+<body>
+<h1>CSP Violation Report Received</h1>
+<p>The report has been logged. In production, route this endpoint to a logging service or Supabase Edge Function.</p>
+<pre id="report"></pre>
+<script>
+  const report = document.getElementById('report');
+  try {
+    const data = JSON.stringify((window && window.CSP_REPORT_DATA) || {}, null, 2);
+    report.textContent = data || 'No report data available.';
+  } catch (e) {
+    report.textContent = 'Unable to read report.';
+  }
+</script>
+</body>
+</html>
