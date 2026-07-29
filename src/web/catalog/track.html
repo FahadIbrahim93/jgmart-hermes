@@ -8,242 +8,124 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max-width:600px;margin:0 auto;padding-bottom:40px;min-height:100vh}
-/* TOPBAR */
-.topbar{background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
-.topbar .logo{font-weight:800;font-size:.95rem;text-decoration:none;color:#fff}
-.topbar .logo span{color:#c9a227}
-.topbar .back-link{color:rgba(255,255,255,.7);text-decoration:none;font-size:.7rem;font-weight:500;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.1)}
-/* HERO */
-.hero{background:linear-gradient(135deg,#00442D,#063d2a);color:#fff;padding:20px 16px;text-align:center}
-.hero h1{font-size:1.15rem;font-weight:800;margin-bottom:3px}
-.hero p{font-size:.7rem;opacity:.8}
-/* SEARCH */
-.srch-wrap{max-width:420px;margin:0 auto}
-.srch{display:flex;gap:6px;margin-top:10px}
-.srch input{flex:1;padding:10px 14px;border-radius:999px;border:none;font-size:.85rem;font-family:inherit;outline:none;background:#fff;text-align:center;letter-spacing:1px;font-weight:600}
-.srch input::placeholder{letter-spacing:0;font-weight:400;color:#999;font-size:.78rem}
-.srch button{padding:10px 20px;border-radius:999px;border:none;background:#c9a227;color:#1a1a1a;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .12s}
-.srch button:active{transform:scale(.95)}
-/* RESULT */
-.result{display:none;margin:12px 10px}
-.result.show{display:block}
-/* CARD */
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04)}
-.card-hd{background:#00442D;color:#fff;padding:14px 14px 12px;display:flex;justify-content:space-between;align-items:center}
-.card-hd .oid{font-weight:800;font-size:.85rem}
-.card-hd .stat{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:999px}
-.card-bd{padding:12px 14px}
-/* INFO ROWS */
-.row{display:flex;padding:7px 0;border-bottom:1px solid #f0f0f0;font-size:.78rem}
-.row:last-child{border-bottom:none}
-.row .lb{flex:0 0 100px;color:#5c5c5c;font-weight:500;font-size:.72rem}
-.row .vl{flex:1;color:#1a1a1a;font-weight:600;word-break:break-word}
-/* ITEMS */
-.items{padding:6px 0}
-.items-t{font-size:.72rem;font-weight:700;color:#00442D;margin-bottom:4px}
-.itm{display:flex;justify-content:space-between;padding:3px 0;font-size:.72rem;color:#1a1a1a}
-.itm .inm{flex:1}
-.itm .iqt{color:#5c5c5c;font-weight:500;margin:0 8px;white-space:nowrap}
-.itm .ipr{font-weight:700;white-space:nowrap}
-.total-r{display:flex;justify-content:space-between;padding:8px 0 4px;font-size:.85rem;font-weight:800;color:#00442D;border-top:2px solid #00442D;margin-top:4px}
-/* NOT FOUND */
-.nf{text-align:center;padding:40px 20px}
-.nf .nf-icon{font-size:3rem;margin-bottom:10px;opacity:.4}
-.nf .nf-t{font-size:.9rem;font-weight:700;color:#00442D;margin-bottom:4px}
-.nf .nf-s{font-size:.75rem;color:#5c5c5c}
-/* FOOTER */
-.footer{text-align:center;padding:20px 16px 10px}
-.footer a{color:#00442D;text-decoration:none;font-size:.75rem;font-weight:600}
-.footer a:hover{text-decoration:underline}
-/* TOAST */
-.toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#00442D;color:#fff;padding:7px 18px;border-radius:8px;font-weight:600;font-size:.72rem;z-index:300;animation:ti .3s;pointer-events:none;white-space:nowrap}
-@keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-/* EXAMPLE HINT */
-.example-hint{text-align:center;margin:10px;font-size:.7rem;color:#999}
-.example-hint code{background:#e8f5ef;padding:2px 8px;border-radius:4px;color:#00442D;font-weight:600;cursor:pointer;font-family:inherit;font-size:.7rem}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min-height:100vh}
+.header{background:#00442D;color:#fff;padding:16px;text-align:center}
+.header h1{font-size:1.1rem;font-weight:800}
+.header p{font-size:.75rem;opacity:.8;margin-top:2px}
+.container{max-width:480px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.lookup{margin-bottom:16px}
+.lookup input{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:8px;font-size:.9rem;font-family:inherit;margin-bottom:8px}
+.lookup input:focus{outline:none;border-color:#00442D}
+.lookup button{width:100%;background:#00442D;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;font-family:inherit}
+.demo-btn{background:none;border:none;color:#00442D;font-size:.75rem;text-decoration:underline;cursor:pointer;font-family:inherit;margin-top:4px;display:block;width:100%;text-align:center}
+.empty{text-align:center;padding:40px 20px;color:#6b7280}
+.empty .icon{font-size:3rem;margin-bottom:12px}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:#e5e7eb}
+.step{position:relative;padding-bottom:16px}
+.step:last-child{padding-bottom:0}
+.step::before{content:'';position:absolute;left:-20px;top:2px;width:12px;height:12px;border-radius:50%;background:#e5e7eb;border:2px solid #fff}
+.step.done::before{background:#25D366}
+.step.active::before{background:#c9a227;animation:pulse 1.5s infinite}
+.step.cancelled::before{background:#dc2626}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.4)}50%{box-shadow:0 0 0 6px rgba(201,162,39,0)}}
+.step-title{font-size:.8rem;font-weight:600;color:#00442D}
+.step-meta{font-size:.7rem;color:#6b7280;margin-top:1px}
+.status-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:700;margin-bottom:8px}
+.status-received{background:#fef3c7;color:#92400e}
+.status-picked{background:#dbeafe;color:#1e40af}
+.status-delivered{background:#d1fae5;color:#065f46}
+.status-cancelled{background:#fee2e2;color:#991b1b}
+.order-id{font-size:.75rem;color:#6b7280;margin-bottom:4px}
+.order-total{font-size:1.1rem;font-weight:800;color:#00442D;margin-top:8px}
+.back{display:inline-block;margin-top:12px;color:#00442D;text-decoration:none;font-size:.8rem;font-weight:600}
 </style>
 </head>
 <body>
-<div style="background:#00442D;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:4px"><div style="display:flex;align-items:center;gap:6px"><a href="landing.html" style="color:#fff;text-decoration:none;font-weight:800;font-size:.9rem">JG <span style="color:#c9a227">Mart</span></a></div><div style="display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none"><a href="index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📦 Shop</a><a href="menu.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📋 Menu</a><a href="zone.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;padding:3px 6px;white-space:nowrap">📍 Zone</a><a href="track.html" style="color:#fff;text-decoration:none;font-size:.65rem;font-weight:700;padding:3px 6px;white-space:nowrap">📮 Track</a><a href="https://wa.me/8801870489448" style="background:#25D366;color:#fff;padding:4px 10px;border-radius:999px;font-size:.62rem;font-weight:600;text-decoration:none;white-space:nowrap">💬 WA</a><a href="admin.html" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.55rem">⚙️</a></div></div>
+<div class="header">
+<h1>📦 Track Your Order</h1>
+<p>Enter your order ID to check delivery status</p>
+</div>
+<div class="container">
 
-<div class="hero">
-  <h1>📦 Track Your Order</h1>
-  <p>Enter your Order ID to check the status of your delivery</p>
-  <div class="srch-wrap">
-    <div class="srch">
-      <input type="text" id="orderIdInput" placeholder="Enter Order ID (e.g. JG-XXXXXX)" autocomplete="off" enterkeyhint="search">
-      <button id="trackBtn" onclick="trackOrder()">🔍 Track</button>
-    </div>
-  </div>
+<div class="card">
+<div class="lookup">
+<input type="text" id="orderId" placeholder="e.g. JG-ABC123" onkeypress="if(event.key==='Enter')lookup()">
+<button onclick="lookup()">Track Order</button>
+<button class="demo-btn" onclick="loadDemo()">👀 Try demo order</button>
+</div>
 </div>
 
-<div class="example-hint">
-  💡 Try: <code onclick="fillExample('JG-DEMO1')">JG-DEMO1</code> or <code onclick="fillExample('JG-DEMO2')">JG-DEMO2</code>
-</div>
+<div id="result"></div>
 
-<!-- RESULT -->
-<div class="result" id="resultArea">
-  <div class="card" id="orderCard">
-    <div class="card-hd">
-      <span class="oid" id="dispId">JG-XXXXXX</span>
-      <span class="stat" id="dispStatus">Received ✅</span>
-    </div>
-    <div class="card-bd" id="orderDetails">
-      <!-- filled dynamically -->
-    </div>
-  </div>
-
-  <!-- NOT FOUND -->
-  <div class="card" id="notFoundCard" style="display:none">
-    <div class="nf">
-      <div class="nf-icon">🔍</div>
-      <div class="nf-t">Order Not Found</div>
-      <div class="nf-s">We couldn't find an order with that ID. Please check and try again, or contact us on WhatsApp.</div>
-    </div>
-  </div>
-</div>
-
-<div style="background:#0f1a14;color:rgba(255,255,255,.5);padding:16px;text-align:center;font-size:.68rem;line-height:1.6">
-<div style="font-weight:800;font-size:.85rem;color:#fff;margin-bottom:2px">JG <span style="color:#c9a227">Mart</span></div>
-<p>Fresh groceries, delivered to Japan Garden City, Mohammadpur</p>
-<p>📱 <a href="https://wa.me/8801870489448" style="color:#c9a227;text-decoration:none">+8801870489448</a></p>
-<p style="margin-top:4px"><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none">Catalog</a> · <a href="landing.html" style="color:rgba(255,255,255,.5);text-decoration:none">About</a> · <a href="menu.html" style="color:rgba(255,255,255,.5);text-decoration:none">Menu</a> · <a href="track.html" style="color:rgba(255,255,255,.5);text-decoration:none">Track</a> · <a href="zone.html" style="color:rgba(255,255,255,.5);text-decoration:none">Zone</a></p>
-<p style="opacity:.4;margin-top:4px">© 2026 JG Mart</p>
 </div>
 
 <script>
-// ========= SEED DEMO ORDERS =========
-(function(){
-  let orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
-  // Seed demo orders if none exist
-  if(!orders.length || !orders.find(o=>o.id==='JG-DEMO1')){
-    const demos = [
-      {
-        id:'JG-DEMO1',
-        date:'24 July 2026',
-        time:'10:15 AM',
-        items:[
-          {nm:'Premium Miniket Rice', qty:2, pr:88},
-          {nm:'Farm Eggs (Dozen)', qty:1, pr:120},
-          {nm:'Red Onion', qty:1, pr:65},
-          {nm:'Chicken (Broiler)', qty:1, pr:220}
-        ],
-        sub:581, fee:20, total:601,
-        building:'B7', flat:'4B',
-        slot:'☀️ Morning (9AM-12PM)',
-        payment:'COD'
-      },
-      {
-        id:'JG-DEMO2',
-        date:'26 July 2026',
-        time:'5:30 PM',
-        items:[
-          {nm:'Moshur Dal (Red)', qty:1, pr:110},
-          {nm:'Mustard Oil', qty:1, pr:185},
-          {nm:'Potato', qty:2, pr:35},
-          {nm:'Banana (Sagor)', qty:1, pr:50},
-          {nm:'Dove Soap', qty:3, pr:45}
-        ],
-        sub:505, fee:20, total:525,
-        building:'B12', flat:'2A',
-        slot:'🌙 Evening (3:30PM-8PM)',
-        payment:'bKash'
-      }
-    ];
-    // Add demos without duplicating
-    demos.forEach(d=>{if(!orders.find(o=>o.id===d.id))orders.unshift(d);});
-    localStorage.setItem('jgmart_ords',JSON.stringify(orders));
-  }
-})();
+const DEMO_ORDERS = [
+  {id:'JG-DEMO1',name:'Sara Ahmed',building:'B5',flat:'3A',slot:'Morning',status:'received',date:'29 Jul 2026',time:'10:30 AM',items:['Premium Miniket Rice ×2','Farm Eggs ×1','Ruhi Fish ×1'],total:1266},
+  {id:'JG-DEMO2',name:'Karim Uddin',building:'B12',flat:'2B',slot:'Evening',status:'picked',date:'28 Jul 2026',time:'3:15 PM',items:['Chicken (Broiler) ×1','Potato ×2','Onion ×1'],total:540},
+  {id:'JG-DEMO3',name:'Fatima Begum',building:'B22',flat:'4C',slot:'Morning',status:'delivered',date:'27 Jul 2026',time:'9:45 AM',items:['Hilsa (Ilish) ×1','Basmati Rice ×1','Mutton ×1'],total:1890},
+];
 
-// ========= TRACK =========
-function trackOrder(){
-  const input = document.getElementById('orderIdInput');
-  const id = input.value.trim().toUpperCase();
-  if(!id){toast('Please enter an Order ID'); return;}
+const STATUS_STEPS = ['received','picked','delivered'];
+const STATUS_LABELS = {received:'Order Received',picked:'Picked Up',delivered:'Delivered',cancelled:'Cancelled'};
 
-  const orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
-  const order = orders.find(o=>o.id.toUpperCase()===id);
-  const resultArea = document.getElementById('resultArea');
-  const orderCard = document.getElementById('orderCard');
-  const notFoundCard = document.getElementById('notFoundCard');
+function loadDemo(){
+  const demo = DEMO_ORDERS[0];
+  document.getElementById('orderId').value = demo.id;
+  lookup();
+}
 
-  if(!order){
-    orderCard.style.display = 'none';
-    notFoundCard.style.display = 'block';
-    resultArea.classList.add('show');
-    return;
-  }
+function lookup(){
+  const id = document.getElementById('orderId').value.trim().toUpperCase();
+  const result = document.getElementById('result');
+  
+  if(!id){result.innerHTML='<div class="empty"><div class="icon">🔍</div><p>Please enter an order ID</p></div>';return;}
+  
+  // Check demo orders first
+  const demo = DEMO_ORDERS.find(o => o.id === id);
+  if(demo){renderOrder(demo);return;}
+  
+  // Check localStorage orders
+  const orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  const order = orders.find(o => o.id && o.id.toUpperCase() === id);
+  if(order){renderOrder({...order, items: order.items?.map(i=>`${i.nm} ×${i.qty}`) || []});return;}
+  
+  result.innerHTML='<div class="empty"><div class="icon">😕</div><p>Order not found. Try <b>JG-DEMO1</b> to see a demo.</p></div>';
+}
 
-  notFoundCard.style.display = 'none';
-  orderCard.style.display = 'block';
-  resultArea.classList.add('show');
-
-  // Fill header
-  document.getElementById('dispId').textContent = order.id;
-  // Status is always Received ✅ (Fahad manually updates them)
-  document.getElementById('dispStatus').textContent = 'Received ✅';
-
-  // Build details
-  let html = '';
-
-  // Date & Time
-  html += `<div class="row"><span class="lb">📅 Date & Time</span><span class="vl">${order.date} ${order.time||''}</span></div>`;
-
-  // Items
-  if(order.items && order.items.length){
-    let itemsHtml = '<div class="items"><div class="items-t">Items Ordered</div>';
-    order.items.forEach(it=>{
-      itemsHtml += `<div class="itm"><span class="inm">${it.nm}</span><span class="iqt">×${it.qty}</span><span class="ipr">৳${(it.pr * it.qty).toLocaleString()}</span></div>`;
+function renderOrder(o){
+  const statusIdx = STATUS_STEPS.indexOf(o.status);
+  const isCancelled = o.status === 'cancelled';
+  
+  let stepsHtml = '';
+  if(isCancelled){
+    stepsHtml = '<div class="step cancelled"><div class="step-title">Order Cancelled</div><div class="step-meta">This order was cancelled</div></div>';
+  } else {
+    STATUS_STEPS.forEach((step, i) => {
+      let cls = 'step';
+      if(i < statusIdx) cls += ' done';
+      else if(i === statusIdx) cls += ' active';
+      stepsHtml += `<div class="${cls}"><div class="step-title">${STATUS_LABELS[step]}</div><div class="step-meta">${i <= statusIdx ? '✓' : '⏳'}</div></div>`;
     });
-    itemsHtml += '</div>';
-    html += `<div class="row"><span class="lb">🛒 Items</span><span class="vl">${itemsHtml}</span></div>`;
   }
-
-  // Total
-  const totalDisplay = order.fee > 0
-    ? `৳${order.sub.toLocaleString()} + ৳${order.fee} delivery`
-    : `৳${order.sub.toLocaleString()}`;
-  html += `<div class="row"><span class="lb">💰 Total</span><span class="vl">${totalDisplay} <strong>= ৳${order.total.toLocaleString()}</strong></span></div>`;
-
-  // Delivery address
-  const addr = `${order.building}, Flat ${order.flat}`;
-  html += `<div class="row"><span class="lb">📍 Address</span><span class="vl">${addr}</span></div>`;
-
-  // Delivery slot
-  html += `<div class="row"><span class="lb">⏰ Slot</span><span class="vl">${order.slot}</span></div>`;
-
-  // Payment method
-  const payLabel = order.payment === 'bKash' ? '📱 bKash' : '💵 Cash (COD)';
-  html += `<div class="row"><span class="lb">💳 Payment</span><span class="vl">${payLabel}</span></div>`;
-
-  document.getElementById('orderDetails').innerHTML = html;
-
-  // Scroll to result
-  resultArea.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-// ========= EXAMPLE FILL =========
-function fillExample(id){
-  document.getElementById('orderIdInput').value = id;
-  trackOrder();
-}
-
-// ========= KEYBOARD SUPPORT =========
-document.getElementById('orderIdInput').addEventListener('keydown', function(e){
-  if(e.key === 'Enter') trackOrder();
-});
-
-// ========= TOAST =========
-function toast(m){
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = m;
-  document.body.appendChild(t);
-  setTimeout(()=>t.remove(), 1200);
+  
+  const badgeClass = 'status-' + o.status;
+  
+  result.innerHTML = `
+  <div class="card">
+  <div class="order-id">Order #${o.id}</div>
+  <span class="status-badge ${badgeClass}">${STATUS_LABELS[o.status] || o.status}</span>
+  <div class="timeline">${stepsHtml}</div>
+  <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f0f0f0">
+  <div style="font-size:.75rem;color:#5c5c5c">${o.date} · ${o.time || ''} · ${o.building || ''} ${o.flat || ''}</div>
+  <div style="font-size:.8rem;margin-top:4px">${(o.items || []).join(', ')}</div>
+  <div class="order-total">৳${(o.total || 0).toLocaleString()}</div>
+  </div>
+  <a href="https://wa.me/8801870489448" class="back" style="display:block;text-align:center;margin-top:12px">💬 Questions? WhatsApp us</a>
+  </div>`;
 }
 </script>
-<a href="https://wa.me/8801870489448" target="_blank" style="position:fixed;bottom:14px;right:14px;z-index:90;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.35);color:#fff;font-size:1.3rem;text-decoration:none">💬</a>
 </body>
 </html>

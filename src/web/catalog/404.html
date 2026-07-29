@@ -18,20 +18,29 @@ body{font-family:Inter,system-ui,sans-serif;background:#0f1a14;color:#fff;min-he
 .card .links a:hover{background:#0a6b47}
 .card .links .wa{background:#25D366}
 .card .links .wa:hover{background:#20bd5a}
+.redirect{font-size:.7rem;color:rgba(255,255,255,.4);margin-top:12px}
 </style>
 </head>
 <body>
 <div class="card">
-<div class="code">404</div>
-<h1>Page not found</h1>
-<p>The page you're looking for doesn't exist or has moved.<br>Let's get you back on track.</p>
-<div class="links">
-<a href="index.html">📦 Browse Catalog</a>
-<a href="landing.html">🏠 About JG Mart</a>
-<a href="https://wa.me/8801870489448" class="wa">💬 Order on WhatsApp</a>
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or has moved.<br>Let's get you back on track.</p>
+  <div class="links">
+    <a href="index.html">📦 Browse Catalog</a>
+    <a href="landing.html">🏠 About JG Mart</a>
+    <a href="https://wa.me/8801870489448" class="wa">💬 Order on WhatsApp</a>
+  </div>
+  <div class="redirect">Redirecting to catalog in <span id="count">5</span>s...</div>
 </div>
-</div>
-<script>// 404 page
+<script>
+  let sec = 5;
+  const el = document.getElementById('count');
+  const timer = setInterval(() => {
+    sec--;
+    if(el) el.textContent = sec;
+    if(sec <= 0) { clearInterval(timer); window.location.href = './'; }
+  }, 1000);
 </script>
 </body>
 </html>
