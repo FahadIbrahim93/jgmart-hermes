@@ -87,9 +87,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 </div>
 <div class="card">
 <h3>Quick Actions</h3>
-<button class="btn btn-primary" onclick="switchTab('products');openProductModal()">+ Add Product</button>
-<button class="btn btn-secondary" onclick="exportOrders()">📥 Export Orders CSV</button>
-<button class="btn btn-secondary" onclick="backupData()">💾 Backup Data</button>
+<button class="btn btn-primary" onclick="switchTab('products');openProductModal()" aria-label="Add new product">+ Add Product</button>
+<button class="btn btn-secondary" onclick="exportOrders()" aria-label="Export orders to CSV">📥 Export Orders CSV</button>
+<button class="btn btn-secondary" onclick="backupData()" aria-label="Download backup">💾 Backup Data</button>
 </div>
 </div>
 
@@ -115,19 +115,32 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 <div id="tab-orders" style="display:none">
 <div class="card">
 <h3>Orders</h3>
-<div style="margin-bottom:12px">
-<input type="text" id="orderSearch" placeholder="Search orders..." oninput="renderOrders()" style="max-width:300px">
-<select id="orderStatusFilter" onchange="renderOrders()" style="max-width:200px">
+<div style="margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+<input type="text" id="orderSearch" placeholder="Search orders..." oninput="renderOrders()" style="max-width:220px">
+<select id="orderStatusFilter" onchange="renderOrders()" style="max-width:160px">
 <option value="">All Status</option>
 <option value="received">Received</option>
 <option value="picked">Picked Up</option>
 <option value="delivered">Delivered</option>
 <option value="cancelled">Cancelled</option>
 </select>
+<button class="btn btn-secondary" onclick="printManifest()" title="Open printable manifest">🖨️ Manifest</button>
+<button class="btn btn-secondary" onclick="bulkNotifySelected()" title="WhatsApp notify selected orders">💬 Notify Selected</button>
+</div>
+<div id="bulkBar" style="display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:.75rem;color:#166534">
+<span id="selectedCount">0 selected</span>
+<select id="bulkStatus" onchange="bulkUpdateStatus()" style="padding:4px 8px;font-size:.72rem;border-radius:6px;border:1px solid #bbf7d0;margin-left:8px">
+<option value="">Change status to...</option>
+<option value="received">Received</option>
+<option value="picked">Picked Up</option>
+<option value="delivered">Delivered</option>
+<option value="cancelled">Cancelled</option>
+</select>
+<button class="btn btn-sm btn-secondary" onclick="clearSelection()" style="margin-left:6px">Clear</button>
 </div>
 <div style="overflow-x:auto">
 <table>
-<thead><tr><th>ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+<thead><tr><th style="width:32px"><input type="checkbox" id="selectAll" onchange="toggleSelectAll()"></th><th>ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
 <tbody id="ordersTable"></tbody>
 </table>
 </div>
@@ -187,9 +200,14 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 <div id="toast" class="toast"></div>
 
 <script>
+// XSS safety: admin.html renders tables via innerHTML, but all user-facing
+// values are escaped with escapeHtml() before insertion. Admin inputs are
+// localStorage-backed and trusted; no external/unsanitized HTML is rendered.
 // ============================================
 // STATE & DATA
 // ============================================
+// NOTE: table rows are built via innerHTML after escaping with escapeHtml().
+// Inputs are admin-only/localStorage-backed, so DOMPurify is not required here.
 const PRODS_KEY = 'jgmart_prods';
 const ORDERS_KEY = 'jgmart_orders';
 const AUTH_KEY = 'jgmart_admin_auth';
@@ -406,6 +424,7 @@ function renderOrders() {
   
   tbody.innerHTML = filtered.slice().reverse().map(o => `
     <tr>
+      <td style="text-align:center"><input type="checkbox" ${selectedOrderIds.has(o.id)?'checked':''} onchange="toggleOrderSelect(${o.id})"></td>
       <td>#${o.id}</td>
       <td>${escapeHtml(o.customerName||'')}<br><small style="color:#6b7280">${escapeHtml(o.phone||'')}</small></td>
       <td>${escapeHtml((o.items||[]).map(i=>i.name||i).join(', ').substring(0,50))}</td>
@@ -423,6 +442,7 @@ function renderOrders() {
       </td>
     </tr>
   `).join('');
+  updateBulkBar();
 }
 
 function getStatusBadge(status) {
@@ -554,6 +574,77 @@ function escapeHtml(text) {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
+}
+
+// ============================================
+// BULK ORDER ACTIONS
+// ============================================
+let selectedOrderIds = new Set();
+
+function toggleSelectAll(){
+  const checked = document.getElementById('selectAll').checked;
+  selectedOrderIds.clear();
+  if(checked){
+    orders.forEach(o => selectedOrderIds.add(o.id));
+  }
+  renderOrders();
+  updateBulkBar();
+}
+
+function toggleOrderSelect(id){
+  if(selectedOrderIds.has(id)) selectedOrderIds.delete(id);
+  else selectedOrderIds.add(id);
+  updateBulkBar();
+}
+
+function updateBulkBar(){
+  const bar = document.getElementById('bulkBar');
+  const count = document.getElementById('selectedCount');
+  if(!bar || !count) return;
+  count.textContent = selectedOrderIds.size + ' selected';
+  bar.style.display = selectedOrderIds.size ? 'flex' : 'none';
+}
+
+function clearSelection(){
+  selectedOrderIds.clear();
+  const selectAll = document.getElementById('selectAll');
+  if(selectAll) selectAll.checked = false;
+  renderOrders();
+  updateBulkBar();
+}
+
+function bulkUpdateStatus(){
+  const sel = document.getElementById('bulkStatus');
+  const status = sel.value;
+  if(!status) return;
+  let count = 0;
+  orders.forEach(o => {
+    if(selectedOrderIds.has(o.id)){
+      o.status = status;
+      count++;
+    }
+  });
+  saveOrders();
+  renderOrders();
+  updateBulkBar();
+  showToast(`${count} order${count>1?'s':''} updated to ${status}`);
+  sel.value = '';
+}
+
+function printManifest(){
+  window.open('manifest.html','_blank');
+}
+
+function bulkNotifySelected(){
+  if(!selectedOrderIds.size) return showToast('Select orders first', true);
+  const selected = orders.filter(o => selectedOrderIds.has(o.id));
+  let msg = `📋 JG Mart — Selected Orders (${selected.length})\n\n`;
+  selected.forEach((o,i)=>{
+    msg += `${i+1}. ${o.building||''} ${o.flat||''} — ৳${o.total||0}\n`;
+  });
+  msg += `\nWe'll update you shortly.`;
+  window.open(`https://wa.me/8801870489448?text=${encodeURIComponent(msg)}`,'_blank');
+  showToast('Opening WhatsApp...');
 }
 
 // ============================================

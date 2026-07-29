@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JG Mart — WhatsApp Notify</title>
+<meta name="theme-color" content="#00442D">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min-height:100vh}
+.header{background:#00442D;color:#fff;padding:16px;text-align:center}
+.header h1{font-size:1.1rem;font-weight:800}
+.header p{font-size:.75rem;opacity:.8;margin-top:2px}
+.container{max-width:600px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto}
+.tab{flex:1;padding:10px;border:none;background:#e5e7eb;color:#5c5c5c;font-weight:600;font-size:.72rem;border-radius:8px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.tab.active{background:#00442D;color:#fff}
+.panel{display:none}
+.panel.active{display:block}
+label{display:block;font-size:.7rem;font-weight:600;color:#5c5c5c;margin-bottom:3px;margin-top:8px}
+input,select,textarea{width:100%;padding:10px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.82rem;font-family:inherit;background:#fff;margin-bottom:4px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D}
+textarea{resize:vertical;min-height:80px}
+.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.actions button{flex:1;min-width:140px;background:#00442D;color:#fff;border:none;padding:10px;border-radius:8px;font-weight:600;font-size:.78rem;cursor:pointer;font-family:inherit}
+.actions .secondary{background:#f0f2f0;color:#00442D}
+.actions .wa{background:#25D366}
+.preview{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px;margin-top:10px;font-size:.72rem;color:#166534;white-space:pre-wrap;line-height:1.5}
+.preview b{color:#00442D}
+.toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#00442D;color:#fff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:.72rem;z-index:300;animation:ti .3s;pointer-events:none;white-space:nowrap}
+@keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.back{display:inline-block;margin-top:12px;color:#00442D;text-decoration:none;font-size:.8rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>💬 WhatsApp Notify</h1>
+<p>Generate order messages for customers & riders</p>
+</div>
+<div class="container">
+
+<div class="card">
+<div class="tabs">
+<button class="tab active" onclick="switchTab('confirm')">🛒 Order Confirm</button>
+<button class="tab" onclick="switchTab('delivery')">🚚 Delivery Alert</button>
+<button class="tab" onclick="switchTab('rider')">📋 Rider Manifest</button>
+</div>
+
+<!-- ORDER CONFIRM -->
+<div class="panel active" id="panel-confirm">
+<label>Customer Name</label>
+<input type="text" id="cName" placeholder="e.g. Sara Ahmed">
+<label>Phone</label>
+<input type="text" id="cPhone" placeholder="e.g. 01700000000">
+<label>Order ID</label>
+<input type="text" id="cOrderId" placeholder="e.g. JG-20260729-001">
+<label>Items (comma separated)</label>
+<textarea id="cItems" placeholder="Miniket Rice ×2, Eggs ×1, Fish ×1"></textarea>
+<label>Total (৳)</label>
+<input type="number" id="cTotal" placeholder="1266">
+<label>Delivery Slot</label>
+<select id="cSlot">
+<option>Morning (9AM–12PM)</option>
+<option>Evening (4PM–7PM)</option>
+</select>
+<label>Building / Flat</label>
+<input type="text" id="cAddr" placeholder="B5 / Flat 3A">
+<div class="actions">
+<button class="wa" onclick="sendConfirm()">📤 Send via WhatsApp</button>
+<button class="secondary" onclick="copyConfirm()">📋 Copy</button>
+</div>
+<div class="preview" id="confirmPreview"></div>
+</div>
+
+<!-- DELIVERY ALERT -->
+<div class="panel" id="panel-delivery">
+<label>Customer Name</label>
+<input type="text" id="dName" placeholder="e.g. Sara Ahmed">
+<label>Phone</label>
+<input type="text" id="dPhone" placeholder="e.g. 01700000000">
+<label>Order ID</label>
+<input type="text" id="dOrderId" placeholder="e.g. JG-20260729-001">
+<label>ETA</label>
+<input type="text" id="dEta" placeholder="e.g. Today, 12:30 PM">
+<label>Rider Name</label>
+<input type="text" id="dRider" placeholder="e.g. Rahim">
+<div class="actions">
+<button class="wa" onclick="sendDelivery()">📤 Send via WhatsApp</button>
+<button class="secondary" onclick="copyDelivery()">📋 Copy</button>
+</div>
+<div class="preview" id="deliveryPreview"></div>
+</div>
+
+<!-- RIDER MANIFEST -->
+<div class="panel" id="panel-rider">
+<label>Rider Name</label>
+<input type="text" id="rName" placeholder="e.g. Rahim">
+<label>Rider Phone</label>
+<input type="text" id="rPhone" placeholder="e.g. 01700000000">
+<label>Cluster</label>
+<select id="rCluster">
+<option value="C1">C1 — Buildings 1–6</option>
+<option value="C2">C2 — Buildings 7–13</option>
+<option value="C3">C3 — Buildings 14–20</option>
+<option value="C4">C4 — Buildings 21–27</option>
+</select>
+<label>Stops (one per line: Building Flat — Items — Total)</label>
+<textarea id="rStops" placeholder="B5 3A — Rice ×2, Eggs ×1 — ৳850&#10;B5 2B — Fish ×1 — ৳420"></textarea>
+<div class="actions">
+<button class="wa" onclick="sendRider()">📤 Send via WhatsApp</button>
+<button class="secondary" onclick="copyRider()">📋 Copy</button>
+</div>
+<div class="preview" id="riderPreview"></div>
+</div>
+
+</div>
+
+<a href="index.html" class="back">← Back to Catalog</a>
+
+</div>
+
+<script>
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1200);}
+function esc(s){return String(s||'').replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);}
+
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.textContent.toLowerCase().includes(name==='confirm'?'order confirm':name==='delivery'?'delivery':'rider'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+}
+
+function wa(phone,msg){
+  const clean = String(phone).replace(/[^0-9]/g,'');
+  window.open(`https://wa.me/${clean}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+function confirmMsg(){
+  const name=esc(document.getElementById('cName').value||'Customer');
+  const phone=document.getElementById('cPhone').value||'';
+  const oid=esc(document.getElementById('cOrderId').value||'');
+  const items=esc(document.getElementById('cItems').value||'');
+  const total=document.getElementById('cTotal').value||'0';
+  const slot=esc(document.getElementById('cSlot').value||'');
+  const addr=esc(document.getElementById('cAddr').value||'');
+  return `👋 Hello ${name},\n\n✅ Your JG Mart order #${oid} is confirmed!\n\n📦 Items:\n${items}\n\n💰 Total: ৳${Number(total).toLocaleString()}\n📍 Delivery: ${addr}\n⏰ Slot: ${slot}\n\nWe'll notify you when the rider is on the way. Questions? WhatsApp us: 8801870489448\n\nThank you for shopping with JG Mart 🥬`;
+}
+
+function sendConfirm(){
+  const msg=confirmMsg();
+  const phone=document.getElementById('cPhone').value||'8801870489448';
+  wa(phone,msg);
+  toast('Opening WhatsApp...');
+  document.getElementById('confirmPreview').textContent=msg;
+}
+
+function copyConfirm(){
+  const msg=confirmMsg();
+  navigator.clipboard.writeText(msg).then(()=>toast('📋 Copied!')).catch(()=>{});
+  document.getElementById('confirmPreview').textContent=msg;
+}
+
+function deliveryMsg(){
+  const name=esc(document.getElementById('dName').value||'Customer');
+  const phone=document.getElementById('dPhone').value||'';
+  const oid=esc(document.getElementById('dOrderId').value||'');
+  const eta=esc(document.getElementById('dEta').value||'');
+  const rider=esc(document.getElementById('dRider').value||'');
+  return `🚚 Delivery Update — ${name}\n\nYour JG Mart order #${oid} is out for delivery!\n\n🕐 ETA: ${eta}\n${rider?`👤 Rider: ${rider}`:''}\n\nPlease keep your phone nearby. Cash/change ready if COD.\n\nTrack: ${location.origin}/track.html?order=${encodeURIComponent(oid||'')}\n\nQuestions? 8801870489448`;
+}
+
+function sendDelivery(){
+  const msg=deliveryMsg();
+  const phone=document.getElementById('dPhone').value||'8801870489448';
+  wa(phone,msg);
+  toast('Opening WhatsApp...');
+  document.getElementById('deliveryPreview').textContent=msg;
+}
+
+function copyDelivery(){
+  const msg=deliveryMsg();
+  navigator.clipboard.writeText(msg).then(()=>toast('📋 Copied!')).catch(()=>{});
+  document.getElementById('deliveryPreview').textContent=msg;
+}
+
+function riderMsg(){
+  const name=esc(document.getElementById('rName').value||'Rider');
+  const phone=document.getElementById('rPhone').value||'';
+  const cluster=document.getElementById('rCluster').value;
+  const stops=esc(document.getElementById('rStops').value||'');
+  return `📋 JG Mart — ${cluster} Delivery Run\n\nRider: ${name}\n\nStops:\n${stops}\n\n✅ Complete all stops and mark as delivered in manifest.\n🚚 Keep bags upright. Call customer if no answer.\n\nQuestions? 8801870489448`;
+}
+
+function sendRider(){
+  const msg=riderMsg();
+  const phone=document.getElementById('rPhone').value||'8801870489448';
+  wa(phone,msg);
+  toast('Opening WhatsApp...');
+  document.getElementById('riderPreview').textContent=msg;
+}
+
+function copyRider(){
+  const msg=riderMsg();
+  navigator.clipboard.writeText(msg).then(()=>toast('📋 Copied!')).catch(()=>{});
+  document.getElementById('riderPreview').textContent=msg;
+}
+</script>
+</body>
+</html>

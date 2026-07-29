@@ -17,8 +17,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min
 .lookup{margin-bottom:16px}
 .lookup input{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:8px;font-size:.9rem;font-family:inherit;margin-bottom:8px}
 .lookup input:focus{outline:none;border-color:#00442D}
-.lookup button{width:100%;background:#00442D;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;font-family:inherit}
-.demo-btn{background:none;border:none;color:#00442D;font-size:.75rem;text-decoration:underline;cursor:pointer;font-family:inherit;margin-top:4px;display:block;width:100%;text-align:center}
+.lookup button{width:100%;background:#00442D;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;font-family:inherit;margin-bottom:6px}
+.demo-btn{background:none;border:none;color:#00442D;font-size:.75rem;text-decoration:underline;cursor:pointer;font-family:inherit;display:block;width:100%;text-align:center;margin-top:4px}
 .empty{text-align:center;padding:40px 20px;color:#6b7280}
 .empty .icon{font-size:3rem;margin-bottom:12px}
 .timeline{position:relative;padding-left:24px}
@@ -32,6 +32,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.4)}50%{box-shadow:0 0 0 6px rgba(201,162,39,0)}}
 .step-title{font-size:.8rem;font-weight:600;color:#00442D}
 .step-meta{font-size:.7rem;color:#6b7280;margin-top:1px}
+.step-eta{font-size:.65rem;color:#00442D;font-weight:600;margin-top:1px}
 .status-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:700;margin-bottom:8px}
 .status-received{background:#fef3c7;color:#92400e}
 .status-picked{background:#dbeafe;color:#1e40af}
@@ -40,12 +41,21 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min
 .order-id{font-size:.75rem;color:#6b7280;margin-bottom:4px}
 .order-total{font-size:1.1rem;font-weight:800;color:#00442D;margin-top:8px}
 .back{display:inline-block;margin-top:12px;color:#00442D;text-decoration:none;font-size:.8rem;font-weight:600}
+.share-btn{display:inline-block;margin-top:8px;color:#00442D;text-decoration:none;font-size:.8rem;font-weight:600;margin-left:12px;cursor:pointer;background:none;border:none;font-family:inherit}
+.eta-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px;margin-top:10px;font-size:.72rem;color:#166534}
+.eta-box strong{color:#00442D}
+.updated{font-size:.6rem;color:#9ca3af;margin-top:6px;text-align:center}
+@media print{
+body{background:#fff}
+.header{background:#00442D;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card{box-shadow:none;border:1px solid #e5e7eb}
+}
 </style>
 </head>
 <body>
 <div class="header">
-<h1>📦 Track Your Order</h1>
-<p>Enter your order ID to check delivery status</p>
+<h1>📮 Track Your Order</h1>
+<p>Enter your order ID to see live delivery status</p>
 </div>
 <div class="container">
 
@@ -63,41 +73,41 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;min
 
 <script>
 const DEMO_ORDERS = [
-  {id:'JG-DEMO1',name:'Sara Ahmed',building:'B5',flat:'3A',slot:'Morning',status:'received',date:'29 Jul 2026',time:'10:30 AM',items:['Premium Miniket Rice ×2','Farm Eggs ×1','Ruhi Fish ×1'],total:1266},
-  {id:'JG-DEMO2',name:'Karim Uddin',building:'B12',flat:'2B',slot:'Evening',status:'picked',date:'28 Jul 2026',time:'3:15 PM',items:['Chicken (Broiler) ×1','Potato ×2','Onion ×1'],total:540},
-  {id:'JG-DEMO3',name:'Fatima Begum',building:'B22',flat:'4C',slot:'Morning',status:'delivered',date:'27 Jul 2026',time:'9:45 AM',items:['Hilsa (Ilish) ×1','Basmati Rice ×1','Mutton ×1'],total:1890},
+  {id:'JG-DEMO1',name:'Sara Ahmed',building:'B5',flat:'3A',slot:'Morning',status:'received',date:'29 Jul 2026',time:'10:30 AM',items:['Premium Miniket Rice ×2','Farm Eggs ×1','Ruhi Fish ×1'],total:1266,eta:'Today, 12:30 PM'},
+  {id:'JG-DEMO2',name:'Karim Uddin',building:'B12',flat:'2B',slot:'Evening',status:'picked',date:'28 Jul 2026',time:'3:15 PM',items:['Chicken (Broiler) ×1','Potato ×2','Onion ×1'],total:540,eta:'Today, 5:30 PM'},
+  {id:'JG-DEMO3',name:'Fatima Begum',building:'B22',flat:'4C',slot:'Morning',status:'delivered',date:'27 Jul 2026',time:'9:45 AM',items:['Hilsa (Ilish) ×1','Basmati Rice ×1','Mutton ×1'],total:1890,eta:'Delivered'},
 ];
-
 const STATUS_STEPS = ['received','picked','delivered'];
 const STATUS_LABELS = {received:'Order Received',picked:'Picked Up',delivered:'Delivered',cancelled:'Cancelled'};
 
 function loadDemo(){
-  const demo = DEMO_ORDERS[0];
+  const demo = DEMO_ORDERS[Math.floor(Math.random()*DEMO_ORDERS.length)];
   document.getElementById('orderId').value = demo.id;
   lookup();
 }
 
-function lookup(){
-  const id = document.getElementById('orderId').value.trim().toUpperCase();
-  const result = document.getElementById('result');
-  
-  if(!id){result.innerHTML='<div class="empty"><div class="icon">🔍</div><p>Please enter an order ID</p></div>';return;}
-  
-  // Check demo orders first
-  const demo = DEMO_ORDERS.find(o => o.id === id);
-  if(demo){renderOrder(demo);return;}
-  
-  // Check localStorage orders
-  const orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
-  const order = orders.find(o => o.id && o.id.toUpperCase() === id);
-  if(order){renderOrder({...order, items: order.items?.map(i=>`${i.nm} ×${i.qty}`) || []});return;}
-  
-  result.innerHTML='<div class="empty"><div class="icon">😕</div><p>Order not found. Try <b>JG-DEMO1</b> to see a demo.</p></div>';
+function etaText(o){
+  if(o.status==='delivered') return 'Delivered';
+  if(o.eta) return o.eta;
+  // fallback: slot-based estimate
+  const slot = (o.slot||'').toLowerCase();
+  const now = new Date();
+  const h = now.getHours();
+  if(slot.includes('morning')) return `Estimated by ${h<10?'10:30 AM':'12:30 PM'}`;
+  if(slot.includes('evening')) return `Estimated by ${h<15?'5:30 PM':'7:30 PM'}`;
+  return 'Estimating...';
 }
 
+function formatNow(){
+  const d = new Date();
+  return d.toLocaleTimeString('en-BD',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+function esc(s){return String(s||'').replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);}
 function renderOrder(o){
   const statusIdx = STATUS_STEPS.indexOf(o.status);
   const isCancelled = o.status === 'cancelled';
+  const isDemo = DEMO_ORDERS.some(d=>d.id===o.id);
   
   let stepsHtml = '';
   if(isCancelled){
@@ -107,25 +117,79 @@ function renderOrder(o){
       let cls = 'step';
       if(i < statusIdx) cls += ' done';
       else if(i === statusIdx) cls += ' active';
-      stepsHtml += `<div class="${cls}"><div class="step-title">${STATUS_LABELS[step]}</div><div class="step-meta">${i <= statusIdx ? '✓' : '⏳'}</div></div>`;
+      const label = STATUS_LABELS[step];
+      const checked = i <= statusIdx ? '✓' : '⏳';
+      stepsHtml += `<div class="${cls}"><div class="step-title">${label}</div><div class="step-meta">${checked}</div></div>`;
     });
   }
   
   const badgeClass = 'status-' + o.status;
+  const eta = etaText(o);
   
-  result.innerHTML = `
+  // XSS note: innerHTML is used for status timeline/step markup only.
+  // All user-facing text values are escaped via `esc()` above,
+  // and order data comes from hardcoded DEMO_ORDERS or client localStorage.
+  document.getElementById('result').innerHTML = `
   <div class="card">
-  <div class="order-id">Order #${o.id}</div>
-  <span class="status-badge ${badgeClass}">${STATUS_LABELS[o.status] || o.status}</span>
+  <div class="order-id">Order #${esc(o.id)} ${isDemo ? '<span style="font-size:.6rem;opacity:.6">(demo)</span>' : ''}</div>
+  <span class="status-badge ${badgeClass}">${STATUS_LABELS[o.status] || esc(o.status)}</span>
   <div class="timeline">${stepsHtml}</div>
+  <div class="eta-box"><strong>🕐 ETA:</strong> ${esc(eta)}</div>
   <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f0f0f0">
-  <div style="font-size:.75rem;color:#5c5c5c">${o.date} · ${o.time || ''} · ${o.building || ''} ${o.flat || ''}</div>
-  <div style="font-size:.8rem;margin-top:4px">${(o.items || []).join(', ')}</div>
+  <div style="font-size:.75rem;color:#5c5c5c">${esc(o.date)} · ${esc(o.time||'')} · ${esc(o.building||'')} ${esc(o.flat||'')} · ${esc(o.slot||'')}</div>
+  <div style="font-size:.8rem;margin-top:4px">${esc((o.items || []).join(', '))}</div>
   <div class="order-total">৳${(o.total || 0).toLocaleString()}</div>
   </div>
-  <a href="https://wa.me/8801870489448" class="back" style="display:block;text-align:center;margin-top:12px">💬 Questions? WhatsApp us</a>
+  <a href="https://wa.me/8801870489448" class="back">💬 Questions? WhatsApp us</a>
+  <button class="share-btn" onclick="shareTrack('${esc(o.id)}')">📤 Share Tracking</button>
+  <div class="updated" id="updated-${esc(o.id)}">Updated just now</div>
   </div>`;
+  // live clock for "updated" label
+  if(window._trackIntervals) window._trackIntervals.forEach(clearInterval);
+  window._trackIntervals = [];
+  const id = setInterval(()=>{
+    const el = document.getElementById('updated-'+esc(o.id));
+    if(!el) { clearInterval(id); return; }
+    el.textContent = 'Updated ' + formatNow();
+  }, 1000);
+  window._trackIntervals.push(id);
 }
+
+function shareTrack(id){
+  const url = window.location.href.split('?')[0] + '?order=' + encodeURIComponent(id);
+  const msg = `Track my JG Mart order: ${id}\n${url}`;
+  if(navigator.share){
+    navigator.share({title:'JG Mart Tracking',text:msg,url}).catch(()=>{});
+  } else {
+    prompt('📤 Copy this link:', msg);
+  }
+}
+
+function lookup(){
+  const id = document.getElementById('orderId').value.trim().toUpperCase();
+  const result = document.getElementById('result');
+  
+  if(!id){result.innerHTML='<div class="empty"><div class="icon">🔍</div><p>Please enter an order ID</p></div>';return;}
+  
+  const demo = DEMO_ORDERS.find(o => o.id === id);
+  if(demo){renderOrder(demo);return;}
+  
+  const orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  const order = orders.find(o => o.id && o.id.toUpperCase() === id);
+  if(order){renderOrder({...order, items: order.items?.map(i=>`${i.nm} ×${i.qty}`) || [], eta: order.eta || ''});return;}
+  
+  result.innerHTML='<div class="empty"><div class="icon">😕</div><p>Order not found. Try <b>JG-DEMO1</b> to see a demo.</p></div>';
+}
+
+// auto-load from ?order= param
+(function(){
+  const p = new URLSearchParams(location.search);
+  const oid = p.get('order');
+  if(oid){
+    document.getElementById('orderId').value = oid;
+    lookup();
+  }
+})();
 </script>
 </body>
 </html>

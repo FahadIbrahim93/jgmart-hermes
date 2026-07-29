@@ -131,9 +131,29 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 .oc-box .oc-btn:active{transform:scale(.96)}
 .oc-box .oc-btn-primary{background:#00442D;color:#fff}
 .oc-box .oc-btn-secondary{background:#eef1ee;color:#00442D}
+
+/* ACCESSIBILITY */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+
+/* PRINT */
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.wa-top,.actions,.demo-btn{display:none!important}
+  .card{box-shadow:none;border:1px solid #e5e7eb;page-break-inside:avoid}
+  .oc,.splash,.modal-overlay{display:none!important}
+  .order-card{page-break-inside:avoid;border:1px solid #e5e7eb;padding:12px;margin-bottom:8px;border-radius:8px}
+  .order-card h2{margin-bottom:6px;font-size:1rem}
+  .order-card .meta{font-size:.75rem;color:#5c5c5c;margin-bottom:4px}
+  .order-card .items{font-size:.8rem;margin-bottom:4px}
+  .order-card .total{font-weight:800;font-size:.9rem;color:#00442D}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
 </style>
 </head>
 <body>
+<a href="#main" style="position:absolute;top:-9999px;left:-9999px;background:#00442D;color:#fff;padding:8px 16px;z-index:9999;font-weight:700;text-decoration:none" onfocus="this.style.top='0';this.style.left='0'" onblur="this.style.top='-9999px';this.style.left='-9999px'">Skip to content</a>
+
 <!-- SPLASH OVERLAY (first visit) -->
 <div id="splash" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);z-index:2000;align-items:center;justify-content:center;padding:20px">
 <div style="background:#fff;border-radius:18px;padding:24px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:ocu .25s">
@@ -156,7 +176,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <div class="right">
 <a href="landing.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" id="aboutLink">About</a>
 <a href="#" onclick="referNeighbor();return false" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" id="referLink">🤝 Refer</a>
-<a href="track.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Track Order">📦 Track</a>
+<a href="track.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Track Order">📮 Track</a>
+<a href="notify.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="WhatsApp Notifications">💬 Notify</a>
 <a href="admin.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.6rem;margin-right:4px" title="Admin">⚙️</a>
 <button class="lang-btn" id="langBtn" onclick="togLang()">বাংলা</button>
 <a class="wa-top" href="https://wa.me/8801870489448" target="_blank">💬 WA</a>
@@ -167,7 +188,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <div class="spec-ed" id="specialsEdit"><input type="text" id="specialsInput"><button onclick="saveSpecs()" id="specSaveBtn">💾 Save</button></div>
 <div class="promo-banner" id="promoBanner"></div>
 
-<div class="hero">
+<div class="hero" id="main">
 <h1 id="heroTitle">Fresh from Krishi Market, delivered to JGC</h1>
 <p id="heroSub">☀️ 9AM → 12PM &nbsp;·&nbsp; 🌙 3:30PM → 8PM &nbsp;·&nbsp; 💵💳 COD/bKash</p>
 <div style="display:flex;justify-content:center;gap:8px;margin-top:8px;margin-bottom:8px">
@@ -606,8 +627,22 @@ else{prompt('📤 Share this link:',msg);}
 <div class="oc-sum" id="confSummary"></div>
 <div class="oc-id" id="confOrdId"></div>
 <a class="oc-btn oc-btn-primary" href="track.html" id="confTrackBtn">📮 Track Order</a>
+<button class="oc-btn oc-btn-secondary" onclick="notifyOrderWhatsApp()">💬 Notify via WhatsApp</button>
 <button class="oc-btn oc-btn-secondary" onclick="closeOrdConf()">🛍️ Continue Shopping</button>
 </div></div>
+
+<!-- ========= WHATSAPP NOTIFY INTEGRATION ========= -->
+<script>
+function notifyOrderWhatsApp(){
+  const last = JSON.parse(localStorage.getItem('jgmart_lastOrd')||'{}');
+  if(!last.id) return;
+  const phone = '8801870489448';
+  const items = (last.items||[]).map(i => `• ${i.nm} ×${i.qty}`).join('\n');
+  const msg = `🆕 New Order — JG Mart\n\nOrder #${last.id}\nCustomer: ${last.name||'Customer'}\nPhone: ${last.phone||''}\n\nItems:\n${items}\n\n📍 ${last.building}, Flat ${last.flat}\n⏰ ${last.slot||''}\n💳 ${last.payment||'COD'}\n💰 Total: ৳${last.total||0}\n\nPlease confirm receipt.`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
+  toast('Opening WhatsApp notification...');
+}
+</script>
 
 <div style="background:#0f1a14;color:rgba(255,255,255,.5);padding:16px;text-align:center;font-size:.68rem;line-height:1.6">
 <div style="font-weight:800;font-size:.85rem;color:#fff;margin-bottom:2px">JG <span style="color:#c9a227">Mart</span></div>
