@@ -2,25 +2,25 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Wednesday, July 29, 2026 at 21:14
+Generated: Wednesday, July 29, 2026 at 21:22
 Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 646
-  Total Size:  5.19 MB
+  Total Files: 687
+  Total Size:  5.31 MB
 
   HTML Files:  37
-  Python Files: 10
+  Python Files: 12
   CSV Files:   11
   TXT Files:   80
   JSON Files:  15
   SVG Files:   14
   XLSX Files:  2
   BAT Files:   4
-  Other:       473 files (md, (no ext), toml, sample, yml, png, js, docx, pdf, pptx, css, xml, sql)
+  Other:       512 files (md, (no ext), toml, sample, yml, png, js, docx, pdf, pptx, css, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -363,6 +363,16 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 4. PYTHON VALIDATION
 ═══════════════════════════════════════════════════════════════════════════════
 
+  [PASS] scripts/backup_restore.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] scripts/verify_deployment.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
   [PASS] src/scripts/automation/add_image_urls.py
          Shebang:    ✓
          Docstring:  ✓
@@ -494,12 +504,12 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        646
-  Total Size:           5.19 MB
+  Files Checked:        687
+  Total Size:           5.31 MB
 
   HTML Valid:           37/37
   HTML With Issues:     0
-  Python Valid:         10/10
+  Python Valid:         12/12
   Python Warnings:      0
   Python Failed:        0
 
