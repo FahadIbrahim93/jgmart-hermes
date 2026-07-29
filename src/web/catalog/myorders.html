@@ -138,6 +138,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 
 <!-- ACTIONS BAR -->
 <div class="actions" id="actionsBar">
+  <button class="clear-btn" onclick="broadcastToday()">📤 Broadcast Today's Orders</button>
   <button class="clear-btn" onclick="confirmClearAll()">🗑 Clear All Orders</button>
 </div>
 
@@ -379,6 +380,26 @@ function doClearAll(){
   closeDialog();
   render();
   toast('🗑 All orders cleared');
+}
+
+// ========= WHATSAPP BROADCAST (today's orders) =========
+function broadcastToday(){
+  const today = new Date().toLocaleDateString('en-BD');
+  const todayOrders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]').filter(o => o.date === today);
+  
+  if(!todayOrders.length){
+    toast('No orders today to broadcast');
+    return;
+  }
+  
+  let msg = `📋 JG Mart — Delivery Update (%0A%0A`;
+  todayOrders.forEach((o, i) => {
+    msg += `${i+1}. ${o.building}, Flat ${o.flat} — ৳${o.total||0}%0A`;
+  });
+  msg += `%0ATotal: ${todayOrders.length} orders%0A%0AWe'll be there soon! 🚚`;
+  
+  window.open(`https://wa.me/8801870489448?text=${msg}`, '_blank');
+  toast('Opening WhatsApp broadcast...');
 }
 
 // ========= CLOSE DIALOG ON OVERLAY CLICK =========

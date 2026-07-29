@@ -44,7 +44,11 @@ body{background:#fff;padding:0}
 
 <div class="toolbar">
 <h1>JG <span>Mart</span> · Delivery Manifest</h1>
-<div><button onclick="window.print()">🖨️ Print</button><button onclick="location.reload()" style="margin-left:4px">🔄 Refresh</button></div>
+<div>
+<button onclick="markAllDelivered()" style="background:#27ae60;margin-right:4px">✅ Mark All Delivered</button>
+<button onclick="window.print()">🖨️ Print</button>
+<button onclick="location.reload()" style="margin-left:4px">🔄 Refresh</button>
+</div>
 </div>
 
 <div class="date-badge" id="dateBadge"></div>
@@ -121,6 +125,13 @@ el.innerHTML += html;
 
 if(!hasAny){
 el.innerHTML = '<div class="empty">📭 No orders to deliver today. Great!</div>';
+}
+
+function markAllDelivered(){
+if(!confirm('Mark all visible orders as delivered?')) return;
+showOrders.forEach(o => { o.status = 'delivered'; });
+localStorage.setItem('jgmart_ords', JSON.stringify(ORDERS));
+location.reload();
 }
 </script>
 </body>
