@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="defaults.js"></script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
@@ -243,84 +244,19 @@ const CATS=[
 {id:"fruits",n:"Fruits",i:"🍎",b:"ফল"},{id:"fmcg",n:"Household",i:"🧴",b:"গৃহস্থালি"},
 {id:"beverages",n:"Drinks",i:"🥤",b:"পানীয়"},{id:"snacks",n:"Snacks",i:"🍪",b:"স্ন্যাকস"}
 ];
-const PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || [];
-if(!PRODS.length){
-[
-["p01","Premium Miniket Rice","rice_dal",88,"kg","🍚",4.5,48,"High-quality Miniket rice, soft and fragrant"],
-["p02","Chinigura Rice","rice_dal",120,"kg","🍚",5,42,"Premium fine-grain aromatic rice"],
-["p03","Nazirshail Rice","rice_dal",75,"kg","🍚",4,35,"Popular daily-use rice"],
-["p04","Basmati Rice","rice_dal",160,"kg","🍚",4.5,25,"Extra-long grain basmati"],
-["p05","Moshur Dal (Red)","rice_dal",110,"kg","🟠",4.5,38,"Clean red lentils"],
-["p06","Moong Dal (Yellow)","rice_dal",140,"kg","🟡",4,30,"Split yellow gram"],
-["p07","Chola (Bengal Gram)","rice_dal",100,"kg","🟤",3.5,18,"Dried chickpeas"],
-["p08","Soybean Oil","oil_spices",165,"L","🫗",4.5,45,"Refined soybean oil"],
-["p09","Mustard Oil","oil_spices",185,"L","🫗",4,32,"Cold-pressed mustard oil"],
-["p10","Sunflower Oil","oil_spices",175,"L","🌻",4,28,"Light refined oil"],
-["p11","Turmeric Powder","oil_spices",85,"100g","🧡",4.5,36,"Premium turmeric"],
-["p12","Chili Powder","oil_spices",120,"100g","🌶️",4,34,"Pure red chili powder"],
-["p13","Cumin Powder","oil_spices",95,"100g","🟤",4,30,"Aromatic cumin"],
-["p14","Coriander Powder","oil_spices",80,"100g","🌿",3.5,22,"Ground coriander"],
-["p15","White Sugar","oil_spices",135,"kg","🍚",4,38,"Fine white sugar"],
-["p16","Potato","vegetables",35,"kg","🥔",4,50,"Fresh local potatoes"],
-["p17","Red Onion","vegetables",65,"kg","🧅",4.5,48,"Fresh red onions"],
-["p18","Tomato","vegetables",70,"kg","🍅",4,38,"Ripe red tomatoes"],
-["p19","Eggplant (Brinjal)","vegetables",45,"kg","🍆",3.5,30,"Tender brinjals"],
-["p20","Cauliflower","vegetables",55,"pc","🥦",4,25,"Fresh white cauliflower"],
-["p21","Cabbage","vegetables",35,"pc","🥬",3.5,20,"Fresh green cabbage"],
-["p22","Green Chili","vegetables",40,"100g","🌶️",4,44,"Spicy green chilies"],
-["p23","Coriander Leaves","vegetables",15,"bunch","🌿",4.5,36,"Fresh coriander"],
-["p24","Lady Finger (Okra)","vegetables",50,"kg","🥒",3.5,28,"Tender okra"],
-["p25","Green Papaya","vegetables",40,"kg","🫛",3.5,22,"Raw green papaya"],
-["p26","Fresh Ginger","vegetables",80,"100g","🫚",4,32,"Fresh ginger root"],
-["p27","Fresh Garlic","vegetables",60,"100g","🧄",4,34,"Fresh garlic cloves"],
-["p28","Ruhi Fish","fish",280,"kg","🐟",4.5,35,"Freshwater ruhi"],
-["p29","Tilapia Fish","fish",200,"kg","🐟",4,30,"Farm-raised tilapia"],
-["p30","Hilsa (Ilish)","fish",850,"kg","🐟",5,22,"Premium river hilsa"],
-["p31","Prawns (Large)","fish",480,"kg","🦐",4.5,18,"Jumbo river prawns"],
-["p32","Katla Fish","fish",260,"kg","🐟",4,20,"Premium katla"],
-["p33","Shrimp (Medium)","fish",380,"kg","🦐",4,15,"Medium shrimp"],
-["p34","Chicken (Broiler)","meat",220,"kg","🍗",4.5,42,"Halal broiler chicken"],
-["p35","Chicken (Sonali)","meat",320,"kg","🐔",4.5,25,"Free-range Sonali"],
-["p36","Beef (Premium Cut)","meat",520,"kg","🥩",4.5,35,"Premium beef"],
-["p37","Mutton (Curry Cut)","meat",680,"kg","🍖",4,18,"Tender mutton"],
-["p38","Beef Liver","meat",280,"kg","🥩",3.5,14,"Fresh beef liver"],
-["p39","Farm Eggs (Dozen)","dairy_eggs",120,"doz","🥚",5,48,"Fresh free-range eggs"],
-["p40","Fresh Cow Milk","dairy_eggs",80,"L","🥛",4.5,35,"Farm-fresh whole milk"],
-["p41","Full Cream Milk","dairy_eggs",90,"L","🥛",4,30,"Rich full cream milk"],
-["p42","Mishti Doi","dairy_eggs",60,"250g","🍯",4.5,28,"Sweet yogurt"],
-["p43","Fresh Paneer","dairy_eggs",250,"250g","🧀",4,20,"Soft fresh paneer"],
-["p44","Butter (Block)","dairy_eggs",180,"200g","🧈",4,22,"Creamy unsalted butter"],
-["p45","Banana (Sagor)","fruits",50,"doz","🍌",4.5,40,"Ripe sagor bananas"],
-["p46","Apple (Red)","fruits",220,"kg","🍎",4,28,"Crisp red apples"],
-["p47","Mango (Himsagar)","fruits",180,"kg","🥭",5,35,"Sweet Himsagar mango"],
-["p48","Mango (Fazli)","fruits",120,"kg","🥭",4.5,25,"Large fazli mangoes"],
-["p49","Watermelon","fruits",40,"kg","🍉",4,22,"Sweet summer watermelon"],
-["p50","Orange","fruits",200,"kg","🍊",4,20,"Juicy oranges"],
-["p51","Toothpaste (Colgate)","fmcg",75,"pc","🪥",4,25,"Colgate strong teeth"],
-["p52","Dove Soap","fmcg",45,"pc","🧼",4,30,"Moisturizing beauty bar"],
-["p53","Washing Powder","fmcg",240,"500g","🧺",4,22,"Ariel detergent"],
-["p54","Shampoo (Sunsilk)","fmcg",180,"200ml","🧴",3.5,20,"Sunsilk shampoo"],
-["p55","Coca-Cola (1.5L)","beverages",70,"pc","🥤",4,28,"Chilled Coca-Cola"],
-["p56","Pepsi (2L)","beverages",90,"pc","🥤",4,25,"Chilled Pepsi"],
-["p57","7UP (2L)","beverages",85,"pc","🥤",3.5,18,"Chilled 7UP"],
-["p58","Mineral Water (2L)","beverages",25,"pc","💧",4,35,"Pure drinking water"],
-["p59","Tea (Ispahani)","beverages",140,"200g","🫖",4.5,30,"Premium CTC tea"],
-["p60","Parle-G Biscuits","snacks",20,"pc","🍪",4,40,"Glucose biscuits"],
-["p61","Lays Classic Chips","snacks",40,"pc","🍟",4,32,"Salted potato chips"],
-["p62","Chicken Momos","snacks",150,"pc","🥟",4,15,"Frozen chicken momos"],
-["p63","Maggi Noodles","snacks",25,"pc","🍜",4,35,"Instant noodles"],
-["p64","Marie Biscuits","snacks",30,"pc","🍪",3.5,28,"Tea-time biscuits"],
-["p65","Salt (Premium)","oil_spices",30,"kg","🧂",4,40,"Iodized salt"]
-].forEach(p=>{
-PRODS.push({id:p[0],nm:p[1],ct:p[2],pr:p[3],un:p[4],em:p[5],rt:p[6],rv:p[7],de:p[8]||'Fresh from Krishi Market',im:'images/p'+p[0].slice(1).padStart(3,'0')+'.svg'});
-});
-localStorage.setItem('jgmart_prods',JSON.stringify(PRODS));
+let PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || [];
+if(!PRODS.length && window.JG_MART_DEFAULTS?.products?.length){
+  PRODS = JSON.parse(JSON.stringify(window.JG_MART_DEFAULTS.products));
+  localStorage.setItem('jgmart_prods', JSON.stringify(PRODS));
 }
 
-// ========= STATE =========
-let cart = JSON.parse(localStorage.getItem('jgmart_c')||'[]');
-let orders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
-let lang = localStorage.getItem('jgmart_lang')||'en';
+function loadData(){
+  PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || (window.JG_MART_DEFAULTS?.products || []);
+  orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  const savedFees = JSON.parse(localStorage.getItem('jgmart_fees') || 'null');
+  if(savedFees) DEL_FEES = savedFees;
+  else if(window.JG_MART_DEFAULTS?.fees) DEL_FEES = window.JG_MART_DEFAULTS.fees;
+}
 let actCat = 'all';
 
 // ========= I18N =========
@@ -364,7 +300,7 @@ refBtns.forEach(el=>el.textContent=t('refer'));
 (function(){
 const s=document.getElementById('dlvBuilding');
 for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Bldg ${i}`;s.appendChild(o);}
-loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount(); initSplash();
+loadData(); loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount(); initSplash();
 // Re-apply lang after specials load
 })();
 
@@ -437,7 +373,7 @@ return `<div class="ci"><div class="cn">${p.em} ${p.nm}</div>
 }).join('');
 const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
 const b=parseInt(document.getElementById('dlvBuilding').value.replace('B',''))||0;
-const fee=b>20?30:b>13?20:0;
+const fee=(b>20?DEL_FEES.c4:b>13?DEL_FEES.c3:DEL_FEES.c1)||0;
 const total=sub+fee;
 el.innerHTML+=`<div class="ct"><span>${lang==='bn'?'সর্বমোট':'Total'}${fee>0?' <span class="fee">(+৳'+fee+' ডেলিভারি)</span>':''}</span><span>৳${total.toLocaleString()}</span></div>`;
 document.getElementById('delFee').textContent=fee>0?(b>20?t('fee2'):t('fee1')):t('fee');
@@ -464,7 +400,7 @@ if(!cart.length){alert(t('empt'));return;}
 localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
 const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
 const bi=parseInt(b.replace('B',''))||0;
-const fee=bi>20?30:bi>13?20:0;
+const fee=(bi>20?DEL_FEES.c4:bi>13?DEL_FEES.c3:DEL_FEES.c1)||0;
 const total=sub+fee;
 let msg=`Assalamu Alaikum! I would like to order from JG Mart:%0A%0A📋 *My Order:*%0A`;
 cart.forEach(c=>{const p=PRODS.find(x=>x.id===c.id);if(p)msg+=`${p.em} ${p.nm} × ${c.qty} = ৳${p.pr*c.qty}%0A`;});
