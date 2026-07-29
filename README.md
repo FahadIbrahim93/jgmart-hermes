@@ -61,7 +61,9 @@ python tests/validate_toolkit.py
 | PRD | `docs/product/PRD.md` |
 | Pitch deck | `src/pitch/deck.html` |
 | Financial model | `src/pitch/financial_model.md` |
-| Supabase setup | `ARCHIVE/docs_old/SUPABASE_SETUP.md` |
+| Supabase setup | `docs/setup/SUPABASE_SETUP.md` |
+| Ops dashboard | `src/web/dashboard/index.html` |
+| Catalog sync script | `src/scripts/automation/sync_catalog_to_supabase.py` |
 | Agent rules | `AGENTS.md` |
 
 ## Deployment

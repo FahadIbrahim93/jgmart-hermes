@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#00442D">
+<title>JG Mart — Operations Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Inter, system-ui, sans-serif; background: #f5f7f5; color: #1a1a1a; }
+  .login-wrap, .main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.06); margin-bottom: 16px; }
+  h1 { color: #00442D; font-size: 1.4rem; margin-bottom: 4px; }
+  h2 { font-size: 1rem; margin-bottom: 12px; }
+  .muted { color: #666; font-size: .85rem; }
+  input, button { font: inherit; }
+  input { width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px; margin: 12px 0; text-align: center; letter-spacing: 4px; }
+  button { background: #00442D; color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+  .stat { background: #f0fdf4; border-radius: 10px; padding: 14px; }
+  .stat .val { font-size: 1.5rem; font-weight: 800; color: #00442D; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; }
+  th { color: #666; font-weight: 600; }
+  .hidden { display: none; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  a { color: #00442D; }
+</style>
+</head>
+<body>
+<div id="loginView" class="login-wrap">
+  <div class="card" style="max-width:360px;margin:80px auto;text-align:center">
+    <h1>JG Mart Ops</h1>
+    <p class="muted">Operations dashboard — PIN required</p>
+    <input type="password" id="pinInput" maxlength="8" placeholder="PIN" onkeydown="if(event.key==='Enter')login()">
+    <button onclick="login()" style="width:100%">Unlock</button>
+    <p class="muted" style="margin-top:12px">Change PIN in admin panel settings</p>
+  </div>
+</div>
+
+<div id="mainView" class="main hidden">
+  <div class="top">
+    <div>
+      <h1>Operations Dashboard</h1>
+      <p class="muted">Orders from catalog localStorage · Supabase migration in progress</p>
+    </div>
+    <div>
+      <a href="../catalog/index.html">← Catalog</a>
+      <button onclick="logout()" style="margin-left:8px;background:#666">Logout</button>
+    </div>
+  </div>
+
+  <div class="stats card">
+    <div class="stat"><div class="val" id="statOrders">0</div><div class="muted">Total orders</div></div>
+    <div class="stat"><div class="val" id="statToday">0</div><div class="muted">Today</div></div>
+    <div class="stat"><div class="val" id="statRevenue">৳0</div><div class="muted">Revenue (all)</div></div>
+    <div class="stat"><div class="val" id="statPending">0</div><div class="muted">Pending</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Recent Orders</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Customer</th><th>Building</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+    <p id="emptyOrders" class="muted hidden">No orders yet. Orders appear when customers place them via the catalog.</p>
+  </div>
+
+  <div class="card">
+    <h2>Setup</h2>
+    <p class="muted">Configure Supabase: copy <code>src/web/supabase/config.local.example.js</code> to <code>config.local.js</code> and run <code>docs/setup/SUPABASE_SETUP.md</code>.</p>
+  </div>
+</div>
+
+<script>
+const SESSION_KEY = 'jgmart_dash_auth';
+const PIN_KEY = 'jgmart_admin_pin';
+const DEFAULT_PIN = '1234';
+
+function getPin() {
+  return localStorage.getItem(PIN_KEY) || DEFAULT_PIN;
+}
+
+function login() {
+  const pin = document.getElementById('pinInput').value;
+  if (pin === getPin()) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    showDashboard();
+  } else {
+    alert('Wrong PIN');
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('loginView').classList.remove('hidden');
+  document.getElementById('mainView').classList.add('hidden');
+}
+
+function showDashboard() {
+  document.getElementById('loginView').classList.add('hidden');
+  document.getElementById('mainView').classList.remove('hidden');
+  renderOrders();
+}
+
+function loadOrders() {
+  try {
+    return JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function renderOrders() {
+  const orders = loadOrders().slice().reverse();
+  const today = new Date().toISOString().slice(0, 10);
+  let revenue = 0;
+  let todayCount = 0;
+  let pending = 0;
+
+  orders.forEach(o => {
+    revenue += Number(o.total || 0);
+    if ((o.date || '').slice(0, 10) === today) todayCount++;
+    if ((o.status || 'pending') === 'pending') pending++;
+  });
+
+  document.getElementById('statOrders').textContent = orders.length;
+  document.getElementById('statToday').textContent = todayCount;
+  document.getElementById('statRevenue').textContent = '৳' + revenue.toLocaleString();
+  document.getElementById('statPending').textContent = pending;
+
+  const body = document.getElementById('ordersBody');
+  const empty = document.getElementById('emptyOrders');
+  if (!orders.length) {
+    body.innerHTML = '';
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+  body.innerHTML = orders.slice(0, 50).map(o => `
+    <tr>
+      <td>${o.id || '—'}</td>
+      <td>${o.name || '—'}</td>
+      <td>${o.building || '—'} ${o.flat || ''}</td>
+      <td>৳${o.total || 0}</td>
+      <td>${o.status || 'pending'}</td>
+      <td>${(o.date || '').slice(0, 16).replace('T', ' ')}</td>
+    </tr>
+  `).join('');
+}
+
+if (sessionStorage.getItem(SESSION_KEY)) {
+  showDashboard();
+}
+</script>
+</body>
+</html>

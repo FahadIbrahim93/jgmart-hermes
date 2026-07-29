@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>JG Mart — Fresh Groceries JGC</title>
 <meta name="theme-color" content="#00442D">
@@ -10,6 +10,8 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="defaults.js"></script>
+<script src="../supabase/config.local.js" onerror=""></script>
+<script type="module" src="catalog-init.js"></script>
 <script src="offline-queue.js"></script>
 <script src="security.js"></script>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -302,9 +304,10 @@ refBtns.forEach(el=>el.textContent=t('refer'));
 }
 
 // ========= INIT =========
-(function(){
+(async function(){
 const s=document.getElementById('dlvBuilding');
 for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Bldg ${i}`;s.appendChild(o);}
+if(window.__JG_CATALOG_READY) await window.__JG_CATALOG_READY;
 loadData(); loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount(); initSplash();
 // Re-apply lang after specials load
 })();

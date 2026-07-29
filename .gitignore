@@ -118,6 +118,8 @@ Desktop.ini
 .env
 .env.local
 .env.*.local
+!.env.example
+src/web/supabase/config.local.js
 
 # Cursor IDE (keep rules, ignore plans)
 .cursor/plans/

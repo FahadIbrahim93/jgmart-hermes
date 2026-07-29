@@ -31,7 +31,10 @@
 | PWA service worker | `src/web/catalog/sw.js` | Hermes | Production |
 | Python automation | `src/scripts/automation/` | Hermes | Active |
 | Validation toolkit | `tests/validate_toolkit.py` | Hermes | Active |
-| Legacy dashboard | `ARCHIVE/src_web_dashboard/` | Hermes | Archived — rebuild on Supabase |
+| Legacy dashboard | `ARCHIVE/src_web_dashboard/` | Hermes | Archived |
+| Ops dashboard (v1) | `src/web/dashboard/index.html` | Hermes | Active — localStorage orders |
+| Catalog seed SQL | `src/web/supabase/seed_from_catalog.sql` | Hermes | Generated from catalog_data.json |
+| Supabase setup guide | `docs/setup/SUPABASE_SETUP.md` | Hermes | Active |
 
 ---
 

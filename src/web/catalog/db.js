@@ -6,8 +6,9 @@
  */
 
 import { supabase } from '../supabase/client.js';
+import { isSupabaseConfigured } from '../supabase/config.js';
 
-const USE_SUPABASE = true; // Set to false to use local JSON only
+const USE_SUPABASE = isSupabaseConfigured();
 
 // ============================================
 // PRODUCTS
@@ -87,8 +88,9 @@ async function submitOrder(orderData) {
 
   try {
     // Generate order number
-    const { data: orderNum, error: numError } = await supabase.rpc('generate_order_number');
+    const { data: orderNumResult, error: numError } = await supabase.rpc('generate_order_number');
     if (numError) throw numError;
+    const orderNum = orderNumResult;
 
     const { data, error } = await supabase
       .from('orders')

@@ -20,10 +20,10 @@ class SupabaseClient {
     };
   }
 
-  async _request(method, path, body = null) {
+  async _request(method, path, body = null, extraHeaders = {}) {
     const options = {
       method,
-      headers: { ...this.headers }
+      headers: { ...this.headers, ...extraHeaders }
     };
 
     if (body) {
@@ -37,10 +37,19 @@ class SupabaseClient {
       throw new Error(error.message || `HTTP ${response.status}`);
     }
 
-    // Handle 204 No Content
     if (response.status === 204) return null;
 
-    return response.json();
+    const data = await response.json();
+    return data;
+  }
+
+  async rpc(fn, params = {}) {
+    try {
+      const data = await this._request('POST', `/rpc/${fn}`, params);
+      return { data, error: null };
+    } catch (error) {
+      return { data: null, error };
+    }
   }
 
   // Auth
@@ -187,14 +196,16 @@ class QueryBuilder {
   constructor(client, table) {
     this.client = client;
     this.table = table;
-    this._query = '';
+    this._query = `/${table}`;
     this._method = 'GET';
     this._body = null;
+    this._select = null;
+    this._single = false;
+    this._preferRepresentation = false;
   }
 
   select(columns = '*') {
-    this._method = 'GET';
-    this._query = `/${this.table}?select=${columns}`;
+    this._query += `${this._query.includes('?') ? '&' : '?'}select=${encodeURIComponent(columns)}`;
     return this;
   }
 
@@ -202,6 +213,7 @@ class QueryBuilder {
     this._method = 'POST';
     this._query = `/${this.table}`;
     this._body = data;
+    this._preferRepresentation = true;
     return this;
   }
 
@@ -219,7 +231,8 @@ class QueryBuilder {
   }
 
   eq(column, value) {
-    this._query += `&${column}=eq.${encodeURIComponent(value)}`;
+    const sep = this._query.includes('?') ? '&' : '?';
+    this._query += `${sep}${column}=eq.${encodeURIComponent(value)}`;
     return this;
   }
 
@@ -287,16 +300,41 @@ class QueryBuilder {
   }
 
   single() {
-    this._query += '&limit=1';
+    this._single = true;
+    if (this._method === 'GET') {
+      this._query += '&limit=1';
+    }
     return this;
   }
 
   async execute() {
-    if (this._method === 'GET' || this._method === 'DELETE') {
-      return this.client._request(this._method, this._query);
-    } else {
-      return this.client._request(this._method, this._query, this._body);
+    try {
+      const extraHeaders = {};
+      if (this._preferRepresentation) {
+        extraHeaders['Prefer'] = 'return=representation';
+      }
+      let path = this._query;
+      if (this._select && this._method !== 'GET') {
+        path += `${path.includes('?') ? '&' : '?'}select=${encodeURIComponent(this._select)}`;
+      }
+      const result = await this.client._request(
+        this._method,
+        path,
+        this._body,
+        extraHeaders
+      );
+      let data = result;
+      if (this._single && Array.isArray(data)) {
+        data = data[0] ?? null;
+      }
+      return { data, error: null };
+    } catch (error) {
+      return { data: null, error };
     }
+  }
+
+  then(onFulfilled, onRejected) {
+    return this.execute().then(onFulfilled, onRejected);
   }
 }
 

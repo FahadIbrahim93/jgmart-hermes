@@ -8,8 +8,22 @@
  * 4. Enable Email auth in Supabase Dashboard → Authentication → Providers
  */
 
-export const SUPABASE_URL = 'https://your-project-id.supabase.co';
-export const SUPABASE_ANON_KEY = 'your-anon-key';
+export const SUPABASE_URL =
+  (typeof window !== 'undefined' && window.__JG_MART_SUPABASE__?.url) ||
+  'https://your-project-id.supabase.co';
+export const SUPABASE_ANON_KEY =
+  (typeof window !== 'undefined' && window.__JG_MART_SUPABASE__?.anonKey) ||
+  'your-anon-key';
+
+/** True when real Supabase credentials are configured (not placeholders). */
+export function isSupabaseConfigured() {
+  return (
+    SUPABASE_URL.includes('supabase.co') &&
+    !SUPABASE_URL.includes('your-project-id') &&
+    SUPABASE_ANON_KEY.length > 20 &&
+    !SUPABASE_ANON_KEY.includes('your-anon')
+  );
+}
 
 // Client-side Supabase instance
 // In production, import from '@supabase/supabase-js'
