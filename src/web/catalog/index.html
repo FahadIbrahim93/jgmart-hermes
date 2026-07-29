@@ -274,7 +274,7 @@ if(!PRODS.length){
 ["p64","Marie Biscuits","snacks",30,"pc","🍪",3.5,28,"Tea-time biscuits"],
 ["p65","Salt (Premium)","oil_spices",30,"kg","🧂",4,40,"Iodized salt"]
 ].forEach(p=>{
-PRODS.push({id:p[0],nm:p[1],ct:p[2],pr:p[3],un:p[4],em:p[5],rt:p[6],rv:p[7],de:p[8]||'Fresh from Krishi Market',im:'images/p'+p[0].slice(1).padStart(3,'0')+'.jpg'});
+PRODS.push({id:p[0],nm:p[1],ct:p[2],pr:p[3],un:p[4],em:p[5],rt:p[6],rv:p[7],de:p[8]||'Fresh from Krishi Market',im:'images/p'+p[0].slice(1).padStart(3,'0')+'.svg'});
 });
 localStorage.setItem('jgmart_prods',JSON.stringify(PRODS));
 }

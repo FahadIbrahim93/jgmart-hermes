@@ -61,8 +61,8 @@ PAGE-BY-PAGE LINK ANALYSIS
    sw.js                        script    ✅ Valid (Service Worker)
    track.html                   href      ✅ Valid (order confirmation btn)
 
-   PRODUCT IMAGES (dynamic, built by JS as images/pXXX.jpg):
-   images/p001.jpg  - p065.jpg  im src  ✅ All 65 exist
+   PRODUCT IMAGES (dynamic, built by JS as images/pXXX.svg):
+   images/p001.svg  - p065.svg  im src  ✅ All 65 exist
 
    Unused SVG images in images/ folder (not linked from any page):
      beverages.svg, dairy_eggs.svg, fish.svg, fmcg.svg, fruits.svg,
