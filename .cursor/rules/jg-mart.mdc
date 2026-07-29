@@ -1,0 +1,16 @@
+---
+description: JG Mart project conventions — single source of truth
+alwaysApply: true
+---
+
+# JG Mart Conventions
+
+- Source of truth: this repo (`G:\JGC Mart`). GitHub: `FahadIbrahim93/jgmart-hermes`.
+- Do NOT create sibling agent folders (Grok/Kimi/Hermes). All work lives here.
+- Do NOT create duplicate MASTER_INDEX files. Use `MASTER_INDEX.md` at repo root.
+- Do NOT use localStorage for new features — use Supabase (`src/web/supabase/`).
+- Do NOT adopt Next.js or Convex unless the user explicitly requests a stack change.
+- Before adding files, check `MASTER_INDEX.md` for existing assets.
+- New docs → `docs/`; brand assets → `assets/brand/`; trackers → `data/trackers/`.
+- `_archive/agents/` is read-only reference. Do not edit archived agent outputs.
+- Run `python tests/validate_toolkit.py` after structural changes.

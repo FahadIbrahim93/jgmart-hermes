@@ -1,0 +1,2 @@
+# JG Mart Python automation dependencies
+requests>=2.31.0

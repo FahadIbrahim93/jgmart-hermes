@@ -1,0 +1,49 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    JG MART — RISK LOG & MITIGATION                            ║
+║                    Version 1.1 | July 2026 | Owner: Fahad Ibrahim             ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+Last Updated: 28 July 2026
+
+═══════════════════════════════════════════════════════════════════════════════
+ACTIVE RISKS
+═══════════════════════════════════════════════════════════════════════════════
+
+ID  | Risk                              | Likelihood | Impact | Score | Mitigation Status
+----|-----------------------------------|------------|--------|-------|------------------
+R01 | Partner quality inconsistency     | High       | High   | 9     | Scorecard + weekly review created. Active monitoring required.
+R02 | Rider delay / traffic on Ring Rd  | Medium     | Medium | 6     | Earlier pickup window + customer notification script ready.
+R03 | Cash handling error / leakage     | Medium     | High   | 8     | Daily Pickup Checklist + cash reconciliation mandatory.
+R04 | Low initial order volume          | High       | Medium | 6     | 30-Day Pilot Playbook + free delivery + referral offer planned.
+R05 | Sudden vegetable price spike      | Medium     | Medium | 6     | Substitution script + temporary surcharge option in CS Scripts.
+R06 | Single rider dependency (Brother) | High       | High   | 9     | Document all processes. Start looking for backup rider by Day 20.
+R07 | Customer trust damage from 1 bad order | Medium | High | 8   | Strict quality reject rule + apology credit script.
+R08 | Working capital shortage          | Low        | High   | 5     | Seed capital tracked. Keep 2-week buffer minimum.
+
+═══════════════════════════════════════════════════════════════════════════════
+CLOSED / MANAGED RISKS
+═══════════════════════════════════════════════════════════════════════════════
+
+• Placeholder contact info → Fixed with Fahad Ibrahim +8801670-944800
+• No written SOPs → Core SOPs, checklists, scorecards now exist
+• No unit economics model → Financial Model v1.1 created
+
+═══════════════════════════════════════════════════════════════════════════════
+NEW RISKS TO WATCH DURING PILOT
+═══════════════════════════════════════════════════════════════════════════════
+
+• Rainy season impact on vegetable supply & rider safety
+• Building security / gate access issues for delivery
+• bKash settlement delays
+• Competitor reaction inside Japan Garden City
+
+═══════════════════════════════════════════════════════════════════════════════
+ESCALATION RULE
+═══════════════════════════════════════════════════════════════════════════════
+
+Any risk that moves to Score 9 or causes >3 customer complaints in 48 hours 
+must be discussed same day between Fahad and Brother and a written action decided.
+
+Document Owner: Fahad Ibrahim | +8801670-944800
+Review this log every Sunday.
+═══════════════════════════════════════════════════════════════════════════════

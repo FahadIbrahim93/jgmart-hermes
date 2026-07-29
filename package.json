@@ -1,0 +1,14 @@
+{
+  "name": "jg-mart",
+  "version": "2.1.0",
+  "description": "JG Mart — hyperlocal grocery delivery for Japan Garden City, Dhaka",
+  "private": true,
+  "scripts": {
+    "validate": "python tests/validate_toolkit.py",
+    "lint": "echo \"Run: pip install black flake8 && black --check .\""
+  },
+  "dependencies": {
+    "docx": "^9.7.1",
+    "pptxgenjs": "^4.0.1"
+  }
+}

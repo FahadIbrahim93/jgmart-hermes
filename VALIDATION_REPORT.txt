@@ -2,25 +2,25 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Wednesday, July 29, 2026 at 22:14
-Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
+Generated: Wednesday, July 29, 2026 at 23:38
+Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 392
-  Total Size:  5.44 MB
+  Total Files: 1076
+  Total Size:  24.14 MB
 
-  HTML Files:  38
+  HTML Files:  41
   Python Files: 14
-  CSV Files:   11
-  TXT Files:   80
-  JSON Files:  15
-  SVG Files:   80
-  XLSX Files:  2
+  CSV Files:   21
+  TXT Files:   146
+  JSON Files:  49
+  SVG Files:   81
+  XLSX Files:  10
   BAT Files:   4
-  Other:       148 files (md, (no ext), toml, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, xml, sql)
+  Other:       710 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -267,7 +267,7 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: jgmart_addr, jgmart_fees, jgmart_lastOrd, jgmart_ords, jgmart_prods, jgmart_promo, jgmart_ref_count, jgmart_specials, jgmart_splash_dismissed
          WhatsApp:    1x +8801870489448
-         Internal Links: 12
+         Internal Links: 13
 
   [PASS] src/web/catalog/jsonld-snippets.html
          DOCTYPE:    ✓
@@ -350,6 +350,29 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
          WhatsApp:    1x +8801870489448
          Internal Links: 0
 
+  [PASS] src/web/catalog/rider.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_ords
+         WhatsApp:    (none)
+         Internal Links: 0
+
+  [FAIL] src/web/catalog/tests.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✗
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: jgmart_nonexistent, jgmart_test
+         WhatsApp:    (none)
+         Internal Links: 0
+         ISSUES:
+           • Mismatched </body>: expected </script>
+           • Mismatched </html>: expected </script>
+           • Unclosed tags at EOF: html, body, script
+           • Missing theme-color meta
+
   [PASS] src/web/catalog/track.html
          DOCTYPE:    ✓
          Viewport:   ✓
@@ -367,6 +390,15 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
          localStorage: (none)
          WhatsApp:    1x +8801870489448
          Internal Links: 13
+
+  [PASS] _archive/agents/grok/JGC Mart-Grok/JGC Mart - Grok/03_Product_&_Catalog_Website/jg_mart_website_index.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 0
 
 ═══════════════════════════════════════════════════════════════════════════════
 4. PYTHON VALIDATION
@@ -466,7 +498,7 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 6. LOCALSTORAGE KEYS ACROSS ALL HTML FILES
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total unique localStorage keys: 23
+  Total unique localStorage keys: 25
 
   • jgmart_addr
       → src/web/catalog/index.html
@@ -488,12 +520,15 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
       → ARCHIVE/src_web_dashboard/backup.html
   • jgmart_launch_checks
       → ARCHIVE/src_web_app/index.html
+  • jgmart_nonexistent
+      → src/web/catalog/tests.html
   • jgmart_orders
       → ARCHIVE/src_web_app/os.html
   • jgmart_ords
       → src/web/catalog/index.html
       → src/web/catalog/manifest.html
       → src/web/catalog/myorders.html
+      → src/web/catalog/rider.html
       → src/web/catalog/track.html
   • jgmart_prods
       → src/web/catalog/index.html
@@ -505,6 +540,8 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
       → src/web/catalog/index.html
   • jgmart_splash_dismissed
       → src/web/catalog/index.html
+  • jgmart_test
+      → src/web/catalog/tests.html
   • jgmart_theme
       → ARCHIVE/src_web_app/os.html
   • jgmart_tour_complete
@@ -525,11 +562,11 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        392
-  Total Size:           5.44 MB
+  Files Checked:        1076
+  Total Size:           24.14 MB
 
-  HTML Valid:           38/38
-  HTML With Issues:     0
+  HTML Valid:           40/41
+  HTML With Issues:     1
   Python Valid:         14/14
   Python Warnings:      0
   Python Failed:        0
@@ -539,10 +576,10 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
     README:             0 broken references
     Command Center:     0 broken references
 
-  localStorage Keys:    23 unique keys
+  localStorage Keys:    25 unique keys
 
   ╔══════════════════════════════════════════════════╗
-  ║  ALL CHECKS PASSED                              ║
+  ║  1 ISSUE(S) FOUND — SEE DETAILS ABOVE          ║
   ╚══════════════════════════════════════════════════╝
 
 ═══════════════════════════════════════════════════════════════════════════════

@@ -1,4 +1,4 @@
-const CACHE = 'jgmart-v2';
+const CACHE = 'jgmart-v3';
 const FILES = [
   './',
   './index.html',
@@ -10,11 +10,15 @@ const FILES = [
   './admin.html',
   './manifest.html',
   './healthcheck.html',
+  './notify.html',
+  './rider.html',
   './404.html',
   './offline.html',
   './manifest.json',
   './favicon.svg',
   './sw.js',
+  './defaults.js',
+  './offline-queue.js',
   './images/placeholder.svg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];

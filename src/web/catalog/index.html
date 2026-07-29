@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>JG Mart — Fresh Groceries JGC</title>
 <meta name="theme-color" content="#00442D">
@@ -9,6 +10,8 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="defaults.js"></script>
+<script src="offline-queue.js"></script>
+<script src="security.js"></script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
@@ -179,6 +182,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <a href="#" onclick="referNeighbor();return false" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" id="referLink">🤝 Refer</a>
 <a href="track.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Track Order">📮 Track</a>
 <a href="notify.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="WhatsApp Notifications">💬 Notify</a>
+<a href="rider.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Rider Dispatch">🛵 Dispatch</a>
+<span id="offlineBadge" style="display:none;background:rgba(255,255,255,.2);color:#fff;padding:3px 8px;border-radius:999px;font-size:.6rem;font-weight:600;align-items:center;gap:3px">⏳ 0 pending</span>
 <a href="admin.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.6rem;margin-right:4px" title="Admin">⚙️</a>
 <button class="lang-btn" id="langBtn" onclick="togLang()">বাংলা</button>
 <a class="wa-top" href="https://wa.me/8801870489448" target="_blank">💬 WA</a>
@@ -235,7 +240,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <button class="add" style="padding:8px;font-size:.72rem;margin-top:6px" onclick="clearHist()" id="clearHistBtn">🗑 Clear History</button>
 </div></div>
 
-<script>
+<script nonce="gscb6Xp2nALPgenhRE7XtA"
 // ========= DATA =========
 const CATS=[
 {id:"rice_dal",n:"Rice & Dal",i:"🍚",b:"চাল ও ডাল"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️",b:"তেল ও মশলা"},
@@ -394,10 +399,12 @@ const f=document.getElementById('dlvFlat').value.trim();
 const s=document.getElementById('dlvSlot').value;
 const pm=document.getElementById('dlvPayment').value;
 const ph=document.getElementById('dlvPhone').value.trim();
+// Input validation
+if(!window.JG_SECURITY?.validateBuilding(b)){alert('Invalid building selection');return;}
+if(!window.JG_SECURITY?.validateFlat(f)){alert('Invalid flat number');return;}
+if(ph && !window.JG_SECURITY?.validatePhone(ph)){alert('Invalid phone number format');return;}
 if(!b||!f){alert(t('selB')+'\n'+t('selF'));return;}
 if(!cart.length){alert(t('empt'));return;}
-// Save customer address for next visit
-localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
 const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
 const bi=parseInt(b.replace('B',''))||0;
 const fee=(bi>20?DEL_FEES.c4:bi>13?DEL_FEES.c3:DEL_FEES.c1)||0;
@@ -405,9 +412,27 @@ const total=sub+fee;
 let msg=`Assalamu Alaikum! I would like to order from JG Mart:%0A%0A📋 *My Order:*%0A`;
 cart.forEach(c=>{const p=PRODS.find(x=>x.id===c.id);if(p)msg+=`${p.em} ${p.nm} × ${c.qty} = ৳${p.pr*c.qty}%0A`;});
 msg+=`%0A*Subtotal: ৳${sub}*${fee>0?`%0A🚚 Delivery: ৳${fee}`:''}%0A*Total: ৳${total}*%0A📍 ${b}, Flat ${f}%0A⏰ ${s}%0A💳 ${pm}${ph?'%0A📞 '+ph:''}`;
-// Save order history
-orders.unshift({id:'JG-'+Date.now().toString(36).toUpperCase(),date:new Date().toLocaleDateString('en-BD'),time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}),
-items:cart.map(c=>{const p=PRODS.find(x=>x.id===c.id);return{nm:p?.nm||'',qty:c.qty,pr:p?.pr||0};}),sub,fee,total,building:b,flat:f,slot:s,payment:pm});
+// Sanitize inputs for storage
+const safeOrder = {
+  id:'JG-'+Date.now().toString(36).toUpperCase(),
+  date:new Date().toLocaleDateString('en-BD'),
+  time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}),
+  items:cart.map(c=>{const p=PRODS.find(x=>x.id===c.id);return{nm:window.JG_SECURITY?.escapeHtml(p?.nm||''),qty:c.qty,pr:p?.pr||0};}),
+  sub,fee,total,
+  building:window.JG_SECURITY?.escapeHtml(b),
+  flat:window.JG_SECURITY?.escapeHtml(f),
+  slot:window.JG_SECURITY?.escapeHtml(s),
+  payment:window.JG_SECURITY?.escapeHtml(pm),
+  phone:ph?window.JG_SECURITY?.escapeHtml(ph):''
+};
+// Save address for next visit
+localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
+if(!navigator.onLine){
+  window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
+  toast('📴 Offline — order saved, will send when connected');
+  cart=[];closeCart();rend();return;
+}
+orders.unshift(safeOrder);
 if(orders.length>50)orders.pop();
 localStorage.setItem('jgmart_ords',JSON.stringify(orders));
 closeCart();

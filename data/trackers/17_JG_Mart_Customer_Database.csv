@@ -1,0 +1,6 @@
+Customer ID,Name,Phone,Building,Flat,Block/Cluster,First Order Date,Total Orders,Total Spent,Last Order Date,Customer Type,Subscription Status,Referral Code,Referred By,Notes
+C001,Apu Rahman,01XXXXXXXXX,5,3A,Cluster 1,2026-08-08,5,4200,2026-08-15,Repeat,Active,JGAPU001,,"Busy mom, orders staples weekly"
+C002,Karim Bhai,01XXXXXXXXX,12,7B,Cluster 2,2026-08-10,3,1800,2026-08-14,Repeat,Inactive,JGKAR002,C001,"Bachelor, orders snacks at night"
+C003,Mrs. Islam,01XXXXXXXXX,8,2C,Cluster 2,2026-08-12,1,650,2026-08-12,New,Inactive,JGISL003,,"Senior citizen, heavy items"
+C004,Rahim Uddin,01XXXXXXXXX,3,5D,Cluster 1,2026-08-15,2,1400,2026-08-18,Repeat,Active,JGRAH004,C001,Referred by Apu
+C005,Fatima Begum,01XXXXXXXXX,19,4A,Cluster 3,2026-08-20,1,520,2026-08-20,New,Inactive,JGFAT005,,"First order, needs follow-up"

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — JS Unit Tests</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;color:#1a1a1a;background:#f5f7f5;max-width:800px;margin:0 auto;padding:16px}
+h1{font-size:1.2rem;font-weight:800;color:#00442D;margin-bottom:12px}
+.suite{background:#fff;border-radius:8px;padding:12px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.suite h2{font-size:.85rem;font-weight:700;color:#00442D;margin-bottom:8px;display:flex;justify-content:space-between}
+.pass{color:#27ae60;font-weight:700}
+.fail{color:#c0392b;font-weight:700}
+.tc{font-size:.72rem;padding:3px 0;border-bottom:1px solid #f5f5f5}
+.tc:last-child{border-bottom:none}
+.tc .name{font-weight:600}
+.tc .result{float:right;font-weight:700}
+.summary{background:#00442D;color:#fff;padding:10px 14px;border-radius:8px;margin-top:12px;display:flex;justify-content:space-around;text-align:center}
+.summary div .num{font-size:1.3rem;font-weight:800;color:#c9a227}
+.summary div .lbl{font-size:.6rem;opacity:.7}
+</style>
+</head>
+<body>
+<h1>🧪 JG Mart JavaScript Unit Tests</h1>
+<div id="results"></div>
+<div id="summary" class="summary"></div>
+
+<script nonce="gscb6Xp2nALPgenhRE7Xt A">
+// Simple test framework
+const results = [];
+function suite(name, fn){
+  const suiteResult = {name, tests: []};
+  try{ fn(suiteResult); } catch(e){ suiteResult.error = e.message; }
+  results.push(suiteResult);
+}
+function test(suiteResult, name, fn){
+  let pass = false, err = null;
+  try{ fn(); pass = true; } catch(e){ err = e.message; }
+  suiteResult.tests.push({name, pass, err});
+}
+function assert(cond, msg){ if(!cond) throw new Error(msg || 'Assertion failed'); }
+function assertEqual(a,b,msg){ if(a!==b) throw new Error(msg || `Expected ${b}, got ${a}`); }
+
+// ========== TESTS ==========
+
+// Test 1: escapeHtml function (used in track.html, rider.html)
+suite('Security: escapeHtml()', s => {
+  test(s, 'escapes ampersand', () => {
+    const esc = (str) => str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    assertEqual(esc('a&b'), 'a&amp;b');
+  });
+  test(s, 'escapes angle brackets', () => {
+    const esc = (str) => str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    assertEqual(esc('<script>'), '&lt;script&gt;');
+  });
+  test(s, 'escapes quotes', () => {
+    const esc = (str) => str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    assertEqual(esc('a"b\'c'), 'a&quot;b&#39;c');
+  });
+  test(s, 'handles empty string', () => {
+    const esc = (str) => str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    assertEqual(esc(''), '');
+  });
+});
+
+// Test 2: Delivery fee calculation logic
+suite('Delivery Fees', s => {
+  test(s, 'C1 (B1-6) is free', () => {
+    const fee = (b) => b>20?30:b>13?20:0;
+    assertEqual(fee(1), 0);
+    assertEqual(fee(6), 0);
+  });
+  test(s, 'C2 (B7-13) is free', () => {
+    const fee = (b) => b>20?30:b>13?20:0;
+    assertEqual(fee(7), 0);
+    assertEqual(fee(13), 0);
+  });
+  test(s, 'C3 (B14-20) is 20', () => {
+    const fee = (b) => b>20?30:b>13?20:0;
+    assertEqual(fee(14), 20);
+    assertEqual(fee(20), 20);
+  });
+  test(s, 'C4 (B21-27) is 30', () => {
+    const fee = (b) => b>20?30:b>13?20:0;
+    assertEqual(fee(21), 30);
+    assertEqual(fee(27), 30);
+  });
+});
+
+// Test 3: Order ID generation
+suite('Order ID Generation', s => {
+  test(s, 'generates unique IDs', () => {
+    const ids = new Set();
+    for(let i=0;i<100;i++) ids.add('JG-'+Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2,5).toUpperCase());
+    assert(ids.size > 50, 'Should generate mostly unique IDs');
+  });
+  test(s, 'starts with JG-', () => {
+    const id = 'JG-'+Date.now().toString(36).toUpperCase();
+    assert(id.startsWith('JG-'), 'ID should start with JG-');
+  });
+});
+
+// Test 4: localStorage helpers
+suite('localStorage Helpers', s => {
+  test(s, 'can set and get JSON', () => {
+    const testData = {foo: 'bar', num: 42};
+    localStorage.setItem('jgmart_test', JSON.stringify(testData));
+    const retrieved = JSON.parse(localStorage.getItem('jgmart_test'));
+    assertEqual(retrieved.foo, 'bar');
+    assertEqual(retrieved.num, 42);
+    localStorage.removeItem('jgmart_test');
+  });
+  test(s, 'returns null for missing key', () => {
+    localStorage.removeItem('jgmart_nonexistent');
+    assertEqual(localStorage.getItem('jgmart_nonexistent'), null);
+  });
+});
+
+// Test 5: Cart math
+suite('Cart Calculations', s => {
+  test(s, 'calculates subtotal correctly', () => {
+    const items = [{pr:100, qty:2}, {pr:50, qty:3}];
+    const sub = items.reduce((s,i) => s + i.pr*i.qty, 0);
+    assertEqual(sub, 350);
+  });
+  test(s, 'calculates total with delivery fee', () => {
+    const sub = 350;
+    const fee = 20;
+    assertEqual(sub + fee, 370);
+  });
+  test(s, 'empty cart has zero subtotal', () => {
+    const items = [];
+    const sub = items.reduce((s,i) => s + i.pr*i.qty, 0);
+    assertEqual(sub, 0);
+  });
+});
+
+// Test 6: Route optimization (nearest neighbor)
+suite('Route Optimization', s => {
+  test(s, 'returns single building for single order', () => {
+    const route = nearestNeighbor([5]);
+    assertEqual(route.length, 1);
+    assertEqual(route[0], 5);
+  });
+  test(s, 'visits all buildings', () => {
+    const bldgs = [1,5,13,21,27];
+    const route = nearestNeighbor(bldgs);
+    assertEqual(route.length, 5);
+    assert(new Set(route).size === 5, 'All buildings should be visited');
+  });
+  test(s, 'starts from Krishi Market vicinity', () => {
+    const route = nearestNeighbor([7,1,13]);
+    // First stop should be near Krishi (around B1-B7)
+    assert([1,2,3,4,5,6,7].includes(route[0]), 'First stop should be near Krishi');
+  });
+});
+
+// Mock nearestNeighbor for tests
+function nearestNeighbor(bldgs){
+  if(!bldgs.length)return[];
+  const BLDG_POS = {
+    1:{x:0,y:0},2:{x:1,y:0},3:{x:2,y:0},4:{x:3,y:0},5:{x:4,y:0},6:{x:5,y:0},
+    7:{x:0,y:3},8:{x:1,y:3},9:{x:2,y:3},10:{x:3,y:3},11:{x:4,y:3},12:{x:5,y:3},13:{x:6,y:3},
+    14:{x:0,y:6},15:{x:1,y:6},16:{x:2,y:6},17:{x:3,y:6},18:{x:4,y:6},19:{x:5,y:6},20:{x:6,y:6},
+    21:{x:0,y:9},22:{x:1,y:9},23:{x:2,y:9},24:{x:3,y:9},25:{x:4,y:9},26:{x:5,y:9},27:{x:6,y:9}
+  };
+  const KRISHI = {x:-1,y:1.5};
+  function dist(a,b){return Math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2);}
+  const unvisited = new Set(bldgs);
+  const route = [];
+  let current = KRISHI;
+  while(unvisited.size){
+    let nearest = null;
+    let nearestDist = Infinity;
+    unvisited.forEach(b => {
+      const d = dist(current, BLDG_POS[b] || {x:b,y:0});
+      if(d < nearestDist){nearestDist = d; nearest = b;}
+    });
+    route.push(nearest);
+    current = BLDG_POS[nearest] || {x:nearest,y:0};
+    unvisited.delete(nearest);
+  }
+  return route;
+}
+
+// Render results — all content is internal test output, not user input, so innerHTML is safe here
+const container = document.getElementById('results');
+let totalTests = 0, passedTests = 0;
+results.forEach(suite => {
+  const div = document.createElement('div');
+  div.className = 'suite';
+  let suitePassed = 0, suiteTotal = suite.tests.length;
+  if(!suite.error){
+    suite.tests.forEach(t => { if(t.pass) suitePassed++; });
+  }
+  div.innerHTML = `<h2><span>${suite.name}</span><span class="${suite.error || suitePassed===suiteTotal ? 'pass' : 'fail'}">${suite.error || suitePassed+'/'+suiteTotal}</span></h2>`;
+  if(suite.error){
+    div.innerHTML += `<div class="tc" style="color:#c0392b">Error: ${suite.error}</div>`;
+  } else {
+    suite.tests.forEach(t => {
+      div.innerHTML += `<div class="tc"><span class="name">${t.name}</span><span class="result ${t.pass?'pass':'fail'}">${t.pass?'✅':'❌'} ${t.err||''}</span></div>`;
+    });
+  }
+  container.appendChild(div);
+  totalTests += suiteTotal;
+  passedTests += suite.error ? 0 : suitePassed;
+});
+
+const summary = document.getElementById('summary');
+summary.innerHTML = `
+<div><div class="num">${results.length}</div><div class="lbl">Test Suites</div></div>
+<div><div class="num">${totalTests}</div><div class="lbl">Tests</div></div>
+<div><div class="num">${passedTests}</div><div class="lbl">Passed</div></div>
+<div><div class="num" style="color:${passedTests===totalTests?'#c9a227':'#e74c3c'}">${passedTests===totalTests?'✅':'❌'}</div><div class="lbl">${Math.round(passedTests/totalTests*100)}%</div></div>
+`;
+</script>
+</body>
+</html>

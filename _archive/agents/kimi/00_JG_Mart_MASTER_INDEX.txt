@@ -1,0 +1,220 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║          JG MART — COMPLETE PROFESSIONAL TOOLKIT MASTER INDEX                 ║
+║                         Version 1.0 | July 2026                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+This toolkit contains everything you need to launch, operate, and scale
+JG Mart from Day 1 to Day 90 and beyond.
+
+═══════════════════════════════════════════════════════════════════════════════
+BRANDING & VISUAL ASSETS (Use these for all customer-facing materials)
+═══════════════════════════════════════════════════════════════════════════════
+
+01. BRAND GUIDELINES
+    File: 01_JG_Mart_Brand_Guidelines.png
+    Use: Reference for all design decisions. Colors, fonts, logo rules.
+    When: Before creating ANY new material.
+
+02. LOGO VARIATIONS
+    File: 02_JG_Mart_Logo_Variations.png
+    Use: Horizontal, vertical, icon-only, WhatsApp avatar, social banner.
+    When: Setting up profiles, printing materials, watermarking.
+
+03a. SOCIAL MEDIA — PRODUCT POST
+    File: 03a_JG_Mart_Social_Product.png
+    Use: Instagram/Facebook product announcements.
+    When: Daily fresh arrivals, special items, price drops.
+
+03b. SOCIAL MEDIA — REFERRAL POST
+    File: 03b_JG_Mart_Social_Referral.png
+    Use: Promoting referral program.
+    When: Weekly, or when growth slows.
+
+03c. SOCIAL MEDIA — DELIVERY PROMISE
+    File: 03c_JG_Mart_Social_Delivery.png
+    Use: Brand awareness, trust building.
+    When: Launch week, after complaints, general promo.
+
+04. A5 FLYER
+    File: 04_JG_Mart_Flyer_A5.png
+    Use: Print and distribute in JGC buildings.
+    When: Launch week, expansion to new clusters, monthly refresh.
+    Print Specs: A5 size (148×210mm), 300 DPI, glossy paper recommended.
+
+05. WHATSAPP CATALOG
+    File: 05_JG_Mart_WhatsApp_Catalog.png
+    Use: Daily product catalog for WhatsApp status/catalog.
+    When: Every morning at 7:30 AM. Update prices daily.
+
+06. BUSINESS CARD
+    File: 06_JG_Mart_Business_Card.png
+    Use: Print and carry always. Give to partners, customers, investors.
+    When: Every meeting, every delivery, every networking event.
+    Print Specs: Standard 3.5×2 inch, 300 DPI, matte finish.
+
+19. HOW TO ORDER GUIDE
+    File: 19_JG_Mart_How_To_Order_Guide.png
+    Use: Send to every new customer. Post on social media.
+    When: First interaction, welcome message, group posts.
+
+═══════════════════════════════════════════════════════════════════════════════
+OPERATIONAL DOCUMENTATION (Internal use — train your team with these)
+═══════════════════════════════════════════════════════════════════════════════
+
+07. SOP MANUAL
+    File: 07_JG_Mart_SOP_Manual.txt
+    Contents: Daily schedule, order processing, customer service,
+              partner management, rider management, quality control,
+              emergency protocols.
+    Use: Train yourself, your brother, and any future hires.
+    Update: Monthly or after any process change.
+
+08. PARTNER ONBOARDING GUIDE
+    File: 08_JG_Mart_Partner_Guide.txt
+    Contents: Partner requirements, commission structure, agreement template,
+              onboarding checklist, communication templates.
+    Use: Every time you onboard a new partner. Print the agreement.
+    Update: When commission rates change or new categories added.
+
+09. CUSTOMER SERVICE SCRIPTS
+    File: 09_JG_Mart_CS_Scripts.txt
+    Contents: 10 conversation scripts for every scenario.
+    Use: Copy-paste into WhatsApp Business quick replies.
+    Update: Based on real conversations and feedback.
+
+═══════════════════════════════════════════════════════════════════════════════
+MANAGEMENT & TRACKING TOOLS (Use daily/weekly to stay on top of everything)
+═══════════════════════════════════════════════════════════════════════════════
+
+10. 90-DAY TASK BOARD
+    File: 10_JG_Mart_90Day_Task_Board.csv
+    Contents: 50+ tasks across 12 weeks with owners, priorities, deliverables.
+    Use: Import into Google Sheets or Trello. Track progress daily.
+    Update: Mark complete as you finish tasks. Add new tasks as needed.
+
+11. FINANCIAL TRACKER
+    File: 11_JG_Mart_Financial_Tracker.csv
+    Contents: Daily revenue, costs, profit, cash position.
+    Use: Update EVERY DAY after closing. Import to Google Sheets.
+    Update: Daily. Review weekly for trends.
+
+12. KPI DASHBOARD
+    File: 12_JG_Mart_KPI_Dashboard.csv
+    Contents: 24 metrics across 5 categories with monthly targets.
+    Use: Review weekly. Share with investors monthly.
+    Update: Monthly targets should be adjusted based on actual performance.
+
+13. DAILY OPS CHECKLIST
+    File: 13_JG_Mart_Daily_Checklist.txt
+    Contents: Hour-by-hour checklist from 6 AM to 10 PM.
+    Use: Print and use EVERY SINGLE DAY. Laminate if possible.
+    Update: Adjust timing based on actual operations.
+
+14. MARKETING CALENDAR
+    File: 14_JG_Mart_Marketing_Calendar.txt
+    Contents: 90-day marketing plan with daily, weekly, monthly tasks.
+    Use: Plan content weekly. Execute daily.
+    Update: Adjust based on what's working.
+
+15. RISK MANAGEMENT LOG
+    File: 15_JG_Mart_Risk_Log.txt
+    Contents: 10 identified risks with mitigation plans + incident log.
+    Use: Review weekly. Update when incidents occur.
+    Update: Add new risks as they emerge.
+
+16. INVENTORY TRACKER
+    File: 16_JG_Mart_Inventory_Tracker.csv
+    Contents: SKU database with prices, partners, stock status.
+    Use: Update daily with partner availability. Import to Google Sheets.
+    Update: Daily price updates. Weekly SKU additions.
+
+17. CUSTOMER DATABASE
+    File: 17_JG_Mart_Customer_Database.csv
+    Contents: Customer profiles with orders, spending, referrals.
+    Use: Import to Google Sheets. Segment for marketing.
+    Update: After every order. Clean monthly.
+
+18. WEEKLY REVIEW TEMPLATE
+    File: 18_JG_Mart_Weekly_Review.txt
+    Contents: 10-section weekly business review.
+    Use: Complete EVERY SUNDAY evening with your brother.
+    Update: The template itself should evolve with your business.
+
+═══════════════════════════════════════════════════════════════════════════════
+RECOMMENDED WORKFLOW
+═══════════════════════════════════════════════════════════════════════════════
+
+DAILY (Every Day):
+  1. Print and use Daily Ops Checklist (13)
+  2. Update Financial Tracker (11) after closing
+  3. Update Inventory Tracker (16) with partner availability
+  4. Post WhatsApp status using Catalog image (05)
+  5. Use CS Scripts (09) for all customer interactions
+
+WEEKLY (Every Sunday):
+  1. Complete Weekly Review (18) with team
+  2. Review Risk Log (15) and update incidents
+  3. Review KPI Dashboard (12) vs. targets
+  4. Plan next week's marketing using Calendar (14)
+  5. Pay partners and update their scores
+  6. Update Task Board (10) — mark completed tasks
+
+MONTHLY (First Sunday of Month):
+  1. Deep dive Financial Tracker (11) — P&L analysis
+  2. Review Customer Database (17) — segment and target
+  3. Update KPI targets based on actual performance
+  4. Review and update SOP Manual (07) if needed
+  5. Plan next month's expansion and marketing
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK START CHECKLIST (Your First 7 Days)
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Day 1: Read SOP Manual (07) and Partner Guide (08)
+□ Day 1: Set up Google Sheets with Task Board (10), Financial Tracker (11),
+          Inventory Tracker (16), Customer Database (17)
+□ Day 2: Customize all visual assets with your actual phone number
+□ Day 2: Print Brand Guidelines (01) and keep as reference
+□ Day 3: Set up WhatsApp Business with logo (02) and quick replies (09)
+□ Day 3: Print 100 flyers (04) and business cards (06)
+□ Day 4: Visit Krishi Market with Partner Guide (08) and agreement
+□ Day 5: Recruit first 10 beta customers using How to Order (19)
+□ Day 6: Run first beta orders using Daily Checklist (13)
+□ Day 7: Complete first Weekly Review (18) and plan Week 2
+
+═══════════════════════════════════════════════════════════════════════════════
+CUSTOMIZATION CHECKLIST (Fill in before using)
+═══════════════════════════════════════════════════════════════════════════════
+
+□ [YOUR NAME] — Founder name in all documents
+□ [YOUR NUMBER] — WhatsApp/bKash number in all visuals and scripts
+□ [BROTHER NAME] — Rider/Ops lead name in SOP and checklists
+□ Building numbers — Update Cluster strategy for actual JGC layout
+□ Partner names — Fill in actual partner shop names
+□ Prices — Update all price references with real Krishi Market rates
+□ Dates — Adjust timeline to your actual launch date
+
+═══════════════════════════════════════════════════════════════════════════════
+DOCUMENT CONTROL
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Assets Created: 19 files
+  - 7 Visual/Branding assets (PNG)
+  - 5 Operational documents (TXT)
+  - 4 Tracking spreadsheets (CSV)
+  - 2 Management templates (TXT)
+  - 1 Master index (this file)
+
+Version: 1.0
+Created: July 2026
+Owner: [Your Name]
+Next Review: August 2026
+
+═══════════════════════════════════════════════════════════════════════════════
+
+GOOD LUCK WITH JG MART! 
+Remember: Speed of execution beats perfection of planning.
+Launch in 7 days. Learn from real customers. Iterate fast.
+
+— Your JG Mart Toolkit
