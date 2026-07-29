@@ -134,6 +134,23 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 </style>
 </head>
 <body>
+<!-- SPLASH OVERLAY (first visit) -->
+<div id="splash" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);z-index:2000;align-items:center;justify-content:center;padding:20px">
+<div style="background:#fff;border-radius:18px;padding:24px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:ocu .25s">
+<div style="font-size:2.8rem;margin-bottom:8px">🥬</div>
+<h2 style="font-size:1.2rem;color:#00442D;margin-bottom:4px;font-weight:800">Welcome to JG Mart</h2>
+<p style="font-size:.8rem;color:#5c5c5c;margin-bottom:14px;line-height:1.4">Fresh groceries from Krishi Market, delivered to your flat in Japan Garden City.</p>
+<div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px">
+<div style="display:flex;align-items:center;gap:8px;font-size:.75rem;color:#374151"><span style="font-size:1.1rem">📱</span> Order via WhatsApp — no app needed</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:.75rem;color:#374151"><span style="font-size:1.1rem">🚚</span> Free delivery for buildings 1–13</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:.75rem;color:#374151"><span style="font-size:1.1rem">⏰</span> Morning & evening delivery slots</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:.75rem;color:#374151"><span style="font-size:1.1rem">💳</span> Cash on delivery or bKash</div>
+</div>
+<button onclick="dismissSplash()" style="width:100%;background:#00442D;color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit">Start Shopping 🛒</button>
+<p style="font-size:.65rem;color:#999;margin-top:10px">We'll remember your preferences for next time</p>
+</div>
+</div>
+
 <div class="topbar">
 <div class="logo">JG <span>Mart</span></div>
 <div class="right">
@@ -326,7 +343,7 @@ refBtns.forEach(el=>el.textContent=t('refer'));
 (function(){
 const s=document.getElementById('dlvBuilding');
 for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Bldg ${i}`;s.appendChild(o);}
-loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount();
+loadSpecials(); loadPromo(); renderCats(); rend(); applyLang(); updateRefCount(); initSplash();
 // Re-apply lang after specials load
 })();
 
@@ -518,7 +535,20 @@ btn.onclick=function(){el.classList.remove('show');};
 el.appendChild(btn);
 el.classList.add('show');
 }
-// ========= ORDER CONFIRMATION =========
+
+// ========= SPLASH / ONBOARDING =========
+function initSplash(){
+if(localStorage.getItem('jgmart_splash_dismissed')) return;
+const el=document.getElementById('splash');
+if(el) el.style.display='flex';
+}
+function dismissSplash(){
+localStorage.setItem('jgmart_splash_dismissed','1');
+const el=document.getElementById('splash');
+if(el) el.style.display='none';
+}
+</script>
+<script>
 function showOrdConf(){
 const o=orders[0];if(!o)return;
 document.getElementById('confTitle').textContent=t('ordConfT');

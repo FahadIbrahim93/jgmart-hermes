@@ -1,33 +1,86 @@
-const CACHE = 'jgmart-v1';
+const CACHE = 'jgmart-v2';
 const FILES = [
   './',
   './index.html',
-  './manifest.json',
-  './favicon.svg',
   './landing.html',
   './menu.html',
   './track.html',
   './zone.html',
+  './myorders.html',
+  './admin.html',
+  './manifest.html',
+  './healthcheck.html',
+  './404.html',
+  './offline.html',
+  './manifest.json',
+  './favicon.svg',
+  './sw.js',
   './images/placeholder.svg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => c.addAll(FILES))
+      .then(() => self.skipWaiting())
+      .catch(err => console.warn('SW install failed:', err))
+  );
 });
 
 self.addEventListener('activate', e => {
-  e.waitUntil(clients.claim());
+  e.waitUntil(
+    caches.keys().then(keys => 
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener('fetch', e => {
+  const req = e.request;
+  
+  // Skip non-GET requests
+  if(req.method !== 'GET') return;
+  
+  // Skip cross-origin requests (except fonts)
+  if(req.url.includes('http') && !req.url.includes('fonts.googleapis.com') && !req.url.includes('wa.me')) {
+    return;
+  }
+  
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).then(res => {
-      if(e.request.url.match(/\.(jpg|svg|png|css|js|json)$/)){
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
-      }
-      return res;
-    }).catch(() => caches.match('./offline.html')))
+    caches.match(req).then(cached => {
+      const fetchPromise = fetch(req).then(res => {
+        // Cache successful responses
+        if(res && res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(req, clone));
+        }
+        return res;
+      }).catch(() => {
+        // Return cached version if network fails
+        if(cached) return cached;
+        
+        // Special handling for navigation requests
+        if(req.mode === 'navigate') {
+          return caches.match('./offline.html');
+        }
+        
+        // Return placeholder for images
+        if(req.url.match(/\\.(jpg|jpeg|png|gif|svg|webp)$/)) {
+          return caches.match('./images/placeholder.svg');
+        }
+        
+        return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+      });
+      
+      return cached || fetchPromise;
+    })
   );
+});
+
+// Listen for skip waiting message
+self.addEventListener('message', e => {
+  if(e.data && e.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
