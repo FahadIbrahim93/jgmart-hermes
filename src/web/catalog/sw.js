@@ -1,4 +1,4 @@
-const CACHE = 'jgmart-v5';
+const CACHE = 'jgmart-v6';
 const FILES = [
   './',
   './index.html',
@@ -12,6 +12,7 @@ const FILES = [
   './healthcheck.html',
   './notify.html',
   './rider.html',
+  './operator.html',
   './offline.html',
   './csp-report.html',
   './404.html',

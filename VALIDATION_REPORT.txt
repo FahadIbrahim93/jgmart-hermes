@@ -2,17 +2,17 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Thursday, July 30, 2026 at 05:46
+Generated: Thursday, July 30, 2026 at 05:57
 Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 1336
-  Total Size:  25.84 MB
+  Total Files: 1341
+  Total Size:  25.86 MB
 
-  HTML Files:  43
+  HTML Files:  44
   Python Files: 15
   CSV Files:   21
   TXT Files:   145
@@ -20,7 +20,7 @@ Toolkit Path: G:\JGC Mart
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       967 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
+  Other:       971 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -249,7 +249,7 @@ Toolkit Path: G:\JGC Mart
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: (none)
          WhatsApp:    (none)
-         Internal Links: 1
+         Internal Links: 2
 
   [PASS] src/web/catalog/csp-report.html
          DOCTYPE:    ✓
@@ -351,6 +351,15 @@ Toolkit Path: G:\JGC Mart
          localStorage: (none)
          WhatsApp:    (none)
          Internal Links: 1
+
+  [PASS] src/web/catalog/operator.html
+         DOCTYPE:    ✓
+         Viewport:   ✓
+         Theme-Color: ✓
+         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
+         localStorage: (none)
+         WhatsApp:    (none)
+         Internal Links: 2
 
   [PASS] src/web/catalog/order_intake.html
          DOCTYPE:    ✓
@@ -570,10 +579,10 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        1336
-  Total Size:           25.84 MB
+  Files Checked:        1341
+  Total Size:           25.86 MB
 
-  HTML Valid:           43/43
+  HTML Valid:           44/44
   HTML With Issues:     0
   Python Valid:         15/15
   Python Warnings:      0

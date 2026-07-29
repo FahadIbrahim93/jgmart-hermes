@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#00442D">
+  <title>JG Mart — Operator Intake</title>
+  <link rel="manifest" href="manifest.json">
+  <script src="security.js"></script>
+  <script src="data-store.js"></script>
+  <script src="db.js"></script>
+<script src="offline-queue.js"></script>
+<script src="order-state.js"></script>
+  <style>
+    :root{--green:#00442D;--green2:#166534;--gold:#c9a227;--bg:#f6f7f5;--card:#fff;--text:#111827;--muted:#6b7280;--border:#e5e7eb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+    .topbar{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .topbar h1{font-size:1.05rem;font-weight:700}
+    .badge{font-size:.75rem;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:999px}
+    .container{max-width:980px;margin:0 auto;padding:14px;display:grid;gap:14px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+    .card h2{font-size:.95rem;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+    .row{display:grid;gap:10px}
+    .row.two{grid-template-columns:1fr 1fr}
+    .row.three{grid-template-columns:1fr 1fr 1fr}
+    @media (max-width:560px){.row.two,.row.three{grid-template-columns:1fr}}
+    label{font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px}
+    input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;font:inherit;color:var(--text)}
+    textarea{min-height:72px;resize:vertical}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:none;border-radius:10px;font-weight:600;cursor:pointer;font:inherit}
+    .btn-primary{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;box-shadow:0 4px 14px rgba(22,163,74,.3)}
+    .btn-secondary{background:#fff;color:var(--green);border:1px solid var(--border)}
+    .btn-whatsapp{background:#25D366;color:#fff}
+    .btn-danger{background:#ef4444;color:#fff}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .order{display:grid;gap:8px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}
+    .order header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+    .order .meta{font-size:.78rem;color:var(--muted)}
+    .order .items{margin-top:6px}
+    .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:600;background:#eef2ff;color:#3730a3}
+    .pill.pending{background:#fef3c7;color:#92400e}
+    .pill.confirmed{background:#dbeafe;color:#1e40af}
+    .pill.processing{background:#fce7f3;color:#9d174d}
+    .pill.out_for_delivery{background:#ede9fe;color:#6b21a8}
+    .pill.delivered{background:#d1fae5;color:#065f46}
+    .pill.cancelled{background:#fee2e2;color:#991b1b}
+    .search{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;font:inherit}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+    .item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;cursor:pointer}
+    .item .name{font-size:.85rem;font-weight:600}
+    .item .price{font-size:.8rem;color:var(--muted)}
+    .item .right{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .qty{display:inline-flex;align-items:center;gap:8px}
+    .qty button{width:28px;height:28px;border-radius:999px;border:1px solid var(--border);background:#fff;font-weight:700;cursor:pointer}
+    .summary{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px}
+    .summary .line{display:flex;justify-content:space-between;font-size:.88rem;padding:4px 0}
+    .empty{color:var(--muted);font-size:.85rem;text-align:center;padding:18px}
+    .status-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 14px;border-radius:999px;font-size:.85rem;opacity:0;transition:.2s;z-index:50;pointer-events:none}
+    .toast.show{opacity:1}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>🧑‍🍳 Operator Intake</h1>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span id="connectionStatus" class="badge">Loading...</span>
+      <a class="badge" href="admin.html" style="color:#fff;text-decoration:none">Admin</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h2>🧾 New Order</h2>
+      <div class="row two">
+        <div>
+          <label>Customer</label>
+          <input id="customerName" placeholder="Name" autocomplete="name">
+        </div>
+        <div>
+          <label>Phone</label>
+          <input id="customerPhone" placeholder="+880..." inputmode="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="row two" style="margin-top:10px">
+        <div>
+          <label>Building</label>
+          <select id="customerBuilding"></select>
+        </div>
+        <div>
+          <label>Flat</label>
+          <input id="customerFlat" placeholder="Flat #" inputmode="numeric">
+        </div>
+      </div>
+      <div class="row three" style="margin-top:10px">
+        <div>
+          <label>Slot</label>
+          <select id="deliverySlot">
+            <option value="morning">☀️ Morning</option>
+            <option value="evening">🌙 Evening</option>
+          </select>
+        </div>
+        <div>
+          <label>Payment</label>
+          <select id="paymentMethod">
+            <option value="cash">💵 Cash</option>
+            <option value="bkash">📱 bKash</option>
+          </select>
+        </div>
+        <div>
+          <label>Delivery fee</label>
+          <select id="deliveryFee">
+            <option value="0">Free</option>
+            <option value="20">৳20</option>
+            <option value="30">৳30</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <label>Notes</label>
+        <textarea id="orderNotes" placeholder="Optional notes..."></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🛍️ Products</h2>
+      <input id="productSearch" class="search" placeholder="Search products..." oninput="renderProducts()">
+      <div id="productGrid" class="grid" style="margin-top:10px"></div>
+    </div>
+
+    <div class="card">
+      <h2>🧺 Order Summary</h2>
+      <div id="orderItems" class="items"></div>
+      <div class="summary">
+        <div class="line"><span>Subtotal</span><span id="subtotal">৳0</span></div>
+        <div class="line"><span>Delivery</span><span id="deliveryTotal">৳0</span></div>
+        <div class="line" style="font-weight:700;font-size:1rem;border-top:1px solid var(--border);padding-top:6px;margin-top:4px"><span>Total</span><span id="grandTotal">৳0</span></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="submitOrder()">💾 Save Order</button>
+        <button class="btn btn-whatsapp" onclick="sendWhatsApp()">📱 Send WhatsApp</button>
+        <button class="btn btn-secondary" onclick="clearCurrentOrder()">🗑 Clear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📋 Live Orders</h2>
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="renderOrders()">🔄 Refresh</button>
+        <button class="btn btn-secondary" onclick="refreshWhatsApp()">📱 Refresh WhatsApp</button>
+      </div>
+      <div id="ordersList" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const STATE_KEY='jgmart_operator_state';
+    let products=[];
+    let cart=[];
+    let orders=[];
+
+    function loadProducts(){
+      const stored=JG_DATA_STORE.products.get();
+      if(stored && stored.length){ products=stored; return; }
+      if(window.JG_MART_DEFAULTS?.products?.length){ products=window.JG_MART_DEFAULTS.products; JG_DATA_STORE.products.set(products); return; }
+      products=[];
+    }
+
+    function initBuildings(){
+      const sel=document.getElementById('customerBuilding');
+      for(let i=1;i<=27;i++){const o=document.createElement('option');o.value=`B${i}`;o.textContent=`Building ${i}`;sel.appendChild(o)}
+    }
+
+    function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+
+    function esc(str){if(!str)return '';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+    function buildOrderNumber(){return 'JG-'+Date.now().toString().slice(-6)}
+
+    function computeTotals(){
+      const sub=cart.reduce((s,i)=>s+(i.price*i.qty),0);
+      const fee=parseInt(document.getElementById('deliveryFee').value||'0',10);
+      return {sub,fee,total:sub+fee};
+    }
+
+    function renderProducts(){
+      const q=(document.getElementById('productSearch').value||'').toLowerCase();
+      const filtered=products.filter(p=>!q || (p.nm||p.name||'').toLowerCase().includes(q) || (p.ct||p.category||'').toLowerCase().includes(q));
+      const grid=document.getElementById('productGrid');
+      if(!filtered.length){grid.innerHTML='<div class="empty">No products found</div>';return}
+      grid.innerHTML=filtered.map(p=>{
+        const id=p.id||p.uid;
+        const existing=cart.find(c=>c.id===id);
+        const qty=existing?existing.qty:0;
+        const price=p.pr??p.price??0;
+        const name=esc(p.nm||p.name);
+        const unit=esc(p.un||p.unit||'');
+        return `<div class="item" onclick="addToCart('${esc(String(id))}',${price},'${name}','${unit}')">
+          <div class="name">${name}</div>
+          <div class="price">৳${price} / ${unit||'pc'}</div>
+          <div class="right"><span class="pill">${qty?`Qty ${qty}`:'Tap to add'}</span></div>
+        </div>`;
+      }).join('');
+      // innerHTML is safe: all dynamic values are escaped via esc()/JG_SECURITY.escapeHtml()
+    }
+
+    function addToCart(id,price,name,unit){
+      const idx=cart.findIndex(c=>c.id===id);
+      if(idx>-1){if(cart[idx].qty<20)cart[idx].qty++;else cart.splice(idx,1)}
+      else cart.push({id,price,name,unit,qty:1});
+      renderSummary();
+      toast(cart.find(c=>c.id===id)?'Added ✓':'Removed');
+    }
+
+    function changeQty(id,delta){
+      const idx=cart.findIndex(c=>c.id===id);
+      if(idx<0)return;
+      cart[idx].qty+=delta;
+      if(cart[idx].qty<1)cart.splice(idx,1);
+      renderSummary();
+    }
+
+    function renderSummary(){
+      const {sub,fee,total}=computeTotals();
+      const itemsEl=document.getElementById('orderItems');
+      if(!cart.length){itemsEl.innerHTML='<div class="empty">Cart is empty</div>'}
+      else{
+        itemsEl.innerHTML=cart.map(c=>`<div class="order">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <div>
+              <div style="font-weight:600">${esc(c.name)}</div>
+              <div class="meta">৳${c.price}${c.unit?' / '+esc(c.unit):''}</div>
+            </div>
+            <div class="qty">
+              <button onclick="changeQty('${esc(String(c.id))}',-1)">-</button>
+              <span>${c.qty}</span>
+              <button onclick="changeQty('${esc(String(c.id))}',1)">+</button>
+            </div>
+          </div>
+          <div class="meta">৳${c.price*c.qty}</div>
+        </div>`).join('');
+      }
+      document.getElementById('subtotal').textContent='৳'+sub;
+      document.getElementById('deliveryTotal').textContent='৳'+fee;
+      document.getElementById('grandTotal').textContent='৳'+total;
+    }
+
+    function validateForm(){
+      const name=document.getElementById('customerName').value.trim();
+      const phone=document.getElementById('customerPhone').value.trim();
+      const building=document.getElementById('customerBuilding').value;
+      const flat=document.getElementById('customerFlat').value.trim();
+      const slot=document.getElementById('deliverySlot').value;
+      if(!name)return 'Customer name is required';
+      if(!phone)return 'Phone is required';
+      if(!building)return 'Building is required';
+      if(!flat)return 'Flat is required';
+      if(!slot)return 'Delivery slot is required';
+      if(!cart.length)return 'Add at least one item';
+      return null;
+    }
+
+    async function submitOrder(){
+      const error=validateForm();
+      if(error){toast(error);return}
+      const order={
+        customerName:JG_SECURITY.escapeHtml(document.getElementById('customerName').value.trim()),
+        customerPhone:JG_SECURITY.escapeHtml(document.getElementById('customerPhone').value.trim()),
+        building:document.getElementById('customerBuilding').value,
+        flat:JG_SECURITY.escapeHtml(document.getElementById('customerFlat').value.trim()),
+        slot:document.getElementById('deliverySlot').value,
+        paymentMethod:document.getElementById('paymentMethod').value,
+        deliveryFee:parseInt(document.getElementById('deliveryFee').value||'0',10),
+        notes:JG_SECURITY.escapeHtml(document.getElementById('orderNotes').value.trim()),
+        items:cart.map(c=>({id:c.id,name:c.name,unit:c.unit,qty:c.qty,price:c.price})),
+        subtotal:computeTotals().sub,
+        total:computeTotals().total,
+        status:'pending',
+        source:'operator',
+        createdAt:new Date().toISOString()
+      };
+      try{
+        let result={success:true,order};
+        if(window.submitOrderToSupabase){result=await window.submitOrderToSupabase(order)}
+        if(result?.success){
+          toast('✅ Order saved');
+          saveLocalOrder(result.order||order);
+        }else{
+          throw new Error('Supabase save failed');
+        }
+      }catch(e){
+        saveLocalOrder(order);
+        toast('⚠️ Saved locally');
+      }
+      clearCurrentOrder();
+      renderOrders();
+    }
+
+    function saveLocalOrder(order){
+      const local={...order,orderNumber:order.orderNumber||buildOrderNumber(),localId:Date.now()};
+      orders=JG_DATA_STORE.orders.get()||[];
+      orders.unshift(local);
+      if(orders.length>200)orders.length=200;
+      JG_DATA_STORE.orders.set(orders);
+    }
+
+    function clearCurrentOrder(){
+      cart=[];
+      renderSummary();
+      document.getElementById('orderNotes').value='';
+    }
+
+    
+
+    function renderOrders(){
+      orders=JG_DATA_STORE.orders.get()||[];
+      const el=document.getElementById('ordersList');
+      if(!orders.length){el.innerHTML='<div class="empty">No orders yet</div>';return}
+      el.innerHTML=orders.slice(0,50).map((o,i)=>`<div class="order">
+        <header>
+          <div>
+            <div style="font-weight:700">#${esc(o.orderNumber||('LOCAL-'+o.localId||i))}</div>
+            <div class="meta">${esc(o.customerName||'Customer')} · ${esc(o.customerPhone||'')} · 📍 ${esc(o.building||'')} ${esc(o.flat||'')}</div>
+            <div class="meta">🕒 ${o.deliverySlot?o.deliverySlot:'slot?'} · 💳 ${o.paymentMethod||'cash'} · ${new Date(o.createdAt||o.date||Date.now()).toLocaleString()}</div>
+          </div>
+          <span class="pill ${esc(o.status||'pending')}">${esc(JG_ORDER_STATE.label(o.status||'pending'))}</span>
+        </header>
+        <div class="items">
+          ${(o.items||[]).map(it=>`<div class="meta">• ${esc(it.name)} ×${it.qty} = ৳${it.price*it.qty}</div>`).join('')}
+        </div>
+        <div class="meta">Subtotal ৳${o.subtotal||0} · Delivery ৳${o.deliveryFee||0} · <b>Total ৳${o.total||0}</b></div>
+        <div class="status-actions">
+          <button class="btn btn-primary" onclick="updateStatus('${i}','confirmed')">Confirm</button>
+          <button class="btn btn-secondary" onclick="updateStatus('${i}','processing')">Processing</button>
+          <button class="btn btn-secondary" onclick="updateStatus('${i}','out_for_delivery')">Dispatch</button>
+          <button class="btn btn-secondary" onclick="updateStatus('${i}','delivered')">Delivered</button>
+          <button class="btn btn-danger" onclick="updateStatus('${i}','cancelled')">Cancel</button>
+          <button class="btn btn-whatsapp" onclick="orderWhatsApp(${i})">📱 WhatsApp</button>
+        </div>
+      </div>`).join('');
+    }
+
+    function updateStatus(index,status){
+      const current=orders[index]?.status || 'pending';
+      if(!JG_ORDER_STATE.canTransition(current, status)){
+        toast('Invalid transition: '+JG_ORDER_STATE.label(current)+' → '+JG_ORDER_STATE.label(status), true);
+        return;
+      }
+      if(orders[index]) orders[index].status=status;
+      else orders[index]={...(orders[index]||{}),status};
+      orders[index].updatedAt=new Date().toISOString();
+      JG_DATA_STORE.orders.set(orders);
+      renderOrders();
+      toast('Status updated: '+JG_ORDER_STATE.label(status));
+    }
+
+    function sendWhatsApp(){
+      const phone='8801870489448';
+      const name=esc(document.getElementById('customerName').value.trim());
+      const building=document.getElementById('customerBuilding').value;
+      const flat=esc(document.getElementById('customerFlat').value.trim());
+      const slot=document.getElementById('deliverySlot').value==='morning'?'Morning':'Evening';
+      const payment=document.getElementById('paymentMethod').value==='bkash'?'bKash':'Cash';
+      const {total}=computeTotals();
+      const items=(cart||[]).map(i=>`• ${i.name} ×${i.qty}`).join('%0A');
+      const msg=`🆕 Operator Intake Order%0A%0A${name?`Customer: ${name}%0A`:''}${phone?'Phone: '+document.getElementById('customerPhone').value.trim()+'%0A':''}📍 ${building} ${flat}%0A⏰ ${slot}%0A💳 ${payment}%0A🧾 Total: ৳${total}%0A%0AItems:%0A${items||'No items'}%0A%0APlease confirm.`;
+      window.open('https://wa.me/'+phone+'?text='+msg,'_blank');
+      toast('Opening WhatsApp...');
+    }
+
+    function orderWhatsApp(index){
+      const o=orders[index];
+      if(!o)return;
+      const phone='8801870489448';
+      const items=(o.items||[]).map(i=>`• ${esc(i.name)} ×${i.qty}`).join('%0A');
+      const msg=`🔄 Order Update #${esc(o.orderNumber||('LOCAL-'+o.localId||index))}%0A%0A${esc(o.customerName||'Customer')}%0A📞 ${esc(o.customerPhone||'')}%0A📍 ${esc(o.building||'')} ${esc(o.flat||'')}%0A⏰ ${esc(o.deliverySlot||'slot')}%0A💳 ${esc(o.paymentMethod||'cash')}%0A🧾 Total: ৳${o.total||0}%0A%0AStatus: ${JG_ORDER_STATE.label(o.status||'pending')}%0A%0A${items||'No items'}%0A%0APlease confirm.`;
+      window.open('https://wa.me/'+phone+'?text='+msg,'_blank');
+      toast('Opening WhatsApp...');
+    }
+
+    function refreshWhatsApp(){toast('WhatsApp number: 8801870489448')}
+
+    function updateBadge(){}
+    function updateStatusBadge(){}
+
+    (function init(){
+      initBuildings();
+      loadProducts();
+      renderProducts();
+      renderSummary();
+      renderOrders();
+      if(typeof window.JG_OFFLINE_QUEUE!=='undefined'){
+        window.JG_OFFLINE_QUEUE.updateStatus();
+      }
+    })();
+  </script>
+</body>
+</html>

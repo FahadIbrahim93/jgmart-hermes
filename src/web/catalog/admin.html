@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JG Mart — Admin Panel</title>
 <script src="security.js"></script>
+<script src="data-store.js"></script>
+<script src="order-state.js"></script>
 <meta name="theme-color" content="#00442D">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -76,6 +78,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 <button onclick="switchTab('products')">Products</button>
 <button onclick="switchTab('orders')">Orders</button>
 <button onclick="switchTab('settings')">Settings</button>
+<a class="btn btn-sm" href="operator.html" target="_blank" rel="noopener" style="margin-left:auto;text-decoration:none;background:#16a34a;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600">🧑‍🍳 Operator</a>
 </div>
 
 <div class="content">
@@ -460,11 +463,12 @@ function getStatusBadge(status) {
 function updateOrderStatus(id, status) {
   if (!status) return;
   const order = orders.find(o => o.id == id);
-  if (order) {
-    order.status = status;
+  if (order && JG_ORDER_STATE.apply(order, status)) {
     saveOrders();
     renderOrders();
-    showToast(`Order #${id} marked as ${status}`);
+    showToast(`Order #${id} marked as ${JG_ORDER_STATE.label(status)}`);
+  } else if (order) {
+    showToast('Invalid status transition', true);
   }
 }
 
@@ -646,8 +650,7 @@ function bulkUpdateStatus(){
   if(!status) return;
   let count = 0;
   orders.forEach(o => {
-    if(selectedOrderIds.has(o.id)){
-      o.status = status;
+    if(selectedOrderIds.has(o.id) && JG_ORDER_STATE.apply(o, status)){
       count++;
     }
   });
