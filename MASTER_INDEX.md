@@ -35,6 +35,7 @@
 | Ops dashboard (v1) | `src/web/dashboard/index.html` | Hermes | Active — localStorage orders |
 | Catalog seed SQL | `src/web/supabase/seed_from_catalog.sql` | Hermes | Generated from catalog_data.json |
 | Supabase setup guide | `docs/setup/SUPABASE_SETUP.md` | Hermes | Active |
+| Production deploy guide | `docs/setup/DEPLOY.md` | Hermes | Active — Vercel root must be `.` |
 
 ---
 
