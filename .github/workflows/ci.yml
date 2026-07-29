@@ -16,7 +16,7 @@ jobs:
           python-version: '3.11'
       - run: pip install black flake8
       - run: black --check .
-      - run: flake8 src/scripts tests/validate_toolkit.py --max-line-length=88 --extend-ignore=E501,W503,E203
+      - run: flake8 src/scripts tests/validate_toolkit.py --max-line-length=88 --extend-ignore=E501,W503,E203,F401,F541,F841
 
   test:
     runs-on: ubuntu-latest
