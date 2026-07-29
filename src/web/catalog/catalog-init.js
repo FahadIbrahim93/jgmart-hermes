@@ -67,9 +67,9 @@ async function loadFromSupabase() {
 }
 
 async function bootstrapCatalog() {
-  const existing = JSON.parse(localStorage.getItem('jgmart_prods') || '[]');
-  if (existing.length > 0) return existing;
-
+  // Always try to load fresh data from Supabase or JSON first.
+  // This avoids stale cache during development and ensures the
+  // catalog reflects the current database state on every visit.
   let products = null;
 
   if (isSupabaseConfigured()) {
@@ -93,7 +93,8 @@ async function bootstrapCatalog() {
     return products;
   }
 
-  return null;
+  // Final fallback: return whatever is already in localStorage
+  return JSON.parse(localStorage.getItem('jgmart_prods') || '[]');
 }
 
 window.__JG_CATALOG_READY = bootstrapCatalog();
