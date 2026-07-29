@@ -186,6 +186,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <a href="notify.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="WhatsApp Notifications">💬 Notify</a>
 <a href="rider.html" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.65rem;font-weight:500;margin-right:4px" title="Rider Dispatch">🛵 Dispatch</a>
 <span id="offlineBadge" style="display:none;background:rgba(255,255,255,.2);color:#fff;padding:3px 8px;border-radius:999px;font-size:.6rem;font-weight:600;align-items:center;gap:3px">⏳ 0 pending</span>
+<span id="connectionStatus" style="background:rgba(255,255,255,.15);color:#fff;padding:3px 8px;border-radius:999px;font-size:.6rem;font-weight:600">Local</span>
 <a href="admin.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.6rem;margin-right:4px" title="Admin">⚙️</a>
 <button class="lang-btn" id="langBtn" onclick="togLang()">বাংলা</button>
 <a class="wa-top" href="https://wa.me/8801870489448" target="_blank">💬 WA</a>
@@ -420,13 +421,19 @@ const safeOrder = {
   id:'JG-'+Date.now().toString(36).toUpperCase(),
   date:new Date().toLocaleDateString('en-BD'),
   time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}),
-  items:cart.map(c=>{const p=PRODS.find(x=>x.id===c.id);return{nm:window.JG_SECURITY?.escapeHtml(p?.nm||''),qty:c.qty,pr:p?.pr||0};}),
-  sub,fee,total,
+  customerName: window.JG_SECURITY?.escapeHtml(n),
+  customerPhone: ph?window.JG_SECURITY?.escapeHtml(ph):'',
   building:window.JG_SECURITY?.escapeHtml(b),
   flat:window.JG_SECURITY?.escapeHtml(f),
   slot:window.JG_SECURITY?.escapeHtml(s),
   payment:window.JG_SECURITY?.escapeHtml(pm),
-  phone:ph?window.JG_SECURITY?.escapeHtml(ph):''
+  items:cart.map(c=>{const p=PRODS.find(x=>x.id===c.id);return{id:c.id,nm:window.JG_SECURITY?.escapeHtml(p?.nm||''),qty:c.qty,pr:p?.pr||0};}),
+  sub,fee,total,
+  deliveryFee:fee,
+  deliveryMethod:'whatsapp',
+  zoneId: bi<=13?1:bi<=20?2:3,
+  deliveryDate: new Date().toISOString().split('T')[0],
+  paymentMethod: pm||'cash'
 };
 // Save address for next visit
 localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
@@ -438,9 +445,13 @@ if(!navigator.onLine){
 orders.unshift(safeOrder);
 if(orders.length>50)orders.pop();
 localStorage.setItem('jgmart_ords',JSON.stringify(orders));
-closeCart();
-window.open(`https://wa.me/8801870489448?text=${msg}`,'_blank');
+// Try Supabase in background without blocking WhatsApp flow
+if(window.submitOrderToSupabase){
+  window.submitOrderToSupabase(safeOrder).catch(err=>console.warn('Supabase order backup failed:', err));
+}
+window.open('https://wa.me/8801870489448?text='+msg,'_blank');
 toast(t('opening'));
+cart=[];closeCart();rend();
 // Confetti
 const cnf=document.createElement('div');cnf.className='cnf';
 for(let i=0;i<20;i++){const s=document.createElement('span');s.style.cssText=`left:${Math.random()*100}%;background:${['#c9a227','#00442D','#25D366','#c0392b'][Math.floor(Math.random()*4)]};animation-delay:${Math.random()*0.5}s`;cnf.appendChild(s);}

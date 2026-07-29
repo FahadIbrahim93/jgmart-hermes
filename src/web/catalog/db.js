@@ -195,5 +195,10 @@ export {
   loadProductsFromDB,
   loadCategoriesFromDB,
   submitOrder,
-  loadSettings
+  loadSettings,
+  saveOrderToLocalStorage
 };
+
+if (typeof window !== 'undefined') {
+  window.submitOrderToSupabase = submitOrder;
+}
