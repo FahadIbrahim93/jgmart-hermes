@@ -96,7 +96,7 @@ class TagPairChecker:
         """Use a simple stack to detect unclosed/mismatched tags for the required pairs."""
         errors = []
         stack = []
-        tag_re = re.compile(r"</?(\w+)[^>]*>")
+        tag_re = re.compile(r"</?([A-Za-z][A-Za-z0-9]*)[^>]*>")
         void_elements = {
             "area",
             "base",
