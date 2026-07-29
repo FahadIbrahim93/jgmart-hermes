@@ -211,7 +211,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 // NOTE: table rows are built via innerHTML after escaping with escapeHtml().
 // Inputs are admin-only/localStorage-backed, so DOMPurify is not required here.
 const PRODS_KEY = 'jgmart_prods';
-const ORDERS_KEY = 'jgmart_orders';
+const ORDERS_KEY = 'jgmart_ords';
 const AUTH_KEY = 'jgmart_admin_auth';
 const PIN_KEY = 'jgmart_admin_pin';
 const DEFAULT_PIN = '1234';
@@ -278,16 +278,16 @@ function handleLogout() {
 // DATA
 // ============================================
 function loadData() {
-  products = JSON.parse(localStorage.getItem(PRODS_KEY) || '[]');
-  orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
+  products = JG_DATA_STORE.products.get() || [];
+  orders = JG_DATA_STORE.orders.get() || [];
 }
 
 function saveProducts() {
-  localStorage.setItem(PRODS_KEY, JSON.stringify(products));
+  JG_DATA_STORE.products.set(products);
 }
 
 function saveOrders() {
-  localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+  JG_DATA_STORE.orders.set(orders);
 }
 
 // ============================================
@@ -493,7 +493,7 @@ function updateFees() {
     c3: parseFloat(document.getElementById('feeC3').value) || 20,
     c4: parseFloat(document.getElementById('feeC4').value) || 30
   };
-  localStorage.setItem('jgmart_fees', JSON.stringify(fees));
+  JG_DATA_STORE.fees.set(fees);
   showToast('Delivery fees updated');
 }
 

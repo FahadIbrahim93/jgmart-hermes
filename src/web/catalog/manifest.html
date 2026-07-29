@@ -61,8 +61,9 @@ body{background:#fff;padding:0}
 
 <div class="footer">JG Mart · Fresh Groceries · Japan Garden City · Printed automatically</div>
 
+<script src="data-store.js"></script>
 <script nonce="gscb6Xp2nALPgenhRE7XtA"
-const ORDERS = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
+const ORDERS = JG_DATA_STORE.orders.get();
 const today = new Date().toLocaleDateString('en-BD',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 document.getElementById('dateBadge').textContent = '📅 '+today;
 
@@ -132,7 +133,7 @@ el.innerHTML = '<div class="empty">📭 No orders to deliver today. Great!</div>
 function markAllDelivered(){
 if(!confirm('Mark all visible orders as delivered?')) return;
 showOrders.forEach(o => { o.status = 'delivered'; });
-localStorage.setItem('jgmart_ords', JSON.stringify(ORDERS));
+JG_DATA_STORE.orders.set(ORDERS);
 location.reload();
 }
 </script>

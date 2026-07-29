@@ -252,16 +252,16 @@ const CATS=[
 {id:"fruits",n:"Fruits",i:"🍎",b:"ফল"},{id:"fmcg",n:"Household",i:"🧴",b:"গৃহস্থালি"},
 {id:"beverages",n:"Drinks",i:"🥤",b:"পানীয়"},{id:"snacks",n:"Snacks",i:"🍪",b:"স্ন্যাকস"}
 ];
-let PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || [];
+let PRODS = JG_DATA_STORE.products.get() || [];
 if(!PRODS.length && window.JG_MART_DEFAULTS?.products?.length){
   PRODS = JSON.parse(JSON.stringify(window.JG_MART_DEFAULTS.products));
-  localStorage.setItem('jgmart_prods', JSON.stringify(PRODS));
+  JG_DATA_STORE.products.set(PRODS);
 }
 
 function loadData(){
-  PRODS = JSON.parse(localStorage.getItem('jgmart_prods')) || (window.JG_MART_DEFAULTS?.products || []);
-  orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
-  const savedFees = JSON.parse(localStorage.getItem('jgmart_fees') || 'null');
+  PRODS = JG_DATA_STORE.products.get() || (window.JG_MART_DEFAULTS?.products || []);
+  orders = JG_DATA_STORE.orders.get() || [];
+  const savedFees = JG_DATA_STORE.fees.get();
   if(savedFees) DEL_FEES = savedFees;
   else if(window.JG_MART_DEFAULTS?.fees) DEL_FEES = window.JG_MART_DEFAULTS.fees;
 }
@@ -276,7 +276,7 @@ bn:{heroT:"ক্রিসি মার্কেট থেকে তাজা, �
 function t(key){const t=L[lang];return t[key]||key;}
 function togLang(){
 lang=lang==='en'?'bn':'en';
-localStorage.setItem('jgmart_lang',lang);
+JG_DATA_STORE.lang.set(lang);
 document.getElementById('langBtn').textContent=lang==='en'?'বাংলা':'EN';
 applyLang(); renderCats(); rend();
 }
@@ -355,13 +355,13 @@ function tog(id){
 const i=cart.findIndex(c=>c.id===id);
 if(i>-1){if(cart[i].qty<3)cart[i].qty++;else cart.splice(i,1);}
 else cart.push({id,qty:1});
-localStorage.setItem('jgmart_c',JSON.stringify(cart));
+JG_DATA_STORE.cart.set(cart);
 rend(); toast(cart.find(c=>c.id===id)?t('added'):t('rm'));
 }
 function updFab(){const t=cart.reduce((s,c)=>s+c.qty,0);document.getElementById('fabB').textContent=t;}
 function openCart(){document.getElementById('cartMo').classList.add('open');rendCart();
 // Load saved address
-const addr=JSON.parse(localStorage.getItem('jgmart_addr')||'{}');
+const addr=JG_DATA_STORE.address.get() || {};
 if(addr.name)document.getElementById('dlvName').value=addr.name;
 if(addr.building)document.getElementById('dlvBuilding').value=addr.building;
 if(addr.flat)document.getElementById('dlvFlat').value=addr.flat;
@@ -392,7 +392,7 @@ function cq(id,d){
 const i=cart.findIndex(c=>c.id===id);
 if(i<0)return;cart[i].qty+=d;
 if(cart[i].qty<1||cart[i].qty>10)cart.splice(i,1);
-localStorage.setItem('jgmart_c',JSON.stringify(cart));
+JG_DATA_STORE.cart.set(cart);
 rendCart();updFab();rend();
 }
 
@@ -436,7 +436,7 @@ const safeOrder = {
   paymentMethod: pm||'cash'
 };
 // Save address for next visit
-localStorage.setItem('jgmart_addr',JSON.stringify({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph}));
+JG_DATA_STORE.address.set({name:n,building:b,flat:f,slot:s,payment:pm,phone:ph});
 if(!navigator.onLine){
   window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
   toast('📴 Offline — order saved, will send when connected');
@@ -444,7 +444,7 @@ if(!navigator.onLine){
 }
 orders.unshift(safeOrder);
 if(orders.length>50)orders.pop();
-localStorage.setItem('jgmart_ords',JSON.stringify(orders));
+JG_DATA_STORE.orders.set(orders);
 // Try Supabase in background without blocking WhatsApp flow
 if(window.submitOrderToSupabase){
   window.submitOrderToSupabase(safeOrder).catch(err=>console.warn('Supabase order backup failed:', err));
@@ -456,7 +456,7 @@ cart=[];closeCart();rend();
 const cnf=document.createElement('div');cnf.className='cnf';
 for(let i=0;i<20;i++){const s=document.createElement('span');s.style.cssText=`left:${Math.random()*100}%;background:${['#c9a227','#00442D','#25D366','#c0392b'][Math.floor(Math.random()*4)]};animation-delay:${Math.random()*0.5}s`;cnf.appendChild(s);}
 document.body.appendChild(cnf);
-setTimeout(()=>{cnf.remove();localStorage.setItem('jgmart_lastOrd',JSON.stringify(orders[0]));showOrdConf();},2500);
+setTimeout(()=>{cnf.remove();JG_DATA_STORE.lastOrder.set(orders[0]);showOrdConf();},2500);
 }
 
 // ========= QUICK VIEW =========
@@ -496,7 +496,7 @@ document.getElementById('histMo').classList.add('open');
 }
 function closeHist(){document.getElementById('histMo').classList.remove('open');}
 function viewOrd(i){const o=orders[i];alert(`Order ${o.id}\n${o.date} ${o.time}\n${o.items.map(it=>`${it.nm} × ${it.qty} = ৳${it.pr*it.qty}`).join('\n')}\n\nSubtotal: ৳${o.sub}\nDelivery: ৳${o.fee}\nTotal: ৳${o.total}\n📍 ${o.building}, Flat ${o.flat}\n⏰ ${o.slot} · 💳 ${o.payment}`);}
-function clearHist(){if(confirm(lang==='bn'?'ইতিহাস মুছবেন?':'Clear all orders?')){orders=[];localStorage.setItem('jgmart_ords',JSON.stringify(orders));openHist();}}
+function clearHist(){if(confirm(lang==='bn'?'ইতিহাস মুছবেন?':'Clear all orders?')){orders=[];JG_DATA_STORE.orders.set(orders);openHist();}}
 
 // ========= SPECIALS =========
 function loadSpecials(){
@@ -609,7 +609,7 @@ else{prompt('📤 Share this link:',msg);}
 <!-- ========= WHATSAPP NOTIFY INTEGRATION ========= -->
 <script>
 function notifyOrderWhatsApp(){
-  const last = JSON.parse(localStorage.getItem('jgmart_lastOrd')||'{}');
+  const last = JG_DATA_STORE.lastOrder.get() || {};
   if(!last.id) return;
   const phone = '8801870489448';
   const items = (last.items||[]).map(i => `• ${i.nm} ×${i.qty}`).join('\n');

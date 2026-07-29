@@ -2,15 +2,15 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Thursday, July 30, 2026 at 05:34
+Generated: Thursday, July 30, 2026 at 05:45
 Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 1318
-  Total Size:  25.78 MB
+  Total Files: 1322
+  Total Size:  25.79 MB
 
   HTML Files:  43
   Python Files: 15
@@ -20,7 +20,7 @@ Toolkit Path: G:\JGC Mart
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       949 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
+  Other:       953 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -276,7 +276,7 @@ Toolkit Path: G:\JGC Mart
          Viewport:   ✓
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_addr, jgmart_fees, jgmart_lastOrd, jgmart_ords, jgmart_prods, jgmart_promo, jgmart_ref_count, jgmart_specials, jgmart_splash_dismissed
+         localStorage: jgmart_promo, jgmart_ref_count, jgmart_specials, jgmart_splash_dismissed
          WhatsApp:    1x +8801870489448
          Internal Links: 13
 
@@ -303,7 +303,7 @@ Toolkit Path: G:\JGC Mart
          Viewport:   ✓
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_ords
+         localStorage: (none)
          WhatsApp:    (none)
          Internal Links: 0
 
@@ -321,7 +321,7 @@ Toolkit Path: G:\JGC Mart
          Viewport:   ✓
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_ords
+         localStorage: (none)
          WhatsApp:    1x +8801870489448
          Internal Links: 12
 
@@ -366,7 +366,7 @@ Toolkit Path: G:\JGC Mart
          Viewport:   ✓
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_ords
+         localStorage: (none)
          WhatsApp:    (none)
          Internal Links: 0
 
@@ -384,7 +384,7 @@ Toolkit Path: G:\JGC Mart
          Viewport:   ✓
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_ords
+         localStorage: (none)
          WhatsApp:    (none)
          Internal Links: 0
 
@@ -518,24 +518,18 @@ Toolkit Path: G:\JGC Mart
 6. LOCALSTORAGE KEYS ACROSS ALL HTML FILES
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total unique localStorage keys: 25
+  Total unique localStorage keys: 21
 
-  • jgmart_addr
-      → src/web/catalog/index.html
   • jgmart_dashboard_pin
       → ARCHIVE/src_web_dashboard/index.html
   • jgmart_data
       → ARCHIVE/src_web_app/os.html
       → ARCHIVE/src_web_app/start.html
-  • jgmart_fees
-      → src/web/catalog/index.html
   • jgmart_finance
       → ARCHIVE/src_web_app/ops.html
       → ARCHIVE/src_web_app/os.html
   • jgmart_hc_ts
       → src/web/catalog/healthcheck.html
-  • jgmart_lastOrd
-      → src/web/catalog/index.html
   • jgmart_last_backup_date
       → ARCHIVE/src_web_dashboard/backup.html
   • jgmart_launch_checks
@@ -545,14 +539,7 @@ Toolkit Path: G:\JGC Mart
   • jgmart_orders
       → ARCHIVE/src_web_app/os.html
   • jgmart_ords
-      → src/web/catalog/index.html
-      → src/web/catalog/manifest.html
-      → src/web/catalog/myorders.html
-      → src/web/catalog/rider.html
-      → src/web/catalog/track.html
       → src/web/dashboard/index.html
-  • jgmart_prods
-      → src/web/catalog/index.html
   • jgmart_promo
       → src/web/catalog/index.html
   • jgmart_ref_count
@@ -583,8 +570,8 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        1318
-  Total Size:           25.78 MB
+  Files Checked:        1322
+  Total Size:           25.79 MB
 
   HTML Valid:           43/43
   HTML With Issues:     0
@@ -597,7 +584,7 @@ Toolkit Path: G:\JGC Mart
     README:             0 broken references
     Command Center:     0 broken references
 
-  localStorage Keys:    25 unique keys
+  localStorage Keys:    21 unique keys
 
   ╔══════════════════════════════════════════════════╗
   ║  ALL CHECKS PASSED                              ║

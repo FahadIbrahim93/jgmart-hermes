@@ -166,6 +166,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <p style="opacity:.4;margin-top:4px">© 2026 JG Mart</p>
 </div>
 
+<script src="data-store.js"></script>
 <script nonce="gscb6Xp2nALPgenhRE7XtA"
 // ========= HELPERS =========
 function toast(m){
@@ -263,7 +264,7 @@ function setFilter(f){
 }
 
 function render(){
-  const allOrders=JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
+  const allOrders=JG_DATA_STORE.orders.get();
 
   // Update count
   document.getElementById('orderCount').textContent=allOrders.length?`${allOrders.length} order${allOrders.length!==1?'s':''} total`:'No orders';
@@ -378,7 +379,7 @@ function closeDialog(){
 }
 
 function doClearAll(){
-  localStorage.setItem('jgmart_ords','[]');
+  JG_DATA_STORE.orders.set([]);
   closeDialog();
   render();
   toast('🗑 All orders cleared');
@@ -387,7 +388,7 @@ function doClearAll(){
 // ========= WHATSAPP BROADCAST (today's orders) =========
 function broadcastToday(){
   const today = new Date().toLocaleDateString('en-BD');
-  const todayOrders = JSON.parse(localStorage.getItem('jgmart_ords')||'[]').filter(o => o.date === today);
+  const todayOrders = JG_DATA_STORE.orders.get().filter(o => o.date === today);
   
   if(!todayOrders.length){
     toast('No orders today to broadcast');

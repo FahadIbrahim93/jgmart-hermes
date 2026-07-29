@@ -69,9 +69,10 @@ body{background:#fff;padding:0}
 <div id="summaryRow" class="summary"></div>
 <div id="clusters"></div>
 <div class="footer">JG Mart · Fresh Groceries · Japan Garden City · Rider Dispatch</div>
+<script src="data-store.js"></script>
 <script nonce="gscb6Xp2nALPgenhRE7XtA"
 const ESC = (s) => (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
-const ORDERS = JSON.parse(localStorage.getItem('jgmart_ords')||'[]');
+const ORDERS = JG_DATA_STORE.orders.get();
 const todayStr = new Date().toLocaleDateString('en-BD');
 const todayOrders = ORDERS.filter(o => o.date === todayStr && (o.status==='Received ✅' || !o.status));
 const showAll = document.getElementById('showAll').checked;
@@ -184,7 +185,7 @@ function dispatchSelected(){
   const targets = ORDERS.filter(o => o.date === todayStr && (o.status==='Received ✅' || !o.status));
   if(!targets.length){alert('No orders to dispatch.');return;}
   targets.forEach(o => { o.status = 'Picked Up 🚚'; });
-  localStorage.setItem('jgmart_ords', JSON.stringify(ORDERS));
+  JG_DATA_STORE.orders.set(ORDERS);
   toast(`🚚 ${targets.length} orders dispatched to ${rider}`);
   setTimeout(()=>location.reload(), 1200);
 }

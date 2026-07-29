@@ -73,6 +73,7 @@ body{background:#fff}
 
 </div>
 
+<script src="data-store.js"></script>
 <script nonce="gscb6Xp2nALPgenhRE7XtA"
 const DEMO_ORDERS = [
   {id:'JG-DEMO1',name:'Sara Ahmed',building:'B5',flat:'3A',slot:'Morning',status:'received',date:'29 Jul 2026',time:'10:30 AM',items:['Premium Miniket Rice ×2','Farm Eggs ×1','Ruhi Fish ×1'],total:1266,eta:'Today, 12:30 PM'},
@@ -176,7 +177,7 @@ function lookup(){
   const demo = DEMO_ORDERS.find(o => o.id === id);
   if(demo){renderOrder(demo);return;}
   
-  const orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  const orders = JG_DATA_STORE.orders.get();
   const order = orders.find(o => o.id && o.id.toUpperCase() === id);
   if(order){renderOrder({...order, items: order.items?.map(i=>`${i.nm} ×${i.qty}`) || [], eta: order.eta || ''});return;}
   

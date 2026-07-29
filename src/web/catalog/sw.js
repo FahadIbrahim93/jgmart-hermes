@@ -1,4 +1,4 @@
-const CACHE = 'jgmart-v4';
+const CACHE = 'jgmart-v5';
 const FILES = [
   './',
   './index.html',
@@ -17,12 +17,14 @@ const FILES = [
   './404.html',
   './manifest.json',
   './favicon.svg',
+  './catalog_data.json',
   './supabase/config.js',
   './defaults.js',
   './security.js',
   './catalog-init.js',
   './db.js',
   './offline-queue.js',
+  './data-store.js',
   './sw.js',
   './images/placeholder.svg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
