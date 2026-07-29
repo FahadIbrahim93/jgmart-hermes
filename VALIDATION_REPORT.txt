@@ -2,17 +2,17 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Wednesday, July 29, 2026 at 21:22
+Generated: Wednesday, July 29, 2026 at 21:30
 Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 687
-  Total Size:  5.31 MB
+  Total Files: 700
+  Total Size:  5.33 MB
 
-  HTML Files:  37
+  HTML Files:  36
   Python Files: 12
   CSV Files:   11
   TXT Files:   80
@@ -20,20 +20,11 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
   SVG Files:   14
   XLSX Files:  2
   BAT Files:   4
-  Other:       512 files (md, (no ext), toml, sample, yml, png, js, docx, pdf, pptx, css, xml, sql)
+  Other:       526 files (md, (no ext), toml, sample, yml, png, js, docx, pdf, pptx, css, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
 ═══════════════════════════════════════════════════════════════════════════════
-
-  [PASS] ARCHIVE/src_web_admin_new/index.html
-         DOCTYPE:    ✓
-         Viewport:   ✓
-         Theme-Color: ✓
-         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: (none)
-         WhatsApp:    (none)
-         Internal Links: 1
 
   [PASS] ARCHIVE/src_web_app/data.html
          DOCTYPE:    ✓
@@ -258,7 +249,7 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: (none)
          WhatsApp:    (none)
-         Internal Links: 2
+         Internal Links: 1
 
   [PASS] src/web/catalog/healthcheck.html
          DOCTYPE:    ✓
@@ -504,10 +495,10 @@ Toolkit Path: G:\JGC Mart\JGC Mart - Hermes
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        687
-  Total Size:           5.31 MB
+  Files Checked:        700
+  Total Size:           5.33 MB
 
-  HTML Valid:           37/37
+  HTML Valid:           36/36
   HTML With Issues:     0
   Python Valid:         12/12
   Python Warnings:      0
