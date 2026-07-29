@@ -46,12 +46,28 @@ def _c(code, text):
     return text
 
 
-def green(t): return _c("32", t)
-def yellow(t): return _c("33", t)
-def red(t): return _c("31", t)
-def cyan(t): return _c("36", t)
-def bold(t): return _c("1", t)
-def dim(t): return _c("2", t)
+def green(t):
+    return _c("32", t)
+
+
+def yellow(t):
+    return _c("33", t)
+
+
+def red(t):
+    return _c("31", t)
+
+
+def cyan(t):
+    return _c("36", t)
+
+
+def bold(t):
+    return _c("1", t)
+
+
+def dim(t):
+    return _c("2", t)
 
 
 def fmt_taka(amount):
@@ -133,9 +149,13 @@ def parse_orders(raw):
             continue
         entry = {
             "id": o.get("id") or o.get("order_id") or o.get("orderId", ""),
-            "customer": o.get("customer") or o.get("customer_name") or o.get("customerName", ""),
+            "customer": o.get("customer")
+            or o.get("customer_name")
+            or o.get("customerName", ""),
             "status": o.get("status", "").lower().strip(),
-            "total": _parse_number(o.get("total") or o.get("amount") or o.get("revenue") or 0),
+            "total": _parse_number(
+                o.get("total") or o.get("amount") or o.get("revenue") or 0
+            ),
             "items": o.get("items") or o.get("products") or [],
         }
         normalised.append(entry)
@@ -197,11 +217,30 @@ def parse_finance(raw):
         src = raw.get("finance") or raw.get("financials") or raw.get("finances") or raw
         if isinstance(src, dict):
             return {
-                "revenue_today": _parse_number(src.get("revenue_today") or src.get("revenueToday") or src.get("revenue")),
-                "costs_today": _parse_number(src.get("costs_today") or src.get("costsToday") or src.get("costs") or src.get("expenses")),
-                "profit_today": _parse_number(src.get("profit_today") or src.get("profitToday") or src.get("profit")),
-                "month_to_date": _parse_number(src.get("month_to_date") or src.get("monthToDate") or src.get("mtd")),
-                "cash_position": _parse_number(src.get("cash_position") or src.get("cashPosition") or src.get("cash")),
+                "revenue_today": _parse_number(
+                    src.get("revenue_today")
+                    or src.get("revenueToday")
+                    or src.get("revenue")
+                ),
+                "costs_today": _parse_number(
+                    src.get("costs_today")
+                    or src.get("costsToday")
+                    or src.get("costs")
+                    or src.get("expenses")
+                ),
+                "profit_today": _parse_number(
+                    src.get("profit_today")
+                    or src.get("profitToday")
+                    or src.get("profit")
+                ),
+                "month_to_date": _parse_number(
+                    src.get("month_to_date") or src.get("monthToDate") or src.get("mtd")
+                ),
+                "cash_position": _parse_number(
+                    src.get("cash_position")
+                    or src.get("cashPosition")
+                    or src.get("cash")
+                ),
             }
     return None
 
@@ -251,7 +290,11 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
     finances = parse_finance(finance_raw if finance_raw else data_raw)
 
     # ── Header ────────────────────────────────────────────────────────
-    date_str = report_date.strftime("%Y-%m-%d") if isinstance(report_date, date) else str(report_date)
+    date_str = (
+        report_date.strftime("%Y-%m-%d")
+        if isinstance(report_date, date)
+        else str(report_date)
+    )
     lines.append("")
     lines.append(bold("JG MART — DAILY SUMMARY"))
     lines.append(f"Date: {date_str}")
@@ -263,8 +306,12 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
 
     if orders:
         total_orders = len(orders)
-        delivered = sum(1 for o in orders if o["status"] in ("delivered", "completed", "done"))
-        pending = sum(1 for o in orders if o["status"] in ("pending", "processing", "new"))
+        delivered = sum(
+            1 for o in orders if o["status"] in ("delivered", "completed", "done")
+        )
+        pending = sum(
+            1 for o in orders if o["status"] in ("pending", "processing", "new")
+        )
         cancelled = sum(1 for o in orders if o["status"] in ("cancelled", "canceled"))
         other = total_orders - delivered - pending - cancelled
 
@@ -274,7 +321,9 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
         delivered_pct = delivered / total_orders * 100 if total_orders else 0
 
         lines.append(f"  Total Today:      {total_orders}")
-        lines.append(f"  Delivered:        {delivered} {green(f'({delivered_pct:.0f}%)')}")
+        lines.append(
+            f"  Delivered:        {delivered} {green(f'({delivered_pct:.0f}%)')}"
+        )
         if pending:
             lines.append(f"  Pending:          {yellow(str(pending))}")
         if cancelled:
@@ -335,12 +384,17 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
     lines.append(bold("👥 CUSTOMERS"))
 
     if customers:
-        active = [c for c in customers if str(c.get("active", "true")).lower() == "true" or c.get("active") is True]
+        active = [
+            c
+            for c in customers
+            if str(c.get("active", "true")).lower() == "true" or c.get("active") is True
+        ]
         total_active = len(active)
 
         # New customers today — check if there's a 'created' or 'joined' field
         new_today = sum(
-            1 for c in customers
+            1
+            for c in customers
             if c.get("created") == date_str
             or c.get("joined") == date_str
             or c.get("created_at", "").startswith(date_str)
@@ -352,11 +406,15 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
             c.get("building") or c.get("building_name") or c.get("area") or "Unknown"
             for c in active
         )
-        top_building, top_b_count = buildings.most_common(1)[0] if buildings else ("N/A", 0)
+        top_building, top_b_count = (
+            buildings.most_common(1)[0] if buildings else ("N/A", 0)
+        )
 
         lines.append(f"  Total Active:     {total_active}")
         lines.append(f"  New Today:        {new_today}")
-        lines.append(f"  Top Location:     {top_building} ({top_b_count} {'customer' if top_b_count == 1 else 'customers'})")
+        lines.append(
+            f"  Top Location:     {top_building} ({top_b_count} {'customer' if top_b_count == 1 else 'customers'})"
+        )
     else:
         lines.append(dim("  No customer data available."))
 
@@ -367,7 +425,12 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
         name_to_building = {}
         for c in customers:
             name = (c.get("name") or c.get("customer_name") or "").strip().lower()
-            bldg = c.get("building") or c.get("building_name") or c.get("area") or "Unknown"
+            bldg = (
+                c.get("building")
+                or c.get("building_name")
+                or c.get("area")
+                or "Unknown"
+            )
             if name:
                 name_to_building[name] = bldg
 
@@ -403,12 +466,19 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
             if orders:
                 # Check order items for partner name
                 for o in orders:
-                    for item in (o.get("items") or []):
-                        item_source = (item.get("supplier") or item.get("vendor") or item.get("partner") or "").lower()
+                    for item in o.get("items") or []:
+                        item_source = (
+                            item.get("supplier")
+                            or item.get("vendor")
+                            or item.get("partner")
+                            or ""
+                        ).lower()
                         if name.lower() in item_source or item_source in name.lower():
                             partner_orders[name] += 1
 
-        cat_str = ", ".join(f"{cat} {count}" for cat, count in category_counts.most_common())
+        cat_str = ", ".join(
+            f"{cat} {count}" for cat, count in category_counts.most_common()
+        )
         lines.append(f"  Partners:         {cat_str}")
 
         if partner_orders:
@@ -430,9 +500,17 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
     if orders:
         product_units = Counter()
         for o in orders:
-            for item in (o.get("items") or []):
-                prod_name = item.get("name") or item.get("product") or item.get("product_name") or item.get("item") or ""
-                qty = _parse_number(item.get("qty") or item.get("quantity") or item.get("count") or 1)
+            for item in o.get("items") or []:
+                prod_name = (
+                    item.get("name")
+                    or item.get("product")
+                    or item.get("product_name")
+                    or item.get("item")
+                    or ""
+                )
+                qty = _parse_number(
+                    item.get("qty") or item.get("quantity") or item.get("count") or 1
+                )
                 unit = item.get("unit") or ""
                 key = f"{prod_name} — {qty} {unit}".strip(" —")
                 if prod_name:
@@ -459,24 +537,34 @@ def generate_report(data_raw, orders_raw, finance_raw, report_date):
     has_actions = False
 
     if orders:
-        pending_orders = [o for o in orders if o["status"] in ("pending", "processing", "new")]
+        pending_orders = [
+            o for o in orders if o["status"] in ("pending", "processing", "new")
+        ]
         if pending_orders:
             lines.append(f"  • {len(pending_orders)} order(s) still pending delivery")
             has_actions = True
 
     if customers and orders:
         # Check for customers who ordered but aren't in the customer list
-        order_names = set((o.get("customer") or "").strip().lower() for o in orders if o.get("customer"))
+        order_names = set(
+            (o.get("customer") or "").strip().lower()
+            for o in orders
+            if o.get("customer")
+        )
         known_names = set((c.get("name") or "").strip().lower() for c in customers)
         new_names = order_names - known_names
         if new_names:
-            lines.append(f"  • {len(new_names)} new customer(s) not yet in directory: {', '.join(sorted(new_names)[:3])}")
+            lines.append(
+                f"  • {len(new_names)} new customer(s) not yet in directory: {', '.join(sorted(new_names)[:3])}"
+            )
             has_actions = True
 
     if finances:
         cash = finances.get("cash_position")
         if cash is not None and cash < 50000:
-            lines.append(f"  • Low cash position ({fmt_taka(cash)}) — consider injection")
+            lines.append(
+                f"  • Low cash position ({fmt_taka(cash)}) — consider injection"
+            )
             has_actions = True
 
     if not has_actions:
@@ -502,22 +590,97 @@ def generate_sample_files(date_str):
 
     sample_data = {
         "customers": [
-            {"name": "Rafiq", "building": "Bldg 3", "active": True, "joined": "2026-07-15"},
-            {"name": "Nusrat", "building": "Bldg 3", "active": True, "joined": "2026-06-01"},
+            {
+                "name": "Rafiq",
+                "building": "Bldg 3",
+                "active": True,
+                "joined": "2026-07-15",
+            },
+            {
+                "name": "Nusrat",
+                "building": "Bldg 3",
+                "active": True,
+                "joined": "2026-06-01",
+            },
             {"name": "Kabir", "building": "Bldg 1", "active": True, "joined": date_str},
-            {"name": "Shamim", "building": "Bldg 5", "active": True, "joined": "2026-05-20"},
-            {"name": "Fatima", "building": "Bldg 2", "active": True, "joined": date_str},
-            {"name": "Hasan", "building": "Bldg 3", "active": True, "joined": "2026-04-10"},
-            {"name": "Jahanara", "building": "Bldg 4", "active": True, "joined": "2026-06-15"},
-            {"name": "Anik", "building": "Bldg 6", "active": False, "joined": "2026-03-01"},
-            {"name": "Tania", "building": "Bldg 2", "active": True, "joined": "2026-07-01"},
-            {"name": "Shahid", "building": "Bldg 1", "active": True, "joined": "2026-05-10"},
-            {"name": "Parvin", "building": "Bldg 3", "active": True, "joined": "2026-07-20"},
-            {"name": "Rashed", "building": "Bldg 5", "active": True, "joined": "2026-04-22"},
-            {"name": "Nazma", "building": "Bldg 4", "active": True, "joined": "2026-06-05"},
-            {"name": "Foysal", "building": "Bldg 7", "active": True, "joined": date_str},
-            {"name": "Selina", "building": "Bldg 2", "active": False, "joined": "2026-02-15"},
-            {"name": "Mizan", "building": "Bldg 3", "active": True, "joined": "2026-05-25"},
+            {
+                "name": "Shamim",
+                "building": "Bldg 5",
+                "active": True,
+                "joined": "2026-05-20",
+            },
+            {
+                "name": "Fatima",
+                "building": "Bldg 2",
+                "active": True,
+                "joined": date_str,
+            },
+            {
+                "name": "Hasan",
+                "building": "Bldg 3",
+                "active": True,
+                "joined": "2026-04-10",
+            },
+            {
+                "name": "Jahanara",
+                "building": "Bldg 4",
+                "active": True,
+                "joined": "2026-06-15",
+            },
+            {
+                "name": "Anik",
+                "building": "Bldg 6",
+                "active": False,
+                "joined": "2026-03-01",
+            },
+            {
+                "name": "Tania",
+                "building": "Bldg 2",
+                "active": True,
+                "joined": "2026-07-01",
+            },
+            {
+                "name": "Shahid",
+                "building": "Bldg 1",
+                "active": True,
+                "joined": "2026-05-10",
+            },
+            {
+                "name": "Parvin",
+                "building": "Bldg 3",
+                "active": True,
+                "joined": "2026-07-20",
+            },
+            {
+                "name": "Rashed",
+                "building": "Bldg 5",
+                "active": True,
+                "joined": "2026-04-22",
+            },
+            {
+                "name": "Nazma",
+                "building": "Bldg 4",
+                "active": True,
+                "joined": "2026-06-05",
+            },
+            {
+                "name": "Foysal",
+                "building": "Bldg 7",
+                "active": True,
+                "joined": date_str,
+            },
+            {
+                "name": "Selina",
+                "building": "Bldg 2",
+                "active": False,
+                "joined": "2026-02-15",
+            },
+            {
+                "name": "Mizan",
+                "building": "Bldg 3",
+                "active": True,
+                "joined": "2026-05-25",
+            },
         ],
         "partners": [
             {"name": "Rice House", "category": "Rice", "active": True},
@@ -547,30 +710,117 @@ def generate_sample_files(date_str):
 
     sample_orders = {
         "orders": [
-            {"id": "ORD-001", "customer": "Rafiq", "status": "delivered", "total": 850,
-             "items": [{"name": "Chinigura Rice", "qty": 2, "unit": "kg"}, {"name": "Potato", "qty": 1, "unit": "kg"}]},
-            {"id": "ORD-002", "customer": "Nusrat", "status": "delivered", "total": 1200,
-             "items": [{"name": "Eggs", "qty": 2, "unit": "dozen"}, {"name": "Chicken", "qty": 1, "unit": "kg"}]},
-            {"id": "ORD-003", "customer": "Kabir", "status": "delivered", "total": 450,
-             "items": [{"name": "Eggs", "qty": 1, "unit": "dozen"}, {"name": "Bread", "qty": 2, "unit": "pack"}]},
-            {"id": "ORD-004", "customer": "Shamim", "status": "delivered", "total": 780,
-             "items": [{"name": "Chinigura Rice", "qty": 3, "unit": "kg"}]},
-            {"id": "ORD-005", "customer": "Fatima", "status": "delivered", "total": 620,
-             "items": [{"name": "Fish (Rui)", "qty": 1, "unit": "kg"}, {"name": "Potato", "qty": 2, "unit": "kg"}]},
-            {"id": "ORD-006", "customer": "Hasan", "status": "pending", "total": 340,
-             "items": [{"name": "Eggs", "qty": 1, "unit": "dozen"}]},
-            {"id": "ORD-007", "customer": "Jahanara", "status": "delivered", "total": 950,
-             "items": [{"name": "Chinigura Rice", "qty": 2, "unit": "kg"}, {"name": "Chicken", "qty": 1, "unit": "kg"}]},
-            {"id": "ORD-008", "customer": "Tania", "status": "delivered", "total": 520,
-             "items": [{"name": "Beef", "qty": 0.5, "unit": "kg"}, {"name": "Potato", "qty": 1, "unit": "kg"}]},
-            {"id": "ORD-009", "customer": "Shahid", "status": "delivered", "total": 1100,
-             "items": [{"name": "Chinigura Rice", "qty": 4, "unit": "kg"}]},
-            {"id": "ORD-010", "customer": "Parvin", "status": "pending", "total": 680,
-             "items": [{"name": "Fish (Rui)", "qty": 1, "unit": "kg"}, {"name": "Eggs", "qty": 1, "unit": "dozen"}]},
-            {"id": "ORD-011", "customer": "Rashed", "status": "delivered", "total": 870,
-             "items": [{"name": "Chicken", "qty": 2, "unit": "kg"}, {"name": "Rice (Miniket)", "qty": 1, "unit": "kg"}]},
-            {"id": "ORD-012", "customer": "Foysal", "status": "delivered", "total": 1290,
-             "items": [{"name": "Chinigura Rice", "qty": 5, "unit": "kg"}, {"name": "Beef", "qty": 1, "unit": "kg"}]},
+            {
+                "id": "ORD-001",
+                "customer": "Rafiq",
+                "status": "delivered",
+                "total": 850,
+                "items": [
+                    {"name": "Chinigura Rice", "qty": 2, "unit": "kg"},
+                    {"name": "Potato", "qty": 1, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-002",
+                "customer": "Nusrat",
+                "status": "delivered",
+                "total": 1200,
+                "items": [
+                    {"name": "Eggs", "qty": 2, "unit": "dozen"},
+                    {"name": "Chicken", "qty": 1, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-003",
+                "customer": "Kabir",
+                "status": "delivered",
+                "total": 450,
+                "items": [
+                    {"name": "Eggs", "qty": 1, "unit": "dozen"},
+                    {"name": "Bread", "qty": 2, "unit": "pack"},
+                ],
+            },
+            {
+                "id": "ORD-004",
+                "customer": "Shamim",
+                "status": "delivered",
+                "total": 780,
+                "items": [{"name": "Chinigura Rice", "qty": 3, "unit": "kg"}],
+            },
+            {
+                "id": "ORD-005",
+                "customer": "Fatima",
+                "status": "delivered",
+                "total": 620,
+                "items": [
+                    {"name": "Fish (Rui)", "qty": 1, "unit": "kg"},
+                    {"name": "Potato", "qty": 2, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-006",
+                "customer": "Hasan",
+                "status": "pending",
+                "total": 340,
+                "items": [{"name": "Eggs", "qty": 1, "unit": "dozen"}],
+            },
+            {
+                "id": "ORD-007",
+                "customer": "Jahanara",
+                "status": "delivered",
+                "total": 950,
+                "items": [
+                    {"name": "Chinigura Rice", "qty": 2, "unit": "kg"},
+                    {"name": "Chicken", "qty": 1, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-008",
+                "customer": "Tania",
+                "status": "delivered",
+                "total": 520,
+                "items": [
+                    {"name": "Beef", "qty": 0.5, "unit": "kg"},
+                    {"name": "Potato", "qty": 1, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-009",
+                "customer": "Shahid",
+                "status": "delivered",
+                "total": 1100,
+                "items": [{"name": "Chinigura Rice", "qty": 4, "unit": "kg"}],
+            },
+            {
+                "id": "ORD-010",
+                "customer": "Parvin",
+                "status": "pending",
+                "total": 680,
+                "items": [
+                    {"name": "Fish (Rui)", "qty": 1, "unit": "kg"},
+                    {"name": "Eggs", "qty": 1, "unit": "dozen"},
+                ],
+            },
+            {
+                "id": "ORD-011",
+                "customer": "Rashed",
+                "status": "delivered",
+                "total": 870,
+                "items": [
+                    {"name": "Chicken", "qty": 2, "unit": "kg"},
+                    {"name": "Rice (Miniket)", "qty": 1, "unit": "kg"},
+                ],
+            },
+            {
+                "id": "ORD-012",
+                "customer": "Foysal",
+                "status": "delivered",
+                "total": 1290,
+                "items": [
+                    {"name": "Chinigura Rice", "qty": 5, "unit": "kg"},
+                    {"name": "Beef", "qty": 1, "unit": "kg"},
+                ],
+            },
         ]
     }
 
@@ -614,17 +864,37 @@ Examples:
     )
 
     # File arguments
-    parser.add_argument("--data", metavar="FILE", help="Path to data JSON (customers, partners, settings)")
+    parser.add_argument(
+        "--data",
+        metavar="FILE",
+        help="Path to data JSON (customers, partners, settings)",
+    )
     parser.add_argument("--orders", metavar="FILE", help="Path to orders JSON")
-    parser.add_argument("--finance", metavar="FILE", help="Path to finance JSON (optional — data.html may embed it)")
+    parser.add_argument(
+        "--finance",
+        metavar="FILE",
+        help="Path to finance JSON (optional — data.html may embed it)",
+    )
 
     # Convenience flags
-    parser.add_argument("--date", metavar="YYYY-MM-DD", help="Date for auto-file lookup (e.g. 2026-08-01)")
-    parser.add_argument("--today", action="store_true", help="Use today's date for auto-file lookup")
+    parser.add_argument(
+        "--date",
+        metavar="YYYY-MM-DD",
+        help="Date for auto-file lookup (e.g. 2026-08-01)",
+    )
+    parser.add_argument(
+        "--today", action="store_true", help="Use today's date for auto-file lookup"
+    )
 
     # Utility
-    parser.add_argument("--sample", metavar="YYYY-MM-DD", help="Generate sample JSON files for a given date")
-    parser.add_argument("--no-color", action="store_true", help="Disable ANSI colour output")
+    parser.add_argument(
+        "--sample",
+        metavar="YYYY-MM-DD",
+        help="Generate sample JSON files for a given date",
+    )
+    parser.add_argument(
+        "--no-color", action="store_true", help="Disable ANSI colour output"
+    )
 
     return parser.parse_args(argv)
 
@@ -698,7 +968,9 @@ def main():
         print(yellow(f"\n  ⚠  No files found for date: {date_str}"))
         print(f"  Expected in: {EXPORT_DIR}/")
         print(f"  Tried prefixes: {DATA_PREFIX}, {ORDERS_PREFIX}, {FINANCE_PREFIX}")
-        print(f"\n  Generate sample files with:  python daily_summary.py --sample {date_str}\n")
+        print(
+            f"\n  Generate sample files with:  python daily_summary.py --sample {date_str}\n"
+        )
         sys.exit(1)
 
     data_raw = load_json(data_path) if data_path else None
@@ -718,9 +990,12 @@ def main():
                     try:
                         # Pull YYYY-MM-DD from filename
                         import re
+
                         m = re.search(r"(\d{4}-\d{2}-\d{2})", str(p))
                         if m:
-                            report_date = datetime.strptime(m.group(1), "%Y-%m-%d").date()
+                            report_date = datetime.strptime(
+                                m.group(1), "%Y-%m-%d"
+                            ).date()
                             break
                     except ValueError:
                         continue

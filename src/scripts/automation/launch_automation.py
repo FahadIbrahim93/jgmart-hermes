@@ -143,7 +143,9 @@ TODAY'S PRIORITY TASKS
 
 """
     for i, task in enumerate(day_data["tasks"], 1):
-        content += f"[ ] Task {i}: {task}\n        Status: ______    Time Spent: ______\n\n"
+        content += (
+            f"[ ] Task {i}: {task}\n        Status: ______    Time Spent: ______\n\n"
+        )
 
     content += """═══════════════════════════════════════════════════════════════════════════════
 BLOCKERS & ISSUES
@@ -159,7 +161,11 @@ Blocker 2: _________________________________________________
 TOMORROW'S PREVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 """
-    next_day = get_day_tasks(day + 1) if day < 7 else {"theme": "Launch", "tasks": ["Soft launch to Cluster 1"]}
+    next_day = (
+        get_day_tasks(day + 1)
+        if day < 7
+        else {"theme": "Launch", "tasks": ["Soft launch to Cluster 1"]}
+    )
     for i, task in enumerate(next_day["tasks"][:3], 1):
         content += f"{i}. {task}\n"
 
@@ -231,14 +237,38 @@ WhatsApp: {CONFIG['whatsapp_number']}
 def generate_whatsapp_config() -> str:
     """Generate WhatsApp Business quick reply configuration."""
     quick_replies = [
-        ("/greeting", "Assalamu Alaikum! Welcome to JG Mart 🌿\n\nJapan Garden City's freshest grocery delivery.\n\n🛒 HOW TO ORDER:\nSimply send your list like this:\n\"1kg Chinigura rice, 500g dal, 2L oil, 1kg potato\"\n\n⏰ DELIVERY SLOTS:\n• Morning: Order by 9AM → Deliver 12PM\n• Evening: Order by 3:30PM → Deliver 8PM\n\n💰 PAYMENT: Cash on delivery or bKash\n🚚 DELIVERY FEE: 30 BDT (FREE for first order!)\n📍 We deliver to all buildings in Japan Garden City\n\nReply with your list to place your first order!"),
-        ("/order", "HOW TO ORDER IN 3 STEPS:\n\n1️⃣ Send your list on WhatsApp\n   Example: \"1kg rice, 500g dal, 2L oil, 1kg potato\"\n\n2️⃣ We confirm your total\n   Estimated: 450-520 BDT\n   Exact total confirmed by 9:15AM / 3:45PM\n\n3️⃣ We deliver\n   12PM or 8PM slot\n   Cash on delivery or bKash\n\nThat's it! No app needed. 🚚"),
-        ("/slots", "DELIVERY SLOTS:\n\n☀️ MORNING SLOT\n   Order by: 9:00 AM\n   Deliver by: 12:00 PM\n\n🌙 EVENING SLOT\n   Order by: 3:30 PM\n   Deliver by: 8:00 PM\n\n💡 TIP: Order the night before for morning slot!\n\nDelivery fees:\n• Cluster 1-2 (Bldg 1-13): FREE\n• Cluster 3 (Bldg 14-20): 20 BDT\n• Cluster 4 (Bldg 21-27): 30 BDT"),
-        ("/payment", "PAYMENT OPTIONS:\n\n💵 Cash on Delivery (COD)\n   Pay when you receive your order\n\n📱 bKash\n   Send to: {CONFIG['whatsapp_number']}\n   Type: Send Money / Payment\n\nAfter bKash payment, reply PAID and we'll confirm.\n\n🔒 All payments are secure.\n📞 Questions? Call/WhatsApp: {CONFIG['whatsapp_number']}"),
-        ("/subscribe", "🌟 JG MART PREMIUM\n\nJust 149 BDT/month for:\n\n✅ FREE delivery on ALL orders (save 30 BDT each!)\n✅ Priority delivery slots\n✅ 5% discount on every order\n✅ Exclusive deals & early access\n✅ Dedicated support\n\n💡 If you order 2+ times per week, this pays for itself!\n\nTo subscribe: Send 'SUBSCRIBE' and pay 149 BDT via bKash.\nCancel anytime. No questions asked."),
-        ("/refer", "🎉 REFER & EARN!\n\nYour referral code: JG[CUSTOMERCODE]\n\nShare this with neighbours:\n\"Hey! I use JG Mart for grocery delivery from Krishi Market.\nUse my code JG[CODE] and we BOTH get 100 BDT credit!\nWhatsApp: {CONFIG['whatsapp_number']}\"\n\n✅ You get: 100 BDT credit\n✅ They get: 100 BDT credit\n\nNo limit! Refer 10 friends = 1,000 BDT 💰"),
-        ("/track", "📦 ORDER STATUS CHECK\n\nPlease share your order number (e.g., JG00123) and I'll check the status for you.\n\nOr if you haven't ordered yet, send your list and we'll get started! 🛒"),
-        ("/catalog", "🛒 TODAY'S CATALOG\n\nAvailable now from Krishi Market:\n\n🍚 Rice & Dal — Premium Chinigura, Moshur Dal\n🫒 Oil & Spices — Soybean, Mustard, Sunflower\n🥬 Vegetables — Fresh potato, tomato, onion, seasonal\n🐟 Fish — Hilsha, Rui, Katla (morning catch)\n🍗 Meat — Halal chicken, beef\n🥚 Dairy — Fresh milk, eggs\n🧼 FMCG — Soap, detergent, essentials\n\nSend your list and we'll confirm prices! 📱"),
+        (
+            "/greeting",
+            'Assalamu Alaikum! Welcome to JG Mart 🌿\n\nJapan Garden City\'s freshest grocery delivery.\n\n🛒 HOW TO ORDER:\nSimply send your list like this:\n"1kg Chinigura rice, 500g dal, 2L oil, 1kg potato"\n\n⏰ DELIVERY SLOTS:\n• Morning: Order by 9AM → Deliver 12PM\n• Evening: Order by 3:30PM → Deliver 8PM\n\n💰 PAYMENT: Cash on delivery or bKash\n🚚 DELIVERY FEE: 30 BDT (FREE for first order!)\n📍 We deliver to all buildings in Japan Garden City\n\nReply with your list to place your first order!',
+        ),
+        (
+            "/order",
+            'HOW TO ORDER IN 3 STEPS:\n\n1️⃣ Send your list on WhatsApp\n   Example: "1kg rice, 500g dal, 2L oil, 1kg potato"\n\n2️⃣ We confirm your total\n   Estimated: 450-520 BDT\n   Exact total confirmed by 9:15AM / 3:45PM\n\n3️⃣ We deliver\n   12PM or 8PM slot\n   Cash on delivery or bKash\n\nThat\'s it! No app needed. 🚚',
+        ),
+        (
+            "/slots",
+            "DELIVERY SLOTS:\n\n☀️ MORNING SLOT\n   Order by: 9:00 AM\n   Deliver by: 12:00 PM\n\n🌙 EVENING SLOT\n   Order by: 3:30 PM\n   Deliver by: 8:00 PM\n\n💡 TIP: Order the night before for morning slot!\n\nDelivery fees:\n• Cluster 1-2 (Bldg 1-13): FREE\n• Cluster 3 (Bldg 14-20): 20 BDT\n• Cluster 4 (Bldg 21-27): 30 BDT",
+        ),
+        (
+            "/payment",
+            "PAYMENT OPTIONS:\n\n💵 Cash on Delivery (COD)\n   Pay when you receive your order\n\n📱 bKash\n   Send to: {CONFIG['whatsapp_number']}\n   Type: Send Money / Payment\n\nAfter bKash payment, reply PAID and we'll confirm.\n\n🔒 All payments are secure.\n📞 Questions? Call/WhatsApp: {CONFIG['whatsapp_number']}",
+        ),
+        (
+            "/subscribe",
+            "🌟 JG MART PREMIUM\n\nJust 149 BDT/month for:\n\n✅ FREE delivery on ALL orders (save 30 BDT each!)\n✅ Priority delivery slots\n✅ 5% discount on every order\n✅ Exclusive deals & early access\n✅ Dedicated support\n\n💡 If you order 2+ times per week, this pays for itself!\n\nTo subscribe: Send 'SUBSCRIBE' and pay 149 BDT via bKash.\nCancel anytime. No questions asked.",
+        ),
+        (
+            "/refer",
+            "🎉 REFER & EARN!\n\nYour referral code: JG[CUSTOMERCODE]\n\nShare this with neighbours:\n\"Hey! I use JG Mart for grocery delivery from Krishi Market.\nUse my code JG[CODE] and we BOTH get 100 BDT credit!\nWhatsApp: {CONFIG['whatsapp_number']}\"\n\n✅ You get: 100 BDT credit\n✅ They get: 100 BDT credit\n\nNo limit! Refer 10 friends = 1,000 BDT 💰",
+        ),
+        (
+            "/track",
+            "📦 ORDER STATUS CHECK\n\nPlease share your order number (e.g., JG00123) and I'll check the status for you.\n\nOr if you haven't ordered yet, send your list and we'll get started! 🛒",
+        ),
+        (
+            "/catalog",
+            "🛒 TODAY'S CATALOG\n\nAvailable now from Krishi Market:\n\n🍚 Rice & Dal — Premium Chinigura, Moshur Dal\n🫒 Oil & Spices — Soybean, Mustard, Sunflower\n🥬 Vegetables — Fresh potato, tomato, onion, seasonal\n🐟 Fish — Hilsha, Rui, Katla (morning catch)\n🍗 Meat — Halal chicken, beef\n🥚 Dairy — Fresh milk, eggs\n🧼 FMCG — Soap, detergent, essentials\n\nSend your list and we'll confirm prices! 📱",
+        ),
     ]
 
     content = """╔═══════════════════════════════════════════════════════════════════════════════╗

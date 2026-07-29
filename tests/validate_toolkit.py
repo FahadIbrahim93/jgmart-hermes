@@ -26,7 +26,12 @@ TOOLKIT_DIR = Path(__file__).resolve().parent.parent
 REPORT_PATH = TOOLKIT_DIR / "VALIDATION_REPORT.txt"
 WHATSAPP_NUMBER = "+8801870489448"
 STORAGE_PREFIXES = ("jgmart_", "jgcmart_", "wizard_", "jg_")
-REQUIRED_TAG_PAIRS = [("html", "html"), ("head", "head"), ("body", "body"), ("script", "script")]
+REQUIRED_TAG_PAIRS = [
+    ("html", "html"),
+    ("head", "head"),
+    ("body", "body"),
+    ("script", "script"),
+]
 
 EXCLUDED_FROM_MASTER_INDEX = {
     "09_Data_Export/launch_outputs",
@@ -93,8 +98,20 @@ class TagPairChecker:
         stack = []
         tag_re = re.compile(r"</?(\w+)[^>]*>")
         void_elements = {
-            "area", "base", "br", "col", "embed", "hr", "img", "input",
-            "link", "meta", "param", "source", "track", "wbr",
+            "area",
+            "base",
+            "br",
+            "col",
+            "embed",
+            "hr",
+            "img",
+            "input",
+            "link",
+            "meta",
+            "param",
+            "source",
+            "track",
+            "wbr",
         }
 
         for match in tag_re.finditer(self.raw):
@@ -164,12 +181,12 @@ def check_html_file(rel_path, abs_path):
         return result
 
     result["has_doctype"] = bool(re.search(r"<!DOCTYPE\s+html", raw, re.IGNORECASE))
-    result["has_viewport"] = bool(re.search(
-        r'<meta[^>]*name=["\']viewport["\']', raw, re.IGNORECASE
-    ))
-    result["has_theme_color"] = bool(re.search(
-        r'<meta[^>]*name=["\']theme-color["\']', raw, re.IGNORECASE
-    ))
+    result["has_viewport"] = bool(
+        re.search(r'<meta[^>]*name=["\']viewport["\']', raw, re.IGNORECASE)
+    )
+    result["has_theme_color"] = bool(
+        re.search(r'<meta[^>]*name=["\']theme-color["\']', raw, re.IGNORECASE)
+    )
 
     # Tag pair checks
     tpc = TagPairChecker(raw, REQUIRED_TAG_PAIRS)
@@ -218,7 +235,9 @@ def check_python_file(rel_path, abs_path):
         result["syntax_error"] = f"Cannot read file: {e}"
         return result
 
-    result["has_shebang"] = raw.startswith("#!/usr/bin/env python3") or raw.startswith("#!/usr/bin/python3")
+    result["has_shebang"] = raw.startswith("#!/usr/bin/env python3") or raw.startswith(
+        "#!/usr/bin/python3"
+    )
 
     # Docstring: first module-level expression is a string literal
     try:
@@ -358,7 +377,9 @@ def check_references_exist(refs, all_file_set, toolkit_dir, source_name, quiet=F
 
     if not quiet:
         if missing:
-            print(f"  {Color.fail(f'{source_name}: {len(missing)} broken reference(s)')}")
+            print(
+                f"  {Color.fail(f'{source_name}: {len(missing)} broken reference(s)')}"
+            )
             for m in missing[:15]:
                 print(f"       {Color.fail('•')} {m}")
             if len(missing) > 15:
@@ -408,16 +429,22 @@ def check_master_index_coverage(all_files, master_refs, toolkit_dir, quiet=False
 
     if not quiet:
         if files_not_in_index:
-            print(f"  {Color.warn(f'{len(files_not_in_index)} file(s) not in MASTER_INDEX.txt')}")
+            print(
+                f"  {Color.warn(f'{len(files_not_in_index)} file(s) not in MASTER_INDEX.txt')}"
+            )
             for f in files_not_in_index[:10]:
                 print(f"       {Color.warn('•')} {f}")
             if len(files_not_in_index) > 10:
-                print(f"       {Color.warn(f'… and {len(files_not_in_index) - 10} more')}")
+                print(
+                    f"       {Color.warn(f'… and {len(files_not_in_index) - 10} more')}"
+                )
         else:
             print(f"  {Color.ok('MASTER_INDEX.txt covers all files')}")
 
         if missing_files:
-            print(f"  {Color.fail(f'{len(missing_files)} missing file(s) referenced in MASTER_INDEX.txt')}")
+            print(
+                f"  {Color.fail(f'{len(missing_files)} missing file(s) referenced in MASTER_INDEX.txt')}"
+            )
             for m in missing_files:
                 print(f"       {Color.fail('•')} {m}")
         else:
@@ -432,9 +459,13 @@ def check_master_index_coverage(all_files, master_refs, toolkit_dir, quiet=False
 # ── Report Section Builders ───────────────────────────────────────────────────
 def build_overview_section(fd, summary):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("1. OVERVIEW")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
     lines.append(f"  Total Files: {fd['total_files']}")
     lines.append(f"  Total Size:  {format_size(fd['total_size'])}")
@@ -448,19 +479,29 @@ def build_overview_section(fd, summary):
     lines.append(f"  XLSX Files:  {fd['ext_counts'].get('.xlsx', 0)}")
     lines.append(f"  BAT Files:   {fd['ext_counts'].get('.bat', 0)}")
     # Other
-    other_exts = [k for k in fd['ext_counts'] if k not in ('.html','.py','.csv','.txt','.json','.svg','.xlsx','.bat')]
-    other_total = sum(fd['ext_counts'][k] for k in other_exts)
+    other_exts = [
+        k
+        for k in fd["ext_counts"]
+        if k not in (".html", ".py", ".csv", ".txt", ".json", ".svg", ".xlsx", ".bat")
+    ]
+    other_total = sum(fd["ext_counts"][k] for k in other_exts)
     if other_total:
-        lines.append(f"  Other:       {other_total} files ({', '.join(e.strip('.') for e in other_exts)})")
+        lines.append(
+            f"  Other:       {other_total} files ({', '.join(e.strip('.') for e in other_exts)})"
+        )
     lines.append("")
     return lines
 
 
 def build_html_section(html_results):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("3. HTML VALIDATION")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
 
     for hr in html_results:
@@ -486,7 +527,9 @@ def build_html_section(html_results):
             issues.append("Missing theme-color meta")
 
         ls_keys = ", ".join(hr["localstorage_keys"]) or "(none)"
-        wa_refs_list = [f"{num}x {num2}" for num2, num in hr["whatsapp_refs"]] or ["(none)"]
+        wa_refs_list = [f"{num}x {num2}" for num2, num in hr["whatsapp_refs"]] or [
+            "(none)"
+        ]
         wa_str = "; ".join(wa_refs_list)
         int_links = len(hr["internal_links"])
 
@@ -516,9 +559,13 @@ def build_html_section(html_results):
 
 def build_python_section(py_results):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("4. PYTHON VALIDATION")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
 
     for pr in py_results:
@@ -538,9 +585,13 @@ def build_python_section(py_results):
 
 def build_crossref_section(cr):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("5. CROSS-REFERENCE CHECKS")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
 
     # MASTER_INDEX
@@ -595,9 +646,13 @@ def build_crossref_section(cr):
 
 def build_ls_section(html_results, summary):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("6. LOCALSTORAGE KEYS ACROSS ALL HTML FILES")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
 
     all_ls = summary["localstorage_keys"]
@@ -621,9 +676,13 @@ def build_ls_section(html_results, summary):
 
 def build_final_summary(s):
     lines = []
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("7. FINAL SUMMARY")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
 
     lines.append(f"  Files Checked:        {s['total_files']}")
@@ -653,9 +712,13 @@ def build_final_summary(s):
 
     lines.append("")
     lines.append("  Cross-References:")
-    lines.append(f"    MASTER_INDEX:       {len(s['master_missing_files'])} missing refs, "
-                 f"{len(s['master_files_not_in_index'])} files not indexed")
-    lines.append(f"    README:             {len(s['readme_missing'])} broken references")
+    lines.append(
+        f"    MASTER_INDEX:       {len(s['master_missing_files'])} missing refs, "
+        f"{len(s['master_files_not_in_index'])} files not indexed"
+    )
+    lines.append(
+        f"    README:             {len(s['readme_missing'])} broken references"
+    )
     lines.append(f"    Command Center:     {len(s['index_missing'])} broken references")
     lines.append("")
     lines.append(f"  localStorage Keys:    {s['localstorage_key_count']} unique keys")
@@ -679,11 +742,15 @@ def build_final_summary(s):
         lines.append(f"  ╚══════════════════════════════════════════════════╝")
 
     lines.append("")
-    lines.append("═══════════════════════════════════════════════════════════════════════════════")
+    lines.append(
+        "═══════════════════════════════════════════════════════════════════════════════"
+    )
     lines.append("")
     lines.append("Document Owner: Fahad Ibrahim")
-    lines.append(f"Version: Auto-Validation | "
-                 f"{__import__('datetime').datetime.now().strftime('%B %Y')}")
+    lines.append(
+        f"Version: Auto-Validation | "
+        f"{__import__('datetime').datetime.now().strftime('%B %Y')}"
+    )
     lines.append("")
     lines.append("Never GIVE UP on your HOPES.")
     lines.append("")
@@ -761,7 +828,9 @@ def print_summary(s):
     print(f"  {Color.BOLD}FINAL RESULTS{Color.RESET}")
     print(f"  {'─' * 50}")
 
-    print(f"  {Color.info('Files:')}       {s['total_files']} total, {format_size(s['total_size'])}")
+    print(
+        f"  {Color.info('Files:')}       {s['total_files']} total, {format_size(s['total_size'])}"
+    )
 
     if s["html_total"] > 0:
         html_ok_val = s["html_ok"]
@@ -770,7 +839,9 @@ def print_summary(s):
             print(f"  {Color.ok(f'HTML: {html_ok_val}/{html_total_val} passed')}")
         else:
             html_fail_val = s["html_fail"]
-            print(f"  {Color.fail(f'HTML: {html_ok_val}/{html_total_val} passed, {html_fail_val} with issues')}")
+            print(
+                f"  {Color.fail(f'HTML: {html_ok_val}/{html_total_val} passed, {html_fail_val} with issues')}"
+            )
     else:
         print(f"  {Color.warn('HTML: No HTML files checked')}")
 
@@ -789,7 +860,9 @@ def print_summary(s):
         print(f"  {Color.warn('Python: No Python files checked')}")
 
     if s["localstorage_key_count"] > 0:
-        print(f"  {Color.info('localStorage:')} {s['localstorage_key_count']} unique keys found")
+        print(
+            f"  {Color.info('localStorage:')} {s['localstorage_key_count']} unique keys found"
+        )
 
     if s["missing_doctype"]:
         missing_dt_val = len(s["missing_doctype"])
@@ -802,7 +875,9 @@ def print_summary(s):
     if s["master_missing_files"]:
         cr_parts.append(f"MASTER_INDEX missing {len(s['master_missing_files'])} files")
     if s["master_files_not_in_index"]:
-        cr_parts.append(f"{len(s['master_files_not_in_index'])} files not in MASTER_INDEX")
+        cr_parts.append(
+            f"{len(s['master_files_not_in_index'])} files not in MASTER_INDEX"
+        )
     if s["readme_missing"]:
         cr_parts.append(f"README missing {len(s['readme_missing'])} refs")
     if s["index_missing"]:
@@ -818,7 +893,7 @@ def print_summary(s):
 def format_size(size_bytes):
     if size_bytes < 1024:
         return f"{size_bytes} B"
-    elif size_bytes < 1024 ** 2:
+    elif size_bytes < 1024**2:
         return f"{size_bytes / 1024:.1f} KB"
     else:
         return f"{size_bytes / 1024 ** 2:.2f} MB"
@@ -882,7 +957,9 @@ def build_summary(results):
 
     cr = results.get("cross_refs", {})
     s["master_missing_files"] = cr.get("master_index", {}).get("missing_files", [])
-    s["master_files_not_in_index"] = cr.get("master_index", {}).get("files_not_in_index", [])
+    s["master_files_not_in_index"] = cr.get("master_index", {}).get(
+        "files_not_in_index", []
+    )
     s["readme_missing"] = cr.get("readme", {}).get("missing", [])
     s["index_missing"] = cr.get("index_html", {}).get("missing", [])
 
@@ -900,9 +977,15 @@ def generate_report(results):
     now_str = __import__("datetime").datetime.now().strftime("%A, %B %d, %Y at %H:%M")
 
     lines = []
-    lines.append("╔═══════════════════════════════════════════════════════════════════════════════╗")
-    lines.append("║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║")
-    lines.append("╚═══════════════════════════════════════════════════════════════════════════════╝")
+    lines.append(
+        "╔═══════════════════════════════════════════════════════════════════════════════╗"
+    )
+    lines.append(
+        "║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║"
+    )
+    lines.append(
+        "╚═══════════════════════════════════════════════════════════════════════════════╝"
+    )
     lines.append("")
     lines.append(f"Generated: {now_str}")
     lines.append(f"Toolkit Path: {TOOLKIT_DIR}")
@@ -940,11 +1023,15 @@ def run_validation(opts):
 
     type_summary_parts = []
     for ext in sorted(ext_counts, key=lambda e: -ext_counts[e]):
-        type_summary_parts.append(f"{ext.upper().lstrip('.') or 'NO_EXT'}: {ext_counts[ext]}")
+        type_summary_parts.append(
+            f"{ext.upper().lstrip('.') or 'NO_EXT'}: {ext_counts[ext]}"
+        )
     print(f"  {Color.info('Total files:')} {len(all_files)}")
     print(f"  {Color.info('Total size:')}  {format_size(total_size)}")
-    print(f"  {Color.info('By type:')}     {', '.join(type_summary_parts[:8])}"
-          f"{' …' if len(type_summary_parts) > 8 else ''}")
+    print(
+        f"  {Color.info('By type:')}     {', '.join(type_summary_parts[:8])}"
+        f"{' …' if len(type_summary_parts) > 8 else ''}"
+    )
 
     html_files = by_type.get(".html", [])
     py_files = by_type.get(".py", [])
@@ -996,14 +1083,20 @@ def run_validation(opts):
             }
         else:
             print(f"  {Color.fail('MASTER_INDEX.txt not found')}")
-            cross_refs["master_index"] = {"referenced": [], "missing_files": [], "files_not_in_index": []}
+            cross_refs["master_index"] = {
+                "referenced": [],
+                "missing_files": [],
+                "files_not_in_index": [],
+            }
 
         # README.txt
         readme_path = toolkit_dir / "README.txt"
         if readme_path.exists():
             readme_text = readme_path.read_text(encoding="utf-8", errors="replace")
             readme_refs = parse_readme_file_list(readme_text)
-            readme_missing = check_references_exist(readme_refs, all_file_set, toolkit_dir, "README.txt")
+            readme_missing = check_references_exist(
+                readme_refs, all_file_set, toolkit_dir, "README.txt"
+            )
             cross_refs["readme"] = {
                 "referenced": sorted(readme_refs),
                 "missing": readme_missing,
@@ -1017,7 +1110,9 @@ def run_validation(opts):
         if index_path.exists():
             index_text = index_path.read_text(encoding="utf-8", errors="replace")
             index_refs = parse_index_html_refs(index_text)
-            index_missing = check_references_exist(index_refs, all_file_set, toolkit_dir, "index.html")
+            index_missing = check_references_exist(
+                index_refs, all_file_set, toolkit_dir, "index.html"
+            )
             cross_refs["index_html"] = {
                 "referenced": sorted(index_refs),
                 "missing": index_missing,
@@ -1069,6 +1164,7 @@ def main():
     except Exception as e:
         print(f"\n  {Color.fail(f'Validation error: {e}')}")
         import traceback
+
         traceback.print_exc()
         sys.exit(1)
 

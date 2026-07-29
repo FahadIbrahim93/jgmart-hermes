@@ -77,7 +77,15 @@ def get_extension_from_url(url: str) -> str:
     path = parsed.path
     # Try to get extension from filename in URL path
     _, ext = os.path.splitext(path)
-    if ext and ext.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".bmp"):
+    if ext and ext.lower() in (
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".gif",
+        ".webp",
+        ".svg",
+        ".bmp",
+    ):
         return ext.lower()
     # Check for query-encoded format hints
     query = urllib.parse.parse_qs(parsed.query)
@@ -112,7 +120,9 @@ def download_image(url: str, dest_path: Path) -> bool:
             content_type = response.headers.get("Content-Type", "")
             if "image" not in content_type and len(data) < 100:
                 # Probably a non-image response (e.g. HTML error page)
-                print(f"    ⚠  Response was not an image (Content-Type: {content_type})")
+                print(
+                    f"    ⚠  Response was not an image (Content-Type: {content_type})"
+                )
                 return False
             if len(data) < 100:
                 print(f"    ⚠  Response too small ({len(data)} bytes) — skipping")

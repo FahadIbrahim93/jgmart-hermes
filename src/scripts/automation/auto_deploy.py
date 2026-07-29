@@ -30,8 +30,11 @@ APPS = {
     "catalog": {
         "dir": BASE_DIR / "06_Web_Catalog",
         "files": [
-            "index.html", "catalog_data.json", "manifest.json",
-            "order_intake.html", "README.txt",
+            "index.html",
+            "catalog_data.json",
+            "manifest.json",
+            "order_intake.html",
+            "README.txt",
         ],
         "description": "Customer Catalog + Order Intake (47 products, WhatsApp)",
     },
@@ -99,6 +102,7 @@ def deploy_vercel(app_name):
     }
 
     import json
+
     with open("vercel.json", "w") as f:
         json.dump(vercel_json, f)
 

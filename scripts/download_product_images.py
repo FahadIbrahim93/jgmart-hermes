@@ -152,7 +152,7 @@ def create_fallback_jpg(product_id: str, category: str) -> bool:
     In production, you'd use Pillow to render text on colored background."""
     svg_path = IMAGES_DIR / CATEGORY_SVGS.get(category, "images/placeholder.svg")
     jpg_path = get_image_path(product_id)
-    
+
     # If SVG exists, copy it as a placeholder JPG
     # The catalog's onerror will show emoji anyway, so this is just for completeness
     if svg_path.exists():
@@ -181,7 +181,9 @@ def main():
 
     print(f"📁 Images directory: {IMAGES_DIR}")
     print(f"🔄 Reset mode: {'YES' if reset else 'NO'}")
-    print(f"📊 Products to process: {len(PRODUCTS[:limit]) if limit else len(PRODUCTS)}")
+    print(
+        f"📊 Products to process: {len(PRODUCTS[:limit]) if limit else len(PRODUCTS)}"
+    )
     print()
 
     downloaded = 0

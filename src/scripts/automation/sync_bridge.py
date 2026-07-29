@@ -167,15 +167,19 @@ def build_orders_import(master: dict[str, Any]) -> dict[str, Any]:
             if isinstance(customer_orders, list):
                 for o in customer_orders:
                     if isinstance(o, dict):
-                        o.setdefault("customerId", c.get("id", c.get("name", "unknown")))
+                        o.setdefault(
+                            "customerId", c.get("id", c.get("name", "unknown"))
+                        )
                         o.setdefault("customerName", c.get("name", "Unknown"))
                         derived_orders.append(o)
                     elif isinstance(o, (str, int, float)):
-                        derived_orders.append({
-                            "customerId": c.get("id", c.get("name", "unknown")),
-                            "customerName": c.get("name", "Unknown"),
-                            "orderRef": str(o),
-                        })
+                        derived_orders.append(
+                            {
+                                "customerId": c.get("id", c.get("name", "unknown")),
+                                "customerName": c.get("name", "Unknown"),
+                                "orderRef": str(o),
+                            }
+                        )
 
     # If no orders at all, make empty placeholder
     if not orders and not derived_orders:
@@ -188,7 +192,9 @@ def build_orders_import(master: dict[str, Any]) -> dict[str, Any]:
             "app": "orders.html",
             "localStorageKey": "jgmart_orders",
         },
-        "_instructions": _import_instructions("orders.html", "jgmart_orders", "console"),
+        "_instructions": _import_instructions(
+            "orders.html", "jgmart_orders", "console"
+        ),
         "orders": orders or derived_orders,
         "orderCount": len(orders or derived_orders),
     }
@@ -229,7 +235,9 @@ def build_finance_import(master: dict[str, Any]) -> dict[str, Any]:
             "app": "finance.html",
             "localStorageKey": "jgmart_finance",
         },
-        "_instructions": _import_instructions("finance.html", "jgmart_finance", "console"),
+        "_instructions": _import_instructions(
+            "finance.html", "jgmart_finance", "console"
+        ),
         "summary": {
             "totalOrders": total_orders,
             "revenue": revenue,
@@ -263,7 +271,9 @@ def build_analytics_import(master: dict[str, Any]) -> dict[str, Any]:
         weekly = [
             {
                 "week": _stamp()[:8],
-                "orders": int(total_orders) if total_orders < 1000 else int(total_orders / 4),
+                "orders": (
+                    int(total_orders) if total_orders < 1000 else int(total_orders / 4)
+                ),
                 "revenue": round(revenue / 4, 2) if revenue > 0 else 0,
                 "customers": len(customers),
             }
@@ -276,7 +286,9 @@ def build_analytics_import(master: dict[str, Any]) -> dict[str, Any]:
             "app": "analytics.html",
             "localStorageKey": "jgmart_analytics",
         },
-        "_instructions": _import_instructions("analytics.html", "jgmart_analytics", "console"),
+        "_instructions": _import_instructions(
+            "analytics.html", "jgmart_analytics", "console"
+        ),
         "totalOrders": total_orders,
         "totalCustomers": len(customers),
         "totalRevenue": revenue,
@@ -325,16 +337,24 @@ def build_backup_all(master: dict[str, Any]) -> dict[str, Any]:
     }
 
     # jgmart_cart — empty seed (carts are ephemeral)
-    backup["jgmart_cart"] = {"items": [], "total": 0, "note": "Empty seed — cart state is session-local"}
+    backup["jgmart_cart"] = {
+        "items": [],
+        "total": 0,
+        "note": "Empty seed — cart state is session-local",
+    }
 
     # jgmart_lang
     backup["jgmart_lang"] = settings.get("language", settings.get("lang", "bn"))
 
     # jgmart_launch_checks
-    backup["jgmart_launch_checks"] = master.get("launchChecks", master.get("launch_checks", {}))
+    backup["jgmart_launch_checks"] = master.get(
+        "launchChecks", master.get("launch_checks", {})
+    )
 
     # jgmart_finance_entries
-    backup["jgmart_finance_entries"] = master.get("financeEntries", master.get("finance_entries", []))
+    backup["jgmart_finance_entries"] = master.get(
+        "financeEntries", master.get("finance_entries", [])
+    )
 
     # jgmart_chat
     backup["jgmart_chat"] = master.get("chatHistory", master.get("chat_history", []))
@@ -416,42 +436,46 @@ def build_settings_guide(master: dict[str, Any]) -> str:
     for key, desc in sorted(LOCALSTORAGE_KEYS.items()):
         lines.append(f"  {key}")
         lines.append(f"    App     : {desc}")
-        lines.append(f"    Console : localStorage.setItem('{key}', JSON.stringify(data));")
+        lines.append(
+            f"    Console : localStorage.setItem('{key}', JSON.stringify(data));"
+        )
         lines.append("")
 
-    lines.extend([
-        "─" * 72,
-        "  DATA SUMMARY FROM MASTER FILE",
-        "─" * 72,
-        "",
-        f"  Customers        : {len(customers)}",
-        f"  Partners         : {len(master.get('partners', []))}",
-        f"  Total Orders     : {master.get('totalOrders', 'N/A')}",
-        f"  Language         : {settings.get('language', settings.get('lang', 'N/A'))}",
-        f"  Revenue          : {settings.get('revenue', settings.get('totalRevenue', 'N/A'))}",
-        "",
-        "─" * 72,
-        "  TROUBLESHOOTING",
-        "─" * 72,
-        "",
-        "  • Data not showing after import?",
-        "    → Open DevTools (F12) → Application → Local Storage.",
-        "      Verify the key exists and has the expected value.",
-        "",
-        "  • 'undefined' after reload?",
-        "    → The app may expect a different data shape.",
-        "      Check the app's source code for the expected schema.",
-        "",
-        "  • Import button not working?",
-        "    → Use the console snippet above — it always works.",
-        "",
-        "  • Accidental data loss?",
-        "    → Restore from backup_all.json (see generated file).",
-        "",
-        "=" * 72,
-        "  END OF GUIDE",
-        "=" * 72,
-    ])
+    lines.extend(
+        [
+            "─" * 72,
+            "  DATA SUMMARY FROM MASTER FILE",
+            "─" * 72,
+            "",
+            f"  Customers        : {len(customers)}",
+            f"  Partners         : {len(master.get('partners', []))}",
+            f"  Total Orders     : {master.get('totalOrders', 'N/A')}",
+            f"  Language         : {settings.get('language', settings.get('lang', 'N/A'))}",
+            f"  Revenue          : {settings.get('revenue', settings.get('totalRevenue', 'N/A'))}",
+            "",
+            "─" * 72,
+            "  TROUBLESHOOTING",
+            "─" * 72,
+            "",
+            "  • Data not showing after import?",
+            "    → Open DevTools (F12) → Application → Local Storage.",
+            "      Verify the key exists and has the expected value.",
+            "",
+            "  • 'undefined' after reload?",
+            "    → The app may expect a different data shape.",
+            "      Check the app's source code for the expected schema.",
+            "",
+            "  • Import button not working?",
+            "    → Use the console snippet above — it always works.",
+            "",
+            "  • Accidental data loss?",
+            "    → Restore from backup_all.json (see generated file).",
+            "",
+            "=" * 72,
+            "  END OF GUIDE",
+            "=" * 72,
+        ]
+    )
 
     return "\n".join(lines)
 
@@ -494,7 +518,7 @@ def _human_size(bytes_: int) -> str:
     """Format byte count for display."""
     if bytes_ < 1024:
         return f"{bytes_} B"
-    elif bytes_ < 1024 ** 2:
+    elif bytes_ < 1024**2:
         return f"{bytes_ / 1024:.1f} KB"
     else:
         return f"{bytes_ / 1024 ** 2:.1f} MB"
@@ -519,21 +543,24 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "--input", "-i",
+        "--input",
+        "-i",
         required=True,
         metavar="FILE",
         help="Path to master JSON file (exported from data.html)",
     )
 
     parser.add_argument(
-        "--output-dir", "-o",
+        "--output-dir",
+        "-o",
         metavar="DIR",
         default=None,
         help="Output directory (default: same directory as input file)",
     )
 
     parser.add_argument(
-        "--verbose", "-v",
+        "--verbose",
+        "-v",
         action="store_true",
         help="Print full output paths and additional diagnostics",
     )
@@ -563,9 +590,11 @@ def main() -> None:
     if args.verbose:
         print(f"     Input: {Path(args.input).resolve()}")
     master = load_master(args.input)
-    print(f"     Found {len(master.get('customers', []))} customer(s), "
-          f"{len(master.get('partners', []))} partner(s), "
-          f"{master.get('totalOrders', 'N/A')} total orders\n")
+    print(
+        f"     Found {len(master.get('customers', []))} customer(s), "
+        f"{len(master.get('partners', []))} partner(s), "
+        f"{master.get('totalOrders', 'N/A')} total orders\n"
+    )
 
     # 2. Determine output directory
     input_path = Path(args.input)

@@ -47,6 +47,7 @@ WHATSAPP_NUMBER = "8801870489448"
 #  DATA LOADING
 # ═══════════════════════════════════════════════════════════════════════════
 
+
 def load_catalog():
     """Load product catalog from catalog_data.json."""
     if not CATALOG_PATH.exists():
@@ -72,7 +73,11 @@ def find_data_files(target_date: date):
     data_file = EXPORT_DIR / f"jgmart_data_{date_str}.json"
     finance_file = EXPORT_DIR / f"jgmart_finance_{date_str}.json"
 
-    for key, path in [("orders", orders_file), ("data", data_file), ("finance", finance_file)]:
+    for key, path in [
+        ("orders", orders_file),
+        ("data", data_file),
+        ("finance", finance_file),
+    ]:
         if path.exists():
             try:
                 with open(path, encoding="utf-8") as f:
@@ -88,6 +93,7 @@ def extract_products_from_html():
     if not CATALOG_HTML.exists():
         return []
     import re
+
     products = []
     try:
         html = CATALOG_HTML.read_text(encoding="utf-8")
@@ -110,6 +116,7 @@ def extract_products_from_html():
 # ═══════════════════════════════════════════════════════════════════════════
 #  ORDER ANALYSIS
 # ═══════════════════════════════════════════════════════════════════════════
+
 
 def analyze_orders(orders_data):
     """Analyze orders data and return summary stats.
@@ -159,6 +166,7 @@ def analyze_orders(orders_data):
 #  TODAY'S SPECIALS (from catalog)
 # ═══════════════════════════════════════════════════════════════════════════
 
+
 def pick_todays_specials(catalog, count=4):
     """Pick featured products for today's specials section.
 
@@ -189,6 +197,7 @@ def pick_todays_specials(catalog, count=4):
 # ═══════════════════════════════════════════════════════════════════════════
 #  MESSAGE FORMATTER
 # ═══════════════════════════════════════════════════════════════════════════
+
 
 def format_message(target_date, stats, specials, finance_data=None):
     """Format the full WhatsApp message as a string."""
@@ -288,10 +297,12 @@ def format_message(target_date, stats, specials, finance_data=None):
 #  CLIPBOARD SUPPORT
 # ═══════════════════════════════════════════════════════════════════════════
 
+
 def copy_to_clipboard(text):
     """Copy text to clipboard using pyperclip if available."""
     try:
         import pyperclip
+
         pyperclip.copy(text)
         return True
     except ImportError:
@@ -303,6 +314,7 @@ def copy_to_clipboard(text):
 # ═══════════════════════════════════════════════════════════════════════════
 #  MAIN
 # ═══════════════════════════════════════════════════════════════════════════
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -342,7 +354,9 @@ def main():
         try:
             target_date = datetime.strptime(args.date, "%Y-%m-%d").date()
         except ValueError:
-            print(f"❌ Invalid date format: {args.date}. Use YYYY-MM-DD.", file=sys.stderr)
+            print(
+                f"❌ Invalid date format: {args.date}. Use YYYY-MM-DD.", file=sys.stderr
+            )
             sys.exit(1)
     else:
         target_date = SESSION_DATE

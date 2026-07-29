@@ -3,6 +3,7 @@
 Add placeholder image URLs to all products in catalog_data.json.
 Uses placehold.co with a green theme matching JGMart branding.
 """
+
 import json
 import os
 import urllib.parse

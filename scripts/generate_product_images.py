@@ -115,12 +115,14 @@ IMAGES_DIR = SCRIPT_DIR.parent / "src" / "web" / "catalog" / "images"
 
 def generate_product_svg(product_id: str, name: str, category: str, emoji: str) -> str:
     """Generate a product card SVG."""
-    colors = CATEGORY_COLORS.get(category, {"start": "#f5f7f5", "end": "#e8f5ef", "text": "#1a1a1a"})
-    
+    colors = CATEGORY_COLORS.get(
+        category, {"start": "#f5f7f5", "end": "#e8f5ef", "text": "#1a1a1a"}
+    )
+
     # Truncate long names
     display_name = name if len(name) <= 20 else name[:18] + ".."
-    
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:{colors["start"]};stop-opacity:1" />
@@ -152,15 +154,19 @@ def generate_product_svg(product_id: str, name: str, category: str, emoji: str) 
   <!-- Corner accent -->
   <circle cx="360" cy="40" r="30" fill="{BRAND_COLORS["gold"]}" opacity="0.2"/>
   <text x="360" y="45" text-anchor="middle" font-size="16">⭐</text>
-</svg>'''
+</svg>"""
     return svg
 
 
-def generate_category_svg(category_id: str, label_en: str, label_bn: str, emoji: str) -> str:
+def generate_category_svg(
+    category_id: str, label_en: str, label_bn: str, emoji: str
+) -> str:
     """Generate a category placeholder SVG."""
-    colors = CATEGORY_COLORS.get(category_id, {"start": "#f5f7f5", "end": "#e8f5ef", "text": "#1a1a1a"})
-    
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
+    colors = CATEGORY_COLORS.get(
+        category_id, {"start": "#f5f7f5", "end": "#e8f5ef", "text": "#1a1a1a"}
+    )
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:{colors["start"]};stop-opacity:1" />
@@ -183,41 +189,41 @@ def generate_category_svg(category_id: str, label_en: str, label_bn: str, emoji:
   
   <!-- JG Mart branding -->
   <text x="150" y="200" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="{BRAND_COLORS["primary"]}">JG Mart</text>
-</svg>'''
+</svg>"""
     return svg
 
 
 def main():
     reset = "--reset" in sys.argv
-    
+
     if not IMAGES_DIR.exists():
         print(f"❌ Images directory not found: {IMAGES_DIR}")
         sys.exit(1)
-    
+
     print(f"📁 Images directory: {IMAGES_DIR}")
     print(f"🔄 Reset mode: {'YES' if reset else 'NO'}")
     print()
-    
+
     # Generate product images
     generated = 0
     skipped = 0
-    
+
     for prod in PRODUCTS:
         pid, name, category, emoji = prod
         dest = IMAGES_DIR / f"{pid}.svg"
-        
+
         if dest.exists() and not reset:
             skipped += 1
             continue
-        
+
         svg = generate_product_svg(pid, name, category, emoji)
         dest.write_text(svg, encoding="utf-8")
         generated += 1
         print(f"  ✅ {pid} — {name}")
-    
+
     print()
     print(f"Product images: {generated} generated, {skipped} skipped")
-    
+
     # Generate/update category SVGs
     categories = [
         ("rice_dal", "Rice & Dal", "চাল ও ডাল", "🍚"),
@@ -231,27 +237,29 @@ def main():
         ("beverages", "Drinks", "পানীয়", "🥤"),
         ("snacks", "Snacks", "স্ন্যাকস", "🍪"),
     ]
-    
+
     cat_generated = 0
     cat_skipped = 0
-    
+
     for cat_id, label_en, label_bn, emoji in categories:
         dest = IMAGES_DIR / f"{cat_id}.svg"
-        
+
         if dest.exists() and not reset:
             cat_skipped += 1
             continue
-        
+
         svg = generate_category_svg(cat_id, label_en, label_bn, emoji)
         dest.write_text(svg, encoding="utf-8")
         cat_generated += 1
         print(f"  📂 {cat_id}.svg")
-    
+
     print()
     print(f"Category images: {cat_generated} generated, {cat_skipped} skipped")
     print()
     print("=" * 50)
-    print(f"Total images in folder: {len(list(IMAGES_DIR.glob('*.svg')) + list(IMAGES_DIR.glob('*.jpg')))}")
+    print(
+        f"Total images in folder: {len(list(IMAGES_DIR.glob('*.svg')) + list(IMAGES_DIR.glob('*.jpg')))}"
+    )
     print("=" * 50)
     print()
     print("💡 Note: These are high-quality SVG placeholders.")

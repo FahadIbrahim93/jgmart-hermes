@@ -56,9 +56,7 @@ def check_rclone():
 
 def check_remote():
     """Check if the remote is configured."""
-    result = subprocess.run(
-        ["rclone", "listremotes"], capture_output=True, text=True
-    )
+    result = subprocess.run(["rclone", "listremotes"], capture_output=True, text=True)
     return RCLONE_REMOTE in result.stdout
 
 
@@ -72,7 +70,8 @@ def build_exclude_flags():
 def sync_upload(dry_run=False):
     """Upload local changes to Google Drive."""
     cmd = [
-        "rclone", "sync",
+        "rclone",
+        "sync",
         str(LOCAL_DIR),
         f"{RCLONE_REMOTE}:{DRIVE_PATH}",
         "--progress",
@@ -102,7 +101,8 @@ def sync_upload(dry_run=False):
 def sync_download(dry_run=False):
     """Download Google Drive changes to local."""
     cmd = [
-        "rclone", "sync",
+        "rclone",
+        "sync",
         f"{RCLONE_REMOTE}:{DRIVE_PATH}",
         str(LOCAL_DIR),
         "--progress",
@@ -132,7 +132,8 @@ def sync_download(dry_run=False):
 def show_status():
     """Show sync status: what differs between local and Drive."""
     cmd = [
-        "rclone", "check",
+        "rclone",
+        "check",
         str(LOCAL_DIR),
         f"{RCLONE_REMOTE}:{DRIVE_PATH}",
         "--verbose",

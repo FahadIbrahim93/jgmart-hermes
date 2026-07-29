@@ -55,10 +55,11 @@ def build_sql(products: list[dict]) -> str:
         in_stock = product.get("stock_status", "in_stock") != "out_of_stock"
         featured = index < 6
         sort_order = index + 1
-        metadata = json.dumps({"legacy_id": product["id"], "emoji": product.get("emoji", "🛒")})
+        metadata = json.dumps(
+            {"legacy_id": product["id"], "emoji": product.get("emoji", "🛒")}
+        )
 
-        lines.append(
-            f"""INSERT INTO public.products (
+        lines.append(f"""INSERT INTO public.products (
   id, category_id, name, name_bn, description, description_bn,
   price, unit, image_url, in_stock, is_featured, sort_order, metadata
 ) VALUES (
@@ -69,8 +70,7 @@ def build_sql(products: list[dict]) -> str:
   price = EXCLUDED.price,
   in_stock = EXCLUDED.in_stock,
   updated_at = NOW();
-"""
-        )
+""")
 
     return "\n".join(lines)
 
@@ -85,7 +85,10 @@ def push_to_supabase(products: list[dict]) -> None:
     url = os.environ.get("SUPABASE_URL", "").rstrip("/")
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
     if not url or not key:
-        print("Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to use --push", file=sys.stderr)
+        print(
+            "Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to use --push",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     headers = {
@@ -125,15 +128,22 @@ def push_to_supabase(products: list[dict]) -> None:
         timeout=60,
     )
     if not response.ok:
-        print(f"Supabase push failed: {response.status_code} {response.text}", file=sys.stderr)
+        print(
+            f"Supabase push failed: {response.status_code} {response.text}",
+            file=sys.stderr,
+        )
         sys.exit(1)
     print(f"Pushed {len(rows)} products to Supabase.")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Sync catalog JSON to Supabase SQL/API")
+    parser = argparse.ArgumentParser(
+        description="Sync catalog JSON to Supabase SQL/API"
+    )
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--push", action="store_true", help="Push directly to Supabase REST API")
+    parser.add_argument(
+        "--push", action="store_true", help="Push directly to Supabase REST API"
+    )
     args = parser.parse_args()
 
     if not CATALOG_JSON.exists():
