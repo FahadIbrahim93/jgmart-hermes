@@ -2,25 +2,25 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Thursday, July 30, 2026 at 06:11
+Generated: Friday, July 31, 2026 at 02:23
 Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 1359
-  Total Size:  25.91 MB
+  Total Files: 1475
+  Total Size:  32.80 MB
 
   HTML Files:  45
-  Python Files: 15
+  Python Files: 17
   CSV Files:   21
-  TXT Files:   145
-  JSON Files:  50
+  TXT Files:   146
+  JSON Files:  51
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       988 files (md, (no ext), toml, mdc, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
+  Other:       1100 files (md, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -249,7 +249,7 @@ Toolkit Path: G:\JGC Mart
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: (none)
          WhatsApp:    (none)
-         Internal Links: 2
+         Internal Links: 3
 
   [PASS] src/web/catalog/csp-report.html
          DOCTYPE:    ✓
@@ -278,7 +278,7 @@ Toolkit Path: G:\JGC Mart
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: jgmart_promo, jgmart_ref_count, jgmart_specials, jgmart_splash_dismissed
          WhatsApp:    1x +8801870489448
-         Internal Links: 13
+         Internal Links: 14
 
   [PASS] src/web/catalog/jsonld-snippets.html
          DOCTYPE:    ✓
@@ -424,7 +424,7 @@ Toolkit Path: G:\JGC Mart
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: jgmart_ords
          WhatsApp:    (none)
-         Internal Links: 1
+         Internal Links: 3
 
   [PASS] _archive/agents/grok/JGC Mart-Grok/JGC Mart - Grok/03_Product_&_Catalog_Website/jg_mart_website_index.html
          DOCTYPE:    ✓
@@ -444,12 +444,22 @@ Toolkit Path: G:\JGC Mart
          Docstring:  ✓
          Syntax:     ✓
 
+  [PASS] scripts/check_supabase.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
   [PASS] scripts/download_product_images.py
          Shebang:    ✓
          Docstring:  ✓
          Syntax:     ✓
 
   [PASS] scripts/generate_product_images.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
+  [PASS] scripts/print_supabase_setup.py
          Shebang:    ✓
          Docstring:  ✓
          Syntax:     ✓
@@ -590,12 +600,12 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        1359
-  Total Size:           25.91 MB
+  Files Checked:        1475
+  Total Size:           32.80 MB
 
   HTML Valid:           45/45
   HTML With Issues:     0
-  Python Valid:         15/15
+  Python Valid:         17/17
   Python Warnings:      0
   Python Failed:        0
 
