@@ -8,6 +8,7 @@
     "lint": "echo \"Run: pip install black flake8 && black --check .\""
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "docx": "^9.7.1",
     "pptxgenjs": "^4.0.1"
   }
