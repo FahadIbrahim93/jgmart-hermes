@@ -1,6 +1,6 @@
 # JG Mart — Master Index
 
-**Version:** 4.0 (consolidated) | **Updated:** July 29, 2026 | **Owner:** Fahad Ibrahim
+**Version:** 4.1 (consolidated) | **Updated:** July 31, 2026 | **Owner:** Fahad Ibrahim
 
 > Single source of truth for all JG Mart assets. Consolidated from Hermes (code), Grok v2 (ops), Kimi v1 (brand + PRD).  
 > **GitHub:** [jgmart-hermes](https://github.com/FahadIbrahim93/jgmart-hermes) | **Live:** [jg-mart.vercel.app](https://jg-mart.vercel.app)
@@ -24,16 +24,21 @@
 
 | Asset | Path | Source | Status |
 |-------|------|--------|--------|
-| Customer catalog (live) | `src/web/catalog/index.html` | Hermes | **Production** |
-| Supabase schema | `src/web/supabase/schema.sql` | Hermes | Migration target |
-| Supabase seed | `src/web/supabase/seed.sql` | Hermes | Migration target |
-| Admin panel | `src/web/catalog/admin.html` | Hermes | Legacy localStorage |
+| Customer catalog (live) | `src/web/catalog/index.html` | Hermes | **Production** — Vercel `/` |
+| Supabase schema | `src/web/supabase/schema.sql` | Hermes | **Applied** (production DB) |
+| Supabase full setup | `src/web/supabase/full_setup.sql` | Hermes | One-shot SQL (schema + seeds) |
+| Supabase migrations | `src/web/supabase/migrations/` | Hermes | `fix_profiles_rls`, `admin_user_setup`, `rls_anonymous_orders` |
+| Supabase seed | `src/web/supabase/seed.sql` | Hermes | Sample products |
+| Admin panel | `src/web/catalog/admin.html` | Hermes | **Supabase Auth** + PIN fallback |
 | PWA service worker | `src/web/catalog/sw.js` | Hermes | Production |
 | Python automation | `src/scripts/automation/` | Hermes | Active |
 | Validation toolkit | `tests/validate_toolkit.py` | Hermes | Active |
 | Legacy dashboard | `ARCHIVE/src_web_dashboard/` | Hermes | Archived |
-| Ops dashboard (v1) | `src/web/dashboard/index.html` | Hermes | Active — localStorage orders |
-| Catalog seed SQL | `src/web/supabase/seed_from_catalog.sql` | Hermes | Generated from catalog_data.json |
+| Ops dashboard | `src/web/dashboard/index.html` | Hermes | Active — Supabase orders when configured |
+| Catalog seed SQL | `src/web/supabase/seed_from_catalog.sql` | Hermes | 65 products from catalog_data.json |
+| Supabase check script | `scripts/check_supabase.py` | Hermes | API smoke test |
+| Supabase setup printer | `scripts/print_supabase_setup.py` | Hermes | Prints SQL paths for SQL Editor |
+| Vercel cutover script | `scripts/vercel-cutover.ps1` | Hermes | Link + prod deploy helper |
 | Supabase setup guide | `docs/setup/SUPABASE_SETUP.md` | Hermes | Active |
 | Production deploy guide | `docs/setup/DEPLOY.md` | Hermes | Active — Vercel root must be `.` |
 

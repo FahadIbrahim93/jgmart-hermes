@@ -1,6 +1,6 @@
 # JG Mart — Supabase Setup Guide
 
-> **Status:** Production-ready | **Last Updated:** 28 July 2026
+> **Status:** Production DB live | **Last Updated:** 31 July 2026
 
 This guide walks you through setting up Supabase as the backend database and authentication provider for JG Mart.
 
@@ -66,6 +66,21 @@ Supabase is an open-source Firebase alternative. It provides:
 ---
 
 ## 3. Run Database Schema
+
+### Quick path — one file
+
+1. Open **SQL Editor** in your Supabase project
+2. Run `src/web/supabase/full_setup.sql` (schema + RLS + seeds combined)
+3. If you see **infinite recursion** errors on `profiles`, run `src/web/supabase/migrations/fix_profiles_rls.sql`
+
+Verify from your machine:
+
+```powershell
+cd "G:\JGC Mart"
+python scripts/check_supabase.py
+```
+
+### Step-by-step path
 
 ### Step 1: Open SQL Editor
 
@@ -178,7 +193,7 @@ INSERT INTO public.profiles (
 
 ### Step 3: Test Login
 
-1. Open the admin panel: `https://your-project.vercel.app/admin-new/`
+1. Open the admin panel: `https://jg-mart.vercel.app/admin` (or `/admin` on your deploy URL)
 2. Login with `admin@jgmartbd.com` and your password
 3. You should see the dashboard
 
@@ -189,16 +204,11 @@ INSERT INTO public.profiles (
 ### Step 1: Update Supabase Config
 
 1. Copy `src/web/supabase/config.local.example.js` to `src/web/supabase/config.local.js` (gitignored)
-2. Fill in your Project URL and anon key from Supabase Dashboard → Settings → API
+2. Fill in Project URL and **anon** key from Supabase Dashboard → Settings → API
 
-Alternatively edit `src/web/supabase/config.js` directly for development only (do not commit real keys).
+For production, use `config.runtime.js` (written by GitHub Actions from `SUPABASE_URL` + `SUPABASE_ANON_KEY`, or copy from `config.runtime.example.js` locally — do not commit real keys).
 
-```javascript
-export const SUPABASE_URL = 'https://xxxxxxxxxxxxx.supabase.co';
-export const SUPABASE_ANON_KEY = 'eyJhbGc...';
-```
-
-Replace with your actual values from Step 2.3.
+Alternatively edit `src/web/supabase/config.js` only for local experiments (never commit keys).
 
 ### Step 2: Enable Database Mode
 
@@ -241,7 +251,8 @@ git push origin main
 
 ### Checklist
 
-- [ ] Admin panel loads at `/admin-new/`
+- [ ] `python scripts/check_supabase.py` reports products/categories OK
+- [ ] Admin panel loads at `/admin`
 - [ ] Login works with email/password
 - [ ] Dashboard shows stats
 - [ ] Products tab shows seeded products
@@ -276,9 +287,9 @@ git push origin main
 
 ### "Row Level Security policy violation"
 
-- Ensure you're logged in
-- Check that the user has the correct role in profiles table
-- Verify RLS policies were created in schema.sql
+- Ensure you're logged in (admin uses Supabase Auth)
+- Run `migrations/fix_profiles_rls.sql` if staff/admin checks recurse on `profiles`
+- Check role in `profiles` table; run `migrations/admin_user_setup.sql` after creating Auth user
 
 ### "Tables not found"
 
@@ -315,4 +326,4 @@ git push origin main
 
 ---
 
-*Last updated: 28 July 2026 | JG Mart — Supabase Setup Guide v1.0*
+*Last updated: 31 July 2026 | JG Mart — Supabase Setup Guide v1.1*

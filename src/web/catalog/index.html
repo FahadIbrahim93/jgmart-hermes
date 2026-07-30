@@ -246,7 +246,12 @@ body{font-family:Inter,system-ui,sans-serif;background:#f5f7f5;color:#1a1a1a;max
 <button class="add" style="padding:8px;font-size:.72rem;margin-top:6px" onclick="clearHist()" id="clearHistBtn">🗑 Clear History</button>
 </div></div>
 
-<script nonce="gscb6Xp2nALPgenhRE7XtA"
+<script nonce="gscb6Xp2nALPgenhRE7XtA">
+// ========= STATE (data-store) =========
+let lang = JG_DATA_STORE.lang.get() || 'en';
+let cart = JG_DATA_STORE.cart.get() || [];
+let orders = JG_DATA_STORE.orders.get() || [];
+let DEL_FEES = JG_DATA_STORE.fees.get() || window.JG_MART_DEFAULTS?.fees || { c1: 0, c3: 20, c4: 30 };
 // ========= DATA =========
 const CATS=[
 {id:"rice_dal",n:"Rice & Dal",i:"🍚",b:"চাল ও ডাল"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️",b:"তেল ও মশলা"},
