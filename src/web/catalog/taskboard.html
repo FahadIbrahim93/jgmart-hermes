@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JG Mart — Taskboard</title>
+<style>
+  :root{--green:#00442D;--gold:#c9a227;--bg:#f3f5f3;--card:#fff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--blue:#2563eb;--red:#dc2626}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);padding:16px}
+  h1{font-size:1.4rem;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+  .board{display:grid;grid-template-columns:repeat(5,minmax(220px,1fr));gap:12px}
+  .column{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px;min-height:220px}
+  .column h2{font-size:.9rem;color:var(--green);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+  .count{background:var(--bg);padding:2px 8px;border-radius:999px;font-size:.75rem;color:var(--muted)}
+  .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px;font-size:.82rem;line-height:1.3;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .tag{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border-radius:6px;margin-bottom:6px}
+  .tag.verify{background:#dbeafe;color:#1e40af}
+  .tag.ui{background:#fef3c7;color:#92400e}
+  .tag.data{background:#d1fae5;color:#065f46}
+  .tag.critical{background:#fee2e2;color:#991b1b}
+  .card .meta{color:var(--muted);font-size:.72rem;margin-top:6px}
+  .rule{background:#fff;border:1px dashed var(--border);border-radius:12px;padding:12px;margin-top:12px;font-size:.82rem;color:#374151}
+  .rule h3{font-size:.9rem;color:var(--green);margin-bottom:8px}
+  .rule ul{padding-left:18px}
+  .rule li{margin-bottom:4px}
+  @media(max-width:980px){.board{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1>JG Mart — Session Taskboard</h1>
+<div class="sub">Source of truth for current autonomous work · last updated 2026-07-30</div>
+
+<div class="board">
+  <div class="column">
+    <h2>BACKLOG <span class="count" id="c-backlog">0</span></h2>
+    <div class="card"><div class="tag critical">critical</div>Add role-based auth for operator.html and admin.html<div class="meta">Supabase Auth + RLS</div></div>
+    <div class="card"><div class="tag data">data</div>Finish bKash referral/rewards data model and UI<div class="meta">schema + catalog page</div></div>
+    <div class="card"><div class="tag verify">verify</div>E2E test WhatsApp order flow with offline queue<div class="meta">simulate offline/online</div></div>
+  </div>
+
+  <div class="column">
+    <h2>READY <span class="count" id="c-ready">0</span></h2>
+    <div class="card"><div class="tag ui">ui</div>Align admin.html status dropdowns with JG_ORDER_STATE enum<div class="meta">pending → confirmed → processing → out_for_delivery → delivered / cancelled</div></div>
+    <div class="card"><div class="tag data">data</div>Migrate track/manifest/rider/myorders status writes to JG_ORDER_STATE.apply()<div class="meta">enforce transition rules</div></div>
+    <div class="card"><div class="tag verify">verify</div>Validate submitOrderToSupabase against live schema/RLS<div class="meta">confirm insert path + error handling</div></div>
+  </div>
+
+  <div class="column">
+    <h2>DOING <span class="count" id="c-doing">0</span></h2>
+    <div class="card"><div class="tag data">data</div>Operator intake Supabase path hardening<div class="meta>operator.html save flow</div></div>
+    <div class="card"><div class="tag ui">ui</div>Admin operator quick-link UX and status filter consistency<div class="meta>remove stale legacy status labels</div></div>
+  </div>
+
+  <div class="column">
+    <h2>REVIEW <span class="count" id="c-review">0</span></h2>
+    <div class="card"><div class="tag verify">verify</div>Validation + lint gate for order-state.js integration<div class="meta>44/44 HTML, 15/15 Python</div></div>
+  </div>
+
+  <div class="column">
+    <h2>DONE <span class="count" id="c-done">0</span></h2>
+    <div class="card">data-store.js abstraction layer<div class="meta>index.html, admin.html, operator.html</div></div>
+    <div class="card">operator.html v1 with cart + WhatsApp compose<div class="meta>localStorage fallback present</div></div>
+    <div class="card">order-state.js shared state machine<div class="meta>pending → confirmed → processing → out_for_delivery → delivered / cancelled</div></div>
+    <div class="card">admin.html operator quick link<div class="meta>linked from tabs</div></div>
+    <div class="card">PWA cache bump to jgmart-v6<div class="meta>operator.html + order-state.js pre-cached</div></div>
+    <div class="card">44/44 HTML + 15/15 Python validation pass<div class="meta>pushed to main</div></div>
+  </div>
+</div>
+
+<div class="rule">
+  <h3>Workflow rules to avoid repeat mistakes</h3>
+  <ul>
+    <li><strong>One acceptance criterion per task:</strong> don’t mark work done unless the user-facing flow actually works end-to-end.</li>
+    <li><strong>Enum/UI contract first:</strong> when adding a state machine, update all dropdowns and write paths together, then enforce transitions.</li>
+    <li><strong>Validate external paths live:</strong> if you add a Supabase write, confirm it against schema/RLS/auth before calling it complete.</li>
+    <li><strong>Keep columns tight:</strong> max 3 cards in DOING, move finished items to REVIEW immediately.</li>
+    <li><strong>Use DONE as evidence:</strong> include validation output or a screenshot path so status is verifiable later.</li>
+  </ul>
+</div>
+
+<script>
+  const counts={backlog:0,ready:0,doing:0,review:0,done:0};
+  document.querySelectorAll('.column').forEach(col=>{
+    const title=col.querySelector('h2').textContent.trim().split(' ')[0].toLowerCase();
+    const cards=col.querySelectorAll('.card').length;
+    const el=document.getElementById('c-'+title);
+    if(el) el.textContent=cards;
+  });
+</script>
+</body>
+</html>
