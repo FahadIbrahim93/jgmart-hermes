@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline' https://*.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com https://*.supabase.co https://*.vercel-insights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>JG Mart — Fresh Groceries JGC</title>
 <meta name="theme-color" content="#00442D">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script src="defaults.js"></script>
 <script src="../supabase/config.js"></script>
 <script type="module" src="catalog-init.js"></script>
+<script type="module" src="../analytics.js"></script>
 <script src="offline-queue.js"></script>
 <script src="security.js"></script>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -270,7 +275,7 @@ let actCat = 'all';
 // ========= I18N =========
 const L = {
 en:{heroT:"Fresh from Krishi Market, delivered to JGC",heroS:"☀️ Order by 9AM → 12PM · 🌙 by 3:30PM → 8PM · 💵 COD/bKash",popT:"⭐ Popular Picks",cartT:"🛒 Your Order",lName:"Your Name",lFlat:"Flat",lPhone:"Phone",lSlot:"Delivery Slot",lPay:"Payment",optB:"Select building...",optAM:"☀️ Morning (9AM-12PM)",optPM:"🌙 Evening (3:30PM-8PM)",send:"📱 Send to WhatsApp",hist:"📋 Order History",histT:"📋 Order History",clear:"🗑 Clear History",emp:"No orders yet",srch:"Search rice, eggs, fish...",sp:"🔥 Today's Specials",saving:"💾 Save",add:"+ Add",added:"Added ✓",rm:"Removed",opening:"✅ Opening WhatsApp...",saved:"✅ Specials updated!",fee:"No delivery fee",fee1:"Delivery fee: ৳20 (Cluster 3)",fee2:"Delivery fee: ৳30 (Cluster 4)",empt:"Your cart is empty",selB:"Please select your building",selF:"Please enter your flat number",refer:"🤝 Refer a Neighbor",referCopied:"📋 Copied! Share referral link",ordConfT:"✅ Order Sent!",ordConfS:"Your order has been placed"},
-bn:{heroT:"ক্রিসি মার্কেট থেকে তাজা, জেসিসিতে ডেলিভারি",heroS:"☀️ সকাল ৯টা → ১২টা · 🌙 বিকাল ৩:৩০ → ৮টা · 💵 নগদ/বিকাশ",popT:"⭐ জনপ্রিয় পণ্য",cartT:"🛒 আপনার অর্ডার",lName:"আপনার নাম",lFlat:"ফ্লাট নং",lPhone:"ফোন নম্বর",lSlot:"ডেলিভারি স্লট",lPay:"পেমেন্ট",optB:"বিল্ডিং নির্বাচন...",optAM:"☀️ সকাল (৯টা-১২টা)",optPM:"🌙 বিকাল (৩:৩০-৮টা)",send:"📱 হোয়াটসঅ্যাপে পাঠান",hist:"📋 অর্ডার ইতিহাস",histT:"📋 অর্ডার ইতিহাস",clear:"🗑 ইতিহাস মুছুন",emp:"কোনো অর্ডার নেই",srch:"রাইস, ডিম, মাছ খুঁজুন...",sp:"🔥 আজকের স্পেশাল",saving:"💾 সংরক্ষণ",add:"+ যোগ করুন",added:"✓ যোগ হয়েছে",rm:"সরানো হয়েছে",opening:"✅ হোয়াটসঅ্যাপ খুলছে...",saved:"✅ স্পেশাল আপডেট!",fee:"কোনো ডেলিভারি ফি নেই",fee1:"ডেলিভারি ফি: ২০ টাকা (ক্লাস্টার ৩)",fee2:"ডেলিভারি ফি: ৩০ টাকা (ক্লাস্টার ৪)",empt:"কার্ট খালি",selB:"বিল্ডিং নির্বাচন করুন",selF:"ফ্লাট নম্বর দিন",refer:"🤝 প্রতিবেশীকে জানান",referCopied:"📋 কপি! রেফারেল লিঙ্ক শেয়ার করুন",ordConfT:"✅ অর্ডার পাঠানো হয়েছে!",ordConfS:"আপনার অর্ডার জমা হয়েছে"}
+bn:{heroT:"ক্রিসি মার্কেট থেকে তাজা, জেসিসিতে ডেলিভারি",heroS:"☀️ সকাল ৯টা → ১২টা · 🌙 বিকাল ৩:৩০ → ৮টা · 💵 নগদ/বিকাশ",popT:"⭐ জনপ্রিয় পণ্য",cartT:"🛒 আপনার অর্ডার",lName:"আপনার নাম",lFlat:"ফ্লাট নং",lPhone:"ফোন নম্বর",lSlot:"ডেলিভারি স্লট",lPay:"পেমেন্ট",optB:"বিল্ডিং নির্বাচন...",optAM:"☀️ সকাল (৯টা-১২টা)",optPM:"🌙 বিকাল (৩:৩০-৮টা)",send:"📱 হোয়াটসঅ্যাপে পাঠান",hist:"📋 অর্ডার ইতিহাস",histT:"📋 অর্ডার ইতিহাস",clear:"🗑 ইতিহাস মুছুন",emp:"কোনো ��র্ডার নেই",srch:"রাইস, ডিম, মাছ খুঁজুন...",sp:"🔥 আজকের স্পেশাল",saving:"💾 সংরক্ষণ",add:"+ যোগ করুন",added:"✓ যোগ হয়েছে",rm:"সরানো হয়েছে",opening:"✅ হোয়াটসঅ্যাপ খুলছে...",saved:"✅ স্পেশাল আপডেট!",fee:"কোনো ডেলিভারি ফি নেই",fee1:"ডেলিভারি ফি: ২০ টাকা (ক্লাস্টার ৩)",fee2:"ডেলিভারি ফি: ৩০ টাকা (ক্লাস্টার ৪)",empt:"কার্ট খালি",selB:"বিল্ডিং নির্বাচন করুন",selF:"ফ্লাট নম্বর দিন",refer:"🤝 প্রতিবেশীকে জানান",referCopied:"📋 কপি! রেফারেল লিঙ্ক শেয়ার করুন",ordConfT:"✅ অর্ডার পাঠানো হয়েছে!",ordConfS:"আপনার অর্ডার জমা হয়েছে"}
 };
 
 function t(key){const t=L[lang];return t[key]||key;}
