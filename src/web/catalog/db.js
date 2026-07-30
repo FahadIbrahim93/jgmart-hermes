@@ -1,14 +1,82 @@
 /**
  * JG Mart — Catalog Database Integration
- *
- * This script replaces localStorage-based data loading with Supabase.
- * Falls back to catalog_data.json if Supabase is not configured.
+ * Supabase-first with localStorage / JSON fallback.
  */
 
 import { supabase } from '../supabase/client.js';
 import { isSupabaseConfigured } from '../supabase/config.js';
 
 const USE_SUPABASE = isSupabaseConfigured();
+
+/** In-memory map: legacy catalog id (p001) → Supabase UUID */
+let productUuidByLegacyId = new Map();
+
+function isUuid(value) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
+    String(value || '')
+  );
+}
+
+function indexProducts(rows) {
+  productUuidByLegacyId = new Map();
+  (rows || []).forEach((row) => {
+    const legacy = row.metadata?.legacy_id || row.legacy_id;
+    if (legacy && row.id) productUuidByLegacyId.set(legacy, row.id);
+    if (row.id) productUuidByLegacyId.set(row.id, row.id);
+  });
+}
+
+function normalizeOrderInput(raw) {
+  const items = (raw.items || []).map((item) => ({
+    id: item.id,
+    name: item.name || item.nm || 'Item',
+    qty: Number(item.qty || item.quantity || 1),
+    price: Number(item.price ?? item.pr ?? 0),
+    uuid: item.uuid || item._uuid || null
+  }));
+
+  return {
+    customerName: raw.customerName || raw.name || 'Customer',
+    customerPhone: raw.customerPhone || raw.phone || '',
+    building: raw.building || raw.customer_building || '',
+    flat: raw.flat || raw.customer_flat || '',
+    zoneId: raw.zoneId || raw.delivery_zone_id || 1,
+    slot: raw.slot || raw.delivery_slot || 'morning',
+    deliveryDate:
+      raw.deliveryDate ||
+      raw.delivery_date ||
+      new Date().toISOString().split('T')[0],
+    items,
+    subtotal: Number(raw.subtotal ?? raw.sub ?? 0),
+    deliveryFee: Number(raw.deliveryFee ?? raw.fee ?? 0),
+    total: Number(raw.total ?? 0),
+    paymentMethod: raw.paymentMethod || raw.payment || 'cash',
+    notes: raw.notes || ''
+  };
+}
+
+async function resolveProductUuid(legacyOrUuid) {
+  if (!legacyOrUuid) return null;
+  if (isUuid(legacyOrUuid)) return legacyOrUuid;
+  if (productUuidByLegacyId.has(legacyOrUuid)) {
+    return productUuidByLegacyId.get(legacyOrUuid);
+  }
+  if (!USE_SUPABASE) return null;
+
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .select('id, metadata')
+      .limit(500);
+
+    if (error) throw error;
+    indexProducts(data);
+    return productUuidByLegacyId.get(legacyOrUuid) || null;
+  } catch (error) {
+    console.warn('Product UUID lookup failed:', error);
+    return null;
+  }
+}
 
 // ============================================
 // PRODUCTS
@@ -26,7 +94,7 @@ async function loadProductsFromDB() {
       .order('sort_order', { ascending: true });
 
     if (error) throw error;
-
+    indexProducts(data);
     return data || [];
   } catch (error) {
     console.warn('Failed to load from Supabase, falling back to JSON:', error);
@@ -35,10 +103,11 @@ async function loadProductsFromDB() {
 }
 
 function loadProductsFromJSON() {
-  return fetch('catalog_data.json')
-    .then(r => r.json())
-    .then(data => data.products || [])
-    .catch(err => {
+  return fetch('/src/web/catalog/catalog_data.json')
+    .then((r) => (r.ok ? r : fetch('catalog_data.json')))
+    .then((r) => r.json())
+    .then((data) => data.products || [])
+    .catch((err) => {
       console.error('Failed to load catalog_data.json:', err);
       return [];
     });
@@ -60,7 +129,6 @@ async function loadCategoriesFromDB() {
       .order('sort_order', { ascending: true });
 
     if (error) throw error;
-
     return data || [];
   } catch (error) {
     console.warn('Failed to load categories from Supabase, falling back to JSON:', error);
@@ -69,10 +137,11 @@ async function loadCategoriesFromDB() {
 }
 
 function loadCategoriesFromJSON() {
-  return fetch('catalog_data.json')
-    .then(r => r.json())
-    .then(data => data.categories || [])
-    .catch(err => {
+  return fetch('/src/web/catalog/catalog_data.json')
+    .then((r) => (r.ok ? r : fetch('catalog_data.json')))
+    .then((r) => r.json())
+    .then((data) => data.categories || [])
+    .catch((err) => {
       console.error('Failed to load categories:', err);
       return [];
     });
@@ -82,75 +151,178 @@ function loadCategoriesFromJSON() {
 // ORDERS
 // ============================================
 async function submitOrder(orderData) {
+  const order = normalizeOrderInput(orderData);
+
   if (!USE_SUPABASE) {
-    return saveOrderToLocalStorage(orderData);
+    return saveOrderToLocalStorage(order);
   }
 
   try {
-    // Generate order number
-    const { data: orderNumResult, error: numError } = await supabase.rpc('generate_order_number');
-    if (numError) throw numError;
-    const orderNum = orderNumResult;
+    const { data: orderNumResult, error: numError } = await supabase.rpc(
+      'generate_order_number'
+    );
+    if (numError) console.warn('generate_order_number RPC:', numError);
+
+    const orderNum = orderNumResult || `JG-${Date.now()}`;
+
+    const itemsJson = order.items.map((item) => ({
+      id: item.id,
+      name: item.name,
+      qty: item.qty,
+      price: item.price
+    }));
 
     const { data, error } = await supabase
       .from('orders')
-      .insert([{
-        order_number: orderNum || `JG-${Date.now()}`,
-        customer_name: orderData.customerName,
-        customer_phone: orderData.customerPhone,
-        customer_building: orderData.building,
-        customer_flat: orderData.flat,
-        delivery_zone_id: orderData.zoneId || 1,
-        delivery_slot: orderData.slot || 'morning',
-        delivery_date: orderData.deliveryDate || new Date().toISOString().split('T')[0],
-        items: orderData.items,
-        subtotal: orderData.subtotal,
-        delivery_fee: orderData.deliveryFee,
-        total: orderData.total,
-        payment_method: orderData.paymentMethod || 'cash',
-        status: 'pending'
-      }])
+      .insert([
+        {
+          order_number: orderNum,
+          customer_name: order.customerName,
+          customer_phone: order.customerPhone || 'N/A',
+          customer_building: order.building,
+          customer_flat: order.flat,
+          delivery_zone_id: order.zoneId,
+          delivery_slot: order.slot,
+          delivery_date: order.deliveryDate,
+          items: itemsJson,
+          subtotal: order.subtotal,
+          delivery_fee: order.deliveryFee,
+          total: order.total,
+          payment_method: order.paymentMethod,
+          status: 'pending',
+          notes: order.notes || null
+        }
+      ])
       .select()
       .single();
 
     if (error) throw error;
 
-    // Also insert order items
-    if (orderData.items && orderData.items.length > 0) {
-      const items = orderData.items.map(item => ({
+    const lineItems = [];
+    for (const item of order.items) {
+      const productId = await resolveProductUuid(item.uuid || item.id);
+      if (!productId) continue;
+      lineItems.push({
         order_id: data.id,
-        product_id: item.id,
+        product_id: productId,
         product_name: item.name,
         quantity: item.qty,
         unit_price: item.price,
         total: item.price * item.qty
-      }));
+      });
+    }
 
-      const { error: itemsError } = await supabase
-        .from('order_items')
-        .insert(items);
-
+    if (lineItems.length > 0) {
+      const { error: itemsError } = await supabase.from('order_items').insert(lineItems);
       if (itemsError) console.error('Failed to insert order items:', itemsError);
     }
 
+    saveOrderToLocalStorage({ ...order, id: data.order_number, supabaseId: data.id });
     return { success: true, order: data };
   } catch (error) {
     console.error('Failed to submit order to Supabase:', error);
-    return saveOrderToLocalStorage(orderData);
+    return { success: false, error, order: saveOrderToLocalStorage(order).order };
   }
 }
 
 function saveOrderToLocalStorage(orderData) {
+  const order = normalizeOrderInput(orderData);
   const orders = JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
   const newOrder = {
-    id: 'ORD-' + Date.now(),
-    ...orderData,
+    id: orderData.id || 'ORD-' + Date.now(),
+    ...order,
+    name: order.customerName,
     date: new Date().toISOString(),
-    status: 'pending'
+    status: orderData.status || 'pending'
   };
-  orders.push(newOrder);
+  orders.unshift(newOrder);
+  if (orders.length > 100) orders.length = 100;
   localStorage.setItem('jgmart_ords', JSON.stringify(orders));
   return { success: true, order: newOrder };
+}
+
+// ============================================
+// ADMIN / DASHBOARD READS
+// ============================================
+async function loadOrdersFromDB(limit = 50) {
+  if (!USE_SUPABASE) {
+    return JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('orders')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(limit);
+
+    if (error) throw error;
+    return (data || []).map(mapDbOrderToLocal);
+  } catch (error) {
+    console.warn('Failed to load orders from Supabase:', error);
+    return JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
+  }
+}
+
+function mapDbOrderToLocal(row) {
+  return {
+    id: row.order_number || row.id,
+    supabaseId: row.id,
+    customerName: row.customer_name,
+    name: row.customer_name,
+    customerPhone: row.customer_phone,
+    building: row.customer_building,
+    flat: row.customer_flat,
+    slot: row.delivery_slot,
+    total: row.total,
+    subtotal: row.subtotal,
+    deliveryFee: row.delivery_fee,
+    status: row.status,
+    date: row.created_at,
+    items: row.items || []
+  };
+}
+
+async function updateProductInDB(productId, updates) {
+  if (!USE_SUPABASE) return { success: false, error: new Error('Supabase not configured') };
+
+  const uuid = await resolveProductUuid(productId);
+  if (!uuid) return { success: false, error: new Error('Product not found') };
+
+  const payload = {};
+  if (updates.price !== undefined) payload.price = Math.round(Number(updates.price));
+  if (updates.name !== undefined) payload.name = updates.name;
+  if (updates.nameBn !== undefined) payload.name_bn = updates.nameBn;
+  if (updates.in_stock !== undefined) payload.in_stock = updates.in_stock;
+  if (updates.unit !== undefined) payload.unit = updates.unit;
+
+  const { data, error } = await supabase
+    .from('products')
+    .update(payload)
+    .eq('id', uuid)
+    .select()
+    .single();
+
+  if (error) return { success: false, error };
+  return { success: true, product: data };
+}
+
+async function updateOrderStatusInDB(orderId, status) {
+  if (!USE_SUPABASE) return { success: false };
+
+  const { data, error } = await supabase
+    .from('orders')
+    .update({ status })
+    .eq('order_number', orderId)
+    .select()
+    .single();
+
+  if (error) {
+    const byId = await supabase.from('orders').update({ status }).eq('id', orderId).select().single();
+    if (byId.error) return { success: false, error: byId.error };
+    return { success: true, order: byId.data };
+  }
+  return { success: true, order: data };
 }
 
 // ============================================
@@ -162,17 +334,13 @@ async function loadSettings() {
   }
 
   try {
-    const { data, error } = await supabase
-      .from('settings')
-      .select('*');
-
+    const { data, error } = await supabase.from('settings').select('*');
     if (error) throw error;
 
     const settings = {};
-    data?.forEach(s => {
+    data?.forEach((s) => {
       settings[s.key] = s.value;
     });
-
     return settings;
   } catch (error) {
     console.warn('Failed to load settings from Supabase, using defaults:', error);
@@ -188,17 +356,26 @@ function loadSettingsFromLocalStorage() {
   };
 }
 
-// ============================================
-// EXPORT
-// ============================================
 export {
   loadProductsFromDB,
   loadCategoriesFromDB,
   submitOrder,
   loadSettings,
-  saveOrderToLocalStorage
+  loadOrdersFromDB,
+  updateProductInDB,
+  updateOrderStatusInDB,
+  saveOrderToLocalStorage,
+  normalizeOrderInput,
+  resolveProductUuid
 };
 
 if (typeof window !== 'undefined') {
   window.submitOrderToSupabase = submitOrder;
+  window.JG_DB = {
+    loadProductsFromDB,
+    loadOrdersFromDB,
+    updateProductInDB,
+    updateOrderStatusInDB,
+    submitOrder
+  };
 }

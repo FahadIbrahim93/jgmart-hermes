@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#00442D">
 <title>JG Mart — Operations Dashboard</title>
+<base href="/src/web/dashboard/">
+<script src="/src/web/supabase/config.runtime.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Inter, system-ui, sans-serif; background: #f5f7f5; color: #1a1a1a; }
@@ -14,7 +16,8 @@
   h2 { font-size: 1rem; margin-bottom: 12px; }
   .muted { color: #666; font-size: .85rem; }
   input, button { font: inherit; }
-  input { width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px; margin: 12px 0; text-align: center; letter-spacing: 4px; }
+  input { width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px; margin: 8px 0; }
+  input.pin { text-align: center; letter-spacing: 4px; }
   button { background: #00442D; color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
   .stat { background: #f0fdf4; border-radius: 10px; padding: 14px; }
@@ -25,16 +28,23 @@
   .hidden { display: none; }
   .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
   a { color: #00442D; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: .75rem; background: #e8f5ef; color: #00442D; }
 </style>
 </head>
 <body>
 <div id="loginView" class="login-wrap">
-  <div class="card" style="max-width:360px;margin:80px auto;text-align:center">
+  <div class="card" style="max-width:400px;margin:80px auto;text-align:center">
     <h1>JG Mart Ops</h1>
-    <p class="muted">Operations dashboard — PIN required</p>
-    <input type="password" id="pinInput" maxlength="8" placeholder="PIN" onkeydown="if(event.key==='Enter')login()">
-    <button onclick="login()" style="width:100%">Unlock</button>
-    <p class="muted" style="margin-top:12px">Change PIN in admin panel settings</p>
+    <p class="muted" id="loginHint">Sign in with admin credentials</p>
+    <div id="supabaseLogin">
+      <input type="email" id="emailInput" placeholder="admin@jgmartbd.com" autocomplete="username">
+      <input type="password" id="passwordInput" placeholder="Password" autocomplete="current-password">
+      <button onclick="loginSupabase()" style="width:100%">Sign in</button>
+    </div>
+    <p class="muted" style="margin:16px 0 8px">— or PIN fallback —</p>
+    <input type="password" id="pinInput" class="pin" maxlength="8" placeholder="PIN" onkeydown="if(event.key==='Enter')loginPin()">
+    <button onclick="loginPin()" style="width:100%;background:#666;margin-top:8px">Unlock with PIN</button>
+    <p id="loginError" class="muted" style="color:#c0392b;margin-top:12px;display:none"></p>
   </div>
 </div>
 
@@ -42,10 +52,11 @@
   <div class="top">
     <div>
       <h1>Operations Dashboard</h1>
-      <p class="muted">Orders from catalog localStorage · Supabase migration in progress</p>
+      <p class="muted">Orders from <span id="dataSource" class="badge">local</span></p>
     </div>
     <div>
-      <a href="../catalog/index.html">← Catalog</a>
+      <a href="/">← Catalog</a>
+      <a href="/admin" style="margin-left:12px">Admin</a>
       <button onclick="logout()" style="margin-left:8px;background:#666">Logout</button>
     </div>
   </div>
@@ -63,47 +74,79 @@
       <thead><tr><th>ID</th><th>Customer</th><th>Building</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
       <tbody id="ordersBody"></tbody>
     </table>
-    <p id="emptyOrders" class="muted hidden">No orders yet. Orders appear when customers place them via the catalog.</p>
-  </div>
-
-  <div class="card">
-    <h2>Setup</h2>
-    <p class="muted">Configure Supabase: copy <code>src/web/supabase/config.local.example.js</code> to <code>config.local.js</code> and run <code>docs/setup/SUPABASE_SETUP.md</code>.</p>
+    <p id="emptyOrders" class="muted hidden">No orders yet.</p>
   </div>
 </div>
 
-<script>
+<script type="module">
+import { isSupabaseConfigured } from '../supabase/config.js';
+import { loadOrdersFromDB } from '../catalog/db.js';
+import { supabase } from '../supabase/client.js';
+
 const SESSION_KEY = 'jgmart_dash_auth';
 const PIN_KEY = 'jgmart_admin_pin';
 const DEFAULT_PIN = '1234';
+const useSupabase = isSupabaseConfigured();
+
+document.getElementById('dataSource').textContent = useSupabase ? 'Supabase' : 'localStorage';
+if (!useSupabase) {
+  document.getElementById('supabaseLogin').style.opacity = '0.5';
+  document.getElementById('loginHint').textContent = 'Supabase not configured — use PIN';
+}
 
 function getPin() {
   return localStorage.getItem(PIN_KEY) || DEFAULT_PIN;
 }
 
-function login() {
+function showError(msg) {
+  const el = document.getElementById('loginError');
+  el.textContent = msg;
+  el.style.display = msg ? 'block' : 'none';
+}
+
+window.loginPin = function loginPin() {
   const pin = document.getElementById('pinInput').value;
   if (pin === getPin()) {
-    sessionStorage.setItem(SESSION_KEY, '1');
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({ mode: 'pin' }));
     showDashboard();
+    showError('');
   } else {
-    alert('Wrong PIN');
+    showError('Wrong PIN');
   }
-}
+};
 
-function logout() {
+window.loginSupabase = async function loginSupabase() {
+  if (!useSupabase) {
+    showError('Configure Supabase first (config.local.js)');
+    return;
+  }
+  const email = document.getElementById('emailInput').value.trim();
+  const password = document.getElementById('passwordInput').value;
+  if (!email || !password) {
+    showError('Email and password required');
+    return;
+  }
+  try {
+    await supabase.signIn(email, password);
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({ mode: 'supabase', email }));
+    showError('');
+    showDashboard();
+  } catch (e) {
+    showError(e.message || 'Login failed');
+  }
+};
+
+window.logout = function logout() {
   sessionStorage.removeItem(SESSION_KEY);
+  if (useSupabase) supabase.signOut().catch(() => {});
   document.getElementById('loginView').classList.remove('hidden');
   document.getElementById('mainView').classList.add('hidden');
-}
+};
 
-function showDashboard() {
-  document.getElementById('loginView').classList.add('hidden');
-  document.getElementById('mainView').classList.remove('hidden');
-  renderOrders();
-}
-
-function loadOrders() {
+async function loadOrders() {
+  if (useSupabase && sessionStorage.getItem(SESSION_KEY)?.includes('supabase')) {
+    return loadOrdersFromDB(50);
+  }
   try {
     return JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
   } catch {
@@ -111,16 +154,17 @@ function loadOrders() {
   }
 }
 
-function renderOrders() {
-  const orders = loadOrders().slice().reverse();
+async function renderOrders() {
+  const orders = (await loadOrders()).slice().reverse();
   const today = new Date().toISOString().slice(0, 10);
   let revenue = 0;
   let todayCount = 0;
   let pending = 0;
 
-  orders.forEach(o => {
+  orders.forEach((o) => {
     revenue += Number(o.total || 0);
-    if ((o.date || '').slice(0, 10) === today) todayCount++;
+    const d = (o.date || o.created_at || '').slice(0, 10);
+    if (d === today) todayCount++;
     if ((o.status || 'pending') === 'pending') pending++;
   });
 
@@ -137,16 +181,22 @@ function renderOrders() {
     return;
   }
   empty.classList.add('hidden');
-  body.innerHTML = orders.slice(0, 50).map(o => `
+  body.innerHTML = orders.slice(0, 50).map((o) => `
     <tr>
-      <td>${o.id || '—'}</td>
-      <td>${o.name || '—'}</td>
-      <td>${o.building || '—'} ${o.flat || ''}</td>
+      <td>${o.id || o.order_number || '—'}</td>
+      <td>${o.name || o.customerName || '—'}</td>
+      <td>${o.building || o.customer_building || '—'} ${o.flat || o.customer_flat || ''}</td>
       <td>৳${o.total || 0}</td>
       <td>${o.status || 'pending'}</td>
-      <td>${(o.date || '').slice(0, 16).replace('T', ' ')}</td>
+      <td>${(o.date || o.created_at || '').slice(0, 16).replace('T', ' ')}</td>
     </tr>
   `).join('');
+}
+
+async function showDashboard() {
+  document.getElementById('loginView').classList.add('hidden');
+  document.getElementById('mainView').classList.remove('hidden');
+  await renderOrders();
 }
 
 if (sessionStorage.getItem(SESSION_KEY)) {

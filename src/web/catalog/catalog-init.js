@@ -40,6 +40,7 @@ function mapSupabaseProduct(row, index) {
   const legacyId = row.metadata?.legacy_id || `p${String(index + 1).padStart(2, '0')}`;
   return {
     id: legacyId,
+    _uuid: row.id,
     nm: row.name,
     ct: row.category_id,
     pr: row.price,

@@ -7,12 +7,24 @@ GitHub: https://github.com/FahadIbrahim93/jgmart-hermes
 
 | Check | Status |
 |-------|--------|
-| Code on `main` | Done |
+| Code on `main` | Push pending — commit local cutover changes |
 | CI (validate + black) | Green |
-| Actions deploy job | Passes (skips CLI deploy when secrets missing) |
-| Live site serving **this repo** | **Not yet** — jg-mart.vercel.app still serves an old single landing page |
+| Live site serving **this repo** | **Yes** — CLI deploy from repo root (2026-07-31) |
+| `/src/web/catalog/defaults.js` | 200 |
+| `/dashboard` | 200 |
+| Supabase live | Pending — run SQL + add secrets |
 
-Production is not linked to the consolidated repo layout yet. A Vercel login is required once.
+## GitHub Actions secrets
+
+Add at https://github.com/FahadIbrahim93/jgmart-hermes/settings/secrets/actions
+
+| Secret | Value |
+|--------|-------|
+| `VERCEL_TOKEN` | https://vercel.com/account/tokens |
+| `VERCEL_ORG_ID` | `team_dQhygReHfUO67Sajlaz6X4gJ` |
+| `VERCEL_PROJECT_ID` | `prj_cNHDDA56pUQIbuq2tuT2hBlmelfV` |
+| `SUPABASE_URL` | Your Supabase project URL |
+| `SUPABASE_ANON_KEY` | Settings → API → anon key |
 
 ## Fix production (pick one)
 

@@ -15,7 +15,17 @@
     { "source": "/offline", "destination": "/src/web/catalog/offline.html" },
     { "source": "/rider", "destination": "/src/web/catalog/rider.html" },
     { "source": "/dashboard", "destination": "/src/web/dashboard/index.html" },
-    { "source": "/dashboard/", "destination": "/src/web/dashboard/index.html" }
+    { "source": "/dashboard/", "destination": "/src/web/dashboard/index.html" },
+    { "source": "/defaults.js", "destination": "/src/web/catalog/defaults.js" },
+    { "source": "/catalog-init.js", "destination": "/src/web/catalog/catalog-init.js" },
+    { "source": "/catalog_data.json", "destination": "/src/web/catalog/catalog_data.json" },
+    { "source": "/offline-queue.js", "destination": "/src/web/catalog/offline-queue.js" },
+    { "source": "/security.js", "destination": "/src/web/catalog/security.js" },
+    { "source": "/data-store.js", "destination": "/src/web/catalog/data-store.js" },
+    { "source": "/manifest.json", "destination": "/src/web/catalog/manifest.json" },
+    { "source": "/sw.js", "destination": "/src/web/catalog/sw.js" },
+    { "source": "/images/:path*", "destination": "/src/web/catalog/images/:path*" },
+    { "source": "/src/web/supabase/config.runtime.js", "destination": "/src/web/supabase/config.runtime.js" }
   ],
   "headers": [
     {

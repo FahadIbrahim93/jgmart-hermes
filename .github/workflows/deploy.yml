@@ -6,8 +6,7 @@ on:
   workflow_dispatch:
 
 # Production hosting is Vercel Git Integration → https://jg-mart.vercel.app
-# This workflow validates the toolkit. Optional Actions deploy runs only when
-# VERCEL_TOKEN is configured (see step below).
+# Optional Actions deploy runs when VERCEL_TOKEN + Supabase secrets are set.
 
 jobs:
   validate:
@@ -41,6 +40,23 @@ jobs:
             echo "Relying on Vercel Git Integration for https://jg-mart.vercel.app"
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Write Supabase runtime config for production
+        if: steps.secrets.outputs.configured == 'true'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -n "$SUPABASE_URL" ] && [ -n "$SUPABASE_ANON_KEY" ]; then
+            printf '%s\n' \
+              "window.__JG_MART_SUPABASE__ = {" \
+              "  url: '${SUPABASE_URL}'," \
+              "  anonKey: '${SUPABASE_ANON_KEY}'" \
+              "};" \
+              > src/web/supabase/config.runtime.js
+            echo "Wrote src/web/supabase/config.runtime.js from secrets"
+          else
+            echo "SUPABASE_URL / SUPABASE_ANON_KEY not set — skipping runtime config"
           fi
       - name: Install Vercel CLI
         if: steps.secrets.outputs.configured == 'true'

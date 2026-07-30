@@ -341,3 +341,8 @@ class QueryBuilder {
 // Export singleton
 export const supabase = new SupabaseClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 export default supabase;
+
+// Restore session token on load
+if (typeof window !== 'undefined') {
+  supabase.getSession().catch(() => {});
+}

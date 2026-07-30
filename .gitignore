@@ -120,9 +120,12 @@ Desktop.ini
 .env.*.local
 !.env.example
 src/web/supabase/config.local.js
+src/web/supabase/config.runtime.js
 
 # Cursor IDE (keep rules, ignore plans)
 .cursor/plans/
 
 # Agent archive is tracked; temp agent sandboxes are not
 _archive/agents/**/node_modules/
+.vercel
+.env*

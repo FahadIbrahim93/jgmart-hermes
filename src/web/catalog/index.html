@@ -8,10 +8,13 @@
 <meta name="theme-color" content="#00442D">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/src/web/catalog/favicon.svg">
+<base href="/src/web/catalog/">
+<script src="/src/web/supabase/config.runtime.js"></script>
+<script src="data-store.js"></script>
 <script src="defaults.js"></script>
-<script src="../supabase/config.js"></script>
 <script type="module" src="catalog-init.js"></script>
+<script type="module" src="db.js"></script>
 <script src="offline-queue.js"></script>
 <script src="security.js"></script>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -445,10 +448,19 @@ if(!navigator.onLine){
 orders.unshift(safeOrder);
 if(orders.length>50)orders.pop();
 JG_DATA_STORE.orders.set(orders);
-// Try Supabase in background without blocking WhatsApp flow
-if(window.submitOrderToSupabase){
-  window.submitOrderToSupabase(safeOrder).catch(err=>console.warn('Supabase order backup failed:', err));
-}
+// Supabase insert (queue on failure when offline path not taken)
+const syncOrder=async()=>{
+  if(!window.submitOrderToSupabase)return;
+  const result=await window.submitOrderToSupabase(safeOrder);
+  if(result&&!result.success){
+    window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
+    console.warn('Supabase order failed, queued for retry:', result.error);
+  }
+};
+syncOrder().catch(err=>{
+  console.warn('Supabase order backup failed:', err);
+  window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
+});
 window.open('https://wa.me/8801870489448?text='+msg,'_blank');
 toast(t('opening'));
 cart=[];closeCart();rend();

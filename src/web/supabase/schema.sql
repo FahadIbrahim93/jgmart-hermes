@@ -186,6 +186,11 @@ CREATE POLICY "Staff can update orders"
     )
   );
 
+-- WhatsApp MVP: anonymous customers can place orders without login
+CREATE POLICY "Anyone can create orders"
+  ON public.orders FOR INSERT
+  WITH CHECK (true);
+
 CREATE INDEX idx_orders_customer ON public.orders(customer_id);
 CREATE INDEX idx_orders_status ON public.orders(status);
 CREATE INDEX idx_orders_date ON public.orders(delivery_date);
@@ -220,6 +225,10 @@ CREATE POLICY "Order items viewable with order"
       ))
     )
   );
+
+CREATE POLICY "Anyone can create order items"
+  ON public.order_items FOR INSERT
+  WITH CHECK (true);
 
 -- ============================================
 -- 6. CUSTOMERS (denormalized for performance)

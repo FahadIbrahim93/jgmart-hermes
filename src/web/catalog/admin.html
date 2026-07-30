@@ -5,6 +5,8 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-gscb6Xp2nALPgenhRE7XtA' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://wa.me https://fonts.googleapis.com https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; report-uri /csp-report">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JG Mart — Admin Panel</title>
+<base href="/src/web/catalog/">
+<script src="/src/web/supabase/config.runtime.js"></script>
 <script src="security.js"></script>
 <script src="data-store.js"></script>
 <script src="order-state.js"></script>
@@ -204,6 +206,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#00442D;box-sh
 <!-- Toast -->
 <div id="toast" class="toast"></div>
 
+<script type="module" src="admin-backend.js"></script>
 <script nonce="gscb6Xp2nALPgenhRE7XtA"
 // XSS safety: admin.html renders tables via innerHTML, but all user-facing
 // values are escaped with escapeHtml() before insertion. Admin inputs are
@@ -244,16 +247,26 @@ function getCurrentUser() {
 }
 
 function showLoginForm(error) {
+  const backend = window.JG_ADMIN_BACKEND;
+  const useSb = backend?.enabled;
   const container = document.getElementById('authContainer');
   container.innerHTML = `
     <div class="auth-overlay">
       <div class="auth-box">
         <div style="font-size:3rem;margin-bottom:12px">🔐</div>
         <h2>Admin Access</h2>
-        <p class="auth-subtitle">Enter PIN to continue</p>
+        <p class="auth-subtitle">${useSb ? 'Supabase sign-in or PIN fallback' : 'Enter PIN to continue'}</p>
+        ${useSb ? `
+        <form id="sbLoginForm">
+          <input type="email" id="adminEmail" placeholder="admin@jgmartbd.com" autocomplete="username">
+          <input type="password" id="adminPassword" placeholder="Password" autocomplete="current-password">
+          <button type="submit">Sign in</button>
+        </form>
+        <p class="auth-subtitle" style="margin:12px 0 8px">— or PIN —</p>
+        ` : ''}
         <form id="loginForm">
           <input type="password" id="pinInput" placeholder="PIN" maxlength="20" autocomplete="current-password">
-          <button type="submit">Login</button>
+          <button type="submit">Unlock with PIN</button>
         </form>
         ${error ? `<div class="auth-error" style="display:block">${error}</div>` : ''}
         <p class="auth-footer">Default PIN: <code>${DEFAULT_PIN}</code><br><a href="/">← Catalog</a></p>
@@ -263,16 +276,34 @@ function showLoginForm(error) {
     e.preventDefault();
     const pin = document.getElementById('pinInput').value;
     if (pin === getStoredPin()) {
-      localStorage.setItem(AUTH_KEY, JSON.stringify({ id:'admin', role:'admin', expiresAt: Date.now() + 86400000 }));
+      localStorage.setItem(AUTH_KEY, JSON.stringify({ id:'admin', role:'admin', expiresAt: Date.now() + 86400000, pinOnly: true }));
       location.reload();
     } else {
       showLoginForm('Invalid PIN');
     }
   });
+  const sbForm = document.getElementById('sbLoginForm');
+  if (sbForm) {
+    sbForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      try {
+        await backend.signIn(
+          document.getElementById('adminEmail').value.trim(),
+          document.getElementById('adminPassword').value
+        );
+        location.reload();
+      } catch (err) {
+        showLoginForm(err.message || 'Login failed');
+      }
+    });
+  }
   setTimeout(() => document.getElementById('pinInput')?.focus(), 100);
 }
 
 function handleLogout() {
+  if (window.JG_ADMIN_BACKEND?.enabled) {
+    window.JG_ADMIN_BACKEND.signOut().catch(() => {});
+  }
   localStorage.removeItem(AUTH_KEY);
   location.reload();
 }
@@ -280,7 +311,18 @@ function handleLogout() {
 // ============================================
 // DATA
 // ============================================
-function loadData() {
+async function loadData() {
+  const backend = window.JG_ADMIN_BACKEND;
+  const user = getCurrentUser();
+  if (backend?.enabled && user?.supabase) {
+    try {
+      products = await backend.fetchProducts();
+      orders = await backend.fetchOrders();
+      return;
+    } catch (e) {
+      console.warn('Supabase admin load failed, using localStorage:', e);
+    }
+  }
   products = JG_DATA_STORE.products.get() || [];
   orders = JG_DATA_STORE.orders.get() || [];
 }
@@ -381,6 +423,14 @@ function saveProduct(e) {
   } else {
     data.id = Date.now();
     products.push(data);
+  }
+
+  const backend = window.JG_ADMIN_BACKEND;
+  const user = getCurrentUser();
+  if (backend?.enabled && user?.supabase && id) {
+    backend.saveProduct(products.find(p => p.id == id)).then(res => {
+      if (!res.success) showToast('Supabase save failed: ' + (res.error?.message || 'error'), true);
+    });
   }
   
   saveProducts();
@@ -681,17 +731,20 @@ function bulkNotifySelected(){
 // INIT
 // ============================================
 function init() {
-  loadData();
-  
-  const user = getCurrentUser();
-  if (user) {
-    document.getElementById('authContainer').style.display = 'none';
-    document.getElementById('appContainer').style.display = 'block';
-    document.getElementById('userName').textContent = user.email || 'Admin';
-    updateDashboard();
-  } else {
-    showLoginForm();
-  }
+  const start = async () => {
+    await loadData();
+    const user = getCurrentUser();
+    if (user) {
+      document.getElementById('authContainer').style.display = 'none';
+      document.getElementById('appContainer').style.display = 'block';
+      document.getElementById('userName').textContent = user.email || user.name || 'Admin';
+      updateDashboard();
+    } else {
+      showLoginForm();
+    }
+  };
+  if (window.JG_ADMIN_BACKEND) start();
+  else window.addEventListener('jg-admin-backend-ready', start, { once: true });
 }
 
 window.handleLogout = handleLogout;
