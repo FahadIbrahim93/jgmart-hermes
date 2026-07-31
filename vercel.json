@@ -30,11 +30,14 @@
       { "source": "/data-store.js", "destination": "/src/web/catalog/data-store.js" },
       { "source": "/db.js", "destination": "/src/web/catalog/db.js" },
       { "source": "/order-state.js", "destination": "/src/web/catalog/order-state.js" },
+      { "source": "/admin-backend.js", "destination": "/src/web/catalog/admin-backend.js" },
       { "source": "/config.runtime.js", "destination": "/src/web/supabase/config.runtime.js" },
       { "source": "/manifest.json", "destination": "/src/web/catalog/manifest.json" },
       { "source": "/sw.js", "destination": "/src/web/catalog/sw.js" },
       { "source": "/images/:path*", "destination": "/src/web/catalog/images/:path*" },
-      { "source": "/src/web/supabase/config.runtime.js", "destination": "/src/web/supabase/config.runtime.js" }
+      { "source": "/src/web/supabase/config.runtime.js", "destination": "/src/web/supabase/config.runtime.js" },
+      { "source": "/src/web/supabase/db.js", "destination": "/src/web/supabase/db.js" },
+      { "source": "/src/web/supabase/offline-queue.js", "destination": "/src/web/supabase/offline-queue.js" }
     ],
   "headers": [
     {
