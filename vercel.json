@@ -22,6 +22,8 @@
       { "source": "/operator.html", "destination": "/src/web/catalog/operator.html" },
       { "source": "/dashboard", "destination": "/src/web/dashboard/index.html" },
       { "source": "/dashboard/", "destination": "/src/web/dashboard/index.html" },
+      { "source": "/dashboard/index.html", "destination": "/src/web/dashboard/index.html" },
+      { "source": "/index.html", "destination": "/src/web/catalog/index.html" },
       { "source": "/defaults.js", "destination": "/src/web/catalog/defaults.js" },
       { "source": "/catalog-init.js", "destination": "/src/web/catalog/catalog-init.js" },
       { "source": "/catalog_data.json", "destination": "/src/web/catalog/catalog_data.json" },
