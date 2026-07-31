@@ -18,15 +18,23 @@ python tests/validate_toolkit.py
 
 ## Status
 
-| Item | Value |
+|| Item | Value |
 |------|-------|
 | Stage | Pre-seed / Pilot |
 | License | MIT |
-| Frontend | Vanilla HTML/CSS/JS PWA |
-| Backend (target) | Supabase (PostgreSQL + Auth) |
-| Backend (legacy) | localStorage admin — being replaced |
-| Products | 65 items, 10 categories |
+| Frontend | Vanilla HTML/CSS/JS PWA (ZERO AI visual overhaul) |
+| Backend | Supabase (PostgreSQL + Auth) — 82 products, 10 categories |
+| Products | 82 items, 10 categories, 0 duplicates |
 | Coverage | 27 buildings, 4 clusters (C1–C4) |
+| Live Site | 20/20 files returning 200 |
+| Validation | 45/45 HTML, 17/17 Python |
+| PWA | Service worker (cache v6), manifest.json |
+| Order Flow | WhatsApp (8801870489448) + Supabase RPC |
+| Admin | Supabase Auth + PIN fallback |
+| Validation | 45/45 HTML, 17/17 Python |
+| PWA | Service worker (cache v6), manifest.json |
+| Order Flow | WhatsApp (8801870489448) + Supabase RPC |
+| Admin | Supabase Auth + PIN fallback |
 
 ## Repository Map
 

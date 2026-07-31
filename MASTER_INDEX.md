@@ -1,6 +1,6 @@
 # JG Mart — Master Index
 
-**Version:** 4.1 (consolidated) | **Updated:** July 31, 2026 | **Owner:** Fahad Ibrahim
+| **Version:** 4.2 (consolidated) | **Updated:** August 1, 2026 | **Owner:** Fahad Ibrahim | **Visual Overhaul:** ZERO AI Agent |
 
 > Single source of truth for all JG Mart assets. Consolidated from Hermes (code), Grok v2 (ops), Kimi v1 (brand + PRD).  
 > **GitHub:** [jgmart-hermes](https://github.com/FahadIbrahim93/jgmart-hermes) | **Live:** [jg-mart.vercel.app](https://jg-mart.vercel.app)
