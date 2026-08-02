@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Verify Supabase setup: tables, counts, RLS health."""
+
 import json
 import re
 import sys
@@ -53,20 +54,22 @@ ok_categories, _ = try_get("categories", "/rest/v1/categories?select=id")
 ok_orders, _ = try_get("orders", "/rest/v1/orders?select=id&limit=1")
 
 if ok_products:
-  try:
-    _, all_products = get("/rest/v1/products?select=id")
-    print(f"\nProduct count: {len(all_products)} (expected 65)")
-    if len(all_products) == 65:
-      print("PASS product seed")
-    elif len(all_products) > 0:
-      print("WARN product seed incomplete")
-    else:
-      print("FAIL no products seeded")
-  except Exception as e:
-    print(f"WARN could not count products: {e}")
+    try:
+        _, all_products = get("/rest/v1/products?select=id")
+        print(f"\nProduct count: {len(all_products)} (expected 65)")
+        if len(all_products) == 65:
+            print("PASS product seed")
+        elif len(all_products) > 0:
+            print("WARN product seed incomplete")
+        else:
+            print("FAIL no products seeded")
+    except Exception as e:
+        print(f"WARN could not count products: {e}")
 
 if not (ok_products and ok_categories):
-    print("\nLikely fix: run src/web/supabase/migrations/fix_profiles_rls.sql in SQL Editor")
+    print(
+        "\nLikely fix: run src/web/supabase/migrations/fix_profiles_rls.sql in SQL Editor"
+    )
     sys.exit(1)
 
 print("\nOverall: Supabase looks healthy")

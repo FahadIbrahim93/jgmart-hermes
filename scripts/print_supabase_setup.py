@@ -12,6 +12,7 @@ FILES = [
     ROOT / "src/web/supabase/migrations/admin_user_setup.sql",
 ]
 
+
 def main():
     print("Run these in Supabase SQL Editor (order matters):\n")
     for i, path in enumerate(FILES, 1):
@@ -22,6 +23,7 @@ def main():
     print("  - Create admin user in Auth -> Users (admin@jgmartbd.com)")
     print("  - Run admin_user_setup.sql")
     print("  - Copy config.local.example.js → config.local.js with URL + anon key")
+
 
 if __name__ == "__main__":
     main()
