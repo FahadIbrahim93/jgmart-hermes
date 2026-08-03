@@ -29,7 +29,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Configuration
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BACKUP_DIR = PROJECT_ROOT / "backups"
 CRITICAL_FILES = [
     "src/web/catalog/index.html",

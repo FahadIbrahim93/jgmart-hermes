@@ -11,6 +11,10 @@
 <script src="data-store.js"></script>
 <script src="order-state.js"></script>
 <meta name="theme-color" content="#00442D">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wa.me" crossorigin>
+<link rel="preconnect" href="https://*.supabase.co" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -509,6 +513,24 @@ input:focus, select:focus, textarea:focus {
 <button class="btn btn-primary" onclick="switchTab('products');openProductModal()" aria-label="Add new product">+ Add Product</button>
 <button class="btn btn-secondary" onclick="exportOrders()" aria-label="Export orders to CSV">📥 Export Orders CSV</button>
 <button class="btn btn-secondary" onclick="backupData()" aria-label="Download backup">💾 Backup Data</button>
+</div>
+<div class="card">
+<h3>Order Status Breakdown</h3>
+<div class="stats-grid" id="statusBreakdown">
+<div class="stat-card"><div class="num" id="statReceived">0</div><div class="lbl">Received</div></div>
+<div class="stat-card"><div class="num" id="statPicked">0</div><div class="lbl">Picked Up</div></div>
+<div class="stat-card"><div class="num" id="statDelivered">0</div><div class="lbl">Delivered</div></div>
+<div class="stat-card"><div class="num" id="statCancelled">0</div><div class="lbl">Cancelled</div></div>
+</div>
+</div>
+<div class="card">
+<h3>Recent Orders</h3>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>ID</th><th>Customer</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+<tbody id="recentOrdersTable"></tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -1054,6 +1076,26 @@ function updateDashboard() {
   });
   const peak = Object.entries(hourCounts).sort((a,b)=>b[1]-a[1])[0];
   document.getElementById('peakHour').textContent = peak ? `${peak[0]}:00 (${peak[1]})` : '—';
+
+  // Status breakdown
+  const statusCounts = {received:0,picked:0,delivered:0,cancelled:0};
+  orders.forEach(o => { statusCounts[o.status] = (statusCounts[o.status]||0) + 1; });
+  document.getElementById('statReceived').textContent = statusCounts.received;
+  document.getElementById('statPicked').textContent = statusCounts.picked;
+  document.getElementById('statDelivered').textContent = statusCounts.delivered;
+  document.getElementById('statCancelled').textContent = statusCounts.cancelled;
+
+  // Recent orders table
+  const recent = orders.slice().reverse().slice(0, 8);
+  document.getElementById('recentOrdersTable').innerHTML = recent.length === 0
+    ? '<tr><td colspan="5" style="text-align:center;color:#9ca3af">No orders yet</td></tr>'
+    : recent.map(o => `<tr>
+        <td>#${o.id}</td>
+        <td>${escapeHtml(o.customerName||'')}<br><small style="color:#6b7280">${escapeHtml(o.phone||'')}</small></td>
+        <td>৳${(o.total||0).toFixed(2)}</td>
+        <td>${getStatusBadge(o.status)}</td>
+        <td>${o.date ? new Date(o.date).toLocaleDateString() : '-'}</td>
+      </tr>`).join('');
 }
 
 function showToast(msg, isError) {
