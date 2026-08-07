@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""
+JG Mart — Pre-commit hook: run JS linting (ESLint) and Python linting (black/flake8)
+before allowing a commit.
+
+Install:
+    cp .husky/pre-commit .git/hooks/pre-commit
+    chmod +x .git/hooks/pre-commit
+
+Requires:
+    - node + eslint installed (npm install --save-dev eslint)
+    - python + black + flake8 installed
+"""
+
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def run(cmd, label):
+    print(f"\n▶ {label}")
+    result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(result.stdout)
+        print(result.stderr)
+        print(f"✘ {label} FAILED")
+        return False
+    print(f"✔ {label} passed")
+    return True
+
+
+def main():
+    failed = False
+
+    # JS linting (ESLint) — only staged .js files
+    js_files = [
+        str(f) for f in (ROOT / "src").rglob("*.js")
+        if "node_modules" not in str(f) and "ARCHIVE" not in str(f) and "_archive" not in str(f)
+    ]
+    if js_files:
+        failed |= not run(["npx", "eslint", "--no-warn-ignored"] + js_files, "ESLint (JS)")
+
+    # Python linting (black + flake8) — only staged .py files
+    py_files = [
+        str(f) for f in (ROOT / "src").rglob("*.py")
+        if "node_modules" not in str(f) and "ARCHIVE" not in str(f) and "_archive" not in str(f)
+    ]
+    if py_files:
+        failed |= not run(["python", "-m", "black", "--check"] + py_files, "black (Python)")
+        failed |= not run(
+            ["python", "-m", "flake8"] + py_files + ["--max-line-length=88", "--extend-ignore=E501,W503,E203,F401,F541,F841"],
+            "flake8 (Python)",
+        )
+
+    if failed:
+        print("\n✘ Pre-commit checks failed — commit aborted")
+        return 1
+    print("\n✔ All pre-commit checks passed")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

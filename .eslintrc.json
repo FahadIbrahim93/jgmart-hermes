@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "globals": {
+    "window": "readonly",
+    "document": "readonly",
+    "localStorage": "readonly",
+    "fetch": "readonly",
+    "console": "readonly",
+    "setTimeout": "readonly",
+    "caches": "readonly",
+    "self": "readonly",
+    "URL": "readonly",
+    "Response": "readonly",
+    "Request": "readonly",
+    "CustomEvent": "readonly",
+    "StorageEvent": "readonly",
+    "navigator": "readonly"
+  },
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "off",
+    "no-redeclare": "error",
+    "no-constant-condition": "warn",
+    "no-debugger": "error",
+    "no-empty": "warn",
+    "no-extra-semi": "error",
+    "no-irregular-whitespace": "error",
+    "no-unreachable": "error",
+    "prefer-const": "warn",
+    "eqeqeq": ["warn", "smart"],
+    "curly": ["warn", "multi-line"]
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "ARCHIVE/",
+    "_archive/",
+    "src/web/supabase/client.js"
+  ]
+}

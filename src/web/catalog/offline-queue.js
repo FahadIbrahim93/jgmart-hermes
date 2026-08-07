@@ -5,7 +5,7 @@ const KEY='jgmart_pending_orders';
 const MAX_ATTEMPTS=5;
 const INITIAL_RETRY_MS=2000;
 function getPending(){
-  try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return[];}
+  try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch{return[];}
 }
 function setPending(arr){localStorage.setItem(KEY,JSON.stringify(arr));}
 function isSupabaseAvailable(){
@@ -33,7 +33,7 @@ function requeue(order){
 }
 function updateBadge(){
   const pending=getPending();
-  let badge=document.getElementById('offlineBadge');
+  const badge=document.getElementById('offlineBadge');
   if(!badge)return;
   if(!navigator.onLine && pending.length){
     badge.textContent='⏳ '+pending.length+' pending';

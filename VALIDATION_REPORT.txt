@@ -2,25 +2,25 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Monday, August 03, 2026 at 22:30
+Generated: Friday, August 07, 2026 at 10:27
 Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 1655
-  Total Size:  33.32 MB
+  Total Files: 2844
+  Total Size:  43.10 MB
 
-  HTML Files:  45
-  Python Files: 17
+  HTML Files:  42
+  Python Files: 19
   CSV Files:   21
-  TXT Files:   146
-  JSON Files:  51
+  TXT Files:   148
+  JSON Files:  141
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       1280 files (md, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, png, js, docx, pdf, pptx, css, cmd, ps1, ts, cjs, cts, mjs, markdown, yaml, map, xml, sql, lock)
+  Other:       2378 files (md, mjs, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, tag, png, js, docx, pdf, pptx, css, cmd, ps1, cjs, cts, ts, mts, map, jst, def, markdown, bsd, go, php, yaml, lock, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -269,7 +269,7 @@ Toolkit Path: G:\JGC Mart
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: jgmart_hc_ts
          WhatsApp:    (none)
-         Internal Links: 10
+         Internal Links: 9
 
   [PASS] src/web/catalog/index.html
          DOCTYPE:    ✓
@@ -325,15 +325,6 @@ Toolkit Path: G:\JGC Mart
          WhatsApp:    1x +8801870489448
          Internal Links: 12
 
-  [PASS] src/web/catalog/nav_template.html
-         DOCTYPE:    ✓
-         Viewport:   ✓
-         Theme-Color: ✓
-         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: (none)
-         WhatsApp:    (none)
-         Internal Links: 12
-
   [PASS] src/web/catalog/notify.html
          DOCTYPE:    ✓
          Viewport:   ✓
@@ -379,26 +370,6 @@ Toolkit Path: G:\JGC Mart
          WhatsApp:    (none)
          Internal Links: 0
 
-  [PASS] src/web/catalog/taskboard.html
-         DOCTYPE:    ✓
-         Viewport:   ✓
-         Theme-Color: ✗
-         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: (none)
-         WhatsApp:    (none)
-         Internal Links: 0
-         ISSUES:
-           • Missing theme-color meta
-
-  [PASS] src/web/catalog/tests.html
-         DOCTYPE:    ✓
-         Viewport:   ✓
-         Theme-Color: ✓
-         Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
-         localStorage: jgmart_nonexistent, jgmart_test
-         WhatsApp:    (none)
-         Internal Links: 0
-
   [PASS] src/web/catalog/track.html
          DOCTYPE:    ✓
          Viewport:   ✓
@@ -438,6 +409,11 @@ Toolkit Path: G:\JGC Mart
 ═══════════════════════════════════════════════════════════════════════════════
 4. PYTHON VALIDATION
 ═══════════════════════════════════════════════════════════════════════════════
+
+  [FAIL] node_modules/flatted/python/flatted.py
+         Shebang:    ✗
+         Docstring:  ✗
+         Syntax:     ✓
 
   [PASS] scripts/backup_restore.py
          Shebang:    ✓
@@ -519,6 +495,11 @@ Toolkit Path: G:\JGC Mart
          Docstring:  ✓
          Syntax:     ✓
 
+  [PASS] tests/test_behavior.py
+         Shebang:    ✓
+         Docstring:  ✓
+         Syntax:     ✓
+
   [PASS] tests/validate_toolkit.py
          Shebang:    ✓
          Docstring:  ✓
@@ -548,7 +529,7 @@ Toolkit Path: G:\JGC Mart
 6. LOCALSTORAGE KEYS ACROSS ALL HTML FILES
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total unique localStorage keys: 21
+  Total unique localStorage keys: 19
 
   • jgmart_dashboard_pin
       → ARCHIVE/src_web_dashboard/index.html
@@ -564,8 +545,6 @@ Toolkit Path: G:\JGC Mart
       → ARCHIVE/src_web_dashboard/backup.html
   • jgmart_launch_checks
       → ARCHIVE/src_web_app/index.html
-  • jgmart_nonexistent
-      → src/web/catalog/tests.html
   • jgmart_orders
       → ARCHIVE/src_web_app/os.html
   • jgmart_ords
@@ -578,8 +557,6 @@ Toolkit Path: G:\JGC Mart
       → src/web/catalog/index.html
   • jgmart_splash_dismissed
       → src/web/catalog/index.html
-  • jgmart_test
-      → src/web/catalog/tests.html
   • jgmart_theme
       → ARCHIVE/src_web_app/os.html
   • jgmart_tour_complete
@@ -600,13 +577,13 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        1655
-  Total Size:           33.32 MB
+  Files Checked:        2844
+  Total Size:           43.10 MB
 
-  HTML Valid:           45/45
+  HTML Valid:           42/42
   HTML With Issues:     0
-  Python Valid:         17/17
-  Python Warnings:      0
+  Python Valid:         18/19
+  Python Warnings:      1
   Python Failed:        0
 
   Cross-References:
@@ -614,7 +591,7 @@ Toolkit Path: G:\JGC Mart
     README:             0 broken references
     Command Center:     0 broken references
 
-  localStorage Keys:    21 unique keys
+  localStorage Keys:    19 unique keys
 
   ╔══════════════════════════════════════════════════╗
   ║  ALL CHECKS PASSED                              ║

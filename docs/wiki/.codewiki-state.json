@@ -1,0 +1,8 @@
+{
+  "repo_name": "jgmart-hermes",
+  "source_path": "G:\\JGC Mart",
+  "source_sha": "9b624f4",
+  "generated_at": "2026-08-04T00:00:00Z",
+  "generator": "hermes-agent code-wiki skill v0.1.0",
+  "modules_documented": ["catalog", "orders", "admin", "data", "pwa", "security"]
+}

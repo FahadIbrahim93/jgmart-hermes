@@ -29,7 +29,7 @@ function mapDbProduct(row, index) {
 }
 
 async function signIn(email, password) {
-  const session = await supabase.signIn(email, password);
+  await supabase.signIn(email, password);
   const user = await supabase.getUser();
   if (!user) throw new Error('Login failed');
 

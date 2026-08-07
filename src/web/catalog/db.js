@@ -32,7 +32,8 @@ function normalizeOrderInput(raw) {
     name: item.name || item.nm || 'Item',
     qty: Number(item.qty || item.quantity || 1),
     price: Number(item.price ?? item.pr ?? 0),
-    uuid: item.uuid || item._uuid || null
+    uuid: item.uuid || item._uuid || null,
+    product_id: item.product_id || item.id || item.nm || 'Item'
   }));
 
   return {
@@ -165,16 +166,13 @@ async function submitOrder(orderData) {
 
     const orderNum = orderNumResult || `JG-${Date.now()}`;
 
-    const itemsJson = order.items.map((item) => ({
-      id: item.id,
-      name: item.name,
-      qty: item.qty,
-      price: item.price
-    }));
-
     // Use SECURITY DEFINER RPC to bypass anon RLS on orders insert (WhatsApp MVP).
     // Direct table insert is blocked by RLS even with permissive policy because
     // Supabase anon role requires DEFINER context for this write.
+    //
+    // The RPC now prices server-side from the products table and computes
+    // subtotal/fee/total — it no longer trusts client-sent price/total fields.
+    // The client sends only item_id + qty per line.
     const { data, error } = await supabase.rpc('create_public_order', {
       p_order_number: orderNum,
       p_customer_name: order.customerName,
@@ -183,12 +181,11 @@ async function submitOrder(orderData) {
       p_customer_flat: order.flat,
       p_delivery_slot: order.slot || 'morning',
       p_delivery_date: order.deliveryDate || null,
-      p_items: itemsJson,
-      p_subtotal: order.subtotal || 0,
-      p_delivery_fee: order.deliveryFee || 0,
-      p_total: order.total || 0,
-      p_payment_method: order.paymentMethod || 'cash',
-      p_status: 'pending'
+      p_items: order.items.map((item) => ({
+        product_id: item.product_id || item.id || item.nm || 'Item',
+        qty: item.qty
+      })),
+      p_payment_method: order.paymentMethod || 'cash'
     });
 
     if (error) throw error;

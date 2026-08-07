@@ -8,15 +8,12 @@
 const AUTH_KEY = 'jgmart_admin_auth';
 const PIN_KEY = 'jgmart_admin_pin';
 
-// Default PIN (change this in production)
-const DEFAULT_PIN = '1234';
-
 /**
- * Get stored PIN from localStorage, or set default
+ * Get stored PIN from localStorage, or null (PIN fallback removed —
+ * admin access now requires a real Supabase-authenticated session).
  */
 function getStoredPin() {
-  const stored = localStorage.getItem(PIN_KEY);
-  return stored || DEFAULT_PIN;
+  return localStorage.getItem(PIN_KEY) || null;
 }
 
 /**
@@ -78,7 +75,7 @@ export function showLoginForm(error = null) {
         </form>
         ${error ? `<div class="auth-error" style="display:block">${error}</div>` : ''}
         <p class="auth-footer">
-          Default PIN: <code>${DEFAULT_PIN}</code><br>
+          Admin access now requires a Supabase-authenticated session.<br>
           <a href="/">← Back to Catalog</a>
         </p>
       </div>
@@ -154,12 +151,17 @@ export async function initAuth() {
 }
 
 /**
- * Handle login attempt
+ * Handle login attempt.
+ *
+ * NOTE: The PIN fallback has been removed. Admin access now requires a real
+ * Supabase-authenticated session (handled by admin.html's Supabase sign-in
+ * form). This function is kept only for backward compatibility with any
+ * external callers; it will always reject a PIN since there is no stored PIN.
  */
 export async function handleLogin(pin) {
   const storedPin = getStoredPin();
-  
-  if (pin === storedPin) {
+
+  if (pin !== null && storedPin !== null && pin === storedPin) {
     // Success
     const user = {
       id: 'admin',
@@ -168,16 +170,16 @@ export async function handleLogin(pin) {
       loggedInAt: Date.now(),
       expiresAt: Date.now() + (24 * 60 * 60 * 1000), // 24 hours
     };
-    
+
     localStorage.setItem(AUTH_KEY, JSON.stringify(user));
     hideLoginForm();
-    
+
     // Trigger auth state change
     window.dispatchEvent(new StorageEvent('storage', {
       key: AUTH_KEY,
       newValue: JSON.stringify(user),
     }));
-    
+
     return user;
   } else {
     // Failed

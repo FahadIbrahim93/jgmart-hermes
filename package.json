@@ -5,10 +5,16 @@
   "private": true,
   "scripts": {
     "validate": "python tests/validate_toolkit.py",
-    "lint": "echo \"Run: pip install black flake8 && black --check .\""
+    "lint": "npx eslint src/web/catalog/*.js src/web/*.js",
+    "lint:fix": "npx eslint src/web/catalog/*.js src/web/*.js --fix"
   },
   "dependencies": {
     "docx": "^9.7.1",
     "pptxgenjs": "^4.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.9.0"
   }
 }

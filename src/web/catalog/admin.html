@@ -654,7 +654,6 @@ const PRODS_KEY = 'jgmart_prods';
 const ORDERS_KEY = 'jgmart_ords';
 const AUTH_KEY = 'jgmart_admin_auth';
 const PIN_KEY = 'jgmart_admin_pin';
-const DEFAULT_PIN = '1234';
 
 let products = [];
 let orders = [];
@@ -664,7 +663,7 @@ let currentTab = 'dashboard';
 // AUTH
 // ============================================
 function getStoredPin() {
-  return localStorage.getItem(PIN_KEY) || DEFAULT_PIN;
+  return localStorage.getItem(PIN_KEY) || null;
 }
 
 function getCurrentUser() {
@@ -689,33 +688,20 @@ function showLoginForm(error) {
       <div class="auth-box">
         <div style="font-size:3rem;margin-bottom:12px">🔐</div>
         <h2>Admin Access</h2>
-        <p class="auth-subtitle">${useSb ? 'Supabase sign-in or PIN fallback' : 'Enter PIN to continue'}</p>
+        <p class="auth-subtitle">Sign in with your Supabase account</p>
         ${useSb ? `
         <form id="sbLoginForm">
           <input type="email" id="adminEmail" placeholder="admin@jgmartbd.com" autocomplete="username">
           <input type="password" id="adminPassword" placeholder="Password" autocomplete="current-password">
           <button type="submit">Sign in</button>
         </form>
-        <p class="auth-subtitle" style="margin:12px 0 8px">— or PIN —</p>
-        ` : ''}
-        <form id="loginForm">
-          <input type="password" id="pinInput" placeholder="PIN" maxlength="20" autocomplete="current-password">
-          <button type="submit">Unlock with PIN</button>
-        </form>
+        ` : `
+        <p class="auth-subtitle">Supabase not configured — admin access requires a Supabase-authenticated session.</p>
+        `}
         ${error ? `<div class="auth-error" style="display:block">${error}</div>` : ''}
-        <p class="auth-footer">Default PIN: <code>${DEFAULT_PIN}</code><br><a href="/">← Catalog</a></p>
+        <p class="auth-footer"><a href="/">← Catalog</a></p>
       </div>
     </div>`;
-  document.getElementById('loginForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const pin = document.getElementById('pinInput').value;
-    if (pin === getStoredPin()) {
-      localStorage.setItem(AUTH_KEY, JSON.stringify({ id:'admin', role:'admin', expiresAt: Date.now() + 86400000, pinOnly: true }));
-      location.reload();
-    } else {
-      showLoginForm('Invalid PIN');
-    }
-  });
   const sbForm = document.getElementById('sbLoginForm');
   if (sbForm) {
     sbForm.addEventListener('submit', async e => {
@@ -731,7 +717,7 @@ function showLoginForm(error) {
       }
     });
   }
-  setTimeout(() => document.getElementById('pinInput')?.focus(), 100);
+  setTimeout(() => document.getElementById('adminEmail')?.focus(), 100);
 }
 
 function handleLogout() {
