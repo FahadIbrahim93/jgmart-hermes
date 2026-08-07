@@ -16,7 +16,7 @@
 | Live catalog code | [`src/web/catalog/`](src/web/catalog/) |
 | Database schema | [`src/web/supabase/schema.sql`](src/web/supabase/schema.sql) |
 | Agent rules | [`AGENTS.md`](AGENTS.md) |
-| Origin idea | [`IDEA.md`](IDEA.md) |
+|  Origin idea (moved to docs/origin/) | [`docs/origin/IDEA.md`](docs/origin/IDEA.md) |
 
 ---
 

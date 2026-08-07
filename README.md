@@ -41,7 +41,7 @@ python tests/validate_toolkit.py
 ```
 ├── MASTER_INDEX.md          # Canonical asset index — start here
 ├── AGENTS.md                # Rules for AI agents working in this repo
-├── IDEA.md                  # Origin note
+├── docs/origin/             # Origin notes, session reports
 ├── src/web/catalog/         # Live customer website
 ├── src/web/supabase/        # Database schema + seed (migration target)
 ├── src/pitch/               # Investor deck + scripts
