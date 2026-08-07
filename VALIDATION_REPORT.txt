@@ -9,7 +9,7 @@ Toolkit Path: G:\JGC Mart
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 2895
+  Total Files: 2898
   Total Size:  43.18 MB
 
   HTML Files:  42
@@ -20,7 +20,7 @@ Toolkit Path: G:\JGC Mart
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       2427 files (md, mjs, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, tag, png, js, docx, pdf, pptx, css, cmd, ps1, cjs, cts, ts, mts, map, jst, def, markdown, bsd, go, php, yaml, lock, xml, sql)
+  Other:       2430 files (md, mjs, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, tag, png, js, docx, pdf, pptx, css, cmd, ps1, cjs, cts, ts, mts, map, jst, def, markdown, bsd, go, php, yaml, lock, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -587,7 +587,7 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        2895
+  Files Checked:        2898
   Total Size:           43.18 MB
 
   HTML Valid:           42/42
