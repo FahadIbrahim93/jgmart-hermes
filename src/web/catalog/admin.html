@@ -539,7 +539,7 @@ input:focus, select:focus, textarea:focus {
 <div class="card">
 <h3>Products</h3>
 <div style="margin-bottom:12px">
-<input type="text" id="productSearch" placeholder="Search products..." oninput="renderProducts()" style="max-width:300px">
+<input type="text" id="productSearch" placeholder="Search products..." oninput="debounceSearch()" style="max-width:300px">
 <button class="btn btn-primary" onclick="openProductModal()">+ Add Product</button>
 <button class="btn btn-secondary" onclick="resetToDefaults()">Reset to Defaults</button>
 </div>
@@ -557,7 +557,7 @@ input:focus, select:focus, textarea:focus {
 <div class="card">
 <h3>Orders</h3>
 <div style="margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
-<input type="text" id="orderSearch" placeholder="Search orders..." oninput="renderOrders()" style="max-width:220px">
+<input type="text" id="orderSearch" placeholder="Search orders..." oninput="debounceOrders()" style="max-width:220px">
 <select id="orderStatusFilter" onchange="renderOrders()" style="max-width:160px">
 <option value="">All Status</option>
 <option value="received">Received</option>
@@ -782,6 +782,18 @@ function resetToDefaults() {
 // ============================================
 // PRODUCTS
 // ============================================
+let searchTimeout = null;
+function debounceSearch() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(renderProducts, 200);
+}
+
+let orderTimeout = null;
+function debounceOrders() {
+  clearTimeout(orderTimeout);
+  orderTimeout = setTimeout(renderOrders, 200);
+}
+
 function renderProducts() {
   const tbody = document.getElementById('productsTable');
   const search = (document.getElementById('productSearch')?.value || '').toLowerCase();
