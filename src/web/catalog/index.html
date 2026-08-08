@@ -1340,7 +1340,7 @@ const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
 const pop=(p.rv||0)>35;
 return `<div class="crd" onclick="showQV('${p.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showQV('${p.id}')}" tabindex="0" role="button" aria-label="View details for ${p.nm}">
 <div class="im">${pop?'<span class="bdg">★ Top</span>':''}
-<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div>
+<img src="${p.im}" alt="${p.nm}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div>
 <div class="bd"><div class="st">${st}</div><div class="nm">${p.nm}</div>
 <div class="pr">৳${p.pr}</div><div class="un">/${p.un}</div>
 <button class="add ${qty>0?'inc':''}" onclick="event.stopPropagation();tog('${p.id}')">${qty>0?'✓ '+qty:(lang==='bn'?'+ যোগ করুন':'+ Add')}</button>
@@ -1352,7 +1352,7 @@ updFab(); rendPop();
 function rendPop(){
 const top=[...PRODS].sort((a,b)=>b.rt-a.rt).slice(0,6);
 const tr=document.getElementById('popTr');
-tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
+tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
 document.getElementById('popSec').classList.add('show');
 }
 

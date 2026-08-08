@@ -19,7 +19,7 @@ const FILES = [
   './manifest.json',
   './favicon.svg',
   './catalog_data.json',
-  './supabase/config.js',
+  './supabase/config.runtime.js',
   './defaults.js',
   './security.js',
   './catalog-init.js',
