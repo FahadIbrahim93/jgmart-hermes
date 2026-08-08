@@ -2,15 +2,15 @@
 ║          JG MART — TOOLKIT VALIDATION REPORT (Auto-Generated)                ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
-Generated: Saturday, August 08, 2026 at 23:37
+Generated: Sunday, August 09, 2026 at 00:34
 Toolkit Path: G:\JGC Mart
 
 ═══════════════════════════════════════════════════════════════════════════════
 1. OVERVIEW
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Total Files: 2937
-  Total Size:  43.28 MB
+  Total Files: 2226
+  Total Size:  42.31 MB
 
   HTML Files:  42
   Python Files: 22
@@ -20,7 +20,7 @@ Toolkit Path: G:\JGC Mart
   SVG Files:   81
   XLSX Files:  10
   BAT Files:   4
-  Other:       2468 files (md, mjs, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, tag, png, js, docx, pdf, pptx, css, cmd, ps1, cjs, cts, ts, mts, map, jst, def, markdown, bsd, go, php, yaml, lock, xml, sql)
+  Other:       1757 files (md, mjs, (no ext), toml, mdc, bin, sample, idx, pack, rev, yml, tag, png, js, docx, pdf, pptx, css, cmd, ps1, cjs, cts, ts, mts, map, jst, def, markdown, bsd, go, php, yaml, lock, xml, sql)
 
 ═══════════════════════════════════════════════════════════════════════════════
 3. HTML VALIDATION
@@ -277,8 +277,8 @@ Toolkit Path: G:\JGC Mart
          Theme-Color: ✓
          Tag Pairs:  html/html=✓, head/head=✓, body/body=✓, script/script=✓
          localStorage: jgmart_promo, jgmart_ref_count, jgmart_specials, jgmart_splash_dismissed
-         WhatsApp:    1x +8801870489448
-         Internal Links: 14
+         WhatsApp:    2x +8801870489448
+         Internal Links: 15
 
   [PASS] src/web/catalog/jsonld-snippets.html
          DOCTYPE:    ✓
@@ -592,8 +592,8 @@ Toolkit Path: G:\JGC Mart
 7. FINAL SUMMARY
 ═══════════════════════════════════════════════════════════════════════════════
 
-  Files Checked:        2937
-  Total Size:           43.28 MB
+  Files Checked:        2226
+  Total Size:           42.31 MB
 
   HTML Valid:           42/42
   HTML With Issues:     0
