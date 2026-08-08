@@ -295,3 +295,52 @@ class TestRPCSecurity:
         assert "subtotal" in sql.lower(), "RPC must compute subtotal"
         assert "delivery_fee" in sql.lower(), "RPC must compute delivery fee"
         assert "total" in sql.lower(), "RPC must compute total"
+
+
+# ── Accessibility ────────────────────────────────────────────────────────────
+
+
+class TestAccessibility:
+    """Verify basic accessibility attributes are present."""
+
+    def test_skip_link_exists(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert "Skip to content" in index or "skip to content" in index.lower(), (
+            "index.html must have a skip-to-content link"
+        )
+
+    def test_product_cards_are_keyboard_accessible(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert 'tabindex="0"' in index, "Product cards must be focusable"
+        assert 'role="button"' in index, "Product cards must have button role"
+
+    def test_modals_have_aria_attributes(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert 'aria-modal="true"' in index, "Modals must have aria-modal"
+        assert 'role="dialog"' in index, "Modals must have dialog role"
+
+    def test_close_buttons_have_aria_labels(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert 'aria-label="Close cart"' in index, "Cart close button needs aria-label"
+        assert 'aria-label="Close order history"' in index, (
+            "History close button needs aria-label"
+        )
+
+    def test_focus_trap_exists(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert "Tab" in index and "focusable" in index, (
+            "index.html must trap Tab key inside open modals"
+        )
+
+    def test_images_have_alt_text(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        # Image templates in JS must include alt text (rendered dynamically)
+        img_templates = re.findall(r'<img[^>]+alt="[^"]+"', index)
+        assert len(img_templates) >= 3, (
+            f"Expected at least 3 image templates with alt text, found {len(img_templates)}"
+        )
+        # Verify all use the product name as alt text
+        for tmpl in img_templates:
+            assert 'alt="${p.nm}"' in tmpl or 'alt="${' in tmpl, (
+                f"Image template missing dynamic alt text: {tmpl[:80]}"
+            )
