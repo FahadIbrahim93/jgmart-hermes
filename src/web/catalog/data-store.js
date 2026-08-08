@@ -1,3 +1,4 @@
+/* global JG_LOG */
 /* data-store.js — normalized localStorage data access for JG Mart catalog */
 (function() {
   'use strict';
@@ -15,7 +16,7 @@
       const raw = localStorage.getItem(key);
       return raw ? JSON.parse(raw) : fallback;
     } catch (e) {
-      console.warn('data-store: failed to read', key, e);
+      JG_LOG.warn('data-store: failed to read', key, e);
       return fallback;
     }
   }
@@ -25,7 +26,7 @@
       localStorage.setItem(key, JSON.stringify(value));
       return true;
     } catch (e) {
-      console.warn('data-store: failed to write', key, e);
+      JG_LOG.warn('data-store: failed to write', key, e);
       return false;
     }
   }

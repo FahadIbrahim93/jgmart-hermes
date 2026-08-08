@@ -53,6 +53,7 @@
 <link rel="icon" type="image/svg+xml" href="/src/web/catalog/favicon.svg">
 <base href="/src/web/catalog/">
 <script src="/src/web/supabase/config.runtime.js"></script>
+<script src="logger.js"></script>
 <script src="data-store.js"></script>
 <script src="defaults.js"></script>
 <script type="module" src="catalog-init.js"></script>
@@ -1458,10 +1459,10 @@ const syncOrder=async()=>{
     const result=await window.submitOrderToSupabase(safeOrder);
     if(result&&!result.success){
       window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
-      console.warn('Supabase order failed, queued for retry:', result.error);
+      JG_LOG.warn('Supabase order failed, queued for retry:', result.error);
     }
   }catch(err){
-    console.error('Order sync error — queued for retry:', err);
+    JG_LOG.error('Order sync error — queued for retry:', err);
     window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
   }
 };

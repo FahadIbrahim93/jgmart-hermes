@@ -189,7 +189,9 @@ class TestOrderFlowValidation:
         db = (CATALOG / "db.js").read_text(encoding="utf-8")
         # submitOrder must have try/catch
         assert "catch (error)" in db, "db.js submitOrder must have try/catch"
-        assert "console.error" in db, "db.js must log errors"
+        assert "JG_LOG.error" in db or "console.error" in db, (
+            "db.js must log errors (via JG_LOG.error or console.error)"
+        )
         assert "saveOrderToLocalStorage" in db, "db.js must have localStorage fallback"
 
 

@@ -1,3 +1,4 @@
+/* global JG_LOG */
 /**
  * JG Mart — Catalog bootstrap
  * Loads products into localStorage from catalog_data.json or Supabase before the UI renders.
@@ -77,7 +78,7 @@ async function bootstrapCatalog() {
     try {
       products = await loadFromSupabase();
     } catch (error) {
-      console.warn('Supabase catalog load failed, falling back to JSON:', error);
+      JG_LOG.warn('Supabase catalog load failed, falling back to JSON:', error);
     }
   }
 
@@ -85,7 +86,7 @@ async function bootstrapCatalog() {
     try {
       products = await loadFromJson();
     } catch (error) {
-      console.warn('catalog_data.json load failed:', error);
+      JG_LOG.warn('catalog_data.json load failed:', error);
     }
   }
 

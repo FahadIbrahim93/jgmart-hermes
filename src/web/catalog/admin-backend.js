@@ -1,3 +1,4 @@
+/* global JG_LOG */
 /**
  * Admin backend — Supabase Auth + CRUD when configured.
  * Loaded as ES module from admin.html.
@@ -39,7 +40,7 @@ async function signIn(email, password) {
     .eq('id', user.id)
     .limit(1);
 
-  if (error) console.warn('Profile lookup:', error);
+  if (error) JG_LOG.warn('Profile lookup:', error);
   const profile = Array.isArray(profileRows) ? profileRows[0] : profileRows;
   const role = profile?.role || user.user_metadata?.role;
 

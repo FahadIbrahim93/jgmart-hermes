@@ -1,3 +1,4 @@
+/* global JG_LOG */
 /**
  * JG Mart — Catalog Database Integration
  * Supabase-first with localStorage / JSON fallback.
@@ -74,7 +75,7 @@ async function resolveProductUuid(legacyOrUuid) {
     indexProducts(data);
     return productUuidByLegacyId.get(legacyOrUuid) || null;
   } catch (error) {
-    console.warn('Product UUID lookup failed:', error);
+    JG_LOG.warn('Product UUID lookup failed:', error);
     return null;
   }
 }
@@ -98,7 +99,7 @@ async function loadProductsFromDB() {
     indexProducts(data);
     return data || [];
   } catch (error) {
-    console.warn('Failed to load from Supabase, falling back to JSON:', error);
+    JG_LOG.warn('Failed to load from Supabase, falling back to JSON:', error);
     return loadProductsFromJSON();
   }
 }
@@ -109,7 +110,7 @@ function loadProductsFromJSON() {
     .then((r) => r.json())
     .then((data) => data.products || [])
     .catch((err) => {
-      console.error('Failed to load catalog_data.json:', err);
+      JG_LOG.error('Failed to load catalog_data.json:', err);
       return [];
     });
 }
@@ -132,7 +133,7 @@ async function loadCategoriesFromDB() {
     if (error) throw error;
     return data || [];
   } catch (error) {
-    console.warn('Failed to load categories from Supabase, falling back to JSON:', error);
+    JG_LOG.warn('Failed to load categories from Supabase, falling back to JSON:', error);
     return loadCategoriesFromJSON();
   }
 }
@@ -143,7 +144,7 @@ function loadCategoriesFromJSON() {
     .then((r) => r.json())
     .then((data) => data.categories || [])
     .catch((err) => {
-      console.error('Failed to load categories:', err);
+      JG_LOG.error('Failed to load categories:', err);
       return [];
     });
 }
@@ -162,7 +163,7 @@ async function submitOrder(orderData) {
     const { data: orderNumResult, error: numError } = await supabase.rpc(
       'generate_order_number'
     );
-    if (numError) console.warn('generate_order_number RPC:', numError);
+    if (numError) JG_LOG.warn('generate_order_number RPC:', numError);
 
     const orderNum = orderNumResult || `JG-${Date.now()}`;
 
@@ -207,13 +208,13 @@ async function submitOrder(orderData) {
 
     if (lineItems.length > 0) {
       const { error: itemsError } = await supabase.from('order_items').insert(lineItems);
-      if (itemsError) console.error('Failed to insert order items:', itemsError);
+      if (itemsError) JG_LOG.error('Failed to insert order items:', itemsError);
     }
 
     saveOrderToLocalStorage({ ...order, id: data.order_number, supabaseId: data.id });
     return { success: true, order: data };
   } catch (error) {
-    console.error('Failed to submit order to Supabase:', error);
+    JG_LOG.error('Failed to submit order to Supabase:', error);
     return { success: false, error, order: saveOrderToLocalStorage(order).order };
   }
 }
@@ -252,7 +253,7 @@ async function loadOrdersFromDB(limit = 50) {
     if (error) throw error;
     return (data || []).map(mapDbOrderToLocal);
   } catch (error) {
-    console.warn('Failed to load orders from Supabase:', error);
+    JG_LOG.warn('Failed to load orders from Supabase:', error);
     return JSON.parse(localStorage.getItem('jgmart_ords') || '[]');
   }
 }
@@ -336,7 +337,7 @@ async function loadSettings() {
     });
     return settings;
   } catch (error) {
-    console.warn('Failed to load settings from Supabase, using defaults:', error);
+    JG_LOG.warn('Failed to load settings from Supabase, using defaults:', error);
     return loadSettingsFromLocalStorage();
   }
 }

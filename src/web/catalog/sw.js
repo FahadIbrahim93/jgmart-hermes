@@ -1,3 +1,4 @@
+/* global JG_LOG */
 const CACHE = 'jgmart-v6';
 const FILES = [
   './',
@@ -25,6 +26,7 @@ const FILES = [
   './catalog-init.js',
   './db.js',
   './offline-queue.js',
+  './logger.js',
   './data-store.js',
   './sw.js',
   './images/placeholder.svg',
@@ -36,7 +38,7 @@ self.addEventListener('install', e => {
     caches.open(CACHE)
       .then(c => c.addAll(FILES))
       .then(() => self.skipWaiting())
-      .catch(err => console.warn('SW install failed:', err))
+      .catch(err => JG_LOG.warn('SW install failed:', err))
   );
 });
 

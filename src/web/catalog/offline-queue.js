@@ -1,3 +1,4 @@
+/* global JG_LOG */
 /* offline-queue.js — offline order queue with Supabase sync for JG Mart catalog */
 (function(){
 'use strict';
@@ -86,7 +87,7 @@ async function syncWithSupabase(order){
     }
     return false;
   }catch(e){
-    console.warn('Supabase sync failed:', e);
+    JG_LOG.warn('Supabase sync failed:', e);
     return false;
   }
 }
@@ -99,7 +100,7 @@ function syncWithLocalStorage(order){
     toast('✅ Queued order saved locally');
     return true;
   }catch(e){
-    console.warn('localStorage sync failed:', e);
+    JG_LOG.warn('localStorage sync failed:', e);
     return false;
   }
 }
@@ -124,7 +125,7 @@ async function processQueue(){
       toast('⚠️ Sync failed, will retry');
     }
   }catch(e){
-    console.warn('Queue processing failed:', e);
+    JG_LOG.warn('Queue processing failed:', e);
     requeue(order);
   }
   updateBadge();
