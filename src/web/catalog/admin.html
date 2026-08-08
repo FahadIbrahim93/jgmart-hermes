@@ -549,6 +549,7 @@ input:focus, select:focus, textarea:focus {
 <tbody id="productsTable"></tbody>
 </table>
 </div>
+<div id="productPagination"></div>
 </div>
 </div>
 
@@ -794,6 +795,10 @@ function debounceOrders() {
   orderTimeout = setTimeout(renderOrders, 200);
 }
 
+// Pagination state
+const PRODUCTS_PER_PAGE = 15;
+let productPage = 1;
+
 function renderProducts() {
   const tbody = document.getElementById('productsTable');
   const search = (document.getElementById('productSearch')?.value || '').toLowerCase();
@@ -801,10 +806,16 @@ function renderProducts() {
   
   if (filtered.length === 0) {
     tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><div class="icon">📦</div>No products found</div></td></tr>`;
+    document.getElementById('productPagination').innerHTML = '';
     return;
   }
   
-  tbody.innerHTML = filtered.map(p => `
+  const totalPages = Math.ceil(filtered.length / PRODUCTS_PER_PAGE);
+  if (productPage > totalPages) productPage = totalPages;
+  const start = (productPage - 1) * PRODUCTS_PER_PAGE;
+  const pageItems = filtered.slice(start, start + PRODUCTS_PER_PAGE);
+  
+  tbody.innerHTML = pageItems.map(p => `
     <tr>
       <td>${p.id}</td>
       <td>${escapeHtml(p.name)}</td>
@@ -818,6 +829,32 @@ function renderProducts() {
       </td>
     </tr>
   `).join('');
+  
+  // Render pagination controls
+  // NOTE: innerHTML is safe here — content is generated from the app's own
+  // product data (filtered from the `products` array, with escapeHtml applied
+  // to name/nameBn), not from user input. This matches the existing pattern in
+  // this file for rendering product rows.
+  const pagDiv = document.getElementById('productPagination');
+  if (totalPages <= 1) {
+    pagDiv.innerHTML = '';
+    return;
+  }
+  let pagHtml = `<div style="display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap">`;
+  pagHtml += `<span style="font-size:0.85rem;color:#666">Page ${productPage} of ${totalPages} (${filtered.length} products)</span>`;
+  pagHtml += `<button class="btn btn-sm" onclick="productPage=1;renderProducts()" ${productPage===1?'disabled':''}>First</button>`;
+  pagHtml += `<button class="btn btn-sm" onclick="productPage--;renderProducts()" ${productPage===1?'disabled':''}>Prev</button>`;
+  // Show page buttons (max 5 visible)
+  let pageStart = Math.max(1, productPage - 2);
+  let pageEnd = Math.min(totalPages, pageStart + 4);
+  if (pageEnd - pageStart < 4) pageStart = Math.max(1, pageEnd - 4);
+  for (let i = pageStart; i <= pageEnd; i++) {
+    pagHtml += `<button class="btn btn-sm ${i===productPage?'btn-primary':''}" onclick="productPage=${i};renderProducts()">${i}</button>`;
+  }
+  pagHtml += `<button class="btn btn-sm" onclick="productPage++;renderProducts()" ${productPage===totalPages?'disabled':''}>Next</button>`;
+  pagHtml += `<button class="btn btn-sm" onclick="productPage=${totalPages};renderProducts()" ${productPage===totalPages?'disabled':''}>Last</button>`;
+  pagHtml += `</div>`;
+  pagDiv.innerHTML = pagHtml;
 }
 
 function openProductModal(product) {

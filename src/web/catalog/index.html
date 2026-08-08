@@ -507,6 +507,12 @@ body {
   object-fit: cover;
   display: block;
   transition: transform 0.3s var(--ease);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.crd .im img.loaded {
+  opacity: 1;
 }
 
 .crd:hover .im img { transform: scale(1.05); }
@@ -1294,7 +1300,7 @@ const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
 const pop=(p.rv||0)>35;
 return `<div class="crd" onclick="showQV('${p.id}')">
 <div class="im">${pop?'<span class="bdg">★ Top</span>':''}
-<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'"></div>
+<img src="${p.im}" alt="${p.nm}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div>
 <div class="bd"><div class="st">${st}</div><div class="nm">${p.nm}</div>
 <div class="pr">৳${p.pr}</div><div class="un">/${p.un}</div>
 <button class="add ${qty>0?'inc':''}" onclick="event.stopPropagation();tog('${p.id}')">${qty>0?'✓ '+qty:(lang==='bn'?'+ যোগ করুন':'+ Add')}</button>
@@ -1408,16 +1414,17 @@ JG_DATA_STORE.orders.set(orders);
 // Supabase insert (queue on failure when offline path not taken)
 const syncOrder=async()=>{
   if(!window.submitOrderToSupabase)return;
-  const result=await window.submitOrderToSupabase(safeOrder);
-  if(result&&!result.success){
+  try{
+    const result=await window.submitOrderToSupabase(safeOrder);
+    if(result&&!result.success){
+      window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
+      console.warn('Supabase order failed, queued for retry:', result.error);
+    }
+  }catch(err){
+    console.error('Order sync error — queued for retry:', err);
     window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
-    console.warn('Supabase order failed, queued for retry:', result.error);
   }
 };
-syncOrder().catch(err=>{
-  console.warn('Supabase order backup failed:', err);
-  window.JG_OFFLINE_QUEUE?.enqueue(safeOrder);
-});
 window.open('https://wa.me/8801870489448?text='+msg,'_blank');
 toast(t('opening'));
 cart=[];closeCart();rend();

@@ -35,7 +35,7 @@ window.JG_MART_DEFAULTS = {
     {id:'p33',nm:'Shrimp (Medium)',ct:'fish',pr:380,un:'kg',em:'🦐',rt:4,rv:15,de:'Medium shrimp',im:'https://images.unsplash.com/photo-1519708227418-c74fd666ba83?w=400&h=300&fit=crop'},
     {id:'p34',nm:'Chicken (Broiler)',ct:'meat',pr:220,un:'kg',em:'🍗',rt:4.5,rv:42,de:'Halal broiler chicken',im:'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop'},
     {id:'p35',nm:'Chicken (Sonali)',ct:'meat',pr:320,un:'kg',em:'🐔',rt:4.5,rv:25,de:'Free-range Sonali',im:'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop'},
-    {id:'p36',nm:'Beef (Premium Cut)',ct:'meat',pr:520,un:'kg',em:'🥩',rt:4.5,rv:35,de:'Premium beef',im:'images/p036.svg'},
+    {id:'p36',nm:'Beef (Premium Cut)',ct:'meat',pr:520,un:'kg',em:'🥩',rt:4.5,rv:35,de:'Premium beef',im:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop'},
     {id:'p37',nm:'Mutton (Curry Cut)',ct:'meat',pr:680,un:'kg',em:'🍖',rt:4,rv:18,de:'Tender mutton',im:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop'},
     {id:'p38',nm:'Beef Liver',ct:'meat',pr:280,un:'kg',em:'🥩',rt:3.5,rv:14,de:'Fresh beef liver',im:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop'},
     {id:'p39',nm:'Farm Eggs (Dozen)',ct:'dairy_eggs',pr:120,un:'doz',em:'🥚',rt:5,rv:48,de:'Fresh free-range eggs',im:'https://images.unsplash.com/photo-1582722879130-6286d4e080ea?w=400&h=300&fit=crop'},
