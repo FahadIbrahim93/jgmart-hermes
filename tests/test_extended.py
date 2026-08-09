@@ -346,3 +346,23 @@ class TestAccessibility:
             assert 'alt="${p.nm}"' in tmpl or 'alt="${' in tmpl, (
                 f"Image template missing dynamic alt text: {tmpl[:80]}"
             )
+
+    def test_images_have_decoding_async(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert 'decoding="async"' in index, "Product images should use decoding=async"
+
+
+# ── Rate limiting ────────────────────────────────────────────────────────────
+
+
+class TestRateLimiting:
+    """Verify client-side order rate limiting exists."""
+
+    def test_rate_limit_function_exists(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert "checkOrderRateLimit" in index, "Missing order rate-limit function"
+
+    def test_rate_limit_blocks_excess_orders(self):
+        index = (CATALOG / "index.html").read_text(encoding="utf-8")
+        assert "ORDER_RATE_LIMIT_MAX" in index, "Missing rate limit max constant"
+        assert "Too many orders" in index, "Missing rate-limit alert message"

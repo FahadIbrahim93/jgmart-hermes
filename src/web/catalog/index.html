@@ -1251,6 +1251,31 @@ let lang = JG_DATA_STORE.lang.get() || 'en';
 let cart = JG_DATA_STORE.cart.get() || [];
 let orders = JG_DATA_STORE.orders.get() || [];
 let DEL_FEES = JG_DATA_STORE.fees.get() || window.JG_MART_DEFAULTS?.fees || { c1: 0, c3: 20, c4: 30 };
+// ========= ORDER RATE LIMITING =========
+const ORDER_RATE_LIMITS = new Map();
+const ORDER_RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const ORDER_RATE_LIMIT_MAX = 3; // max 3 orders per window
+function checkOrderRateLimit(phone) {
+  const now = Date.now();
+  const key = phone || 'anon';
+  const entry = ORDER_RATE_LIMITS.get(key);
+  if (!entry) {
+    ORDER_RATE_LIMITS.set(key, { count: 1, first: now });
+    return true;
+  }
+  if (now - entry.first > ORDER_RATE_LIMIT_WINDOW) {
+    entry.count = 1;
+    entry.first = now;
+    return true;
+  }
+  entry.count += 1;
+  if (entry.count > ORDER_RATE_LIMIT_MAX) {
+    const retry = Math.ceil((entry.first + ORDER_RATE_LIMIT_WINDOW - now) / 1000);
+    alert(`Too many orders. Please wait ${retry}s before trying again.`);
+    return false;
+  }
+  return true;
+}
 // ========= DATA =========
 const CATS=[
 {id:"rice_dal",n:"Rice & Dal",i:"🍚",b:"চাল ও ডাল"},{id:"oil_spices",n:"Oil & Spices",i:"🌶️",b:"তেল ও মশলা"},
@@ -1341,7 +1366,7 @@ const st='★'.repeat(Math.floor(p.rt||4))+((p.rt||4)%1>=.5?'½':'');
 const pop=(p.rv||0)>35;
 return `<div class="crd" onclick="showQV('${p.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showQV('${p.id}')}" tabindex="0" role="button" aria-label="View details for ${p.nm}">
 <div class="im">${pop?'<span class="bdg">★ Top</span>':''}
-<img src="${p.im}" alt="${p.nm}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div>
+<img src="${p.im}" alt="${p.nm}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div>
 <div class="bd"><div class="st">${st}</div><div class="nm">${p.nm}</div>
 <div class="pr">৳${p.pr}</div><div class="un">/${p.un}</div>
 <button class="add ${qty>0?'inc':''}" onclick="event.stopPropagation();tog('${p.id}')">${qty>0?'✓ '+qty:(lang==='bn'?'+ যোগ করুন':'+ Add')}</button>
@@ -1353,7 +1378,7 @@ updFab(); rendPop();
 function rendPop(){
 const top=[...PRODS].sort((a,b)=>b.rt-a.rt).slice(0,6);
 const tr=document.getElementById('popTr');
-tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
+tr.innerHTML=top.map(p=>`<div class="pop-i" onclick="showQV('${p.id}')"><div class="im"><img src="${p.im}" alt="${p.nm}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${p.em}'" onload="this.classList.add('loaded')"></div><div class="inf"><div class="nm">${p.nm}</div><div class="pr">৳${p.pr}</div></div></div>`).join('');
 document.getElementById('popSec').classList.add('show');
 }
 
@@ -1416,6 +1441,7 @@ if(!window.JG_SECURITY?.validateFlat(f)){alert('Invalid flat number');return;}
 if(ph && !window.JG_SECURITY?.validatePhone(ph)){alert('Invalid phone number format');return;}
 if(!b||!f){alert(t('selB')+'\n'+t('selF'));return;}
 if(!cart.length){alert(t('empt'));return;}
+if(!checkOrderRateLimit(ph)){return;}
 const sub=cart.reduce((s,c)=>{const p=PRODS.find(x=>x.id===c.id);return s+(p?p.pr*c.qty:0);},0);
 const bi=parseInt(b.replace('B',''))||0;
 const fee=(bi>20?DEL_FEES.c4:bi>13?DEL_FEES.c3:DEL_FEES.c1)||0;
