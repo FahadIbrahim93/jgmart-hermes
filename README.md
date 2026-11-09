@@ -1,16 +1,14 @@
 # jgmart-hermes 🛵
 
-**Hyperlocal grocery delivery PWA for 1,700 families.**  
-WhatsApp-native ordering, Supabase backend, 51% margin model. Zero app download friction.
+**Grocery PWA prototype / pilot concept for Japan Garden City, Dhaka.**  WhatsApp-native ordering, Supabase backend, offline-first. Pilot target: roughly 1,700 families across 27 buildings in 4 clusters.
 
-- **Live:** https://jg-mart.vercel.app  
-- **Repo:** [FahadIbrahim93/jgmart-hermes](https://github.com/FahadIbrahim93/jgmart-hermes)  
-- **Stack:** HTML/CSS/JS PWA · Supabase · Python automation  
-- **Stage:** Pre-seed / pilot — 27 buildings, 4 clusters, 82 products
+- **Live:** https://jg-mart.vercel.app
+- **Repo:** [FahadIbrahim93/jgmart-hermes](https://github.com/FahadIbrahim93/jgmart-hermes)
+- **Stack:** HTML/CSS/JS PWA · Supabase · Python automation
+- **Stage:** Prototype / pilot concept (not a live business)
 
 <div align="center">
 
-![JG Mart](https://img.shields.io/badge/JG_Mart-Pre_seed-blue?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL%20%2B%20Auth-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
 [![PWA](https://img.shields.io/badge/PWA-Offline_first-5A0FC8?style=for-the-badge)](https://web.dev/progressive-web-apps/)
@@ -22,16 +20,16 @@ WhatsApp-native ordering, Supabase backend, 51% margin model. Zero app download 
 
 ## What it is
 
-JG Mart is a revenue-first grocery delivery PWA for Japan Garden City, Dhaka. Built for real families, not portfolio demos:
+JG Mart is a grocery delivery PWA prototype for Japan Garden City, Dhaka. It is a pilot concept, not an operating business. Figures below are pilot targets or financial models, not verified results.
 
 - **WhatsApp-native ordering** — No app download, no app-store friction
-- **Cluster-based routing** — 27 buildings, 4 clusters, optimized delivery
+- **Cluster-based routing** — 27 buildings, 4 clusters, optimized delivery (pilot plan)
 - **Supabase backend** — PostgreSQL + Auth + RPC for order management
 - **Offline-first PWA** — Service worker cache v6, works offline
 - **Operator dispatch** — Admin panel with Supabase Auth + PIN fallback
-- **Business model** — 51% gross margin by removing middlemen
+- **Business model** — 51% gross margin model (a financial model, not a reported result)
 
-Built with AI-assisted workflow: lint → test → build → deploy pipeline cuts shipping time ~60% while maintaining quality gates.
+Built with an AI-assisted workflow: lint → test → build → deploy pipeline. The "~60% cuts shipping time" figure is a target from that pipeline, not a verified result.
 
 ---
 
@@ -49,26 +47,17 @@ Built with AI-assisted workflow: lint → test → build → deploy pipeline cut
 
 ---
 
-## Business metrics
+## Pilot plan (targets, not results)
 
-| Item | Value |
-|---|---|
-| Stage | Pre-seed / Pilot |
-| Families | 1,700 |
-| Buildings | 27 |
-| Clusters | 4 (C1–C4) |
-| Products | 82 items, 10 categories |
-| Margin | 51% gross |
-| Source | Krishi Market (800m away) |
-
----
-
-## Quality metrics
-
-- **Validation** — 45/45 HTML, 17/17 Python checks passing
-- **Live Site** — 20/20 files returning HTTP 200
-- **PWA** — Service worker cache v6, manifest.json
-- **CI** — GitHub Actions green on main
+| Item | Value | Note |
+|---|---|---|
+| Stage | Prototype / pilot | Not live |
+| Families (pilot target) | ~1,700 | Planning figure |
+| Buildings | 27 | Pilot plan |
+| Clusters | 4 (C1–C4) | Pilot plan |
+| Products | 82 items, 10 categories | Catalog plan |
+| Margin model | 51% gross | Financial model, not reported |
+| Source | Krishi Market (800m away) | Planned supply |
 
 ---
 
@@ -103,13 +92,12 @@ See [MASTER_INDEX.md](./MASTER_INDEX.md) for the canonical asset index.
 
 ---
 
-## Why this repo stands out
+## What this repo shows
 
-1. **Revenue-first** — Built for a real business with 51% margin model, not a portfolio demo
+1. **Prototype scope** — A grocery PWA concept, not a live business or portfolio demo of completed client work
 2. **Zero friction** — WhatsApp-native ordering removes app-store barriers
-3. **PWA expertise** — Offline-first, service worker caching, manifest-driven install
+3. **PWA techniques** — Offline-first, service worker caching, manifest-driven install
 4. **Full-stack ownership** — From Supabase schema to Python automation to Vercel deploy
-5. **Real metrics** — 1,700 families, 27 buildings, 4 clusters, 82 products
 
 ---
 
